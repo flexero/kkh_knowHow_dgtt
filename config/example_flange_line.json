@@ -1,0 +1,102 @@
+{
+  "factory_name": "Smart Factory - Line 1 (Machined Flange)",
+  "product": "Steel flange, 120 mm",
+  "ambient_temp_c": 28.0,
+  "shift_hours": 8,
+  "history_interval_s": 10,
+  "random_seed": 42,
+
+  "stations": [
+    {
+      "id": "LATHE-01",
+      "name": "CNC Lathe",
+      "type": "cnc",
+      "cycle_time_s": 40,
+      "idle_power_kw": 2.0,
+      "run_power_kw": 9.0,
+      "spindle_rpm": 2400,
+      "temp_limit_c": 75,
+      "vibration_warn_mm_s": 4.5,
+      "vibration_alarm_mm_s": 7.1,
+      "tool_wear_per_part_pct": 0.35,
+      "base_scrap_rate": 0.01,
+      "mtbf_h": 30,
+      "mttr_min": 12,
+      "external": false
+    },
+    {
+      "id": "MILL-01",
+      "name": "CNC Milling",
+      "type": "cnc",
+      "cycle_time_s": 52,
+      "idle_power_kw": 2.5,
+      "run_power_kw": 12.0,
+      "spindle_rpm": 8000,
+      "temp_limit_c": 75,
+      "vibration_warn_mm_s": 4.5,
+      "vibration_alarm_mm_s": 7.1,
+      "tool_wear_per_part_pct": 0.5,
+      "base_scrap_rate": 0.015,
+      "mtbf_h": 25,
+      "mttr_min": 15,
+      "external": false
+    },
+    {
+      "id": "ROBOT-01",
+      "name": "Robot Deburr",
+      "type": "robot",
+      "cycle_time_s": 30,
+      "idle_power_kw": 0.8,
+      "run_power_kw": 3.5,
+      "temp_limit_c": 65,
+      "vibration_warn_mm_s": 3.5,
+      "vibration_alarm_mm_s": 6.0,
+      "tool_wear_per_part_pct": 0.1,
+      "base_scrap_rate": 0.003,
+      "mtbf_h": 60,
+      "mttr_min": 10,
+      "external": false
+    },
+    {
+      "id": "QC-01",
+      "name": "Vision Inspection",
+      "type": "inspection",
+      "cycle_time_s": 25,
+      "idle_power_kw": 0.4,
+      "run_power_kw": 1.0,
+      "temp_limit_c": 55,
+      "vibration_warn_mm_s": 2.5,
+      "vibration_alarm_mm_s": 4.5,
+      "tool_wear_per_part_pct": 0.0,
+      "base_scrap_rate": 0.0,
+      "mtbf_h": 120,
+      "mttr_min": 8,
+      "external": false
+    },
+    {
+      "id": "PACK-01",
+      "name": "Packaging",
+      "type": "packaging",
+      "cycle_time_s": 20,
+      "idle_power_kw": 0.5,
+      "run_power_kw": 2.0,
+      "temp_limit_c": 55,
+      "vibration_warn_mm_s": 3.5,
+      "vibration_alarm_mm_s": 6.0,
+      "tool_wear_per_part_pct": 0.0,
+      "base_scrap_rate": 0.0,
+      "mtbf_h": 80,
+      "mttr_min": 6,
+      "external": false
+    }
+  ],
+
+  "buffers": [
+    {"id": "B0", "name": "Raw material", "capacity": 1000, "initial": 1000, "infinite": true},
+    {"id": "B1", "name": "Lathe -> Mill", "capacity": 8, "initial": 0},
+    {"id": "B2", "name": "Mill -> Robot", "capacity": 8, "initial": 0},
+    {"id": "B3", "name": "Robot -> QC", "capacity": 6, "initial": 0},
+    {"id": "B4", "name": "QC -> Pack", "capacity": 6, "initial": 0},
+    {"id": "B5", "name": "Finished goods", "capacity": 100000, "initial": 0}
+  ]
+}

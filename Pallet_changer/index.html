@@ -1,0 +1,1588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>4-Axis HMC Digital Twin</title>
+<style>
+:root{--bg:#121519;--panel:#1a1e24;--panel2:#20252d;--line:#2d333d;--text:#d8dde4;--muted:#8691a0;--accent:#4c8dff;--amber:#f2a33a;--green:#3ecf7a;--red:#ef5350}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:13px/1.45 "Segoe UI",system-ui,Roboto,sans-serif;overflow:hidden}
+#app{display:grid;grid-template-columns:260px 1fr 330px;grid-template-rows:54px 1fr 150px;height:100vh}
+header{grid-column:1/4;display:flex;align-items:center;gap:16px;padding:0 14px;background:var(--panel);border-bottom:1px solid var(--line)}
+header h1{font-size:15px;margin:0;font-weight:600;white-space:nowrap}
+header h1 span{color:var(--muted);font-weight:400}
+.dro{display:flex;gap:6px;overflow:hidden}
+.dro div{background:#0c0f12;border:1px solid var(--line);border-radius:4px;padding:3px 8px;font-family:Consolas,"Cascadia Mono",monospace;font-size:12.5px;white-space:nowrap}
+.dro b{color:var(--muted);font-weight:500;margin-right:6px}
+#status{margin-left:auto;font-size:12px;color:var(--muted);white-space:nowrap}
+#status i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--amber);margin-right:6px;vertical-align:-1px}
+aside{background:var(--panel);overflow:auto;border-right:1px solid var(--line)}
+#left{grid-row:2/4}
+#right{grid-row:2/4;grid-column:3;border-right:0;border-left:1px solid var(--line)}
+section{padding:12px 14px;border-bottom:1px solid var(--line)}
+section h2{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:600}
+.cfg{font-size:12px}
+.cfg div{display:flex;gap:8px;padding:2px 0}
+.cfg b{display:inline-block;min-width:34px;font-family:Consolas,monospace}
+.plist .g{font-size:11px;color:var(--muted);margin:10px 0 4px;text-transform:uppercase;letter-spacing:.06em}
+.plist button{display:flex;align-items:center;gap:8px;width:100%;text-align:left;background:none;border:0;color:var(--text);padding:5px 8px;border-radius:4px;cursor:pointer;font:inherit}
+.plist button:hover{background:var(--panel2)}
+.plist button.on{background:#24406f;color:#fff}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;flex:none;background:#59616b}
+#view{position:relative;overflow:hidden;min-width:0;min-height:0}
+#view canvas{display:block}
+.ov{position:absolute;background:rgba(22,26,32,.94);border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+#info{left:10px;bottom:10px;width:min(400px,calc(100% - 20px));max-height:calc(100% - 150px);overflow:auto}
+#info .bar{display:flex;gap:6px;justify-content:flex-end;padding:8px 10px 0}
+#info .body{padding:0 14px 12px}
+#info .grp{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+#info h3{margin:2px 0 6px;font-size:16px}
+#info h4{margin:10px 0 4px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+#info p{margin:0 0 4px}
+#info ul{margin:0;padding-left:18px}
+#info li{margin:2px 0}
+#info table{border-collapse:collapse;width:100%;font-size:12px}
+#info td{padding:3px 0;border-bottom:1px solid var(--line)}
+#info td:first-child{color:var(--muted);width:40%}
+#info .il li::marker{color:var(--amber)}
+#cap,#tour{left:10px;right:10px;top:10px;max-width:660px}
+#view.sch #cap,#view.sch #tour{right:262px}
+#cap{padding:10px 14px 12px;pointer-events:none}
+#cap .t{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+#cap .s{font-size:16px;font-weight:600;margin:2px 0 8px}
+#cap .bar{height:4px;background:#2a3038;border-radius:2px;overflow:hidden}
+#cap .bar i{display:block;height:100%;width:0;background:var(--amber);transition:width .3s}
+#tour{padding:12px 16px 12px}
+#tour .k{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.07em}
+#tour h3{margin:2px 0 6px;font-size:17px}
+#tour p{margin:0 0 10px;font-size:13.5px;line-height:1.5}
+#tour .nav{display:flex;gap:6px;align-items:center}
+#tour .dots{flex:1;display:flex;gap:4px}
+#tour .dots i{width:7px;height:7px;border-radius:50%;background:#39414c}
+#tour .dots i.on{background:var(--accent)}
+#schem{right:10px;top:10px;padding:6px 8px 4px}
+#schem svg{display:block}
+#schem .st{fill:#8691a0;font:600 10px "Segoe UI",sans-serif;letter-spacing:.06em}
+#schem .tx{fill:#c9d1db;font:11px Consolas,monospace}
+#schem .lb{fill:#8691a0;font:9.5px "Segoe UI",sans-serif}
+#legend{right:10px;bottom:10px;padding:8px 10px;font-size:12px}
+#legend div{display:flex;align-items:center;gap:7px;margin:2px 0}
+#legend b{font-weight:600;min-width:18px}
+.vpt{position:absolute;font:600 11px "Segoe UI",sans-serif;letter-spacing:.06em;color:#aeb7c2;background:rgba(18,21,25,.7);padding:2px 7px;border-radius:3px;pointer-events:none}
+.vline{position:absolute;background:#3a424d;pointer-events:none}
+#log{grid-column:2;grid-row:3;background:#0c0f12;border-top:1px solid var(--line);overflow:auto;padding:6px 10px;font:12px/1.5 Consolas,"Cascadia Mono",monospace}
+#log .ln{white-space:pre-wrap}
+#log .t{color:#55606e}
+#log .step{color:#e6e9ee}
+#log .io{color:#7fb3ff}
+#log .op{color:var(--green)}
+#log .err{color:var(--red)}
+.row{display:flex;align-items:center;gap:8px;margin:6px 0}
+.row label{min-width:70px;color:var(--muted);font-size:12px}
+.row input[type=range]{flex:1;accent-color:var(--accent)}
+.row output{min-width:62px;text-align:right;font-family:Consolas,monospace;font-size:12px}
+.btns{display:flex;flex-wrap:wrap;gap:6px}
+button.b{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:5px;padding:6px 10px;font:inherit;font-size:12.5px;cursor:pointer}
+button.b:hover:not(:disabled){border-color:#4a5463;background:#262c35}
+button.b:disabled{opacity:.4;cursor:default}
+button.b.pri{background:#24406f;border-color:#2f5596}
+button.b.warn{background:#4a2c12;border-color:#7a4a1c}
+button.b.on{background:#24406f;border-color:#4c8dff;color:#fff}
+button.b.sm{padding:3px 8px;font-size:11.5px}
+.seg{display:flex;border:1px solid var(--line);border-radius:5px;overflow:hidden}
+.seg button{flex:1;background:var(--panel2);color:var(--text);border:0;border-right:1px solid var(--line);padding:6px 4px;font:inherit;font-size:12px;cursor:pointer}
+.seg button:last-child{border-right:0}
+.seg button.on{background:#24406f;color:#fff}
+.chk{display:flex;align-items:center;gap:6px;margin:4px 0;font-size:12.5px}
+#steps{margin:0;padding-left:20px;font-size:12px}
+#steps li{margin:3px 0;color:var(--muted)}
+#steps li.active{color:var(--amber);font-weight:600}
+#steps li.done{color:var(--text)}
+#steps li.done::marker{color:var(--green)}
+#seqTitle{font-weight:600;margin-bottom:6px}
+.label{font:11px "Segoe UI",system-ui,sans-serif;color:#fff;background:rgba(18,22,28,.8);border:1px solid rgba(255,255,255,.16);padding:2px 6px;border-radius:3px;cursor:pointer;white-space:nowrap;pointer-events:auto;user-select:none}
+.label:hover{border-color:var(--accent)}
+.label.sel{background:rgba(40,80,170,.9);border-color:#7aa8ff}
+.label.axis{background:rgba(10,12,15,.75);border:0;font-weight:700;font-size:12.5px;pointer-events:none}
+@media (max-width:1150px){#app{grid-template-columns:220px 1fr 300px}.dro div:nth-child(n+6){display:none}}
+</style>
+<script>
+  // file:// -> load Three.js from CDN;  http(s):// (python serve.py) -> load the local copy in ./lib
+  const local = location.protocol.startsWith('http');
+  const im = local
+    ? { three:'./lib/three.module.js', 'three/addons/':'./lib/addons/' }
+    : { three:'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js', 'three/addons/':'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/' };
+  document.write('<script type="importmap">' + JSON.stringify({ imports: im }) + '<\/script>');
+</script>
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>4-Axis HMC <span>· 500 mm twin-pallet · digital twin</span></h1>
+    <a href="apc.html" style="color:#f0a030;text-decoration:none;white-space:nowrap;border:1px solid #6b4a17;border-radius:4px;padding:3px 8px">APC mechanism →</a>
+    <div class="dro">
+      <div><b>X</b><span id="dX">0.000</span></div>
+      <div><b>Y</b><span id="dY">0.000</span></div>
+      <div><b>Z</b><span id="dZ">0.000</span></div>
+      <div><b>B</b><span id="dB">0.000</span></div>
+      <div><b>S</b><span id="dS">0</span></div>
+      <div><b>T</b><span id="dT">01</span></div>
+      <div><b>Table</b><span id="dP">A</span></div>
+    </div>
+    <div id="status"><i id="lampDot"></i><span id="statusTxt">Idle</span></div>
+  </header>
+
+  <aside id="left">
+    <section>
+      <h2>How this HMC is built</h2>
+      <div class="cfg">
+        <div><b style="color:#b8bec6">Bed</b><span>T-shaped: X runs on the rear beam, Z on the front beam</span></div>
+        <div><b style="color:#e8453a">X</b><span>Column moves left ↔ right</span></div>
+        <div><b style="color:#4fd364">Y</b><span>Spindle head moves up ↕ down on the column</span></div>
+        <div><b style="color:#4a97ff">Z</b><span>Table moves toward ↔ away from the spindle</span></div>
+        <div><b style="color:#b388ff">B</b><span>Rotary table turns the work (4th axis)</span></div>
+        <div><b style="color:#f0a030">APC</b><span>Fork lifts both pallets, turns 180°, lowers</span></div>
+        <div><b style="color:#ff7ac0">Setup</b><span>Operator loads the 2nd pallet outside</span></div>
+        <div><b style="color:#2ec4b6">ATC</b><span>Magazine + double arm change tools</span></div>
+      </div>
+    </section>
+    <section>
+      <h2>Parts (click to inspect)</h2>
+      <div class="plist" id="plist"></div>
+    </section>
+  </aside>
+
+  <div id="view">
+    <div id="vpUI"></div>
+    <div id="cap" class="ov" hidden><div class="t"></div><div class="s"></div><div class="bar"><i></i></div></div>
+    <div id="tour" class="ov" hidden>
+      <div class="k"></div><h3></h3><p></p>
+      <div class="nav"><div class="dots"></div>
+        <button class="b sm" id="tPrev">◀ Back</button>
+        <button class="b sm pri" id="tNext">Next ▶</button>
+        <button class="b sm" id="tExit">Close</button>
+      </div>
+    </div>
+    <div id="schem" class="ov" hidden></div>
+    <div id="legend" class="ov"></div>
+    <div id="info" class="ov" hidden>
+      <div class="bar">
+        <button class="b sm" id="btnFocus">Focus</button>
+        <button class="b sm" id="btnIso">Isolate</button>
+        <button class="b sm" id="btnClose">✕</button>
+      </div>
+      <div class="body"></div>
+    </div>
+  </div>
+
+  <div id="log"></div>
+
+  <aside id="right">
+    <section>
+      <h2>Understand the machine</h2>
+      <div class="btns">
+        <button class="b pri" id="bTour">▶ Structure tour (13 steps)</button>
+        <button class="b" id="bApc">Pallet-changer focus</button>
+      </div>
+    </section>
+    <section>
+      <h2>View type</h2>
+      <div class="seg" id="segView">
+        <button data-mode="3d" class="on">3D</button>
+        <button data-mode="ortho">Orthographic</button>
+        <button data-mode="quad">4-view CAD</button>
+      </div>
+      <label class="chk" style="margin-top:8px"><input type="checkbox" id="cCol" checked> Color by motion axis</label>
+      <label class="chk"><input type="checkbox" id="cArr" checked> Motion arrows</label>
+      <label class="chk"><input type="checkbox" id="cSch"> APC top-view diagram</label>
+      <label class="chk"><input type="checkbox" id="cLab" checked> Labels</label>
+      <label class="chk"><input type="checkbox" id="cEnc"> Enclosure / splash guard</label>
+      <label class="chk"><input type="checkbox" id="cCov" checked> Telescopic way covers</label>
+      <div class="row"><label>Explode</label><input type="range" id="rExp" min="0" max="100" value="0"><output id="oExp">0%</output></div>
+      <div class="btns">
+        <button class="b sm" data-view="iso">Iso</button>
+        <button class="b sm" data-view="front">Front</button>
+        <button class="b sm" data-view="side">Side</button>
+        <button class="b sm" data-view="top">Top</button>
+        <button class="b sm" data-view="work">Work zone</button>
+        <button class="b sm" data-view="apc">APC</button>
+        <button class="b sm" data-view="rear">Rear</button>
+      </div>
+    </section>
+    <section>
+      <h2>Sequences</h2>
+      <div class="btns">
+        <button class="b pri" id="bPC">Pallet change (M60)</button>
+        <button class="b" id="bTC">Tool change (M06)</button>
+        <button class="b" id="bMach">Machine pallet</button>
+        <button class="b" id="bAuto">Auto cycle</button>
+        <button class="b warn" id="bStop" disabled>Stop after cycle</button>
+      </div>
+      <label class="chk"><input type="checkbox" id="cStep"> Step mode (pause after each step)</label>
+      <div class="row"><button class="b sm" id="bNext" disabled>Next step ▶</button></div>
+      <div class="row"><label>Sim speed</label><input type="range" id="rSpeed" min="25" max="500" value="100"><output id="oSpeed">1×</output></div>
+    </section>
+    <section>
+      <h2>Current sequence</h2>
+      <div id="seqTitle">—</div>
+      <ol id="steps"></ol>
+    </section>
+    <section>
+      <h2>Jog axes</h2>
+      <div class="row"><label>X column</label><input type="range" id="jX" min="-350" max="350" step="1"><output id="oX"></output></div>
+      <div class="row"><label>Y head</label><input type="range" id="jY" min="0" max="750" step="1"><output id="oY"></output></div>
+      <div class="row"><label>Z table</label><input type="range" id="jZ" min="0" max="600" step="1"><output id="oZ"></output></div>
+      <div class="row"><label>B rotary</label><input type="range" id="jB" min="0" max="360" step="1"><output id="oB"></output></div>
+      <div class="btns"><button class="b sm" id="bHome">Home axes</button><button class="b sm" id="bSetIdx">Setup station index 90°</button></div>
+    </section>
+  </aside>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+/* =====================================================================
+   PART KNOWLEDGE BASE
+   ===================================================================== */
+const INFO = {
+  bed:{grp:'Structure',name:'Bed (T-type base)',
+    role:'Foundation of the machine. One-piece T-shaped casting: the rear cross-member carries the X-axis (column) guideways, the front longitudinal member carries the Z-axis (table) guideways. Every cutting force closes its loop through the bed.',
+    design:['Meehanite / FC300 cast iron, box-ribbed, stress-relieved','3-point leveling (plus auxiliary pads) — no anchor bolts needed','Steep chip troughs on both sides of the Z-bed','Thermally symmetric about the spindle centre-line'],
+    spec:{'Machine mass':'≈ 12–16 t','Material':'FC300 / Meehanite','Leveling':'3 main + 2 auxiliary pads'}},
+  column:{grp:'Structure',name:'Column (moving, X-axis)',
+    role:'Moving column carrying the Y-axis and spindle head. Trapezoidal side profile (wide base, narrow top) gives a high stiffness-to-mass ratio for fast X moves.',
+    design:['Cast iron, double-wall ribbing','Front face: ground mounting surfaces for the Y guides','Top: Y servo motor and counterbalance cylinders','Rides on 4 X-axis carriages (2 per rail)'],
+    spec:{'Height':'≈ 2.0 m','Type':'Moving column (X)'}},
+  head:{grp:'Structure',name:'Spindle head (headstock)',
+    role:'Box-type headstock that holds the spindle cartridge and travels vertically (Y) on the column face.',
+    design:['Cast iron, symmetric to minimise thermal drift','Coolant nozzles around the spindle nose','Jacket-cooled spindle housing (oil chiller)','Spindle centre-line = Z direction (horizontal)']},
+  saddle:{grp:'Structure',name:'Table saddle (Z slide)',
+    role:'The Z-axis slide. It carries the B-axis rotary table toward and away from the spindle, and out to the pallet-change position.',
+    design:['Cast iron, 4 carriages on 2 roller guides','Routes hydraulics and air to the rotary table through a rotary joint']},
+  xAxis:{grp:'Motion axes',name:'X-axis drive (column travel)',
+    role:'Moves the column left/right along the rear part of the bed.',
+    design:['2 × roller-type linear guides (size 45)','Ø40 ballscrew, pre-tensioned and double-anchored, optional hollow cooling','AC servo, direct-coupled','Linear scale (full closed loop) recommended for accuracy and for the digital twin'],
+    spec:{'Travel':'700 mm','Rapid':'50–60 m/min','Acceleration':'0.5–1 G'}},
+  yAxis:{grp:'Motion axes',name:'Y-axis drive (head vertical)',
+    role:'Moves the spindle head up/down on the column face. Y is a gravity axis, so it needs a brake motor and a counterbalance.',
+    design:['2 × roller guides on the column front face','Vertical ballscrew; servo motor with holding brake','Hydraulic / N₂ counterbalance cylinders carry the head weight','Telescopic covers above and below the head'],
+    spec:{'Travel':'750 mm','Rapid':'50–60 m/min'}},
+  zAxis:{grp:'Motion axes',name:'Z-axis drive (table travel)',
+    role:'Moves the table toward/away from the spindle (spindle axis direction). At the end of its stroke it carries the table into the APC fork, which is the pallet-change position.',
+    design:['2 × roller guides on the front bed','Ø40 ballscrew + AC servo','Pallet-change position = Z max (here Z 600)','Telescopic covers in front of and behind the saddle'],
+    spec:{'Travel':'600 mm (incl. APC position)','Rapid':'50–60 m/min'}},
+  bTable:{grp:'Motion axes',name:'B-axis rotary table (4th axis)',
+    role:'Rotates the pallet about the vertical axis so every face of the fixture can be presented to the spindle. With B you can machine 4 sides of a part in one setup.',
+    design:['Full-contouring: DD torque motor, or roller-gear cam + hydraulic brake clamp','Indexing alternative: 1° curvic coupling (lower cost, no simultaneous 4-axis)','High-resolution rotary encoder on the table','Pallet clamp is built into the table top (see "Pallet clamp")'],
+    spec:{'Min. increment':'0.001°','Accuracy':'±3–5″','Max speed':'30–50 min⁻¹','Table load':'500 kg'}},
+  spindle:{grp:'Motion axes',name:'Spindle',
+    role:'Rotates the cutting tool. The spindle axis is horizontal (the Z direction), which is what defines a horizontal machining centre (HMC).',
+    design:['Built-in motor spindle (or gear / belt driven)','Tool interface HSK-A63 or BT40 / CAT40 dual-contact','Drawbar with disc springs; hydraulic unclamp cylinder','Through-spindle coolant up to 7 MPa','Spindle orientation (M19) for the tool change'],
+    spec:{'Speed':'12 000–15 000 min⁻¹','Power':'25–37 kW','Torque':'200–300 N·m'}},
+  covers:{grp:'Motion axes',name:'Telescopic way covers',
+    role:'Overlapping steel covers that keep chips and coolant off the guides and ballscrews.',
+    design:['Stainless overlapping segments with wipers','X: either side of the column · Z: in front of / behind the saddle · Y: above / below the head','Untick "Telescopic way covers" to see the guides and screws']},
+  palletClamp:{grp:'Pallet system',name:'Pallet clamp & locating cones',
+    role:'Locates and clamps the pallet on the B-table (and on the setup station) with micron-level repeatability.',
+    design:['4 taper cones / zero-point pins locate the pallet','Clamped by disc springs (fail-safe), unclamped hydraulically','Air blow cleans the cones during the exchange','Seating confirmed by air-gap sensor; clamp / unclamp limit switches','Shown here as cones: green = clamped, red = unclamped'],
+    spec:{'Clamp force':'≈ 40–80 kN','Repeatability':'≤ 3–5 µm'}},
+  pallet:{grp:'Pallet system',name:'Pallets A / B',
+    role:'Interchangeable work carriers. One pallet is machined while the operator loads the other at the setup station.',
+    design:['500 × 500 mm, M16 tapped grid or T-slots','Underside taper bushes match the clamp cones','Side rails (ledges) for the APC fork to lift','Optional: RFID pallet ID, hydraulic fixture couplings'],
+    spec:{'Size':'500 × 500 mm','Max load':'500 kg','Max work envelope':'Ø800 × 1000 mm'}},
+  tombstone:{grp:'Pallet system',name:'Tombstone fixture & workpieces',
+    role:'Multi-part fixture, so one pallet carries many parts per cycle. The B-axis indexes each face to the spindle.',
+    design:['2-face tombstone shown (4-face is common)','Toe clamps / vises / hydraulic fixtures','Part colour: raw = grey-brown, machined = bright with a pocket']},
+  apc:{grp:'Pallet system',name:'APC: rotary twin-pallet changer',
+    role:'Swing-type automatic pallet changer. It swaps the finished pallet on the table with the loaded pallet at the setup station in one lift → turn 180° → lower motion.',
+    design:['Pedestal bolted to the front end of the bed','Lift: hydraulic cylinder with guide (≈ 100 mm stroke)','Turn: hydraulic rack-and-pinion rotary actuator, or servo + cam; 180° with end cushioning','H-shaped fork engages the pallet side rails; the table drives INTO the fork along Z','Partition door is mounted on the arm and turns with it, so the machining area stays sealed','Sensors: arm UP / DOWN, 0° / 180°, pallet present'],
+    spec:{'Change time':'≈ 6–10 s','Pallets':'2','Drive':'Hydraulic 7 MPa or servo'},
+    interlocks:['Z at pallet-change position and B at 0°','Spindle stopped, coolant off','Both pallets unclamped before lift','Arm UP confirmed before rotate; 180° confirmed before lower','Setup area clear (light curtain) + "pallet ready" button pressed','Clamp + seating confirmed before Z leaves the APC']},
+  setup:{grp:'Pallet system',name:'Setup (load / unload) station',
+    role:'Load/unload station outside the machining area. The operator fixtures parts here while the other pallet is being machined, so the spindle never waits.',
+    design:['Same taper-cone seat as the B-table','Manual 90° indexing with lock pin','"Pallet ready" push-button, e-stop, light curtain','Wash gun / chip removal at the station']},
+  atcMag:{grp:'Tool system',name:'Tool magazine (chain type)',
+    role:'Stores the tools. A chain magazine on the side of the machine, outside the splash guard.',
+    design:['40–60 pockets (120+ with a matrix magazine)','Servo-driven chain, random tool memory','Pot shifter turns the next tool 90° into the change position','Separate tool-loading door, usable while the machine cuts'],
+    spec:{'Capacity':'40 / 60 tools','Max tool':'Ø125 × 400 mm, 12 kg'}},
+  atcArm:{grp:'Tool system',name:'ATC double-arm tool changer',
+    role:'Swaps the tool in the spindle with the next tool waiting in the change pot.',
+    design:['Roller-gear cam drive: 90° grip → pull out → 180° swap → insert → 90° return','Spindle must be oriented (M19) and at the tool-change position','Drawbar unclamp / clamp synchronised with the arm pull / insert'],
+    spec:{'Tool-to-tool':'≈ 1.5–2.5 s','Chip-to-chip':'≈ 3.5–5 s'}},
+  tools:{grp:'Tool system',name:'Cutting tools & holders',
+    role:'Tool holders (HSK / BT taper + V-flange) carrying the cutters. T01 = Ø24 end mill (blue band), T02 = Ø125 face mill (orange band).',
+    design:['Taper + face contact in the spindle (dual contact)','V-flange groove is gripped by the ATC arm','Retention knob (pull stud) is pulled by the drawbar']},
+  chip:{grp:'Auxiliary',name:'Chip management',
+    role:'Removes chips from the machining area continuously.',
+    design:['Steep side troughs with coolant flushing','Twin screw conveyors in the troughs','Lift-up hinge-belt (or scraper) conveyor into the chip bucket']},
+  coolant:{grp:'Auxiliary',name:'Coolant system',
+    role:'Supplies flood coolant and high-pressure through-spindle coolant (TSC).',
+    design:['Tank 600–800 L with filtration (cyclone / paper)','Flood pump 0.3–0.5 MPa; TSC pump 1.5–7 MPa','Nozzles on the spindle head (spray shown while cutting)']},
+  enclosure:{grp:'Auxiliary',name:'Splash guard enclosure',
+    role:'Full enclosure. It is the safety boundary of the machining area.',
+    design:['Operator door with safety interlock switch (locked while cutting)','APC opening is sealed by the rotating partition door','Signal tower: green = running, amber = idle / waiting, red = alarm']},
+  control:{grp:'Auxiliary',name:'CNC & operator panel',
+    role:'CNC control and operator panel on a swing arm next to the APC.',
+    design:['e.g. FANUC 31i-B5 / Siemens 840D sl / Heidenhain TNC','4 simultaneous axes (X Y Z B)','Pallet management, tool-life management, MPG handwheel']},
+  cabinet:{grp:'Auxiliary',name:'Electrical cabinet & hydraulic unit',
+    role:'Electrical cabinet (servo amplifiers, PLC, power supply) and the hydraulic unit that powers the clamps, APC and counterbalance.',
+    design:['Hydraulic unit ≈ 7 MPa with accumulator','Air-conditioned electrical cabinet','Spindle oil chiller']},
+};
+const GROUPS = {
+  'Structure':['bed','column','head','saddle'],
+  'Motion axes':['xAxis','yAxis','zAxis','bTable','spindle','covers'],
+  'Pallet system':['apc','palletClamp','pallet','tombstone','setup'],
+  'Tool system':['atcMag','atcArm','tools'],
+  'Auxiliary':['chip','coolant','enclosure','control','cabinet'],
+};
+/* colour-by-axis: every body is coloured by the axis it moves on */
+const AXIS_COL = {
+  bed:0xb8bec6, column:0xe8453a, xAxis:0xe8453a, head:0x4fd364, yAxis:0x4fd364, saddle:0x4a97ff, zAxis:0x4a97ff,
+  bTable:0xb388ff, spindle:0x3fd0d8, apc:0xf0a030, setup:0xff7ac0, atcMag:0x2ec4b6, atcArm:0x2ec4b6,
+  chip:0x5d6570, coolant:0x5d6570, cabinet:0x5d6570, control:0x5d6570,
+};
+const LEGEND = [
+  ['X', 0xe8453a, 'Column (left ↔ right)'], ['Y', 0x4fd364, 'Spindle head (up ↕ down)'], ['Z', 0x4a97ff, 'Table saddle (to / from spindle)'],
+  ['B', 0xb388ff, 'Rotary table (turns work)'], ['S', 0x3fd0d8, 'Spindle'], ['APC', 0xf0a030, 'Pallet changer (lift + 180°)'],
+  ['', 0xff7ac0, 'Setup station (operator)'], ['', 0x2ec4b6, 'Tool magazine + ATC arm'], ['', 0xb8bec6, 'Bed (fixed)'],
+];
+
+/* =====================================================================
+   RENDERER / SCENE
+   ===================================================================== */
+const view = document.getElementById('view');
+const renderer = new THREE.WebGLRenderer({ antialias:true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.85;
+view.prepend(renderer.domElement);
+
+const labelRenderer = new CSS2DRenderer();
+Object.assign(labelRenderer.domElement.style, { position:'absolute', top:'0', pointerEvents:'none' });
+view.insertBefore(labelRenderer.domElement, renderer.domElement.nextSibling);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x181c21);
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(renderer), 0.04).texture;
+
+const persp = new THREE.PerspectiveCamera(38, 1, 0.05, 100);
+persp.position.set(5.4, 3.6, 5.8);
+const ortho = new THREE.OrthographicCamera(-1, 1, 1, -1, -50, 100);
+let camera = persp, orthoHalf = 2.2;
+const controls = new OrbitControls(persp, renderer.domElement);
+controls.target.set(0, 1.1, 0.2);
+controls.enableDamping = true;
+controls.maxPolarAngle = Math.PI * 0.495;
+// fixed cameras for the 4-view CAD layout
+function fixedOrtho(pos, tgt, up, half, cy) { const c = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 60); c.position.set(...pos); c.up.set(...up); c.lookAt(...tgt); c.userData = { half }; return c; }
+const topCam = fixedOrtho([0, 20, 0.3], [0, 0, 0.3], [0, 0, -1], 2.9);
+const frontCam = fixedOrtho([0, 1.5, 20], [0, 1.5, 0], [0, 1, 0], 1.75);
+const sideCam = fixedOrtho([20, 1.5, 0.2], [0, 1.5, 0.2], [0, 1, 0], 1.75);
+
+scene.add(new THREE.HemisphereLight(0xdfe8f5, 0x2a2e33, 0.5));
+const sun = new THREE.DirectionalLight(0xffffff, 1.6);
+sun.position.set(4, 8, 5);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left:-4.5, right:4.5, top:4.5, bottom:-4.5, near:1, far:20 });
+sun.shadow.bias = -0.0004;
+scene.add(sun);
+const fill = new THREE.DirectionalLight(0xbcd0ff, 0.45); fill.position.set(-5, 3, -3); scene.add(fill);
+
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.MeshStandardMaterial({ color:0x262b31, roughness:0.92 }));
+floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+const grid = new THREE.GridHelper(40, 80, 0x353c45, 0x2c323a); grid.position.y = 0.001; scene.add(grid);
+
+/* =====================================================================
+   HELPERS
+   ===================================================================== */
+const std = (color, rough=0.55, metal=0.15, extra={}) => new THREE.MeshStandardMaterial({ color, roughness:rough, metalness:metal, ...extra });
+const M = {
+  cast: std(0xd3d8de, 0.6, 0.1),
+  castDark: std(0x8b939d, 0.6, 0.2),
+  paint: std(0xe8ebee, 0.5, 0.05),
+  cover: std(0x66707b, 0.32, 0.65),
+  steel: std(0xc3cad2, 0.25, 0.9),
+  rail: std(0xe2e7ec, 0.18, 0.95),
+  black: std(0x202429, 0.5, 0.3),
+  dark: std(0x2d3238, 0.6, 0.25),
+  blue: std(0x2f6fde, 0.45, 0.2),
+  amber: std(0xf0a030, 0.45, 0.15),
+  pallet: std(0x8d98a3, 0.35, 0.75),
+  tomb: std(0x5c6774, 0.5, 0.4),
+  raw: std(0x8f8170, 0.85, 0.15),
+  carbide: std(0x6b7380, 0.3, 0.8),
+  pocket: std(0xa9b3bc, 0.25, 0.9),
+  glass: new THREE.MeshPhysicalMaterial({ color:0xbcd6f0, roughness:0.05, metalness:0, transparent:true, opacity:0.12, depthWrite:false, side:THREE.DoubleSide }),
+  cone: std(0x3ecf7a, 0.4, 0.3, { emissive:0x1a7a40, emissiveIntensity:0.7 }),
+  yellow: std(0xe8c21a, 0.6, 0.1),
+  spray: new THREE.MeshStandardMaterial({ color:0x58c7ff, transparent:true, opacity:0.35, emissive:0x1b6fa0, depthWrite:false }),
+};
+const unitBox = new THREE.BoxGeometry(1, 1, 1);
+
+function node(parent, name='') { const g = new THREE.Group(); g.name = name; parent.add(g); return g; }
+const EXP = [];
+function expNode(parent, v) { const g = node(parent); g.userData.ev = new THREE.Vector3(...v); EXP.push(g); return g; }
+
+const PARTS = {};
+function tag(obj, id) {
+  obj.traverse(o => {
+    if (!o.isMesh) return;
+    o.material = o.material.clone();
+    const m = o.material;
+    o.userData.part = id;
+    o.castShadow = !m.transparent; o.receiveShadow = !m.transparent;
+    o.userData.emi = m.emissive ? m.emissive.clone() : null;
+    o.userData.emiI = m.emissiveIntensity ?? 1;
+    o.userData.col0 = m.color ? m.color.clone() : null;
+    o.userData.baseOp = m.opacity; o.userData.baseTr = m.transparent; o.userData.baseDW = m.depthWrite;
+    (PARTS[id] ??= []).push(o);
+  });
+  return obj;
+}
+function box(p, id, m, w, h, d, x, y, z) {
+  const o = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m); o.position.set(x, y, z); p.add(o); tag(o, id); return o;
+}
+function cyl(p, id, m, rt, rb, h, x, y, z, axis='y', seg=32) {
+  const g = new THREE.CylinderGeometry(rt, rb, h, seg);
+  if (axis === 'z') g.rotateX(Math.PI / 2); else if (axis === 'x') g.rotateZ(-Math.PI / 2);
+  const o = new THREE.Mesh(g, m); o.position.set(x, y, z); p.add(o); tag(o, id); return o;
+}
+const LABELS = [];
+function label(parent, text, id, x, y, z, cls='') {
+  const d = document.createElement('div'); d.className = 'label ' + cls; d.textContent = text; d.dataset.part = id || '';
+  if (id && !cls.includes('axis')) {
+    d.addEventListener('pointerdown', e => e.stopPropagation());
+    d.addEventListener('click', e => { e.stopPropagation(); select(id); });
+  }
+  const o = new CSS2DObject(d); o.position.set(x, y, z); parent.add(o); LABELS.push(o); return o;
+}
+const COVERS = [];
+function teleCover(parent, id, axis, sa, sb, ca, cb, segs=4) {
+  const g = node(parent); const ms = [];
+  for (let i = 0; i < segs; i++) { const m = new THREE.Mesh(unitBox, M.cover); g.add(m); ms.push(m); }
+  tag(g, id);
+  const c = { g, update(a, b) {
+    const L = b - a; const sl = L / segs;
+    ms.forEach((m, i) => {
+      m.visible = L > 0.005; if (!m.visible) return;
+      const mid = a + sl * (i + 0.5), len = sl * 1.04, k = i * 0.008;
+      if (axis === 'x') { m.position.set(mid, ca, cb); m.scale.set(len, sa + k, sb + k); }
+      else if (axis === 'y') { m.position.set(ca, mid, cb); m.scale.set(sa + k, len, sb + k); }
+      else { m.position.set(ca, cb, mid); m.scale.set(sa + k, sb + k, len); }
+    });
+  }};
+  COVERS.push(c); return c;
+}
+class Helix extends THREE.Curve {
+  constructor(r, pitch, len) { super(); this.r = r; this.p = pitch; this.l = len; }
+  getPoint(t, target = new THREE.Vector3()) {
+    const a = t * this.l / this.p * Math.PI * 2;
+    return target.set(Math.cos(a) * this.r, Math.sin(a) * this.r, -this.l / 2 + t * this.l);
+  }
+}
+/* motion arrows (always drawn on top) */
+const ARROWS = [];
+const hexCss = c => '#' + c.toString(16).padStart(6, '0');
+function arrowMat(c) { return new THREE.MeshBasicMaterial({ color:c, depthTest:false, transparent:true, opacity:0.95 }); }
+function coneAt(g, mat, pos, dir) {
+  const m = new THREE.Mesh(new THREE.ConeGeometry(0.038, 0.1, 16), mat);
+  m.position.copy(pos); m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.clone().normalize()); m.renderOrder = 10; g.add(m);
+}
+function lineArrow(parent, part, origin, dir, len, color, text) {
+  const g = node(parent), mat = arrowMat(color), d = dir.clone().normalize();
+  const sh = new THREE.Mesh(new THREE.CylinderGeometry(0.013, 0.013, 2 * len, 10), mat);
+  sh.position.copy(origin); sh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), d); sh.renderOrder = 10; g.add(sh);
+  coneAt(g, mat, origin.clone().addScaledVector(d, len), d);
+  coneAt(g, mat, origin.clone().addScaledVector(d, -len), d.clone().negate());
+  const lb = label(g, text, part, ...origin.clone().addScaledVector(d, len + 0.13).toArray(), 'axis'); lb.element.style.color = hexCss(color);
+  ARROWS.push({ g, part, lb });
+}
+function arcArrow(parent, part, center, r, color, text, a0, arc, both=true) {
+  const g = node(parent), mat = arrowMat(color);
+  g.position.copy(center);
+  const tor = new THREE.Mesh(new THREE.TorusGeometry(r, 0.012, 6, 64, arc), mat);
+  tor.rotation.set(-Math.PI / 2, 0, a0); tor.renderOrder = 10; g.add(tor);
+  // torus point θ (local xy) -> after rotateX(-90°) and rotZ(a0): angle a0+θ in xz-plane, (cos,0,-sin)
+  const pt = t => new THREE.Vector3(Math.cos(t) * r, 0, -Math.sin(t) * r);
+  const tg = t => new THREE.Vector3(-Math.sin(t), 0, -Math.cos(t));
+  coneAt(g, mat, pt(a0 + arc), tg(a0 + arc));
+  if (both) coneAt(g, mat, pt(a0), tg(a0).negate());
+  const mid = pt(a0 + arc / 2).multiplyScalar(1 + 0.12 / r);
+  const lb = label(g, text, part, mid.x, 0.04, mid.z, 'axis'); lb.element.style.color = hexCss(color);
+  ARROWS.push({ g, part, lb });
+}
+
+/* =====================================================================
+   MACHINE MODEL  (metres, floor y=0; machine X = world x, Y = world y,
+   Z (spindle axis) = world z; the table / APC / operator side is +z)
+   ===================================================================== */
+const machine = node(scene, 'machine');
+
+// ---------------- BED (T-type) ----------------
+const bedG = expNode(machine, [0, 0, 0]);
+box(bedG, 'bed', M.cast, 2.6, 0.62, 1.0, 0, 0.39, -1.3);
+box(bedG, 'bed', M.castDark, 2.64, 0.08, 1.04, 0, 0.04, -1.3);
+box(bedG, 'bed', M.cast, 1.2, 0.62, 2.0, 0, 0.39, 0.2);
+box(bedG, 'bed', M.castDark, 1.24, 0.08, 2.04, 0, 0.04, 0.2);
+for (const z of [-0.45, 0.05, 0.55, 1.0]) for (const s of [-1, 1]) box(bedG, 'bed', M.castDark, 0.012, 0.4, 0.12, s * 0.603, 0.4, z);
+for (const x of [-0.95, -0.45, 0.45, 0.95]) box(bedG, 'bed', M.castDark, 0.16, 0.4, 0.012, x, 0.4, -1.803);
+label(bedG, 'Bed (T-type)', 'bed', 0.62, 0.35, 0.75);
+
+const SCREWS = [];
+const flightGeo = new THREE.TubeGeometry(new Helix(0.055, 0.12, 1.94), 420, 0.007, 6, false);
+for (const s of [-1, 1]) {
+  const pl = box(bedG, 'chip', M.paint, 0.58, 0.02, 2.0, s * 0.825, 0.435, 0.2); pl.rotation.z = -s * 0.69;
+  box(bedG, 'chip', M.paint, 0.02, 0.6, 2.0, s * 1.26, 0.3, 0.2);
+  box(bedG, 'chip', M.paint, 0.24, 0.02, 2.0, s * 1.15, 0.1, 0.2);
+  const sg = node(bedG); sg.position.set(s * 1.15, 0.2, 0.2);
+  cyl(sg, 'chip', M.steel, 0.02, 0.02, 1.95, 0, 0, 0, 'z', 12);
+  const fl = new THREE.Mesh(flightGeo, M.steel); sg.add(fl); tag(fl, 'chip');
+  SCREWS.push(sg);
+}
+box(bedG, 'chip', M.paint, 2.5, 0.12, 0.16, 0, 0.06, 1.3);
+
+// ---------------- X AXIS ----------------
+for (const zr of [-1.55, -1.05]) box(bedG, 'xAxis', M.rail, 2.5, 0.035, 0.035, 0, 0.7175, zr);
+cyl(bedG, 'xAxis', M.steel, 0.02, 0.02, 2.36, 0, 0.745, -1.3, 'x', 16);
+for (const x of [-1.2, 1.2]) box(bedG, 'xAxis', M.castDark, 0.08, 0.09, 0.12, x, 0.745, -1.3);
+cyl(bedG, 'xAxis', M.black, 0.07, 0.07, 0.18, 1.39, 0.77, -1.3, 'x');
+box(bedG, 'xAxis', M.black, 2.4, 0.03, 0.02, 0, 0.73, -1.76);
+label(bedG, 'X-axis guides / ballscrew', 'xAxis', 1.05, 0.85, -1.3, 'minor');
+const xCovL = teleCover(bedG, 'covers', 'x', 0.095, 0.7, 0.7525, -1.3);
+const xCovR = teleCover(bedG, 'covers', 'x', 0.095, 0.7, 0.7525, -1.3);
+
+// ---------------- Z AXIS ----------------
+for (const s of [-1, 1]) box(bedG, 'zAxis', M.rail, 0.035, 0.035, 1.92, s * 0.4, 0.7175, 0.22);
+cyl(bedG, 'zAxis', M.steel, 0.02, 0.02, 1.86, 0, 0.745, 0.25, 'z', 16);
+cyl(bedG, 'zAxis', M.black, 0.065, 0.065, 0.14, 0, 0.77, -0.72, 'z');
+box(bedG, 'zAxis', M.castDark, 0.12, 0.09, 0.08, 0, 0.745, 1.15);
+label(bedG, 'Z-axis guides / ballscrew', 'zAxis', -0.62, 0.8, -0.35, 'minor');
+const zCovR = teleCover(bedG, 'covers', 'z', 1.12, 0.08, 0, 0.745);
+const zCovF = teleCover(bedG, 'covers', 'z', 1.12, 0.08, 0, 0.745);
+
+// ---------------- COLUMN (X) ----------------
+const colMover = node(machine, 'colMover');
+const colG = expNode(colMover, [0, 0.9, -0.55]);
+for (const zr of [-1.55, -1.05]) for (const xo of [-0.3, 0.3]) box(colG, 'xAxis', M.steel, 0.15, 0.05, 0.075, xo, 0.76, zr);
+box(colG, 'column', M.castDark, 0.94, 0.04, 0.72, 0, 0.80, -1.3);
+{
+  const sh = new THREE.Shape();
+  sh.moveTo(0.95, 0.82); sh.lineTo(1.65, 0.82); sh.lineTo(1.42, 2.75); sh.lineTo(0.95, 2.75); sh.closePath();
+  const g = new THREE.ExtrudeGeometry(sh, { depth:0.9, bevelEnabled:false });
+  g.rotateY(Math.PI / 2); g.translate(-0.45, 0, 0);
+  const m = new THREE.Mesh(g, M.cast); colG.add(m); tag(m, 'column');
+}
+for (const s of [-1, 1]) {
+  box(colG, 'column', M.castDark, 0.006, 1.2, 0.28, s * 0.453, 1.7, -1.22);
+  box(colG, 'column', M.blue, 0.006, 0.06, 0.44, s * 0.454, 2.6, -1.18);
+}
+for (const s of [-1, 1]) box(colG, 'yAxis', M.rail, 0.035, 1.86, 0.03, s * 0.3, 1.78, -0.935);
+cyl(colG, 'yAxis', M.steel, 0.02, 0.02, 1.84, 0, 1.78, -0.935, 'y', 16);
+box(colG, 'yAxis', M.castDark, 0.62, 0.05, 0.5, 0, 2.775, -0.78);
+cyl(colG, 'yAxis', M.black, 0.07, 0.07, 0.22, 0, 2.91, -0.935);
+const RODS = [];
+for (const s of [-1, 1]) {
+  cyl(colG, 'yAxis', M.steel, 0.04, 0.04, 0.45, s * 0.22, 2.525, -0.66);
+  RODS.push(cyl(colG, 'yAxis', M.rail, 0.014, 0.014, 1, s * 0.22, 1.5, -0.66, 'y', 12));
+}
+label(colG, 'Column', 'column', -0.62, 2.4, -1.25);
+label(colG, 'Y guides + counterbalance', 'yAxis', 0.45, 2.55, -0.7, 'minor');
+const yCovT = teleCover(colG, 'covers', 'y', 0.72, 0.03, 0, -0.905);
+const yCovB = teleCover(colG, 'covers', 'y', 0.72, 0.03, 0, -0.905);
+lineArrow(colG, 'column', new THREE.Vector3(0, 3.15, -1.2), new THREE.Vector3(1, 0, 0), 0.55, 0xe8453a, 'X  column');
+
+// ---------------- SPINDLE HEAD (Y) ----------------
+const headMover = node(colG, 'headMover');
+const headG = expNode(headMover, [0, 0.3, 0.6]);
+for (const s of [-1, 1]) for (const yo of [-0.16, 0.16]) box(headG, 'yAxis', M.steel, 0.08, 0.13, 0.04, s * 0.3, yo, -0.90);
+box(headG, 'head', M.cast, 0.62, 0.56, 0.48, 0, 0, -0.64);
+box(headG, 'head', M.castDark, 0.6, 0.012, 0.46, 0, 0.286, -0.64);
+for (const s of [-1, 1]) box(headG, 'head', M.blue, 0.004, 0.05, 0.48, s * 0.312, 0.18, -0.64);
+cyl(headG, 'head', M.cast, 0.16, 0.18, 0.1, 0, 0, -0.35, 'z');
+cyl(headG, 'head', M.castDark, 0.166, 0.166, 0.012, 0, 0, -0.305, 'z');
+const SPRAYS = [];
+{
+  const tgt = new THREE.Vector3(0, 0, -0.04);
+  for (const a of [0.7, Math.PI - 0.7, -Math.PI / 2]) {
+    const p = new THREE.Vector3(Math.cos(a) * 0.14, Math.sin(a) * 0.14, -0.30);
+    const nz = cyl(headG, 'coolant', M.black, 0.008, 0.008, 0.06, p.x, p.y, p.z, 'z', 10); nz.lookAt(tgt);
+    const len = p.distanceTo(tgt);
+    const sp = cyl(headG, 'coolant', M.spray, 0.018, 0.003, len, (p.x + tgt.x) / 2, (p.y + tgt.y) / 2, (p.z + tgt.z) / 2, 'z', 12);
+    sp.lookAt(tgt); sp.visible = false; SPRAYS.push(sp);
+  }
+}
+const spindleRot = node(headG, 'spindleRot'); spindleRot.position.set(0, 0, -0.20);
+cyl(spindleRot, 'spindle', M.steel, 0.1, 0.1, 0.1, 0, 0, -0.05, 'z', 40);
+for (const s of [-1, 1]) box(spindleRot, 'spindle', M.black, 0.03, 0.02, 0.012, s * 0.062, 0, 0.006);
+box(spindleRot, 'spindle', M.amber, 0.012, 0.02, 0.08, 0, 0.098, -0.05);
+label(headG, 'Spindle head', 'head', -0.5, 0.2, -0.64);
+label(headG, 'Spindle (horizontal)', 'spindle', 0.2, -0.17, -0.3, 'minor');
+lineArrow(headG, 'head', new THREE.Vector3(0.44, 0, -0.62), new THREE.Vector3(0, 1, 0), 0.38, 0x4fd364, 'Y  head');
+
+// ---------------- TOOLS ----------------
+function makeTool(kind, band) {
+  const g = new THREE.Group();
+  cyl(g, 'tools', M.steel, 0.032, 0.018, 0.1, 0, 0, -0.05, 'z');
+  cyl(g, 'tools', M.steel, 0.007, 0.007, 0.02, 0, 0, -0.11, 'z', 12);
+  cyl(g, 'tools', M.steel, 0.045, 0.045, 0.03, 0, 0, 0.015, 'z');
+  cyl(g, 'tools', M.black, 0.0465, 0.0465, 0.01, 0, 0, 0.015, 'z');
+  cyl(g, 'tools', std(band, 0.4, 0.3), 0.034, 0.034, 0.012, 0, 0, 0.036, 'z');
+  if (kind === 'end') {
+    cyl(g, 'tools', M.steel, 0.022, 0.03, 0.07, 0, 0, 0.077, 'z');
+    cyl(g, 'tools', M.carbide, 0.012, 0.012, 0.14, 0, 0, 0.182, 'z', 16);
+    g.userData = { length:0.25, name:'T01', desc:'Ø24 end mill' };
+  } else {
+    cyl(g, 'tools', M.steel, 0.025, 0.025, 0.12, 0, 0, 0.102, 'z');
+    cyl(g, 'tools', M.steel, 0.06, 0.06, 0.05, 0, 0, 0.185, 'z', 40);
+    for (let i = 0; i < 8; i++) { const a = i / 8 * Math.PI * 2; box(g, 'tools', M.amber, 0.014, 0.014, 0.014, Math.cos(a) * 0.058, Math.sin(a) * 0.058, 0.204); }
+    g.userData = { length:0.21, name:'T02', desc:'Ø125 face mill' };
+  }
+  return g;
+}
+const toolA = makeTool('end', 0x2f6fde);
+const toolB = makeTool('face', 0xf0a030);
+spindleRot.add(toolA);
+let toolInSpindle = toolA, toolInPot = toolB;
+
+// ---------------- SADDLE (Z) + B TABLE ----------------
+const sadMover = node(machine, 'sadMover');
+const sadG = expNode(sadMover, [0, 0.5, 0.15]);
+for (const s of [-1, 1]) for (const zo of [-0.22, 0.22]) box(sadG, 'zAxis', M.steel, 0.075, 0.05, 0.15, s * 0.4, 0.76, zo);
+box(sadG, 'saddle', M.cast, 1.0, 0.16, 0.7, 0, 0.88, 0);
+box(sadG, 'saddle', M.blue, 1.004, 0.025, 0.704, 0, 0.935, 0);
+cyl(sadG, 'bTable', M.castDark, 0.28, 0.29, 0.06, 0, 0.99, 0, 'y', 48);
+cyl(sadG, 'bTable', M.black, 0.05, 0.05, 0.1, 0.42, 0.9, 0.3, 'y', 16);
+label(sadG, 'Table saddle', 'saddle', -0.55, 0.88, 0.2);
+label(sadG, 'B rotary table', 'bTable', -0.42, 1.04, -0.25, 'minor');
+lineArrow(sadG, 'saddle', new THREE.Vector3(0.66, 0.9, 0), new THREE.Vector3(0, 0, 1), 0.48, 0x4a97ff, 'Z  table');
+arcArrow(sadG, 'bTable', new THREE.Vector3(0, 1.0, 0), 0.4, 0xb388ff, 'B', -0.6, 1.9);
+const bG = expNode(sadG, [0, 0.3, 0]);
+const bRot = node(bG, 'bRot'); bRot.position.y = 1.10;
+cyl(bRot, 'bTable', M.cast, 0.25, 0.25, 0.08, 0, -0.04, 0, 'y', 48);
+box(bRot, 'bTable', M.amber, 0.03, 0.02, 0.04, 0, -0.03, 0.24);
+const CONES = { table:[], setup:[] };
+for (const sx of [-1, 1]) for (const sz of [-1, 1]) CONES.table.push(cyl(bRot, 'palletClamp', M.cone, 0.012, 0.03, 0.035, sx * 0.16, 0.0175, sz * 0.16, 'y', 20));
+
+// ---------------- PALLETS + TOMBSTONES ----------------
+function makePallet(id, color) {
+  const p = new THREE.Group(); const inner = node(p);
+  box(inner, 'pallet', M.pallet, 0.5, 0.07, 0.5, 0, 0.035, 0);
+  for (const s of [-1, 1]) box(inner, 'pallet', M.pallet, 0.05, 0.03, 0.5, s * 0.275, 0.015, 0);
+  for (const z of [-0.2, 0.2]) box(inner, 'pallet', M.dark, 0.5, 0.004, 0.016, 0, 0.0705, z);
+  for (const s of [-1, 1]) box(inner, 'pallet', std(color, 0.45, 0.2), 0.3, 0.03, 0.006, 0, 0.035, s * 0.2515);
+  for (const s of [-1, 1]) box(inner, 'pallet', std(color, 0.45, 0.2), 0.006, 0.03, 0.3, s * 0.2515, 0.05, 0);
+  const tg = node(inner);
+  box(tg, 'tombstone', M.tomb, 0.42, 0.04, 0.3, 0, 0.09, 0);
+  box(tg, 'tombstone', M.tomb, 0.34, 0.55, 0.2, 0, 0.385, 0);
+  const parts = [];
+  for (const s of [-1, 1]) for (const py of [0.25, 0.5]) {
+    const w = box(tg, 'tombstone', M.raw, 0.18, 0.15, 0.1, 0, py, s * 0.15);
+    const pk = box(tg, 'tombstone', M.pocket, 0.13, 0.08, 0.004, 0, py, s * 0.2015); pk.visible = false;
+    w.userData.pocket = pk; parts.push(w);
+    for (const sx of [-1, 1]) box(tg, 'tombstone', M.black, 0.03, 0.025, 0.06, sx * 0.1, py + 0.065, s * 0.16);
+  }
+  p.userData = { inner, tg, parts, id, color };
+  const lb = label(p, `Pallet ${id}`, 'pallet', 0, 0.82, 0);
+  lb.element.style.borderColor = hexCss(color);
+  return p;
+}
+function setMachined(w, on) {
+  const m = w.material;
+  if (on) { m.color.setHex(0xdde4ea); m.metalness = 0.9; m.roughness = 0.22; }
+  else { m.color.setHex(0x8f8170); m.metalness = 0.15; m.roughness = 0.85; }
+  w.userData.pocket.visible = on;
+}
+const palA = makePallet('A', 0x2f6fde);
+const palB = makePallet('B', 0xf0a030);
+bRot.add(palA);
+let palOnTable = palA, palOnSetup = palB;
+
+// ---------------- APC (rotary twin-pallet changer) ----------------
+const APC_Z = 1.4, ZCHG = 0.8;
+const apcG = expNode(machine, [0, 0, 0.6]);
+box(apcG, 'apc', M.castDark, 0.62, 0.05, 0.62, 0, 0.025, APC_Z);
+cyl(apcG, 'apc', M.cast, 0.2, 0.22, 0.6, 0, 0.35, APC_Z, 'y', 40);
+cyl(apcG, 'apc', M.castDark, 0.206, 0.206, 0.03, 0, 0.64, APC_Z, 'y', 40);
+cyl(apcG, 'apc', M.rail, 0.07, 0.07, 0.2, 0, 0.7, APC_Z, 'y', 24);
+for (const a of [0.5, -0.5]) box(apcG, 'apc', M.amber, 0.04, 0.06, 0.04, Math.sin(a) * 0.215, 0.5, APC_Z + Math.cos(a) * 0.215);
+const apcLift = node(apcG, 'apcLift');
+const apcRot = node(apcLift, 'apcRot'); apcRot.position.set(0, 0, APC_Z);
+cyl(apcRot, 'apc', M.steel, 0.09, 0.09, 0.36, 0, 0.83, 0, 'y', 32);
+cyl(apcRot, 'apc', M.amber, 0.13, 0.13, 0.06, 0, 1.025, 0, 'y', 32);
+box(apcRot, 'apc', M.amber, 0.16, 0.04, 0.66, 0, 1.075, 0);
+for (const s of [-1, 1]) {
+  box(apcRot, 'apc', M.amber, 0.65, 0.04, 0.06, 0, 1.075, s * 0.3);
+  for (const sx of [-1, 1]) box(apcRot, 'apc', M.amber, 0.04, 0.04, 0.6, sx * 0.285, 1.075, s * 0.6);
+}
+box(apcRot, 'apc', M.dark, 1.9, 0.08, 0.03, 0, 1.235, 0);
+box(apcRot, 'apc', M.dark, 1.9, 0.08, 0.03, 0, 2.205, 0);
+for (const s of [-1, 1]) box(apcRot, 'apc', M.dark, 0.08, 1.05, 0.03, s * 0.91, 1.72, 0);
+box(apcRot, 'apc', M.dark, 0.05, 0.89, 0.03, 0, 1.72, 0);
+box(apcRot, 'apc', M.amber, 1.9, 0.03, 0.034, 0, 1.2, 0);
+{ const gl = box(apcRot, 'apc', M.glass, 1.74, 0.89, 0.012, 0, 1.72, 0); gl.material.opacity = 0.2; gl.userData.baseOp = 0.2; }
+label(apcG, 'APC pedestal (lift + turn)', 'apc', 0.34, 0.45, APC_Z);
+label(apcRot, 'H-fork', 'apc', 0.42, 1.1, 0.45, 'minor');
+label(apcRot, 'Partition door (turns with arm)', 'apc', 0, 2.33, 0, 'minor');
+arcArrow(apcG, 'apc', new THREE.Vector3(0, 2.5, APC_Z), 0.55, 0xf0a030, 'APC turns 180°', 0.3, 2.5, false);
+lineArrow(apcG, 'apc', new THREE.Vector3(-0.33, 0.78, APC_Z), new THREE.Vector3(0, 1, 0), 0.12, 0xf0a030, 'Lift');
+
+// ---------------- SETUP STATION ----------------
+const setG = expNode(machine, [0, 0, 1.1]);
+box(setG, 'setup', M.cast, 0.55, 0.9, 0.55, 0, 0.45, 2.0);
+box(setG, 'setup', M.castDark, 0.6, 0.05, 0.6, 0, 0.025, 2.0);
+cyl(setG, 'setup', M.castDark, 0.27, 0.28, 0.12, 0, 0.96, 2.0, 'y', 48);
+const setRot = node(setG, 'setRot'); setRot.position.set(0, 1.10, 2.0);
+cyl(setRot, 'setup', M.cast, 0.25, 0.25, 0.08, 0, -0.04, 0, 'y', 48);
+box(setRot, 'setup', M.amber, 0.04, 0.03, 0.14, 0, -0.07, 0.31);
+for (const sx of [-1, 1]) for (const sz of [-1, 1]) CONES.setup.push(cyl(setRot, 'palletClamp', M.cone, 0.012, 0.03, 0.035, sx * 0.16, 0.0175, sz * 0.16, 'y', 20));
+setRot.add(palB);
+box(setG, 'setup', M.dark, 0.06, 1.1, 0.06, 0.62, 0.55, 2.4);
+box(setG, 'setup', M.paint, 0.16, 0.2, 0.1, 0.62, 1.15, 2.4);
+cyl(setG, 'setup', std(0x2ecc71, 0.4, 0.1, { emissive:0x1a7a40, emissiveIntensity:0.6 }), 0.022, 0.022, 0.02, 0.62, 1.19, 2.455, 'z', 16);
+cyl(setG, 'setup', std(0xe53935, 0.4, 0.1), 0.03, 0.03, 0.03, 0.62, 1.1, 2.46, 'z', 16);
+for (const s of [-1, 1]) { box(setG, 'setup', M.dark, 0.05, 1.7, 0.05, s * 0.85, 0.85, 2.55); box(setG, 'setup', M.amber, 0.06, 0.06, 0.06, s * 0.85, 1.73, 2.55); }
+box(setG, 'setup', M.yellow, 2.0, 0.004, 0.06, 0, 0.003, 2.75);
+for (const s of [-1, 1]) box(setG, 'setup', M.yellow, 0.06, 0.004, 1.2, s * 1.0, 0.003, 2.15);
+label(setG, 'Setup station (operator)', 'setup', 0.42, 0.6, 2.0);
+arcArrow(setG, 'setup', new THREE.Vector3(0, 1.0, 2.0), 0.36, 0xff7ac0, 'Index 90°', 2.2, 1.6);
+
+// ---------------- ATC ----------------
+const P = new THREE.Vector3(-0.85, 1.85, -0.185);
+const atcG = expNode(machine, [-0.4, 0.3, 0.4]);
+cyl(atcG, 'atcArm', M.cast, 0.075, 0.075, 0.3, P.x, P.y, -0.36, 'z');
+box(atcG, 'atcArm', M.castDark, 0.3, 0.3, 0.3, P.x, P.y, -0.62);
+box(atcG, 'atcArm', M.castDark, 0.65, 0.08, 0.12, -1.175, P.y, -0.62);
+const atcSlide = node(atcG, 'atcSlide'); atcSlide.position.copy(P);
+const atcArm = node(atcSlide, 'atcArm');
+box(atcArm, 'atcArm', M.amber, 1.0, 0.07, 0.035, 0, 0, 0);
+cyl(atcArm, 'atcArm', M.castDark, 0.06, 0.06, 0.06, 0, 0, 0, 'z');
+for (const s of [-1, 1]) {
+  const claw = new THREE.Mesh(new THREE.TorusGeometry(0.05, 0.011, 8, 24, Math.PI * 1.25), M.amber);
+  claw.position.set(s * 0.5, 0, 0); claw.rotation.z = s > 0 ? Math.PI * 0.875 : -Math.PI * 0.125;
+  atcArm.add(claw); tag(claw, 'atcArm');
+}
+label(atcG, 'ATC double arm', 'atcArm', P.x, 2.45, -0.3, 'minor');
+
+const magG = expNode(machine, [-0.9, 0, 0]);
+const potG = node(magG, 'pot'); potG.position.set(-1.35, 1.85, -0.20);
+cyl(potG, 'atcMag', M.black, 0.055, 0.055, 0.13, 0, 0, -0.065, 'z');
+potG.add(toolB);
+box(magG, 'atcMag', M.castDark, 0.28, 0.07, 0.07, -1.49, 1.85, -0.265);
+box(magG, 'atcMag', std(0x46505a, 0.4, 0.3, { transparent:true, opacity:0.45, depthWrite:false }), 0.36, 1.5, 1.1, -1.78, 1.65, -0.75);
+box(magG, 'atcMag', M.cast, 0.3, 0.9, 0.8, -1.78, 0.45, -0.75);
+{
+  const yc = [1.27, 2.03], r = 0.33, zc = -0.75, straight = yc[1] - yc[0];
+  const per = 2 * straight + 2 * Math.PI * r, N = 28;
+  const greys = [0x9aa3ad, 0x7c858f, 0xb5bcc4, 0x6b7380];
+  for (let i = 0; i < N; i++) {
+    let d = i / N * per, y, z;
+    if (d < straight) { z = zc + r; y = yc[0] + d; }
+    else if ((d -= straight) < Math.PI * r) { const a = d / r; z = zc + r * Math.cos(a); y = yc[1] + r * Math.sin(a); }
+    else if ((d -= Math.PI * r) < straight) { z = zc - r; y = yc[1] - d; }
+    else { d -= straight; const a = Math.PI + d / r; z = zc + r * Math.cos(a); y = yc[0] + r * Math.sin(a); }
+    cyl(magG, 'atcMag', M.black, 0.045, 0.045, 0.04, -1.83, y, z, 'x', 16);
+    cyl(magG, 'atcMag', std(greys[i % 4], 0.3, 0.8), 0.03, 0.03, 0.14, -1.71, y, z, 'x', 12);
+  }
+}
+label(magG, 'Tool magazine', 'atcMag', -1.78, 2.55, -0.75, 'minor');
+
+// ---------------- AUXILIARIES ----------------
+const auxG = expNode(machine, [0.5, 0, 0]);
+box(auxG, 'chip', M.paint, 0.5, 0.32, 0.42, 1.5, 0.16, 0.95);
+{ const inc = box(auxG, 'chip', M.paint, 1.30, 0.3, 0.42, 2.1, 0.705, 0.95); inc.rotation.z = 1.0; }
+box(auxG, 'chip', M.paint, 0.32, 0.26, 0.44, 2.55, 1.3, 0.95);
+box(auxG, 'chip', M.dark, 0.55, 0.5, 0.6, 2.78, 0.3, 0.95);
+label(auxG, 'Chip conveyor', 'chip', 2.35, 1.55, 0.95, 'minor');
+box(auxG, 'coolant', M.paint, 1.0, 0.5, 0.9, 2.05, 0.25, -1.15);
+for (const x of [1.75, 2.0]) { cyl(auxG, 'coolant', M.black, 0.07, 0.07, 0.25, x, 0.625, -1.0); cyl(auxG, 'coolant', M.blue, 0.05, 0.05, 0.08, x, 0.79, -1.0); }
+box(auxG, 'coolant', M.cover, 0.4, 0.35, 0.4, 2.3, 0.675, -1.3);
+label(auxG, 'Coolant tank', 'coolant', 2.05, 0.95, -1.15, 'minor');
+
+const cabG = expNode(machine, [0, 0, -0.6]);
+box(cabG, 'cabinet', M.paint, 1.4, 2.0, 0.55, 0.5, 1.0, -2.225);
+box(cabG, 'cabinet', M.dark, 0.01, 1.9, 0.006, 0.5, 1.0, -2.503);
+for (const x of [0.38, 0.62]) box(cabG, 'cabinet', M.dark, 0.03, 0.18, 0.03, x, 1.1, -2.51);
+box(cabG, 'cabinet', M.cover, 0.35, 0.55, 0.12, 0.9, 1.5, -2.56);
+box(cabG, 'cabinet', M.blue, 0.8, 0.55, 0.6, -0.95, 0.275, -2.225);
+cyl(cabG, 'cabinet', M.black, 0.1, 0.1, 0.3, -1.12, 0.7, -2.225);
+cyl(cabG, 'cabinet', M.amber, 0.08, 0.08, 0.5, -0.72, 0.8, -2.3);
+label(cabG, 'Electrical cabinet', 'cabinet', 0.5, 2.15, -2.225, 'minor');
+label(cabG, 'Hydraulic unit', 'cabinet', -0.95, 1.1, -2.225, 'minor');
+
+const ctlG = node(machine);
+box(ctlG, 'control', M.dark, 0.45, 0.06, 0.06, 1.72, 2.4, 1.55);
+box(ctlG, 'control', M.dark, 0.05, 0.4, 0.05, 1.92, 2.18, 1.55);
+const scrCanvas = document.createElement('canvas'); scrCanvas.width = 256; scrCanvas.height = 192;
+const scrCtx = scrCanvas.getContext('2d');
+const scrTex = new THREE.CanvasTexture(scrCanvas); scrTex.colorSpace = THREE.SRGBColorSpace;
+{
+  const pg = node(ctlG); pg.position.set(1.92, 1.62, 1.6); pg.rotation.y = 0.7;
+  box(pg, 'control', M.paint, 0.5, 0.75, 0.12, 0, 0, 0);
+  const scr = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.3), new THREE.MeshBasicMaterial({ map:scrTex, toneMapped:false }));
+  scr.position.set(0, 0.17, 0.061); pg.add(scr); tag(scr, 'control');
+  box(pg, 'control', M.dark, 0.4, 0.22, 0.01, 0, -0.15, 0.062);
+  cyl(pg, 'control', std(0xe53935, 0.4, 0.1), 0.03, 0.03, 0.03, 0.18, -0.31, 0.07, 'z', 16);
+  label(pg, 'CNC panel', 'control', 0, 0.48, 0, 'minor');
+}
+
+// ---------------- ENCLOSURE ----------------
+const encG = node(machine, 'enclosure');
+const LAMPS = {};
+{
+  const X0 = -1.5, X1 = 1.5, Z0 = -1.9, Z1 = 1.43, H = 3.1, zc = (Z0 + Z1) / 2, D = Z1 - Z0, LH = 0.9;
+  for (const [x, z] of [[X0, Z0], [X1, Z0], [X0, Z1], [X1, Z1]]) box(encG, 'enclosure', M.dark, 0.06, H, 0.06, x, H / 2, z);
+  for (const z of [Z0, Z1]) box(encG, 'enclosure', M.dark, 3.0, 0.06, 0.06, 0, H, z);
+  for (const x of [X0, X1]) box(encG, 'enclosure', M.dark, 0.06, 0.06, D, x, H, zc);
+  for (const x of [X0, X1]) { box(encG, 'enclosure', M.paint, 0.02, LH, D, x, LH / 2, zc); box(encG, 'enclosure', M.glass, 0.012, H - LH, D, x, LH + (H - LH) / 2, zc); }
+  box(encG, 'enclosure', M.paint, 3.0, LH, 0.02, 0, LH / 2, Z0);
+  box(encG, 'enclosure', M.glass, 3.0, H - LH, 0.012, 0, LH + (H - LH) / 2, Z0);
+  box(encG, 'enclosure', M.glass, 3.0, 0.012, D, 0, H, zc);
+  for (const s of [-1, 1]) {
+    box(encG, 'enclosure', M.paint, 0.52, LH, 0.02, s * 1.24, LH / 2, Z1);
+    box(encG, 'enclosure', M.glass, 0.52, H - LH, 0.012, s * 1.24, LH + (H - LH) / 2, Z1);
+    box(encG, 'enclosure', M.dark, 0.05, H, 0.05, s * 0.98, H / 2, Z1);
+  }
+  box(encG, 'enclosure', M.paint, 1.96, 1.0, 0.02, 0, 0.5, Z1);
+  box(encG, 'enclosure', M.glass, 1.96, 0.8, 0.012, 0, 2.7, Z1);
+  box(encG, 'enclosure', M.dark, 1.96, 0.05, 0.05, 0, 2.3, Z1);
+  for (const y of [0.9, 2.6]) box(encG, 'enclosure', M.dark, 0.04, 0.05, 1.3, X1 + 0.012, y, 0.35);
+  for (const z of [-0.3, 1.0]) box(encG, 'enclosure', M.dark, 0.04, 1.7, 0.05, X1 + 0.012, 1.75, z);
+  box(encG, 'enclosure', M.amber, 0.04, 0.28, 0.035, X1 + 0.03, 1.6, 0.9);
+  box(encG, 'enclosure', M.black, 0.05, 0.08, 0.06, X1 + 0.03, 1.95, 0.9);
+  cyl(encG, 'enclosure', M.dark, 0.015, 0.015, 0.24, 1.35, H + 0.12, 1.3, 'y', 10);
+  [['red', 0xe53935, 0.44], ['amber', 0xf2a33a, 0.36], ['green', 0x3ecf7a, 0.28]].forEach(([k, c, dy]) => {
+    LAMPS[k] = { mesh: cyl(encG, 'enclosure', std(c, 0.3, 0.1, { transparent:true, opacity:0.92 }), 0.04, 0.04, 0.075, 1.35, H + dy, 1.3, 'y', 20), color:c };
+  });
+  label(encG, 'Splash guard / operator door', 'enclosure', X1, 2.75, 0.35, 'minor');
+}
+
+// world axis triad
+{
+  const o = new THREE.Vector3(-2.6, 0.02, 2.4), L = 0.6;
+  [[new THREE.Vector3(1, 0, 0), 0xe8453a, 'X+'], [new THREE.Vector3(0, 1, 0), 0x4fd364, 'Y+'], [new THREE.Vector3(0, 0, 1), 0x4a97ff, 'Z+']].forEach(([d, c, t]) => {
+    scene.add(new THREE.ArrowHelper(d, o, L, c, 0.12, 0.06));
+    const lb = label(scene, t, null, o.x + d.x * (L + 0.1), o.y + d.y * (L + 0.1), o.z + d.z * (L + 0.1), 'axis');
+    lb.element.style.color = hexCss(c);
+  });
+}
+
+/* =====================================================================
+   STATE / KINEMATICS
+   ===================================================================== */
+const S = { x:0, y:1.45, z:0.45, b:0, apcLift:0, apcRot:0, rpm:0, spAngle:0, coolant:0,
+            atcRot:Math.PI / 2, atcSlide:0, setupB:0, explode:0 };
+const SPD = { x:0.45, y:0.45, z:0.45, b:2.2, setupB:1.5 };
+const viewOpt = { enclosure:false, covers:true, arrows:true };
+let clampTable = true, clampSetup = true;
+
+function applyState(dt) {
+  colMover.position.x = S.x;
+  headMover.position.y = S.y;
+  sadMover.position.z = S.z;
+  bRot.rotation.y = -S.b;
+  apcLift.position.y = S.apcLift;
+  apcRot.rotation.y = S.apcRot;
+  spindleRot.rotation.z = S.spAngle;
+  atcSlide.position.z = P.z + S.atcSlide;
+  atcArm.rotation.z = S.atcRot;
+  setRot.rotation.y = -S.setupB;
+  for (const g of EXP) g.position.copy(g.userData.ev).multiplyScalar(S.explode);
+  for (const p of [palA, palB]) { p.userData.inner.position.y = S.explode * 0.35; p.userData.tg.position.y = S.explode * 0.3; }
+  xCovL.update(-1.28, S.x - 0.46); xCovR.update(S.x + 0.46, 1.28);
+  zCovR.update(-0.62, S.z - 0.36); zCovF.update(S.z + 0.36, 1.18);
+  yCovT.update(S.y + 0.285, 2.72); yCovB.update(0.86, S.y - 0.285);
+  for (const r of RODS) { const top = 2.30, bot = S.y + 0.28; r.scale.y = Math.max(0.01, top - bot); r.position.y = (top + bot) / 2; }
+  const cv = viewOpt.covers && S.explode < 0.05; COVERS.forEach(c => c.g.visible = cv);
+  encG.visible = viewOpt.enclosure && S.explode < 0.02;
+  const cool = S.coolant > 0.5;
+  SPRAYS.forEach(s => s.visible = cool);
+  if (cool) SCREWS.forEach(s => s.rotation.z += dt * 3);
+}
+
+/* ---------------- tween engine ---------------- */
+const tweens = [];
+function to(key, target, dur, ease='smooth') {
+  return new Promise(res => tweens.push({ key, from:S[key], to:target, t:0, dur:Math.max(dur, 0.01), ease, res }));
+}
+const wait = sec => new Promise(res => tweens.push({ key:null, t:0, dur:sec, res }));
+function rapid(obj) {
+  return Promise.all(Object.entries(obj).map(([k, v]) => to(k, v, Math.abs(v - S[k]) / (SPD[k] || 0.5) + 0.2)));
+}
+function feed(obj, v) {
+  const d = Math.max(...Object.entries(obj).map(([k, val]) => Math.abs(val - S[k])));
+  return Promise.all(Object.entries(obj).map(([k, val]) => to(k, val, d / v + 0.05, 'lin')));
+}
+function stepTweens(dt) {
+  for (let i = tweens.length - 1; i >= 0; i--) {
+    const tw = tweens[i]; tw.t += dt;
+    const p = Math.min(1, tw.t / tw.dur);
+    if (tw.key) { const e = tw.ease === 'lin' ? p : p * p * (3 - 2 * p); S[tw.key] = tw.from + (tw.to - tw.from) * e; }
+    if (p >= 1) { tweens.splice(i, 1); tw.res(); }
+  }
+}
+const TAU = Math.PI * 2;
+const nearestEq = (cur, base) => base + Math.round((cur - base) / TAU) * TAU;
+function normAngle(k) { S[k] = ((S[k] % TAU) + TAU) % TAU; if (Math.abs(S[k] - TAU) < 1e-6) S[k] = 0; }
+
+/* ---------------- re-parenting (pallets / tools) ---------------- */
+const _v = new THREE.Vector3(), _q = new THREE.Quaternion();
+function worldYaw(o) { o.getWorldQuaternion(_q); const f = new THREE.Vector3(0, 0, 1).applyQuaternion(_q); return Math.atan2(f.x, f.z); }
+function reseatPallets() {
+  for (const p of [palA, palB]) {
+    p.getWorldPosition(_v);
+    const target = _v.z < APC_Z ? bRot : setRot;
+    target.attach(p);
+    const f = new THREE.Vector3(0, 0, 1).applyQuaternion(p.quaternion);
+    const yaw = Math.round(Math.atan2(f.x, f.z) / (Math.PI / 2)) * (Math.PI / 2);
+    p.position.set(0, 0, 0); p.rotation.set(0, yaw, 0);
+    if (target === bRot) palOnTable = p; else palOnSetup = p;
+  }
+}
+function reseatTools() {
+  for (const t of [toolA, toolB]) {
+    t.getWorldPosition(_v);
+    const target = _v.x < -0.85 ? potG : spindleRot;
+    target.attach(t); t.position.set(0, 0, 0); t.rotation.set(0, 0, 0);
+    if (target === spindleRot) toolInSpindle = t; else toolInPot = t;
+  }
+}
+function setCones(which, clamped) {
+  if (which === 'table') clampTable = clamped; else clampSetup = clamped;
+  for (const o of CONES[which]) {
+    o.material.color.setHex(clamped ? 0x3ecf7a : 0xef5350);
+    o.userData.emi.setHex(clamped ? 0x1a7a40 : 0x8a1f1f);
+    if (selected !== 'palletClamp') o.material.emissive.copy(o.userData.emi);
+  }
+}
+function setLamp(state) {
+  for (const [k, L] of Object.entries(LAMPS)) {
+    const on = k === state, m = L.mesh.material;
+    L.mesh.userData.emi.setHex(on ? L.color : 0x000000); L.mesh.userData.emiI = on ? 1.8 : 0;
+    if (selected !== 'enclosure') { m.emissive.copy(L.mesh.userData.emi); m.emissiveIntensity = L.mesh.userData.emiI; }
+  }
+  document.getElementById('lampDot').style.background = { red:'#ef5350', amber:'#f2a33a', green:'#3ecf7a' }[state] || '#555';
+}
+
+/* =====================================================================
+   VISIBILITY / COLOUR MODES  (tour, APC focus, isolate, colour-by-axis)
+   ===================================================================== */
+const $ = id => document.getElementById(id);
+let selected = null, isolate = false, colorMode = true;
+const vis = { tour:null, apcFocus:false };
+const APC_HIDE = ['enclosure', 'atcMag', 'atcArm', 'chip', 'coolant', 'cabinet', 'control', 'covers'];
+const APC_GHOST = ['column', 'head', 'yAxis', 'spindle', 'tools', 'xAxis'];
+function partState(id) {
+  if (vis.tour && !vis.tour.has(id)) return 'hidden';
+  if (vis.apcFocus) { if (APC_HIDE.includes(id)) return 'hidden'; if (APC_GHOST.includes(id)) return 'ghost'; }
+  if (isolate && selected && id !== selected) return 'ghost';
+  return 'normal';
+}
+function refreshVisibility() {
+  for (const [id, list] of Object.entries(PARTS)) {
+    const st = partState(id);
+    for (const o of list) {
+      const m = o.material, u = o.userData;
+      m.visible = st !== 'hidden';
+      if (st === 'ghost') { m.transparent = true; m.opacity = Math.min(u.baseOp, 0.09); m.depthWrite = false; }
+      else { m.transparent = u.baseTr; m.opacity = u.baseOp; m.depthWrite = u.baseDW; }
+      m.needsUpdate = true; u.ghost = st !== 'normal';
+    }
+  }
+  const cur = tourIdx >= 0 ? TOUR[tourIdx].ids : [];
+  for (const l of LABELS) {
+    const p = l.element.dataset.part, minor = l.element.classList.contains('minor');
+    l.userData.base = !(p && partState(p) !== 'normal') && (!minor || p === selected || cur.includes(p) || (vis.apcFocus && p === 'apc'));
+  }
+  for (const a of ARROWS) { const ok = viewOpt.arrows && partState(a.part) !== 'hidden'; a.g.visible = ok; a.lb.userData.base = ok; }
+}
+function applyColors() {
+  for (const [id, list] of Object.entries(PARTS)) {
+    if (id === 'tombstone' || id === 'palletClamp') continue;
+    const c = colorMode ? AXIS_COL[id] : undefined;
+    for (const o of list) {
+      const m = o.material, u = o.userData;
+      if (!u.col0 || m.map || u.baseTr) continue;
+      if (c === undefined) { m.color.copy(u.col0); continue; }
+      const k = Math.min(1.1, Math.max(0.18, (u.col0.r + u.col0.g + u.col0.b) / 3 / 0.62));
+      m.color.setHex(c).multiplyScalar(k);
+    }
+  }
+  $('legend').hidden = !colorMode;
+  document.querySelectorAll('.plist .sw').forEach(s => { const c = AXIS_COL[s.dataset.part]; s.style.background = colorMode && c ? hexCss(c) : '#59616b'; });
+}
+$('legend').innerHTML = LEGEND.map(([k, c, t]) => `<div><span class="sw" style="background:${hexCss(c)}"></span><b style="color:${hexCss(c)}">${k}</b>${t}</div>`).join('');
+
+/* =====================================================================
+   APC TOP-VIEW DIAGRAM (live)
+   ===================================================================== */
+const SK = 80, SXc = 112, SZ0 = -1.0, SY0 = 24;
+const sx = x => SXc + x * SK, sz = z => SY0 + (z - SZ0) * SK;
+$('schem').innerHTML = `
+<svg width="236" height="400" viewBox="0 0 236 400">
+  <text x="4" y="12" class="st">TOP VIEW · PALLET CHANGER (live)</text>
+  <text x="${sx(0)}" y="${sz(-0.98)}" class="lb" text-anchor="middle">column / spindle side</text>
+  <rect x="${sx(-1.3)}" y="${sz(-0.95)}" width="${2.6 * SK}" height="${0.15 * SK}" fill="#2a3038" stroke="#46505c"/>
+  <rect x="${sx(-0.6)}" y="${sz(-0.8)}" width="${1.2 * SK}" height="${2.0 * SK}" fill="#2a3038" stroke="#46505c"/>
+  <line x1="${sx(-0.4)}" y1="${sz(-0.75)}" x2="${sx(-0.4)}" y2="${sz(1.17)}" stroke="#4a97ff" stroke-opacity=".5"/>
+  <line x1="${sx(0.4)}" y1="${sz(-0.75)}" x2="${sx(0.4)}" y2="${sz(1.17)}" stroke="#4a97ff" stroke-opacity=".5"/>
+  <g id="skHead"><rect x="${-0.31 * SK}" y="${sz(-0.88)}" width="${0.62 * SK}" height="${0.48 * SK}" fill="#2c4a33" stroke="#4fd364"/>
+    <rect x="${-0.1 * SK}" y="${sz(-0.4)}" width="${0.2 * SK}" height="${0.2 * SK}" fill="#1d4a4d" stroke="#3fd0d8"/>
+    <line id="skTool" x1="0" y1="${sz(-0.2)}" x2="0" y2="${sz(0.05)}" stroke="#3fd0d8" stroke-width="3"/></g>
+  <g id="skSad"><rect x="${-0.5 * SK}" y="${-0.35 * SK}" width="${SK}" height="${0.7 * SK}" fill="#1f3354" stroke="#4a97ff" rx="2"/>
+    <g id="skB"><circle r="${0.25 * SK}" fill="#3a2f55" stroke="#b388ff" stroke-width="1.5"/><line x1="0" y1="0" x2="0" y2="${0.24 * SK}" stroke="#b388ff" stroke-width="2"/></g></g>
+  <line x1="${sx(-1.3)}" y1="${sz(1.43)}" x2="${sx(-0.98)}" y2="${sz(1.43)}" stroke="#8691a0" stroke-width="3"/>
+  <line x1="${sx(0.98)}" y1="${sz(1.43)}" x2="${sx(1.3)}" y2="${sz(1.43)}" stroke="#8691a0" stroke-width="3"/>
+  <text x="${sx(-1.3)}" y="${sz(1.36)}" class="lb">machine</text>
+  <text x="${sx(-1.3)}" y="${sz(1.56)}" class="lb">operator</text>
+  <circle cx="${sx(0)}" cy="${sz(2.0)}" r="${0.28 * SK}" fill="#3d2434" stroke="#ff7ac0" stroke-width="1.5"/>
+  <text x="${sx(0.33)}" y="${sz(2.36)}" class="lb" fill="#ff7ac0">setup station</text>
+  <circle cx="${sx(0)}" cy="${sz(APC_Z)}" r="${0.2 * SK}" fill="#3a2d16" stroke="#f0a030"/>
+  <g id="skPA"><rect x="${-0.25 * SK}" y="${-0.25 * SK}" width="${0.5 * SK}" height="${0.5 * SK}" rx="2" fill="#2f6fde" fill-opacity=".55" stroke="#7fb0ff" stroke-width="1.5"/><text y="5" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">A</text></g>
+  <g id="skPB"><rect x="${-0.25 * SK}" y="${-0.25 * SK}" width="${0.5 * SK}" height="${0.5 * SK}" rx="2" fill="#f0a030" fill-opacity=".55" stroke="#ffd08a" stroke-width="1.5"/><text y="5" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">B</text></g>
+  <g id="skArm" stroke="#f0a030" stroke-width="3" fill="none" stroke-linecap="round">
+    <line x1="${-0.95 * SK}" y1="0" x2="${0.95 * SK}" y2="0" stroke="#dfe3e8" stroke-width="4"/>
+    <line x1="0" y1="${-0.3 * SK}" x2="0" y2="${0.3 * SK}"/>
+    <line x1="${-0.3 * SK}" y1="${-0.3 * SK}" x2="${0.3 * SK}" y2="${-0.3 * SK}"/><line x1="${-0.3 * SK}" y1="${0.3 * SK}" x2="${0.3 * SK}" y2="${0.3 * SK}"/>
+    <line x1="${-0.285 * SK}" y1="${-0.3 * SK}" x2="${-0.285 * SK}" y2="${-0.9 * SK}" stroke-width="2"/><line x1="${0.285 * SK}" y1="${-0.3 * SK}" x2="${0.285 * SK}" y2="${-0.9 * SK}" stroke-width="2"/>
+    <line x1="${-0.285 * SK}" y1="${0.3 * SK}" x2="${-0.285 * SK}" y2="${0.9 * SK}" stroke-width="2"/><line x1="${0.285 * SK}" y1="${0.3 * SK}" x2="${0.285 * SK}" y2="${0.9 * SK}" stroke-width="2"/>
+  </g>
+  <text x="${sx(0.62)}" y="${sz(APC_Z) + 4}" class="lb" fill="#f0a030">APC</text>
+  <g transform="translate(222,${sz(-0.6)})"><rect x="-5" y="0" width="10" height="70" fill="#1c2026" stroke="#46505c"/><rect id="skLift" x="-5" y="70" width="10" height="0" fill="#f0a030"/>
+    <text x="0" y="82" class="lb" text-anchor="middle">lift</text></g>
+  <text id="sk1" x="4" y="344" class="tx"></text>
+  <text id="sk2" x="4" y="360" class="tx"></text>
+  <text id="sk3" x="4" y="376" class="tx"></text>
+  <text id="sk4" x="4" y="392" class="tx"></text>
+</svg>`;
+const sk = id => document.getElementById(id);
+function updateSchem() {
+  if ($('schem').hidden) return;
+  const deg = r => (r * 180 / Math.PI);
+  sk('skHead').setAttribute('transform', `translate(${sx(S.x)},0)`);
+  sk('skTool').setAttribute('y2', sz(-0.2 + toolInSpindle.userData.length));
+  sk('skSad').setAttribute('transform', `translate(${sx(0)},${sz(S.z)})`);
+  sk('skB').setAttribute('transform', `rotate(${deg(S.b)})`);
+  sk('skArm').setAttribute('transform', `translate(${sx(0)},${sz(APC_Z)}) rotate(${-deg(S.apcRot)})`);
+  for (const [p, id] of [[palA, 'skPA'], [palB, 'skPB']]) {
+    p.getWorldPosition(_v);
+    const lifted = p.parent === apcRot && S.apcLift > 0.005;
+    const g = sk(id); g.setAttribute('transform', `translate(${sx(_v.x)},${sz(_v.z)}) rotate(${-deg(worldYaw(p))})`);
+    g.firstElementChild.setAttribute('stroke-dasharray', lifted ? '4 2' : '');
+  }
+  const h = S.apcLift / 0.1 * 70; sk('skLift').setAttribute('y', 70 - h); sk('skLift').setAttribute('height', h);
+  const zmm = (S.z - 0.2) * 1000, bd = ((deg(S.b) % 360) + 360) % 360, ad = ((deg(S.apcRot) % 360) + 360) % 360;
+  sk('sk1').textContent = `Z ${zmm.toFixed(0).padStart(4)} mm ${S.z > ZCHG - 0.002 ? '◄ change pos.' : ''}`;
+  sk('sk2').textContent = `B ${bd.toFixed(1).padStart(5)}°  APC ${ad.toFixed(0)}° lift ${(S.apcLift * 1000).toFixed(0)}`;
+  const c3 = sk('sk3'), c4 = sk('sk4');
+  c3.textContent = `Table clamp: ${clampTable ? 'CLAMPED' : 'UNCLAMPED'}`; c3.setAttribute('fill', clampTable ? '#3ecf7a' : '#ef5350');
+  c4.textContent = `Setup clamp: ${clampSetup ? 'CLAMPED' : 'UNCLAMPED'}`; c4.setAttribute('fill', clampSetup ? '#3ecf7a' : '#ef5350');
+}
+
+/* =====================================================================
+   SEQUENCES
+   ===================================================================== */
+let busy = false, autoOn = false, stopReq = false, stepMode = false, nextResolve = null, mtime = 0, capTimer = null;
+const logEl = $('log');
+function log(msg, cls='') {
+  const d = document.createElement('div'); d.className = 'ln ' + cls;
+  const t = document.createElement('span'); t.className = 't'; t.textContent = mtime.toFixed(1).padStart(7) + 's  ';
+  d.append(t, document.createTextNode(msg)); logEl.appendChild(d);
+  while (logEl.children.length > 300) logEl.firstChild.remove();
+  logEl.scrollTop = logEl.scrollHeight;
+}
+function setStatus(t) { $('statusTxt').textContent = t; }
+function caption(title, step, frac) {
+  clearTimeout(capTimer);
+  const c = $('cap'); c.hidden = false;
+  c.querySelector('.t').textContent = title; c.querySelector('.s').textContent = step;
+  c.querySelector('.bar i').style.width = (frac * 100).toFixed(0) + '%';
+}
+
+async function runSeq(title, steps) {
+  $('seqTitle').textContent = title;
+  const ol = $('steps'); ol.innerHTML = '';
+  const lis = steps.map(s => { const li = document.createElement('li'); li.textContent = s.t; ol.appendChild(li); return li; });
+  log('══ ' + title, 'step'); setStatus(title);
+  for (let i = 0; i < steps.length; i++) {
+    lis[i].className = 'active'; lis[i].scrollIntoView({ block:'nearest' });
+    caption(`${title} · step ${i + 1} / ${steps.length}`, steps[i].t, i / steps.length);
+    log('▶ ' + steps[i].t, 'step');
+    (steps[i].io || []).forEach(x => log('   ' + x, 'io'));
+    await steps[i].fn();
+    lis[i].className = 'done';
+    if (stepMode && i < steps.length - 1) { caption(`${title} · step ${i + 1} / ${steps.length} done`, 'Press "Next step ▶" to continue', (i + 1) / steps.length); await waitNext(); }
+  }
+  caption(title, '✓ Completed', 1);
+  capTimer = setTimeout(() => { if (!busy) $('cap').hidden = true; }, 2500);
+}
+function waitNext() {
+  const b = $('bNext'); b.disabled = false;
+  return new Promise(r => nextResolve = () => { b.disabled = true; nextResolve = null; r(); });
+}
+
+const palletSteps = () => [
+  { t:'Interlock check: door closed, setup area clear, "pallet ready" PB pressed',
+    io:['X1.0 OPERATOR DOOR CLOSED = 1', 'X1.4 LIGHT CURTAIN CLEAR = 1', 'X1.5 PALLET READY PB = 1'], fn:() => wait(0.6) },
+  { t:'M60: spindle stop (M05), coolant off (M09)', io:['M60 PALLET CHANGE'],
+    fn:() => Promise.all([to('rpm', 0, 0.6), to('coolant', 0, 0.2)]) },
+  { t:'B-axis turns to 0°, setup station locked at 0°, head to safe position',
+    fn:async () => { await rapid({ b:nearestEq(S.b, 0), setupB:nearestEq(S.setupB, 0), x:0, y:Math.max(S.y, 1.55) }); normAngle('b'); normAngle('setupB'); } },
+  { t:'Z-axis drives the table INTO the APC fork (pallet-change position Z 600)', fn:() => rapid({ z:ZCHG }) },
+  { t:'Unclamp both pallets (table + setup station), air-blow the cones',
+    io:['Y2.0 TABLE UNCLAMP SOL = 1', 'Y2.2 SETUP UNCLAMP SOL = 1', 'Y2.4 CONE AIR BLOW = 1', 'X2.1 / X2.3 UNCLAMP CONFIRM = 1'],
+    fn:async () => { setCones('table', false); setCones('setup', false); await wait(0.9); } },
+  { t:'APC arm UP 100 mm: the fork lifts both pallets off the cones', io:['Y3.0 APC UP SOL = 1', 'X3.1 APC UP LS = 1'],
+    fn:async () => { apcRot.attach(palOnTable); apcRot.attach(palOnSetup); await to('apcLift', 0.10, 1.1); } },
+  { t:'APC turns 180°: the pallets and the partition door swap sides', io:['Y3.2 APC ROTATE SOL = 1', 'X3.3 APC 180° LS = 1'],
+    fn:() => to('apcRot', S.apcRot + Math.PI, 2.4) },
+  { t:'APC arm DOWN: pallets seated on the taper cones', io:['Y3.0 APC UP SOL = 0', 'X3.0 APC DOWN LS = 1'],
+    fn:async () => { await to('apcLift', 0, 1.1); reseatPallets(); } },
+  { t:'Clamp (disc springs) + seating check by air-gap sensors',
+    io:['Y2.0 / Y2.2 UNCLAMP SOL = 0', 'Y2.4 CONE AIR BLOW = 0', 'X2.5 SEATING AIR-GAP OK = 1', 'X2.0 / X2.2 CLAMP CONFIRM = 1'],
+    fn:async () => { setCones('table', true); setCones('setup', true); await wait(0.9); } },
+  { t:'Z-axis pulls the new pallet back to the spindle: M60 complete', io:['M60 FIN'], fn:() => rapid({ z:0.45 }) },
+];
+
+const toolSteps = () => [
+  { t:'M06: spindle stop + orient (M19), Z retracts', io:['M06', 'M19 SPINDLE ORIENT'],
+    fn:async () => { await Promise.all([to('rpm', 0, 0.5), to('coolant', 0, 0.2), rapid({ z:Math.max(S.z, 0.6) })]);
+                     await to('spAngle', Math.ceil(S.spAngle / TAU) * TAU, 0.5); } },
+  { t:'Spindle to tool-change position (X −350, Y 750)', fn:() => rapid({ x:-0.35, y:1.85 }) },
+  { t:'Pot shifter presents next tool (pot down 90°)', io:['Y4.0 POT DOWN SOL = 1', 'X4.1 POT DOWN LS = 1'], fn:() => wait(0.5) },
+  { t:'ATC arm swings 90°: grips both tools', io:['ATC CAM START', 'X4.4 ARM GRIP POSITION = 1'],
+    fn:() => to('atcRot', S.atcRot + Math.PI / 2, 0.7) },
+  { t:'Drawbar unclamps: arm pulls both tools out (120 mm)', io:['Y4.2 TOOL UNCLAMP SOL = 1', 'X4.3 UNCLAMP CONFIRM = 1'],
+    fn:async () => { atcArm.attach(toolInSpindle); atcArm.attach(toolInPot); await to('atcSlide', 0.12, 0.6); } },
+  { t:'Arm indexes 180°: tools swapped', fn:() => to('atcRot', S.atcRot + Math.PI, 0.9) },
+  { t:'Arm inserts tools: drawbar clamps the new tool', io:['Y4.2 TOOL UNCLAMP SOL = 0', 'X4.5 TOOL CLAMP CONFIRM = 1'],
+    fn:async () => { await to('atcSlide', 0, 0.6); reseatTools(); } },
+  { t:'Arm returns to park, pot up: M06 complete', io:['X4.6 ARM ORIGIN = 1', 'M06 FIN'],
+    fn:async () => { await to('atcRot', S.atcRot + Math.PI / 2, 0.7); log(`   Active tool: ${toolInSpindle.userData.name} ${toolInSpindle.userData.desc}`, 'io'); } },
+];
+
+const spOn = () => Promise.all([to('rpm', 9000, 0.8), to('coolant', 1, 0.2)]);
+function markMachined(p, py) {
+  const pc = new THREE.Vector3(); p.getWorldPosition(pc);
+  for (const w of p.userData.parts) { w.getWorldPosition(_v); if (Math.abs(_v.y - py) < 0.05 && _v.z < pc.z) setMachined(w, true); }
+}
+async function cutPart(face, py) {
+  const L = toolInSpindle.userData.length;
+  const bT = nearestEq(S.b, face * Math.PI);
+  await rapid({ z:Math.max(S.z, L + 0.08) });
+  if (Math.abs(S.b - bT) > 1e-3) await rapid({ b:bT });
+  await rapid({ x:-0.16, y:py + 0.04 });
+  await rapid({ z:L + 0.03 });
+  await feed({ z:L - 0.004 }, 0.03);
+  await feed({ x:0.16 }, 0.12);
+  await feed({ y:py - 0.04 }, 0.08);
+  await feed({ x:-0.16 }, 0.12);
+  await rapid({ z:L + 0.08 });
+  markMachined(palOnTable, py);
+}
+const machSteps = () => [
+  { t:`Cycle start: pallet ${palOnTable.userData.id}, door locked`, io:['X1.0 DOOR CLOSED = 1', 'Y1.1 DOOR LOCK = 1'], fn:() => wait(0.4) },
+  { t:'Spindle ON 9000 min⁻¹, coolant ON (M03 / M08)', io:['M03 S9000', 'M08'], fn:spOn },
+  { t:'B 0°: face 1, part 1 (face + pocket)', fn:() => cutPart(0, 1.35) },
+  { t:'B 0°: face 1, part 2', fn:() => cutPart(0, 1.60) },
+  ...toolSteps(),
+  { t:'Spindle ON, coolant ON', io:['M03 S9000', 'M08'], fn:spOn },
+  { t:'B 180°: face 2, part 1', fn:() => cutPart(1, 1.35) },
+  { t:'B 180°: face 2, part 2', fn:() => cutPart(1, 1.60) },
+  { t:'M05 / M09: spindle and coolant off, Z retract', io:['M05', 'M09'],
+    fn:() => Promise.all([to('rpm', 0, 0.6), to('coolant', 0, 0.2), rapid({ z:Math.max(S.z, 0.45) })]) },
+];
+function operatorReload(p) {
+  (async () => {
+    await wait(3);
+    if (p !== palOnSetup) return;
+    p.userData.parts.forEach(w => setMachined(w, false));
+    log(`Operator: unloaded finished parts from pallet ${p.userData.id}, loaded raw stock, pressed PALLET READY`, 'op');
+  })();
+}
+
+async function exclusive(fn) {
+  if (busy) return;
+  if (tourIdx >= 0) exitTour();
+  $('tour').hidden = true;
+  busy = true; refreshUI(); setLamp('green');
+  try {
+    if (S.explode > 0.001) await to('explode', 0, 0.6);
+    await fn();
+  } catch (e) { console.error(e); log('ALARM: ' + e.message, 'err'); setLamp('red'); }
+  finally { busy = false; autoOn = false; stopReq = false; refreshUI(); setLamp('amber'); setStatus('Idle'); }
+}
+const doPallet = () => { if (busy) return; setApcFocus(true); exclusive(async () => { await runSeq('Pallet change (M60)', palletSteps()); operatorReload(palOnSetup); }); };
+const doTool = () => exclusive(() => runSeq('Tool change (M06)', toolSteps()));
+const doMach = () => exclusive(() => runSeq(`Machining: pallet ${palOnTable.userData.id}`, machSteps()));
+const doAuto = () => exclusive(async () => {
+  autoOn = true; refreshUI();
+  while (!stopReq) {
+    await runSeq(`Auto: machining pallet ${palOnTable.userData.id}`, machSteps());
+    if (stopReq) break;
+    await runSeq('Auto: pallet change (M60)', palletSteps());
+    operatorReload(palOnSetup);
+  }
+  log('Auto cycle stopped', 'step');
+});
+
+/* =====================================================================
+   STRUCTURE TOUR
+   ===================================================================== */
+const TOUR = [
+  { ids:['bed'], t:'Bed: the T-shaped base',
+    p:'Everything stands on one rigid casting shaped like a "T". The REAR beam (left–right) will carry the X axis. The FRONT beam (pointing toward the operator) will carry the Z axis. Chip troughs run along both sides.' },
+  { ids:['xAxis'], t:'X-axis guides + ballscrew',
+    p:'Two linear guides and a ballscrew are mounted on the rear beam. Whatever rides on them moves LEFT ↔ RIGHT. That is the X axis.' },
+  { ids:['column'], t:'Column: moves in X', osc:['x', 0, 0.3],
+    p:'The column sits on the X guides and slides left ↔ right (red). Its wide base and narrow top make it stiff but light, so it can move fast.' },
+  { ids:['yAxis'], t:'Y-axis guides on the column face',
+    p:'Vertical guides and a vertical ballscrew sit on the front face of the column. Y lifts weight, so it has a brake motor and two counterbalance cylinders on top.' },
+  { ids:['head', 'spindle'], t:'Spindle head: moves in Y', osc:['y', 1.45, 0.3],
+    p:'The spindle head slides UP ↕ DOWN on the column (green). The spindle lies HORIZONTALLY and points at the table. That is what makes this a Horizontal Machining Centre. So the tool moves in X and Y.' },
+  { ids:['zAxis'], t:'Z-axis guides on the front beam',
+    p:'Two more guides and a ballscrew run along the front beam, toward the operator. They carry the table.' },
+  { ids:['saddle'], t:'Table saddle: moves in Z', osc:['z', 0.5, 0.25],
+    p:'The saddle moves TOWARD ↔ AWAY from the spindle (blue). The tool moves in X / Y, and the work moves in Z. At the far end of Z the table reaches the pallet changer.' },
+  { ids:['bTable', 'palletClamp'], t:'B-axis rotary table (4th axis)', osc:['b', 0, 0.9],
+    p:'A rotary table on the saddle turns the work about a vertical axis (purple). That is B, the 4th axis. The 4 cones on top locate and clamp the pallet (green = clamped).' },
+  { ids:['pallet', 'tombstone'], t:'Pallet + tombstone fixture', osc:['b', 0, 1.57],
+    p:'A pallet sits on the cones. On it, a tombstone fixture holds 4 parts. B turns the tombstone so each face can be machined without re-clamping.' },
+  { ids:['apc'], t:'APC: rotary pallet changer', action:['▶ Play pallet change', () => { exitTour(); doPallet(); }],
+    p:'At the end of the Z travel stands the rotary APC. ① The table drives the pallet INTO the H-shaped fork. ② The fork lifts BOTH pallets. ③ It turns 180°. ④ It lowers them onto the cones. The door on the arm turns too, so the machine stays closed.' },
+  { ids:['setup'], t:'Setup station: the operator side', osc:['setupB', 0, 0.8],
+    p:'The second pallet waits outside the machine. While pallet A is being machined, the operator unloads and loads pallet B here, so the spindle never waits.' },
+  { ids:['atcMag', 'atcArm', 'tools'], t:'Tool magazine + ATC arm',
+    p:'Tools are stored in a chain magazine on the side. To change a tool, the spindle moves to the top-left and the double arm swaps the old and new tools in about 2 s.' },
+  { ids:['covers', 'chip', 'coolant', 'cabinet', 'control', 'enclosure'], t:'Complete machine', final:true,
+    p:'Add way covers, chip conveyor, coolant tank, electrical cabinet, CNC panel and the splash guard, and you have the complete 4-axis HMC. Tip: use "Pallet-changer focus" to study the APC.' },
+];
+let tourIdx = -1, tourOsc = null, tourSnap = null;
+function startTour() {
+  if (busy) return;
+  setApcFocus(false, false);
+  tourSnap = { x:S.x, y:S.y, z:S.z, b:S.b, setupB:S.setupB }; S.explode = 0;
+  tourIdx = 0; showTour();
+}
+function showTour() {
+  if (tourOsc) S[tourOsc.key] = tourOsc.c;
+  const st = TOUR[tourIdx]; const shown = new Set();
+  TOUR.slice(0, tourIdx + 1).forEach(s => s.ids.forEach(i => shown.add(i)));
+  vis.tour = shown;
+  if (st.final) viewOpt.enclosure = $('cEnc').checked = true;
+  tourOsc = st.osc ? { key:st.osc[0], c:st.osc[1], a:st.osc[2], t:0 } : null;
+  select(st.ids[0]); refreshVisibility();
+  const el = $('tour'); el.hidden = false; $('cap').hidden = true;
+  el.querySelector('.k').textContent = `Structure tour · step ${tourIdx + 1} / ${TOUR.length}`;
+  el.querySelector('h3').textContent = st.t;
+  el.querySelector('p').textContent = st.p;
+  el.querySelector('.dots').innerHTML = TOUR.map((_, i) => `<i class="${i <= tourIdx ? 'on' : ''}"></i>`).join('');
+  $('tPrev').disabled = tourIdx === 0;
+  $('tNext').textContent = st.action ? st.action[0] : (tourIdx === TOUR.length - 1 ? 'Finish' : 'Next ▶');
+  focusParts([...shown], true);
+}
+function exitTour() {
+  if (tourIdx < 0) return;
+  tourIdx = -1; tourOsc = null; vis.tour = null;
+  if (tourSnap) Object.assign(S, tourSnap);
+  $('tour').hidden = true; select(null); refreshVisibility();
+}
+$('tPrev').onclick = () => { if (tourIdx > 0) { tourIdx--; showTour(); } };
+$('tNext').onclick = () => {
+  const st = TOUR[tourIdx];
+  if (st && st.action) { st.action[1](); return; }
+  if (tourIdx < TOUR.length - 1) { tourIdx++; showTour(); } else { exitTour(); flyToView('iso'); }
+};
+$('tExit').onclick = () => { if (tourIdx >= 0) exitTour(); else $('tour').hidden = true; };
+
+/* ---------------- APC focus ---------------- */
+function setSchem(on) { $('cSch').checked = on; $('schem').hidden = !on; view.classList.toggle('sch', on); }
+function setApcFocus(on, fly=true) {
+  vis.apcFocus = on; $('bApc').classList.toggle('on', on);
+  setSchem(on);
+  refreshVisibility();
+  if (on && fly) flyToView('apc');
+}
+
+/* =====================================================================
+   UI
+   ===================================================================== */
+const plist = $('plist');
+for (const [g, ids] of Object.entries(GROUPS)) {
+  const h = document.createElement('div'); h.className = 'g'; h.textContent = g; plist.appendChild(h);
+  for (const id of ids) {
+    const b = document.createElement('button'); b.dataset.part = id;
+    b.innerHTML = `<span class="sw" data-part="${id}"></span>${INFO[id].name}`;
+    b.onclick = () => { select(id); focusParts([id]); };
+    plist.appendChild(b);
+  }
+}
+function setEmissive(id, on) {
+  for (const o of PARTS[id] || []) {
+    const m = o.material; if (!m.emissive) continue;
+    if (on) { m.emissive.setHex(0x2d6cff); m.emissiveIntensity = 0.5; }
+    else { m.emissive.copy(o.userData.emi); m.emissiveIntensity = o.userData.emiI; }
+  }
+}
+function select(id) {
+  if (selected) setEmissive(selected, false);
+  selected = id || null;
+  if (selected) setEmissive(selected, true);
+  if (!selected) isolate = false;
+  plist.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.part === selected));
+  LABELS.forEach(l => l.element.classList.toggle('sel', !!selected && l.element.dataset.part === selected && !l.element.classList.contains('axis')));
+  $('btnIso').textContent = isolate ? 'Show all' : 'Isolate';
+  refreshVisibility(); renderInfo();
+}
+function renderInfo() {
+  const c = $('info');
+  if (!selected || tourIdx >= 0) { c.hidden = true; return; }
+  const i = INFO[selected]; c.hidden = false;
+  let h = `<div class="grp">${i.grp}</div><h3>${i.name}</h3><p>${i.role}</p>`;
+  if (i.design) h += `<h4>Structure / design</h4><ul>${i.design.map(x => `<li>${x}</li>`).join('')}</ul>`;
+  if (i.spec) h += `<h4>Typical spec (500 mm pallet class)</h4><table>${Object.entries(i.spec).map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</table>`;
+  if (i.interlocks) h += `<h4>Safety interlocks</h4><ul class="il">${i.interlocks.map(x => `<li>${x}</li>`).join('')}</ul>`;
+  c.querySelector('.body').innerHTML = h;
+}
+$('btnClose').onclick = () => select(null);
+$('btnIso').onclick = () => { isolate = !isolate; $('btnIso').textContent = isolate ? 'Show all' : 'Isolate'; refreshVisibility(); };
+$('btnFocus').onclick = () => selected && focusParts([selected]);
+
+/* ---------------- cameras / view modes ---------------- */
+let camAnim = null, viewMode = '3d';
+function flyTo(pos, tgt, dur=0.9) { camAnim = { t:0, dur, p0:camera.position.clone(), p1:pos.clone(), t0:controls.target.clone(), t1:tgt.clone() }; }
+const VIEWS = {
+  iso:[[5.4, 3.6, 5.8], [0, 1.1, 0.2]], front:[[0.6, 2.0, 6.2], [0, 1.3, 0.9]], side:[[6.6, 1.9, -0.1], [0, 1.2, -0.1]],
+  top:[[0.01, 8.5, 0.3], [0, 0, 0.3]], work:[[2.1, 1.8, 0.45], [0, 1.4, -0.1]], rear:[[-3.8, 3.2, -5.4], [0, 1.2, -1]],
+  apc:[[2.7, 2.6, 3.6], [0, 1.15, 1.25]],
+};
+function flyToView(k) { const v = VIEWS[k]; flyTo(new THREE.Vector3(...v[0]), new THREE.Vector3(...v[1])); }
+document.querySelectorAll('[data-view]').forEach(b => b.onclick = () => flyToView(b.dataset.view));
+function focusParts(ids, niceDir=false) {
+  const bb = new THREE.Box3();
+  for (const id of ids) for (const o of PARTS[id] || []) {
+    if (!o.material.visible) continue;
+    let v = true; for (let p = o; p; p = p.parent) if (!p.visible) { v = false; break; }
+    if (v) bb.expandByObject(o);
+  }
+  if (bb.isEmpty()) return;
+  const c = bb.getCenter(new THREE.Vector3()), size = bb.getSize(new THREE.Vector3()).length();
+  const dir = niceDir ? new THREE.Vector3(1, 0.62, 1.05).normalize() : camera.position.clone().sub(controls.target).normalize();
+  flyTo(c.clone().add(dir.multiplyScalar(Math.max(niceDir ? 2.6 : 1.6, size * (niceDir ? 1.15 : 1.35)))), c);
+}
+function setViewMode(m) {
+  viewMode = m;
+  document.querySelectorAll('#segView button').forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+  if (m === 'ortho') {
+    ortho.position.copy(persp.position); ortho.quaternion.copy(persp.quaternion); ortho.zoom = 1;
+    orthoHalf = persp.position.distanceTo(controls.target) * Math.tan(THREE.MathUtils.degToRad(persp.fov / 2));
+    camera = ortho;
+  } else {
+    if (camera === ortho) { persp.position.copy(ortho.position); }
+    camera = persp;
+  }
+  controls.object = camera; controls.enabled = true;
+  labelRenderer.domElement.style.display = (m === 'quad' || !$('cLab').checked) ? 'none' : '';
+  buildVpUI();
+}
+document.querySelectorAll('#segView button').forEach(b => b.onclick = () => setViewMode(b.dataset.mode));
+function quadViewports() {
+  const W = view.clientWidth, H = view.clientHeight, hw = Math.floor(W / 2), hh = Math.floor(H / 2);
+  // x,y in CSS px from top-left
+  return [
+    { cam:topCam, x:0, y:0, w:hw, h:hh, t:'TOP (plan) · operator side ↓' },
+    { cam:frontCam, x:hw, y:0, w:W - hw, h:hh, t:'FRONT (from operator / APC side)' },
+    { cam:sideCam, x:0, y:hh, w:hw, h:H - hh, t:'RIGHT SIDE · operator side ←' },
+    { cam:persp, x:hw, y:hh, w:W - hw, h:H - hh, t:'3D (drag to orbit)' },
+  ];
+}
+function buildVpUI() {
+  const ui = $('vpUI'); ui.innerHTML = '';
+  if (viewMode !== 'quad') return;
+  for (const v of quadViewports()) { const d = document.createElement('div'); d.className = 'vpt'; d.style.left = (v.x + 8) + 'px'; d.style.top = (v.y + v.h - 26) + 'px'; d.textContent = v.t; ui.appendChild(d); }
+  const W = view.clientWidth, H = view.clientHeight;
+  ui.insertAdjacentHTML('beforeend', `<div class="vline" style="left:${Math.floor(W / 2)}px;top:0;width:1px;height:${H}px"></div><div class="vline" style="top:${Math.floor(H / 2)}px;left:0;height:1px;width:${W}px"></div>`);
+}
+function fitOrtho(cam, half, aspect) {
+  cam.left = -half * aspect; cam.right = half * aspect; cam.top = half; cam.bottom = -half; cam.updateProjectionMatrix();
+}
+function viewportAt(e) {
+  const r = renderer.domElement.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+  if (viewMode !== 'quad') return { cam:camera, x:0, y:0, w:r.width, h:r.height, px:x, py:y };
+  const v = quadViewports().find(v => x >= v.x && x < v.x + v.w && y >= v.y && y < v.y + v.h);
+  return v && { ...v, px:x - v.x, py:y - v.y };
+}
+// in 4-view mode only the 3D quadrant orbits
+const gate = e => { if (viewMode === 'quad') { const v = viewportAt(e); controls.enabled = !!v && v.cam === persp; } };
+renderer.domElement.addEventListener('pointerdown', gate, true);
+renderer.domElement.addEventListener('wheel', gate, { capture:true, passive:true });
+
+// picking
+const ray = new THREE.Raycaster(), ptr = new THREE.Vector2(); let downXY = null;
+renderer.domElement.addEventListener('pointerdown', e => downXY = [e.clientX, e.clientY]);
+renderer.domElement.addEventListener('pointerup', e => {
+  if (!downXY) return;
+  const d = Math.hypot(e.clientX - downXY[0], e.clientY - downXY[1]); downXY = null;
+  if (d > 4) return;
+  const v = viewportAt(e); if (!v) return;
+  ptr.set(v.px / v.w * 2 - 1, -(v.py / v.h) * 2 + 1);
+  ray.setFromCamera(ptr, v.cam);
+  const hit = ray.intersectObjects(machine.children, true).find(h => {
+    const o = h.object; if (!o.userData.part || o.userData.ghost || !o.material.visible || o.material.opacity < 0.2) return false;
+    for (let p = o; p; p = p.parent) if (!p.visible) return false;
+    return true;
+  });
+  select(hit ? hit.object.userData.part : null);
+});
+
+// buttons
+$('bTour').onclick = startTour;
+$('bApc').onclick = () => setApcFocus(!vis.apcFocus);
+$('bPC').onclick = doPallet; $('bTC').onclick = doTool; $('bMach').onclick = doMach; $('bAuto').onclick = doAuto;
+$('bStop').onclick = () => { stopReq = true; log('Stop requested: finishing current sequence…', 'step'); refreshUI(); };
+$('bNext').onclick = () => nextResolve && nextResolve();
+$('cStep').onchange = e => { stepMode = e.target.checked; if (!stepMode && nextResolve) nextResolve(); };
+$('rSpeed').oninput = e => { speedMul = e.target.value / 100; $('oSpeed').textContent = (+speedMul.toFixed(2)) + '×'; };
+$('rExp').oninput = e => { if (!busy) S.explode = e.target.value / 100; };
+$('cEnc').onchange = e => viewOpt.enclosure = e.target.checked;
+$('cCov').onchange = e => viewOpt.covers = e.target.checked;
+$('cArr').onchange = e => { viewOpt.arrows = e.target.checked; refreshVisibility(); };
+$('cCol').onchange = e => { colorMode = e.target.checked; applyColors(); };
+$('cSch').onchange = e => setSchem(e.target.checked);
+$('cLab').onchange = e => labelRenderer.domElement.style.display = (e.target.checked && viewMode !== 'quad') ? '' : 'none';
+$('bHome').onclick = () => exclusive(async () => { setStatus('Homing'); await rapid({ x:0, y:1.45, z:0.45, b:nearestEq(S.b, 0) }); normAngle('b'); });
+$('bSetIdx').onclick = () => exclusive(async () => { setStatus('Setup station index'); log('Operator: setup station lock pin out, index 90°, lock pin in', 'op'); await to('setupB', S.setupB + Math.PI / 2, 1.0); normAngle('setupB'); });
+
+const JOG = {
+  jX:{ get:() => S.x * 1000, set:v => S.x = v / 1000, fmt:v => v.toFixed(0) + ' mm' },
+  jY:{ get:() => (S.y - 1.1) * 1000, set:v => S.y = 1.1 + v / 1000, fmt:v => v.toFixed(0) + ' mm' },
+  jZ:{ get:() => (S.z - 0.2) * 1000, set:v => S.z = 0.2 + v / 1000, fmt:v => v.toFixed(0) + ' mm' },
+  jB:{ get:() => ((S.b * 180 / Math.PI) % 360 + 360) % 360, set:v => S.b = v * Math.PI / 180, fmt:v => v.toFixed(1) + '°' },
+};
+for (const [id, j] of Object.entries(JOG)) $(id).oninput = e => { if (!busy && tourIdx < 0) j.set(+e.target.value); };
+
+function refreshUI() {
+  for (const id of ['bPC', 'bTC', 'bMach', 'bAuto', 'bHome', 'bSetIdx', 'bTour']) $(id).disabled = busy;
+  for (const id of ['jX', 'jY', 'jZ', 'jB', 'rExp']) $(id).disabled = busy;
+  $('bStop').disabled = !autoOn || stopReq;
+}
+function updateDRO() {
+  const f = v => (v >= 0 ? ' ' : '') + v.toFixed(3);
+  $('dX').textContent = f(S.x * 1000); $('dY').textContent = f((S.y - 1.1) * 1000);
+  $('dZ').textContent = f((S.z - 0.2) * 1000); $('dB').textContent = JOG.jB.get().toFixed(3);
+  $('dS').textContent = Math.round(S.rpm); $('dT').textContent = toolInSpindle.userData.name.slice(1);
+  $('dP').textContent = palOnTable.userData.id + ' / setup ' + palOnSetup.userData.id;
+  for (const [id, j] of Object.entries(JOG)) {
+    const el = $(id); const v = j.get();
+    if (document.activeElement !== el || busy) el.value = v;
+    $('o' + id[1]).textContent = j.fmt(v);
+  }
+  if (document.activeElement !== $('rExp')) $('rExp').value = S.explode * 100;
+  $('oExp').textContent = Math.round(S.explode * 100) + '%';
+}
+function drawScreen() {
+  const c = scrCtx; c.fillStyle = '#061420'; c.fillRect(0, 0, 256, 192);
+  c.fillStyle = '#1f4f7a'; c.fillRect(0, 0, 256, 22);
+  c.fillStyle = '#cfe6ff'; c.font = 'bold 13px monospace'; c.fillText(busy ? 'AUTO  RUN' : 'MEM   STOP', 8, 16);
+  c.font = 'bold 20px monospace';
+  [['X', S.x * 1000], ['Y', (S.y - 1.1) * 1000], ['Z', (S.z - 0.2) * 1000], ['B', JOG.jB.get()]].forEach(([k, v], i) => {
+    c.fillStyle = '#7fb3ff'; c.fillText(k, 12, 50 + i * 30); c.fillStyle = '#e8f4ff'; c.fillText(v.toFixed(3).padStart(9), 40, 50 + i * 30);
+  });
+  c.font = '12px monospace'; c.fillStyle = '#3ecf7a';
+  c.fillText(`S${Math.round(S.rpm)}  T${toolInSpindle.userData.name.slice(1)}  P-${palOnTable.userData.id}`, 12, 180);
+  scrTex.needsUpdate = true;
+}
+
+/* =====================================================================
+   LOOP
+   ===================================================================== */
+let speedMul = 1, scrT = 0;
+function resize() {
+  const w = view.clientWidth, h = view.clientHeight;
+  renderer.setSize(w, h); labelRenderer.setSize(w, h);
+  buildVpUI();
+}
+new ResizeObserver(resize).observe(view); resize();
+
+function render() {
+  const W = view.clientWidth, H = view.clientHeight;
+  if (viewMode === 'quad') {
+    renderer.setScissorTest(true);
+    for (const v of quadViewports()) {
+      const a = v.w / v.h;
+      if (v.cam.isOrthographicCamera) fitOrtho(v.cam, v.cam.userData.half, a); else { v.cam.aspect = a; v.cam.updateProjectionMatrix(); }
+      const y = H - v.y - v.h;
+      renderer.setViewport(v.x, y, v.w, v.h); renderer.setScissor(v.x, y, v.w, v.h);
+      renderer.render(scene, v.cam);
+    }
+    renderer.setScissorTest(false);
+  } else {
+    renderer.setViewport(0, 0, W, H);
+    if (camera === ortho) fitOrtho(ortho, orthoHalf, W / H); else { persp.aspect = W / H; persp.updateProjectionMatrix(); }
+    renderer.render(scene, camera);
+    for (const l of LABELS) { let v = l.userData.base !== false; for (let p = l.parent; v && p; p = p.parent) if (!p.visible) v = false; l.visible = v; }
+    labelRenderer.render(scene, camera);
+  }
+}
+
+const clock = new THREE.Clock();
+function loop() {
+  requestAnimationFrame(loop);
+  const raw = Math.min(clock.getDelta(), 0.05), dt = raw * speedMul;
+  mtime += dt;
+  stepTweens(dt);
+  if (tourOsc) { tourOsc.t += raw; S[tourOsc.key] = tourOsc.c + tourOsc.a * Math.sin(tourOsc.t * 1.5); }
+  if (S.rpm > 0) S.spAngle += dt * Math.min(S.rpm, 12000) / 12000 * 45;
+  applyState(dt);
+  if (camAnim) {
+    camAnim.t += raw; const p = Math.min(1, camAnim.t / camAnim.dur), e = 1 - Math.pow(1 - p, 3);
+    camera.position.lerpVectors(camAnim.p0, camAnim.p1, e); controls.target.lerpVectors(camAnim.t0, camAnim.t1, e);
+    if (p >= 1) camAnim = null;
+  }
+  controls.update();
+  render();
+  updateDRO(); updateSchem();
+  if ((scrT += raw) > 0.2) { scrT = 0; drawScreen(); }
+}
+setLamp('amber'); refreshUI(); applyColors(); refreshVisibility();
+log('4-axis HMC digital twin ready. Pallet A on table, pallet B at setup station, T01 in spindle.', 'step');
+log('New here? Press "▶ Structure tour" (right panel), then "Pallet-changer focus" + "Pallet change (M60)".', 'op');
+// welcome card
+{
+  const el = $('tour'); el.hidden = false;
+  el.querySelector('.k').textContent = 'Welcome';
+  el.querySelector('h3').textContent = '4-axis HMC with rotary twin-pallet changer';
+  el.querySelector('p').textContent = 'Colors show what moves on which axis: red = X column, green = Y head, blue = Z table, purple = B rotary table, amber = pallet changer. Start the tour to see the machine built up one part at a time.';
+  el.querySelector('.dots').innerHTML = ''; $('tPrev').disabled = true; $('tNext').textContent = '▶ Start tour';
+  $('tNext').onclick = (orig => () => { if (tourIdx < 0) startTour(); else orig(); })($('tNext').onclick);
+}
+loop();
+
+// Debug / integration hook
+window.HMC = { S, doPallet, doTool, doMach, doAuto, select, log, startTour, setApcFocus, setViewMode };
+// URL options, e.g.  index.html#run=pallet&speed=3&mode=quad&tour=3
+{
+  const q = new URLSearchParams(location.hash.slice(1));
+  if (q.get('speed')) { $('rSpeed').value = +q.get('speed') * 100; $('rSpeed').oninput({ target:$('rSpeed') }); }
+  if (q.get('mode')) setViewMode(q.get('mode'));
+  if (q.get('view') && VIEWS[q.get('view')]) { const v = VIEWS[q.get('view')]; camera.position.set(...v[0]); controls.target.set(...v[1]); }
+  if (q.get('apc')) setApcFocus(true, false);
+  if (q.get('tour')) { startTour(); tourIdx = Math.min(TOUR.length - 1, +q.get('tour') - 1); showTour(); camAnim && (camAnim.dur = 0.01); }
+  const run = { pallet:doPallet, tool:doTool, mach:doMach, auto:doAuto }[q.get('run')];
+  if (run) setTimeout(run, 300);
+  if (q.get('sim')) setTimeout(async () => {
+    const n = Math.round(+q.get('sim') * 60);
+    for (let i = 0; i < n; i++) { mtime += 1 / 60; stepTweens(1 / 60); applyState(1 / 60); if (camAnim) { camera.position.copy(camAnim.p1); controls.target.copy(camAnim.t1); camAnim = null; } await new Promise(r => setTimeout(r, 0)); }
+    document.title += ' [sim done]';
+  }, 400);
+}
+</script>
+</body>
+</html>

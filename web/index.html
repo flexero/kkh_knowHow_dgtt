@@ -1,0 +1,1398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Factory Digital Twin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo" aria-hidden="true">DT</div>
+    <div>
+      <h1 id="factoryName">Digital Twin</h1>
+      <div class="sub" id="productName"></div>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="live">Live factory</button>
+    <button class="tab" data-tab="fms">FMS &amp; products</button>
+    <button class="tab" data-tab="order">Order flow</button>
+    <button class="tab" data-tab="mes">MES</button>
+    <button class="tab" data-tab="erp">ERP</button>
+    <button class="tab" data-tab="scada">SCADA</button>
+    <button class="tab" data-tab="cnc">CNC / G-code</button>
+    <button class="tab" data-tab="hmc">HMC build</button>
+    <button class="tab" data-tab="apc">Pallet changer</button>
+    <button class="tab" data-tab="mech">Mechanical elements</button>
+    <button class="tab" data-tab="agv">AGV build</button>
+    <button class="tab" data-tab="comm">Communication</button>
+    <button class="tab" data-tab="whatif">What-if simulation</button>
+    <button class="tab" data-tab="learn">How it works</button>
+  </nav>
+  <div class="controls">
+    <span class="conn" id="conn" title="Connection to twin server">● connecting</span>
+    <span class="clock" id="clock" title="Simulated production time">T+ 00:00:00</span>
+    <label class="speed">Speed
+      <select id="speed">
+        <option value="1">1x (real time)</option>
+        <option value="10">10x</option>
+        <option value="20" selected>20x</option>
+        <option value="60">60x</option>
+        <option value="300">300x</option>
+      </select>
+    </label>
+    <button id="pauseBtn" class="btn">Pause</button>
+    <button id="resetBtn" class="btn ghost" title="Restart the simulation from zero">Reset</button>
+    <a class="btn ghost" href="/api/export.csv" title="Download sensor history (Excel/CSV)">Export CSV</a>
+  </div>
+</header>
+
+<main>
+  <!-- ============================== LIVE ============================== -->
+  <section id="tab-live" class="tabpane active">
+    <div class="kpis" id="kpis"></div>
+
+    <div class="card floor-card">
+      <div class="card-head">
+        <div class="seg" role="tablist" aria-label="Factory view">
+          <button class="seg-btn active" data-view="3d">3D factory</button>
+          <button class="seg-btn" data-view="2d">Line schematic</button>
+        </div>
+        <div class="legend" id="stateLegend"></div>
+      </div>
+
+      <div id="view3d" class="view3d-wrap">
+        <div class="toolbar3d">
+          <span class="tb-label">Camera</span>
+          <button class="chip" data-cam="overview">Overview</button>
+          <button class="chip" data-cam="machining">Machining</button>
+          <button class="chip" data-cam="assembly">Assembly &amp; test</button>
+          <button class="chip" data-cam="final">Final &amp; shipping</button>
+          <button class="chip" data-cam="logistics">Logistics (AS/RS, AGV)</button>
+          <button class="chip" data-cam="walk">Walk-in</button>
+          <button class="chip" id="focusBtn" title="Fly to the selected machine">Focus selected</button>
+          <span class="tb-sep"></span>
+          <label class="tb-label">Color
+            <select id="colorMode">
+              <option value="real">Realistic</option>
+              <option value="state">By machine state</option>
+              <option value="health">By health</option>
+            </select>
+          </label>
+          <label class="tb-check"><input type="checkbox" id="labelsOn" checked> Labels</label>
+          <label class="tb-check" title="Show or hide walls, columns, roof trusses and the overhead crane"><input type="checkbox" id="buildingOn" checked> Building</label>
+          <span class="tb-label">Mouse drag
+            <span class="seg" role="group" aria-label="Left mouse button">
+              <button class="seg-btn active" data-mouse="rotate" title="Left drag turns the view, right drag moves">Rotate</button>
+              <button class="seg-btn" data-mouse="move" title="Left drag moves over the floor, right drag turns">Move</button>
+            </span>
+          </span>
+        </div>
+        <div id="scene3d" class="scene3d">
+          <div class="scene-msg" id="sceneMsg">Loading 3D factory…</div>
+          <div class="keyhelp" id="keyHelp"><b>Move:</b> <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> walk ·
+            <kbd>←</kbd><kbd>→</kbd> turn · <kbd>Q</kbd>/<kbd>E</kbd> down/up · <kbd>Shift</kbd> fast · scroll = zoom
+            <button class="mini ghost" id="keyHelpClose" aria-label="Hide help">×</button></div>
+        </div>
+        <p class="hint">Drag to rotate · right-drag to pan · scroll to zoom · click a machine to select · double-click to fly to it.
+          Andon light towers show the live state: <b>green</b> running, <b>amber</b> waiting, <b>red</b> down, <b>blue</b> maintenance
+          (blinking blue = changeover to another model). Parts carry a colour tag per model.
+          AGVs follow the blue dashed routes; their light is green when driving, amber when loading or waiting for the crane, blue when charging.</p>
+      </div>
+
+      <div id="view2d" hidden>
+        <div class="lines" id="floor"></div>
+        <p class="hint">Click a machine to see its sensors, health and controls.</p>
+      </div>
+    </div>
+
+    <div class="card" id="mhCard" hidden>
+      <div class="card-head"><h2>Material handling</h2><span class="sub" id="mhSub"></span></div>
+      <div class="mh-grid" id="mh"></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card" id="detail">
+        <div class="card-head"><h2 id="dTitle">Machine</h2><span id="dState" class="badge"></span></div>
+        <div class="detail-body">
+          <div class="detail-top">
+            <div class="sensors" id="dSensors"></div>
+            <div class="health" id="dHealth"></div>
+          </div>
+          <div class="oee" id="dOee"></div>
+          <div class="actions">
+            <button class="btn" data-act="stop">Stop</button>
+            <button class="btn" data-act="start">Start</button>
+            <button class="btn" data-act="maintenance" title="Change tool and check bearings">Do maintenance</button>
+            <button class="btn warn" data-act="inject_bearing_fault" title="Training: simulate a bearing that slowly fails">Simulate bearing fault</button>
+            <label class="slider">Speed override <b id="spdVal">100%</b>
+              <input type="range" id="spd" min="50" max="130" step="5" value="100">
+            </label>
+          </div>
+          <div class="charts">
+            <figure><figcaption>Temperature (°C)</figcaption><div class="chart" id="cTemp"></div></figure>
+            <figure><figcaption>Vibration (mm/s RMS)</figcaption><div class="chart" id="cVib"></div></figure>
+            <figure><figcaption>Power (kW)</figcaption><div class="chart" id="cPow"></div></figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="side">
+        <div class="card">
+          <div class="card-head"><h2>Active alarms</h2><span class="count" id="alarmCount">0</span></div>
+          <ul class="alarms" id="alarms"></ul>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Event log</h2></div>
+          <ul class="events" id="events"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FMS ============================== -->
+  <section id="tab-fms" class="tabpane">
+    <div class="kpis" id="fmsKpis"></div>
+    <div class="card">
+      <div class="card-head"><h2>Product family: one factory, three compressor models</h2><span class="sub">example values</span></div>
+      <div class="table-wrap"><table id="fmsProducts"></table></div>
+      <p class="hint">All three models run on the <b>same machines</b>. Each model has its own cycle times, castings, tank, motor and
+        test specification. Mix = share of customer demand. Work content = sum of all station times for one unit.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>Dispatching rule: which order / pallet goes first?</h2></div>
+      <div class="fms-rule">
+        <div class="seg" role="group" aria-label="Dispatching rule">
+          <button class="seg-btn" data-rule="FIFO" title="First in, first out">FIFO</button>
+          <button class="seg-btn" data-rule="EDD" title="Earliest due date">EDD</button>
+          <button class="seg-btn" data-rule="SPT" title="Shortest processing time">SPT</button>
+          <button class="seg-btn" data-rule="SETUP" title="Least changeover (batching)">SETUP</button>
+        </div>
+        <label class="tb-label" title="SETUP rule: orders due in the same window are batched">Batch window
+          <input type="number" id="fmsWindow" min="0.5" max="168" step="0.5" style="width:70px"> h</label>
+        <span class="muted small" id="fmsRun"></span>
+      </div>
+      <div class="fms-rule-text" id="fmsRuleText"></div>
+      <h3>Released work orders, in the order the rule will start them</h3>
+      <div class="table-wrap"><table id="fmsQueue"></table></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>FMS cell: load station, pallet pool and 3 machining centers</h2><span class="sub" id="fmsCellSub"></span></div>
+      <div class="fms-cell" id="fmsCell"></div>
+      <p class="hint">Flexible routing: a pallet can go to <b>any</b> free machining center. Each center holds the tools of only
+        <b>2 models</b> in its magazine; a pallet of the third model first needs a tool-set exchange (10 min).
+        With the <b>SETUP</b> rule a free center first takes a pallet whose tools are already loaded.</p>
+    </div>
+
+    <div class="fms-grid3">
+      <div class="card">
+        <div class="card-head"><h2>Kanban supermarkets</h2></div>
+        <div id="fmsKanban"></div>
+        <p class="hint">Bar = parts in the supermarket (dark) + parts already in the line (light). Amber mark = trigger level.
+          The line makes the model below target; it changes model only when another model falls to its trigger
+          (= a full batch), to save changeovers. The assembly cell starts a crankcase only when its <b>kit</b>
+          (2 cylinders + 1 crankshaft of the same model) is complete.</p>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Changeovers (setup) per station</h2><span class="sub" id="fmsSetupSub"></span></div>
+        <div class="table-wrap"><table id="fmsSetups"></table></div>
+      </div>
+    </div>
+
+    <!-- PLC control -->
+    <div class="card" style="margin-top:16px">
+      <div class="card-head"><h2>PLC control of the current system</h2><span class="sub">live from the twin · PLC types, addresses and devices are example values</span></div>
+      <p class="intro">Every line has its own <b>PLC</b> (programmable logic controller); every AS/RS crane has one too. The PLC reads the
+        sensors, runs its program every few milliseconds and switches the outputs. It talks <b>down</b> to the CNC, robots, drives and
+        sensors (PROFINET, IO-Link, PROFIsafe), <b>sideways</b> to the next line's PLC when a part changes line (PN/PN coupler), to the
+        <b>AGVs</b> when they dock (optical I/O), and <b>up</b> to the MES and SCADA (OPC UA). Everything below comes from what really happens in the running twin.</p>
+      <div class="kpis plc-kpis" id="plcKpis"></div>
+      <div class="plc-net" id="plcNet"><p class="muted" style="padding:12px">Loading PLC data…</p></div>
+      <div class="plc-legend small" id="plcLegend"></div>
+    </div>
+    <div class="plc-grid">
+      <div class="card">
+        <div class="card-head"><h2 id="plcTitle">PLC</h2>
+          <button class="plc-estop" id="plcEstop" hidden title="Emergency stop of all stations of this PLC">EMERGENCY<br>STOP</button></div>
+        <div class="plc-head" id="plcHead"></div>
+        <div class="seg plc-stations" id="plcStations" role="group" aria-label="Stations of this PLC"></div>
+        <h3>Ladder logic – live</h3>
+        <div id="plcLadder"></div>
+        <h3>I/O image (process image)</h3>
+        <div class="table-wrap"><table class="plc-io" id="plcIO"></table></div>
+        <h3>Field devices of this station</h3>
+        <div class="table-wrap"><table id="plcDev"></table></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Communication log</h2>
+          <div class="inline-form"><select id="plcFiltPlc" aria-label="Filter by PLC"></select><select id="plcFiltProto" aria-label="Filter by protocol"></select></div></div>
+        <p class="hint" style="margin:0 0 8px">Every hand-over between PLCs, CNCs, robots, AGVs, AS/RS, MES and SCADA. Click a line to see the data
+          (signals, OPC UA node, MQTT topic). Cyclic data (every few ms) is not listed one by one.</p>
+        <div class="plc-log" id="plcLog"></div>
+      </div>
+    </div>
+    <div class="card learn" style="margin-top:16px">
+      <h2>How a PLC controls the line</h2>
+      <div class="plc-learn">
+        <div>
+          <h3>1. The scan cycle</h3>
+          <ol class="gc-steps">
+            <li><b>Read inputs:</b> copy all sensor signals into the <i>process image</i> (%I).</li>
+            <li><b>Run the program:</b> all ladder networks, from top to bottom.</li>
+            <li><b>Write outputs:</b> copy the results to the outputs (%Q): valves, motors, lamps, cycle start.</li>
+            <li><b>Communicate:</b> OPC UA to MES/SCADA, coupler to the next PLC. Then start again.</li>
+          </ol>
+          <p class="hint"><span class="fms-formula">reaction time ≤ 2 × scan time + input delay + output delay</span><br>
+            Example: 2 × 5 ms + 3 ms + 1 ms ≈ 14 ms. A safety stop must be faster than the time a hand needs to reach the danger zone.</p>
+        </div>
+        <div>
+          <h3>2. Handshake = question and answer with signals</h3>
+          <p class="hint"><b>PLC → CNC:</b> the PLC sets <span class="mono">CycleStart</span> only when DoorClosed, Clamped, no Fault and E-stop OK.
+            The CNC answers <span class="mono">InCycle</span>, and at the end <span class="mono">CycleDone</span> (M30).<br>
+            <b>PLC → PLC:</b> line 1 sets <span class="mono">PartReady</span>; line 2 takes the part and answers <span class="mono">PartTaken</span>.<br>
+            <b>AGV → station:</b> AGV <span class="mono">TR_REQ</span> → station <span class="mono">READY</span> → AGV <span class="mono">BUSY</span>
+            (moves the load) → <span class="mono">COMPT</span> (complete). If one answer is missing, nothing moves – that is the safety of a handshake.</p>
+        </div>
+        <div>
+          <h3>3. Which connection for what</h3>
+          <div class="table-wrap"><table class="plc-ptab"><tbody>
+            <tr><td><span class="plc-proto" style="--c:#1a9a5b">PROFINET</span></td><td>PLC ↔ CNC, robot, drives, remote I/O · cyclic every 1–4 ms</td></tr>
+            <tr><td><span class="plc-proto" style="--c:#d03b3b">PROFIsafe</span></td><td>E-stop, light curtain, door lock · safety telegram with counter + CRC</td></tr>
+            <tr><td><span class="plc-proto" style="--c:#1590a8">IO-Link / 4–20 mA</span></td><td>sensors: vibration, temperature, pressure, flow</td></tr>
+            <tr><td><span class="plc-proto" style="--c:#6250d6">PN/PN coupler</span></td><td>PLC ↔ PLC of another line · a few bytes exchanged every cycle</td></tr>
+            <tr><td><span class="plc-proto" style="--c:#c2468f">Optical I/O</span></td><td>AGV ↔ station during docking (E84 style, 8 signals)</td></tr>
+            <tr><td><span class="plc-proto" style="--c:#b4620c">MQTT / VDA 5050</span></td><td>fleet manager ↔ AGVs over Wi-Fi</td></tr>
+            <tr><td><span class="plc-proto" style="--c:#2a78d6">OPC UA</span></td><td>PLC ↔ MES / SCADA · recipes down, counters, alarms and states up</td></tr>
+          </tbody></table></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card learn" style="margin-top:16px">
+      <h2>How this FMS works (simple formulas)</h2>
+      <dl class="terms">
+        <dt>Changeover (setup) loss</dt>
+        <dd><span class="fms-formula">setup share = Σ setup time ÷ total time</span> — it lowers <b>Availability</b> in OEE.
+          Fewer model changes = less loss, but bigger batches = longer waiting for other models.</dd>
+        <dt>Time per unit with batches</dt>
+        <dd><span class="fms-formula">t per unit = cycle time + setup time ÷ batch size</span>. Example lathe: 170 s + 240 s ÷ 4 = 230 s.</dd>
+        <dt>Capacity with a product mix</dt>
+        <dd><span class="fms-formula">t avg = Σ (mix share × cycle time of the model)</span>, then
+          <span class="fms-formula">units/h = 3600 ÷ t avg × number of parallel machines</span>.
+          FMS cell: 0.3×270 + 0.5×345 + 0.2×450 = 343.5 s (+15 s pallet change) → 3 centers ≈ 30 units/h.</dd>
+        <dt>Kanban size</dt>
+        <dd><span class="fms-formula">target ≥ demand during refill time + safety</span>. Too small: the assembly waits for kits.
+          Too big: much stock of every model.</dd>
+        <dt>Tool magazine</dt>
+        <dd>Magazine for 2 of 3 models: a pallet of the missing model costs one tool-set exchange (600 s).
+          Routing the pallet to a center that already has the tools avoids it.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============================== ORDER FLOW ============================== -->
+  <section id="tab-order" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>Order flow: one customer order, from the ERP to the machines and back</h2></div>
+      <div class="of-bar">
+        <div class="of-group">
+          <span class="tb-label">Factory mode</span>
+          <div class="seg" role="group" aria-label="Factory mode">
+            <button class="seg-btn" data-mode="auto" title="Random customer orders, MRP every hour, automatic release and shipping">Automatic</button>
+            <button class="seg-btn" data-mode="manual" title="Nothing happens unless you do it">Manual</button>
+          </div>
+          <button class="btn ghost" id="ofEmpty" title="Restart the simulation with no orders, in manual mode">Start empty factory (manual)</button>
+        </div>
+        <div class="of-group">
+          <span class="tb-label">Time</span>
+          <button class="btn" id="ofPause">Pause</button>
+          <button class="btn ghost" data-step="60">+1 min</button>
+          <button class="btn ghost" data-step="600">+10 min</button>
+          <button class="btn ghost" data-step="3600">+1 h</button>
+          <span class="of-clock" id="ofClock"></span>
+        </div>
+      </div>
+      <div class="of-bar">
+        <form class="inline-form" id="ofForm">
+          <b style="color:var(--text)">New customer order</b>
+          <input type="text" name="customer" value="Delta Compressors" aria-label="Customer" style="width:150px">
+          <select name="product" data-products aria-label="Model"></select>
+          <label>Qty <input type="number" name="qty" value="50" min="1" max="2000"></label>
+          <label>Due in (h) <input type="number" name="due_h" value="48" min="1" max="720"></label>
+          <label class="tb-check" title="On: the system does every step by itself. Off: you click each step."><input type="checkbox" name="auto"> automatic steps</label>
+          <button class="btn primary" type="submit">Create order</button>
+        </form>
+        <label class="tb-label">Follow order <select id="ofSel" aria-label="Order to follow"></select></label>
+      </div>
+      <div id="ofEmptyMsg" class="hint" hidden>No customer order yet. Type a quantity (for example 50) and press <b>Create order</b>.</div>
+    </div>
+
+    <div class="card" id="ofMain" hidden>
+      <div class="card-head"><h2 id="ofTitle"></h2>
+        <label class="tb-check" title="On: the system does the remaining steps of this order by itself"><input type="checkbox" id="ofAuto"> automatic steps for this order</label></div>
+      <ol class="of-stages" id="ofStages"></ol>
+      <div class="of-action" id="ofAction"></div>
+    </div>
+
+    <div class="card" id="ofMapCard" hidden>
+      <div class="card-head"><h2>Where is each unit? (main route of the crankcase that carries the serial number)</h2>
+        <span class="sub" id="ofMapSub"></span></div>
+      <div class="of-legend"><span><i class="of-dot mine"></i>unit of this order</span><span><i class="of-dot other"></i>other orders</span>
+        <span>Click a serial number to see its route, parts and lots. The same machines are outlined in the 3D view.</span></div>
+      <div class="of-map" id="ofMap"></div>
+      <div id="ofUnit" class="unit-view" hidden></div>
+    </div>
+
+    <div class="grid2 eq" id="ofLower" hidden>
+      <div class="card">
+        <div class="card-head"><h2>Material for this order (BOM check)</h2></div>
+        <div class="table-wrap"><table id="ofMat"></table></div>
+        <h3>Purchase orders</h3>
+        <div class="table-wrap"><table id="ofPo"></table></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Units of this order</h2><span class="sub" id="ofUnitsSub"></span></div>
+        <div class="table-wrap scroll"><table id="ofUnits"></table></div>
+        <h3>History of this order</h3>
+        <ul class="of-log" id="ofLog"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== MES ============================== -->
+  <section id="tab-mes" class="tabpane">
+    <div class="kpis" id="mesKpis"></div>
+    <div class="grid2 eq">
+      <div class="card">
+        <div class="card-head"><h2>Work orders</h2>
+          <form class="inline-form" id="woForm">
+            <select name="product" data-products aria-label="Model"></select>
+            <label>Qty <input type="number" name="qty" value="20" min="1" max="1000"></label>
+            <label>Due in (h) <input type="number" name="due_h" value="24" min="1" max="720"></label>
+            <label class="tb-check"><input type="checkbox" name="release" checked> release</label>
+            <button class="btn" type="submit">New work order</button>
+          </form>
+        </div>
+        <p class="hint" style="margin:0 0 8px">The serial-number station only starts a new compressor when a <b>released</b> work order still needs units.
+          Hold all orders and watch the line run empty.</p>
+        <div class="table-wrap"><table id="woTable"></table></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Traceability (genealogy)</h2>
+          <form class="inline-form" id="snForm">
+            <input type="text" name="sn" placeholder="Serial no. e.g. VC20-000012" aria-label="Serial number" style="width:200px">
+            <button class="btn" type="submit">Find</button>
+          </form>
+        </div>
+        <div id="unitView" class="unit-view"><p class="hint" style="margin:0">Click a serial number below, or type one. You will see where the unit is,
+          its route through the machines, the lots of every component, its test result and the customer.</p></div>
+        <h3>Latest units</h3>
+        <div class="table-wrap"><table id="unitTable"></table></div>
+      </div>
+    </div>
+    <div class="grid2 eq">
+      <div class="card">
+        <div class="card-head"><h2>Quality: air-flow test (SPC)</h2><span class="sub" id="qSub"></span></div>
+        <figure class="spc"><figcaption>Measured FAD per unit (m³/h) with control limits (UCL / LCL) and the spec limit (LSL)</figcaption>
+          <div class="chart" id="cSpc"></div></figure>
+        <div class="qstats" id="qStats"></div>
+        <h3>Non-conformance records (scrap / rejects)</h3>
+        <div class="table-wrap scroll"><table id="ncrTable"></table></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Maintenance work orders</h2></div>
+        <p class="hint" style="margin:0 0 8px">Created automatically: <b>corrective</b> after a breakdown, <b>predictive</b> when vibration rises,
+          <b>preventive</b> when a tool is worn. Press <i>Start</i> to stop the machine for maintenance.</p>
+        <div class="table-wrap scroll"><table id="mwoTable"></table></div>
+        <h3>Reliability: actual vs. plan</h3>
+        <div class="table-wrap"><table id="relTable"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== ERP ============================== -->
+  <section id="tab-erp" class="tabpane">
+    <div class="kpis" id="erpKpis"></div>
+    <div class="card">
+      <div class="card-head"><h2>Planning (MRP) and automation</h2>
+        <button class="btn primary" id="mrpBtn">Run MRP now</button></div>
+      <div class="settings" id="erpSettings">
+        <label class="tb-check"><input type="checkbox" data-set="auto_demand"> Random customer orders</label>
+        <label>Demand <input type="number" data-set="units_per_day" min="0" max="2000" step="10"> units/day</label>
+        <label class="tb-check"><input type="checkbox" data-set="auto_mrp"> MRP every hour</label>
+        <label class="tb-check"><input type="checkbox" data-set="auto_release"> Release work orders automatically</label>
+        <label class="tb-check"><input type="checkbox" data-set="auto_ship"> Ship automatically</label>
+      </div>
+      <div id="mrpView"></div>
+    </div>
+    <div class="grid2 eq">
+      <div class="card">
+        <div class="card-head"><h2>Sales orders</h2>
+          <form class="inline-form" id="soForm">
+            <input type="text" name="customer" placeholder="Customer" aria-label="Customer" style="width:140px">
+            <select name="product" data-products aria-label="Model"></select>
+            <label>Qty <input type="number" name="qty" value="20" min="1" max="2000"></label>
+            <label>Due in (h) <input type="number" name="due_h" value="48" min="1" max="720"></label>
+            <button class="btn" type="submit">New order</button>
+          </form>
+        </div>
+        <div class="table-wrap scroll"><table id="soTable"></table></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Inventory</h2></div>
+        <div class="table-wrap"><table id="invTable"></table></div>
+      </div>
+    </div>
+    <div class="grid2 eq">
+      <div class="card">
+        <div class="card-head"><h2>Purchase orders</h2>
+          <form class="inline-form" id="poForm">
+            <select name="sku" id="poSku" aria-label="Item"></select>
+            <label>Qty <input type="number" name="qty" value="120" min="1" max="10000"></label>
+            <button class="btn" type="submit">Order</button>
+          </form>
+        </div>
+        <div class="table-wrap scroll"><table id="poTable"></table></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Bill of materials and standard cost</h2><span class="sub" id="costSub"></span></div>
+        <div id="costView"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== SCADA ============================== -->
+  <section id="tab-scada" class="tabpane">
+    <div class="sx-top">
+      <div class="seg" role="group" aria-label="SCADA pages">
+        <button class="seg-btn active" data-scp="overview">Overview</button>
+        <button class="seg-btn" data-scp="alarms">Alarms <span class="sx-badge" id="sxAlmBadge" hidden></span></button>
+        <button class="seg-btn" data-scp="tags">Tags</button>
+        <button class="seg-btn" data-scp="trends">Trends</button>
+        <button class="seg-btn" data-scp="audit">Audit trail</button>
+        <button class="seg-btn" data-scp="report">Shift report</button>
+        <button class="seg-btn" data-scp="settings">Alarm settings</button>
+      </div>
+      <label class="tb-label">Operator <input type="text" id="sxUser" maxlength="30" style="width:120px" aria-label="Operator name"></label>
+      <span class="muted small" id="sxScan"></span>
+    </div>
+    <div class="kpis" id="sxKpis"></div>
+
+    <div class="sx-page" id="sxP-overview">
+      <div class="sx-ov">
+        <div class="card">
+          <div class="card-head"><h2>Plant overview</h2><span class="sub">grey = normal · colour = needs attention · click a machine</span></div>
+          <div class="sx-mimic" id="sxMimic"></div>
+          <h3>Storage and AGVs</h3>
+          <div class="sx-aux" id="sxAux"></div>
+        </div>
+        <div class="card sx-facecard">
+          <div id="sxFace"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sx-page" id="sxP-alarms" hidden>
+      <div class="card">
+        <div class="card-head"><h2>Active alarms</h2>
+          <div class="inline-form">
+            <select id="sxAlmLevel" aria-label="Filter by level"><option value="">all levels</option>
+              <option value="critical">critical</option><option value="serious">serious</option><option value="warning">warning</option></select>
+            <label class="tb-check"><input type="checkbox" id="sxShowShelved"> show shelved</label>
+            <button class="btn" id="sxAckAll">Acknowledge all</button>
+          </div></div>
+        <p class="hint" style="margin:0 0 8px">Life cycle (ISA-18.2): <b>active + not acknowledged</b> (blinks) → operator presses <b>Ack</b> →
+          <b>active + acknowledged</b> → value goes back to normal → alarm disappears. If the value goes back first, the alarm stays as
+          <b>cleared + not acknowledged</b> until somebody acknowledges it. <b>Shelve</b> = hide a known alarm for some hours.</p>
+        <div class="table-wrap"><table id="sxAlarms"></table></div>
+      </div>
+      <div class="grid2 eq">
+        <div class="card">
+          <div class="card-head"><h2>Alarm performance</h2><span class="sub">ISA-18.2 benchmark: about 6 or fewer new alarms per hour per operator</span></div>
+          <div id="sxRate"></div>
+          <h3>Bad actors (alarms that come most often)</h3>
+          <div class="table-wrap"><table id="sxBad"></table></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Alarm journal</h2><span class="sub">every alarm of this run, newest first</span></div>
+          <div class="table-wrap scroll" style="max-height:420px"><table id="sxJournal"></table></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sx-page" id="sxP-tags" hidden>
+      <div class="card">
+        <div class="card-head"><h2>Tag database</h2>
+          <div class="inline-form">
+            <input type="text" id="sxTagFilter" placeholder="filter, e.g. HMC-02 or Temperature" aria-label="Filter tags" style="width:230px">
+            <select id="sxTagSrc" aria-label="Source"><option value="">all sources</option></select>
+          </div></div>
+        <p class="hint" style="margin:0 0 8px">A <b>tag</b> is one named value from a PLC. SCADA reads every tag in each scan and keeps value, quality and
+          time stamp. Tags marked <b>write</b> can be changed by the operator (the new value is sent to the PLC). Addresses are example values.</p>
+        <div class="table-wrap"><table id="sxTags"></table></div>
+      </div>
+    </div>
+
+    <div class="sx-page" id="sxP-trends" hidden>
+      <div class="card">
+        <div class="card-head"><h2>Historian trends</h2>
+          <div class="inline-form">
+            <label>Range <select id="sxRange"><option value="0.5">30 min</option><option value="1">1 h</option><option value="2" selected>2 h</option>
+              <option value="4">4 h</option><option value="8">8 h</option><option value="24">24 h</option></select></label>
+          </div></div>
+        <p class="hint" style="margin:0 0 8px">Choose up to 4 pens. Each pen gets its own chart (own unit). Dashed lines = SCADA alarm limits.
+          Data: the historian (data/history.db), one sample every 10 s. Vibration here is the raw value; the alarm uses the 1-minute average.</p>
+        <div class="sx-pens" id="sxPens"></div>
+        <div id="sxCharts"></div>
+      </div>
+    </div>
+
+    <div class="sx-page" id="sxP-audit" hidden>
+      <div class="card">
+        <div class="card-head"><h2>Audit trail</h2><span class="sub">who did what, and when (needed for ISO 9001 / FDA 21 CFR Part 11 plants)</span></div>
+        <div class="table-wrap"><table id="sxAudit"></table></div>
+      </div>
+    </div>
+
+    <div class="sx-page" id="sxP-report" hidden>
+      <div class="card">
+        <div class="card-head"><h2>Shift report</h2>
+          <div class="inline-form"><button class="btn" id="sxCsv">Download CSV</button>
+            <a class="btn" href="/api/export.csv">Historian raw data (CSV)</a></div></div>
+        <div class="table-wrap"><table id="sxReport"></table></div>
+        <p class="hint">OEE = availability × performance × quality. Hours are simulated hours since the start of this run.</p>
+      </div>
+    </div>
+
+    <div class="sx-page" id="sxP-settings" hidden>
+      <div class="card">
+        <div class="card-head"><h2>Alarm limits (SCADA settings)</h2><span class="sub" id="sxDb"></span></div>
+        <p class="hint" style="margin:0 0 8px">These limits belong to SCADA: they decide when the operator gets an alarm. They do <b>not</b> change the
+          machine itself (a bearing still breaks at its own limit). Every change is written to the audit trail.
+          Formula: alarm ON at value ≥ limit, OFF at value &lt; limit − deadband.</p>
+        <div class="table-wrap"><table id="sxLimits"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== COMMUNICATION ============================== -->
+  <!-- ============================== CNC / G-CODE ============================== -->
+  <section id="tab-cnc" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>G-code generator and CNC controller simulator</h2><span class="sub">machine, tool and cutting data are example values</span></div>
+      <p class="intro"><b>1.</b> Describe the part: stock, tools and operations. <b>2.</b> The generator writes the G-code, like CAM software
+        does. <b>3.</b> A simulated CNC controller reads the program line by line, checks it and raises alarms like a real control.
+        <b>4.</b> The 3D preview moves the tool and cuts the material. Click any program line to see what each word means.</p>
+      <div class="gc-bar">
+        <label class="tb-label">Example <select id="gcTpl" aria-label="Example part"></select></label>
+        <button class="btn" id="gcTplLoad">Load example</button>
+        <span class="tb-sep"></span>
+        <label class="tb-label">Machine <select id="gcMach" aria-label="Machine"></select></label>
+        <label class="tb-label">Controller <select id="gcCtrl" aria-label="Controller dialect"></select></label>
+        <label class="tb-label">Material <select id="gcMat" aria-label="Material"></select></label>
+        <label class="tb-label">Program no. <input type="number" id="gcProgNo" min="1" max="9999" style="width:80px"></label>
+        <label class="tb-label">Name <input type="text" id="gcProgName" maxlength="24" style="width:140px"></label>
+        <label class="tb-check"><input type="checkbox" id="gcNums"> line numbers N</label>
+      </div>
+    </div>
+    <div class="kpis" id="gcKpis"></div>
+
+    <div class="gc-main">
+      <div class="gc-left">
+        <div class="card">
+          <div class="card-head"><h2>1. Stock (raw part)</h2><span class="sub">X0 Y0 = centre · Z0 = finished top</span></div>
+          <div class="gc-stock">
+            <label class="gc-f">Width X <span class="muted">(mm)</span><input type="number" id="gcS_w" step="any"></label>
+            <label class="gc-f">Length Y <span class="muted">(mm)</span><input type="number" id="gcS_l" step="any"></label>
+            <label class="gc-f">Height <span class="muted">(mm)</span><input type="number" id="gcS_h" step="any"></label>
+            <label class="gc-f">Top allowance <span class="muted">(mm)</span><input type="number" id="gcS_top" step="any" min="0"></label>
+          </div>
+          <p class="hint">The casting is a bit higher than the finished part. "Top allowance" is the extra material on top that face milling removes, down to Z0.</p>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>2. Tool table</h2>
+            <div class="inline-form"><select id="gcToolType" aria-label="New tool type"></select><button class="btn" id="gcToolAdd">+ Add tool</button></div></div>
+          <div class="table-wrap"><table class="gc-tools" id="gcTools"></table></div>
+          <p class="hint">T = place in the tool magazine. In a real machine the tool length (offset H) is measured with a tool presetter.</p>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>3. Operations</h2><span class="sub">run from top to bottom · click a card for its formulas</span></div>
+          <div id="gcOps"></div>
+          <div class="inline-form" style="margin-top:4px"><select id="gcOpKind" aria-label="New operation type"></select><button class="btn" id="gcOpAdd">+ Add operation</button></div>
+        </div>
+      </div>
+
+      <div class="gc-right">
+        <div class="card">
+          <div class="card-head"><h2>4. 3D preview – the tool cuts the material</h2>
+            <div class="inline-form">
+              <label class="tb-check"><input type="checkbox" id="gcShowPath" checked> tool path</label>
+              <label class="tb-check"><input type="checkbox" id="gcXray"> see-through stock</label>
+              <button class="btn ghost" id="gcFit">Fit view</button>
+            </div></div>
+          <div class="gc-play">
+            <button class="btn primary" id="gcPlay">▶ Run</button>
+            <button class="btn" id="gcRestart" title="Back to the start">⏮</button>
+            <button class="btn" id="gcPrev" title="Previous program line">◀ line</button>
+            <button class="btn" id="gcNext" title="Next program line">line ▶</button>
+            <label class="tb-label">Speed <select id="gcSpeed" aria-label="Playback speed">
+              <option value="1">1× real time</option><option value="5">5×</option><option value="10" selected>10×</option><option value="30">30×</option><option value="100">100×</option></select></label>
+            <input type="range" id="gcScrub" min="0" max="1000" value="0" aria-label="Program time">
+            <span class="muted small" id="gcTime"></span>
+          </div>
+          <div class="gc-view" id="gcView"></div>
+          <div class="gc-dro" id="gcDro"></div>
+          <div class="gc-legend small muted"><span><i style="background:#2a78d6"></i>cutting move (G1/G2/G3)</span>
+            <span><i class="dash"></i>rapid move (G0)</span><span><i style="background:#a7b0ba"></i>already cut</span>
+            <span><i style="background:#6f747b"></i>raw casting</span><span><i style="background:#dfe5ec;border:1px solid var(--border)"></i>machined surface</span>
+            <span>drag = turn · right-drag = move · wheel = zoom at the mouse · double-click = new turning point</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2>5. G-code program</h2>
+            <div class="inline-form">
+              <button class="btn" id="gcEditBtn">Edit code</button>
+              <button class="btn ghost" id="gcEditCancel" hidden>Cancel</button>
+              <button class="btn" id="gcCopy">Copy</button>
+              <button class="btn primary" id="gcDownload">Download file</button>
+            </div></div>
+          <div class="gc-banner" id="gcBanner" hidden>You are running <b>your own edited code</b>. Changes in the operations do not change it.
+            <button class="btn" id="gcBack">Back to generated code</button></div>
+          <div class="gc-code" id="gcCode"></div>
+          <textarea class="gc-edit" id="gcEdit" spellcheck="false" hidden aria-label="Edit G-code"></textarea>
+          <p class="hint">Colours: <span class="gw-g">G = how to move</span> · <span class="gw-m">M = machine switch</span> ·
+            <span class="gw-ax">X Y Z = where</span> · <span class="gw-ij">I J R Q K = arc / cycle data</span> · <span class="gw-fs">F S = feed and speed</span> ·
+            <span class="gw-t">T H D = tool</span> · <span class="gw-c">(comment)</span>. Try <b>Edit code</b>: delete the M3 or change a G1 to G0 and watch the controller react.</p>
+        </div>
+
+        <div class="grid2 eq gc-under">
+          <div class="card"><div class="card-head"><h2>Line explained</h2></div><div id="gcExplain"></div></div>
+          <div class="card"><div class="card-head"><h2>Controller messages</h2><span class="sub">alarms stop the program</span></div><div class="gc-msgs" id="gcMsgs"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2 eq">
+      <div class="card">
+        <div class="card-head"><h2>Cutting data – formulas with numbers</h2><span class="sub">selected operation</span></div>
+        <div id="gcFormula"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>How a CNC controller runs the program</h2></div>
+        <ol class="gc-steps">
+          <li><b>Program memory.</b> The G-code file comes from CAM software (via its <i>post-processor</i> = translator for one controller
+            dialect) or from this generator. It reaches the machine by USB, Ethernet or DNC. The MES chooses the program number for each work order.</li>
+          <li><b>Interpreter.</b> Reads one line (= one <i>block</i>) at a time. It remembers the <i>modal</i> codes (G1, G90, F, S …) and checks
+            the program. On an error it raises an alarm and stops.</li>
+          <li><b>Interpolator.</b> Cuts the path into very small steps (about every 1 ms) so that all axes move together on a straight
+            line or an arc. A <i>look-ahead</i> function slows down before corners.</li>
+          <li><b>Servo drives.</b> One motor per axis, with an encoder. A position loop corrects the error many thousand times per second.</li>
+          <li><b>PLC.</b> Executes the M codes: tool changer (M6), coolant pump (M8), spindle on (M3), door locks.</li>
+        </ol>
+        <p class="hint">This simulator does steps 2 and 3 in a simple way: no acceleration and only the commonly used codes. Real cycle time is
+          about 5–15 % longer than shown here. The 3D view uses <b>WebGL</b> (OpenGL for the web browser) through the Three.js library,
+          the same as the Live factory 3D view.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>G-code words – cheat sheet</h2><span class="sub">milling, Fanuc / ISO style</span></div>
+      <div class="table-wrap"><table class="gc-cheat">
+        <thead><tr><th>Code</th><th>Meaning</th><th>Example</th><th>Code</th><th>Meaning</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><span class="gw-g">G0</span></td><td>Rapid move, not cutting</td><td><code>G0 X50. Y20.</code></td><td><span class="gw-m">M3 / M5</span></td><td>Spindle on clockwise / stop</td><td><code>S1200 M3</code></td></tr>
+          <tr><td><span class="gw-g">G1</span></td><td>Straight cutting move with feed F</td><td><code>G1 X80. F600.</code></td><td><span class="gw-m">M6</span></td><td>Tool change</td><td><code>T2 M6</code></td></tr>
+          <tr><td><span class="gw-g">G2 / G3</span></td><td>Arc clockwise / counter-clockwise (I J = centre)</td><td><code>G3 X10. Y0. I-10. J0.</code></td><td><span class="gw-m">M8 / M9</span></td><td>Coolant on / off</td><td><code>M8</code></td></tr>
+          <tr><td><span class="gw-g">G17</span></td><td>XY plane for arcs</td><td><code>G17</code></td><td><span class="gw-m">M30</span></td><td>Program end and rewind</td><td><code>M30</code></td></tr>
+          <tr><td><span class="gw-g">G21</span></td><td>Millimetres (Siemens: G71)</td><td><code>G21</code></td><td><span class="gw-t">T</span></td><td>Tool number</td><td><code>T5</code></td></tr>
+          <tr><td><span class="gw-g">G28</span></td><td>Go to machine home</td><td><code>G91 G28 Z0.</code></td><td><span class="gw-t">H / D</span></td><td>Tool length offset (Siemens: D = length + radius)</td><td><code>G43 H5</code></td></tr>
+          <tr><td><span class="gw-g">G40/41/42</span></td><td>Cutter radius compensation off / left / right</td><td><code>G41 D12</code></td><td><span class="gw-fs">F</span></td><td>Feed rate in mm/min</td><td><code>F800.</code></td></tr>
+          <tr><td><span class="gw-g">G43 / G49</span></td><td>Tool length compensation on / off</td><td><code>G43 H1 Z50.</code></td><td><span class="gw-fs">S</span></td><td>Spindle speed in rpm</td><td><code>S3000</code></td></tr>
+          <tr><td><span class="gw-g">G54…G59</span></td><td>Work offsets (work zero 1 … 6)</td><td><code>G54</code></td><td><span class="gw-ij">R</span></td><td>Start level of a cycle, or arc radius</td><td><code>R2.</code></td></tr>
+          <tr><td><span class="gw-g">G81 / G83</span></td><td>Drilling / peck drilling cycle</td><td><code>G83 Z-20. R2. Q5. F150.</code></td><td><span class="gw-ij">Q</span></td><td>Peck depth</td><td><code>Q5.</code></td></tr>
+          <tr><td><span class="gw-g">G84 / G85</span></td><td>Tapping cycle / boring cycle</td><td><code>G84 Z-12. R2. F596.25</code></td><td><span class="gw-n">N</span></td><td>Line number (label only)</td><td><code>N120</code></td></tr>
+          <tr><td><span class="gw-g">G90 / G91</span></td><td>Absolute / incremental coordinates</td><td><code>G90</code></td><td><span class="gw-o">O</span></td><td>Program number</td><td><code>O1001</code></td></tr>
+          <tr><td><span class="gw-g">G98 / G99</span></td><td>Cycle returns to initial level / to R level</td><td><code>G98</code></td><td><span class="gw-c">( )</span></td><td>Comment (Siemens: <code>;</code>)</td><td><code>(ROUGH POCKET)</code></td></tr>
+        </tbody></table></div>
+      <p class="hint"><b>Fanuc tip:</b> always write a decimal point: <code>X10.</code> = 10 mm, but on many Fanuc controls <code>X10</code> = 0.010 mm!
+        The simulator warns you about this.</p>
+    </div>
+  </section>
+
+  <!-- ============================== PALLET CHANGER (APC) ============================== -->
+  <section id="tab-hmc" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>HMC build – make the parts of a horizontal machining centre in reality</h2>
+        <span class="sub">typical values (examples) · pallet data from the Pallet changer tab · check every part with catalogue data · offline</span></div>
+      <div class="mx-nav" role="group" aria-label="HMC item">
+        <button class="mx-el active" data-hritem="1">1 · Rotary table (B-axis, worm drive) – machining + assembly</button>
+        <button class="mx-el" data-hritem="2">2 · Worm manufacturing – digital twin (saw → inspection → test bench)</button>
+        <button class="mx-el" disabled title="next item">3 · next – you decide (e.g. spindle unit, column + slides, tool magazine)</button>
+      </div>
+      <p class="intro" id="hrIntro2" hidden>A <b>digital twin of the process</b> that makes the duplex worm of item 1. The worm runs through 12 operations: saw, face + centre, rough turn,
+        rough thread, case hardening, hardness test + centre holes, cylindrical grinding, thread grinding, nital etch, gear measuring machine and the test bench with a master wheel.
+        Every operation is animated and every worm gets a <b>part record</b> with simulated measured values (random variation). Switch on a <b>process fault</b> to see where it starts
+        and which check finds it. The lot simulation gives Cpk, the route table gives time and cost per worm. All values are examples.</p>
+      <p class="intro" id="hrIntro1">The <b>rotary table (B-axis)</b> turns the pallet so the HMC can machine 4 sides of the part. A servo motor drives a hardened, ground <b>worm</b>; the worm turns a
+        bronze <b>worm wheel</b> (e.g. ratio 1:90) bolted under the table. A big <b>axial-radial roller bearing</b> carries the table, a <b>hydraulic clamp</b> holds it while cutting,
+        and a direct <b>angle encoder</b> measures the real angle (a few arc seconds). Below: the assembly step by step in a cross-section, the backlash setting with a <b>duplex worm</b>,
+        process plans for every part you make, calculations, BOM and acceptance tests.</p>
+    </div>
+    <div id="hrItem1"></div>
+    <div id="hrItem2" hidden></div>
+  </section>
+
+  <section id="tab-apc" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>Automatic pallet changer (APC) for the horizontal machining centers – design</h2>
+        <span class="sub">typical values of a 500 mm pallet class HMC (examples) · use catalogue data for the real design</span></div>
+      <p class="intro">While the machine cuts pallet <b>A</b>, the operator clamps the next parts on pallet <b>B</b> at the load station.
+        Then the APC <b>unclamps → lifts → turns 180° → lowers → clamps</b>, and the spindle only waits a few seconds instead of minutes.
+        This page sizes every element of a <b>2-pallet rotary APC</b> (the most common type on HMCs) from your inputs:
+        servo + gearbox, lift cylinder, hydraulic unit, zero-point clamping, arm, bearing, sensors, PLC I/O and safety.
+        Other types: <i>shuttle APC</i> (pallets slide sideways – for very heavy pallets) and <i>pallet pool</i> (many pallets, like your PPS-1).</p>
+    </div>
+    <div class="kpis" id="apcKpis"></div>
+
+    <div class="card">
+      <div class="card-head"><h2>3D structure – detailed, built from your inputs</h2>
+        <span class="sub">drag = turn · right-drag = move · wheel = zoom at the mouse · double-click = new turning point · click a part for its data</span></div>
+      <div class="apc3d-bar">
+        <button class="btn primary" id="apc3dPlay">▶ Play change</button>
+        <input type="range" id="apc3dScrub" min="0" max="1000" value="0" aria-label="Time in the pallet change">
+        <span id="apc3dStep" class="small"></span>
+      </div>
+      <div class="apc3d-bar">
+        <span class="tb-label">View</span>
+        <div class="seg" role="group" aria-label="Camera view">
+          <button class="seg-btn" data-apcview="overview">Overview</button>
+          <button class="seg-btn" data-apcview="clamp">Clamping</button>
+          <button class="seg-btn" data-apcview="drive">Lift + drive</button>
+          <button class="seg-btn" data-apcview="hpu">Hydraulic unit</button>
+          <button class="seg-btn" data-apcview="station">Load station</button>
+        </div>
+        <label class="tb-check"><input type="checkbox" id="apc3dExp"> exploded view</label>
+        <label class="tb-check"><input type="checkbox" id="apc3dCut"> cut view (section)</label>
+        <label class="tb-check"><input type="checkbox" id="apc3dGuard"> guards + light curtain</label>
+        <label class="tb-check"><input type="checkbox" id="apc3dLbl" checked> labels</label>
+      </div>
+      <div class="apc3d-grid">
+        <div class="apc3d" id="apc3d"></div>
+        <div class="apc3d-info" id="apc3dInfo"></div>
+      </div>
+      <div class="apc3d-legend small muted">
+        <span><i style="background:#e1a32a"></i>APC arm, cross beams, fork rails (welded)</span><span><i style="background:#3c6e9e"></i>base frame, load station</span>
+        <span><i style="background:#c9d0d6"></i>ground / hardened parts</span><span><i style="background:#c49a3c"></i>pull studs</span>
+        <span><i style="background:#d03b3b"></i>module clamped / oil pressure</span><span><i style="background:#2fa84f"></i>module open</span>
+        <span><i style="background:#2a6fd6"></i>oil back to tank</span><span><i style="background:#19a7c8"></i>seating air</span>
+      </div>
+    </div>
+
+    <div class="grid2 eq" style="margin-top:0">
+      <div class="card">
+        <div class="card-head"><h2>Zero-point clamping module – section</h2><span class="sub">moves with the change</span></div>
+        <div id="apcSec"></div>
+        <p class="hint">Disc springs push the piston down; its taper presses the balls into the groove of the pull stud and pulls the pallet
+          onto the reference face (taper + face = position). Oil under the piston lifts it, compresses the springs and frees the balls.
+          No oil = clamped, so a power failure never drops the pallet.</p>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Hydraulic circuit</h2><span class="sub">ISO 1219 style · live state of the step</span></div>
+        <div id="apcHyd"></div>
+        <p class="hint">0P1 pump, 0V1 relief valve, 0Z2 accumulator. Lift: 4/3 valve 1V1 with closed centre, pilot-operated check valves 1V2
+          (the arm cannot sink when a hose breaks or the valve leaks) and meter-out throttles 1V3 (speed). Clamping: 3/2 valve 2V1 through the
+          rotary union to the 4 modules, pressure switch 2S1 = "unclamped". Air: 3/2 valve 3V1 + pressure switch 3S1 = seating check.</p>
+      </div>
+    </div>
+
+    <div class="apc-main">
+      <div class="card apc-incard">
+        <div class="card-head"><h2>Design inputs</h2><button class="btn ghost" id="apcReset">Example values</button></div>
+        <div id="apcInputs"></div>
+      </div>
+      <div class="apc-right">
+        <div class="card">
+          <div class="card-head"><h2>Pallet change – animation</h2>
+            <div class="inline-form">
+              <button class="btn primary" id="apcPlay">▶ Play change</button>
+              <label class="tb-label">Speed <select id="apcSpeed" aria-label="Animation speed"><option value="0.5">0.5×</option><option value="1" selected>1× real time</option><option value="2">2×</option></select></label>
+            </div></div>
+          <div class="apc-stepline"><span id="apcStep"></span><input type="range" id="apcScrub" min="0" max="1000" value="0" aria-label="Time in the change"><span class="muted small" id="apcTime"></span></div>
+          <div id="apcAnim" class="apc-anim"></div>
+          <p class="hint">Top: the arm with the partition wall turns pallet A (finished) out of the machine and pallet B (new parts) in.
+            Side: the lift cylinder raises both pallets off the cones; red cones = clamped.</p>
+          <h3>Timing</h3>
+          <div id="apcGantt"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Design checks</h2><span class="sub">✓ OK · ! close to the limit · ✕ change the design</span></div>
+          <div id="apcChecks" class="apc-checks"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Link to the twin</h2></div>
+          <p id="apcTwin" class="apc-twin"></p>
+          <button class="btn primary" id="apcApply">Use this change time in the twin</button>
+          <p class="hint">Changes the HMC pallet change time in the running simulation, so you can see the effect on output, OEE and
+            delivery in the other tabs. It is reset with the factory; edit <code>config/factory.json</code> for a permanent change.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>Calculations – formulas with your numbers</h2></div>
+      <div id="apcCalc" class="apc-calc"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>Step chain (PLC sequence) with sensors and interlocks</h2><span class="sub">runs in PLC-01 of the FMS cell</span></div>
+      <div class="table-wrap"><table id="apcSeq" class="apc-seq"></table></div>
+      <p class="hint">Each step waits for its sensor ("done when"). If a sensor does not come within a time limit (e.g. 2 × normal time), the PLC
+        stops the sequence and shows an alarm with the step number – the maintenance team sees at once which sensor or valve is wrong.</p>
+    </div>
+
+    <div class="grid2 eq">
+      <div class="card">
+        <div class="card-head"><h2>Bill of materials</h2><button class="btn" id="apcCsv">Download CSV (BOM + inputs)</button></div>
+        <div class="table-wrap"><table id="apcBom" class="apc-bom"></table></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>PLC I/O list of the APC</h2><span class="sub">example addresses in PLC-01</span></div>
+        <div class="table-wrap"><table id="apcIO"></table></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <div class="card-head"><h2>Safety</h2></div>
+      <div id="apcSafety"></div>
+    </div>
+  </section>
+
+  <section id="tab-mech" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>Mechanical elements – parts to manufacture, with a guide</h2>
+        <span class="sub">typical values (examples) · pallet data come from the Pallet changer tab · use catalogue data for the real design</span></div>
+      <div class="mx-nav" role="group" aria-label="Mechanical element">
+        <button class="mx-el active" data-mxitem="1">1 · Pallet transfer AGV / cart ↔ APC load station</button>
+        <button class="mx-el" data-mxitem="2">2 · Crate docking stand (castings in / parts out)</button>
+        <button class="mx-el" data-mxitem="3">3 · AS/RS ↔ AGV interface (I/O conveyors)</button>
+        <button class="mx-el" data-mxitem="4">4 · Load station ↔ pallet changer (APC) connection</button>
+      </div>
+      <p class="intro" id="mxIntro2" hidden>Castings arrive in a <b>crate</b> (steel box pallet with nests) and empty crates go back. One simple <b>crate stand</b> beside the load station
+        serves an <b>underride AGV</b> (drives under the stand and lowers the crate) and a <b>forklift</b> (sets the crate down). Both are inaccurate
+        (AGV ±10 mm, forklift driver ±50 mm): four <b>self-centring V-guides</b> at the crate corners centre the crate while it is lowered.
+        The operator then lifts each casting (more than 23 kg) with a <b>jib crane</b> onto the fixture.</p>
+      <p class="intro" id="mxIntro4" hidden>How the <b>load station</b> is connected to the <b>pallet changer (APC)</b>, so that the APC arm takes the pallet from the station receivers and
+        sets it into the machine <b>zero-point modules</b> (catch ±1 mm) – and brings the finished pallet back. The key points: the station is aligned to the <b>APC axis</b>, not to the floor
+        (bolted + dowelled to the APC base), both sides at the <b>same height</b>, the error chain station → machine must stay inside ±1 mm, and <b>interlocks</b> decide who may move when
+        (APC, station chains, AGV, people). With the animation of one pallet change, signals, BOM and the alignment procedure with a master pallet.</p>
+      <p class="intro" id="mxIntro3" hidden>Where the <b>AS/RS</b> (stacker crane in a fenced area) hands crates to the <b>AGVs</b>. Two <b>I/O chain conveyors</b> (IN / OUT) leave the crane area sideways:
+        <b>P&amp;D position</b> (crane fork) → buffer inside the fence → <b>fence opening with muting light curtain</b> → <b>contour check</b> (size, overhang, weight, barcode/RFID) →
+        <b>AGV transfer position</b> (open below for the underride AGV). The <b>safety distance</b> (ISO 13855) decides where the fence is and how many positions are inside.
+        The crate always rests on its two long edges – in the rack, on the conveyor, on the AGV stand – so the crane fork and the AGV can both go under it.</p>
+      <p class="intro" id="mxIntro1">How does a <b>500 kg machining pallet</b> get from the AGV onto the load station of the pallet changer – exactly enough that the APC forks
+        pick it up and the zero-point modules clamp it at ±0.005 mm? The answer is a chain of mechanical stages, each catching the error of the one before:
+        the AGV stops only ±5–10 mm accurate → its <b>floating deck</b> moves freely on ball transfer units → while the deck lifts, <b>2 cone pins</b> on the station
+        centre it and <b>machined stop faces</b> set its height (±0.2 mm) → <b>lift-transfer chains</b> move the pallet → <b>retractable stop</b> →
+        the pull studs drop into <b>locating receivers</b> (±0.02 mm).
+        A <b>manual cart</b> can use the same station when no AGV is available. A forklift is <i>not</i> used for machining pallets
+        (ground faces, pull studs underneath, high centre of gravity).</p>
+    </div>
+    <div id="mxItem1">
+    <div class="kpis" id="mxKpis"></div>
+
+    <div class="card">
+      <div class="card-head"><h2>3D – station, AGV / cart and pallet, built from your inputs</h2>
+        <span class="sub">drag = turn · right-drag = move · wheel = zoom at the mouse · double-click = new turning point · click a part for its data</span></div>
+      <div class="apc3d-bar">
+        <button class="btn primary" id="mxPlay">▶ Play transfer</button>
+        <input type="range" id="mxScrub" min="0" max="1000" value="0" aria-label="Time in the transfer">
+        <span id="mxStep" class="small"></span>
+      </div>
+      <div class="apc3d-bar">
+        <span class="tb-label">Vehicle</span>
+        <div class="seg" role="group" aria-label="Vehicle">
+          <button class="seg-btn active" data-mxveh="agv">AGV</button>
+          <button class="seg-btn" data-mxveh="cart">Manual cart</button>
+        </div>
+        <span class="tb-label">Task</span>
+        <div class="seg" role="group" aria-label="Task">
+          <button class="seg-btn active" data-mxtask="deliver">Deliver new pallet</button>
+          <button class="seg-btn" data-mxtask="pickup">Pick up finished pallet</button>
+        </div>
+      </div>
+      <div class="apc3d-bar">
+        <span class="tb-label">View</span>
+        <div class="seg" role="group" aria-label="Camera view">
+          <button class="seg-btn" data-mxview="overview">Overview</button>
+          <button class="seg-btn" data-mxview="dock">Docking</button>
+          <button class="seg-btn" data-mxview="transfer">Transfer unit</button>
+          <button class="seg-btn" data-mxview="side">Side (heights)</button>
+          <button class="seg-btn" data-mxview="top">Top</button>
+        </div>
+        <label class="tb-check"><input type="checkbox" id="mxCurtain" checked> light curtain</label>
+        <label class="tb-check"><input type="checkbox" id="mxLbl" checked> labels</label>
+      </div>
+      <div class="apc3d-grid">
+        <div class="apc3d" id="mx3d"></div>
+        <div class="apc3d-info" id="mx3dInfo"></div>
+      </div>
+      <div class="apc3d-legend small muted">
+        <span><i style="background:#3c6e9e"></i>station frames (MAKE)</span><span><i style="background:#9aa4ae"></i>lift-transfer unit</span>
+        <span><i style="background:#c9d0d6"></i>hardened / ground parts</span><span><i style="background:#d9832b"></i>PU buffers</span>
+        <span><i style="background:#f4f4f0;border:1px solid #bbb"></i>UHMW-PE wear strips</span><span><i style="background:#e1a32a"></i>APC (from the Pallet changer tab)</span>
+        <span><i style="background:#e8e6df;border:1px solid #bbb"></i>AGV</span><span><i style="background:#2f8f6b"></i>manual cart</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>Problem: the AGV stops only ±5–10 mm accurate – how it is solved</h2><span class="sub">front view moves with the 3D animation</span></div>
+      <div class="grid2 eq" style="margin-top:0;align-items:start">
+        <div id="mxAcc"></div>
+        <div><div id="mxAccSvg"></div>
+          <p class="hint">Front view (from the AGV side). The AGV body (light) stops off-centre. The deck (dark) floats on ball transfer units between centring springs.
+            When the deck lifts, the cones push it to the centre; then its arms press against the stop faces. After the transfer the deck lowers and the
+            conical lock pin pulls it back to the AGV centre for driving.</p></div>
+      </div>
+    </div>
+
+    <div class="grid2 eq" style="margin-top:0">
+      <div class="card">
+        <div class="card-head"><h2>Steps</h2><span class="sub">the highlighted step plays in 3D</span></div>
+        <div class="table-wrap"><table class="apc-bom apc-seq"><thead><tr><th>#</th><th>Step</th><th>Time</th></tr></thead><tbody id="mxSteps"></tbody></table></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Handshake + sensors</h2><span class="sub">E84 optical I/O (AGV) · station sensors · APC interlock</span></div>
+        <div id="mxSig"></div>
+        <p class="hint">Blue = signal from the AGV / cart / operator, orange = from the station, red = APC rotation allowed.
+          The APC may only lift and turn while the station chains and the stop are DOWN.</p>
+      </div>
+    </div>
+
+    <div class="grid2 eq" style="margin-top:0">
+      <div class="card">
+        <div class="card-head"><h2>Interface drawing – side view</h2><span class="sub">heights and distances in mm · dashed = other position</span></div>
+        <div id="mxSide"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Interface drawing – plan view</h2><span class="sub">chain strands, studs, funnel, swing circle</span></div>
+        <div id="mxPlan"></div>
+      </div>
+    </div>
+
+    <div class="apc-main">
+      <div class="card apc-incard">
+        <div class="card-head"><h2>Design inputs</h2><button class="btn ghost" id="mxReset">Example values</button></div>
+        <div id="mxInputs"></div>
+      </div>
+      <div class="apc-right">
+        <div class="card">
+          <div class="card-head"><h2>Checks</h2></div>
+          <div id="mxChecks" class="apc-checks"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Calculations</h2><span class="sub">formulas with your numbers</span></div>
+          <div id="mxCalc" class="apc-calc"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="card-head"><h2>Tolerance chains</h2><span class="sub">why each mechanical stage is needed</span></div>
+      <div id="mxTol"></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>Bill of materials</h2><span class="sub">MAKE = you manufacture · BUY = catalogue part</span></div>
+      <div class="table-wrap"><table id="mxBom" class="apc-bom"></table></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>Guide – interface, manufacturing, installation, tests, maintenance</h2></div>
+      <div id="mxGuide" class="mx-guide"></div>
+    </div>
+    </div><!-- /mxItem1 -->
+    <div id="mxItem2" hidden></div>
+    <div id="mxItem3" hidden></div>
+    <div id="mxItem4" hidden></div>
+  </section>
+
+  <section id="tab-agv" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>AGV build – make an AGV in reality, part by part</h2>
+        <span class="sub">typical values (examples) · check every part with catalogue data · offline</span></div>
+      <div class="mx-nav" role="group" aria-label="AGV item">
+        <button class="mx-el active" data-avitem="1">1 · Underride lifting AGV (crates) – structure, drive, lift, control, accuracy</button>
+        <button class="mx-el" data-avitem="2">2 · Servo drive control – electronics, CANopen, control code</button>
+        <button class="mx-el" data-avitem="3">3 · Pallet AGV (1 t) – scissor lift + floating chain deck</button>
+        <button class="mx-el" data-avitem="4">4 · Docking accuracy – animated (pallet AGV ↔ APC, crate AGV ↔ AS/RS)</button>
+        <button class="mx-el" disabled title="next item">5 · Safety program + complete wiring – next</button>
+      </div>
+      <p class="intro" id="avIntro2" hidden>How the two <b>drive motors</b> of the AGV from item 1 are controlled: from the navigation PC (speed + turn rate) over
+        <b>CANopen</b> (CiA 402) to the <b>servo drives</b>, which close the position, speed and current loops and feed the BLDC motors. With the power electronics
+        (battery, fuse, precharge, contactor, DC bus, brake chopper), the <b>STO</b> safety wiring, a <b>control simulator</b> you can tune, the drive state machine and
+        <b>example code</b> (Python, Structured Text, C). Motor, gear and mass come from item 1.</p>
+      <p class="intro" id="avIntro3" hidden>The AGV that brings the <b>machining pallet</b> (from the Pallet changer tab) to the APC load station of mechanical item 1.
+        It drives with the deck <b>low</b> (stable), stops only ±10 mm accurate, opens a lock pin so the deck <b>floats</b> on ball transfer units, lifts it with a
+        <b>scissor</b> to the transfer height, where <b>2 cone pins</b> centre it and <b>machined stop faces</b> set the height. Then the chains move the pallet.
+        With the height stack, concept comparison (low deck vs fixed high deck), signals, interface sheet, calculations, BOM and guide.</p>
+      <p class="intro" id="avIntro4" hidden>How an AGV that stops only <b>±10 mm</b> accurate still hands over its load exactly. Three cases, animated step by step:
+        <b>A</b> pallet AGV → APC station (floating deck, cone pins, stop faces, receivers → ±0.02 mm), <b>B</b> crate AGV → AS/RS (V-flare guides, conveyor, crane fork, rack),
+        <b>C</b> AS/RS → AGV → crate stand (errors add up on the AGV, the guides reset them). Left the overview, right a magnifier at real scale, below the error at each stage.
+        Move the "AGV stop error" slider to see when docking still works and when it fails.</p>
+      <p class="intro" id="avIntro1">The small <b>underride (latent) AGV</b> that carries the crates of mechanical items 2 and 3: it drives under the crate stand, lifts the crate
+        about 50 mm with an electric lift (<b>cam</b>, <b>screw jack</b>, <b>scissor</b> or <b>hydraulic</b> – compare them) and drives away. Two <b>drive wheels on a rocker</b> in the middle steer it (differential drive), four <b>sprung castors</b> carry the rest of the weight,
+        a <b>LiFePO4 battery</b> gives the energy, two <b>safety laser scanners</b> watch 360° around it. Below: the 3D model (also exploded), the <b>stop accuracy</b> – where the ±mm come from
+        and how to measure it –, the control system, safety fields, calculations, BOM and a manufacturing guide.</p>
+    </div>
+    <div id="avItem1"></div>
+    <div id="avItem2" hidden></div>
+    <div id="avItem3" hidden></div>
+    <div id="avItem4" hidden></div>
+  </section>
+
+  <section id="tab-comm" class="tabpane">
+    <div class="cm-modes">
+      <div class="seg" role="group" aria-label="Communication view">
+        <button class="seg-btn active" data-cmmode="sim">Step-by-step simulation</button>
+        <button class="seg-btn" data-cmmode="proto">Protocols by layer</button>
+        <button class="seg-btn" data-cmmode="scada">SCADA explained</button>
+        <button class="seg-btn" data-cmmode="live">Live monitor</button>
+      </div>
+      <span class="muted small">Simulation = one order explained slowly. Protocols = every protocol between the layers, with examples.
+        SCADA = a working SCADA screen on the running twin. Live monitor = real messages of the running twin.</span>
+    </div>
+
+    <div id="cmScada" hidden>
+      <div class="card">
+        <div class="card-head"><h2>What is SCADA?</h2><span class="sub">Level 2 · between the MES and the PLCs</span></div>
+        <div id="scWhat"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>A working SCADA screen – real data from your running twin</h2>
+          <span class="sub" id="scSub"></span></div>
+        <p class="intro">This is what the operator sees in the control room. Click a machine to open its <b>faceplate</b>
+          (tags, signals, commands). Alarms, limits and addresses are example values; the commands are only shown, they do not change the twin.</p>
+        <div class="sc-hmi">
+          <div class="sc-mimic" id="scMimic"></div>
+          <div class="sc-face" id="scFace"></div>
+        </div>
+        <div class="sc-row2">
+          <div>
+            <div class="sc-h"><b>Alarm list</b> <span class="muted small" id="scAlmCount"></span>
+              <span class="sc-h-r"><label class="tb-check"><input type="checkbox" id="scTest"> teaching: simulate bearing damage on the selected machine</label>
+              <button class="mini" id="scAckAll">Acknowledge all</button></span></div>
+            <div class="table-wrap"><table class="sc-alm" id="scAlarms"></table></div>
+          </div>
+          <div>
+            <div class="sc-h"><b>Trend (historian)</b> <span class="muted small" id="scTrendT"></span></div>
+            <div class="sc-trend" id="scTrend"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>One second inside SCADA: the scan cycle</h2><span class="sub">repeats again and again</span></div>
+        <div class="sc-cycle" id="scCycle"></div>
+      </div>
+    </div>
+
+    <div id="cmProto" hidden>
+      <div class="card">
+        <div class="card-head"><h2>Communication types and protocols between every layer</h2>
+          <span class="sub">typical choices · example values</span></div>
+        <p class="intro">Each pair of neighbour layers uses its own protocols, because the needs are different: business documents
+          up top (days), fast machine data at the bottom (milliseconds). First learn the <b>5 communication types</b>; every
+          protocol is one of them. Click a type to highlight its protocols below.</p>
+        <div class="cp-types" id="cpTypes"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Quick overview</h2><span class="sub">main protocol on each link</span></div>
+        <div class="table-wrap"><table class="cp-sum" id="cpSum"></table></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Layer by layer: protocol, type, speed and a real message</h2>
+          <span class="sub">open "Example message" to see the grammar</span></div>
+        <div class="cp-stack" id="cpStack"></div>
+        <div class="csim-glegend" id="cpGLegend"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Other connections (not between neighbour layers)</h2></div>
+        <div class="cp-grid" id="cpOther"></div>
+      </div>
+    </div>
+
+    <div id="cmSim">
+      <div class="card">
+        <div class="card-head"><h2>Communication simulation: follow one order (23 × VC20-300) through all systems</h2>
+          <span class="sub">example values</span></div>
+        <div class="csim-bar">
+          <div class="csim-ctl">
+            <button class="btn" id="csRestart" title="Start again">⏮ Restart</button>
+            <button class="btn" id="csPrev" title="Previous step">◀ Back</button>
+            <button class="btn primary" id="csPlay">▶ Play</button>
+            <button class="btn" id="csNext" title="Next step">Next ▶</button>
+            <button class="btn ghost" id="csReplay" title="Show this step again">↻ Repeat step</button>
+            <label class="tb-label">Speed <select id="csSpeed" aria-label="Animation speed">
+              <option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label>
+          </div>
+          <div class="csim-stages" id="csStages"></div>
+        </div>
+        <div class="csim-steps" id="csSteps"></div>
+        <div class="csim-stage-wrap"><svg id="csimSvg" class="csim-svg" viewBox="0 0 1200 690" role="img"
+          aria-label="Animated diagram: messages between customer, ERP, MES, SCADA, PLCs and the shop floor"></svg></div>
+        <div class="csim-legend" id="csLegend"></div>
+        <div class="csim-panel" id="csPanel"></div>
+      </div>
+    </div>
+
+    <div id="cmLive" hidden>
+    <div class="card">
+      <div class="card-head"><h2>Communication layers: who talks to whom, and with which protocol</h2>
+        <span class="sub" id="cmSub"></span></div>
+      <p class="intro">A smart factory has <b>layers</b> (ISA-95 / automation pyramid). Each layer works on a different time scale
+        and talks only to its neighbours, through a <b>protocol</b> (a common language for messages). Orders go <b>down</b>
+        (customer → ERP → MES → machines); results, alarms and sensor data go <b>up</b>. The numbers are live: messages per
+        simulated hour on each link. A dot moves when a message crosses a link.</p>
+      <div class="cm-stack" id="cmStack"></div>
+      <p class="hint">Protocols shown are typical examples (first one = used in the workflow below). This twin itself moves the
+        data with HTTP JSON (<code>/api/erp</code>, <code>/api/mes</code>, <code>/api/ingest</code>) and Server-Sent Events
+        (<code>/api/stream</code>) to your browser; it records each message as it would travel in a real plant.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>End-to-end workflow: one customer order, 14 messages</h2>
+        <span class="sub">click a step to see a real message</span></div>
+      <div class="cm-flow" id="cmFlow"></div>
+      <div class="cm-detail" id="cmDetail"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>Live message log</h2>
+        <div class="inline-form">
+          <select id="cmFilter" aria-label="Show step"><option value="">all steps</option></select>
+          <button class="btn ghost" id="cmPause">Pause log</button>
+        </div></div>
+      <div class="table-wrap scroll"><table id="cmLog"></table></div>
+      <p class="hint">Sensor data (step 10) is only counted, not listed: about 64 values every 10 s would fill the log.</p>
+    </div>
+    </div>
+  </section>
+
+  <!-- ============================== WHAT-IF ============================== -->
+  <section id="tab-whatif" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>What-if simulation</h2></div>
+      <p class="intro">Change the line design below and test it in the virtual factory <b>before</b>
+        spending money in the real one. The twin simulates the shift(s) for both the current design and
+        your scenario, several times with different random events, and compares the averages.</p>
+      <div class="wi-grid">
+        <div>
+          <h3>Machines</h3>
+          <div class="table-wrap"><table class="wi" id="wiStations"></table></div>
+        </div>
+        <div>
+          <h3>Flexible manufacturing (FMS)</h3>
+          <div class="table-wrap"><table class="wi" id="wiFms"></table></div>
+          <p class="hint" style="margin:4px 0 0">What-if has no customer orders: the models start in the mix proportions.
+            Rule SETUP = batches of the given size; the other rules = mixed sequence (one model after the other).</p>
+          <h3>Material handling</h3>
+          <div class="table-wrap"><table class="wi" id="wiMH"></table></div>
+          <h3>Buffers (parts storage between machines)</h3>
+          <div class="table-wrap"><table class="wi" id="wiBuffers"></table></div>
+          <div class="wi-run">
+            <label>Hours to simulate <input type="number" id="wiHours" value="8" min="1" max="72"></label>
+            <label>Repetitions <input type="number" id="wiReps" value="3" min="1" max="5"></label>
+            <button class="btn primary" id="wiRun">Run simulation</button>
+            <button class="btn ghost" id="wiClear">Clear changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="wiResult" hidden>
+      <div class="card-head"><h2>Result</h2><span id="wiGain" class="gain"></span></div>
+      <div class="table-wrap"><table class="cmp" id="wiCmp"></table></div>
+      <h3>Where does each machine spend its time?</h3>
+      <div class="legend" id="wiLegend"></div>
+      <div id="wiBars" class="wibars"></div>
+    </div>
+  </section>
+
+  <!-- ============================== LEARN ============================== -->
+  <section id="tab-learn" class="tabpane">
+    <div class="card learn">
+      <h2>What is a digital twin?</h2>
+      <p>A <b>digital twin</b> is a live virtual copy of a real factory. Real machines send their data
+        (state, temperature, vibration, part counts…) to the twin. The twin shows what is happening <b>now</b>,
+        predicts what <b>will</b> happen (for example a bearing failure), and lets you test changes
+        <b>virtually</b> before doing them in the real factory.</p>
+
+      <h3>The 5 layers, and where they are in this software</h3>
+      <ol class="layers">
+        <li><b>Physical layer</b>: machines, sensors, PLCs. <i>Now:</i> simulated in <code>twin/model.py</code>.
+          <i>Later:</i> your real CNC and robots.</li>
+        <li><b>Connectivity layer</b>: data moves from the machines to the twin. <i>Here:</i> HTTP endpoint
+          <code>POST /api/ingest</code> (example: <code>tools/gateway_example.py</code>). <i>In industry:</i>
+          OPC UA, MQTT, Modbus.</li>
+        <li><b>Data layer</b>: stores the history. <i>Here:</i> SQLite file <code>data/history.db</code>, export to CSV.</li>
+        <li><b>Model and analytics layer</b>: OEE, bottleneck, health, remaining useful life, alarms.
+          <i>Here:</i> <code>twin/analytics.py</code>.</li>
+        <li><b>Application layer</b>: dashboards, what-if simulation, control. <i>Here:</i> this web page.</li>
+      </ol>
+
+      <h3>Key numbers explained</h3>
+      <dl class="terms">
+        <dt>OEE (Overall Equipment Effectiveness)</dt>
+        <dd>Availability × Performance × Quality. World class ≈ 85%. Typical factories: 40–60%.</dd>
+        <dt>Availability</dt><dd>Share of planned time the machine was not broken down.</dd>
+        <dt>Performance</dt><dd>How close to the ideal speed it produced while available. Waiting for parts (STARVED) or a full output buffer (BLOCKED) lowers it.</dd>
+        <dt>Quality</dt><dd>Good parts ÷ all parts made.</dd>
+        <dt>Bottleneck</dt><dd>The machine that limits the whole line. Improving any other machine does not increase output. Improve the bottleneck first.</dd>
+        <dt>WIP</dt><dd>Work in progress: parts inside the line (in machines and buffers).</dd>
+        <dt>Health index / RUL</dt><dd>0–100 score from tool wear and vibration trend. RUL (remaining useful life) predicts how many parts or hours remain before failure, so you can plan maintenance instead of waiting for a breakdown.</dd>
+        <dt>Vibration mm/s</dt><dd>ISO 10816 style velocity RMS. Rising vibration is the earliest sign of bearing, spindle or imbalance problems.</dd>
+      </dl>
+
+      <h3>Material handling: how parts move</h3>
+      <dl class="terms">
+        <dt>AS/RS (automated storage and retrieval system)</dt>
+        <dd>A tall rack with a stacker crane. Each store or retrieval keeps the crane busy for one <i>crane cycle</i> (50–60 s here).
+          Raw castings and forgings are stored in the raw-material AS/RS; packed compressors go into the finished-goods AS/RS.
+          Production retrievals go first; put-away of purchased goods waits.</dd>
+        <dt>AGV / AMR (automated guided vehicle / autonomous mobile robot)</dt>
+        <dd>Vehicles that drive loads along the blue routes. They work as a <b>kanban</b>: when a line-side rack has room for a full
+          load, a transport task is created and the nearest free AGV takes it. AGVs wait for the crane, load, drive, unload,
+          and go to a charger when the battery is low (8 h battery, 1.5 h charge).</dd>
+        <dt>Pallet pool and pallet changer</dt>
+        <dd>The crankcase cell is an FMS (flexible manufacturing system). At the <b>load station</b> an operator clamps a raw casting
+          on a fixture pallet; the station also marks the <b>serial number</b>. Loaded pallets wait in the pallet pool rack (10 pallets).
+          Each of the 3 machining centers has a <b>pallet changer</b>: the next part is already clamped while the machine cuts, so only 15 s
+          are lost per part instead of 2 minutes of manual loading.</dd>
+      </dl>
+
+      <h3>FMS: flexible manufacturing of three models</h3>
+      <p>The factory makes <b>VC10</b> (10 m³/h, 100 L), <b>VC20</b> (20 m³/h, 300 L) and <b>VC30</b> (30 m³/h, 500 L) on the same machines.
+        The 4 elements of an FMS, and where they are here:</p>
+      <ol class="layers">
+        <li><b>Flexible machines</b>: 3 identical CNC machining centers. Each holds the tools of 2 models in its magazine;
+          the third model needs a tool-set exchange (10 min). Other stations have a <b>changeover time</b> when the model changes
+          (lathe 4 min: chuck jaws + program; test bench 2 min: adapter + new flow limit).</li>
+        <li><b>Automatic material handling</b>: fixture pallets, pallet pool with shuttle, pallet changers, AGVs, AS/RS cranes.</li>
+        <li><b>Central computer control</b>: the MES chooses which work order starts (dispatching rule FIFO / EDD / SPT / SETUP),
+          the machining centers choose the next pallet, the AGVs bring castings of the model that is needed.</li>
+        <li><b>Flexible routing</b>: any pallet to any free machining center; kanban supermarkets per model for cylinders and
+          crankshafts; the assembly cell starts only complete kits of one model.</li>
+      </ol>
+      <p>Open the <b>FMS &amp; products</b> tab to see the models, the tool magazines, the kanban levels and every changeover.
+        In 3D a machine in changeover shows a <b>cyan</b> label edge, and parts have a small colour tag per model
+        (<span class="pdot" style="background:#c2468f"></span>VC10 <span class="pdot" style="background:#2a78d6"></span>VC20
+        <span class="pdot" style="background:#8c5a2b"></span>VC30).</p>
+
+      <h3>MES and ERP: the ISA-95 levels</h3>
+      <ol class="layers">
+        <li><b>Level 4 – ERP</b> (business, days/weeks): sales orders, bill of materials, <b>MRP</b>, purchasing, inventory, cost.
+          MRP each hour: <i>net = demand + safety stock − stock − open work orders</i> → new work orders; material needed during
+          the supplier lead time → purchase orders.</li>
+        <li><b>Level 3 – MES</b> (production, minutes/hours): work orders, order release, serial numbers and traceability,
+          quality records (SPC, Cpk), maintenance orders. <i>Here:</i> the MES tab.</li>
+        <li><b>Level 2 – supervisory</b> (seconds): SCADA / HMI, the live twin view.</li>
+        <li><b>Level 1–0 – control and process</b> (milliseconds): PLCs, CNC controls, sensors, the machines themselves.</li>
+      </ol>
+      <p>Open the <b>Communication</b> tab to see the protocols between these levels and every message of one customer
+        order, live: EDI → B2MML → OPC UA / MQTT / VDA 5050 → IO-Link, and back up.</p>
+      <p>This twin contains the manufacturing part of an ERP. For accounting, HR and payroll use a real ERP (for example the
+        free open-source Odoo or ERPNext) and connect it with the HTTP API (<code>/api/erp</code>, <code>/api/mes</code>).</p>
+
+      <h3>Order flow: simulate one customer order by hand</h3>
+      <ol>
+        <li>Open the <b>Order flow</b> tab and press <b>Start empty factory (manual)</b>. Nothing runs: there are no orders.</li>
+        <li>Type Qty <b>50</b> and press <b>Create order</b> (ERP, level 4). Stage 1 turns green.</li>
+        <li><b>Create work order</b>: the ERP gives the MES a work order for these 50 units, linked to this customer.</li>
+        <li><b>Material check</b>: the bill of materials × 50 is compared with the store. If something is missing, <b>Buy missing material</b>
+          sends purchase orders; real suppliers need 12–20 h, <b>Deliver now</b> is a training shortcut.</li>
+        <li><b>Release</b> (MES, level 3): the load station starts clamping crankcases of that model and marks serial numbers (VC10-… / VC20-… / VC30-…)</li>
+        <li>Press <b>Pause</b>, then <b>+1 min</b> / <b>+10 min</b> and watch each unit (blue chips) move through the route.
+          Click a chip to see its route, component lots and air-flow result. The machines working on your order are outlined in 3D.</li>
+        <li>When all 50 are in the finished-goods AS/RS, press <b>Ship order</b>. The crane picks them and the order is closed: on time or late?</li>
+      </ol>
+      <p>Tick <b>automatic steps</b> on an order (or choose the <b>Automatic</b> factory mode) and the same steps happen by themselves.</p>
+
+      <h3>Try this (10-minute exercise)</h3>
+      <ol>
+        <li>Set the speed to 60x. In the 3D view, watch the conveyors fill and empty, and find the <b>Bottleneck</b> KPI.
+          Every compressor needs <b>2 cylinders</b>, so the cylinder line must work twice as fast as the others.</li>
+        <li>Click the <b>Crankshaft Grinder</b> in 3D, then <b>Simulate bearing fault</b>. Watch vibration rise and the
+          prediction of when the alarm will happen. Switch <b>Color → By health</b> to see it in the 3D factory.</li>
+        <li>Before it fails, press <b>Do maintenance</b>. The light tower turns blue. You just did <i>predictive maintenance</i>.</li>
+        <li>Look at a <b>Performance Test Bench</b>: its screen shows the measured air flow (FAD). Units more than 3% below the
+          nominal flow of their model are rejected (VC20: below 19.4 m³/h; VC10: below 9.7; VC30: below 29.1).</li>
+        <li>Open <b>FMS &amp; products</b>. Switch the dispatching rule to <b>FIFO</b> for a few hours (speed 300x), then to <b>EDD</b>.
+          Compare the number of changeovers. In <b>What-if</b>, switch off <i>Crankcase Machining Center 3</i>: does the FMS cell
+          become the bottleneck?</li>
+        <li>Open <b>What-if simulation</b>. Reduce the <i>Cylinder Boring Center</i> cycle time (100 → 80 s) and run it.
+          Then reduce the <i>Packaging</i> cycle time instead and compare. Why does packaging give nothing?</li>
+        <li>Still in What-if: set the <b>AGV fleet size</b> to 1, then switch off the <b>pallet changers</b>, then set the
+          finished-goods <b>crane cycle</b> to 150 s. Which one becomes the bottleneck? (A slow crane costs about 20% output.)</li>
+        <li>Open <b>MES</b>, click a serial number: you see the route of that compressor, the lot of every casting, its air-flow
+          result and the customer. Then press <b>Hold</b> on all work orders and watch the load station stop in 3D
+          ("No released work order").</li>
+        <li>Open <b>ERP</b>, switch off <i>MRP every hour</i> and wait about a day of factory time (speed 300x). Watch the stock fall
+          and the factory stop with a <b>stock-out</b> alarm. That is why MRP and safety stock exist.</li>
+      </ol>
+
+      <h3>Path to a real smart factory</h3>
+      <ol>
+        <li>Put the real line layout and cycle times in <code>config/factory.json</code>.</li>
+        <li>Start with one machine: read its state and part counter (PLC, OPC UA or a simple sensor + ESP32/Raspberry Pi).</li>
+        <li>Set <code>"external": true</code> for that machine and send its data to <code>/api/ingest</code>.</li>
+        <li>Add vibration and temperature sensors on critical spindles.</li>
+        <li>Compare twin vs reality, tune the model, then add more machines.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div id="tooltip" class="tooltip" hidden></div>
+<div id="toast" class="toast" hidden></div>
+<script type="importmap">
+  { "imports": { "three": "./vendor/three.module.min.js", "three/addons/": "./vendor/" } }
+</script>
+<script src="app.js"></script>
+<script src="ops.js"></script>
+<script src="comm.js"></script>
+<script src="commsim.js"></script>
+<script src="commproto.js"></script>
+<script src="scada.js"></script>
+<script src="scadatab.js"></script>
+<script src="plc.js"></script>
+<script src="apc.js"></script>
+<script type="module" src="gcode.js"></script>
+<script type="module" src="apc3d.js"></script>
+<script type="module" src="mech.js"></script>
+<script type="module" src="mech2.js"></script>
+<script type="module" src="mech3.js"></script>
+<script type="module" src="mech4.js"></script>
+<script type="module" src="hmc.js"></script>
+<script type="module" src="wormmfg.js"></script>
+<script type="module" src="agv.js"></script>
+<script type="module" src="agvdrive.js"></script>
+<script type="module" src="agvpallet.js"></script>
+<script type="module" src="agvdock.js"></script>
+<script type="module">
+  import { createFactory3D } from "./factory3d.js";
+  const msg = document.getElementById("sceneMsg");
+  try {
+    const config = await (await fetch("/api/config")).json();
+    const view = createFactory3D(document.getElementById("scene3d"), config, window.TwinUI);
+    msg.remove();
+    window.TwinUI.attach3D(view);
+    const q = new URLSearchParams(location.search);   // deep links, e.g. /?cam=assembly&color=health
+    if (q.get("cam")) view.setView(q.get("cam"));
+    if (q.get("focus")) { window.TwinUI.select(q.get("focus")); view.focus(q.get("focus")); }
+    if (q.get("color")) { view.setColorMode(q.get("color")); document.getElementById("colorMode").value = q.get("color"); }
+  } catch (e) {
+    console.error(e);
+    msg.textContent = "3D view could not start (" + e.message + "). Use the Line schematic view.";
+  }
+</script>
+</body>
+</html>

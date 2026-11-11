@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APC Mechanism Twin</title>
+<style>
+:root{--bg:#121519;--panel:#1a1e24;--panel2:#20252d;--line:#2d333d;--text:#d8dde4;--muted:#8691a0;--accent:#4c8dff;--amber:#f0a030;--green:#3ecf7a;--red:#ef5350}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:13px/1.45 "Segoe UI",system-ui,Roboto,sans-serif;overflow:hidden}
+#app{display:grid;grid-template-columns:250px 1fr 340px;grid-template-rows:50px 1fr 200px;height:100vh}
+header{grid-column:1/4;display:flex;align-items:center;gap:14px;padding:0 14px;background:var(--panel);border-bottom:1px solid var(--line)}
+header h1{font-size:15px;margin:0;font-weight:600;white-space:nowrap}
+header h1 span{color:var(--muted);font-weight:400}
+.dro{display:flex;gap:6px;overflow:hidden}
+.dro div{background:#0c0f12;border:1px solid var(--line);border-radius:4px;padding:3px 8px;font-family:Consolas,monospace;font-size:12.5px;white-space:nowrap}
+.dro b{color:var(--muted);font-weight:500;margin-right:6px}
+.lnk{margin-left:auto;color:var(--accent);text-decoration:none;white-space:nowrap}
+.lnk:hover{text-decoration:underline}
+aside{background:var(--panel);overflow:auto}
+#left{grid-row:2/4;border-right:1px solid var(--line)}
+#right{grid-row:2/4;grid-column:3;border-left:1px solid var(--line);display:flex;flex-direction:column}
+section{padding:12px 14px;border-bottom:1px solid var(--line)}
+section h2{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:600}
+.b{display:block;width:100%;margin:0 0 6px;padding:7px 10px;background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:5px;font:inherit;cursor:pointer;text-align:left}
+.b:hover:not(:disabled){border-color:#4a5462;background:#262c35}
+.b:disabled{opacity:.4;cursor:default}
+.b.pri{background:#1f4fa8;border-color:#2c63c9;color:#fff;font-weight:600}
+.b.pri:hover:not(:disabled){background:#2a5fc2}
+.b.sm{padding:5px 8px;font-size:12px;margin:0}
+.b.on{border-color:var(--accent);color:#fff;background:#1d3155}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.chk{display:flex;align-items:center;gap:7px;margin:6px 0;cursor:pointer;user-select:none}
+.row{display:flex;align-items:center;gap:8px;margin:6px 0}
+.row input{flex:1}
+.hint{color:var(--muted);font-size:11.5px;margin:8px 0 0}
+.plist button{display:flex;align-items:center;gap:8px;width:100%;text-align:left;background:none;border:0;color:var(--text);padding:4px 6px;border-radius:4px;cursor:pointer;font:inherit}
+.plist button:hover{background:var(--panel2)}
+.plist button.sel{background:#1d3155}
+.plist i{width:10px;height:10px;border-radius:2px;flex:none}
+#view{position:relative;overflow:hidden;grid-row:2;grid-column:2;background:radial-gradient(ellipse at 50% 35%,#2a3039,#14171c)}
+#view canvas{display:block}
+#cap{position:absolute;left:14px;top:12px;max-width:min(520px,calc(100% - 28px));background:rgba(18,21,25,.92);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:6px;padding:9px 12px;display:none;pointer-events:none}
+#cap b{display:block;font-size:14px;margin-bottom:2px}
+#cap span{color:#b9c1cc;font-size:12.5px}
+#cap small{display:block;color:var(--amber);font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}
+#legend{position:absolute;right:12px;bottom:10px;background:rgba(18,21,25,.85);border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-size:11.5px;pointer-events:none}
+#legend div{display:flex;align-items:center;gap:7px;margin:2px 0}
+#legend i{width:10px;height:10px;border-radius:2px;flex:none}
+footer{grid-row:3;grid-column:2;background:#0e1114;border-top:1px solid var(--line);position:relative}
+footer canvas{width:100%;height:100%;display:block}
+#steps{margin:0;padding:0 0 0 0;list-style:none;counter-reset:s}
+#steps li{counter-increment:s;padding:5px 8px 5px 30px;border-radius:5px;position:relative;margin-bottom:2px;color:#aab3bf}
+#steps li::before{content:counter(s);position:absolute;left:7px;top:5px;width:17px;height:17px;border-radius:50%;background:var(--panel2);border:1px solid var(--line);font-size:10.5px;text-align:center;line-height:16px}
+#steps li small{display:none;color:var(--muted);font-size:11.5px}
+#steps li.cur{background:#2a2414;color:#fff}
+#steps li.cur small{display:block}
+#steps li.cur::before{background:var(--amber);color:#000;border-color:var(--amber)}
+#steps li.done::before{background:#1d4d33;border-color:#2b7a4f;content:"✓"}
+#info{flex:none}
+#info h3{margin:0 0 4px;font-size:14px}
+#info p{margin:4px 0 6px;color:#c3cad3}
+#info ul{margin:4px 0;padding-left:18px;color:#b4bcc7}
+#info li{margin:2px 0}
+#logS{flex:1;min-height:120px;display:flex;flex-direction:column}
+#log{flex:1;overflow:auto;font-family:Consolas,monospace;font-size:11.5px}
+#log div{padding:1px 0;border-bottom:1px solid #1f242b}
+#log .w{color:var(--red)}
+#log .ok{color:var(--green)}
+#log .s{color:var(--amber)}
+.lbl{font-size:11px;background:rgba(14,17,20,.82);border:1px solid #3a424e;border-radius:4px;padding:2px 6px;color:#e3e8ee;white-space:nowrap;pointer-events:none}
+.lbl.k{border-color:var(--amber);color:#ffd28a}
+</style>
+<script>
+  const im = location.protocol.startsWith('http')
+    ? { three:'./lib/three.module.js', 'three/addons/':'./lib/addons/' }
+    : { three:'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js', 'three/addons/':'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/' };
+  document.write('<script type="importmap">' + JSON.stringify({ imports: im }) + '<\/script>');
+</script>
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>Automatic Pallet Changer <span>· rotary twin-pallet (swing) type · mechanism model</span></h1>
+    <div class="dro" id="dro"></div>
+    <a class="lnk" href="index.html">← Full HMC twin</a>
+  </header>
+
+  <aside id="left">
+    <section>
+      <h2>Run</h2>
+      <button class="b pri" id="bRun">▶ Pallet change (M60)</button>
+      <label class="chk"><input type="checkbox" id="cStep"> Step mode (pause each step)</label>
+      <button class="b" id="bNext" disabled>Next step ▸</button>
+      <div class="row">Speed <input type="range" id="rSpd" min="0.25" max="3" step="0.25" value="1"><span id="vSpd">1×</span></div>
+      <button class="b" id="bReset">Reset</button>
+    </section>
+    <section>
+      <h2>Manual moves (interlocked)</h2>
+      <div class="grid2">
+        <button class="b sm" data-m="zchg">Table → APC</button>
+        <button class="b sm" data-m="zwork">Table → spindle</button>
+        <button class="b sm" data-m="uncl">Unclamp</button>
+        <button class="b sm" data-m="clamp">Clamp</button>
+        <button class="b sm" data-m="up">Arm UP</button>
+        <button class="b sm" data-m="down">Arm DOWN</button>
+        <button class="b sm" data-m="rot">Rotate 180°</button>
+      </div>
+      <p class="hint">Try a move out of order. The interlock blocks it and the log tells you why. These are the rules your PLC must enforce.</p>
+    </section>
+    <section>
+      <h2>View</h2>
+      <div class="grid2">
+        <button class="b sm on" data-v="iso">3D</button>
+        <button class="b sm" data-v="mech">Inside gearbox</button>
+        <button class="b sm" data-v="front">Front</button>
+        <button class="b sm" data-v="side">Side</button>
+        <button class="b sm" data-v="top">Top</button>
+        <button class="b sm" data-v="fork">Fork + pins</button>
+        <button class="b sm" data-v="clamp" style="grid-column:1/3">Clamp cut-away (how the pallet is held)</button>
+      </div>
+      <label class="chk"><input type="checkbox" id="cCut" checked> See-through gearbox</label>
+      <label class="chk"><input type="checkbox" id="cLbl" checked> Labels</label>
+      <label class="chk"><input type="checkbox" id="cMach" checked> Machine table + wall</label>
+    </section>
+    <section><h2>Parts (click)</h2><div id="plist" class="plist"></div></section>
+  </aside>
+
+  <main id="view">
+    <div id="cap"></div>
+    <div id="legend">
+      <div><i style="background:#f0a030"></i>Moving arm (lifts + turns)</div>
+      <div><i style="background:#4a97ff"></i>Machine table (moves in Z)</div>
+      <div><i style="background:#ff7ac0"></i>Setup station (fixed)</div>
+      <div><i style="background:#3f78c8"></i>Hydraulic cylinders</div>
+      <div><i style="background:#3ecf7a"></i>Cone clamped / sensor ON</div>
+      <div><i style="background:#ef5350"></i>Cone unclamped</div>
+    </div>
+  </main>
+
+  <aside id="right">
+    <section><h2>Change sequence</h2><ol id="steps"></ol></section>
+    <section id="info"><h2>Selected part</h2><div id="infoBody"><p style="color:var(--muted)">Click any part in the 3D view or in the list.</p></div></section>
+    <section id="logS"><h2>Log</h2><div id="log"></div></section>
+  </aside>
+
+  <footer><canvas id="chart"></canvas></footer>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+/* ================= PART INFO (design rationale) ================= */
+const PARTS = {
+  arm:{ name:'Swing arm + H-forks', col:0xf0a030,
+    role:'The only moving part of the APC. It has an H-shaped fork at each end, one per pallet. It lifts both pallets, turns 180°, and sets them down, so the pallets swap places.',
+    design:['Welded steel arm on a hub, bolted to the main shaft','Each fork has 2 fingers that sit UNDER the pallet side ledges','Forks are OPEN at the outer end, so the table can drive in along Z','15 mm gap under the ledges when down: nothing touches during Z travel','The pallet is NOT clamped to the arm: gravity + 2 locating pins hold it (see "Locating pins")','Rated for 2 × (pallet + fixture + part), e.g. 2 × 500 kg'] },
+  pins:{ name:'Locating pins + ledge holes', col:0xd9dee4,
+    role:'Hold the pallet on the fork during the turn. One tapered pin on each finger enters a hardened hole under the pallet ledge, so the pallet cannot slide off the open end of the fork.',
+    design:['Pin 10 mm tall with a tapered tip, so it guides itself into the hole','When the arm is down, the pin tip clears the ledge by 3 mm, so the table can drive through','Lift stage 1 (0–15 mm): pins enter the holes, then the fingers touch the ledges','Lift stage 2 (15–100 mm): the pallet is carried','Fork accuracy only needs about ±0.5 mm. The taper cones do the precise positioning when the pallet is set down'] },
+  clampDet:{ name:'Zero-point clamp (cut-away)', col:0xd08a3a,
+    role:'One of the 4 clamps in each receiver, cut in half and enlarged 4×. It moves with the real clamp signals.',
+    design:['Taper cone: locates the pallet to about 2–5 µm','Pull stud: screwed into the underside of the pallet','CLAMP: disc springs push the piston UP, its edge pushes the steel balls IN, the balls grip the stud groove and pull the pallet down (about 20–30 kN per clamp)','UNCLAMP: oil pressure (UNCL SOL) pushes the piston DOWN and compresses the springs. The balls can move out, so the stud is free','Spring clamped / oil released means the clamp holds even if power or hydraulics fail'] },
+  door:{ name:'Partition door', col:0x9aa3ad,
+    role:'A wall mounted on the arm. It fills the opening in the machine enclosure, so chips and coolant cannot reach the operator. Because it turns with the arm, the opening stays sealed before, during and after the change.',
+    design:['Steel frame + polycarbonate window','Brush / rubber lip seals against the fixed wall','Lifts and turns together with the arm'] },
+  shaft:{ name:'Splined main shaft', col:0xc8ced6,
+    role:'Carries the arm. Its splines let it slide UP / DOWN through the pinion while the pinion still turns it, so one shaft does both lift and rotation.',
+    design:['Involute spline section passes through the pinion bore','Taper-roller / cross-roller bearing at the top of the gearbox','Piston rod of the lift cylinder pushes on its bottom end (thrust bearing between)'] },
+  liftCyl:{ name:'Lift cylinder', col:0x3f78c8,
+    role:'Hydraulic cylinder under the shaft. It raises the arm 100 mm to pick both pallets off their cones, and lowers them again.',
+    design:['Double-acting, about 100 mm stroke','Flow-control valves give a soft start and stop (protects the cones)','Sized for both loaded pallets + arm + door','UP SOL = 1 → lift, UP SOL = 0 → lower'] },
+  rotAct:{ name:'Rack-and-pinion rotary actuator', col:0xc9a24a,
+    role:'Turns the arm 180°. Two opposed hydraulic pistons each carry a gear rack. Both racks mesh with one pinion on the shaft, so the straight piston stroke becomes rotation.',
+    design:['Rack travel = pinion radius × π for 180°','End cushions + adjustable stop screws give exactly 180°','Swings 0° → 180° and back 180° → 0° (it never turns a full circle), so hoses and cables do not twist','Alternative design: servo motor + roller-gear cam (faster, more expensive)'] },
+  sensors:{ name:'Position sensors', col:0x3ecf7a,
+    role:'Inductive proximity switches that tell the PLC where the arm is. The next step only starts when the switch for the previous step is ON.',
+    design:['DOWN LS / UP LS read a dog collar on the shaft','0° LS / 180° LS read the rotary piston at each end of its stroke','24 VDC PNP, LED on each sensor (green here)','Plus: clamp / unclamp LS on each receiver, air-gap seat check'] },
+  housing:{ name:'Gearbox housing', col:0x6b7480,
+    role:'Cast or welded box that holds the lift cylinder, the rotary actuator and the shaft bearing. It takes all the arm loads into the base.',
+    design:['Oil-lubricated rack and pinion inside','Top bearing housing carries the shaft','Toggle "See-through gearbox" to look inside'] },
+  base:{ name:'APC base', col:0x4a525c,
+    role:'Bolted and dowelled to the front of the machine bed. The fork centre must line up with the table centre at the Z change position.',
+    design:['Alignment target: about ±0.05 mm in X, set with shims / eccentric pins','Levelling screws to the foundation','Hydraulic and air lines enter here'] },
+  valves:{ name:'Hydraulic / air valves', col:0x2ec4b6,
+    role:'Solenoid valves that the PLC switches to drive the APC. Each lamp lights up when its solenoid (Y output) is ON.',
+    design:['UNCL SOL: hydraulic pressure to unclamp both receivers','UP SOL: lift cylinder up / down','ROT SOL: rotary actuator 0° / 180°','AIR: cone cleaning blow','Pressure switch confirms system pressure before any move'] },
+  pallet:{ name:'Pallets A / B', col:0x8d98a3,
+    role:'Interchangeable work carriers. One is being machined while the operator loads the other at the setup station.',
+    design:['500 × 500 mm with tapped-hole grid','Side ledges: the fork fingers lift the pallet by these','Taper bushes underneath match the 4 clamp cones','Optional: RFID pallet ID'] },
+  cones:{ name:'Clamp cones (zero-point)', col:0x3ecf7a,
+    role:'4 taper cones on each receiver locate the pallet to a few microns and pull it down. The table and the setup station have identical cones, so either pallet fits either side.',
+    design:['Clamped by disc springs, so it stays clamped if power or pressure is lost (fail-safe)','Hydraulic pressure UNclamps','Air blow cleans the cones while the pallet is lifted','Air-gap sensor confirms the pallet sits flat (SEAT OK)','Green = clamped, red = unclamped'] },
+  table:{ name:'Machine B-table on Z saddle', col:0x4a97ff,
+    role:'Rotary table inside the machine. To change pallets, the Z axis drives it all the way out INTO the machine-side fork.',
+    design:['Change position = end of Z travel','B axis must be at 0° so the pallet lines up with the fork','The receiver cones are identical to the setup station'] },
+  setup:{ name:'Setup (load / unload) station', col:0xff7ac0,
+    role:'Outside the machine. The operator unloads finished parts and loads raw stock here while the other pallet is cut.',
+    design:['Same 4-cone receiver as the table','Often manual 90° indexing so the operator can reach every face','"Pallet ready" push-button + light curtain, both checked before every change'] },
+  wall:{ name:'Machine enclosure wall', col:0x5d6570,
+    role:'Fixed guard between the machining area and the operator side. The partition door fills its opening.', design:[] },
+};
+
+/* ================= SCENE ================= */
+const view = document.getElementById('view');
+const renderer = new THREE.WebGLRenderer({ antialias:true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+view.appendChild(renderer.domElement);
+const lblR = new CSS2DRenderer();
+lblR.domElement.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none';
+view.appendChild(lblR.domElement);
+
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+scene.add(new THREE.HemisphereLight(0xdde6f0, 0x20242a, 0.6));
+const sun = new THREE.DirectionalLight(0xffffff, 1.6);
+sun.position.set(3, 5, 4); sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left:-3, right:3, top:3, bottom:-3, near:0.5, far:15 });
+scene.add(sun);
+
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(12, 12), new THREE.MeshStandardMaterial({ color:0x1b1f25, roughness:0.95 }));
+floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+const grid = new THREE.GridHelper(12, 48, 0x2c323b, 0x232830); grid.position.y = 0.001; scene.add(grid);
+
+const pcam = new THREE.PerspectiveCamera(40, 1, 0.02, 60);
+const ocam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.01, 60);
+let cam = pcam;
+const controls = new OrbitControls(pcam, renderer.domElement);
+controls.enableDamping = true;
+
+/* ================= GEOMETRY HELPERS ================= */
+const meshesByPart = {};
+function mat(color, metal = 0.3, rough = 0.55, extra = {}) {
+  return new THREE.MeshStandardMaterial({ color, metalness:metal, roughness:rough, ...extra });
+}
+function reg(m, part) {
+  m.userData.part = part; m.castShadow = true; m.receiveShadow = true;
+  m.material = m.material.clone();
+  m.userData.emi0 = m.material.emissive.clone();
+  (meshesByPart[part] ||= []).push(m);
+  return m;
+}
+function box(parent, part, material, w, h, d, x, y, z) {
+  const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), material);
+  m.position.set(x, y, z); parent.add(m); return reg(m, part);
+}
+function cyl(parent, part, material, rt, rb, h, x, y, z, axis = 'y', seg = 32) {
+  const m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), material);
+  if (axis === 'x') m.rotation.z = Math.PI / 2;
+  if (axis === 'z') m.rotation.x = Math.PI / 2;
+  m.position.set(x, y, z); parent.add(m); return reg(m, part);
+}
+const labels = [];
+function label(parent, text, x, y, z, key = false) {
+  const d = document.createElement('div');
+  d.className = 'lbl' + (key ? ' k' : ''); d.textContent = text;
+  const o = new CSS2DObject(d); o.position.set(x, y, z); parent.add(o); labels.push(o); return o;
+}
+
+const M = {
+  cast: mat(0x4a525c, 0.35, 0.7), housing: mat(0x6b7480, 0.35, 0.6), steel: mat(0xc8ced6, 0.85, 0.3),
+  pinion: mat(0xc9a24a, 0.8, 0.35), hyd: mat(0x3f78c8, 0.5, 0.4), rack: mat(0xb0b8c0, 0.85, 0.35),
+  amber: mat(0xf0a030, 0.3, 0.5), dark: mat(0x2a2f36, 0.4, 0.6), glass: mat(0x9fc6e8, 0.1, 0.1, { transparent:true, opacity:0.18, depthWrite:false }),
+  table: mat(0x4a97ff, 0.35, 0.5), setup: mat(0xff7ac0, 0.25, 0.55), valve: mat(0x2ec4b6, 0.3, 0.5),
+  pallet: mat(0x8d98a3, 0.4, 0.7), cone: mat(0x3ecf7a, 0.4, 0.4), sensor: mat(0x30353c, 0.4, 0.5),
+  led: mat(0x203024, 0, 0.5), wall: mat(0x5d6570, 0.2, 0.7, { transparent:true, opacity:0.28, depthWrite:false }),
+  bed: mat(0x5a626c, 0.35, 0.7),
+};
+
+/* ================= DIMENSIONS (metres) ================= */
+const PY = 0.90;      // pallet seat height (top of receivers)
+const ZC = 0.60;      // fork centre distance from APC axis
+const LIFT = 0.10;    // lift stroke
+const ZWORK = -1.55;  // table work position
+const ZCH = -ZC;      // table change position (pallet centre under machine-side fork)
+const PR = 0.06;      // pinion pitch radius
+const apc = new THREE.Group(); scene.add(apc);
+
+/* ---- base + gearbox ---- */
+box(apc, 'base', M.cast, 0.8, 0.05, 0.5, 0, 0.025, 0);
+for (const sx of [-1, 1]) for (const sz of [-1, 1]) cyl(apc, 'base', M.dark, 0.025, 0.025, 0.02, sx * 0.35, 0.06, sz * 0.2, 'y', 12);
+const housing = [
+  box(apc, 'housing', M.housing, 0.64, 0.5, 0.32, 0, 0.30, 0),
+];
+housing.push(cyl(apc, 'housing', M.housing, 0.09, 0.1, 0.08, 0, 0.59, 0, 'y', 32));
+
+/* lift cylinder (static barrel) */
+cyl(apc, 'liftCyl', M.hyd, 0.055, 0.055, 0.16, 0, 0.13, 0, 'y', 28);
+cyl(apc, 'liftCyl', M.dark, 0.06, 0.06, 0.015, 0, 0.21, 0, 'y', 28);
+
+/* pinion (turns, does not lift) */
+const pinion = new THREE.Group(); pinion.position.set(0, 0.40, 0); apc.add(pinion);
+cyl(pinion, 'rotAct', M.pinion, PR - 0.006, PR - 0.006, 0.07, 0, 0, 0, 'y', 32);
+for (let i = 0; i < 18; i++) {
+  const a = i / 18 * Math.PI * 2;
+  const t = box(pinion, 'rotAct', M.pinion, 0.014, 0.07, 0.012, Math.sin(a) * PR, 0, Math.cos(a) * PR);
+  t.rotation.y = a;
+}
+
+/* two opposed rack cylinders */
+const RZ = PR + 0.012;
+const racks = [];
+for (const s of [1, -1]) {     // s=+1: rack at +z, barrel on -x side; s=-1: rack at -z, barrel on +x side
+  cyl(apc, 'rotAct', M.hyd, 0.034, 0.034, 0.17, -s * 0.225, 0.40, s * RZ, 'x', 24);
+  cyl(apc, 'rotAct', M.dark, 0.038, 0.038, 0.014, -s * 0.31, 0.40, s * RZ, 'x', 24);
+  const r = new THREE.Group(); apc.add(r);
+  box(r, 'rotAct', M.rack, 0.30, 0.04, 0.02, 0, 0, 0);
+  for (let i = 0; i < 14; i++) box(r, 'rotAct', M.rack, 0.008, 0.04, 0.008, -0.13 + i * 0.02, 0, -s * 0.013);
+  r.userData = { s, x0: -s * 0.05 };
+  r.position.set(r.userData.x0, 0.40, s * RZ);
+  racks.push(r);
+}
+
+/* sensors: 0° / 180° on rack cylinder (+z one), UP / DOWN on bracket beside shaft */
+const leds = {};
+function sensor(key, x, y, z, axis, ledOff) {
+  cyl(apc, 'sensors', M.sensor, 0.012, 0.012, 0.05, x, y, z, axis, 14);
+  const l = new THREE.Mesh(new THREE.SphereGeometry(0.009, 12, 8), M.led);
+  l.position.set(x + ledOff[0], y + ledOff[1], z + ledOff[2]); apc.add(l); reg(l, 'sensors');
+  leds[key] = l;
+}
+sensor('0°', -0.29, 0.455, RZ, 'y', [0, 0.03, 0]);
+sensor('180°', -0.16, 0.455, RZ, 'y', [0, 0.03, 0]);
+box(apc, 'sensors', M.dark, 0.02, 0.2, 0.03, 0.15, 0.73, 0);
+sensor('DOWN', 0.12, 0.70, 0, 'x', [0.03, 0, 0]);
+sensor('UP',   0.12, 0.80, 0, 'x', [0.03, 0, 0]);
+
+/* valves */
+box(apc, 'valves', M.valve, 0.14, 0.1, 0.32, 0.55, 0.05, 0);
+const valveLamps = {};
+['UNCL', 'UP', 'ROT'].forEach((k, i) => {
+  box(apc, 'valves', M.dark, 0.08, 0.06, 0.07, 0.55, 0.13, -0.1 + i * 0.1);
+  const l = new THREE.Mesh(new THREE.SphereGeometry(0.012, 12, 8), M.led);
+  l.position.set(0.55, 0.175, -0.1 + i * 0.1); apc.add(l); reg(l, 'valves'); valveLamps[k] = l;
+});
+const hoseMat = mat(0x111418, 0.1, 0.8);
+for (let i = 0; i < 3; i++) {
+  const c = new THREE.CatmullRomCurve3([
+    new THREE.Vector3(0.5, 0.12, -0.1 + i * 0.1), new THREE.Vector3(0.42, 0.2, -0.08 + i * 0.08), new THREE.Vector3(0.33, 0.25 + i * 0.05, -0.04 + i * 0.04)]);
+  const h = new THREE.Mesh(new THREE.TubeGeometry(c, 16, 0.008, 6), hoseMat); apc.add(h); reg(h, 'valves');
+}
+
+/* ---- lifting + rotating assembly ---- */
+const liftG = new THREE.Group(); apc.add(liftG);             // moves in Y only
+cyl(liftG, 'liftCyl', M.steel, 0.025, 0.025, 0.12, 0, 0.21, 0, 'y', 16);  // piston rod
+cyl(liftG, 'sensors', M.steel, 0.055, 0.055, 0.02, 0, 0.70, 0, 'y', 28);  // dog collar
+const rotG = new THREE.Group(); liftG.add(rotG);             // turns about Y
+cyl(rotG, 'shaft', M.steel, 0.04, 0.04, 0.62, 0, 0.56, 0, 'y', 28);
+for (let i = 0; i < 8; i++) {
+  const a = i / 8 * Math.PI * 2;
+  box(rotG, 'shaft', M.rack, 0.008, 0.2, 0.008, Math.sin(a) * 0.041, 0.42, Math.cos(a) * 0.041).rotation.y = a;
+}
+cyl(rotG, 'arm', M.amber, 0.13, 0.13, 0.05, 0, 0.865, 0, 'y', 36);
+box(rotG, 'arm', M.amber, 0.16, 0.05, 0.62, 0, 0.865, 0);
+for (const s of [-1, 1]) {
+  box(rotG, 'arm', M.amber, 0.62, 0.05, 0.05, 0, 0.865, s * 0.33);
+  for (const sx of [-1, 1]) {
+    box(rotG, 'arm', M.amber, 0.03, 0.04, 0.05, sx * 0.272, 0.89, s * 0.33);           // riser
+    box(rotG, 'arm', M.amber, 0.03, 0.04, 0.54, sx * 0.272, 0.90, s * (0.33 + 0.27));  // finger, top = PY+0.02 (15 mm under ledge)
+    // tapered locating pin on each finger (10 mm tall) -> enters the hardened hole in the pallet ledge
+    cyl(rotG, 'pins', M.steel, 0.007, 0.007, 0.007, sx * 0.272, 0.9235, s * ZC, 'y', 16);
+    cyl(rotG, 'pins', M.steel, 0.002, 0.007, 0.005, sx * 0.272, 0.9295, s * ZC, 'y', 16);
+  }
+}
+const ENGAGE = 0.015;   // lift travel until the fingers touch the ledges (pins fully in the holes)
+const pinLbl = label(rotG, 'Locating pin → hole in pallet ledge', 0.3, 0.93, ZC);
+/* partition door on the arm */
+box(rotG, 'door', M.dark, 1.5, 0.05, 0.03, 0, 0.97, 0);
+box(rotG, 'door', M.dark, 1.5, 0.05, 0.03, 0, 1.93, 0);
+for (const s of [-1, 1]) box(rotG, 'door', M.dark, 0.05, 1.0, 0.03, s * 0.725, 1.45, 0);
+box(rotG, 'door', M.dark, 0.04, 0.91, 0.03, 0, 1.45, 0);
+box(rotG, 'door', M.glass, 1.4, 0.91, 0.01, 0, 1.45, 0);
+box(rotG, 'door', M.amber, 1.5, 0.02, 0.035, 0, 0.94, 0);
+
+/* ---- fixed enclosure wall with opening ---- */
+const wallG = new THREE.Group(); scene.add(wallG);
+box(wallG, 'wall', M.wall, 0.8, 2.3, 0.04, -1.2, 1.15, 0);
+box(wallG, 'wall', M.wall, 0.8, 2.3, 0.04, 1.2, 1.15, 0);
+box(wallG, 'wall', M.wall, 1.6, 0.2, 0.04, 0, 2.2, 0);
+
+/* ---- machine table on Z saddle ---- */
+const machG = new THREE.Group(); scene.add(machG);
+box(machG, 'table', M.bed, 0.75, 0.6, 1.75, 0, 0.3, -1.3);
+for (const sx of [-1, 1]) box(machG, 'table', M.steel, 0.05, 0.03, 1.7, sx * 0.2, 0.615, -1.3);
+const tableG = new THREE.Group(); machG.add(tableG);
+box(tableG, 'table', M.table, 0.55, 0.1, 0.5, 0, 0.68, 0);
+cyl(tableG, 'table', M.table, 0.21, 0.22, 0.17, 0, 0.815, 0, 'y', 40);
+const cones = { table:[], setup:[] };
+const tableMount = new THREE.Object3D(); tableMount.position.y = PY; tableG.add(tableMount);
+for (const sx of [-1, 1]) for (const sz of [-1, 1]) cones.table.push(cyl(tableG, 'cones', M.cone, 0.012, 0.03, 0.035, sx * 0.15, PY + 0.0175, sz * 0.15, 'y', 18));
+
+/* ---- setup station ---- */
+const setupG = new THREE.Group(); setupG.position.z = ZC; scene.add(setupG);
+box(setupG, 'setup', M.setup, 0.4, 0.05, 0.4, 0, 0.025, 0.05);
+cyl(setupG, 'setup', M.setup, 0.17, 0.2, 0.78, 0, 0.44, 0, 'y', 36);
+cyl(setupG, 'setup', M.setup, 0.21, 0.21, 0.07, 0, 0.865, 0, 'y', 40);
+const setupMount = new THREE.Object3D(); setupMount.position.y = PY; setupG.add(setupMount);
+for (const sx of [-1, 1]) for (const sz of [-1, 1]) cones.setup.push(cyl(setupG, 'cones', M.cone, 0.012, 0.03, 0.035, sx * 0.15, PY + 0.0175, sz * 0.15, 'y', 18));
+box(setupG, 'setup', M.dark, 0.08, 0.9, 0.05, -0.45, 0.45, 0.3);
+const pbLamp = new THREE.Mesh(new THREE.SphereGeometry(0.02, 12, 8), mat(0x1d6b3a, 0, 0.4, { emissive:0x0 }));
+pbLamp.position.set(-0.45, 0.88, 0.33); setupG.add(pbLamp); reg(pbLamp, 'setup');
+
+/* ---- zero-point clamp: half-section, enlarged x4 (same state as the setup-station clamps) ---- */
+function revolve(parent, part, color, prof, o = {}) {
+  const pts = prof.map(([r, y]) => new THREE.Vector2(r, y));
+  const m = mat(color, o.metal ?? 0.55, o.rough ?? 0.4, { side:THREE.DoubleSide, ...(o.extra || {}) });
+  const g = new THREE.Group(); parent.add(g);
+  const lathe = new THREE.Mesh(new THREE.LatheGeometry([...pts, pts[0]], 40, 0, Math.PI), m);
+  g.add(lathe); reg(lathe, part);
+  for (const s of [-1, 1]) {                       // flat cut faces at the section plane
+    const c = new THREE.Mesh(new THREE.ShapeGeometry(new THREE.Shape(pts)), m);
+    c.rotation.y = s * Math.PI / 2; g.add(c); reg(c, part);
+  }
+  return g;
+}
+const CLP = new THREE.Vector3(-0.95, 1.12, 1.0);
+box(scene, 'clampDet', M.dark, 0.05, 0.8, 0.05, CLP.x, 0.4, CLP.z);
+box(scene, 'clampDet', M.dark, 0.3, 0.03, 0.3, CLP.x, 0.015, CLP.z);
+const CL = new THREE.Group(); CL.position.copy(CLP); CL.scale.setScalar(4); CL.rotation.y = 3 * Math.PI / 4; scene.add(CL);
+revolve(CL, 'clampDet', 0xff7ac0, [[0.05, -0.014], [0.078, -0.014], [0.078, 0], [0.05, 0]], { metal:0.25, rough:0.55 });   // receiver plate
+revolve(CL, 'clampDet', 0x8a939e, [[0.022, -0.078], [0.05, -0.078], [0.05, 0], [0.03, 0], [0.018, 0.012], [0.011, 0.012], [0.011, -0.006], [0.022, -0.006]]); // body + taper cone
+revolve(CL, 'clampDet', 0xa9b1bb, [[0.0108, -0.078], [0.0145, -0.078], [0.0145, -0.006], [0.0108, -0.006]]);            // ball sleeve
+const clPiston = revolve(CL, 'clampDet', 0xd08a3a, [[0.0145, -0.05], [0.0215, -0.05], [0.0215, -0.02], [0.0145, -0.02]]); // piston
+const clOil = revolve(CL, 'clampDet', 0x2f6fde, [[0.0145, 0], [0.0215, 0], [0.0215, 1], [0.0145, 1]], { metal:0.1, rough:0.3 }); // oil chamber
+const clSprings = [];
+for (let i = 0; i < 6; i++) clSprings.push(revolve(CL, 'clampDet', 0x58b368, [[0.0145, 0.0012], [0.0215, -0.0012], [0.0215, 0.0002], [0.0145, 0.0026]]));
+const clBalls = [0, 180].map(a => {     // on the cut plane so they are visible
+  const b = new THREE.Mesh(new THREE.SphereGeometry(0.004, 16, 12), mat(0xe8ecf0, 0.95, 0.15));
+  b.userData.a = a * Math.PI / 180; CL.add(b); reg(b, 'clampDet'); return b;
+});
+const clStud = new THREE.Group(); CL.add(clStud);
+revolve(clStud, 'clampDet', 0xd9dee4, [[0, 0.03], [0.01, 0.03], [0.01, -0.02], [0.007, -0.024], [0.007, -0.028], [0.0105, -0.031], [0.0105, -0.038], [0.007, -0.041], [0, -0.041]], { metal:0.9, rough:0.2 });
+revolve(clStud, 'clampDet', 0x8d98a3, [[0.03, 0], [0.078, 0], [0.078, 0.032], [0.01, 0.032], [0.01, 0.012], [0.018, 0.012]], { metal:0.4, rough:0.6 }); // pallet section with taper bush
+const clLbls = [];
+const mk = (p, t, x, y, z) => { const l = label(p, t, x, y, z); clLbls.push(l); return l; };
+label(CL, 'Pallet clamp (cut-away, 4× size)', 0, 0.06, 0, true);
+mk(clStud, 'Pull stud (screwed into pallet)', 0.0, -0.046, 0);
+mk(CL, 'Locking balls', 0.0, -0.026, 0.02);
+mk(clPiston, 'Piston', 0.0, -0.035, 0.028);
+mk(CL, 'Disc springs → CLAMP force', 0.0, -0.07, 0.03);
+mk(CL, 'Oil chamber → UNCLAMP', 0.0, -0.012, 0.03);
+mk(CL, 'Taper cone (locates)', 0.0, 0.008, 0.04);
+const clState = label(CL, '', 0, -0.1, 0); clState.element.style.cssText += ';font-size:12px;padding:4px 8px';
+const CLS = { pist:0, stud:0 };
+
+/* ---- pallets ---- */
+function makePallet(id, color) {
+  const g = new THREE.Group(); g.userData.id = id;
+  box(g, 'pallet', M.pallet, 0.5, 0.06, 0.5, 0, 0.03, 0);
+  for (const s of [-1, 1]) box(g, 'pallet', M.pallet, 0.03, 0.025, 0.5, s * 0.265, 0.0475, 0);   // lift ledges
+  for (const s of [-1, 1]) {                                                                         // hardened locating holes (underside of ledges)
+    cyl(g, 'pins', M.dark, 0.009, 0.009, 0.003, s * 0.272, 0.034, 0, 'y', 16);
+    cyl(g, 'pins', mat(0xd9dee4, 0.9, 0.25), 0.012, 0.012, 0.0015, s * 0.272, 0.0345, 0, 'y', 16);
+  }
+  for (const s of [-1, 1]) box(g, 'pallet', mat(color, 0.3, 0.4), 0.3, 0.025, 0.006, 0, 0.03, s * 0.252);
+  box(g, 'pallet', M.dark, 0.32, 0.03, 0.32, 0, 0.075, 0);
+  box(g, 'pallet', mat(0x7d8792, 0.5, 0.5), 0.26, 0.26, 0.08, 0, 0.22, 0);                       // angle plate
+  box(g, 'pallet', mat(color, 0.4, 0.45), 0.2, 0.16, 0.12, 0, 0.17, 0.1);                         // workpiece
+  label(g, `Pallet ${id}`, 0, 0.42, 0, true);
+  return g;
+}
+const palA = makePallet('A', 0x2f6fde);
+const palB = makePallet('B', 0xf0a030);
+tableMount.add(palA); palA.userData.on = 'table';
+setupMount.add(palB); palB.userData.on = 'setup';
+const pallets = [palA, palB];
+
+/* ---- labels ---- */
+label(rotG, 'Swing arm + H-fork', 0.0, 0.83, 0.8, true);
+label(rotG, 'Partition door (turns with arm)', 0, 2.03, 0);
+label(apc, 'Rack & pinion (turns arm)', 0.12, 0.34, -0.2);
+label(apc, 'Lift cylinder', 0.0, 0.1, 0.2);
+label(apc, '0° / 180° sensors', -0.23, 0.52, 0.15);
+label(apc, 'UP / DOWN sensors', 0.22, 0.79, 0);
+label(liftG, 'Splined shaft', -0.1, 0.72, 0);
+label(apc, 'Hydraulic valves', 0.62, 0.28, 0);
+label(tableG, 'Machine table (Z axis)', 0, 0.62, -0.3);
+label(setupG, 'Setup station (operator)', 0, 0.45, 0.25);
+label(setupG, 'Clamp cones', 0.3, 0.93, 0.15);
+label(wallG, 'Enclosure wall', 1.2, 2.0, 0);
+
+/* ================= STATE + ANIMATION ================= */
+const S = { tz:ZWORK, lift:0, rot:0, clampT:1, clampS:1, seat:1, unclSol:0, upSol:0, rotSol:0, air:0, ready:1 };
+let speed = 1, simT = 0, busy = false;
+const tweens = [];
+const ease = k => k * k * (3 - 2 * k);
+function to(key, val, dur) { return new Promise(res => tweens.push({ key, from:S[key], to:val, t:0, dur, res })); }
+function wait(dur) { return new Promise(res => tweens.push({ key:null, t:0, dur, res })); }
+function step(dt) {
+  simT += dt * speed;
+  for (let i = tweens.length - 1; i >= 0; i--) {
+    const w = tweens[i]; w.t += dt * speed;
+    const k = Math.min(1, w.t / w.dur);
+    if (w.key) S[w.key] = w.from + (w.to - w.from) * ease(k);
+    if (k >= 1) { tweens.splice(i, 1); w.res(); }
+  }
+}
+
+const atChg = () => Math.abs(S.tz - ZCH) < 0.002;
+const isDown = () => S.lift < 0.001, isUp = () => S.lift > LIFT - 0.001;
+const at0 = () => Math.abs(S.rot) < 0.005, at180 = () => Math.abs(S.rot - Math.PI) < 0.005;
+
+/* ---- actions (shared by sequence and manual) ---- */
+const moveTable = z => to('tz', z, Math.abs(z - S.tz) / 0.7 + 0.35);
+async function unclamp() { S.unclSol = 1; S.air = 1; S.seat = 0; await wait(0.45); S.clampT = 0; S.clampS = 0; await wait(0.25); }
+async function clamp() { S.unclSol = 0; await wait(0.4); S.clampT = 1; S.clampS = 1; S.air = 0; await wait(0.3); S.seat = 1; }
+async function liftUp() {
+  S.upSol = 1;
+  await to('lift', ENGAGE, 0.35);          // stage 1: pins enter the ledge holes, fingers touch the ledges
+  syncNodes();
+  for (const p of pallets) if (p.userData.on !== 'arm') { rotG.attach(p); p.userData.on = 'arm'; }
+  await to('lift', LIFT, 0.9);             // stage 2: both pallets lift off their cones
+}
+async function liftDown() {
+  S.upSol = 0;
+  await to('lift', ENGAGE, 0.9);           // pallets land on the taper cones (self-centring)
+  syncNodes();
+  const v = new THREE.Vector3();
+  for (const p of pallets) {
+    p.getWorldPosition(v);
+    const m = v.z < 0 ? tableMount : setupMount;
+    m.attach(p); p.position.set(0, 0, 0);
+    p.userData.on = v.z < 0 ? 'table' : 'setup';
+  }
+  await to('lift', 0, 0.35);               // last 15 mm: fingers drop away, pallet rests only on the cones
+}
+async function rotate() { const tgt = S.rot < 1 ? Math.PI : 0; S.rotSol = tgt ? 1 : 0; await to('rot', tgt, 2.2); }
+
+const ACT = {
+  zchg:{ name:'Table → APC', run:() => moveTable(ZCH),
+    chk:() => atChg() ? 'Table is already at the change position.' : !isDown() ? 'Arm must be DOWN (DOWN LS) before Z moves. A lifted fork is in the table\'s path.' : !S.clampT ? 'Table pallet must be clamped before Z moves.' : null },
+  zwork:{ name:'Table → spindle', run:() => moveTable(ZWORK),
+    chk:() => Math.abs(S.tz - ZWORK) < 0.002 ? 'Table is already at the spindle.' : !isDown() ? 'Arm must be DOWN.' : !(S.clampT && S.seat) ? 'Pallet must be CLAMPED and SEAT OK before Z leaves the APC. Otherwise the table pulls out a loose pallet.' : null },
+  uncl:{ name:'Unclamp', run:unclamp,
+    chk:() => (!S.clampT && !S.clampS) ? 'Already unclamped.' : !atChg() ? 'Unclamp only with the table at the change position (ZPOS). Unclamping at the spindle would release the pallet during cutting.' : null },
+  clamp:{ name:'Clamp', run:clamp,
+    chk:() => (S.clampT && S.clampS) ? 'Already clamped.' : !isDown() ? 'Arm must be DOWN so both pallets sit on the cones before clamping.' : null },
+  up:{ name:'Arm UP', run:liftUp,
+    chk:() => isUp() ? 'Arm is already up.' : !atChg() ? 'Table must be at the change position. Otherwise the machine-side fork is empty and the swap would leave the table without a pallet.' : (S.clampT || S.clampS) ? 'Both pallets must be UNCLAMPED (UNCL LS). The arm cannot lift a clamped pallet and would overload.' : null },
+  down:{ name:'Arm DOWN', run:liftDown,
+    chk:() => isDown() ? 'Arm is already down.' : !(at0() || at180()) ? 'Arm must be exactly at 0° or 180° (LS ON) before lowering, or the pallets miss the cones.' : null },
+  rot:{ name:'Rotate 180°', run:rotate,
+    chk:() => !isUp() ? 'Arm must be UP (UP LS). Turning while down would drag the pallets across the cones.' : null },
+};
+
+/* ================= SEQUENCE ================= */
+const STEPS = [
+  { t:'Interlock check', d:'Spindle stopped, coolant off, B axis at 0°, operator door closed, setup light curtain clear, "pallet ready" pressed.', run:() => wait(0.7) },
+  { t:'Table drives into the fork', d:'Z moves the table to the change position. The pallet ledges slide over the fork fingers with 15 mm clearance (pin tips clear by 3 mm). Nothing touches.', a:'zchg' },
+  { t:'Unclamp both pallets', d:'UNCL SOL ON: oil pushes each clamp piston down and compresses the disc springs. The balls release the pull studs and the cones turn red. Air blow starts cleaning the cones.', a:'uncl' },
+  { t:'Arm lifts 100 mm', d:'UP SOL ON. First 15 mm: the locating pins enter the holes in the ledges and the fingers touch. Remaining 85 mm: BOTH pallets are lifted off their cones.', a:'up' },
+  { t:'Arm turns 180°', d:'ROT SOL switches: one rack piston pushes and the other retracts, turning the pinion and the shaft. The pallets and the partition door swap sides.', a:'rot' },
+  { t:'Arm lowers', d:'UP SOL OFF: each pallet lands on the opposite receiver. The taper cones enter its bushes and centre it. In the last 15 mm the fingers and pins drop away, so the pallet rests only on the cones.', a:'down' },
+  { t:'Clamp + seat check', d:'UNCL SOL OFF: oil is released, the disc springs push the pistons up, and the balls lock the pull studs and pull the pallet down (green). The air-gap sensor confirms it sits flat (SEAT OK).', a:'clamp' },
+  { t:'Table returns to the spindle', d:'Z pulls the new pallet back into the machining area. M60 finished, cutting restarts. The operator now reloads the other pallet.', a:'zwork' },
+];
+const stepsEl = document.getElementById('steps');
+STEPS.forEach(s => { const li = document.createElement('li'); li.innerHTML = `${s.t}<small>${s.d}</small>`; stepsEl.appendChild(li); });
+const cap = document.getElementById('cap');
+const marks = [];
+let nextRes = null;
+const bNext = document.getElementById('bNext');
+const cStep = document.getElementById('cStep');
+bNext.onclick = () => { if (nextRes) { const r = nextRes; nextRes = null; bNext.disabled = true; r(); } };
+
+async function runChange() {
+  if (busy) return; busy = true; setBusyUI(true);
+  log('M60 pallet change started', 's');
+  [...stepsEl.children].forEach(li => li.className = '');
+  for (let i = 0; i < STEPS.length; i++) {
+    const s = STEPS[i], li = stepsEl.children[i];
+    li.className = 'cur';
+    cap.style.display = 'block';
+    cap.innerHTML = `<small>Step ${i + 1} / ${STEPS.length}</small><b>${s.t}</b><span>${s.d}</span>`;
+    if (cStep.checked) { bNext.disabled = false; await new Promise(r => nextRes = r); }
+    marks.push({ t:simT, n:i + 1 });
+    if (s.a) {
+      const e = ACT[s.a].chk();
+      if (e) { log('INTERLOCK: ' + e, 'w'); li.className = ''; break; }
+      await ACT[s.a].run();
+    } else await s.run();
+    li.className = 'done';
+    log(`✓ ${s.t}`);
+  }
+  log(`M60 complete: pallet ${palletOn('table')} on table, pallet ${palletOn('setup')} at setup`, 'ok');
+  setTimeout(() => { if (!busy) cap.style.display = 'none'; }, 2500);
+  busy = false; setBusyUI(false);
+}
+const palletOn = where => (pallets.find(p => p.userData.on === where) || { userData:{ id:'–' } }).userData.id;
+
+async function manual(k) {
+  if (busy) return;
+  const a = ACT[k], e = a.chk();
+  if (e) { log(`✗ ${a.name}: ${e}`, 'w'); return; }
+  busy = true; setBusyUI(true);
+  marks.push({ t:simT, n:a.name });
+  log(`Manual: ${a.name}`, 's');
+  await a.run();
+  busy = false; setBusyUI(false);
+}
+function setBusyUI(b) {
+  document.getElementById('bRun').disabled = b;
+  document.querySelectorAll('[data-m]').forEach(x => x.disabled = b);
+  document.getElementById('bReset').disabled = b;
+}
+function reset() {
+  if (busy) return;
+  Object.assign(S, { tz:ZWORK, lift:0, rot:0, clampT:1, clampS:1, seat:1, unclSol:0, upSol:0, rotSol:0, air:0 });
+  for (const p of pallets) p.rotation.set(0, 0, 0);
+  tableMount.add(palA); palA.position.set(0, 0, 0); palA.userData.on = 'table';
+  setupMount.add(palB); palB.position.set(0, 0, 0); palB.userData.on = 'setup';
+  [...stepsEl.children].forEach(li => li.className = '');
+  cap.style.display = 'none';
+  log('Reset: pallet A on table, pallet B at setup');
+}
+
+/* ================= I/O SIGNALS + TIMING CHART ================= */
+const SIG = [
+  ['X', 'ZPOS',     () => atChg()],
+  ['X', 'UNCL LS',  () => !S.clampT && !S.clampS],
+  ['X', 'DOWN LS',  isDown],
+  ['X', 'UP LS',    isUp],
+  ['X', '0° LS',    at0],
+  ['X', '180° LS',  at180],
+  ['X', 'SEAT OK',  () => !!S.seat],
+  ['Y', 'UNCL SOL', () => !!S.unclSol],
+  ['Y', 'UP SOL',   () => !!S.upSol],
+  ['Y', 'ROT SOL',  () => !!S.rotSol],
+  ['Y', 'AIR BLOW', () => !!S.air],
+];
+const hist = [];
+function sample() {
+  const b = SIG.map(s => s[2]() ? 1 : 0);
+  const last = hist[hist.length - 1];
+  if (!last || b.some((v, i) => v !== last.b[i])) hist.push({ t:simT, b });
+  while (hist.length > 2 && hist[1].t < simT - 40) hist.shift();
+  return b;
+}
+const chart = document.getElementById('chart'), cx = chart.getContext('2d');
+function drawChart(bits) {
+  const dpr = Math.min(devicePixelRatio, 2), W = chart.clientWidth, H = chart.clientHeight;
+  if (chart.width !== W * dpr || chart.height !== H * dpr) { chart.width = W * dpr; chart.height = H * dpr; }
+  cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  cx.clearRect(0, 0, W, H);
+  const L = 104, R = 8, top = 18, rh = (H - top - 6) / SIG.length, win = 30;
+  const X = t => L + (W - L - R) * (1 - (simT - t) / win);
+  cx.font = '11px Consolas,monospace'; cx.textBaseline = 'middle';
+  cx.fillStyle = '#8691a0'; cx.fillText('I/O timing (last 30 s): X = sensor input, Y = valve output', L, 9);
+  for (const m of marks) {
+    if (m.t < simT - win) continue;
+    const x = X(m.t);
+    cx.strokeStyle = '#3a3220'; cx.setLineDash([3, 3]); cx.beginPath(); cx.moveTo(x, top); cx.lineTo(x, H - 4); cx.stroke(); cx.setLineDash([]);
+    cx.fillStyle = '#f0a030'; cx.fillText(String(m.n).slice(0, 14), x + 3, top + 4);
+  }
+  SIG.forEach((s, i) => {
+    const y0 = top + i * rh, hi = y0 + rh * 0.2, lo = y0 + rh * 0.8;
+    const on = bits[i], col = s[0] === 'X' ? '#3ecf7a' : '#f0a030';
+    cx.fillStyle = on ? col : '#2a3038';
+    cx.beginPath(); cx.arc(10, (hi + lo) / 2, 4, 0, 7); cx.fill();
+    cx.fillStyle = on ? '#e3e8ee' : '#8691a0';
+    cx.fillText(`${s[0]} ${s[1]}`, 20, (hi + lo) / 2);
+    cx.strokeStyle = '#1f252c'; cx.beginPath(); cx.moveTo(L, lo); cx.lineTo(W - R, lo); cx.stroke();
+    let v = hist[0].b[i], k = 0;
+    while (k + 1 < hist.length && hist[k + 1].t <= simT - win) { k++; v = hist[k].b[i]; }
+    cx.strokeStyle = col; cx.lineWidth = 1.6; cx.beginPath();
+    cx.moveTo(L, v ? hi : lo);
+    for (let j = k + 1; j < hist.length; j++) {
+      const e = hist[j]; if (e.b[i] === v) continue;
+      const x = X(e.t); cx.lineTo(x, v ? hi : lo); v = e.b[i]; cx.lineTo(x, v ? hi : lo);
+    }
+    cx.lineTo(W - R, v ? hi : lo); cx.stroke(); cx.lineWidth = 1;
+  });
+}
+
+/* ================= UPDATE SCENE FROM STATE ================= */
+const GREEN = new THREE.Color(0x3ecf7a), RED = new THREE.Color(0xef5350);
+function setLed(m, on, col = 0x3ecf7a) {
+  m.material.color.set(on ? col : 0x203024);
+  m.material.emissive.set(on ? col : 0x000000);
+  m.material.emissiveIntensity = on ? 1.4 : 0;
+}
+const dro = document.getElementById('dro');
+const _cv = new THREE.Vector3();
+let clText = '';
+function updateClampSection() {
+  CLS.pist += ((S.unclSol ? -0.012 : 0) - CLS.pist) * 0.12;      // oil ON pushes the piston down 12 mm
+  const ptop = -0.02 + CLS.pist, pbot = -0.05 + CLS.pist;
+  clPiston.position.y = CLS.pist;
+  clOil.position.y = ptop; clOil.scale.y = -0.006 - ptop;
+  for (const c of clOil.children) { c.material.emissive.set(S.unclSol ? 0x2a6cff : 0x000000); c.material.emissiveIntensity = S.unclSol ? 0.9 : 0; }
+  clSprings.forEach((s, i) => { s.position.y = -0.078 + (i + 0.5) * (pbot + 0.078) / 6; s.scale.y = i % 2 ? -1 : 1; });
+  const rr = 0.0105 + 0.006 * (-CLS.pist / 0.012);                 // balls pushed in by the piston, free when it moves down
+  for (const b of clBalls) b.position.set(Math.sin(b.userData.a) * rr, -0.026, Math.cos(b.userData.a) * rr);
+  let h = null;                                                    // pallet height above the setup-station seat
+  for (const p of pallets) { p.getWorldPosition(_cv); if (Math.hypot(_cv.x, _cv.z - ZC) < 0.02) h = _cv.y - PY; }
+  clStud.visible = h !== null && h < 0.2;
+  if (clStud.visible) clStud.position.y = Math.min(h, 0.05);
+  const show = curView === 'clamp' || selected === 'clampDet';
+  clLbls.forEach((l, i) => l.visible = show && (i !== 0 || clStud.visible));
+  clState.visible = show;
+  pinLbl.visible = curView === 'fork' || selected === 'pins';
+  const t = S.unclSol ? 'UNCLAMPED: oil pushes the piston down, springs compress, balls move out and free the stud'
+    : !clStud.visible ? 'Pallet lifted away (balls pushed in, nothing to grip)'
+    : S.clampS ? 'CLAMPED: disc springs push the piston up, balls lock the stud groove and pull the pallet down'
+    : 'Releasing…';
+  if (t !== clText) {
+    clText = t; clState.element.textContent = t;
+    clState.element.style.borderColor = S.unclSol ? '#ef5350' : '#3ecf7a';
+  }
+}
+function syncNodes() {   // push the state into the scene graph (needed before re-parenting pallets)
+  tableG.position.z = S.tz;
+  liftG.position.y = S.lift;
+  rotG.rotation.y = S.rot;
+  pinion.rotation.y = S.rot;
+  for (const r of racks) r.position.x = r.userData.x0 + r.userData.s * PR * S.rot;
+  scene.updateMatrixWorld(true);
+}
+function apply(bits) {
+  syncNodes();
+  for (const c of cones.table) c.material.color.copy(S.clampT ? GREEN : RED);
+  for (const c of cones.setup) c.material.color.copy(S.clampS ? GREEN : RED);
+  updateClampSection();
+  setLed(leds['0°'], at0()); setLed(leds['180°'], at180());
+  setLed(leds.UP, isUp()); setLed(leds.DOWN, isDown());
+  setLed(valveLamps.UNCL, S.unclSol, 0xf0a030); setLed(valveLamps.UP, S.upSol, 0xf0a030); setLed(valveLamps.ROT, S.rotSol, 0xf0a030);
+  setLed(pbLamp, !busy, 0x3ecf7a);
+  const deg = S.rot * 180 / Math.PI;
+  dro.innerHTML =
+    `<div><b>Z</b>${((S.tz - ZWORK) * 1000).toFixed(0).padStart(4)} mm</div>` +
+    `<div><b>Lift</b>${(S.lift * 1000).toFixed(0).padStart(3)} mm</div>` +
+    `<div><b>Arm</b>${deg.toFixed(0).padStart(3)}°</div>` +
+    `<div><b>Table</b>${palletOn('table')} ${S.clampT ? '<span style="color:#3ecf7a">clamped</span>' : '<span style="color:#ef5350">unclamped</span>'}</div>` +
+    `<div><b>Setup</b>${palletOn('setup')}</div>`;
+}
+
+/* ================= VIEWS ================= */
+const VIEWS = {
+  iso:  { cam:'p', pos:[3.0, 1.95, 1.05], tgt:[0, 0.8, -0.3] },
+  mech: { cam:'p', pos:[0.95, 0.66, 0.38], tgt:[-0.02, 0.44, 0], cut:true },
+  fork: { cam:'p', pos:[0.95, 0.99, 1.0], tgt:[0.25, 0.92, 0.55] },
+  front:{ cam:'o', dir:[0, 0, 1], tgt:[0, 1.05, 0], h:2.5 },
+  side: { cam:'o', dir:[1, 0, 0], tgt:[0, 1.0, -0.55], h:2.5 },
+  top:  { cam:'o', dir:[0, 1, 0.0001], tgt:[0, 0, -0.5], h:2.4 },
+  clamp:{ cam:'p', pos:[CLP.x + 0.88, CLP.y + 0.06, CLP.z + 0.88], tgt:[CLP.x, CLP.y - 0.09, CLP.z] },
+};
+let camAnim = null, orthoH = 2.5, curView = 'iso';
+function setView(k) {
+  const v = VIEWS[k]; curView = k;
+  document.querySelectorAll('[data-v]').forEach(b => b.classList.toggle('on', b.dataset.v === k));
+  if (v.cut) { cCut.checked = true; setCut(true); }
+  const tgt = new THREE.Vector3(...v.tgt);
+  if (v.cam === 'o') {
+    cam = ocam; orthoH = v.h; ocam.zoom = 1;
+    ocam.position.copy(tgt).addScaledVector(new THREE.Vector3(...v.dir).normalize(), 10);
+    controls.object = ocam; controls.target.copy(tgt); camAnim = null;
+    resize(); controls.update();
+  } else {
+    if (cam !== pcam) { cam = pcam; controls.object = pcam; }
+    camAnim = { t:0, p0:pcam.position.clone(), p1:new THREE.Vector3(...v.pos), t0:controls.target.clone(), t1:tgt };
+    resize();
+  }
+}
+function resize() {
+  const w = view.clientWidth, h = view.clientHeight;
+  renderer.setSize(w, h); lblR.setSize(w, h);
+  pcam.aspect = w / h; pcam.updateProjectionMatrix();
+  const a = w / h, hh = orthoH / 2;
+  Object.assign(ocam, { left:-hh * a, right:hh * a, top:hh, bottom:-hh });
+  ocam.updateProjectionMatrix();
+}
+addEventListener('resize', resize);
+
+/* ================= UI ================= */
+const logEl = document.getElementById('log');
+function log(msg, cls = '') {
+  const d = document.createElement('div'); d.className = cls;
+  d.textContent = `${simT.toFixed(1).padStart(6)}s  ${msg}`;
+  logEl.appendChild(d); logEl.scrollTop = logEl.scrollHeight;
+}
+document.getElementById('bRun').onclick = runChange;
+document.getElementById('bReset').onclick = reset;
+document.querySelectorAll('[data-m]').forEach(b => b.onclick = () => manual(b.dataset.m));
+document.querySelectorAll('[data-v]').forEach(b => b.onclick = () => setView(b.dataset.v));
+const rSpd = document.getElementById('rSpd');
+rSpd.oninput = () => { speed = +rSpd.value; document.getElementById('vSpd').textContent = speed + '×'; };
+const cCut = document.getElementById('cCut');
+function setCut(on) {
+  for (const m of meshesByPart.housing) {
+    m.material.transparent = on; m.material.opacity = on ? 0.13 : 1; m.material.depthWrite = !on;
+    m.castShadow = !on; m.material.needsUpdate = true;
+  }
+}
+cCut.onchange = () => setCut(cCut.checked);
+const cLbl = document.getElementById('cLbl');
+cLbl.onchange = () => lblR.domElement.style.display = cLbl.checked ? '' : 'none';
+const cMach = document.getElementById('cMach');
+cMach.onchange = () => {
+  wallG.visible = cMach.checked;
+  for (const m of machG.children.filter(c => c.isMesh)) m.visible = cMach.checked;
+};
+
+/* part list + selection */
+const plist = document.getElementById('plist');
+let selected = null;
+for (const [id, p] of Object.entries(PARTS)) {
+  const b = document.createElement('button'); b.dataset.p = id;
+  b.innerHTML = `<i style="background:#${p.col.toString(16).padStart(6, '0')}"></i>${p.name}`;
+  b.onclick = () => select(selected === id ? null : id);
+  plist.appendChild(b);
+}
+const infoBody = document.getElementById('infoBody');
+function select(id) {
+  if (selected) for (const m of meshesByPart[selected] || []) { m.material.emissive.copy(m.userData.emi0); m.material.emissiveIntensity = 1; }
+  selected = id;
+  plist.querySelectorAll('button').forEach(b => b.classList.toggle('sel', b.dataset.p === id));
+  if (!id) { infoBody.innerHTML = '<p style="color:var(--muted)">Click any part in the 3D view or in the list.</p>'; return; }
+  for (const m of meshesByPart[id] || []) { if (id !== 'sensors' && id !== 'valves') { m.material.emissive.set(0x4c8dff); m.material.emissiveIntensity = 0.35; } }
+  const p = PARTS[id];
+  infoBody.innerHTML = `<h3>${p.name}</h3><p>${p.role}</p>${p.design.length ? '<ul>' + p.design.map(x => `<li>${x}</li>`).join('') + '</ul>' : ''}`;
+}
+const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
+let down = null;
+renderer.domElement.addEventListener('pointerdown', e => down = [e.clientX, e.clientY]);
+renderer.domElement.addEventListener('pointerup', e => {
+  if (!down || Math.hypot(e.clientX - down[0], e.clientY - down[1]) > 4) return;
+  const r = renderer.domElement.getBoundingClientRect();
+  ptr.set((e.clientX - r.left) / r.width * 2 - 1, -(e.clientY - r.top) / r.height * 2 + 1);
+  ray.setFromCamera(ptr, cam);
+  const hit = ray.intersectObjects(scene.children, true)
+    .find(h => h.object.userData.part && h.object.visible && !(h.object.material.transparent && h.object.material.opacity < 0.5));
+  select(hit ? hit.object.userData.part : null);
+});
+
+/* ================= LOOP ================= */
+const clock = new THREE.Clock();
+let bits = sample();
+function frame() {
+  const dt = Math.min(clock.getDelta(), 0.05);
+  step(dt);
+  if (camAnim) {
+    camAnim.t = Math.min(1, camAnim.t + dt / 0.7);
+    const k = ease(camAnim.t);
+    pcam.position.lerpVectors(camAnim.p0, camAnim.p1, k);
+    controls.target.lerpVectors(camAnim.t0, camAnim.t1, k);
+    if (camAnim.t >= 1) camAnim = null;
+  }
+  bits = sample();
+  apply(bits);
+  controls.update();
+  renderer.render(scene, cam);
+  lblR.render(scene, cam);
+  drawChart(bits);
+  requestAnimationFrame(frame);
+}
+
+/* ---- start ---- */
+pcam.position.set(...VIEWS.iso.pos); controls.target.set(...VIEWS.iso.tgt);
+setCut(true);
+resize();
+log('Ready: pallet A on the machine table, pallet B at the setup station');
+const hp = new URLSearchParams(location.hash.slice(1));
+if (hp.get('view')) setView(hp.get('view'));
+if (hp.has('run')) runChange();
+window.APC = { S, runChange, manual, setView, select };
+(async () => {
+  if (hp.get('sim')) {   // fast-forward N seconds (for testing / screenshots)
+    const n = +hp.get('sim') * 60;
+    for (let i = 0; i < n; i++) { step(1 / 60); sample(); await null; await null; }
+    if (camAnim) camAnim.t = 0.999;
+  }
+  frame();
+})();
+</script>
+</body>
+</html>
