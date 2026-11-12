@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 990" width="1400" height="990" font-family="Arial, Helvetica, sans-serif">
+<title>Short-circuit equivalent circuits (IEC 60909)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker></defs>
+<rect x="0" y="0" width="1400" height="990" fill="#ffffff"/>
+<rect x="12.0" y="12.0" width="1376.0" height="966.0" rx="0" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="828.0" y="894.0" width="560.0" height="84.0" rx="0" stroke="#000" stroke-width="1.5" fill="#ffffff"/>
+<line x1="828.0" y1="924.0" x2="1388.0" y2="924.0" stroke="#000" stroke-width="1"/>
+<line x1="1208.0" y1="924.0" x2="1208.0" y2="978.0" stroke="#000" stroke-width="1"/>
+<text x="838.0" y="915.0" font-size="14" text-anchor="start" font-weight="bold" fill="#1565c0">EXAMPLE – real design by a qualified electrician</text>
+<text x="838.0" y="944.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Short-circuit equivalent circuits (IEC 60909)</text>
+<text x="838.0" y="964.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">Ik3 max (c 1.05, 20 °C) · Ik1 min (c 0.95, hot) · mΩ at 400 V</text>
+<text x="1218.0" y="944.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Doc 27 · Fig. 27-7</text>
+<text x="1218.0" y="964.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">2026-11 · not for construction</text>
+<text x="24.0" y="970.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">Values from docs/27 and web/instelec_calc.js (example data, crankcase machining line ML1).</text>
+<text x="40.0" y="46.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000">Equivalent circuits for the short-circuit calculation – all impedances in mΩ referred to 400 V (example values)</text>
+<text x="40.0" y="110.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">A) Maximum 3-phase short circuit Ik3 (c_max = 1.05, conductors at 20 °C) – one phase of the symmetrical circuit</text>
+<circle cx="80.0" cy="200.0" r="22" stroke="#000" stroke-width="2" fill="#fff"/>
+<path d="M 68 200 q 6 -10 12 0 q 6 10 12 0" stroke="#000" stroke-width="1.5" fill="none"/>
+<text x="54.0" y="154.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">c·U/√3</text>
+<text x="54.0" y="169.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">242.5 V</text>
+<line x1="102.0" y1="200.0" x2="120.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<line x1="120.0" y1="200.0" x2="135.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<rect x="135.0" y="190.0" width="46.0" height="20.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="181.0" y1="200.0" x2="192.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<path d="M 192 200 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="248.0" y1="200.0" x2="270.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<text x="195.0" y="178.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Z_Q (MV net)</text>
+<text x="158.0" y="226.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R 0.035</text>
+<text x="220.0" y="226.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">X 0.350</text>
+<line x1="270.0" y1="200.0" x2="285.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<rect x="285.0" y="190.0" width="46.0" height="20.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="331.0" y1="200.0" x2="342.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<path d="M 342 200 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="398.0" y1="200.0" x2="420.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<text x="345.0" y="178.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Z_T (1000 kVA)</text>
+<text x="308.0" y="226.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R 1.680</text>
+<text x="370.0" y="226.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">X 9.452</text>
+<circle cx="440.0" cy="200.0" r="5" stroke="#000" stroke-width="1.5" fill="#000"/>
+<text x="440.0" y="160.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#1565c0">MDB</text>
+<text x="440.0" y="246.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#1565c0">Ik3 24.37 kA</text>
+<text x="440.0" y="261.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R/X 0.175 · κ 1.60</text>
+<text x="440.0" y="276.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">ip 55.1 kA</text>
+<line x1="420.0" y1="200.0" x2="460.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<line x1="460.0" y1="200.0" x2="475.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<rect x="475.0" y="190.0" width="46.0" height="20.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="521.0" y1="200.0" x2="532.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<path d="M 532 200 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="588.0" y1="200.0" x2="630.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<text x="545.0" y="178.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Z_W1 4×95, 60 m</text>
+<text x="498.0" y="226.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R 11.58</text>
+<text x="560.0" y="226.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">X 4.80</text>
+<circle cx="650.0" cy="200.0" r="5" stroke="#000" stroke-width="1.5" fill="#000"/>
+<text x="650.0" y="160.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#1565c0">SD-ML1</text>
+<text x="650.0" y="246.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#1565c0">Ik3 12.28 kA</text>
+<text x="650.0" y="261.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R/X 0.91 · κ 1.084</text>
+<text x="650.0" y="276.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">ip 18.8 kA</text>
+<line x1="630.0" y1="200.0" x2="670.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<line x1="670.0" y1="200.0" x2="685.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<rect x="685.0" y="190.0" width="46.0" height="20.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="731.0" y1="200.0" x2="742.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<path d="M 742 200 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="798.0" y1="200.0" x2="840.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<text x="755.0" y="178.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Z_W2 5G25, 25 m</text>
+<text x="708.0" y="226.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R 18.18</text>
+<text x="770.0" y="226.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">X 2.00</text>
+<circle cx="860.0" cy="200.0" r="5" stroke="#000" stroke-width="1.5" fill="#000"/>
+<text x="860.0" y="160.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#1565c0">HMC-01</text>
+<text x="860.0" y="246.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#1565c0">Ik3 6.82 kA</text>
+<text x="860.0" y="261.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R/X 1.90 · κ 1.023</text>
+<text x="860.0" y="276.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">ip 9.86 kA</text>
+<line x1="840.0" y1="200.0" x2="920.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<polyline points="920.0,200.0 935.0,220.0 922.0,220.0 940.0,246.0" stroke="#1565c0" stroke-width="2.5" fill="none"/>
+<text x="950.0" y="230.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">bolted fault</text>
+<line x1="80.0" y1="222.0" x2="80.0" y2="300.0" stroke="#000" stroke-width="1.5"/>
+<line x1="80.0" y1="300.0" x2="940.0" y2="300.0" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4"/>
+<line x1="940.0" y1="246.0" x2="940.0" y2="300.0" stroke="#000" stroke-width="1.5"/>
+<text x="500.0" y="316.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">return through the neutral point of the symmetrical system (no PE in the 3-phase fault)</text>
+<text x="1010.0" y="110.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Z_Q = 1.1·U²/S″k = 1.1·400²/500 MVA = 0.352</text>
+<text x="1010.0" y="126.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">  X_Q = 0.995·Z_Q, R_Q = 0.1·X_Q</text>
+<text x="1010.0" y="142.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Z_T = u_k·U²/S_T = 0.06·400²/1000 kVA = 9.6</text>
+<text x="1010.0" y="158.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">R_T = P_k·U²/S_T² = 10.5 kW·400²/(1000 kVA)² = 1.68</text>
+<text x="1010.0" y="174.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">X_T = √(9.6² − 1.68²) = 9.452</text>
+<text x="1010.0" y="190.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">cable: R = R₂₀·L (Ω/km × m = mΩ), X = 0.08·L</text>
+<text x="1010.0" y="206.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Ik3 = c·U / (√3·|ΣZ|)</text>
+<text x="1010.0" y="222.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">κ = 1.02 + 0.98·e^(−3R/X); ip = κ·√2·Ik3</text>
+<text x="40.0" y="380.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Running sums for Ik3 (mΩ)</text>
+<text x="40.0" y="402.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">point</text>
+<text x="140.0" y="402.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">ΣR</text>
+<text x="220.0" y="402.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">ΣX</text>
+<text x="300.0" y="402.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">|Z|</text>
+<text x="380.0" y="402.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Ik3 = 1.05·400/(√3·|Z|)</text>
+<text x="40.0" y="420.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">MDB</text>
+<text x="140.0" y="420.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">1.715</text>
+<text x="220.0" y="420.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">9.802</text>
+<text x="300.0" y="420.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">9.951</text>
+<text x="380.0" y="420.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">24.37 kA</text>
+<text x="40.0" y="437.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">SD-ML1</text>
+<text x="140.0" y="437.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">13.295</text>
+<text x="220.0" y="437.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">14.602</text>
+<text x="300.0" y="437.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">19.75</text>
+<text x="380.0" y="437.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">12.28 kA</text>
+<text x="40.0" y="454.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">HMC-01</text>
+<text x="140.0" y="454.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">31.47</text>
+<text x="220.0" y="454.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">16.60</text>
+<text x="300.0" y="454.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">35.58</text>
+<text x="380.0" y="454.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">6.82 kA</text>
+<text x="40.0" y="484.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">IEC 60909-0:2016 also multiplies Z_T by K_T = 0.95·c_max/(1 + 0.6·x_T) = 0.963 → Ik3 MDB ≈ 25.3 kA (app: 24.37 kA without K_T).</text>
+<text x="40.0" y="540.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">B) Minimum earth-fault current Ik1 L–PE (c_min = 0.95, conductors hot 90 °C: R × 1.275) – loop impedance Z_s</text>
+<circle cx="80.0" cy="640.0" r="22" stroke="#000" stroke-width="2" fill="#fff"/>
+<path d="M 68 640 q 6 -10 12 0 q 6 10 12 0" stroke="#000" stroke-width="1.5" fill="none"/>
+<text x="54.0" y="594.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">c_min·U0</text>
+<text x="54.0" y="609.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">0.95·230.9 = 219.4 V</text>
+<line x1="102.0" y1="640.0" x2="120.0" y2="640.0" stroke="#000" stroke-width="1.5"/>
+<line x1="120.0" y1="640.0" x2="135.0" y2="640.0" stroke="#000" stroke-width="1.5"/>
+<rect x="135.0" y="630.0" width="46.0" height="20.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="181.0" y1="640.0" x2="192.0" y2="640.0" stroke="#000" stroke-width="1.5"/>
+<path d="M 192 640 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="248.0" y1="640.0" x2="310.0" y2="640.0" stroke="#000" stroke-width="1.5"/>
+<text x="215.0" y="618.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">source loop</text>
+<text x="158.0" y="666.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R 1.703</text>
+<text x="220.0" y="666.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">X 9.685</text>
+<text x="215.0" y="684.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">(2/3·Z_Q + Z_T, Dyn11)</text>
+<circle cx="330.0" cy="640.0" r="5" stroke="#000" stroke-width="1.5" fill="#000"/>
+<text x="330.0" y="600.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#1565c0">MDB</text>
+<text x="330.0" y="686.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#1565c0">Ik1 22.3 kA</text>
+<line x1="310.0" y1="640.0" x2="350.0" y2="640.0" stroke="#000" stroke-width="1.5"/>
+<line x1="350.0" y1="640.0" x2="365.0" y2="640.0" stroke="#000" stroke-width="1.5"/>
+<rect x="365.0" y="630.0" width="46.0" height="20.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="411.0" y1="640.0" x2="422.0" y2="640.0" stroke="#000" stroke-width="1.5"/>
+<path d="M 422 640 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="478.0" y1="640.0" x2="580.0" y2="640.0" stroke="#000" stroke-width="1.5"/>
+<text x="465.0" y="618.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">W1: L 95 + PE 50, 60 m</text>
+<text x="388.0" y="666.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R 44.37</text>
+<text x="450.0" y="666.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">X 9.60</text>
+<text x="465.0" y="684.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">(0.193+0.387)·1.275·60</text>
+<circle cx="600.0" cy="640.0" r="5" stroke="#000" stroke-width="1.5" fill="#000"/>
+<text x="600.0" y="600.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#1565c0">SD-ML1</text>
+<text x="600.0" y="686.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#1565c0">Ik1 4.39 kA</text>
+<line x1="580.0" y1="640.0" x2="620.0" y2="640.0" stroke="#000" stroke-width="1.5"/>
+<line x1="620.0" y1="640.0" x2="635.0" y2="640.0" stroke="#000" stroke-width="1.5"/>
+<rect x="635.0" y="630.0" width="46.0" height="20.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="681.0" y1="640.0" x2="692.0" y2="640.0" stroke="#000" stroke-width="1.5"/>
+<path d="M 692 640 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0 a 7,7 0 0 1 14,0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="748.0" y1="640.0" x2="850.0" y2="640.0" stroke="#000" stroke-width="1.5"/>
+<text x="735.0" y="618.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">W2: L 25 + PE 25, 25 m</text>
+<text x="658.0" y="666.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R 46.35</text>
+<text x="720.0" y="666.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">X 4.00</text>
+<text x="735.0" y="684.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">2·0.727·1.275·25</text>
+<circle cx="870.0" cy="640.0" r="5" stroke="#000" stroke-width="1.5" fill="#000"/>
+<text x="870.0" y="600.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#1565c0">HMC-01 frame</text>
+<text x="870.0" y="686.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#1565c0">Ik1 2302 A</text>
+<line x1="850.0" y1="640.0" x2="920.0" y2="640.0" stroke="#000" stroke-width="1.5"/>
+<polyline points="920.0,640.0 935.0,660.0 922.0,660.0 940.0,686.0" stroke="#1565c0" stroke-width="2.5" fill="none"/>
+<line x1="80.0" y1="662.0" x2="80.0" y2="750.0" stroke="#000" stroke-width="1.5"/>
+<line x1="80.0" y1="750.0" x2="940.0" y2="750.0" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4"/>
+<line x1="940.0" y1="686.0" x2="940.0" y2="750.0" stroke="#000" stroke-width="1.5"/>
+<text x="500.0" y="766.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">loop already contains the phase AND the PE conductor of each cable</text>
+<text x="1010.0" y="560.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Z_s = √(ΣR² + ΣX²)</text>
+<text x="1010.0" y="576.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">ΣR = 1.703 + 44.37 + 46.35 = 92.43</text>
+<text x="1010.0" y="592.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">ΣX = 9.685 + 9.60 + 4.00 = 23.29</text>
+<text x="1010.0" y="608.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Z_s = √(92.43² + 23.29²) = 95.3 mΩ</text>
+<text x="1010.0" y="624.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Ik1 = 219.4 V / 0.0953 Ω = 2302 A</text>
+<text x="1010.0" y="640.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">I_a = 1.2 · I_m = 1.2 · 800 = 960 A</text>
+<text x="1010.0" y="656.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">2302 ≥ 960 → instantaneous trip ✓</text>
+<text x="1010.0" y="672.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">test limit: Z_s,max = 230.9/960 = 0.241 Ω</text>
+<text x="1010.0" y="688.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">measured must be ≤ 0.8·0.241 = 0.192 Ω</text>
+<text x="1010.0" y="720.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">Feeder check: Ik1 at SD-ML1 4.39 kA ≥ 2.4 kA</text>
+<text x="1010.0" y="736.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">(1.2 × I_sd 2 kA of -Q1) ✓</text>
+<text x="40.0" y="830.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Why two calculations? Ik3 max chooses the breaking capacity I_cu and the peak rating I_pk of boards; Ik1 min proves that the protective device</text>
+<text x="40.0" y="846.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">trips fast enough (automatic disconnection, IEC 60364-4-41). c_max with cold cables gives the largest current, c_min with hot cables the smallest.</text>
+</svg>

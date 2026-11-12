@@ -731,7 +731,7 @@ function createView(host) {
 
   function bg() {
     const cs = getComputedStyle(document.documentElement);
-    scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed");
+    scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed"); if (window.dtTheme) window.dtTheme.scene(scene);
   }
   function clear() {
     while (work.children.length) {

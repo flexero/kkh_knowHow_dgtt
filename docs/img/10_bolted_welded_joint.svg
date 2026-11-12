@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Arial, Helvetica, sans-serif">
+<title>Bolted joint diagram (VDI 2230 idea) and fillet weld throat with FAT fatigue curve (example)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="1000" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold">Bolted joint diagram M16 10.9 (item 4 bracket) + fillet weld throat and fatigue (FAT) curve</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#666666">Preload 76 kN (minimum after scatter), bolt stiffness 525 kN/mm, plate stiffness 1764 kN/mm, axial load 10 kN, load factor n = 0.5. Guide 10 §27.</text>
+<rect x="90.0" y="110.0" width="640.0" height="430.0" rx="0" fill="none" stroke="#000" stroke-width="1"/>
+<line x1="90.0" y1="540.0" x2="730.0" y2="540.0" stroke="#ececec" stroke-width="0.8"/>
+<text x="82.0" y="544.0" font-size="11" text-anchor="end" fill="#000">0</text>
+<line x1="90.0" y1="454.0" x2="730.0" y2="454.0" stroke="#ececec" stroke-width="0.8"/>
+<text x="82.0" y="458.0" font-size="11" text-anchor="end" fill="#000">20</text>
+<line x1="90.0" y1="368.0" x2="730.0" y2="368.0" stroke="#ececec" stroke-width="0.8"/>
+<text x="82.0" y="372.0" font-size="11" text-anchor="end" fill="#000">40</text>
+<line x1="90.0" y1="282.0" x2="730.0" y2="282.0" stroke="#ececec" stroke-width="0.8"/>
+<text x="82.0" y="286.0" font-size="11" text-anchor="end" fill="#000">60</text>
+<line x1="90.0" y1="196.0" x2="730.0" y2="196.0" stroke="#ececec" stroke-width="0.8"/>
+<text x="82.0" y="200.0" font-size="11" text-anchor="end" fill="#000">80</text>
+<line x1="90.0" y1="110.0" x2="730.0" y2="110.0" stroke="#ececec" stroke-width="0.8"/>
+<text x="82.0" y="114.0" font-size="11" text-anchor="end" fill="#000">100</text>
+<text x="38.0" y="325.0" font-size="12" text-anchor="middle" fill="#000" transform="rotate(-90 38.0 325.0)">force (kN)</text>
+<text x="410.0" y="574.0" font-size="12" text-anchor="middle" fill="#000">elongation of the bolt  →  ◀ compression of the plates (µm)</text>
+<line x1="110.0" y1="540.0" x2="508.7" y2="213.2" stroke="#000" stroke-width="2.2"/>
+<line x1="508.7" y1="213.2" x2="627.4" y2="540.0" stroke="#000" stroke-width="2.2"/>
+<text x="279.4" y="382.9" font-size="12" text-anchor="end" fill="#000" font-weight="bold">bolt: cS = 525 kN/mm</text>
+<text x="582.0" y="392.9" font-size="12" text-anchor="start" fill="#000" font-weight="bold">plates: cP = 1764</text>
+<line x1="485.4" y1="232.3" x2="491.4" y2="227.4" stroke="#c62828" stroke-width="2.4"/>
+<line x1="491.4" y1="227.4" x2="491.4" y2="270.4" stroke="#c62828" stroke-width="2.4" marker-start="url(#aa)" marker-end="url(#aa)"/>
+<line x1="487.4" y1="248.9" x2="316.6" y2="269.1" stroke="#c62828" stroke-width="0.8"/>
+<text x="311.1" y="273.1" font-size="12" text-anchor="end" fill="#c62828" font-weight="bold">FA = 10 kN</text>
+<line x1="90.0" y1="232.3" x2="485.4" y2="232.3" stroke="#666666" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="96.0" y="246.3" font-size="11" text-anchor="start" fill="#666666">FV after embedding 71.6</text>
+<line x1="90.0" y1="213.2" x2="508.7" y2="213.2" stroke="#666666" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="96.0" y="209.2" font-size="11" text-anchor="start" fill="#666666">FV,min 76</text>
+<line x1="493.4" y1="227.4" x2="551.4" y2="188.7" stroke="#c62828" stroke-width="0.8"/>
+<text x="555.4" y="192.7" font-size="12" text-anchor="start" fill="#c62828">bolt force +FSA = 1.15 kN</text>
+<line x1="489.4" y1="270.4" x2="316.6" y2="303.5" stroke="#c62828" stroke-width="0.8"/>
+<text x="311.1" y="307.5" font-size="12" text-anchor="end" fill="#c62828" font-weight="bold">residual clamp FKR = 62.7 kN</text>
+<line x1="110.0" y1="540.0" x2="110.0" y2="545.0" stroke="#000" stroke-width="0.8"/>
+<text x="110.0" y="556.0" font-size="11" text-anchor="middle" fill="#000">0</text>
+<line x1="247.7" y1="540.0" x2="247.7" y2="545.0" stroke="#000" stroke-width="0.8"/>
+<text x="247.7" y="556.0" font-size="11" text-anchor="middle" fill="#000">50</text>
+<line x1="385.4" y1="540.0" x2="385.4" y2="545.0" stroke="#000" stroke-width="0.8"/>
+<text x="385.4" y="556.0" font-size="11" text-anchor="middle" fill="#000">100</text>
+<line x1="509.4" y1="540.0" x2="509.4" y2="545.0" stroke="#000" stroke-width="0.8"/>
+<text x="509.4" y="556.0" font-size="11" text-anchor="middle" fill="#000">145</text>
+<text x="627.4" y="556.0" font-size="11" text-anchor="middle" fill="#000">+43</text>
+<text x="90.0" y="602.0" font-size="12" text-anchor="start" fill="#000">Φn = n·cS/(cS + cP) = 0.5·525/2289 = 0.115</text>
+<text x="90.0" y="624.0" font-size="12" text-anchor="start" fill="#000">FSA = Φn·FA = 1.15 kN (bolt)   FPA = 8.85 kN (plates unload)</text>
+<text x="90.0" y="646.0" font-size="12" text-anchor="start" fill="#000">FZ (embedding 11 µm) = 0.011·525·1764/2289 = 4.45 kN</text>
+<text x="90.0" y="668.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">FKR = 76 − 4.45 − 8.85 = 62.7 kN  ≫  needed clamp</text>
+<text x="90.0" y="690.0" font-size="12" text-anchor="start" fill="#000">bolt fatigue: σa = FSA/(2·As) = 3.7 MPa vs σASV = 46 MPa → S = 12.6</text>
+<text x="820.0" y="106.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Joint: adapter bracket on the APC base</text>
+<rect x="820.0" y="140.0" width="300.0" height="50.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1.2"/>
+<rect x="820.0" y="190.0" width="300.0" height="70.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1130.0" y="170.0" font-size="11" text-anchor="start" fill="#000">bracket S355, 30 mm</text>
+<text x="1130.0" y="230.0" font-size="11" text-anchor="start" fill="#000">APC base</text>
+<rect x="888.0" y="124.0" width="44.0" height="16.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<rect x="897.0" y="140.0" width="26.0" height="100.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<line x1="897.0" y1="196.0" x2="923.0" y2="199.0" stroke="#000" stroke-width="0.6"/>
+<line x1="897.0" y1="201.0" x2="923.0" y2="204.0" stroke="#000" stroke-width="0.6"/>
+<line x1="897.0" y1="206.0" x2="923.0" y2="209.0" stroke="#000" stroke-width="0.6"/>
+<line x1="897.0" y1="211.0" x2="923.0" y2="214.0" stroke="#000" stroke-width="0.6"/>
+<line x1="897.0" y1="216.0" x2="923.0" y2="219.0" stroke="#000" stroke-width="0.6"/>
+<line x1="897.0" y1="221.0" x2="923.0" y2="224.0" stroke="#000" stroke-width="0.6"/>
+<line x1="897.0" y1="226.0" x2="923.0" y2="229.0" stroke="#000" stroke-width="0.6"/>
+<line x1="897.0" y1="231.0" x2="923.0" y2="234.0" stroke="#000" stroke-width="0.6"/>
+<text x="910.0" y="120.0" font-size="11" text-anchor="middle" fill="#000">M16 10.9</text>
+<path d="M888.0,140.0 L870.0,190.0 L888.0,240.0" fill="none" stroke="#c62828" stroke-width="1.0" stroke-dasharray="4 3"/>
+<path d="M932.0,140.0 L950.0,190.0 L932.0,240.0" fill="none" stroke="#c62828" stroke-width="1.0" stroke-dasharray="4 3"/>
+<text x="956.0" y="272.0" font-size="11" text-anchor="middle" fill="#c62828">pressure cone = plate stiffness cP</text>
+<rect x="1033.0" y="150.0" width="14.0" height="80.0" rx="0" fill="#000" stroke="#000" stroke-width="1"/>
+<text x="1040.0" y="288.0" font-size="11" text-anchor="middle" fill="#000">dowel Ø12 m6 (locates only)</text>
+<line x1="1040.0" y1="276.0" x2="1040.0" y2="232.0" stroke="#000" stroke-width="0.8" marker-end="url(#ar)"/>
+<line x1="802.0" y1="140.0" x2="802.0" y2="240.0" stroke="#000" stroke-width="0.9" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="807.0" y="194.0" font-size="11" text-anchor="start" fill="#000"></text>
+<text x="796.0" y="194.0" font-size="11" text-anchor="end" fill="#000">lk 50</text>
+<text x="820.0" y="406.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Fillet weld: throat a and leg z = a·√2</text>
+<rect x="820.0" y="540.0" width="260.0" height="24.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1.2"/>
+<rect x="920.0" y="430.0" width="24.0" height="110.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1.2"/>
+<path d="M944.0,540.0 L944.0,490.0 L994.0,540.0 Z" fill="#f0c4c4" stroke="#000" stroke-width="1.4"/>
+<line x1="944.0" y1="540.0" x2="969.0" y2="515.0" stroke="#c62828" stroke-width="2" marker-end="url(#aa)"/>
+<text x="975.0" y="511.0" font-size="14" text-anchor="start" fill="#c62828" font-weight="bold">a</text>
+<line x1="944.0" y1="588.0" x2="994.0" y2="588.0" stroke="#000" stroke-width="0.9" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="969.0" y="584.0" font-size="11" text-anchor="middle" fill="#000"></text>
+<text x="1000.0" y="592.0" font-size="12" text-anchor="start" fill="#000">z</text>
+<text x="1010.0" y="460.0" font-size="12" text-anchor="start" fill="#000">a = throat (design size)</text>
+<text x="1010.0" y="478.0" font-size="12" text-anchor="start" fill="#000">z = 1.41·a (leg length)</text>
+<text x="1010.0" y="496.0" font-size="12" text-anchor="start" fill="#000">a ≥ 3 mm, a ≤ 0.7·t_min</text>
+<text x="1010.0" y="514.0" font-size="12" text-anchor="start" fill="#000">τw = F / Σ(a·l)</text>
+<text x="820.0" y="620.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Fatigue strength of welded details (IIW / EN 1993-1-9, m = 3)</text>
+<rect x="830.0" y="640.0" width="420.0" height="230.0" rx="0" fill="none" stroke="#000" stroke-width="1"/>
+<line x1="830.0" y1="640.0" x2="830.0" y2="870.0" stroke="#ececec" stroke-width="0.8"/>
+<text x="830.0" y="886.0" font-size="11" text-anchor="middle" fill="#000">10^4</text>
+<line x1="935.0" y1="640.0" x2="935.0" y2="870.0" stroke="#ececec" stroke-width="0.8"/>
+<text x="935.0" y="886.0" font-size="11" text-anchor="middle" fill="#000">10^5</text>
+<line x1="1040.0" y1="640.0" x2="1040.0" y2="870.0" stroke="#ececec" stroke-width="0.8"/>
+<text x="1040.0" y="886.0" font-size="11" text-anchor="middle" fill="#000">10^6</text>
+<line x1="1145.0" y1="640.0" x2="1145.0" y2="870.0" stroke="#ececec" stroke-width="0.8"/>
+<text x="1145.0" y="886.0" font-size="11" text-anchor="middle" fill="#000">10^7</text>
+<line x1="1250.0" y1="640.0" x2="1250.0" y2="870.0" stroke="#ececec" stroke-width="0.8"/>
+<text x="1250.0" y="886.0" font-size="11" text-anchor="middle" fill="#000">10^8</text>
+<line x1="830.0" y1="870.0" x2="1250.0" y2="870.0" stroke="#ececec" stroke-width="0.8"/>
+<text x="824.0" y="874.0" font-size="11" text-anchor="end" fill="#000">1</text>
+<line x1="830.0" y1="784.8" x2="1250.0" y2="784.8" stroke="#ececec" stroke-width="0.8"/>
+<text x="824.0" y="788.8" font-size="11" text-anchor="end" fill="#000">10</text>
+<line x1="830.0" y1="699.6" x2="1250.0" y2="699.6" stroke="#ececec" stroke-width="0.8"/>
+<text x="824.0" y="703.6" font-size="11" text-anchor="end" fill="#000">100</text>
+<line x1="830.0" y1="640.0" x2="1250.0" y2="640.0" stroke="#ececec" stroke-width="0.8"/>
+<text x="824.0" y="644.0" font-size="11" text-anchor="end" fill="#000">500</text>
+<text x="1040.0" y="904.0" font-size="12" text-anchor="middle" fill="#000">cycles N</text>
+<text x="790.0" y="755.0" font-size="12" text-anchor="middle" fill="#000" transform="rotate(-90 790.0 755.0)">stress range Δσ (MPa)</text>
+<path d="M830.0,646.9 L837.1,648.8 L844.2,650.7 L851.3,652.6 L858.3,654.5 L865.4,656.5 L872.5,658.4 L879.6,660.3 L886.7,662.2 L893.8,664.1 L900.8,666.0 L907.9,668.0 L915.0,669.9 L922.1,671.8 L929.2,673.7 L936.3,675.6 L943.4,677.5 L950.4,679.5 L957.5,681.4 L964.6,683.3 L971.7,685.2 L978.8,687.1 L985.9,689.0 L993.0,691.0 L1000.0,692.9 L1007.1,694.8 L1014.2,696.7 L1021.3,698.6 L1028.4,700.5 L1035.5,702.5 L1042.5,704.4 L1049.6,706.3 L1056.7,708.2 L1063.8,710.1 L1070.9,712.0 L1078.0,714.0 L1085.1,715.9 L1092.1,717.8 L1099.2,719.7 L1106.3,721.6 L1113.4,723.5 L1120.2,724.7 L1127.1,725.8 L1133.9,726.9 L1140.7,728.0 L1147.5,729.1 L1154.4,730.2 L1161.2,731.3 L1168.0,732.4 L1174.9,733.5 L1181.7,734.6 L1188.5,735.7 L1195.4,736.8 L1202.2,738.0 L1209.0,739.1 L1215.8,740.2 L1222.7,741.3 L1229.5,742.4 L1236.3,743.5 L1243.2,744.6 L1250.0,745.7" fill="none" stroke="#000" stroke-width="2"/>
+<text x="939.0" y="667.3" font-size="12" text-anchor="start" fill="#000" font-weight="bold">FAT 71</text>
+<path d="M830.0,672.0 L837.1,673.9 L844.2,675.8 L851.3,677.8 L858.3,679.7 L865.4,681.6 L872.5,683.5 L879.6,685.4 L886.7,687.3 L893.8,689.3 L900.8,691.2 L907.9,693.1 L915.0,695.0 L922.1,696.9 L929.2,698.8 L936.3,700.8 L943.4,702.7 L950.4,704.6 L957.5,706.5 L964.6,708.4 L971.7,710.3 L978.8,712.3 L985.9,714.2 L993.0,716.1 L1000.0,718.0 L1007.1,719.9 L1014.2,721.8 L1021.3,723.8 L1028.4,725.7 L1035.5,727.6 L1042.5,729.5 L1049.6,731.4 L1056.7,733.3 L1063.8,735.3 L1070.9,737.2 L1078.0,739.1 L1085.1,741.0 L1092.1,742.9 L1099.2,744.8 L1106.3,746.8 L1113.4,748.7 L1120.2,749.8 L1127.1,750.9 L1133.9,752.0 L1140.7,753.1 L1147.5,754.2 L1154.4,755.3 L1161.2,756.4 L1168.0,757.5 L1174.9,758.7 L1181.7,759.8 L1188.5,760.9 L1195.4,762.0 L1202.2,763.1 L1209.0,764.2 L1215.8,765.3 L1222.7,766.4 L1229.5,767.5 L1236.3,768.6 L1243.2,769.7 L1250.0,770.9" fill="none" stroke="#c62828" stroke-width="2"/>
+<text x="939.0" y="692.4" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">FAT 36</text>
+<circle cx="968.5" cy="840.4" r="5.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<text x="976.5" y="844.4" font-size="11" text-anchor="start" fill="#000">docking post weld: 2.2 MPa, 2.1·10^5 cycles</text>
+<circle cx="1040.0" cy="783.3" r="5.0" fill="#c62828" stroke="#c62828" stroke-width="1.2"/>
+<text x="1030.0" y="787.3" font-size="11" text-anchor="end" fill="#c62828">bracket 2 × a4 × 120, 0–10 kN: 10.4 MPa</text>
+<rect x="954.0" y="912.0" width="430.0" height="74.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<line x1="954.0" y1="938.0" x2="1384.0" y2="938.0" stroke="#000" stroke-width="0.8"/>
+<line x1="954.0" y1="962.0" x2="1384.0" y2="962.0" stroke="#000" stroke-width="0.8"/>
+<line x1="1094.0" y1="912.0" x2="1094.0" y2="938.0" stroke="#000" stroke-width="0.8"/>
+<text x="962.0" y="930.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">VC-MEC-LDS-0900</text>
+<text x="1102.0" y="930.0" font-size="12" text-anchor="start" fill="#000">Bolted + welded joint (sketch)</text>
+<text x="962.0" y="955.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="962.0" y="979.0" font-size="11" text-anchor="start" fill="#666666">values from guide 10 Part B · guide 10 · 2026-11-12</text>
+</svg>

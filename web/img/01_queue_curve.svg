@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 900" width="1240" height="900" font-family="Arial, Helvetica, sans-serif">
+<title>Utilisation vs waiting time M/M/1 with factory examples</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1240" height="900" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">01 – Waiting time grows without limit when utilisation ρ → 1 (M/M/1 and Kingman) – FINAL-01 and WASH-01 examples</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" fill="#444">y = waiting time in the queue Wq divided by the service time ts.  M/M/1: Wq/ts = ρ/(1−ρ).  Kingman G/G/1: Wq/ts ≈ (ca² + cs²)/2 × ρ/(1−ρ).</text>
+<line x1="110.0" y1="760.0" x2="110.0" y2="120.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="110.0" y="780.0" font-size="12" text-anchor="middle" fill="#111">0.0</text>
+<line x1="180.0" y1="760.0" x2="180.0" y2="120.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="180.0" y="780.0" font-size="12" text-anchor="middle" fill="#111">0.1</text>
+<line x1="250.0" y1="760.0" x2="250.0" y2="120.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="250.0" y="780.0" font-size="12" text-anchor="middle" fill="#111">0.2</text>
+<line x1="320.0" y1="760.0" x2="320.0" y2="120.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="320.0" y="780.0" font-size="12" text-anchor="middle" fill="#111">0.3</text>
+<line x1="390.0" y1="760.0" x2="390.0" y2="120.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="390.0" y="780.0" font-size="12" text-anchor="middle" fill="#111">0.4</text>
+<line x1="460.0" y1="760.0" x2="460.0" y2="120.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="460.0" y="780.0" font-size="12" text-anchor="middle" fill="#111">0.5</text>
+<line x1="530.0" y1="760.0" x2="530.0" y2="120.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="530.0" y="780.0" font-size="12" text-anchor="middle" fill="#111">0.6</text>
+<line x1="600.0" y1="760.0" x2="600.0" y2="120.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="600.0" y="780.0" font-size="12" text-anchor="middle" fill="#111">0.7</text>
+<line x1="670.0" y1="760.0" x2="670.0" y2="120.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="670.0" y="780.0" font-size="12" text-anchor="middle" fill="#111">0.8</text>
+<line x1="740.0" y1="760.0" x2="740.0" y2="120.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="740.0" y="780.0" font-size="12" text-anchor="middle" fill="#111">0.9</text>
+<line x1="810.0" y1="760.0" x2="810.0" y2="120.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="810.0" y="780.0" font-size="12" text-anchor="middle" fill="#111">1.0</text>
+<line x1="110.0" y1="760.0" x2="810.0" y2="760.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="100.0" y="764.0" font-size="12" text-anchor="end" fill="#111">0</text>
+<line x1="110.0" y1="696.0" x2="810.0" y2="696.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="100.0" y="700.0" font-size="12" text-anchor="end" fill="#111">2</text>
+<line x1="110.0" y1="632.0" x2="810.0" y2="632.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="100.0" y="636.0" font-size="12" text-anchor="end" fill="#111">4</text>
+<line x1="110.0" y1="568.0" x2="810.0" y2="568.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="100.0" y="572.0" font-size="12" text-anchor="end" fill="#111">6</text>
+<line x1="110.0" y1="504.0" x2="810.0" y2="504.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="100.0" y="508.0" font-size="12" text-anchor="end" fill="#111">8</text>
+<line x1="110.0" y1="440.0" x2="810.0" y2="440.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="100.0" y="444.0" font-size="12" text-anchor="end" fill="#111">10</text>
+<line x1="110.0" y1="376.0" x2="810.0" y2="376.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="100.0" y="380.0" font-size="12" text-anchor="end" fill="#111">12</text>
+<line x1="110.0" y1="312.0" x2="810.0" y2="312.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="100.0" y="316.0" font-size="12" text-anchor="end" fill="#111">14</text>
+<line x1="110.0" y1="248.0" x2="810.0" y2="248.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="100.0" y="252.0" font-size="12" text-anchor="end" fill="#111">16</text>
+<line x1="110.0" y1="184.0" x2="810.0" y2="184.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="100.0" y="188.0" font-size="12" text-anchor="end" fill="#111">18</text>
+<line x1="110.0" y1="120.0" x2="810.0" y2="120.0" stroke="#ddd" stroke-width="0.8"/>
+<text x="100.0" y="124.0" font-size="12" text-anchor="end" fill="#111">20</text>
+<line x1="110.0" y1="760.0" x2="810.0" y2="760.0" stroke="#111" stroke-width="1.5"/>
+<line x1="110.0" y1="760.0" x2="110.0" y2="120.0" stroke="#111" stroke-width="1.5"/>
+<text x="460.0" y="806.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">utilisation ρ = λ × ts  (share of time the machine is busy)</text>
+<text x="40" y="440" font-size="13" font-weight="bold" text-anchor="middle" transform="rotate(-90 40 440)" fill="#111">Wq / ts  (waiting time in multiples of the service time)</text>
+<path d="M110.0,760.0 L113.5,759.8 L117.0,759.7 L120.5,759.5 L124.0,759.3 L127.5,759.2 L131.0,759.0 L134.5,758.8 L138.0,758.7 L141.5,758.5 L145.0,758.3 L148.5,758.1 L152.0,758.0 L155.5,757.8 L159.0,757.6 L162.5,757.4 L166.0,757.2 L169.5,757.0 L173.0,756.8 L176.5,756.6 L180.0,756.4 L183.5,756.2 L187.0,756.0 L190.5,755.8 L194.0,755.6 L197.5,755.4 L201.0,755.2 L204.5,755.0 L208.0,754.8 L211.5,754.6 L215.0,754.4 L218.5,754.1 L222.0,753.9 L225.5,753.7 L229.0,753.4 L232.5,753.2 L236.0,753.0 L239.5,752.7 L243.0,752.5 L246.5,752.2 L250.0,752.0 L253.5,751.7 L257.0,751.5 L260.5,751.2 L264.0,751.0 L267.5,750.7 L271.0,750.4 L274.5,750.2 L278.0,749.9 L281.5,749.6 L285.0,749.3 L288.5,749.0 L292.0,748.8 L295.5,748.5 L299.0,748.2 L302.5,747.9 L306.0,747.6 L309.5,747.2 L313.0,746.9 L316.5,746.6 L320.0,746.3 L323.5,746.0 L327.0,745.6 L330.5,745.3 L334.0,744.9 L337.5,744.6 L341.0,744.2 L344.5,743.9 L348.0,743.5 L351.5,743.1 L355.0,742.8 L358.5,742.4 L362.0,742.0 L365.5,741.6 L369.0,741.2 L372.5,740.8 L376.0,740.4 L379.5,740.0 L383.0,739.5 L386.5,739.1 L390.0,738.7 L393.5,738.2 L397.0,737.8 L400.5,737.3 L404.0,736.8 L407.5,736.3 L411.0,735.9 L414.5,735.4 L418.0,734.9 L421.5,734.3 L425.0,733.8 L428.5,733.3 L432.0,732.7 L435.5,732.2 L439.0,731.6 L442.5,731.0 L446.0,730.5 L449.5,729.9 L453.0,729.3 L456.5,728.6 L460.0,728.0 L463.5,727.4 L467.0,726.7 L470.5,726.0 L474.0,725.3 L477.5,724.6 L481.0,723.9 L484.5,723.2 L488.0,722.4 L491.5,721.7 L495.0,720.9 L498.5,720.1 L502.0,719.3 L505.5,718.4 L509.0,717.6 L512.5,716.7 L516.0,715.8 L519.5,714.9 L523.0,714.0 L526.5,713.0 L530.0,712.0 L533.5,711.0 L537.0,709.9 L540.5,708.9 L544.0,707.8 L547.5,706.7 L551.0,705.5 L554.5,704.3 L558.0,703.1 L561.5,701.9 L565.0,700.6 L568.5,699.2 L572.0,697.9 L575.5,696.5 L579.0,695.0 L582.5,693.5 L586.0,692.0 L589.5,690.4 L593.0,688.8 L596.5,687.1 L600.0,685.3 L603.5,683.5 L607.0,681.7 L610.5,679.7 L614.0,677.7 L617.5,675.6 L621.0,673.5 L624.5,671.2 L628.0,668.9 L631.5,666.5 L635.0,664.0 L638.5,661.4 L642.0,658.7 L645.5,655.8 L649.0,652.9 L652.5,649.8 L656.0,646.5 L659.5,643.2 L663.0,639.6 L666.5,635.9 L670.0,632.0 L673.5,627.9 L677.0,623.6 L680.5,619.0 L684.0,614.2 L687.5,609.1 L691.0,603.8 L694.5,598.1 L698.0,592.0 L701.5,585.5 L705.0,578.7 L708.5,571.3 L712.0,563.4 L715.5,555.0 L719.0,545.8 L722.5,536.0 L726.0,525.3 L729.5,513.7 L733.0,501.1 L736.5,487.2 L740.0,472.0 L743.5,455.2 L747.0,436.4 L750.5,415.5 L754.0,392.0 L757.5,365.3 L761.0,334.9 L764.5,299.7 L768.0,258.7 L771.5,210.2 L775.0,152.0 L776.7,120.0" stroke="#111" stroke-width="2.4" fill="none"/>
+<path d="M110.0,760.0 L113.5,759.9 L117.0,759.8 L120.5,759.7 L124.0,759.6 L127.5,759.5 L131.0,759.5 L134.5,759.4 L138.0,759.3 L141.5,759.2 L145.0,759.1 L148.5,759.0 L152.0,758.9 L155.5,758.8 L159.0,758.7 L162.5,758.6 L166.0,758.5 L169.5,758.4 L173.0,758.3 L176.5,758.2 L180.0,758.0 L183.5,757.9 L187.0,757.8 L190.5,757.7 L194.0,757.6 L197.5,757.5 L201.0,757.4 L204.5,757.3 L208.0,757.1 L211.5,757.0 L215.0,756.9 L218.5,756.8 L222.0,756.6 L225.5,756.5 L229.0,756.4 L232.5,756.3 L236.0,756.1 L239.5,756.0 L243.0,755.9 L246.5,755.7 L250.0,755.6 L253.5,755.5 L257.0,755.3 L260.5,755.2 L264.0,755.0 L267.5,754.9 L271.0,754.7 L274.5,754.6 L278.0,754.4 L281.5,754.3 L285.0,754.1 L288.5,754.0 L292.0,753.8 L295.5,753.7 L299.0,753.5 L302.5,753.3 L306.0,753.2 L309.5,753.0 L313.0,752.8 L316.5,752.6 L320.0,752.5 L323.5,752.3 L327.0,752.1 L330.5,751.9 L334.0,751.7 L337.5,751.5 L341.0,751.3 L344.5,751.1 L348.0,750.9 L351.5,750.7 L355.0,750.5 L358.5,750.3 L362.0,750.1 L365.5,749.9 L369.0,749.7 L372.5,749.4 L376.0,749.2 L379.5,749.0 L383.0,748.7 L386.5,748.5 L390.0,748.3 L393.5,748.0 L397.0,747.8 L400.5,747.5 L404.0,747.3 L407.5,747.0 L411.0,746.7 L414.5,746.4 L418.0,746.2 L421.5,745.9 L425.0,745.6 L428.5,745.3 L432.0,745.0 L435.5,744.7 L439.0,744.4 L442.5,744.1 L446.0,743.8 L449.5,743.4 L453.0,743.1 L456.5,742.7 L460.0,742.4 L463.5,742.0 L467.0,741.7 L470.5,741.3 L474.0,740.9 L477.5,740.5 L481.0,740.2 L484.5,739.8 L488.0,739.3 L491.5,738.9 L495.0,738.5 L498.5,738.0 L502.0,737.6 L505.5,737.1 L509.0,736.7 L512.5,736.2 L516.0,735.7 L519.5,735.2 L523.0,734.7 L526.5,734.1 L530.0,733.6 L533.5,733.0 L537.0,732.5 L540.5,731.9 L544.0,731.3 L547.5,730.7 L551.0,730.0 L554.5,729.4 L558.0,728.7 L561.5,728.0 L565.0,727.3 L568.5,726.6 L572.0,725.8 L575.5,725.1 L579.0,724.3 L582.5,723.4 L586.0,722.6 L589.5,721.7 L593.0,720.8 L596.5,719.9 L600.0,718.9 L603.5,717.9 L607.0,716.9 L610.5,715.8 L614.0,714.7 L617.5,713.6 L621.0,712.4 L624.5,711.2 L628.0,709.9 L631.5,708.6 L635.0,707.2 L638.5,705.8 L642.0,704.3 L645.5,702.7 L649.0,701.1 L652.5,699.4 L656.0,697.6 L659.5,695.7 L663.0,693.8 L666.5,691.7 L670.0,689.6 L673.5,687.3 L677.0,685.0 L680.5,682.5 L684.0,679.8 L687.5,677.0 L691.0,674.1 L694.5,670.9 L698.0,667.6 L701.5,664.1 L705.0,660.3 L708.5,656.2 L712.0,651.9 L715.5,647.2 L719.0,642.2 L722.5,636.8 L726.0,630.9 L729.5,624.6 L733.0,617.6 L736.5,610.0 L740.0,601.6 L743.5,592.3 L747.0,582.0 L750.5,570.5 L754.0,557.6 L757.5,542.9 L761.0,526.2 L764.5,506.8 L768.0,484.3 L771.5,457.6 L775.0,425.6 L778.5,386.5 L782.0,337.6 L785.5,274.7 L789.0,190.9 L791.3,120.0" stroke="#c0392b" stroke-width="2.4" fill="none" stroke-dasharray="8 5"/>
+<text x="712.0" y="252.0" font-size="12" text-anchor="end" font-weight="bold" fill="#111">M/M/1 (ca² = cs² = 1)</text>
+<line x1="715.5" y1="248.0" x2="765.2" y2="267.2" stroke="#111" stroke-width="1"/>
+<text x="670.0" y="476.0" font-size="12" text-anchor="end" font-weight="bold" fill="#c0392b">Kingman (ca² = 1, cs² = 0.1)</text>
+<line x1="673.5" y1="472.0" x2="766.6" y2="472.0" stroke="#c0392b" stroke-width="1"/>
+<circle cx="455.1" cy="729.0" r="6" fill="#c0392b" stroke="#111" stroke-width="1.2"/>
+<text x="445.1" y="721.0" font-size="12" text-anchor="end" font-weight="bold" fill="#111">WASH-01 @ 12 /h: ρ 0.49, Wq 2.4 min</text>
+<circle cx="597.9" cy="686.4" r="6" fill="#c0392b" stroke="#111" stroke-width="1.2"/>
+<text x="587.9" y="678.4" font-size="12" text-anchor="end" font-weight="bold" fill="#111">FINAL-01 @ 12.0 /h: ρ 0.70, Wq 8.0 min</text>
+<circle cx="695.2" cy="596.8" r="6" fill="#c0392b" stroke="#111" stroke-width="1.2"/>
+<text x="685.2" y="588.8" font-size="12" text-anchor="end" font-weight="bold" fill="#111">FINAL-01 @ 14.4 /h: ρ 0.84, Wq 17.8 min</text>
+<circle cx="760.3" cy="342.1" r="6" fill="#c0392b" stroke="#111" stroke-width="1.2"/>
+<text x="750.3" y="334.1" font-size="12" text-anchor="end" font-weight="bold" fill="#111">FINAL-01 @ 16.0 /h: ρ 0.93, Wq 45.5 min</text>
+<line x1="810.0" y1="760.0" x2="810.0" y2="120.0" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="826" y="440" font-size="12" text-anchor="middle" fill="#c0392b" transform="rotate(-90 826 440)">ρ = 1 at λ = 17.2 /h (FINAL-01 capacity) → queue grows without limit</text>
+<text x="860.0" y="100.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">FINAL-01, ts = 209 s (mix average)</text>
+<text x="860.0" y="118.0" font-size="12" text-anchor="start" fill="#111">μ = 3600 / 209 = 17.22 units/h</text>
+<rect x="860.0" y="130.0" width="330.0" height="24.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="866.0" y="147.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">λ /h</text>
+<text x="916.0" y="147.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">ρ</text>
+<text x="971.0" y="147.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Lq</text>
+<text x="1026.0" y="147.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Wq min</text>
+<text x="1096.0" y="147.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">P(B_P4 full)</text>
+<rect x="860.0" y="154.0" width="330.0" height="24.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="866.0" y="171.0" font-size="11" text-anchor="start" fill="#111">12.0</text>
+<text x="916.0" y="171.0" font-size="11" text-anchor="start" fill="#111">0.697</text>
+<text x="971.0" y="171.0" font-size="11" text-anchor="start" fill="#111">1.60</text>
+<text x="1026.0" y="171.0" font-size="11" text-anchor="start" fill="#111">8.0</text>
+<text x="1096.0" y="171.0" font-size="11" text-anchor="start" fill="#111">2.6 %</text>
+<rect x="860.0" y="178.0" width="330.0" height="24.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="866.0" y="195.0" font-size="11" text-anchor="start" fill="#111">14.4</text>
+<text x="916.0" y="195.0" font-size="11" text-anchor="start" fill="#111">0.836</text>
+<text x="971.0" y="195.0" font-size="11" text-anchor="start" fill="#111">4.26</text>
+<text x="1026.0" y="195.0" font-size="11" text-anchor="start" fill="#111">17.8</text>
+<text x="1096.0" y="195.0" font-size="11" text-anchor="start" fill="#111">6.2 %</text>
+<rect x="860.0" y="202.0" width="330.0" height="24.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="866.0" y="219.0" font-size="11" text-anchor="start" fill="#111">16.0</text>
+<text x="916.0" y="219.0" font-size="11" text-anchor="start" fill="#111">0.929</text>
+<text x="971.0" y="219.0" font-size="11" text-anchor="start" fill="#111">12.1</text>
+<text x="1026.0" y="219.0" font-size="11" text-anchor="start" fill="#111">45.5</text>
+<text x="1096.0" y="219.0" font-size="11" text-anchor="start" fill="#111">9.5 %</text>
+<text x="860.0" y="250.0" font-size="12" text-anchor="start" fill="#111">Lq = ρ² / (1 − ρ)    Wq = ρ / (μ − λ)</text>
+<text x="860.0" y="269.0" font-size="12" text-anchor="start" fill="#111">Little: Lq = λ × Wq = 14.4 × 17.8/60 = 4.27 parts</text>
+<text x="860.0" y="288.0" font-size="12" text-anchor="start" fill="#111">B_P4 holds 6 parts → full ≈ 6 % of the time</text>
+<text x="860.0" y="307.0" font-size="12" text-anchor="start" fill="#111">(M/M/1/K, K = 6 + 1 in the machine).</text>
+<text x="860.0" y="326.0" font-size="12" text-anchor="start" fill="#111"></text>
+<text x="860.0" y="345.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">TEST-01 + TEST-02 (M/M/2, ts = 354 s):</text>
+<text x="860.0" y="364.0" font-size="12" text-anchor="start" fill="#111">λ 14.4 /h → a = 1.416 erlang, ρ = 0.708</text>
+<text x="860.0" y="383.0" font-size="12" text-anchor="start" fill="#111">Erlang C: P(wait) = 0.587, Wq = 5.9 min</text>
+<text x="860.0" y="402.0" font-size="12" text-anchor="start" fill="#111"></text>
+<text x="860.0" y="421.0" font-size="12" text-anchor="start" fill="#111">Real cycle times are almost constant</text>
+<text x="860.0" y="440.0" font-size="12" text-anchor="start" fill="#111">(cs² ≈ 0.1) → Kingman gives ≈ 55 % of</text>
+<text x="860.0" y="459.0" font-size="12" text-anchor="start" fill="#111">M/M/1: FINAL-01 @ 12 /h: 8.0 → 4.4 min.</text>
+<text x="860.0" y="478.0" font-size="12" text-anchor="start" fill="#111">But SETUP (29 % of FINAL-01 time in the</text>
+<text x="860.0" y="497.0" font-size="12" text-anchor="start" fill="#111">what-if run) raises the real ρ near 1.</text>
+<text x="860.0" y="516.0" font-size="12" text-anchor="start" fill="#111"></text>
+<text x="860.0" y="535.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Rule: keep the bottleneck busy, but plan</text>
+<text x="860.0" y="554.0" font-size="12" text-anchor="start" fill="#111">non-bottleneck machines for ρ ≤ 0.85.</text>
+<rect x="798.0" y="814.0" width="430.0" height="74.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<line x1="798.0" y1="840.0" x2="1228.0" y2="840.0" stroke="#111" stroke-width="1.2"/>
+<line x1="1048.0" y1="840.0" x2="1048.0" y2="888.0" stroke="#111" stroke-width="1.2"/>
+<text x="806.0" y="832.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – check the maker's documentation</text>
+<text x="806.0" y="858.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Drawing 01-004</text>
+<text x="806.0" y="876.0" font-size="11" text-anchor="start" fill="#111">Guide 01 – Digital twin core</text>
+<text x="1056.0" y="858.0" font-size="11" text-anchor="start" fill="#111">Values: config/factory.json</text>
+<text x="1056.0" y="876.0" font-size="11" text-anchor="start" fill="#111">Rev A · 2026-11-12</text>
+</svg>

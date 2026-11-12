@@ -1102,7 +1102,7 @@ If the MES can answer steps 1–8 in **less than one hour**, your traceability w
 
 ## 8a. Addenda – codes added while the topic guides were enriched (2026-11-11)
 
-These codes were proposed by the topic guides (05, 06, 08, 10, 12) and are now **part of this scheme**.
+These codes were proposed by the topic guides (05, 06, 08, 10, 12, 17, 18, 19) and are now **part of this scheme**.
 They follow the same rules as chapter 3.
 
 | Item | Format | Example | Used in guide |
@@ -1123,6 +1123,19 @@ They follow the same rules as chapter 3.
 | Tool sets (HMC magazine set per model) | `TS-<machine>-<model>` | `TS-HMC01-VC20` | 02, 08 |
 | Transport orders (AGV / crane) | `TO-<YYWW>-<4 digits>` | `TO-2546-0153` | 03 |
 | VDA 5050 nodeId | = storage / station location code | `ASRS-RAW-A03-L2-S14`, `FLR-L2-LS01` | 03, 07 |
+| Rotary-table assembly serial | `RT-<YYWW>-<5 digits>` | `RT-2546-00001` | 17 |
+| Rotary-table component serials | `HSG-` housing, `TBL-` table, `CTG-` worm bearing cartridge (not CRT = crate), `CLR-` clamp ring + `<YYWW>-<5 digits>` | `CTG-2546-00006` | 17 |
+| Assembly jigs | `FIX-01nn`, drawings `VC-ASM-JIG-0101 … -0112` | `FIX-0103` (guide studs J3) | 17 |
+| Assembly gauges | `GA-ACL` autocollimator, `GA-PGN` polygon, `GA-LVL` level, `GA-LDC` load cell, `GA-HGT` height gauge, `GA-GBK` gauge blocks, `GA-MDR` setting mandrel + 4 digits | `GA-ACL-0001` | 17 |
+| Assembly work cards | `VC-ASM-WI-<4 digits>-<rev>-S<step>` | `VC-ASM-WI-0101-A-S09` | 17 |
+| Spindle drawings (group `SPN`) | `VC-HMC-SPN-01nn-<rev>`: 0101 shaft, 0102 housing, 0103 cooling sleeve, 0104 / 0105 inner / outer spacer, 0106 drawbar, 0107 / 0108 front / rear cover, 0109 labyrinth ring; process plan `VC-HMC-SPN-PP-0101-A` | `VC-HMC-SPN-0101-A` | 18 |
+| Spindle unit serial | `SPU-<YYWW>-<5 digits>` | `SPU-2546-00001` | 19 |
+| Spindle component serials | `SPS-` shaft, `SPH-` housing (made part), `SBH-` front bearing housing, `SMH-` motor housing, `SCS-` cooling sleeve, `SPC-` spacer pair + `<YYWW>-<5 digits>` | `SPS-2546-00001` | 18, 19 |
+| Bought-part classes (spindle) | `B-BRG` bearing set, `B-NUT` precision nut, `B-MOT` motor kit, `B-CLS` clamping set, `B-CYL` unclamp cylinder parts, `B-SEN` sensors + `-<5 digits>` | `B-BRG-00041` | 19 |
+| NC programs for the spindle shaft | `O56<op/10, 2 digits>` | `O5610` = Op 100 OD grinding | 18 |
+| Spindle gauges | `GA-RND` roundness tester, `GA-BAL` balancing machine, `GA-TPG` HSK taper gauge, `GA-TMD` test mandrel (not MDR), `GA-UTW` ultrasonic wall gauge, `GA-GNT` nitriding coupon set, `GA-HSK` clamping-force gauge, `GA-CAP` capacitive probes, `GA-VIB` vibration meter, `GA-SLM` sound level meter, `GA-BMS` bearing measuring stand, `GA-SCL` scale, `GA-INS` insulation tester + 4 digits | `GA-TMD-0001` | 18, 19 |
+| Spindle equipment IDs | `GDM-01` gun drilling, `CGR-01` cylindrical grinder, `IGR-01` internal grinder, `BAL-01` balancing machine, `ASSY-SP1` spindle clean room, `RUN-01` run-in stand | `CGR-01` | 18, 19 |
+| Spindle assembly jigs + documents | jigs `FIX-02nn`, drawings `VC-ASM-JIG-0201 … -0212`; work cards `VC-ASM-WI-0201-A-S<step>`; run-in program `VC-HMC-TP-0004`; assembly record `VC-ASM-RA-0201` | `FIX-0206` (spring tool J6) | 19 |
 
 **Twin mapping:** the twin keeps its short IDs (`VC20-000012`, `WO-0012`, `CC20-L0009`, `W-0001`, `P-0001`, `O2001`).
 In the real systems use the formats in this guide (`VC20-2546-00012`, `WO-2546-0012`, `LOT-CC20-2546-009`,

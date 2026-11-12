@@ -75,7 +75,7 @@ class PLCNet:
                 self.of_machine[m.id] = pid
         for j, a in enumerate(f.handling.asrs):
             self._add({"id": f"PLC-{a.id}", "name": f"{a.name} - stacker crane", "kind": "asrs", "asrs": a.id,
-                       "model": "S7-1515-2 PN", "safety": True, "ip": f"192.168.10.{31 + j}", "machines": []})
+                       "model": "S7-1515F-2 PN (fail-safe CPU)", "safety": True, "ip": f"192.168.10.{31 + j}", "machines": []})
         self.asrs_plc = {p["asrs"]: p["id"] for p in self.plcs if p["kind"] == "asrs"}
 
         # who owns a buffer (the PLC that sees its sensors): AS/RS crane, else the consuming line, else the producer

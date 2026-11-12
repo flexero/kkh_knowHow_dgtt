@@ -206,7 +206,7 @@ function create3D(host) {
   const fill = new THREE.DirectionalLight(0xffffff, 0.5); fill.position.set(-3000, 2000, -2500); scene.add(fill);
   const root = new THREE.Group(); scene.add(root);
   const cs = getComputedStyle(document.documentElement);
-  scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed");
+  scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed"); if (window.dtTheme) window.dtTheme.scene(scene);
   let O = {}, labels = [], selBox = null, onPick = null;
   const mat = (color, o = {}) => new THREE.MeshStandardMaterial({ color, metalness: o.m ?? 0.35, roughness: o.r ?? 0.55, transparent: !!o.op, opacity: o.op ?? 1, side: o.ds ? THREE.DoubleSide : THREE.FrontSide, depthWrite: !o.op });
   const C = { frame: mat(0x3c6e9e), pe: mat(0xf4f4f0, { m: 0, r: 0.8 }), pu: mat(0xd9832b, { m: 0, r: 0.7 }), dark: mat(0x3a4048), black: mat(0x23262a), yellow: mat(0xf2c200),
@@ -241,7 +241,7 @@ function create3D(host) {
   function build(R, M, X) {
     while (root.children.length) { const o = root.children.pop(); o.traverse((c) => { if (c.geometry) c.geometry.dispose(); if (c.material && c.material.map) c.material.map.dispose(); }); }
     labels = []; O = { R, M }; if (selBox) { scene.remove(selBox); selBox = null; }
-    const fl = new THREE.Mesh(new THREE.PlaneGeometry(9000, 7000), C.floor); fl.rotation.x = -Math.PI / 2; fl.position.set(800, 0, -900); root.add(fl);
+    const fl = new THREE.Mesh(new THREE.PlaneGeometry(9000, 7000), C.floor); fl.rotation.x = -Math.PI / 2; fl.position.set(800, 0, -900); root.add(fl); if (window.dtTheme) window.dtTheme.floor(C.floor);
     for (const sz of [1, -1]) box(3200, 2, 50, C.yellow, SX + 1500, 1, SZ + sz * (M.cw / 2 + 200), null, root);
     // ---- APC load station context (item 1)
     const a = X.a, b = X.b;

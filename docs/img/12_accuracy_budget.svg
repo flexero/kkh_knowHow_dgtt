@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" width="1100" height="640" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<title>Accuracy budget – bore position</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1100" height="640" fill="#ffffff"/>
+<rect x="6" y="6" width="1088" height="628" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="30.0" y="36.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold" >Accuracy budget – position of a bore 500 mm from the reference, on another face (B turned)</text>
+<text x="420.0" y="72.0" font-size="12" text-anchor="start" fill="#000" >µm</text>
+<line x1="420.0" y1="78.0" x2="420.0" y2="440.0" stroke="#bbb" stroke-width="0.5" />
+<text x="420.0" y="458.0" font-size="12" text-anchor="middle" fill="#000" >0</text>
+<line x1="530.0" y1="78.0" x2="530.0" y2="440.0" stroke="#bbb" stroke-width="0.5" />
+<text x="530.0" y="458.0" font-size="12" text-anchor="middle" fill="#000" >5</text>
+<line x1="640.0" y1="78.0" x2="640.0" y2="440.0" stroke="#bbb" stroke-width="0.5" />
+<text x="640.0" y="458.0" font-size="12" text-anchor="middle" fill="#000" >10</text>
+<line x1="750.0" y1="78.0" x2="750.0" y2="440.0" stroke="#bbb" stroke-width="0.5" />
+<text x="750.0" y="458.0" font-size="12" text-anchor="middle" fill="#000" >15</text>
+<line x1="860.0" y1="78.0" x2="860.0" y2="440.0" stroke="#bbb" stroke-width="0.5" />
+<text x="860.0" y="458.0" font-size="12" text-anchor="middle" fill="#000" >20</text>
+<line x1="970.0" y1="78.0" x2="970.0" y2="440.0" stroke="#bbb" stroke-width="0.5" />
+<text x="970.0" y="458.0" font-size="12" text-anchor="middle" fill="#000" >25</text>
+<text x="410.0" y="99.0" font-size="12" text-anchor="end" fill="#000" >1 Linear scale accuracy (grade ±3 µm)</text>
+<rect x="420.0" y="85.0" width="66.0" height="20.0" fill="#9a9a9a" stroke="#000" stroke-width="1" />
+<text x="492.0" y="99.0" font-size="12" text-anchor="start" fill="#000" >3.0</text>
+<text x="410.0" y="133.0" font-size="12" text-anchor="end" fill="#000" >2 Abbe: pitch 3″ × 300 mm offset</text>
+<rect x="420.0" y="119.0" width="95.9" height="20.0" fill="#9a9a9a" stroke="#000" stroke-width="1" />
+<text x="521.9" y="133.0" font-size="12" text-anchor="start" fill="#000" >4.4</text>
+<text x="410.0" y="167.0" font-size="12" text-anchor="end" fill="#000" >3 Part 1 K away from 20 °C (cast iron 500 mm)</text>
+<rect x="420.0" y="153.0" width="115.5" height="20.0" fill="#9a9a9a" stroke="#000" stroke-width="1" />
+<text x="541.5" y="167.0" font-size="12" text-anchor="start" fill="#000" >5.3</text>
+<text x="410.0" y="201.0" font-size="12" text-anchor="end" fill="#000" >4 Machine thermal residual after compensation</text>
+<rect x="420.0" y="187.0" width="66.0" height="20.0" fill="#9a9a9a" stroke="#000" stroke-width="1" />
+<text x="492.0" y="201.0" font-size="12" text-anchor="start" fill="#000" >3.0</text>
+<text x="410.0" y="235.0" font-size="12" text-anchor="end" fill="#000" >5 Servo / reversal</text>
+<rect x="420.0" y="221.0" width="33.0" height="20.0" fill="#9a9a9a" stroke="#000" stroke-width="1" />
+<text x="459.0" y="235.0" font-size="12" text-anchor="start" fill="#000" >1.5</text>
+<text x="410.0" y="269.0" font-size="12" text-anchor="end" fill="#000" >6 Spindle radial thermal drift</text>
+<rect x="420.0" y="255.0" width="44.0" height="20.0" fill="#9a9a9a" stroke="#000" stroke-width="1" />
+<text x="470.0" y="269.0" font-size="12" text-anchor="start" fill="#000" >2.0</text>
+<text x="410.0" y="303.0" font-size="12" text-anchor="end" fill="#000" >7 B-axis ±2.7″ at r = 250 mm</text>
+<rect x="420.0" y="289.0" width="71.9" height="20.0" fill="#9a9a9a" stroke="#000" stroke-width="1" />
+<text x="497.9" y="303.0" font-size="12" text-anchor="start" fill="#000" >3.3</text>
+<text x="410.0" y="337.0" font-size="12" text-anchor="end" fill="#000" >8 Pallet zero-point repeatability</text>
+<rect x="420.0" y="323.0" width="55.0" height="20.0" fill="#9a9a9a" stroke="#000" stroke-width="1" />
+<text x="481.0" y="337.0" font-size="12" text-anchor="start" fill="#000" >2.5</text>
+<text x="410.0" y="379.0" font-size="13" text-anchor="end" fill="#000" font-weight="bold" >Worst-case sum Σ</text>
+<rect x="420.0" y="365.0" width="547.4" height="22.0" fill="#fff" stroke="#000" stroke-width="1.6" />
+<text x="961.4" y="381.0" font-size="13" text-anchor="end" fill="#000" font-weight="bold" >24.9</text>
+<text x="410.0" y="419.0" font-size="13" text-anchor="end" fill="#000" font-weight="bold" >Statistical RSS √Σe²</text>
+<rect x="420.0" y="405.0" width="206.1" height="22.0" fill="#c0392b" stroke="#000" stroke-width="1" />
+<text x="632.1" y="421.0" font-size="13" text-anchor="start" fill="#c0392b" font-weight="bold" >9.4</text>
+<line x1="860.0" y1="70.0" x2="860.0" y2="434.0" stroke="#c0392b" stroke-width="2" stroke-dasharray="8 4"/>
+<text x="866.0" y="92.0" font-size="12" text-anchor="start" fill="#c0392b" font-weight="bold" >tolerance ±20 µm</text>
+<rect x="30.0" y="480.0" width="700.0" height="92.0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<text x="42.0" y="502.0" font-size="12" text-anchor="start" fill="#000" >RSS 9.4 µm uses about half of the ±20 µm tolerance → OK (rule: machine ≤ ½ of the tolerance).</text>
+<text x="42.0" y="521.0" font-size="12" text-anchor="start" fill="#000" >Worst-case 24.9 µm is over the limit → control the biggest term: part temperature</text>
+<text x="42.0" y="540.0" font-size="12" text-anchor="start" fill="#000" >(coolant chiller, soak the part), then the Abbe offsets.  Values: guide 12, M13.2.</text>
+<text x="42.0" y="559.0" font-size="12" text-anchor="start" fill="#000" >Python check: Σ = 24.9 µm, RSS = 9.37 µm.</text>
+<g><rect x="730" y="544" width="358" height="84" fill="#fff" stroke="#000" stroke-width="1.2"/><line x1="730" y1="572" x2="1088" y2="572" stroke="#000"/><line x1="730" y1="600" x2="1088" y2="600" stroke="#000"/><text x="738" y="563" font-size="14" font-weight="bold">Accuracy budget – HMC 500</text><text x="738" y="591" font-size="12">Guide 12, Part 4 · 12_accuracy_budget.svg</text><text x="738" y="619" font-size="12" font-weight="bold" fill="#c0392b">EXAMPLE – check the maker's documentation</text></g>
+</svg>

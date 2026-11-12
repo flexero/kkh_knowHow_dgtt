@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b62c4"/></marker></defs>
+<rect x="0" y="0" width="1400" height="900" fill="#ffffff"/>
+<rect x="10" y="10" width="1380" height="880" fill="none" stroke="#000" stroke-width="2"/>
+<text x="30" y="42" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" fill="#000" font-weight="bold">PLC scan cycle – what happens in one cycle, and why the worst-case reaction is about 2 × cycle time</text>
+<text x="30" y="64" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" fill="#000">Example values: PLC-01 cycle 5.3 ms (twin teaching value), DI filter 3 ms, DQ delay 1 ms, PROFINET update time 2 ms. Measure real values in the CPU diagnostics.</text>
+<line x1="140.0" y1="120" x2="1330.3999999999999" y2="120" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="140.0" y1="115" x2="140.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="140.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">0</text>
+<line x1="202.0" y1="115" x2="202.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="202.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">1</text>
+<line x1="264.0" y1="115" x2="264.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="264.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">2</text>
+<line x1="326.0" y1="115" x2="326.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="326.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">3</text>
+<line x1="388.0" y1="115" x2="388.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="388.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">4</text>
+<line x1="450.0" y1="115" x2="450.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="450.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">5</text>
+<line x1="512.0" y1="115" x2="512.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="512.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">6</text>
+<line x1="574.0" y1="115" x2="574.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="574.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">7</text>
+<line x1="636.0" y1="115" x2="636.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="636.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">8</text>
+<line x1="698.0" y1="115" x2="698.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="698.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">9</text>
+<line x1="760.0" y1="115" x2="760.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="760.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">10</text>
+<line x1="822.0" y1="115" x2="822.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="822.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">11</text>
+<line x1="884.0" y1="115" x2="884.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="884.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">12</text>
+<line x1="946.0" y1="115" x2="946.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="946.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">13</text>
+<line x1="1008.0" y1="115" x2="1008.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="1008.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">14</text>
+<line x1="1070.0" y1="115" x2="1070.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="1070.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">15</text>
+<line x1="1132.0" y1="115" x2="1132.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="1132.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">16</text>
+<line x1="1194.0" y1="115" x2="1194.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="1194.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">17</text>
+<line x1="1256.0" y1="115" x2="1256.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="1256.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">18</text>
+<line x1="1318.0" y1="115" x2="1318.0" y2="125" stroke="#000" stroke-width="1"/>
+<text x="1318.0" y="110" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">19</text>
+<text x="1338.3999999999999" y="124" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">t [ms]</text>
+<text x="30" y="194" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="start" fill="#000" font-weight="bold">CPU</text>
+<rect x="140.0" y="160" width="9.299999999999999" height="56" rx="0" stroke="#000" stroke-width="1.2" fill="#e3eefb"/>
+<rect x="149.3" y="160" width="269.7" height="56" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="284.15" y="193" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle" fill="#000">OB1 program</text>
+<rect x="419.0" y="160" width="9.299999999999999" height="56" rx="0" stroke="#000" stroke-width="1.2" fill="#e3eefb"/>
+<rect x="428.3" y="160" width="40.300000000000004" height="56" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="448.45" y="193" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle" fill="#000">comm</text>
+<text x="304.29999999999995" y="234" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">cycle 1: 0.0 – 5.3 ms</text>
+<rect x="468.59999999999997" y="160" width="9.299999999999999" height="56" rx="0" stroke="#000" stroke-width="1.2" fill="#e3eefb"/>
+<rect x="477.90000000000003" y="160" width="269.7" height="56" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="612.75" y="193" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle" fill="#000">OB1 program</text>
+<rect x="747.6" y="160" width="9.299999999999999" height="56" rx="0" stroke="#000" stroke-width="1.2" fill="#e3eefb"/>
+<rect x="756.9000000000001" y="160" width="40.300000000000004" height="56" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="777.0500000000001" y="193" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle" fill="#000">comm</text>
+<text x="632.9" y="234" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">cycle 2: 5.3 – 10.6 ms</text>
+<rect x="797.1999999999999" y="160" width="9.299999999999999" height="56" rx="0" stroke="#000" stroke-width="1.2" fill="#e3eefb"/>
+<rect x="806.5" y="160" width="269.7" height="56" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="941.35" y="193" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle" fill="#000">OB1 program</text>
+<rect x="1076.1999999999998" y="160" width="9.299999999999999" height="56" rx="0" stroke="#000" stroke-width="1.2" fill="#e3eefb"/>
+<rect x="1085.5" y="160" width="40.300000000000004" height="56" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="1105.65" y="193" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle" fill="#000">comm</text>
+<text x="961.4999999999999" y="234" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">cycle 3: 10.6 – 15.9 ms</text>
+<text x="30" y="260.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">PII = process image of inputs is read (all %I at once)</text>
+<text x="30" y="275.6" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">PIQ = process image of outputs is written (all %Q at once)</text>
+<text x="30" y="291.2" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">comm = OPC UA, HMI, diagnostics (communication load, e.g. 20 %)</text>
+<text x="30" y="350" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="start" fill="#000" font-weight="bold">Sensor</text>
+<text x="30" y="368" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">(field)</text>
+<path d="M 140.0 370 L 295.0 370 L 295.0 335 L 1318.0 335" stroke="#0b62c4" stroke-width="2.2" fill="none"/>
+<text x="301.0" y="326" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#0b62c4">part arrives: sensor switches at t = 2.5 ms</text>
+<text x="30" y="430" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="start" fill="#000" font-weight="bold">DI bit</text>
+<text x="30" y="448" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">after filter</text>
+<path d="M 140.0 450 L 481.0 450 L 481.0 415 L 1318.0 415" stroke="#000" stroke-width="2.2" fill="none"/>
+<line x1="295.0" y1="462" x2="481.0" y2="462" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="388.0" y="478" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">input filter 3 ms</text>
+<text x="30" y="520" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="start" fill="#000" font-weight="bold">%I in</text>
+<text x="30" y="538" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">process image</text>
+<path d="M 140.0 540 L 797.1999999999999 540 L 797.1999999999999 505 L 1318.0 505" stroke="#000" stroke-width="2.2" fill="none"/>
+<text x="805.1999999999999" y="466" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">filtered bit = 1 at 5.5 ms, just AFTER the PII of cycle 2 (5.3 ms)</text>
+<text x="805.1999999999999" y="482" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">→ the program sees it at the PII of cycle 3 = 10.6 ms</text>
+<text x="30" y="610" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="start" fill="#000" font-weight="bold">%Q / DQ</text>
+<text x="30" y="628" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">valve output</text>
+<path d="M 140.0 630 L 1147.5 630 L 1147.5 595 L 1318.0 595" stroke="#0b62c4" stroke-width="2.2" fill="none"/>
+<line x1="1085.5" y1="642" x2="1147.5" y2="642" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="1081.5" y="658" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" fill="#000">PIQ at 15.25 ms + DQ delay 1 ms</text>
+<line x1="295.0" y1="700" x2="1147.5" y2="700" stroke="#0b62c4" stroke-width="2" marker-end="url(#aa)"/>
+<line x1="295.0" y1="690" x2="295.0" y2="710" stroke="#0b62c4" stroke-width="1.5"/>
+<text x="721.25" y="692" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#0b62c4" font-weight="bold">reaction here = 13.75 ms</text>
+<line x1="295.0" y1="335" x2="295.0" y2="700" stroke="#0b62c4" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="1147.5" y1="335" x2="1147.5" y2="700" stroke="#0b62c4" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="30" y="735" width="760" height="150" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="44" y="760" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" fill="#000">Worst case (local I/O):  t_r ≤ t_filter + 2·t_cycle + t_DQ = 3 + 2·5.3 + 1 = 14.6 ms</text>
+<text x="44" y="784" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" fill="#000">With PROFINET remote I/O add one update time each way:  + 2·2 ms = 18.6 ms</text>
+<text x="44" y="808" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" fill="#000">Best case: input changes just before PII:  ≈ t_filter + 1·t_cycle + t_DQ = 9.3 ms</text>
+<text x="44" y="832" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" fill="#000">Jitter: OB1 time changes (IF branches, interrupts, communication) – look at min / max cycle</text>
+<text x="44" y="856" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" fill="#000">Watchdog: max cycle time (S7-1500 default 150 ms) → time error OB80, then STOP</text>
+<rect x="810" y="722" width="570" height="76" rx="0" stroke="#000" stroke-width="1" fill="#e3eefb"/>
+<text x="822" y="745" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">Interrupt OBs (cyclic OB30 PID, F-runtime group) interrupt OB1:</text>
+<text x="822" y="764" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">OB1 becomes longer by their run time → more jitter. Fixed-time</text>
+<text x="822" y="783" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">tasks (PID, motion) belong in cyclic interrupt OBs, not in OB1.</text>
+<rect x="830" y="812" width="560" height="78" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="830" y1="842" x2="1390" y2="842" stroke="#000" stroke-width="1"/>
+<line x1="1230" y1="842" x2="1230" y2="890" stroke="#000" stroke-width="1"/>
+<text x="838" y="833" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" fill="#000">Scan cycle and worst-case reaction time</text>
+<text x="838" y="862" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000">process image, OB1, interrupts, PROFINET – PLC-01 example 5.3 ms</text>
+<text x="838" y="880" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#0b62c4">EXAMPLE – check the maker's documentation</text>
+<text x="1238" y="862" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000">Guide 05 – PLC control</text>
+<text x="1238" y="880" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#000">05_scan_cycle</text>
+</svg>

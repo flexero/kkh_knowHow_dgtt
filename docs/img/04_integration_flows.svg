@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 980" width="1560" height="980" font-family="Arial, Helvetica, sans-serif">
+<title>Integration flows ERP MES SCADA PLM with message types</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1560" height="980" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">04 – Integration map: ERP ↔ MES ↔ SCADA ↔ PLM and the help systems, with message types, protocols and volumes (example values)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Arrow = interface. Label: message (standard) · protocol · volume per day at 300 units/day. Red = the 2 main ISA-95 / B2MML transactions.</text>
+<rect x="80.0" y="90.0" width="260.0" height="90.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="210.0" y="122.5" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">PLM / PDM</text>
+<text x="210.0" y="139.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">EBOM, CAD, drawings, revisions</text>
+<text x="210.0" y="156.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">ECR / ECN workflow</text>
+<rect x="650.0" y="90.0" width="260.0" height="90.0" rx="4" fill="#fbeaea" stroke="#c0392b" stroke-width="2"/>
+<text x="780.0" y="122.5" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">ERP</text>
+<text x="780.0" y="139.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">sales, MPS, MRP, purchasing</text>
+<text x="780.0" y="156.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">stock, cost, finance</text>
+<rect x="1220.0" y="90.0" width="280.0" height="90.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="1360.0" y="122.5" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">EDI partners</text>
+<text x="1360.0" y="139.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">customers + suppliers</text>
+<text x="1360.0" y="156.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">(EDIFACT / portal / VAN)</text>
+<rect x="650.0" y="400.0" width="260.0" height="100.0" rx="4" fill="#fbeaea" stroke="#c0392b" stroke-width="2"/>
+<text x="780.0" y="437.6" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">MES</text>
+<text x="780.0" y="454.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">orders, dispatch, genealogy</text>
+<text x="780.0" y="471.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">quality, OEE, maintenance trigger</text>
+<rect x="80.0" y="400.0" width="260.0" height="100.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="210.0" y="437.6" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">CMMS</text>
+<text x="210.0" y="454.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">maintenance orders, spares</text>
+<text x="210.0" y="471.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">MTBF / MTTR history</text>
+<rect x="1220.0" y="400.0" width="280.0" height="100.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="1360.0" y="437.6" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">QMS / CAQ</text>
+<text x="1360.0" y="454.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">inspection plans, SPC</text>
+<text x="1360.0" y="471.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">NCR, 8D / CAPA, gauges</text>
+<rect x="80.0" y="690.0" width="260.0" height="90.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="210.0" y="722.5" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">WMS / AS/RS + AGV</text>
+<text x="210.0" y="739.5" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">ASRS-RAW, ASRS-FG</text>
+<text x="210.0" y="756.5" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">fleet manager (VDA 5050)</text>
+<rect x="650.0" y="690.0" width="260.0" height="90.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="780.0" y="722.5" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">SCADA + historian</text>
+<text x="780.0" y="739.5" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">alarms, trends, OEE tags</text>
+<text x="780.0" y="756.5" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">OPC UA server / MQTT broker</text>
+<rect x="1220.0" y="690.0" width="280.0" height="90.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="1360.0" y="722.5" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Labels + ID</text>
+<text x="1360.0" y="739.5" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">GS1 printers, DPM marker</text>
+<text x="1360.0" y="756.5" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">scanners, readers</text>
+<rect x="650.0" y="830.0" width="260.0" height="60.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="780.0" y="856.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">PLC, CNC, robot, test bench</text>
+<text x="780.0" y="873.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">OPC UA / PROFINET</text>
+<line x1="340.0" y1="135.0" x2="650.0" y2="135.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<text x="355.0" y="112.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#111">item, EBOM ▶ MBOM, ECN</text>
+<text x="355.0" y="127.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">STEP AP242 / PLMXML / REST · 0–20</text>
+<line x1="1220.0" y1="135.0" x2="910.0" y2="135.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="925.0" y="112.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#111">ORDERS, DESADV, INVOIC</text>
+<text x="925.0" y="127.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">EDIFACT D.96A · ≈ 20–40</text>
+<line x1="740.0" y1="180.0" x2="740.0" y2="400.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<text x="530.0" y="240.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#c0392b">▼ ProcessProductionSchedule</text>
+<text x="530.0" y="255.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">B2MML / REST · ≈ 15 WO</text>
+<text x="530.0" y="270.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">▼ MaterialDefinition,</text>
+<text x="530.0" y="285.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">ProductDefinition · on change</text>
+<line x1="820.0" y1="400.0" x2="820.0" y2="180.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<text x="830.0" y="240.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#c0392b">▲ ProcessProductionPerformance</text>
+<text x="830.0" y="255.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">B2MML · ≈ 300 units + 15 orders</text>
+<text x="830.0" y="270.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">▲ MaterialLot consumption</text>
+<text x="830.0" y="285.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">≈ 1 800 lot links (6 / unit)</text>
+<line x1="340.0" y1="450.0" x2="650.0" y2="450.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="355.0" y="425.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#111">▶ maintenance request (alarm)</text>
+<text x="355.0" y="440.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">▼ MWO status · REST · 5–20</text>
+<line x1="910.0" y1="450.0" x2="1220.0" y2="450.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="925.0" y="425.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#111">▶ test values (AQDEF / REST)</text>
+<text x="925.0" y="440.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">▼ inspection plan, limits · 300</text>
+<line x1="700.0" y1="500.0" x2="700.0" y2="690.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="480.0" y="560.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#111">OPC UA methods + events</text>
+<text x="480.0" y="575.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">StartOrder, HoldOrder ▼</text>
+<text x="480.0" y="590.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">unit start, test result ▲</text>
+<text x="480.0" y="605.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">≈ 10 500 events</text>
+<line x1="780.0" y1="780.0" x2="780.0" y2="830.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="790.0" y="800.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#111">OPC UA / PROFINET</text>
+<text x="790.0" y="815.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">states, counters, alarms (ms – s)</text>
+<path d="M 670,500 L 670,645 L 210,645 L 210,690" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)"/>
+<text x="222.0" y="590.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#111">transport orders, material calls</text>
+<text x="222.0" y="605.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">REST / VDA 5050 via fleet mgr</text>
+<text x="222.0" y="620.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">≈ 600 moves</text>
+<path d="M 890,500 L 890,645 L 1360,645 L 1360,690" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)"/>
+<text x="1100.0" y="600.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#111">print serial / lot labels</text>
+<text x="1100.0" y="615.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">ZPL over TCP 9100</text>
+<text x="1100.0" y="630.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">≈ 300 + 50</text>
+<path d="M 650,160 L 470,160 L 470,330 L 210,330 L 210,400" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)" stroke-dasharray="5 4"/>
+<text x="220.0" y="350.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#111">asset list, cost centres (master)</text>
+<path d="M 910,160 L 1090,160 L 1090,330 L 1360,330 L 1360,400" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)" stroke-dasharray="5 4"/>
+<text x="1100.0" y="350.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#111">supplier lots, incoming inspection</text>
+<line x1="650.0" y1="735.0" x2="340.0" y2="735.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<text x="355.0" y="715.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#111">AS/RS + AGV states</text>
+<text x="355.0" y="730.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">OPC UA / MQTT</text>
+<text x="20.0" y="930.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Rules: one master per object (item = ERP, drawing = PLM, serial = MES, tag = SCADA) · store-and-forward queue · idempotent messages (BODID) · UTC time.</text>
+<text x="20.0" y="948.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Same pattern can be built as a Unified Namespace (MQTT broker with ISA-95 topic tree) – chapter 29.5.</text>
+<rect x="1110.0" y="910.0" width="440.0" height="60.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="1110.0" y1="930.0" x2="1550.0" y2="930.0" stroke="#222" stroke-width="1"/>
+<line x1="1420.0" y1="930.0" x2="1420.0" y2="970.0" stroke="#222" stroke-width="1"/>
+<text x="1118.0" y="925.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – planning sketch</text>
+<text x="1542.0" y="925.0" font-size="11" text-anchor="end" font-weight="normal" fill="#444">Guide 04 – MES and ERP</text>
+<text x="1118.0" y="948.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Integration map</text>
+<text x="1118.0" y="963.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">ERP ↔ MES ↔ SCADA ↔ PLM + help systems</text>
+<text x="1428.0" y="948.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">DWG 04-08</text>
+<text x="1428.0" y="963.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">not to scale for build</text>
+</svg>

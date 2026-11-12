@@ -619,6 +619,7 @@ export function createFactory3D(container, config, ui) {
     scene.fog = new THREE.Fog(scene.background, 120, 260);
   }
   applyTheme();
+  window.addEventListener("themechange", applyTheme);
 
   (config.products || []).forEach((p) => (PROD[p.id] = p));
   const HL = config._handling || { transports: [], asrs: [], chargers: [], parks: [] };

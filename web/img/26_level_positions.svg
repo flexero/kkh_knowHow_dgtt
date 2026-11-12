@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 930" width="1200" height="930" font-family="Arial, Helvetica, sans-serif">
+<title>Level positions on the HMC table for levelling and twist</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="dot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" markerUnits="userSpaceOnUse"><circle cx="5" cy="5" r="4" fill="#000"/></marker>
+<pattern id="conc" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#f2f2f2"/><circle cx="3" cy="4" r="1" fill="#888"/><circle cx="10" cy="9" r="1.3" fill="#888"/><path d="M6,11 l2,-2 l1,2 z" fill="none" stroke="#888" stroke-width="0.7"/></pattern>
+<pattern id="soil" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="12" height="12" fill="#fff"/><line x1="0" y1="0" x2="0" y2="12" stroke="#888" stroke-width="1"/></pattern>
+<pattern id="gravel" width="16" height="12" patternUnits="userSpaceOnUse"><rect width="16" height="12" fill="#fafafa"/><circle cx="4" cy="4" r="2.2" fill="none" stroke="#777" stroke-width="0.8"/><circle cx="12" cy="9" r="2.6" fill="none" stroke="#777" stroke-width="0.8"/></pattern>
+<pattern id="grout" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+<pattern id="steel" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect width="6" height="6" fill="#fff"/><line x1="0" y1="0" x2="0" y2="6" stroke="#444" stroke-width="0.8"/></pattern>
+<pattern id="filler" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#fff6d8"/><circle cx="4" cy="4" r="1.2" fill="#b08a00"/></pattern>
+<pattern id="iso" width="10" height="6" patternUnits="userSpaceOnUse"><rect width="10" height="6" fill="#fff"/><path d="M0,3 q2.5,-3 5,0 t5,0" fill="none" stroke="#666" stroke-width="0.8"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="930" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="918" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="24.0" y="32.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Level positions on the HMC 500 bed (top view, 1:25) – the app model: 6 bolts, 4 reading positions</text>
+<text x="250.0" y="98.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">FRONT (APC / operator side)</text>
+<rect x="94.0" y="132.0" width="312.0" height="456.0" rx="5" stroke="#000" stroke-width="1.8" fill="none"/>
+<rect x="130.0" y="456.0" width="240.0" height="108.0" rx="0" stroke="#555" stroke-width="1.0" fill="#efefef"/>
+<text x="250.0" y="549.6" font-size="12" text-anchor="middle" fill="#555">column</text>
+<rect x="196.0" y="204.0" width="108.0" height="132.0" rx="0" stroke="#9a9a9a" stroke-width="1.0" fill="none" stroke-dasharray="5 3"/>
+<rect x="202.0" y="234.0" width="96.0" height="72.0" rx="0" stroke="#555" stroke-width="1.0" fill="#fafafa"/>
+<text x="199.6" y="248.0" font-size="11" text-anchor="end" fill="#555">table at mid stroke</text>
+<line x1="304.0" y1="204.0" x2="356.0" y2="204.0" stroke="#000" stroke-width="0.7"/>
+<line x1="304.0" y1="336.0" x2="356.0" y2="336.0" stroke="#000" stroke-width="0.7"/>
+<line x1="352.0" y1="204.0" x2="352.0" y2="336.0" stroke="#000" stroke-width="0.9" marker-start="url(#sk)" marker-end="url(#ek)"/>
+<text x="357.0" y="274.0" font-size="11" text-anchor="start" fill="#000">Z stroke 1.1 m</text>
+<line x1="94.0" y1="624.0" x2="154.0" y2="624.0" stroke="#000" stroke-width="1.4" marker-end="url(#ek)"/>
+<text x="156.4" y="628.0" font-size="11.5" text-anchor="start" fill="#000">+X (right)</text>
+<line x1="424.0" y1="468.0" x2="424.0" y2="528.0" stroke="#000" stroke-width="1.4" marker-end="url(#ek)"/>
+<text x="430.0" y="504.0" font-size="11.5" text-anchor="start" fill="#000">+Z</text>
+<text x="430.0" y="518.0" font-size="11.5" text-anchor="start" fill="#000">(rear)</text>
+<rect x="107.0" y="145.0" width="22.0" height="22.0" rx="0" stroke="#000" stroke-width="1.8" fill="#000"/>
+<text x="118.0" y="160.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+<text x="136.0" y="160.0" font-size="11.5" text-anchor="start" fill="#000">15.04 kN</text>
+<rect x="371.0" y="145.0" width="22.0" height="22.0" rx="0" stroke="#000" stroke-width="1.8" fill="#000"/>
+<text x="382.0" y="160.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+<text x="364.0" y="160.0" font-size="11.5" text-anchor="end" fill="#000">15.04 kN</text>
+<rect x="107.0" y="349.0" width="22.0" height="22.0" rx="0" stroke="#000" stroke-width="1.8" fill="#fff"/>
+<text x="118.0" y="364.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">3</text>
+<text x="136.0" y="364.0" font-size="11.5" text-anchor="start" fill="#000">20.45 kN</text>
+<rect x="371.0" y="349.0" width="22.0" height="22.0" rx="0" stroke="#000" stroke-width="1.8" fill="#fff"/>
+<text x="382.0" y="364.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">4</text>
+<text x="364.0" y="364.0" font-size="11.5" text-anchor="end" fill="#000">20.45 kN</text>
+<rect x="107.0" y="553.0" width="22.0" height="22.0" rx="0" stroke="#000" stroke-width="1.8" fill="#000"/>
+<text x="118.0" y="568.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">5</text>
+<text x="136.0" y="568.0" font-size="11.5" text-anchor="start" fill="#000">25.87 kN</text>
+<rect x="371.0" y="553.0" width="22.0" height="22.0" rx="0" stroke="#000" stroke-width="1.8" fill="#000"/>
+<text x="382.0" y="568.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">6</text>
+<text x="364.0" y="568.0" font-size="11.5" text-anchor="end" fill="#000">25.87 kN</text>
+<rect x="216.0" y="197.0" width="68.0" height="14.0" rx="6" stroke="#1f6fd1" stroke-width="1.4" fill="#eaf1fb"/>
+<circle cx="256.0" cy="204.0" r="3.5" stroke="#1f6fd1" stroke-width="1.0" fill="#1f6fd1"/>
+<rect x="243.0" y="174.0" width="14.0" height="60.0" rx="6" stroke="#1f6fd1" stroke-width="1.4" fill="none"/>
+<text x="292.0" y="196.0" font-size="12.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">Tf</text>
+<rect x="216.0" y="263.0" width="68.0" height="14.0" rx="6" stroke="#1f6fd1" stroke-width="1.4" fill="#eaf1fb"/>
+<circle cx="256.0" cy="270.0" r="3.5" stroke="#1f6fd1" stroke-width="1.0" fill="#1f6fd1"/>
+<rect x="243.0" y="240.0" width="14.0" height="60.0" rx="6" stroke="#1f6fd1" stroke-width="1.4" fill="none"/>
+<text x="292.0" y="262.0" font-size="12.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">Tm</text>
+<rect x="216.0" y="329.0" width="68.0" height="14.0" rx="6" stroke="#1f6fd1" stroke-width="1.4" fill="#eaf1fb"/>
+<circle cx="256.0" cy="336.0" r="3.5" stroke="#1f6fd1" stroke-width="1.0" fill="#1f6fd1"/>
+<rect x="243.0" y="306.0" width="14.0" height="60.0" rx="6" stroke="#1f6fd1" stroke-width="1.4" fill="none"/>
+<text x="292.0" y="328.0" font-size="12.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">Tr</text>
+<rect x="216.0" y="497.0" width="68.0" height="14.0" rx="6" stroke="#1f6fd1" stroke-width="1.4" fill="#eaf1fb"/>
+<circle cx="256.0" cy="504.0" r="3.5" stroke="#1f6fd1" stroke-width="1.0" fill="#1f6fd1"/>
+<text x="292.0" y="496.0" font-size="12.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">C</text>
+<text x="94.0" y="668.0" font-size="11.5" text-anchor="start" fill="#000">Tf / Tm / Tr = table front / middle / rear (X + Z level), C = column base (X only)</text>
+<text x="94.0" y="684.0" font-size="11.5" text-anchor="start" fill="#000">■ main bolt □ auxiliary bolt · forces = level state, CoG 0.3 m behind the centre</text>
+<text x="94.0" y="700.0" font-size="11.5" text-anchor="start" fill="#000">ΣF = 122.72 kN = W · moment 1.7·(2·25.87 − 2·15.04) = 36.8 = W·0.3 kN·m</text>
+<line x1="118.0" y1="144.0" x2="118.0" y2="114.0" stroke="#000" stroke-width="0.7"/>
+<line x1="382.0" y1="144.0" x2="382.0" y2="114.0" stroke="#000" stroke-width="0.7"/>
+<line x1="118.0" y1="118.0" x2="382.0" y2="118.0" stroke="#000" stroke-width="0.9" marker-start="url(#sk)" marker-end="url(#ek)"/>
+<text x="250.0" y="114.0" font-size="11" text-anchor="middle" fill="#000">2 200</text>
+<line x1="106.0" y1="156.0" x2="70.0" y2="156.0" stroke="#000" stroke-width="0.7"/>
+<line x1="106.0" y1="564.0" x2="70.0" y2="564.0" stroke="#000" stroke-width="0.7"/>
+<line x1="74.0" y1="156.0" x2="74.0" y2="564.0" stroke="#000" stroke-width="0.9" marker-start="url(#sk)" marker-end="url(#ek)"/>
+<text x="69.0" y="360.0" font-size="11" text-anchor="middle" fill="#000" transform="rotate(-90 69.0 360.0)">3 400 (1 700 + 1 700)</text>
+<rect x="560.0" y="60.0" width="620.0" height="118.5" rx="3" stroke="#000" stroke-width="1.0" fill="#fff"/>
+<text x="568.0" y="75.5" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Reading convention (as in the app)</text>
+<text x="568.0" y="91.0" font-size="11.5" text-anchor="start" fill="#000">X reading = slope dw/dx: + means the RIGHT side is high → raise the left</text>
+<text x="568.0" y="106.5" font-size="11.5" text-anchor="start" fill="#000">Z reading = slope dw/dz: + means the REAR is high → raise the front</text>
+<text x="568.0" y="122.0" font-size="11.5" text-anchor="start" fill="#000">1 division of the precision level = 0.02 mm/m = 4.1 arc-seconds</text>
+<text x="568.0" y="137.5" font-size="11.5" text-anchor="start" fill="#000">Reversal: read r₁, turn the level 180° on the same spot, read r₂</text>
+<text x="568.0" y="153.0" font-size="11.5" text-anchor="start" fill="#000">  (signed as slope): slope = (r₁ − r₂)/2, level zero error = (r₁ + r₂)/2</text>
+<text x="568.0" y="168.5" font-size="11.5" text-anchor="start" fill="#000">  example r₁ = +0.03, r₂ = −0.01 → slope 0.02, level error 0.01 mm/m</text>
+<text x="560.0" y="252.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">How one move changes the readings (app model, from the level state, mm/m)</text>
+<text x="560.0" y="276.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">move</text>
+<text x="690.0" y="276.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Tf X</text>
+<text x="760.0" y="276.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Tm X</text>
+<text x="830.0" y="276.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Tr X</text>
+<text x="900.0" y="276.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">C X</text>
+<text x="970.0" y="276.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Z mid</text>
+<text x="1040.0" y="276.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">twist</text>
+<line x1="560.0" y1="282.0" x2="1180.0" y2="282.0" stroke="#000" stroke-width="0.8"/>
+<text x="560.0" y="296.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">bolt 1 +1/32</text>
+<text x="690.0" y="296.0" font-size="11.5" text-anchor="start" fill="#000">−0.0139</text>
+<text x="760.0" y="296.0" font-size="11.5" text-anchor="start" fill="#000">−0.0110</text>
+<text x="830.0" y="296.0" font-size="11.5" text-anchor="start" fill="#000">−0.0081</text>
+<text x="900.0" y="296.0" font-size="11.5" text-anchor="start" fill="#000">−0.0008</text>
+<text x="970.0" y="296.0" font-size="11.5" text-anchor="start" fill="#000">−0.0105</text>
+<text x="1040.0" y="296.0" font-size="11.5" text-anchor="start" fill="#1f6fd1">0.0131</text>
+<text x="560.0" y="316.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">front 1+2 +1/32</text>
+<text x="690.0" y="316.0" font-size="11.5" text-anchor="start" fill="#000">0</text>
+<text x="760.0" y="316.0" font-size="11.5" text-anchor="start" fill="#000">0</text>
+<text x="830.0" y="316.0" font-size="11.5" text-anchor="start" fill="#000">0</text>
+<text x="900.0" y="316.0" font-size="11.5" text-anchor="start" fill="#000">0</text>
+<text x="970.0" y="316.0" font-size="11.5" text-anchor="start" fill="#000">−0.0211</text>
+<text x="1040.0" y="316.0" font-size="11.5" text-anchor="start" fill="#000">0</text>
+<text x="560.0" y="336.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">left 1+3+5 +1/32</text>
+<text x="690.0" y="336.0" font-size="11.5" text-anchor="start" fill="#000">−0.0213</text>
+<text x="760.0" y="336.0" font-size="11.5" text-anchor="start" fill="#000">−0.0213</text>
+<text x="830.0" y="336.0" font-size="11.5" text-anchor="start" fill="#000">−0.0213</text>
+<text x="900.0" y="336.0" font-size="11.5" text-anchor="start" fill="#000">−0.0213</text>
+<text x="970.0" y="336.0" font-size="11.5" text-anchor="start" fill="#000">0</text>
+<text x="1040.0" y="336.0" font-size="11.5" text-anchor="start" fill="#000">0</text>
+<text x="560.0" y="356.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">diag. 1+6 +1/32</text>
+<text x="690.0" y="356.0" font-size="11.5" text-anchor="start" fill="#000">−0.0136</text>
+<text x="760.0" y="356.0" font-size="11.5" text-anchor="start" fill="#000">−0.0078</text>
+<text x="830.0" y="356.0" font-size="11.5" text-anchor="start" fill="#000">−0.0021</text>
+<text x="900.0" y="356.0" font-size="11.5" text-anchor="start" fill="#000">+0.0125</text>
+<text x="970.0" y="356.0" font-size="11.5" text-anchor="start" fill="#000">−0.0073</text>
+<text x="1040.0" y="356.0" font-size="11.5" text-anchor="start" fill="#1f6fd1">0.0261</text>
+<text x="560.0" y="376.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">aux 3 −1/2</text>
+<text x="690.0" y="376.0" font-size="11.5" text-anchor="start" fill="#000">+0.0066</text>
+<text x="760.0" y="376.0" font-size="11.5" text-anchor="start" fill="#000">+0.0066</text>
+<text x="830.0" y="376.0" font-size="11.5" text-anchor="start" fill="#000">+0.0066</text>
+<text x="900.0" y="376.0" font-size="11.5" text-anchor="start" fill="#000">+0.0066</text>
+<text x="970.0" y="376.0" font-size="11.5" text-anchor="start" fill="#000">−0.0068</text>
+<text x="1040.0" y="376.0" font-size="11.5" text-anchor="start" fill="#000">0 (F3 = 0)</text>
+<text x="560.0" y="396.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">all six +1/4</text>
+<text x="690.0" y="396.0" font-size="11.5" text-anchor="start" fill="#000">0</text>
+<text x="760.0" y="396.0" font-size="11.5" text-anchor="start" fill="#000">0</text>
+<text x="830.0" y="396.0" font-size="11.5" text-anchor="start" fill="#000">0</text>
+<text x="900.0" y="396.0" font-size="11.5" text-anchor="start" fill="#000">0</text>
+<text x="970.0" y="396.0" font-size="11.5" text-anchor="start" fill="#000">0</text>
+<text x="1040.0" y="396.0" font-size="11.5" text-anchor="start" fill="#000">height +0.375 mm</text>
+<text x="560.0" y="422.0" font-size="11.5" text-anchor="start" fill="#000">Front pair +1/32 (0.047 mm): a rigid bed would tilt 0.047/3.4 = 0.0138 mm/m; the middle</text>
+<text x="560.0" y="438.0" font-size="11.5" text-anchor="start" fill="#000">bolts make the bed bow, so the table reads 0.0211 – this is why aux bolts are set LAST.</text>
+<rect x="560.0" y="470.0" width="620.0" height="87.5" rx="3" stroke="#000" stroke-width="1.0" fill="#fff"/>
+<text x="568.0" y="485.5" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Twist (wind) of the bed</text>
+<text x="568.0" y="501.0" font-size="11.5" text-anchor="start" fill="#000">twist = max(X_Tf, X_Tm, X_Tr, X_C) − min(X_Tf, X_Tm, X_Tr, X_C) ≤ 0.02 mm/m</text>
+<text x="568.0" y="516.5" font-size="11.5" text-anchor="start" fill="#000">If X changes from the table to the column, the bed is warped (wound).</text>
+<text x="568.0" y="532.0" font-size="11.5" text-anchor="start" fill="#000">Correct with ONE diagonal pair (1 + 6 or 2 + 5), small steps (1/32),</text>
+<text x="568.0" y="547.5" font-size="11.5" text-anchor="start" fill="#000">then read all four positions again. Never correct twist with aux bolts.</text>
+<rect x="560.0" y="620.0" width="84.0" height="64.0" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="602.0" y="638.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">1 rough level</text>
+<text x="602.0" y="653.0" font-size="11" text-anchor="middle" fill="#000">±0.1 mm/m</text>
+<text x="602.0" y="668.0" font-size="11" text-anchor="middle" fill="#000">+ height</text>
+<line x1="644.0" y1="652.0" x2="649.0" y2="652.0" stroke="#000" stroke-width="1.2"/>
+<rect x="649.0" y="620.0" width="84.0" height="64.0" rx="4" stroke="#000" stroke-width="1.2" fill="#eaf1fb"/>
+<text x="691.0" y="638.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">2 Z level</text>
+<text x="691.0" y="653.0" font-size="11" text-anchor="middle" fill="#000">front / rear</text>
+<text x="691.0" y="668.0" font-size="11" text-anchor="middle" fill="#000">pair</text>
+<line x1="733.0" y1="652.0" x2="738.0" y2="652.0" stroke="#000" stroke-width="1.2"/>
+<rect x="738.0" y="620.0" width="84.0" height="64.0" rx="4" stroke="#000" stroke-width="1.2" fill="#eaf1fb"/>
+<text x="780.0" y="638.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">3 X level</text>
+<text x="780.0" y="653.0" font-size="11" text-anchor="middle" fill="#000">left / right</text>
+<text x="780.0" y="668.0" font-size="11" text-anchor="middle" fill="#000">side</text>
+<line x1="822.0" y1="652.0" x2="827.0" y2="652.0" stroke="#000" stroke-width="1.2"/>
+<rect x="827.0" y="620.0" width="84.0" height="64.0" rx="4" stroke="#000" stroke-width="1.2" fill="#eaf1fb"/>
+<text x="869.0" y="638.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">4 twist</text>
+<text x="869.0" y="653.0" font-size="11" text-anchor="middle" fill="#000">diagonal</text>
+<text x="869.0" y="668.0" font-size="11" text-anchor="middle" fill="#000">pair</text>
+<line x1="911.0" y1="652.0" x2="916.0" y2="652.0" stroke="#000" stroke-width="1.2"/>
+<rect x="916.0" y="620.0" width="84.0" height="64.0" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="958.0" y="638.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">5 aux bolts</text>
+<text x="958.0" y="653.0" font-size="11" text-anchor="middle" fill="#000">3 + 4 just</text>
+<text x="958.0" y="668.0" font-size="11" text-anchor="middle" fill="#000">touch</text>
+<line x1="1000.0" y1="652.0" x2="1005.0" y2="652.0" stroke="#000" stroke-width="1.2"/>
+<rect x="1005.0" y="620.0" width="84.0" height="64.0" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="1047.0" y="638.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">6 lock +</text>
+<text x="1047.0" y="653.0" font-size="11" text-anchor="middle" fill="#000">anchors,</text>
+<text x="1047.0" y="668.0" font-size="11" text-anchor="middle" fill="#000">read again</text>
+<line x1="1089.0" y1="652.0" x2="1094.0" y2="652.0" stroke="#000" stroke-width="1.2"/>
+<rect x="1094.0" y="620.0" width="84.0" height="64.0" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="1136.0" y="638.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">7 re-check</text>
+<text x="1136.0" y="653.0" font-size="11" text-anchor="middle" fill="#000">24 h, 1 wk,</text>
+<text x="1136.0" y="668.0" font-size="11" text-anchor="middle" fill="#000">1 month</text>
+<text x="560.0" y="610.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Order of work (app hint logic: loose bolt → height → Z → X → twist → aux bolts)</text>
+<text x="560.0" y="720.0" font-size="11.5" text-anchor="start" fill="#000">Tolerances (example – the maker decides): every reading ≤ 0.02 mm/m, twist ≤ 0.02 mm/m,</text>
+<text x="560.0" y="736.0" font-size="11.5" text-anchor="start" fill="#000">transfer height ±0.5 mm, every bolt ≥ 25 % of the average load (5.1 kN).</text>
+<rect x="588.0" y="862.0" width="600.0" height="56.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<line x1="588.0" y1="888.0" x2="1188.0" y2="888.0" stroke="#000" stroke-width="0.8"/>
+<line x1="924.0" y1="888.0" x2="924.0" y2="918.0" stroke="#000" stroke-width="0.8"/>
+<text x="596.0" y="880.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">Level positions for levelling + twist – HMC 500</text>
+<text x="596.0" y="907.0" font-size="12" text-anchor="start" fill="#1f6fd1" font-weight="bold">EXAMPLE – check the maker's installation manual</text>
+<text x="932.0" y="900.0" font-size="11.5" text-anchor="start" fill="#000">Dwg 26-06 · guide 26 §B2–B3, §E2</text>
+<text x="932.0" y="913.0" font-size="11" text-anchor="start" fill="#000">values: instmech_calc.js LEV / solveBed</text>
+</svg>

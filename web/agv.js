@@ -184,7 +184,9 @@ function calc(M) {
   // safety fields
   R.tr = M.tsc + M.tct;
   const vs = [...new Set([M.vst, 0.6, 1.0, M.vmax].filter((v) => v <= M.vmax + 1e-9))].sort((a, b) => a - b);
-  R.fields = vs.map((v) => { const Dp = v * R.tr * 1000 + v * v / (2 * M.dec) * 1000 * 1.1 + M.Zs; return { v, Dp, Dw: Dp + v * 1000 }; });
+  // braking downhill on the allowed slope: effective deceleration a_eff = a − g·slope (guide 11 §23.3)
+  R.decEff = Math.max(0.05, M.dec - G * M.slope / 100);
+  R.fields = vs.map((v) => { const Dp = v * R.tr * 1000 + v * v / (2 * R.decEff) * 1000 * 1.1 + M.Zs; return { v, Dp, Dw: Dp + v * 1000 }; });
   R.Dmax = R.fields[R.fields.length - 1].Dp;
   // stop accuracy
   R.acc = [
@@ -290,7 +292,7 @@ function create3D(host) {
   const under = new THREE.DirectionalLight(0xffffff, 0.35); under.position.set(500, -3000, 800); scene.add(under);
   const root = new THREE.Group(); scene.add(root);
   const cs = getComputedStyle(document.documentElement);
-  scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed");
+  scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed"); if (window.dtTheme) window.dtTheme.scene(scene);
   let O = {}, labels = [], selBox = null, onPick = null, exG = [], explode = 0, covers = true, showField = true;
   const mat = (color, o = {}) => new THREE.MeshStandardMaterial({ color, metalness: o.m ?? 0.35, roughness: o.r ?? 0.55, transparent: !!o.op, opacity: o.op ?? 1, side: o.ds ? THREE.DoubleSide : THREE.FrontSide, depthWrite: !o.op });
   const C = { frame: mat(0x3c6e9e), dark: mat(0x3a4048), black: mat(0x23262a), steel: mat(0x9aa4ae, { m: 0.6, r: 0.35 }), alu: mat(0xc8ccd0, { m: 0.5, r: 0.4 }),
@@ -333,7 +335,7 @@ function create3D(host) {
   function build(R, M) {
     clear(); O = { R, M };
     const L = M.L, W = M.W, H = M.H;
-    const floor = new THREE.Mesh(new THREE.PlaneGeometry(8000, 4000), C.floor); floor.rotation.x = -Math.PI / 2; floor.position.y = -1; root.add(floor); O.floor = floor;
+    const floor = new THREE.Mesh(new THREE.PlaneGeometry(8000, 4000), C.floor); floor.rotation.x = -Math.PI / 2; floor.position.y = -1; root.add(floor); O.floor = floor; if (window.dtTheme) window.dtTheme.floor(C.floor);
     const grid = new THREE.GridHelper(8000, 40, 0xb9b6ad, 0xc9c6bd); grid.scale.z = 0.5; root.add(grid); O.grid = grid;
     // stand (item 2) at x = 0
     const S = new THREE.Group(); root.add(S);
@@ -791,7 +793,7 @@ if (boxA) {
       blk(`5 · Lift – ${R.L.name.toLowerCase()}`, liftDetail(R, M).calc),
       blk("6 · Energy", [`Per transport  rolling ${f(R.Eroll / 1000, 1)} kJ + accel. ${f(R.Eacc / 1000, 1)} kJ + lift ${f(R.Elift / 1000, 2)} kJ`, `Average power  ${M.trips}/h × ${f(R.Etrip / 1000, 1)} kJ + ${M.Pel} W = <b>${f(R.Ph, 0)} W</b>`,
         `Battery        ${M.Ub} V × ${M.Ah} Ah × ${M.dod} = ${f(R.Ebat, 0)} Wh → <b>${f(R.run, 1)} h</b>`, `Charger        ${M.Pch} kW → ${f(R.chg * 100, 0)} % of the time`]),
-      blk("7 · Safety field", [`Reaction  t = ${M.tsc} + ${M.tct} = ${f(R.tr, 2)} s`, `Field     D = v·t + v²/(2·a)·1.1 + ${M.Zs}`, ...R.fields.map((x) => `  ${String(x.v).padEnd(4)} m/s → ${f(x.Dp, 0)} mm`)]),
+      blk("7 · Safety field", [`Reaction  t = ${M.tsc} + ${M.tct} = ${f(R.tr, 2)} s`, `Field     D = v·t + v²/(2·a_eff)·1.1 + ${M.Zs},  a_eff = a − g·slope = ${M.dec} − 9.81·${M.slope / 100} = ${f(R.decEff, 3)} m/s² (downhill on the allowed slope)`, ...R.fields.map((x) => `  ${String(x.v).padEnd(4)} m/s → ${f(x.Dp, 0)} mm`)]),
       blk("8 · Stop accuracy", [...R.acc.map((r) => `${r[0].padEnd(36)} ±${f(r[1], 1)}`), `RSS = √(Σ e²) = <b>±${f(R.accRSS, 1)} mm</b>, angle ±${f(R.yaw, 2)}°`]),
     ].join("");
   }

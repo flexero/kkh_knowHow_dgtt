@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 740" width="1180" height="740" font-family="Arial, Helvetica, sans-serif">
+<title>Runout test with test mandrel and two-plane balancing set-up</title>
+<rect x="0" y="0" width="1180" height="740" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000" >Runout check with the test mandrel (step 20) and two-plane balancing of the rotor unit (step 12)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >Example limits: taper ≤ 2 µm, 300 mm ≤ 5 µm (check ISO 10791-1 / contract); balance G 1.0 at 12 000 rpm, m = 16 kg → U_per 12.73 g·mm.</text>
+<rect x="20.0" y="70.0" width="560.0" height="400.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="30.0" y="92.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000" >A  Test mandrel HSK-A63 × 300 mm + probes on frame J11</text>
+<rect x="40.0" y="180.0" width="170.0" height="140.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<text x="125.0" y="210.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >spindle (nose right)</text>
+<rect x="210.0" y="210.0" width="14.0" height="80.0" fill="#b3b3b3" stroke="#000" stroke-width="1" />
+<rect x="224.0" y="234.0" width="330.0" height="32.0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<line x1="30.0" y1="250.0" x2="570.0" y2="250.0" stroke="#000" stroke-width="0.6" stroke-dasharray="10,3,2,3"/>
+<text x="390.0" y="254.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >test mandrel</text>
+<line x1="240.0" y1="234.0" x2="240.0" y2="180.0" stroke="#0b6fb8" stroke-width="2" />
+<rect x="232.0" y="154.0" width="16.0" height="26.0" fill="#fff" stroke="#0b6fb8" stroke-width="1.5" />
+<text x="240.0" y="146.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#0b6fb8" >A  z ≈ 10 mm</text>
+<line x1="530.0" y1="234.0" x2="530.0" y2="180.0" stroke="#0b6fb8" stroke-width="2" />
+<rect x="522.0" y="154.0" width="16.0" height="26.0" fill="#fff" stroke="#0b6fb8" stroke-width="1.5" />
+<text x="530.0" y="146.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#0b6fb8" >B  z = 300 mm</text>
+<rect x="232.0" y="120.0" width="310.0" height="10.0" fill="#f2f2f2" stroke="#000" stroke-width="1" />
+<text x="390.0" y="114.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >frame J11 (stiff, short)</text>
+<line x1="381.0" y1="290.0" x2="232.0" y2="290.0" stroke="#000" stroke-width="0.8" />
+<polygon points="232.0,290.0 236.6,288.1 236.6,291.9" fill="#000" stroke="#000" stroke-width="0.5" />
+<line x1="381.0" y1="290.0" x2="530.0" y2="290.0" stroke="#000" stroke-width="0.8" />
+<polygon points="530.0,290.0 525.4,291.9 525.4,288.1" fill="#000" stroke="#000" stroke-width="0.5" />
+<text x="381.0" y="286.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >300 mm</text>
+<text x="30.0" y="340.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >Procedure</text>
+<text x="30.0" y="359.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >1 clean taper + mandrel, clamp with the spindle clamping</text>
+<text x="30.0" y="378.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >2 turn slowly, TIR = max − min at A and at B</text>
+<text x="30.0" y="397.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >3 index the mandrel 0 / 90 / 180 / 270° in the taper, average</text>
+<text x="30.0" y="416.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >4 tilt = (TIR_B − TIR_A) / 2 / 300 mm, e.g. (4.5 − 1.5)/2/300 = 5 µrad</text>
+<text x="30.0" y="435.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >5 probe ≤ 1/10 of the tolerance (0.1–0.2 µm), 20 °C</text>
+<rect x="590.0" y="70.0" width="570.0" height="190.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="600.0" y="92.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000" >B  Runout budget at the taper (example)</text>
+<text x="600.0" y="124.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >taper to bearing seats (shaft)</text>
+<rect x="830.0" y="112.0" width="90.0" height="16.0" fill="#f2f2f2" stroke="#000" stroke-width="1" />
+<text x="926.0" y="124.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >1.0 µm</text>
+<text x="600.0" y="148.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >mounted bearing set</text>
+<rect x="830.0" y="136.0" width="108.0" height="16.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<text x="944.0" y="148.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >1.2 µm</text>
+<text x="600.0" y="172.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >nut face residual → tilt</text>
+<rect x="830.0" y="160.0" width="54.0" height="16.0" fill="#b3b3b3" stroke="#000" stroke-width="1" />
+<text x="890.0" y="172.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >0.6 µm</text>
+<text x="600.0" y="196.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >measurement</text>
+<rect x="830.0" y="184.0" width="45.0" height="16.0" fill="#888" stroke="#000" stroke-width="1" />
+<text x="881.0" y="196.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >0.5 µm</text>
+<rect x="830.0" y="208.0" width="157.5" height="16.0" fill="#0b6fb8" stroke="#000" stroke-width="1" />
+<text x="600.0" y="220.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >RSS = √(Σ c²)</text>
+<text x="993.5" y="220.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >1.75 µm  (worst case 3.3)</text>
+<line x1="1010.0" y1="106.0" x2="1010.0" y2="204.0" stroke="#000" stroke-width="1.2" stroke-dasharray="4,3"/>
+<text x="1014.0" y="116.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >limit 2 µm</text>
+<rect x="590.0" y="270.0" width="570.0" height="200.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="600.0" y="292.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000" >C  Balancing machine E16 – rotor unit in its own bearings</text>
+<rect x="620.0" y="360.0" width="70.0" height="60.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<rect x="690.0" y="378.0" width="300.0" height="24.0" fill="#fff" stroke="#000" stroke-width="1" />
+<rect x="770.0" y="354.0" width="130.0" height="72.0" fill="#b3b3b3" stroke="#000" stroke-width="1" />
+<rect x="990.0" y="372.0" width="40.0" height="36.0" fill="#f2f2f2" stroke="#000" stroke-width="1" />
+<polygon points="621.0,450.0 689.0,450.0 673.0,420.0 637.0,420.0" fill="#fff" stroke="#000" stroke-width="1" />
+<polygon points="976.0,450.0 1044.0,450.0 1028.0,420.0 992.0,420.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="655.0" y="466.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >cradle 1</text>
+<text x="1010.0" y="466.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >cradle 2 + J7</text>
+<line x1="700.0" y1="340.0" x2="700.0" y2="412.0" stroke="#0b6fb8" stroke-width="2" />
+<text x="700.0" y="336.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#0b6fb8" >plane 1 (front nut)</text>
+<line x1="980.0" y1="340.0" x2="980.0" y2="412.0" stroke="#0b6fb8" stroke-width="2" />
+<text x="980.0" y="336.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#0b6fb8" >plane 2 (rear nut)</text>
+<line x1="1030.0" y1="390.0" x2="1100.0" y2="340.0" stroke="#000" stroke-width="1" />
+<line x1="1030.0" y1="390.0" x2="1100.0" y2="410.0" stroke="#000" stroke-width="1" />
+<text x="1104.0" y="374.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >belt</text>
+<text x="1104.0" y="388.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >drive</text>
+<rect x="20.0" y="480.0" width="560.0" height="250.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="30.0" y="502.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000" >D  Plane 1: initial 71 g·mm ∠40°, correction at 220° split</text>
+<circle cx="150.0" cy="628.0" r="78.0" fill="#fff" stroke="#000" stroke-width="1" />
+<circle cx="150.0" cy="628.0" r="39.0" fill="none" stroke="#ccc" stroke-width="1" />
+<circle cx="228.0" cy="628.0" r="3.2" fill="#fff" stroke="#000" stroke-width="0.8" />
+<text x="246.0" y="632.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >0°</text>
+<circle cx="217.5" cy="589.0" r="3.2" fill="#fff" stroke="#000" stroke-width="0.8" />
+<circle cx="189.0" cy="560.5" r="3.2" fill="#fff" stroke="#000" stroke-width="0.8" />
+<circle cx="150.0" cy="550.0" r="3.2" fill="#fff" stroke="#000" stroke-width="0.8" />
+<text x="150.0" y="536.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >90°</text>
+<circle cx="111.0" cy="560.5" r="3.2" fill="#fff" stroke="#000" stroke-width="0.8" />
+<circle cx="82.5" cy="589.0" r="3.2" fill="#fff" stroke="#000" stroke-width="0.8" />
+<circle cx="72.0" cy="628.0" r="3.2" fill="#fff" stroke="#000" stroke-width="0.8" />
+<text x="54.0" y="632.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >180°</text>
+<circle cx="82.5" cy="667.0" r="3.2" fill="#fff" stroke="#000" stroke-width="0.8" />
+<circle cx="111.0" cy="695.5" r="3.2" fill="#fff" stroke="#000" stroke-width="0.8" />
+<circle cx="150.0" cy="706.0" r="3.2" fill="#fff" stroke="#000" stroke-width="0.8" />
+<text x="150.0" y="728.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >270°</text>
+<circle cx="189.0" cy="695.5" r="3.2" fill="#fff" stroke="#000" stroke-width="0.8" />
+<circle cx="217.5" cy="667.0" r="3.2" fill="#fff" stroke="#000" stroke-width="0.8" />
+<line x1="150.0" y1="628.0" x2="197.8" y2="587.9" stroke="#000" stroke-width="2.4" />
+<polygon points="197.8,587.9 194.6,594.1 191.1,589.9" fill="#000" stroke="#000" stroke-width="0.5" />
+<line x1="150.0" y1="628.0" x2="108.1" y2="652.2" stroke="#0b6fb8" stroke-width="2.4" />
+<polygon points="108.1,652.2 112.3,646.6 115.1,651.3" fill="#0b6fb8" stroke="#0b6fb8" stroke-width="0.5" />
+<line x1="150.0" y1="628.0" x2="137.5" y2="649.6" stroke="#0b6fb8" stroke-width="2.4" />
+<polygon points="137.5,649.6 138.4,642.7 143.1,645.4" fill="#0b6fb8" stroke="#0b6fb8" stroke-width="0.5" />
+<text x="202.0" y="576.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" stroke="#ffffff" stroke-width="4" paint-order="stroke">heavy spot</text>
+<text x="30.0" y="716.0" font-size="11" text-anchor="start" font-weight="bold" fill="#0b6fb8" >blue: 1.28 g ∠210°</text>
+<text x="144.0" y="678.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#0b6fb8" >0.65 g</text>
+<text x="270.0" y="530.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >U0 = 71 g·mm ∠40° (heavy spot)</text>
+<text x="270.0" y="550.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >m = U / r = 71 / 38 = 1.87 g at 220°</text>
+<text x="270.0" y="570.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >holes every 30° → use 210° and 240°:</text>
+<text x="270.0" y="590.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >m1 = m·sin β2 / sin(β1+β2) = 1.28 g ∠210°</text>
+<text x="270.0" y="610.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >m2 = m·sin β1 / sin(β1+β2) = 0.65 g ∠240°</text>
+<text x="270.0" y="630.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >(β1 = 10°, β2 = 20°) – resultant 1.87 g ∠220°</text>
+<text x="270.0" y="650.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >Plane allocation (ISO 21940-11):</text>
+<text x="270.0" y="670.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >U_A = 12.73 × 169 / 326.5 = 6.59 g·mm</text>
+<text x="270.0" y="690.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >U_B = 12.73 × 157.5 / 326.5 = 6.14 g·mm</text>
+<rect x="590.0" y="640.0" width="570.0" height="74.0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<line x1="590.0" y1="664.0" x2="1160.0" y2="664.0" stroke="#000" stroke-width="1" />
+<text x="598.0" y="657.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000" >Fig. 19-7  Runout check + balancing set-up</text>
+<text x="598.0" y="681.0" font-size="12" text-anchor="start" font-weight="bold" fill="#0b6fb8" >EXAMPLE – check the maker&#x27;s documentation</text>
+<text x="598.0" y="698.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >docs/img/19_runout_balancing_setup.svg</text>
+<text x="1152.0" y="698.0" font-size="11" text-anchor="end" font-weight="normal" fill="#000" >Digital twin – guide 19</text>
+</svg>

@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 720" width="1180" height="720" font-family="Arial, Helvetica, sans-serif">
+<title>Stand-out measurement and spacer calculation</title>
+<rect x="0" y="0" width="1180" height="720" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000" >Spacer calculation: measure the stand-out of each bearing, calculate Δs = Lo − Li, lap the inner spacer, check ε</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >Back-to-back (TBT) set: the lock nut clamps the INNER rings – an inner spacer SHORTER than the outer gives MORE preload (DF: the other way – check).</text>
+<rect x="20.0" y="70.0" width="370.0" height="400.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="30.0" y="92.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000" >A  Stand-out measuring stand (E5)</text>
+<rect x="40.0" y="400.0" width="330.0" height="40.0" fill="#e6e6e6" stroke="#000" stroke-width="1.2" />
+<text x="205.0" y="425.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000" >granite plate, 20 ±0.5 °C</text>
+<rect x="120.0" y="386.0" width="170.0" height="14.0" fill="#b3b3b3" stroke="#000" stroke-width="1" />
+<text x="300.0" y="397.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >support ring</text>
+<rect x="120.0" y="326.0" width="40.0" height="60.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<rect x="250.0" y="326.0" width="40.0" height="60.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<rect x="160.0" y="320.0" width="40.0" height="52.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<rect x="210.0" y="320.0" width="40.0" height="52.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<rect x="160.0" y="322.0" width="90.0" height="0.1" fill="none" stroke="none" stroke-width="1" />
+<circle cx="160.0" cy="356.0" r="12.0" fill="#666" stroke="#000" stroke-width="1" />
+<circle cx="250.0" cy="356.0" r="12.0" fill="#666" stroke="#000" stroke-width="1" />
+<rect x="158.0" y="250.0" width="94.0" height="68.0" fill="#fff" stroke="#0b6fb8" stroke-width="1.6" />
+<text x="205.0" y="290.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#0b6fb8" >measuring</text>
+<text x="205.0" y="304.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#0b6fb8" >load (catalogue)</text>
+<line x1="205.0" y1="210.0" x2="205.0" y2="248.0" stroke="#0b6fb8" stroke-width="2" />
+<polygon points="205.0,248.0 202.3,241.6 207.7,241.6" fill="#0b6fb8" stroke="#0b6fb8" stroke-width="0.5" />
+<text x="212.0" y="224.0" font-size="12" text-anchor="start" font-weight="bold" fill="#0b6fb8" >F_m</text>
+<line x1="300.0" y1="190.0" x2="300.0" y2="280.0" stroke="#000" stroke-width="2" />
+<rect x="290.0" y="160.0" width="20.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="318.0" y="178.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >probe 0.1 µm</text>
+<line x1="300.0" y1="280.0" x2="250.0" y2="322.0" stroke="#000" stroke-width="1.2" />
+<circle cx="250.0" cy="322.0" r="3.0" fill="#000" stroke="#000" stroke-width="1" />
+<line x1="120.0" y1="326.0" x2="60.0" y2="326.0" stroke="#000" stroke-width="0.8" />
+<line x1="160.0" y1="320.0" x2="60.0" y2="320.0" stroke="#000" stroke-width="0.8" />
+<line x1="70.0" y1="310.0" x2="70.0" y2="300.0" stroke="#000" stroke-width="0.8" />
+<polygon points="70.0,300.0 71.9,304.6 68.1,304.6" fill="#000" stroke="#000" stroke-width="0.5" />
+<line x1="70.0" y1="310.0" x2="70.0" y2="320.0" stroke="#000" stroke-width="0.8" />
+<polygon points="70.0,320.0 68.1,315.4 71.9,315.4" fill="#000" stroke="#000" stroke-width="0.5" />
+<text x="70.0" y="306.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" ></text>
+<text x="30.0" y="250.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000" >e = offset</text>
+<text x="30.0" y="264.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >inner-ring face</text>
+<text x="30.0" y="278.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >to outer-ring face</text>
+<text x="30.0" y="292.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >(drawn larger)</text>
+<text x="30.0" y="120.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >1 soak bearing + master ≥ 12 h</text>
+<text x="30.0" y="137.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >2 zero the probe on the master</text>
+<text x="30.0" y="154.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >3 load the inner ring, turn it 3 ×</text>
+<text x="30.0" y="171.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >4 read at 3 positions (120°), average</text>
+<text x="30.0" y="188.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >5 e &gt; 0 = less preload than nominal</text>
+<rect x="400.0" y="70.0" width="370.0" height="400.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="410.0" y="92.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000" >B  TBT set: Lo − Li = Δs</text>
+<rect x="430.0" y="190.0" width="46.0" height="24.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<rect x="430.0" y="238.0" width="46.0" height="24.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<circle cx="453.0" cy="226.0" r="10.0" fill="#666" stroke="#000" stroke-width="1" />
+<line x1="465.7" y1="198.8" x2="440.3" y2="253.2" stroke="#0b6fb8" stroke-width="1.8" />
+<text x="453.0" y="184.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000" >1</text>
+<rect x="476.0" y="190.0" width="46.0" height="24.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<rect x="476.0" y="238.0" width="46.0" height="24.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<circle cx="499.0" cy="226.0" r="10.0" fill="#666" stroke="#000" stroke-width="1" />
+<line x1="511.7" y1="198.8" x2="486.3" y2="253.2" stroke="#0b6fb8" stroke-width="1.8" />
+<text x="499.0" y="184.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000" >2</text>
+<rect x="562.0" y="190.0" width="46.0" height="24.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<rect x="562.0" y="238.0" width="46.0" height="24.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<circle cx="585.0" cy="226.0" r="10.0" fill="#666" stroke="#000" stroke-width="1" />
+<line x1="572.3" y1="198.8" x2="597.7" y2="253.2" stroke="#0b6fb8" stroke-width="1.8" />
+<text x="585.0" y="184.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000" >3</text>
+<rect x="608.0" y="190.0" width="46.0" height="24.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<rect x="608.0" y="238.0" width="46.0" height="24.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
+<circle cx="631.0" cy="226.0" r="10.0" fill="#666" stroke="#000" stroke-width="1" />
+<line x1="618.3" y1="198.8" x2="643.7" y2="253.2" stroke="#0b6fb8" stroke-width="1.8" />
+<text x="631.0" y="184.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000" >4</text>
+<rect x="522.0" y="190.0" width="40.0" height="24.0" fill="#9a9a9a" stroke="#000" stroke-width="1" />
+<rect x="524.0" y="238.0" width="36.0" height="24.0" fill="#9a9a9a" stroke="#000" stroke-width="1" />
+<line x1="542.0" y1="158.0" x2="522.0" y2="158.0" stroke="#000" stroke-width="0.8" />
+<polygon points="522.0,158.0 526.6,156.1 526.6,159.9" fill="#000" stroke="#000" stroke-width="0.5" />
+<line x1="542.0" y1="158.0" x2="562.0" y2="158.0" stroke="#000" stroke-width="0.8" />
+<polygon points="562.0,158.0 557.4,159.9 557.4,156.1" fill="#000" stroke="#000" stroke-width="0.5" />
+<text x="542.0" y="154.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000" >Lo</text>
+<line x1="542.0" y1="284.0" x2="524.0" y2="284.0" stroke="#000" stroke-width="0.8" />
+<polygon points="524.0,284.0 528.6,282.1 528.6,285.9" fill="#000" stroke="#000" stroke-width="0.5" />
+<line x1="542.0" y1="284.0" x2="560.0" y2="284.0" stroke="#000" stroke-width="0.8" />
+<polygon points="560.0,284.0 555.4,285.9 555.4,282.1" fill="#000" stroke="#000" stroke-width="0.5" />
+<text x="542.0" y="304.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000" >Li</text>
+<line x1="522.0" y1="154.0" x2="522.0" y2="190.0" stroke="#000" stroke-width="0.6" />
+<line x1="562.0" y1="154.0" x2="562.0" y2="190.0" stroke="#000" stroke-width="0.6" />
+<line x1="524.0" y1="262.0" x2="524.0" y2="288.0" stroke="#000" stroke-width="0.6" />
+<line x1="560.0" y1="262.0" x2="560.0" y2="288.0" stroke="#000" stroke-width="0.6" />
+<rect x="654.0" y="238.0" width="18.0" height="30.0" fill="#b3b3b3" stroke="#000" stroke-width="1" />
+<text x="676.0" y="258.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >nut</text>
+<line x1="694.0" y1="280.0" x2="674.0" y2="280.0" stroke="#0b6fb8" stroke-width="2" />
+<polygon points="674.0,280.0 680.4,277.3 680.4,282.7" fill="#0b6fb8" stroke="#0b6fb8" stroke-width="0.5" />
+<line x1="400.0" y1="280.0" x2="426.0" y2="280.0" stroke="#0b6fb8" stroke-width="2" />
+<polygon points="426.0,280.0 419.6,282.7 419.6,277.3" fill="#0b6fb8" stroke="#0b6fb8" stroke-width="0.5" />
+<text x="404.0" y="298.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >shaft shoulder</text>
+<line x1="410.0" y1="330.0" x2="694.0" y2="330.0" stroke="#000" stroke-width="0.8" stroke-dasharray="10,3,2,3"/>
+<text x="664.0" y="346.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >axis</text>
+<text x="410.0" y="380.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >Clamping the inner rings closes the gap Lo − Li:</text>
+<text x="410.0" y="398.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >longer gap (inner spacer shorter) = more preload.</text>
+<text x="410.0" y="416.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >Tandem pair = one bearing: use the pair mean.</text>
+<text x="410.0" y="434.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >Δs = (e1 + e2)/2 + (e3 + e4)/2</text>
+<rect x="780.0" y="70.0" width="380.0" height="400.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="790.0" y="92.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000" >C  Worked example (chapter 14 / 21.3)</text>
+<line x1="790.0" y1="128.0" x2="1150.0" y2="128.0" stroke="#ddd" stroke-width="0.8" />
+<text x="795.0" y="120.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >stand-outs e1 … e4</text>
+<text x="1148.0" y="120.0" font-size="12" text-anchor="end" font-weight="normal" fill="#000" >1.4 / 0.4 / 0.4 / 1.7 µm</text>
+<line x1="790.0" y1="154.0" x2="1150.0" y2="154.0" stroke="#ddd" stroke-width="0.8" />
+<text x="795.0" y="146.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >pair A mean</text>
+<text x="1148.0" y="146.0" font-size="12" text-anchor="end" font-weight="normal" fill="#000" >(1.4 + 0.4)/2 = 0.90 µm</text>
+<line x1="790.0" y1="180.0" x2="1150.0" y2="180.0" stroke="#ddd" stroke-width="0.8" />
+<text x="795.0" y="172.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >pair B mean</text>
+<text x="1148.0" y="172.0" font-size="12" text-anchor="end" font-weight="normal" fill="#000" >(0.4 + 1.7)/2 = 1.05 µm</text>
+<line x1="790.0" y1="206.0" x2="1150.0" y2="206.0" stroke="#ddd" stroke-width="0.8" />
+<text x="795.0" y="198.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >required Δs</text>
+<text x="1148.0" y="198.0" font-size="12" text-anchor="end" font-weight="bold" fill="#000" >1.95 ≈ 1.9 µm</text>
+<line x1="790.0" y1="232.0" x2="1150.0" y2="232.0" stroke="#ddd" stroke-width="0.8" />
+<text x="795.0" y="224.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >outer spacer Lo (4 points)</text>
+<text x="1148.0" y="224.0" font-size="12" text-anchor="end" font-weight="normal" fill="#000" >15.0000 mm</text>
+<line x1="790.0" y1="258.0" x2="1150.0" y2="258.0" stroke="#ddd" stroke-width="0.8" />
+<text x="795.0" y="250.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >inner spacer target</text>
+<text x="1148.0" y="250.0" font-size="12" text-anchor="end" font-weight="normal" fill="#000" >15.0000 − 0.0019 = 14.9981</text>
+<line x1="790.0" y1="284.0" x2="1150.0" y2="284.0" stroke="#ddd" stroke-width="0.8" />
+<text x="795.0" y="276.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >inner spacer lapped Li</text>
+<text x="1148.0" y="276.0" font-size="12" text-anchor="end" font-weight="normal" fill="#000" >14.9986 mm</text>
+<line x1="790.0" y1="310.0" x2="1150.0" y2="310.0" stroke="#ddd" stroke-width="0.8" />
+<text x="795.0" y="302.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >actual Lo − Li</text>
+<text x="1148.0" y="302.0" font-size="12" text-anchor="end" font-weight="normal" fill="#000" >1.4 µm</text>
+<line x1="790.0" y1="336.0" x2="1150.0" y2="336.0" stroke="#ddd" stroke-width="0.8" />
+<text x="795.0" y="328.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >ε = actual − required</text>
+<text x="1148.0" y="328.0" font-size="12" text-anchor="end" font-weight="bold" fill="#0b6fb8" >1.4 − 1.9 = −0.5 µm</text>
+<line x1="790.0" y1="362.0" x2="1150.0" y2="362.0" stroke="#ddd" stroke-width="0.8" />
+<text x="795.0" y="354.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >preload F = 400(1 + ε/8)^1.5</text>
+<text x="1148.0" y="354.0" font-size="12" text-anchor="end" font-weight="bold" fill="#0b6fb8" >363 N</text>
+<line x1="790.0" y1="388.0" x2="1150.0" y2="388.0" stroke="#ddd" stroke-width="0.8" />
+<text x="795.0" y="380.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >limit |ε| ≤ 1 µm</text>
+<text x="1148.0" y="380.0" font-size="12" text-anchor="end" font-weight="normal" fill="#000" >OK</text>
+<line x1="790.0" y1="414.0" x2="1150.0" y2="414.0" stroke="#ddd" stroke-width="0.8" />
+<text x="795.0" y="406.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >parallelism ≤ 1 µm</text>
+<text x="1148.0" y="406.0" font-size="12" text-anchor="end" font-weight="normal" fill="#000" >0.2 µm OK</text>
+<text x="790.0" y="448.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >Too long → lap again. Too short → NEW inner spacer (no shims).</text>
+<rect x="20.0" y="480.0" width="750.0" height="220.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="30.0" y="502.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000" >D  Spacer comparison on the comparator</text>
+<rect x="60.0" y="650.0" width="400.0" height="20.0" fill="#e6e6e6" stroke="#000" stroke-width="1" />
+<text x="260.0" y="665.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >lapped anvil</text>
+<rect x="90.0" y="610.0" width="60.0" height="40.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="120.0" y="634.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >15 mm</text>
+<text x="120.0" y="602.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >gauge block</text>
+<rect x="200.0" y="610.0" width="90.0" height="40.0" fill="#9a9a9a" stroke="#000" stroke-width="1" />
+<text x="245.0" y="634.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >outer Lo</text>
+<rect x="320.0" y="611.0" width="90.0" height="39.0" fill="#9a9a9a" stroke="#000" stroke-width="1" />
+<text x="365.0" y="634.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >inner Li</text>
+<line x1="245.0" y1="540.0" x2="245.0" y2="608.0" stroke="#000" stroke-width="2" />
+<rect x="232.0" y="510.0" width="26.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="262.0" y="524.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >probe 0.1 µm</text>
+<text x="480.0" y="530.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >1 zero on the 15 mm block (grade 0 / K)</text>
+<text x="480.0" y="549.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >2 measure Lo at 4 points (0/90/180/270°)</text>
+<text x="480.0" y="568.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >3 measure Li at the same 4 points</text>
+<text x="480.0" y="587.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >4 Lo − Li = mean difference, parallelism = max − min</text>
+<text x="480.0" y="606.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >5 uncertainty target ≤ 0.3 µm</text>
+<text x="480.0" y="625.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >6 mark: serial + I / O + nose side (on the OD)</text>
+<rect x="780.0" y="600.0" width="380.0" height="74.0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<line x1="780.0" y1="624.0" x2="1160.0" y2="624.0" stroke="#000" stroke-width="1" />
+<text x="788.0" y="617.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000" >Fig. 19-4  Spacer measurement + calculation</text>
+<text x="788.0" y="641.0" font-size="12" text-anchor="start" font-weight="bold" fill="#0b6fb8" >EXAMPLE – check the maker&#x27;s documentation</text>
+<text x="788.0" y="658.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >docs/img/19_spacer_measurement.svg</text>
+<text x="1152.0" y="658.0" font-size="11" text-anchor="end" font-weight="normal" fill="#000" >Digital twin – guide 19</text>
+</svg>

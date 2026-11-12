@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="610" viewBox="0 0 1000 610"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111111"/></marker></defs>
+<rect x="0" y="0" width="1000" height="610" fill="#ffffff"/>
+<text x="14.0" y="24.0" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="start" font-weight="bold" fill="#111111">Robot ↔ machine handshake – timing diagram of one machine-tending cycle (card 6 demo, 13.6 s)</text>
+<rect x="1" y="583" width="998" height="26" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="10.0" y="601.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" font-weight="bold" fill="#111111">EXAMPLE – check the maker's documentation</text>
+<text x="990.0" y="601.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="end" fill="#777777">Guide 23 · robot control system · values = examples / estimates (IRB 2600-20/1.65, J1)</text>
+<line x1="150.0" y1="55.0" x2="150.0" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="150.0" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">0</text>
+<line x1="208.6" y1="55.0" x2="208.6" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="208.6" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">1</text>
+<line x1="267.1" y1="55.0" x2="267.1" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="267.1" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">2</text>
+<line x1="325.7" y1="55.0" x2="325.7" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="325.7" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">3</text>
+<line x1="384.3" y1="55.0" x2="384.3" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="384.3" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">4</text>
+<line x1="442.9" y1="55.0" x2="442.9" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="442.9" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">5</text>
+<line x1="501.4" y1="55.0" x2="501.4" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="501.4" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">6</text>
+<line x1="560.0" y1="55.0" x2="560.0" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="560.0" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">7</text>
+<line x1="618.6" y1="55.0" x2="618.6" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="618.6" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">8</text>
+<line x1="677.1" y1="55.0" x2="677.1" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="677.1" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">9</text>
+<line x1="735.7" y1="55.0" x2="735.7" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="735.7" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">10</text>
+<line x1="794.3" y1="55.0" x2="794.3" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="794.3" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">11</text>
+<line x1="852.9" y1="55.0" x2="852.9" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="852.9" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">12</text>
+<line x1="911.4" y1="55.0" x2="911.4" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="911.4" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">13</text>
+<line x1="970.0" y1="55.0" x2="970.0" y2="522.0" stroke="#dddddd" stroke-width="1"/>
+<text x="970.0" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">14</text>
+<text x="560.0" y="554.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">time (s)</text>
+<text x="142.0" y="84.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" fill="#111111">diMachDone</text>
+<polyline points="150.0,90.0 208.6,90.0 208.6,70.0 882.1,70.0 882.1,90.0 970.0,90.0" fill="none" stroke="#111111" stroke-width="1.8"/>
+<text x="142.0" y="126.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" fill="#111111">diMachRun</text>
+<polyline points="150.0,112.0 208.6,112.0 208.6,132.0 882.1,132.0 882.1,112.0 970.0,112.0" fill="none" stroke="#111111" stroke-width="1.8"/>
+<text x="142.0" y="168.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="bold" fill="#0a5fb4">doDoorOpen</text>
+<polyline points="150.0,174.0 220.3,174.0 220.3,154.0 776.7,154.0 776.7,174.0 970.0,174.0" fill="none" stroke="#0a5fb4" stroke-width="1.8"/>
+<text x="142.0" y="210.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" fill="#111111">diDoorOpen</text>
+<polyline points="150.0,216.0 314.0,216.0 314.0,196.0 782.6,196.0 782.6,216.0 970.0,216.0" fill="none" stroke="#111111" stroke-width="1.8"/>
+<text x="142.0" y="252.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" fill="#111111">diDoorClosed</text>
+<polyline points="150.0,238.0 226.1,238.0 226.1,258.0 870.4,258.0 870.4,238.0 970.0,238.0" fill="none" stroke="#111111" stroke-width="1.8"/>
+<text x="142.0" y="294.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="bold" fill="#0a5fb4">doRobotClear</text>
+<polyline points="150.0,280.0 360.9,280.0 360.9,300.0 466.3,300.0 466.3,280.0 700.6,280.0 700.6,300.0 770.9,300.0 770.9,280.0 970.0,280.0" fill="none" stroke="#0a5fb4" stroke-width="1.8"/>
+<text x="142.0" y="336.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="bold" fill="#0a5fb4">doInHome</text>
+<polyline points="150.0,322.0 325.7,322.0 325.7,342.0 946.6,342.0 946.6,322.0 970.0,322.0" fill="none" stroke="#0a5fb4" stroke-width="1.8"/>
+<text x="142.0" y="378.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="bold" fill="#0a5fb4">doGripClose</text>
+<polyline points="150.0,384.0 396.0,384.0 396.0,364.0 536.6,364.0 536.6,384.0 606.9,384.0 606.9,364.0 735.7,364.0 735.7,384.0 970.0,384.0" fill="none" stroke="#0a5fb4" stroke-width="1.8"/>
+<text x="142.0" y="420.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" fill="#111111">diGripClosed</text>
+<polyline points="150.0,426.0 419.4,426.0 419.4,406.0 554.1,406.0 554.1,426.0 630.3,426.0 630.3,406.0 753.3,406.0 753.3,426.0 970.0,426.0" fill="none" stroke="#111111" stroke-width="1.8"/>
+<text x="142.0" y="462.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" fill="#111111">diPartReady</text>
+<polyline points="150.0,448.0 647.9,448.0 647.9,468.0 794.3,468.0 794.3,448.0 970.0,448.0" fill="none" stroke="#111111" stroke-width="1.8"/>
+<text x="142.0" y="504.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="bold" fill="#0a5fb4">doCycleStart</text>
+<polyline points="150.0,510.0 876.3,510.0 876.3,490.0 905.6,490.0 905.6,510.0 970.0,510.0" fill="none" stroke="#0a5fb4" stroke-width="1.8"/>
+<line x1="220.3" y1="154.0" x2="314.0" y2="196.0" stroke="#777777" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#ar)"/>
+<text x="319.9" y="190.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#777777">← command → confirmation (1.6 s)</text>
+<text x="223.3" y="150.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#0a5fb4">timeout 5 s → alarm at 6.2 s if no diDoorOpen</text>
+<text x="872.3" y="484.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="end" fill="#0a5fb4">start only if door closed AND robot clear</text>
+<text x="150.0" y="568.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#777777">Blue = robot outputs (do…), black = inputs to the robot (di…). Times from web/robotctl.js (DEMO).</text>
+</svg>

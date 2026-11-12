@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 760" width="1180" height="760" font-family="Arial, Helvetica, sans-serif">
+<title>Spindle assembly cell layout</title>
+<rect x="0" y="0" width="1180" height="760" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000" >Spindle assembly cell – top view (example: 1 spindle per 2 days, 2 fitters + 1 inspector)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >Clean room 8 × 6 m, ISO 14644-1 class 7 (bench class 5), 20 ±1 °C, +10–15 Pa; separate run-in / test room 4 × 4 m. Scale 1 m = 75 px.</text>
+<rect x="40.0" y="80.0" width="600.0" height="450.0" fill="#fff" stroke="#000" stroke-width="3" />
+<rect x="662.5" y="230.0" width="300.0" height="300.0" fill="#fff" stroke="#000" stroke-width="3" />
+<rect x="40.0" y="380.0" width="150.0" height="150.0" fill="#f2f2f2" stroke="#000" stroke-width="1" stroke-dasharray="6,4"/>
+<text x="46.0" y="396.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >A  Lock + gowning</text>
+<text x="46.0" y="412.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >unpack (no cardboard in)</text>
+<text x="46.0" y="426.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >ESD tester, coats</text>
+<rect x="190.0" y="380.0" width="225.0" height="150.0" fill="#f2f2f2" stroke="#000" stroke-width="1" stroke-dasharray="6,4"/>
+<text x="196.0" y="396.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >B  Wash + soak</text>
+<text x="196.0" y="412.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >washer E2, ultrasonic</text>
+<text x="196.0" y="426.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >soak rack E3 (≥ 12 h)</text>
+<rect x="40.0" y="80.0" width="225.0" height="150.0" fill="#fff" stroke="#000" stroke-width="1" stroke-dasharray="6,4"/>
+<text x="46.0" y="96.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >C  Laminar bench + measuring</text>
+<text x="46.0" y="112.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >class 5 at the bench</text>
+<text x="46.0" y="126.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >E4, E5, E8, comparator</text>
+<rect x="265.0" y="80.0" width="225.0" height="225.0" fill="#fff" stroke="#000" stroke-width="1" stroke-dasharray="6,4"/>
+<text x="271.0" y="96.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >D  Shaft-unit assembly</text>
+<text x="271.0" y="112.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >steps 6–11</text>
+<text x="271.0" y="126.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >J1 stand, J2–J6</text>
+<text x="271.0" y="140.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >heater E9, press E12</text>
+<rect x="490.0" y="80.0" width="150.0" height="150.0" fill="#f2f2f2" stroke="#000" stroke-width="1" stroke-dasharray="6,4"/>
+<text x="496.0" y="96.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >E  Heating</text>
+<text x="496.0" y="112.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >rotor oven E14</text>
+<text x="496.0" y="126.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >housing heater E15</text>
+<rect x="415.0" y="305.0" width="225.0" height="225.0" fill="#fff" stroke="#000" stroke-width="1" stroke-dasharray="6,4"/>
+<text x="421.0" y="321.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >F  Housing assembly</text>
+<text x="421.0" y="337.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >steps 13–18</text>
+<text x="421.0" y="351.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >J8, J9, E17, E24</text>
+<rect x="40.0" y="230.0" width="225.0" height="150.0" fill="#f2f2f2" stroke="#000" stroke-width="1" stroke-dasharray="6,4"/>
+<text x="46.0" y="246.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >G  Balancing</text>
+<text x="46.0" y="262.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >machine E16 + J7</text>
+<text x="46.0" y="276.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >(step 12)</text>
+<rect x="62.5" y="162.5" width="112.5" height="52.5" fill="#fff" stroke="#0b6fb8" stroke-width="1.6" />
+<text x="118.8" y="192.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#0b6fb8" >laminar bench</text>
+<rect x="182.5" y="162.5" width="67.5" height="52.5" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="216.2" y="192.8" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >E5 stand</text>
+<rect x="332.5" y="170.0" width="75.0" height="75.0" fill="#fff" stroke="#0b6fb8" stroke-width="1.6" />
+<text x="370.0" y="211.5" font-size="11" text-anchor="middle" font-weight="bold" fill="#0b6fb8" >J1 stand</text>
+<rect x="422.5" y="185.0" width="52.5" height="45.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="448.7" y="211.5" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >E9</text>
+<rect x="422.5" y="245.0" width="52.5" height="45.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="448.7" y="271.5" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >E12</text>
+<rect x="505.0" y="162.5" width="60.0" height="52.5" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="535.0" y="192.8" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >E14</text>
+<rect x="572.5" y="162.5" width="60.0" height="52.5" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="602.5" y="192.8" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >E15</text>
+<rect x="62.5" y="297.5" width="180.0" height="60.0" fill="#fff" stroke="#0b6fb8" stroke-width="1.6" />
+<text x="152.5" y="331.5" font-size="11" text-anchor="middle" font-weight="bold" fill="#0b6fb8" >balancing machine E16</text>
+<rect x="452.5" y="402.5" width="75.0" height="75.0" fill="#fff" stroke="#0b6fb8" stroke-width="1.6" />
+<text x="490.0" y="444.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#0b6fb8" >J8 stand</text>
+<rect x="550.0" y="402.5" width="75.0" height="52.5" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="587.5" y="432.7" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >E17 / E24</text>
+<rect x="212.5" y="455.0" width="97.5" height="52.5" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="261.2" y="485.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >washer E2</text>
+<rect x="325.0" y="455.0" width="75.0" height="52.5" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="362.5" y="485.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >rack E3</text>
+<rect x="685.0" y="320.0" width="150.0" height="90.0" fill="#fff" stroke="#0b6fb8" stroke-width="1.6" />
+<text x="760.0" y="369.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#0b6fb8" >run-in stand E20</text>
+<rect x="857.5" y="320.0" width="82.5" height="90.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="898.8" y="369.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >chiller</text>
+<rect x="685.0" y="440.0" width="120.0" height="60.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="745.0" y="474.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >test bench E21–E26</text>
+<text x="670.0" y="246.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >H  Run-in + final test (guide 20)</text>
+<text x="670.0" y="262.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >hall air 20 ±2 °C, guard, noise</text>
+<rect x="47.5" y="87.5" width="585.0" height="300.0" fill="none" stroke="#0b6fb8" stroke-width="1.2" stroke-dasharray="2,4"/>
+<text x="632.5" y="383.8" font-size="11" text-anchor="end" font-weight="normal" fill="#0b6fb8" >jib crane 500 kg – coverage</text>
+<line x1="77.5" y1="530.0" x2="145.0" y2="530.0" stroke="#fff" stroke-width="5" />
+<text x="111.2" y="548.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000" >door + air lock</text>
+<line x1="640.0" y1="425.0" x2="640.0" y2="485.0" stroke="#fff" stroke-width="5" />
+<text x="646.0" y="518.8" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >pass-through</text>
+<line x1="115.0" y1="500.0" x2="205.0" y2="500.0" stroke="#0b6fb8" stroke-width="2.2" />
+<polygon points="205.0,500.0 196.7,503.5 196.7,496.5" fill="#0b6fb8" stroke="#0b6fb8" stroke-width="0.5" />
+<line x1="256.0" y1="410.0" x2="256.0" y2="226.2" stroke="#0b6fb8" stroke-width="2.2" />
+<polygon points="256.0,226.2 259.5,234.5 252.5,234.5" fill="#0b6fb8" stroke="#0b6fb8" stroke-width="0.5" />
+<line x1="256.0" y1="151.2" x2="317.5" y2="151.2" stroke="#0b6fb8" stroke-width="2.2" />
+<polygon points="317.5,151.2 309.2,154.8 309.2,147.7" fill="#0b6fb8" stroke="#0b6fb8" stroke-width="0.5" />
+<line x1="460.0" y1="151.2" x2="505.0" y2="151.2" stroke="#0b6fb8" stroke-width="2.2" />
+<polygon points="505.0,151.2 496.7,154.8 496.7,147.7" fill="#0b6fb8" stroke="#0b6fb8" stroke-width="0.5" />
+<line x1="362.5" y1="252.5" x2="246.2" y2="312.5" stroke="#0b6fb8" stroke-width="2.2" />
+<polygon points="246.2,312.5 252.0,305.6 255.2,311.8" fill="#0b6fb8" stroke="#0b6fb8" stroke-width="0.5" />
+<line x1="246.2" y1="365.0" x2="445.0" y2="365.0" stroke="#0b6fb8" stroke-width="2.2" />
+<polygon points="445.0,365.0 436.7,368.5 436.7,361.5" fill="#0b6fb8" stroke="#0b6fb8" stroke-width="0.5" />
+<line x1="625.0" y1="455.0" x2="685.0" y2="455.0" stroke="#0b6fb8" stroke-width="2.2" />
+<polygon points="685.0,455.0 676.7,458.5 676.7,451.5" fill="#0b6fb8" stroke="#0b6fb8" stroke-width="0.5" />
+<text x="47.5" y="570.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >Part flow (blue arrows): A lock → B wash/soak → C measure/grease → D shaft unit ⇄ E heating → G balancing → F housing → H run-in/test → pack</text>
+<rect x="975.0" y="230.0" width="195.0" height="210.0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="985.0" y="250.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >Room data (example)</text>
+<text x="985.0" y="268.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >area 48 m² + 16 m²</text>
+<text x="985.0" y="286.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >volume 144 m³</text>
+<text x="985.0" y="304.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >air 20/h → 2 880 m³/h</text>
+<text x="985.0" y="322.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >HEPA H13/H14 ceiling</text>
+<text x="985.0" y="340.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >bench 0.45 m/s → 1 166 m³/h</text>
+<text x="985.0" y="358.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >light ≥ 1 000 lx</text>
+<text x="985.0" y="376.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >ESD floor C, F</text>
+<text x="985.0" y="394.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >40–55 % r.h.</text>
+<text x="985.0" y="412.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >crane 500 kg</text>
+<text x="985.0" y="100.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >Zone class</text>
+<text x="985.0" y="118.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >A, B, E, G: class 8</text>
+<text x="985.0" y="136.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >C, D, F: class 7</text>
+<text x="985.0" y="154.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >bench: class 5</text>
+<text x="985.0" y="172.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >H: hall air</text>
+<rect x="640.0" y="650.0" width="520.0" height="74.0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<line x1="640.0" y1="674.0" x2="1160.0" y2="674.0" stroke="#000" stroke-width="1" />
+<text x="648.0" y="667.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000" >Fig. 19-8  Spindle assembly cell layout</text>
+<text x="648.0" y="691.0" font-size="12" text-anchor="start" font-weight="bold" fill="#0b6fb8" >EXAMPLE – check the maker&#x27;s documentation</text>
+<text x="648.0" y="708.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >docs/img/19_assembly_cell_layout.svg</text>
+<text x="1152.0" y="708.0" font-size="11" text-anchor="end" font-weight="normal" fill="#000" >Digital twin – guide 19</text>
+</svg>

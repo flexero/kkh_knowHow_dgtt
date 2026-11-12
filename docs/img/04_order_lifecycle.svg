@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 860" width="1500" height="860" font-family="Arial, Helvetica, sans-serif">
+<title>Production order life cycle in ERP and MES</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1500" height="860" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">04 – Production (work) order life cycle: ERP statuses, MES states, triggers and messages</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Generic status names (each product uses its own words, e.g. CRTD / REL / CNF / TECO / CLSD). Red = states that exist in the twin (MES.wo_action).</text>
+<rect x="20.0" y="80.0" width="1460.0" height="200.0" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.2"/>
+<text x="32.0" y="102.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">ERP (L4)</text>
+<rect x="20.0" y="290.0" width="1460.0" height="330.0" rx="0" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="32.0" y="312.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">MES (L3)</text>
+<rect x="20.0" y="630.0" width="1460.0" height="140.0" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.2"/>
+<text x="32.0" y="652.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">Shop floor (L2/L1)</text>
+<rect x="150.0" y="120.0" width="170.0" height="58.0" rx="14" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="235.0" y="145.1" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">CREATED</text>
+<text x="235.0" y="162.1" font-size="12" text-anchor="middle" font-weight="normal" fill="#444">planned order (MRP)</text>
+<rect x="370.0" y="120.0" width="170.0" height="58.0" rx="14" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="455.0" y="145.1" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">FIRMED</text>
+<text x="455.0" y="162.1" font-size="12" text-anchor="middle" font-weight="normal" fill="#444">planner fixes qty/date</text>
+<rect x="590.0" y="120.0" width="170.0" height="58.0" rx="14" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="675.0" y="145.1" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">RELEASED (ERP)</text>
+<text x="675.0" y="162.1" font-size="12" text-anchor="middle" font-weight="normal" fill="#444">BOM + routing frozen</text>
+<rect x="1050.0" y="120.0" width="170.0" height="58.0" rx="14" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="1135.0" y="145.1" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">CONFIRMED</text>
+<text x="1135.0" y="162.1" font-size="12" text-anchor="middle" font-weight="normal" fill="#444">FG receipt, backflush</text>
+<rect x="1270.0" y="120.0" width="170.0" height="58.0" rx="14" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="1355.0" y="145.1" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">TECO / CLOSED</text>
+<text x="1355.0" y="162.1" font-size="12" text-anchor="middle" font-weight="normal" fill="#444">variance settled</text>
+<line x1="320.0" y1="149.0" x2="370.0" y2="149.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="540.0" y1="149.0" x2="590.0" y2="149.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="1220.0" y1="149.0" x2="1270.0" y2="149.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<text x="330.0" y="140.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">firm</text>
+<text x="548.0" y="140.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">release</text>
+<rect x="590.0" y="430.0" width="170.0" height="58.0" rx="14" fill="#fbeaea" stroke="#c0392b" stroke-width="2"/>
+<text x="675.0" y="455.1" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">PLANNED</text>
+<text x="675.0" y="472.1" font-size="12" text-anchor="middle" font-weight="normal" fill="#444">received, acknowledged</text>
+<rect x="810.0" y="430.0" width="170.0" height="58.0" rx="14" fill="#fbeaea" stroke="#c0392b" stroke-width="2"/>
+<text x="895.0" y="455.1" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">RELEASED</text>
+<text x="895.0" y="472.1" font-size="12" text-anchor="middle" font-weight="normal" fill="#444">in dispatch queue</text>
+<rect x="1050.0" y="430.0" width="170.0" height="58.0" rx="14" fill="#fbeaea" stroke="#c0392b" stroke-width="2"/>
+<text x="1135.0" y="455.1" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">IN_PROGRESS</text>
+<text x="1135.0" y="472.1" font-size="12" text-anchor="middle" font-weight="normal" fill="#444">first unit started</text>
+<rect x="1270.0" y="430.0" width="170.0" height="58.0" rx="14" fill="#fbeaea" stroke="#c0392b" stroke-width="2"/>
+<text x="1355.0" y="455.1" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">COMPLETED</text>
+<text x="1355.0" y="472.1" font-size="12" text-anchor="middle" font-weight="normal" fill="#444">done ≥ qty</text>
+<rect x="1050.0" y="320.0" width="170.0" height="58.0" rx="14" fill="#fbeaea" stroke="#c0392b" stroke-width="2"/>
+<text x="1135.0" y="345.1" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">ON_HOLD</text>
+<text x="1135.0" y="362.1" font-size="12" text-anchor="middle" font-weight="normal" fill="#444">no new units start</text>
+<rect x="810.0" y="320.0" width="170.0" height="58.0" rx="14" fill="#fbeaea" stroke="#c0392b" stroke-width="2"/>
+<text x="895.0" y="345.1" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">CLOSED</text>
+<text x="895.0" y="362.1" font-size="12" text-anchor="middle" font-weight="normal" fill="#444">by hand / cancelled</text>
+<line x1="640.0" y1="178.0" x2="640.0" y2="430.0" stroke="#222" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="650.0" y="226.0" font-size="11" text-anchor="start" font-weight="bold" fill="#c0392b">B2MML ProcessProductionSchedule</text>
+<text x="650.0" y="242.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c0392b">▲ Acknowledge within 60 s (11.14)</text>
+<line x1="760.0" y1="459.0" x2="810.0" y2="459.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="980.0" y1="459.0" x2="1050.0" y2="459.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="1220.0" y1="459.0" x2="1270.0" y2="459.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<text x="764.0" y="451.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">release</text>
+<text x="984.0" y="451.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">unit start</text>
+<text x="1224.0" y="451.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">auto</text>
+<line x1="1120.0" y1="430.0" x2="1120.0" y2="378.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="1150.0" y1="378.0" x2="1150.0" y2="430.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<text x="1114.0" y="410.0" font-size="11" text-anchor="end" font-weight="normal" fill="#111">hold</text>
+<text x="1156.0" y="410.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">release</text>
+<path d="M 720,430 L 720,349 L 810,349" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)"/>
+<text x="726.0" y="342.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">close</text>
+<line x1="895.0" y1="430.0" x2="895.0" y2="378.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<text x="901.0" y="410.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">close</text>
+<line x1="1050.0" y1="349.0" x2="980.0" y2="349.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<text x="986.0" y="342.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">close</text>
+<line x1="1355.0" y1="430.0" x2="1135.0" y2="178.0" stroke="#222" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="1250.0" y="240.0" font-size="11" text-anchor="start" font-weight="bold" fill="#c0392b">ProcessProductionPerformance</text>
+<text x="1250.0" y="256.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c0392b">(per unit + per order)</text>
+<text x="150.0" y="330.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Rules (twin, 4.1.1):</text>
+<text x="150.0" y="350.0" font-size="11.5" text-anchor="start" font-weight="normal" fill="#111">release: from PLANNED, ON_HOLD</text>
+<text x="150.0" y="368.0" font-size="11.5" text-anchor="start" font-weight="normal" fill="#111">hold: from RELEASED, IN_PROGRESS</text>
+<text x="150.0" y="386.0" font-size="11.5" text-anchor="start" font-weight="normal" fill="#111">close: from any open state</text>
+<text x="150.0" y="404.0" font-size="11.5" text-anchor="start" font-weight="normal" fill="#111">COMPLETED: automatic when done ≥ qty</text>
+<text x="150.0" y="422.0" font-size="11.5" text-anchor="start" font-weight="normal" fill="#111">units to start = qty − (started − scrap)</text>
+<text x="150.0" y="440.0" font-size="11.5" text-anchor="start" font-weight="normal" fill="#111">Real MES adds: SUSPENDED (material</text>
+<text x="150.0" y="458.0" font-size="11.5" text-anchor="start" font-weight="normal" fill="#111">missing), ABORTED, REWORK sub-orders</text>
+<text x="150.0" y="530.0" font-size="11.5" text-anchor="start" font-weight="normal" fill="#111">Gate (4.1.2): the load station starts a unit only for a RELEASED / IN_PROGRESS order with castings available.</text>
+<text x="150.0" y="550.0" font-size="11.5" text-anchor="start" font-weight="normal" fill="#111">CANCELLED in ERP is allowed only while no unit is started; after that: CLOSE with reason + scrap booking.</text>
+<text x="150.0" y="585.0" font-size="11.5" text-anchor="start" font-weight="bold" fill="#111">MES ▶ ERP: each unit = goods receipt FG + backflush of 1 CC20-CAST, 2 CYL-CAST, 1 CS-FORG, tank, motor, kits.</text>
+<rect x="810.0" y="670.0" width="170.0" height="58.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="895.0" y="695.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">▼ OPC UA StartOrder</text>
+<text x="895.0" y="711.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">to LOAD-CC queue</text>
+<rect x="1050.0" y="670.0" width="170.0" height="58.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="1135.0" y="695.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">▲ Unit started / tested</text>
+<text x="1135.0" y="711.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">VC20-2646-00123, FAD 20.31</text>
+<rect x="1270.0" y="670.0" width="170.0" height="58.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="1355.0" y="695.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">▲ Last unit in FG</text>
+<text x="1355.0" y="711.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">AS/RS ASRS-FG</text>
+<line x1="895.0" y1="488.0" x2="895.0" y2="670.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)" stroke-dasharray="4 3"/>
+<line x1="1135.0" y1="670.0" x2="1135.0" y2="488.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)" stroke-dasharray="4 3"/>
+<line x1="1355.0" y1="670.0" x2="1355.0" y2="488.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)" stroke-dasharray="4 3"/>
+<text x="150.0" y="700.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">PLC / test bench events</text>
+<text x="150.0" y="718.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">(OPC UA; dashed: ▼ command, ▲ event)</text>
+<rect x="1050.0" y="790.0" width="440.0" height="60.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="1050.0" y1="810.0" x2="1490.0" y2="810.0" stroke="#222" stroke-width="1"/>
+<line x1="1360.0" y1="810.0" x2="1360.0" y2="850.0" stroke="#222" stroke-width="1"/>
+<text x="1058.0" y="805.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – planning sketch</text>
+<text x="1482.0" y="805.0" font-size="11" text-anchor="end" font-weight="normal" fill="#444">Guide 04 – MES and ERP</text>
+<text x="1058.0" y="828.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Work order life cycle</text>
+<text x="1058.0" y="843.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">ERP status ▶ MES state ▶ events</text>
+<text x="1368.0" y="828.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">DWG 04-05</text>
+<text x="1368.0" y="843.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">not to scale for build</text>
+</svg>

@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 990" width="1400" height="990" font-family="Arial, Helvetica, sans-serif">
+<title>Lightning protection zones and SPD coordination</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker></defs>
+<rect x="0" y="0" width="1400" height="990" fill="#ffffff"/>
+<rect x="12.0" y="12.0" width="1376.0" height="966.0" rx="0" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="828.0" y="894.0" width="560.0" height="84.0" rx="0" stroke="#000" stroke-width="1.5" fill="#ffffff"/>
+<line x1="828.0" y1="924.0" x2="1388.0" y2="924.0" stroke="#000" stroke-width="1"/>
+<line x1="1208.0" y1="924.0" x2="1208.0" y2="978.0" stroke="#000" stroke-width="1"/>
+<text x="838.0" y="915.0" font-size="14" text-anchor="start" font-weight="bold" fill="#1565c0">EXAMPLE – real design by a qualified electrician</text>
+<text x="838.0" y="944.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Lightning protection zones and SPD coordination</text>
+<text x="838.0" y="964.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">IEC 62305-4 zones · IEC 61643 SPD types 1 → 2 → 3</text>
+<text x="1218.0" y="944.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Doc 27 · Fig. 27-3</text>
+<text x="1218.0" y="964.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">2026-11 · not for construction</text>
+<text x="24.0" y="970.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">Values from docs/27 and web/instelec_calc.js (example data, crankcase machining line ML1).</text>
+<text x="40.0" y="46.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000">Lightning protection zones (LPZ) and coordinated surge protective devices – SPD at every zone boundary</text>
+<line x1="40.0" y1="680.0" x2="1060.0" y2="680.0" stroke="#000" stroke-width="2"/>
+<text x="50.0" y="696.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">ground</text>
+<text x="70.0" y="110.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">LPZ 0A</text>
+<text x="70.0" y="126.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">direct strike possible,</text>
+<text x="70.0" y="140.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">full lightning current + field</text>
+<rect x="160.0" y="240.0" width="900.0" height="440.0" rx="0" stroke="#000" stroke-width="2.5" fill="none"/>
+<line x1="200.0" y1="240.0" x2="200.0" y2="200.0" stroke="#000" stroke-width="2"/>
+<line x1="420.0" y1="240.0" x2="420.0" y2="200.0" stroke="#000" stroke-width="2"/>
+<line x1="640.0" y1="240.0" x2="640.0" y2="200.0" stroke="#000" stroke-width="2"/>
+<line x1="860.0" y1="240.0" x2="860.0" y2="200.0" stroke="#000" stroke-width="2"/>
+<line x1="1020.0" y1="240.0" x2="1020.0" y2="200.0" stroke="#000" stroke-width="2"/>
+<line x1="200.0" y1="200.0" x2="1020.0" y2="200.0" stroke="#666666" stroke-width="1" stroke-dasharray="2 4"/>
+<path d="M 200 200 A 300 300 0 0 1 420 200" stroke="#666666" stroke-width="1" fill="none" stroke-dasharray="5 4"/>
+<text x="310.0" y="172.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">rolling sphere (r = 45 m for LPL III)</text>
+<text x="640.0" y="192.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">air-termination rods / mesh 15 × 15 m (LPL III)</text>
+<text x="650.0" y="230.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">LPZ 0B – no direct strike</text>
+<line x1="160.0" y1="240.0" x2="160.0" y2="720.0" stroke="#666666" stroke-width="2.5"/>
+<line x1="1060.0" y1="240.0" x2="1060.0" y2="720.0" stroke="#666666" stroke-width="2.5"/>
+<line x1="140.0" y1="720.0" x2="1080.0" y2="720.0" stroke="#666666" stroke-width="2" stroke-dasharray="10 4"/>
+<text x="610.0" y="738.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">earth-termination ring / foundation earth – all down conductors and the MET bonded</text>
+<rect x="180.0" y="260.0" width="860.0" height="400.0" rx="0" stroke="#1565c0" stroke-width="1.5" fill="none" stroke-dasharray="8 5"/>
+<text x="196.0" y="282.0" font-size="12" text-anchor="start" font-weight="bold" fill="#1565c0">LPZ 1 – inside the building (partial currents, attenuated field)</text>
+<rect x="520.0" y="330.0" width="500.0" height="320.0" rx="0" stroke="#1565c0" stroke-width="1.5" fill="none" stroke-dasharray="8 5"/>
+<text x="536.0" y="352.0" font-size="12" text-anchor="start" font-weight="bold" fill="#1565c0">LPZ 2 – machining line / SD-ML1 + machine cabinets</text>
+<rect x="800.0" y="430.0" width="200.0" height="170.0" rx="0" stroke="#1565c0" stroke-width="1.5" fill="none" stroke-dasharray="8 5"/>
+<text x="812.0" y="452.0" font-size="12" text-anchor="start" font-weight="bold" fill="#1565c0">LPZ 3 – CNC control</text>
+<line x1="40.0" y1="700.0" x2="230.0" y2="700.0" stroke="#000" stroke-width="3"/>
+<line x1="230.0" y1="700.0" x2="230.0" y2="600.0" stroke="#000" stroke-width="3"/>
+<text x="44.0" y="716.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">supply from T1</text>
+<rect x="205.0" y="470.0" width="140.0" height="130.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="275.0" y="488.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">MDB</text>
+<rect x="241.0" y="520.0" width="18.0" height="30.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="250.0" y1="524.0" x2="250.0" y2="545.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="250.0" y1="512.0" x2="250.0" y2="520.0" stroke="#000" stroke-width="1.5"/>
+<line x1="250.0" y1="550.0" x2="250.0" y2="558.0" stroke="#000" stroke-width="1.5"/>
+<line x1="250.0" y1="558.0" x2="250.0" y2="575.0" stroke="#000" stroke-width="1.5"/>
+<line x1="240.0" y1="575.0" x2="300.0" y2="575.0" stroke="#000" stroke-width="2"/>
+<text x="300.0" y="590.0" font-size="11" text-anchor="end" font-weight="normal" fill="#000">PE/MET</text>
+<text x="272.0" y="530.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">T1+2</text>
+<text x="272.0" y="544.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">12.5 kA</text>
+<text x="272.0" y="558.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">U_p≤1.5kV</text>
+<text x="240.0" y="625.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">boundary LPZ 0 → 1</text>
+<polyline points="345.0,500.0 550.0,500.0" stroke="#000" stroke-width="3" fill="none"/>
+<text x="352.0" y="494.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">W1 4×95+50, 60 m</text>
+<rect x="550.0" y="470.0" width="130.0" height="130.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="615.0" y="488.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">SD-ML1</text>
+<rect x="591.0" y="520.0" width="18.0" height="30.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="600.0" y1="524.0" x2="600.0" y2="545.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="600.0" y1="512.0" x2="600.0" y2="520.0" stroke="#000" stroke-width="1.5"/>
+<line x1="600.0" y1="550.0" x2="600.0" y2="558.0" stroke="#000" stroke-width="1.5"/>
+<line x1="600.0" y1="558.0" x2="600.0" y2="575.0" stroke="#000" stroke-width="1.5"/>
+<line x1="590.0" y1="575.0" x2="650.0" y2="575.0" stroke="#000" stroke-width="2"/>
+<text x="620.0" y="530.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">T2</text>
+<text x="620.0" y="544.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">I_n 20 kA</text>
+<text x="620.0" y="558.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">≤1.5kV</text>
+<text x="560.0" y="625.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">boundary LPZ 1 → 2</text>
+<polyline points="680.0,520.0 840.0,520.0" stroke="#000" stroke-width="2.5" fill="none"/>
+<text x="688.0" y="514.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">5G25, 25 m</text>
+<rect x="840.0" y="480.0" width="140.0" height="100.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="910.0" y="498.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">CNC 24 V PSU</text>
+<rect x="861.0" y="512.0" width="18.0" height="30.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="870.0" y1="516.0" x2="870.0" y2="537.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="870.0" y1="504.0" x2="870.0" y2="512.0" stroke="#000" stroke-width="1.5"/>
+<line x1="870.0" y1="542.0" x2="870.0" y2="550.0" stroke="#000" stroke-width="1.5"/>
+<line x1="870.0" y1="550.0" x2="870.0" y2="562.0" stroke="#000" stroke-width="1.5"/>
+<text x="888.0" y="525.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">T3</text>
+<text x="888.0" y="539.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">U_p ≤ 1 kV</text>
+<text x="888.0" y="553.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">≤ 10 m from</text>
+<text x="888.0" y="567.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">the device</text>
+<text x="808.0" y="618.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">boundary LPZ 2 → 3</text>
+<line x1="40.0" y1="400.0" x2="520.0" y2="400.0" stroke="#000" stroke-width="1.5" stroke-dasharray="10 3 2 3"/>
+<text x="44.0" y="418.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">data line</text>
+<text x="44.0" y="432.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">(other bldg.)</text>
+<rect x="520.0" y="386.0" width="26.0" height="28.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="533.0" y="405.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">D</text>
+<text x="552.0" y="412.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">data SPD at LPZ entry – or better FIBRE (no metal, no SPD needed)</text>
+<text x="1090.0" y="270.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">SPD types (IEC 61643-11)</text>
+<text x="1090.0" y="292.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Type 1</text>
+<text x="1142.0" y="292.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">10/350 µs, I_imp 12.5 kA/pole</text>
+<text x="1142.0" y="306.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">MDB, service entrance</text>
+<text x="1090.0" y="324.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000"></text>
+<text x="1142.0" y="324.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">= 100 kA × 50 % / 4 conductors</text>
+<text x="1142.0" y="338.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">(LPL III, TN-S: L1, L2, L3, N)</text>
+<text x="1090.0" y="356.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Type 2</text>
+<text x="1142.0" y="356.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">8/20 µs, I_n 20 kA</text>
+<text x="1142.0" y="370.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">every board &gt; 10 m away</text>
+<text x="1090.0" y="388.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Type 3</text>
+<text x="1142.0" y="388.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">combination wave</text>
+<text x="1142.0" y="402.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">≤ 10 m before device</text>
+<text x="1090.0" y="420.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">U_c</text>
+<text x="1142.0" y="420.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">≥ 1.1·U0 = 253 V</text>
+<text x="1142.0" y="434.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">→ 255–320 V types</text>
+<text x="1090.0" y="452.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">U_p</text>
+<text x="1142.0" y="452.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">≤ 1.5 kV (T1/T2)</text>
+<text x="1142.0" y="466.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">≤ 1 kV (T3)</text>
+<text x="1090.0" y="500.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Impulse withstand (230/400 V)</text>
+<text x="1090.0" y="520.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">cat. IV 6 kV – meter, main board</text>
+<text x="1090.0" y="536.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">cat. III 4 kV – boards, fixed machines</text>
+<text x="1090.0" y="552.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">cat. II 2.5 kV – appliances, tools</text>
+<text x="1090.0" y="568.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">cat. I 1.5 kV – sensitive electronics</text>
+<text x="1090.0" y="600.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">LPL  I / II / III / IV</text>
+<text x="1090.0" y="618.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">peak current 200 / 150 / 100 / 100 kA</text>
+<text x="1090.0" y="634.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">sphere radius 20 / 30 / 45 / 60 m</text>
+<text x="1090.0" y="650.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">mesh 5×5 / 10×10 / 15×15 / 20×20 m</text>
+<text x="1090.0" y="666.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">down cond. spacing 10 / 10 / 15 / 20 m</text>
+<rect x="40.0" y="770.0" width="760.0" height="110.0" rx="0" stroke="#666666" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+<text x="52.0" y="788.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Connection leads add voltage: U = U_p + L′ · (a + b) · di/dt</text>
+<line x1="80.0" y1="810.0" x2="200.0" y2="810.0" stroke="#000" stroke-width="3"/>
+<text x="84.0" y="804.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">L</text>
+<line x1="140.0" y1="810.0" x2="140.0" y2="822.0" stroke="#1565c0" stroke-width="2"/>
+<text x="146.0" y="820.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">a</text>
+<rect x="131.0" y="828.0" width="18.0" height="30.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="140.0" y1="832.0" x2="140.0" y2="853.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="140.0" y1="820.0" x2="140.0" y2="828.0" stroke="#000" stroke-width="1.5"/>
+<line x1="140.0" y1="858.0" x2="140.0" y2="866.0" stroke="#000" stroke-width="1.5"/>
+<line x1="140.0" y1="866.0" x2="140.0" y2="870.0" stroke="#1565c0" stroke-width="2"/>
+<line x1="100.0" y1="870.0" x2="200.0" y2="870.0" stroke="#000" stroke-width="3"/>
+<text x="84.0" y="874.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">PE</text>
+<text x="146.0" y="870.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">b</text>
+<text x="240.0" y="812.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">L′ ≈ 1 µH/m, di/dt ≈ 1 kA/µs (example surge front)</text>
+<text x="240.0" y="828.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">a + b = 0.5 m → 1 µH/m × 0.5 m × 1 kA/µs = 0.5 kV</text>
+<text x="240.0" y="844.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">U = 1.5 kV + 0.5 kV = 2.0 kV ≤ 2.5 kV (cat. II) ✓</text>
+<text x="240.0" y="860.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">a + b = 1.5 m → 3.0 kV ✗  → keep a + b ≤ 0.5 m or use V-wiring</text>
+</svg>

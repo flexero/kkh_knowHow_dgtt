@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1120" width="1400" height="1120" font-family="Arial, Helvetica, sans-serif">
+<title>APC lift and rotation unit – section (example)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="1120" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold">APC lift + rotation unit – section through the rotation axis (arm lowered, pallets on the receivers)</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#666666">Heights from web/apc3d.js: base top 535 · carriage 655–695 · bearing 695–765 · hub 765–885 · arm 885–1 045 · pallet bottom H0 = 1 050 mm</text>
+<line x1="700.0" y1="98.6" x2="700.0" y2="650.4" stroke="#000" stroke-width="0.8" stroke-dasharray="12,3,2,3"/>
+<rect x="510.9" y="492.3" width="378.2" height="18.6" rx="0" stroke="#000" stroke-width="1.6" fill="url(#hatch)"/>
+<rect x="833.3" y="510.9" width="49.6" height="127.1" rx="0" stroke="#000" stroke-width="1.2" fill="#eee"/>
+<rect x="517.1" y="510.9" width="49.6" height="127.1" rx="0" stroke="#000" stroke-width="1.2" fill="#eee"/>
+<path d="M501.6,638.0 l12,-6 l12,12 l12,-6" stroke="#000" stroke-width="1" fill="none"/>
+<rect x="659.4" y="510.9" width="81.2" height="17.4" rx="0" stroke="#000" stroke-width="1.4" fill="#ccc"/>
+<rect x="671.8" y="528.3" width="56.4" height="106.6" rx="0" stroke="#000" stroke-width="1.6" fill="#fff"/>
+<rect x="680.5" y="541.9" width="39.1" height="12.4" rx="0" stroke="#000" stroke-width="1.2" fill="#999"/>
+<rect x="688.8" y="436.5" width="22.3" height="105.4" rx="0" stroke="#000" stroke-width="1.2" fill="#ddd"/>
+<rect x="681.4" y="417.9" width="37.2" height="18.6" rx="0" stroke="#c62828" stroke-width="1.5" fill="#fff"/>
+<circle cx="700.0" cy="427.2" r="6.3" stroke="#c62828" stroke-width="1.2" fill="none"/>
+<rect x="848.8" y="256.7" width="31.0" height="235.6" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<rect x="836.4" y="479.9" width="55.8" height="12.4" rx="0" stroke="#000" stroke-width="1.2" fill="#ccc"/>
+<rect x="838.3" y="377.6" width="52.1" height="55.8" rx="0" stroke="#000" stroke-width="1.2" fill="#bbb"/>
+<rect x="520.2" y="256.7" width="31.0" height="235.6" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<rect x="507.8" y="479.9" width="55.8" height="12.4" rx="0" stroke="#000" stroke-width="1.2" fill="#ccc"/>
+<rect x="509.7" y="377.6" width="52.1" height="55.8" rx="0" stroke="#000" stroke-width="1.2" fill="#bbb"/>
+<rect x="510.9" y="393.1" width="42.2" height="24.8" rx="0" stroke="#000" stroke-width="1.5" fill="#999"/>
+<rect x="554.3" y="393.1" width="291.4" height="24.8" rx="0" stroke="#000" stroke-width="1.5" fill="#999"/>
+<rect x="846.9" y="393.1" width="42.2" height="24.8" rx="0" stroke="#000" stroke-width="1.5" fill="#999"/>
+<rect x="809.7" y="349.7" width="23.6" height="43.4" rx="0" stroke="#000" stroke-width="1.4" fill="#d8d8d8"/>
+<rect x="777.5" y="349.7" width="31.0" height="43.4" rx="0" stroke="#000" stroke-width="1.4" fill="#f0f0f0"/>
+<polygon points="809.1,364.4 816.1,371.4 809.1,378.4 802.1,371.4" stroke="#000" stroke-width="1" fill="#000" stroke-linejoin="round"/>
+<rect x="789.9" y="324.9" width="47.1" height="24.8" rx="0" stroke="#000" stroke-width="1.4" fill="#cfcfcf"/>
+<line x1="837.0" y1="346.6" x2="842.6" y2="344.7" stroke="#000" stroke-width="0.8"/>
+<line x1="837.0" y1="341.6" x2="842.6" y2="339.8" stroke="#000" stroke-width="0.8"/>
+<line x1="837.0" y1="336.7" x2="842.6" y2="334.8" stroke="#000" stroke-width="0.8"/>
+<line x1="837.0" y1="331.7" x2="842.6" y2="329.9" stroke="#000" stroke-width="0.8"/>
+<line x1="837.0" y1="326.8" x2="842.6" y2="324.9" stroke="#000" stroke-width="0.8"/>
+<rect x="566.7" y="349.7" width="23.6" height="43.4" rx="0" stroke="#000" stroke-width="1.4" fill="#d8d8d8"/>
+<rect x="591.5" y="349.7" width="31.0" height="43.4" rx="0" stroke="#000" stroke-width="1.4" fill="#f0f0f0"/>
+<polygon points="590.9,364.4 597.9,371.4 590.9,378.4 583.9,371.4" stroke="#000" stroke-width="1" fill="#000" stroke-linejoin="round"/>
+<rect x="563.0" y="324.9" width="47.1" height="24.8" rx="0" stroke="#000" stroke-width="1.4" fill="#cfcfcf"/>
+<line x1="563.0" y1="346.6" x2="557.4" y2="344.7" stroke="#000" stroke-width="0.8"/>
+<line x1="563.0" y1="341.6" x2="557.4" y2="339.8" stroke="#000" stroke-width="0.8"/>
+<line x1="563.0" y1="336.7" x2="557.4" y2="334.8" stroke="#000" stroke-width="0.8"/>
+<line x1="563.0" y1="331.7" x2="557.4" y2="329.9" stroke="#000" stroke-width="0.8"/>
+<line x1="563.0" y1="326.8" x2="557.4" y2="324.9" stroke="#000" stroke-width="0.8"/>
+<rect x="610.1" y="275.3" width="179.8" height="74.4" rx="0" stroke="#000" stroke-width="1.6" fill="#e6e6e6"/>
+<rect x="664.7" y="299.4" width="70.6" height="14.0" fill="#fff"/>
+<text x="700.0" y="309.4" font-size="11" text-anchor="middle" fill="#000">hub 42CrMo4</text>
+<rect x="613.2" y="176.1" width="173.6" height="99.2" rx="0" stroke="#000" stroke-width="1.6" fill="#d0d0d0"/>
+<rect x="619.4" y="182.3" width="161.2" height="86.8" rx="0" stroke="#000" stroke-width="0.8" fill="none" stroke-dasharray="4,3"/>
+<rect x="755.8" y="176.1" width="62.0" height="27.9" rx="0" stroke="#000" stroke-width="1.2" fill="#bdbdbd"/>
+<rect x="817.8" y="176.1" width="334.8" height="27.9" rx="0" stroke="#000" stroke-width="1.2" fill="#bdbdbd"/>
+<rect x="824.0" y="172.4" width="322.4" height="3.7" rx="0" stroke="#000" stroke-width="1" fill="#555"/>
+<rect x="842.6" y="129.6" width="310.0" height="43.4" rx="0" stroke="#000" stroke-width="2" fill="#fff"/>
+<rect x="842.6" y="160.6" width="310.0" height="12.4" rx="0" stroke="#000" stroke-width="0.8" fill="none" stroke-dasharray="4,3"/>
+<rect x="863.7" y="173.0" width="19.8" height="21.1" rx="0" stroke="#000" stroke-width="1" fill="#888"/>
+<rect x="866.8" y="194.1" width="13.6" height="6.2" rx="0" stroke="#000" stroke-width="1" fill="#888"/>
+<rect x="1111.7" y="173.0" width="19.8" height="21.1" rx="0" stroke="#000" stroke-width="1" fill="#888"/>
+<rect x="1114.8" y="194.1" width="13.6" height="6.2" rx="0" stroke="#000" stroke-width="1" fill="#888"/>
+<rect x="582.2" y="176.1" width="62.0" height="27.9" rx="0" stroke="#000" stroke-width="1.2" fill="#bdbdbd"/>
+<rect x="247.4" y="176.1" width="334.8" height="27.9" rx="0" stroke="#000" stroke-width="1.2" fill="#bdbdbd"/>
+<rect x="253.6" y="172.4" width="322.4" height="3.7" rx="0" stroke="#000" stroke-width="1" fill="#555"/>
+<rect x="247.4" y="129.6" width="310.0" height="43.4" rx="0" stroke="#000" stroke-width="2" fill="#fff"/>
+<rect x="247.4" y="160.6" width="310.0" height="12.4" rx="0" stroke="#000" stroke-width="0.8" fill="none" stroke-dasharray="4,3"/>
+<rect x="516.5" y="173.0" width="19.8" height="21.1" rx="0" stroke="#000" stroke-width="1" fill="#888"/>
+<rect x="519.6" y="194.1" width="13.6" height="6.2" rx="0" stroke="#000" stroke-width="1" fill="#888"/>
+<rect x="268.5" y="173.0" width="19.8" height="21.1" rx="0" stroke="#000" stroke-width="1" fill="#888"/>
+<rect x="271.6" y="194.1" width="13.6" height="6.2" rx="0" stroke="#000" stroke-width="1" fill="#888"/>
+<rect x="695.7" y="101.7" width="8.7" height="74.4" rx="0" stroke="#c62828" stroke-width="1.2" fill="#c62828"/>
+<rect x="238.1" y="204.0" width="319.3" height="24.8" rx="0" stroke="#000" stroke-width="1.2" fill="#eee"/>
+<rect x="492.3" y="173.0" width="68.2" height="55.8" rx="0" stroke="#000" stroke-width="1.4" fill="#fff"/>
+<rect x="514.0" y="173.0" width="24.8" height="31.0" rx="0" stroke="#000" stroke-width="0.8" fill="none" stroke-dasharray="3,2"/>
+<rect x="855.0" y="173.0" width="37.2" height="37.2" rx="0" stroke="#000" stroke-width="1.4" fill="url(#hatch)"/>
+<rect x="244.3" y="173.0" width="68.2" height="55.8" rx="0" stroke="#000" stroke-width="1.4" fill="#fff"/>
+<rect x="266.0" y="173.0" width="24.8" height="31.0" rx="0" stroke="#000" stroke-width="0.8" fill="none" stroke-dasharray="3,2"/>
+<rect x="1103.0" y="173.0" width="37.2" height="37.2" rx="0" stroke="#000" stroke-width="1.4" fill="url(#hatch)"/>
+<rect x="824.0" y="210.2" width="347.2" height="31.0" rx="0" stroke="#000" stroke-width="1.2" fill="#eee"/>
+<rect x="842.6" y="98.6" width="310.0" height="37.2" rx="0" stroke="#c62828" stroke-width="1.2" fill="none" stroke-dasharray="6,4"/>
+<line x1="833.3" y1="173.0" x2="833.3" y2="135.8" stroke="#c62828" stroke-width="2" marker-end="url(#aa)"/>
+<text x="839.5" y="89.3" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">lifted position (dashed): lift 60 → studs clear by 11 mm</text>
+<rect x="889.1" y="400.5" width="31.0" height="9.9" rx="0" stroke="#000" stroke-width="1" fill="#fff"/>
+<rect x="889.1" y="363.3" width="31.0" height="9.9" rx="0" stroke="#000" stroke-width="1" fill="#fff"/>
+<circle cx="833.3" cy="315.6" r="6.0" stroke="#c62828" stroke-width="1.5" fill="#fff"/>
+<line x1="402.4" y1="142.0" x2="242.0" y2="100.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="402.4" cy="142.0" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="238.0" y="104.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Pallet A (in machine)</text>
+<text x="238.0" y="118.0" font-size="11" text-anchor="end" fill="#000">500 × 500 × 70, EN-GJS-600-3</text>
+<text x="238.0" y="132.0" font-size="11" text-anchor="end" fill="#000">510 kg loaded</text>
+<line x1="278.4" y1="197.8" x2="242.0" y2="156.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="278.4" cy="197.8" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="238.0" y="160.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Zero-point module (4×)</text>
+<text x="238.0" y="174.0" font-size="11" text-anchor="end" fill="#000">pull-in 20 kN, release 5 MPa</text>
+<text x="238.0" y="188.0" font-size="11" text-anchor="end" fill="#000">receiver plate on B-table</text>
+<line x1="328.0" y1="189.7" x2="242.0" y2="212.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="328.0" cy="189.7" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="238.0" y="216.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Fork rail + strip 58 HRC</text>
+<text x="238.0" y="230.0" font-size="11" text-anchor="end" fill="#000">4 rails same height ±0.02</text>
+<line x1="638.0" y1="190.4" x2="242.0" y2="258.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="638.0" cy="190.4" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="238.0" y="262.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Cross beam (45 mm flat)</text>
+<text x="238.0" y="276.0" font-size="11" text-anchor="end" fill="#000">passes over station receivers</text>
+<line x1="625.6" y1="228.8" x2="242.0" y2="304.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="625.6" cy="228.8" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="238.0" y="308.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Arm box 160 × 100 × 10</text>
+<text x="238.0" y="322.0" font-size="11" text-anchor="end" fill="#000">S355J2, annealed, σ 12 N/mm²</text>
+<line x1="613.2" y1="309.4" x2="242.0" y2="350.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="613.2" cy="309.4" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="238.0" y="354.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Hub 42CrMo4 +QT</text>
+<text x="238.0" y="368.0" font-size="11" text-anchor="end" fill="#000">12 × M10 10.9 to inner ring</text>
+<line x1="590.9" y1="371.4" x2="242.0" y2="396.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="590.9" cy="371.4" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="238.0" y="400.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Crossed roller bearing</text>
+<text x="238.0" y="414.0" font-size="11" text-anchor="end" fill="#000">dm 350, Fa 11.8 kN, Mk 2.08 kN·m</text>
+<line x1="520.2" y1="405.5" x2="242.0" y2="442.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="520.2" cy="405.5" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="238.0" y="446.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Lift carriage 610 × 610 × 40</text>
+<text x="238.0" y="460.0" font-size="11" text-anchor="end" fill="#000">carries bearing, gearbox, servo</text>
+<line x1="535.7" y1="328.0" x2="242.0" y2="488.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="535.7" cy="328.0" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="238.0" y="492.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Guide column Ø50 h6 (4×)</text>
+<text x="238.0" y="506.0" font-size="11" text-anchor="end" fill="#000">+ flanged ball bushing</text>
+<line x1="514.0" y1="501.6" x2="242.0" y2="534.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="514.0" cy="501.6" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="238.0" y="538.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Base frame, top plate 30</text>
+<text x="238.0" y="552.0" font-size="11" text-anchor="end" fill="#000">S355 80 × 80 × 5, annealed</text>
+<line x1="672.1" y1="588.4" x2="242.0" y2="580.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="672.1" cy="588.4" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="238.0" y="584.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Lift cylinder Ø63/36 × 60</text>
+<text x="238.0" y="598.0" font-size="11" text-anchor="end" fill="#000">ISO 6020-2, cushions both ends</text>
+<line x1="997.6" y1="142.0" x2="1156.0" y2="100.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="997.6" cy="142.0" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="1160.0" y="104.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Pallet B (at load station)</text>
+<text x="1160.0" y="118.0" font-size="11" text-anchor="start" fill="#000">on 4 locating receivers</text>
+<line x1="704.3" y1="117.2" x2="1156.0" y2="156.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="704.3" cy="117.2" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="1160.0" y="160.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Partition wall (turns)</text>
+<text x="1160.0" y="174.0" font-size="11" text-anchor="start" fill="#000">1 627 × 950, 2 mm 1.4301</text>
+<line x1="1121.6" y1="219.5" x2="1156.0" y2="212.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="1121.6" cy="219.5" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="1160.0" y="216.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Station receiver 16MnCr5</text>
+<text x="1160.0" y="230.0" font-size="11" text-anchor="start" fill="#000">58–62 HRC, catch ±3 mm</text>
+<line x1="839.5" y1="334.2" x2="1156.0" y2="258.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="839.5" cy="334.2" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="1160.0" y="262.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Ring gear m 4, z 113</text>
+<text x="1160.0" y="276.0" font-size="11" text-anchor="start" fill="#000">pitch Ø452, on the hub flange</text>
+<line x1="833.3" y1="315.6" x2="1156.0" y2="304.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="833.3" cy="315.6" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="1160.0" y="308.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">0° / 180° cam (rotor)</text>
+<text x="1160.0" y="322.0" font-size="11" text-anchor="start" fill="#000">sensors -BG3 / -BG4</text>
+<line x1="904.6" y1="368.3" x2="1156.0" y2="350.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="904.6" cy="368.3" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="1160.0" y="354.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Arm up / down sensors</text>
+<text x="1160.0" y="368.0" font-size="11" text-anchor="start" fill="#000">-BG1 / -BG2 (M12, Sn 4 mm)</text>
+<line x1="715.5" y1="427.2" x2="1156.0" y2="396.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="715.5" cy="427.2" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="1160.0" y="400.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Self-aligning rod coupling</text>
+<text x="1160.0" y="414.0" font-size="11" text-anchor="start" fill="#000">no side load on the rod</text>
+<line x1="858.7" y1="390.0" x2="1156.0" y2="442.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="858.7" cy="390.0" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
+<text x="1160.0" y="446.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Pinion + drive: see VIEW A</text>
+<text x="1160.0" y="460.0" font-size="11" text-anchor="start" fill="#000">(behind the section, at 90°)</text>
+<line x1="402.4" y1="104.8" x2="700.0" y2="104.8" stroke="#000" stroke-width="1" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect x="526.1" y="88.8" width="50.2" height="15.0" fill="#fff"/>
+<text x="551.2" y="99.8" font-size="12" text-anchor="middle" fill="#000">r = 480</text>
+<text x="24.0" y="721.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">VIEW A – rotation drive (rotated into the drawing plane)</text>
+<line x1="330.0" y1="735.0" x2="330.0" y2="933.4" stroke="#000" stroke-width="0.8" stroke-dasharray="12,3,2,3"/>
+<rect x="144.0" y="849.7" width="446.4" height="24.8" rx="0" stroke="#000" stroke-width="1.5" fill="#999"/>
+<rect x="193.0" y="781.5" width="274.0" height="24.8" rx="0" stroke="#000" stroke-width="1.4" fill="#cfcfcf"/>
+<rect x="240.1" y="735.0" width="179.8" height="71.3" rx="0" stroke="#000" stroke-width="1.4" fill="#e6e6e6"/>
+<rect x="196.7" y="806.3" width="266.6" height="43.4" rx="0" stroke="#000" stroke-width="1.2" fill="#eee"/>
+<rect x="470.1" y="775.3" width="37.2" height="37.2" rx="0" stroke="#c62828" stroke-width="1.6" fill="#fff"/>
+<line x1="488.7" y1="766.0" x2="488.7" y2="933.4" stroke="#c62828" stroke-width="0.8" stroke-dasharray="12,3,2,3"/>
+<rect x="479.4" y="812.5" width="18.6" height="37.2" rx="0" stroke="#000" stroke-width="1.2" fill="#ddd"/>
+<rect x="454.6" y="874.5" width="68.2" height="68.2" rx="0" stroke="#000" stroke-width="1.5" fill="#777"/>
+<rect x="522.8" y="877.6" width="148.8" height="62.0" rx="0" stroke="#000" stroke-width="1.5" fill="#333"/>
+<text x="597.2" y="912.6" font-size="11" text-anchor="middle" fill="#fff">servo 2.0 kW</text>
+<line x1="330.0" y1="759.8" x2="488.7" y2="759.8" stroke="#000" stroke-width="1" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect x="384.3" y="743.8" width="50.2" height="15.0" fill="#fff"/>
+<text x="409.4" y="754.8" font-size="12" text-anchor="middle" fill="#000">a = 256</text>
+<text x="602.8" y="747.4" font-size="11" text-anchor="start" fill="#000">pinion m 4, z 15, face 60 (16MnCr5)</text>
+<text x="602.8" y="761.4" font-size="11" text-anchor="start" fill="#000">ring/pinion 113/15 = 7.53</text>
+<text x="602.8" y="775.4" font-size="11" text-anchor="start" fill="#000">planetary right-angle i ≈ 26.6</text>
+<text x="602.8" y="789.4" font-size="11" text-anchor="start" fill="#000">total i = 200, backlash ≤ 3′</text>
+<text x="602.8" y="803.4" font-size="11" text-anchor="start" fill="#000">eccentric flange: mesh play 0.05–0.10</text>
+<text x="488.7" y="958.7" font-size="11" text-anchor="middle" fill="#000">gearbox under the plate</text>
+<text x="760.0" y="722.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">DETAIL B – crossed roller bearing (×2.5)</text>
+<rect x="942.5" y="777.0" width="95.0" height="175.0" rx="0" stroke="#000" stroke-width="1.6" fill="#d8d8d8"/>
+<rect x="812.5" y="777.0" width="125.0" height="175.0" rx="0" stroke="#000" stroke-width="1.6" fill="#f0f0f0"/>
+<polygon points="940.0,850.5 954.0,864.5 940.0,878.5 926.0,864.5" stroke="#000" stroke-width="1.2" fill="#000" stroke-linejoin="round"/>
+<line x1="990.0" y1="777.0" x2="990.0" y2="964.5" stroke="#000" stroke-width="1.2" stroke-dasharray="5,3"/>
+<line x1="875.0" y1="752.0" x2="875.0" y2="952.0" stroke="#000" stroke-width="1.2" stroke-dasharray="5,3"/>
+<text x="990.0" y="988.5" font-size="11" text-anchor="middle" fill="#000">M12 → carriage</text>
+<text x="875.0" y="1004.5" font-size="11" text-anchor="middle" fill="#000">M10 → hub</text>
+<text x="1075.0" y="789.5" font-size="11" text-anchor="start" fill="#000">outer ring on carriage</text>
+<text x="1075.0" y="803.5" font-size="11" text-anchor="start" fill="#000">inner ring on hub</text>
+<text x="1075.0" y="817.5" font-size="11" text-anchor="start" fill="#000">rollers at 90° (crossed)</text>
+<text x="1075.0" y="831.5" font-size="11" text-anchor="start" fill="#000"></text>
+<text x="1075.0" y="845.5" font-size="11" text-anchor="start" fill="#000">Fa = 11.8 kN, Fr = 0.62 kN</text>
+<text x="1075.0" y="859.5" font-size="11" text-anchor="start" fill="#000">Mk = 2.08 kN·m</text>
+<text x="1075.0" y="873.5" font-size="11" text-anchor="start" fill="#000">P0 = Fr + 2·Mk/dp + 0.44·Fa</text>
+<text x="1075.0" y="887.5" font-size="11" text-anchor="start" fill="#000">   = 17.7 kN → C0 ≥ 53 kN (fs 3)</text>
+<text x="1075.0" y="901.5" font-size="11" text-anchor="start" fill="#000">faces flat ≤ 0.02 mm</text>
+<rect x="848.0" y="1016.0" width="540.0" height="92.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="848.0" y1="1042.0" x2="1388.0" y2="1042.0" stroke="#000" stroke-width="1"/>
+<line x1="848.0" y1="1066.0" x2="1388.0" y2="1066.0" stroke="#000" stroke-width="1"/>
+<line x1="848.0" y1="1087.0" x2="1388.0" y2="1087.0" stroke="#000" stroke-width="1"/>
+<line x1="1188.0" y1="1066.0" x2="1188.0" y2="1108.0" stroke="#000" stroke-width="1"/>
+<text x="856.0" y="1034.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="856.0" y="1059.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Lift + rotation unit – section</text>
+<text x="856.0" y="1081.0" font-size="11" text-anchor="start" fill="#000">Guide 09 – automatic pallet changer (APC)</text>
+<text x="1196.0" y="1081.0" font-size="11" text-anchor="start" fill="#000">Dwg VC-APC-ROT-0901</text>
+<text x="856.0" y="1102.0" font-size="11" text-anchor="start" fill="#000">Digital twin · values: web/apc.js defaults, guide 25 §14</text>
+<text x="1196.0" y="1102.0" font-size="11" text-anchor="start" fill="#000">≈ 1:16 (detail B ×2.5) · 2026-11-12</text>
+</svg>

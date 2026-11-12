@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" width="1100" height="700" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<title>Taylor tool life vc · T^n = C – log-log chart, face mill Ø100 in GG25 (example test data)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1100" height="700" fill="#ffffff"/>
+<rect x="6" y="6" width="1088" height="688" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold">Taylor tool life vc · T^n = C – log-log chart, face mill Ø100 in GG25 (example test data)</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#000">Two test points from own trials (wear limit VB = 0.3 mm). Line = Taylor fit. Costs: 5 inserts × 3.75 € per edge = 18.75 € per edge set, edge change 3 min, machine 90 €/h.</text>
+<rect x="100.0" y="120.0" width="520.0" height="470.0" rx="0" fill="none" stroke="#000" stroke-width="1.2"/>
+<line x1="100.0" y1="590.0" x2="100.0" y2="120.0" stroke="#ccc" stroke-width="0.6"/>
+<text x="100.0" y="608.0" font-size="12" text-anchor="middle" fill="#000">100</text>
+<line x1="168.4" y1="590.0" x2="168.4" y2="120.0" stroke="#ccc" stroke-width="0.6"/>
+<text x="168.4" y="608.0" font-size="12" text-anchor="middle" fill="#000">120</text>
+<line x1="252.1" y1="590.0" x2="252.1" y2="120.0" stroke="#ccc" stroke-width="0.6"/>
+<text x="252.1" y="608.0" font-size="12" text-anchor="middle" fill="#000">150</text>
+<line x1="360.0" y1="590.0" x2="360.0" y2="120.0" stroke="#ccc" stroke-width="0.6"/>
+<text x="360.0" y="608.0" font-size="12" text-anchor="middle" fill="#000">200</text>
+<line x1="443.7" y1="590.0" x2="443.7" y2="120.0" stroke="#ccc" stroke-width="0.6"/>
+<text x="443.7" y="608.0" font-size="12" text-anchor="middle" fill="#000">250</text>
+<line x1="512.1" y1="590.0" x2="512.1" y2="120.0" stroke="#ccc" stroke-width="0.6"/>
+<text x="512.1" y="608.0" font-size="12" text-anchor="middle" fill="#000">300</text>
+<line x1="620.0" y1="590.0" x2="620.0" y2="120.0" stroke="#ccc" stroke-width="0.6"/>
+<text x="620.0" y="608.0" font-size="12" text-anchor="middle" fill="#000">400</text>
+<line x1="100.0" y1="590.0" x2="620.0" y2="590.0" stroke="#ccc" stroke-width="0.6"/>
+<text x="92.0" y="594.0" font-size="12" text-anchor="end" fill="#000">1</text>
+<line x1="100.0" y1="519.3" x2="620.0" y2="519.3" stroke="#ccc" stroke-width="0.6"/>
+<text x="92.0" y="523.3" font-size="12" text-anchor="end" fill="#000">2</text>
+<line x1="100.0" y1="425.7" x2="620.0" y2="425.7" stroke="#ccc" stroke-width="0.6"/>
+<text x="92.0" y="429.7" font-size="12" text-anchor="end" fill="#000">5</text>
+<line x1="100.0" y1="355.0" x2="620.0" y2="355.0" stroke="#ccc" stroke-width="0.6"/>
+<text x="92.0" y="359.0" font-size="12" text-anchor="end" fill="#000">10</text>
+<line x1="100.0" y1="284.3" x2="620.0" y2="284.3" stroke="#ccc" stroke-width="0.6"/>
+<text x="92.0" y="288.3" font-size="12" text-anchor="end" fill="#000">20</text>
+<line x1="100.0" y1="190.7" x2="620.0" y2="190.7" stroke="#ccc" stroke-width="0.6"/>
+<text x="92.0" y="194.7" font-size="12" text-anchor="end" fill="#000">50</text>
+<line x1="100.0" y1="120.0" x2="620.0" y2="120.0" stroke="#ccc" stroke-width="0.6"/>
+<text x="92.0" y="124.0" font-size="12" text-anchor="end" fill="#000">100</text>
+<text x="620.0" y="628.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">cutting speed vc (m/min), log scale</text>
+<text x="30.0" y="108.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">tool life T (min in cut), log scale</text>
+<line x1="182.1" y1="120.0" x2="620.0" y2="596.6" stroke="#888" stroke-width="1.2" stroke-dasharray="6 4"/>
+<line x1="208.2" y1="120.0" x2="620.0" y2="570.8" stroke="#c0392b" stroke-width="2.5"/>
+<text x="111.1" y="168.8" font-size="11" text-anchor="start" fill="#666">§10.4 example</text>
+<text x="111.1" y="182.8" font-size="11" text-anchor="start" fill="#666">C 393.6, n 0.25</text>
+<rect x="315.5" y="237.9" width="10.0" height="10.0" rx="0" fill="#000" stroke="#000" stroke-width="1.5"/>
+<text x="330.5" y="234.9" font-size="12" text-anchor="start" fill="#000" font-weight="bold">test 180 m/min -&gt; 30 min</text>
+<rect x="438.7" y="372.8" width="10.0" height="10.0" rx="0" fill="#000" stroke="#000" stroke-width="1.5"/>
+<text x="453.7" y="369.8" font-size="12" text-anchor="start" fill="#000" font-weight="bold">test 250 m/min -&gt; 8 min</text>
+<circle cx="278.9" cy="197.3" r="6.0" fill="#c0392b" stroke="#c0392b" stroke-width="1.5"/>
+<text x="268.9" y="185.3" font-size="11" text-anchor="start" fill="#c0392b" font-weight="bold">v_econ 161 m/min, T 46.9 min (minimum cost)</text>
+<circle cx="395.8" cy="325.1" r="6.0" fill="#c0392b" stroke="#c0392b" stroke-width="1.5"/>
+<text x="385.8" y="347.1" font-size="11" text-anchor="end" fill="#c0392b" font-weight="bold">220 m/min, T 13.4 min</text>
+<circle cx="432.0" cy="365.0" r="6.0" fill="#c0392b" stroke="#c0392b" stroke-width="1.5"/>
+<text x="422.0" y="387.0" font-size="11" text-anchor="end" fill="#c0392b" font-weight="bold">v_prod 242 m/min, T 9.1 min (max output)</text>
+<text x="547.8" y="448.5" font-size="12" text-anchor="start" fill="#c0392b">slope = −1/n</text>
+<rect x="650.0" y="70.0" width="435.0" height="190.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
+<text x="658.0" y="88.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Fit and optimum (formulas §22.3 / §22.4)</text>
+<text x="658.0" y="107.0" font-size="12" text-anchor="start" fill="#000">n = ln(v2/v1) / ln(T1/T2) = ln(250/180) / ln(30/8) = 0.249</text>
+<text x="658.0" y="124.0" font-size="12" text-anchor="start" fill="#000">C = v1 · T1^n = 180 · 30^0.249 = 419</text>
+<text x="658.0" y="141.0" font-size="12" text-anchor="start" fill="#000">T = (C / vc)^(1/n)</text>
+<text x="658.0" y="158.0" font-size="12" text-anchor="start" fill="#000">T_econ = (1/n − 1) · (t_ch + K_edge / K_M)</text>
+<text x="658.0" y="175.0" font-size="12" text-anchor="start" fill="#000">       = 3.02 · (3 + 18.75 / 1.5) = 46.9 min</text>
+<text x="658.0" y="192.0" font-size="12" text-anchor="start" fill="#000">T_prod = (1/n − 1) · t_ch = 3.02 · 3 = 9.1 min</text>
+<text x="658.0" y="209.0" font-size="12" text-anchor="start" fill="#000">v = C / T^n -&gt; 161 m/min and 242 m/min</text>
+<rect x="650.0" y="272.0" width="435.0" height="220.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="658.0" y="292.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Cost per part (cut time 0.8 min at 220 m/min)</text>
+<text x="662.0" y="318.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">vc</text>
+<text x="712.0" y="318.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">T min</text>
+<text x="772.0" y="318.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">parts/edge</text>
+<text x="862.0" y="318.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">tool €</text>
+<text x="932.0" y="318.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">machine €</text>
+<text x="1022.0" y="318.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">total €</text>
+<line x1="656.0" y1="324.0" x2="1080.0" y2="324.0" stroke="#000" stroke-width="0.8"/>
+<text x="662.0" y="344.0" font-size="12" text-anchor="start" fill="#c0392b" font-weight="bold">161</text>
+<text x="712.0" y="344.0" font-size="12" text-anchor="start" fill="#c0392b" font-weight="bold">46.9</text>
+<text x="772.0" y="344.0" font-size="12" text-anchor="start" fill="#c0392b" font-weight="bold">42.9</text>
+<text x="862.0" y="344.0" font-size="12" text-anchor="start" fill="#c0392b" font-weight="bold">0.44</text>
+<text x="932.0" y="344.0" font-size="12" text-anchor="start" fill="#c0392b" font-weight="bold">1.74</text>
+<text x="1022.0" y="344.0" font-size="12" text-anchor="start" fill="#c0392b" font-weight="bold">2.18</text>
+<text x="662.0" y="366.0" font-size="12" text-anchor="start" fill="#000">200</text>
+<text x="712.0" y="366.0" font-size="12" text-anchor="start" fill="#000">19.6</text>
+<text x="772.0" y="366.0" font-size="12" text-anchor="start" fill="#000">22.3</text>
+<text x="862.0" y="366.0" font-size="12" text-anchor="start" fill="#000">0.84</text>
+<text x="932.0" y="366.0" font-size="12" text-anchor="start" fill="#000">1.52</text>
+<text x="1022.0" y="366.0" font-size="12" text-anchor="start" fill="#000">2.36</text>
+<text x="662.0" y="388.0" font-size="12" text-anchor="start" fill="#000">220</text>
+<text x="712.0" y="388.0" font-size="12" text-anchor="start" fill="#000">13.4</text>
+<text x="772.0" y="388.0" font-size="12" text-anchor="start" fill="#000">16.7</text>
+<text x="862.0" y="388.0" font-size="12" text-anchor="start" fill="#000">1.12</text>
+<text x="932.0" y="388.0" font-size="12" text-anchor="start" fill="#000">1.47</text>
+<text x="1022.0" y="388.0" font-size="12" text-anchor="start" fill="#000">2.59</text>
+<text x="662.0" y="410.0" font-size="12" text-anchor="start" fill="#000">242</text>
+<text x="712.0" y="410.0" font-size="12" text-anchor="start" fill="#000">9.1</text>
+<text x="772.0" y="410.0" font-size="12" text-anchor="start" fill="#000">12.5</text>
+<text x="862.0" y="410.0" font-size="12" text-anchor="start" fill="#000">1.50</text>
+<text x="932.0" y="410.0" font-size="12" text-anchor="start" fill="#000">1.45</text>
+<text x="1022.0" y="410.0" font-size="12" text-anchor="start" fill="#000">2.95</text>
+<text x="662.0" y="444.0" font-size="11" text-anchor="start" fill="#000">machine € = (cut time + change time share) · 1.5 €/min</text>
+<text x="662.0" y="460.0" font-size="11" text-anchor="start" fill="#000">Lowest cost at v_econ; fastest at v_prod (§22.4).</text>
+<rect x="650.0" y="502.0" width="435.0" height="112.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
+<text x="658.0" y="520.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">How to use it</text>
+<text x="658.0" y="539.0" font-size="12" text-anchor="start" fill="#000">Run 2–3 speeds to VB 0.3 mm, record minutes in cut</text>
+<text x="658.0" y="556.0" font-size="12" text-anchor="start" fill="#000">Tool life counter = T / cut time per part (Step 8)</text>
+<text x="658.0" y="573.0" font-size="12" text-anchor="start" fill="#000">Re-test when the casting lot or the insert grade changes</text>
+<rect x="656.0" y="634.0" width="430.0" height="52.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
+<line x1="656.0" y1="660.0" x2="1086.0" y2="660.0" stroke="#000" stroke-width="1"/>
+<text x="664.0" y="652.0" font-size="13" text-anchor="start" fill="#c0392b" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="664.0" y="678.0" font-size="12" text-anchor="start" fill="#000">Guide 08 – CNC / G-code · 08_taylor_tool_life</text>
+</svg>

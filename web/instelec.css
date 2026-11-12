@@ -1,0 +1,125 @@
+/* INSTALLATION tab – items 3 + 4 (instelec*.js). Uses the theme variables of style.css (light + dark). */
+.ie-wrap { display: flex; flex-direction: column; gap: 14px; }
+.ie-card h3 { font-size: 14px; margin: 12px 0 6px; }
+.ie-why { font-size: 13px; color: var(--text-2); margin: 0 0 10px; max-width: 1150px; }
+.ie-note { font-size: 12.5px; color: var(--text-2); margin: 6px 0 8px; line-height: 1.45; }
+.ie-ex { display: inline-block; font-size: 11px; font-weight: 600; padding: 0 7px; border-radius: 999px; border: 1px dashed var(--border); color: var(--text-2); vertical-align: middle; }
+.ie-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 6px 0; }
+.ie-grid2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+.ie-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 1100px) { .ie-grid2, .ie-grid3 { grid-template-columns: minmax(0, 1fr); } }
+.ie-small { font-size: 11.5px; color: var(--text-2); }
+.ie-ol, .ie-ul { margin: 4px 0 8px 18px; padding: 0; font-size: 13px; line-height: 1.45; }
+.ie-ol li, .ie-ul li { margin: 3px 0; }
+
+/* What / Why / How / Check / Mistake */
+.ie-wwh { display: grid; grid-template-columns: 118px minmax(0, 1fr); gap: 4px 10px; font-size: 13px; line-height: 1.45; margin: 10px 0 4px;
+  border-left: 3px solid var(--accent); padding: 6px 0 6px 10px; background: color-mix(in srgb, var(--accent) 5%, transparent); border-radius: 0 6px 6px 0; }
+.ie-wk { font-weight: 700; color: var(--text); }
+.ie-wk:nth-last-child(2) { color: var(--serious); }
+.ie-wv { color: var(--text-2); }
+
+/* tables */
+table.ie-tbl td, table.ie-tbl th { padding: 4px 6px; font-size: 12.5px; vertical-align: top; }
+table.ie-tbl td { white-space: normal; }
+table.ie-tbl.ie-wrapt td { min-width: 90px; }
+table.ie-calc td, table.ie-calc th { white-space: nowrap; }
+table.ie-calc td { font-variant-numeric: tabular-nums; }
+table.ie-work td.ie-n { font-weight: 700; color: var(--accent); }
+table.ie-work td.ie-fm { font-family: ui-monospace, Consolas, monospace; font-size: 12px; color: var(--text-2); min-width: 340px; }
+table.ie-test td.wrap { min-width: 150px; }
+table.ie-test tr.ie-rowok td { background: color-mix(in srgb, var(--good) 9%, transparent); }
+.ie-st { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 999px; letter-spacing: .02em; white-space: nowrap; }
+.ie-ok { background: color-mix(in srgb, var(--good) 20%, var(--surface)); color: var(--good-text); }
+.ie-bad { background: color-mix(in srgb, var(--critical) 20%, var(--surface)); color: var(--critical); }
+.ie-warn { background: color-mix(in srgb, var(--warning) 30%, var(--surface)); color: var(--text); }
+.ie-lnk { border: 0; background: none; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; padding: 0; }
+.ie-lnk.ie-act { text-decoration: underline; }
+.ie-sum { display: flex; flex-direction: column; gap: 4px; font-size: 13px; margin: 8px 0; padding: 8px 10px; background: var(--surface-2); border-radius: 8px; }
+.ie-sumt { font-size: 13px; font-weight: 600; }
+
+/* inputs */
+.ie-inputs { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; margin: 4px 0 10px; font-size: 12.5px; color: var(--text-2); }
+.ie-inputs label { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.ie-inputs select, .ie-inputs input[type=number] { font-size: 12.5px; padding: 3px 5px; }
+.ie-chk input { margin: 0; }
+
+/* drawings */
+.ie-sheet { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px; overflow-x: auto; }
+.ie-svg { display: block; width: 100%; height: auto; min-width: 640px; }
+.ie-svg.ie-mid { max-width: 1060px; margin: 0 auto; }
+.ie-traysvg { min-width: 560px; }
+.ie-sldwrap { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 12px; align-items: start; }
+@media (max-width: 1100px) { .ie-sldwrap { grid-template-columns: minmax(0, 1fr); } }
+.ie-info { border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 12.5px; line-height: 1.45; background: var(--surface-2); }
+.ie-info h3 { margin: 2px 0 6px; font-size: 14px; }
+.ie-info p { margin: 4px 0; color: var(--text-2); }
+.ie-info p b { color: var(--text); }
+.ie-svg text { fill: var(--text); font-family: system-ui, sans-serif; }
+.ie-svg .ie-t1 { font-size: 13px; font-weight: 600; }
+.ie-svg .ie-t2 { font-size: 12.5px; fill: var(--text-2); }
+.ie-svg .ie-t3 { font-size: 11.5px; fill: var(--text-2); }
+.ie-svg .ie-tin { fill: #fff; font-weight: 700; pointer-events: none; }
+.ie-svg .ie-muted { fill: var(--muted); }
+.ie-svg .ie-tbad { fill: var(--critical); font-weight: 600; }
+.ie-svg .ie-tok { fill: var(--good-text); font-weight: 600; }
+.ie-svg .ie-tcm { fill: var(--serious); }
+.ie-w { fill: none; stroke: var(--text-2); stroke-width: 1.6; }
+.ie-mv { stroke: var(--maint); stroke-width: 2.2; }
+.ie-bus { stroke: var(--text); stroke-width: 6; stroke-linecap: round; }
+.ie-busw { stroke-width: 2.2; }
+.ie-cab { stroke: var(--text); stroke-width: 2; }
+.ie-cab2 { stroke: var(--text); stroke-width: 6; }
+.ie-pe { stroke: var(--good); stroke-dasharray: 6 3; }
+.ie-n { stroke: var(--accent); }
+.ie-mesh { stroke-dasharray: none; opacity: .7; }
+.ie-tray { stroke: var(--muted); stroke-width: 4; }
+.ie-pipe { stroke: var(--setup); stroke-width: 4; }
+.ie-bad.ie-w, .ie-x .ie-w { stroke: var(--critical); }
+.ie-shield { stroke: var(--warning); stroke-width: 2; }
+.ie-plate { stroke: var(--muted); stroke-width: 5; }
+.ie-clamp { fill: color-mix(in srgb, var(--warning) 40%, var(--surface)); }
+.ie-cm { stroke: var(--serious); stroke-width: 2; }
+.ie-dashl { stroke-dasharray: 4 3; }
+.ie-pwm { stroke: var(--accent); }
+.ie-capl { stroke: var(--text-2); }
+.ie-box { fill: var(--surface); stroke: var(--text-2); stroke-width: 1.4; }
+.ie-pebox { fill: color-mix(in srgb, var(--good) 22%, var(--surface)); }
+.ie-dash { stroke-dasharray: 5 3; }
+.ie-zd { fill: color-mix(in srgb, var(--serious) 14%, var(--surface)); }
+.ie-zc { fill: color-mix(in srgb, var(--good) 12%, var(--surface)); }
+.ie-div { stroke: var(--text); stroke-width: 5; }
+.ie-divoff { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+.ie-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+circle.ie-dot { fill: var(--text); }
+.ie-hit { fill: transparent; stroke: none; }
+.ie-dev { cursor: pointer; }
+.ie-dev:hover .ie-box, .ie-dev:hover .ie-slot { stroke: var(--accent); }
+.ie-dev.ie-on .ie-box, .ie-dev.ie-on .ie-w { stroke: var(--accent); stroke-width: 2.6; }
+.ie-load.ie-selm .ie-box { stroke: var(--accent); stroke-width: 2.4; fill: color-mix(in srgb, var(--accent) 9%, var(--surface)); }
+.ie-load.ie-badm .ie-box { stroke: var(--critical); stroke-width: 2.4; }
+
+/* cable categories (tray) */
+.ie-cP { background: #8a5a2b; fill: #8a5a2b; }
+.ie-cM { background: #d9480f; fill: #d9480f; }
+.ie-cC { background: #6f42c1; fill: #6f42c1; }
+.ie-cS { background: #1c7ed6; fill: #1c7ed6; }
+.ie-cN { background: #2f9e44; fill: #2f9e44; }
+.ie-cab-c { stroke: var(--surface); stroke-width: 2; }
+.ie-cab-c.ie-cfail { stroke: var(--critical); stroke-width: 3.5; }
+.ie-slot { fill: transparent; stroke: var(--muted); stroke-dasharray: 3 3; }
+.ie-slot.ie-slotsel { stroke: var(--accent); stroke-width: 2; }
+.ie-trayw { stroke: var(--text-2); stroke-width: 4; }
+.ie-perf { fill: var(--grid); }
+.ie-failarc { stroke: var(--critical); stroke-width: 1.4; stroke-dasharray: 4 2; }
+.ie-pal { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 6px 0; font-size: 12.5px; }
+.ie-chipbtn { border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; font-size: 12px; padding: 3px 9px; border-radius: 999px; cursor: pointer; }
+.ie-chipbtn.ie-act { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; font-weight: 600; }
+.ie-legrow { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--text-2); margin-top: 6px; }
+.ie-leg { white-space: nowrap; }
+
+/* fault simulator */
+.ie-segwrap { flex-wrap: wrap; }
+.ie-simwrap { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 12px; align-items: start; }
+@media (max-width: 1100px) { .ie-simwrap { grid-template-columns: minmax(0, 1fr); } }
+.ie-scope { display: block; width: 100%; height: 280px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }

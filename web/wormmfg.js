@@ -89,6 +89,61 @@ const OPS = [
   { k: "fin", no: 120, n: "Finish", mc: "Demagnetiser · laser marker · packing", steps: () => ["Demagnetise (residual field ≤ 0.3 mT)", "Laser mark serial no. + matched-pair no.", "Rust protection oil, VCI bag, box", "Close the part record (\"birth certificate\") – it goes with the worm"] },
 ];
 const TOL = { k5: [0.002, 0.011], h6: [-0.013, 0], h8: [-0.046, 0] };
+/* Equipment per operation: machine (with the REQUIRED capability = purchase spec), tooling, workholding, gauges, consumables.
+   Generic types + capability values (examples) - ask 2-3 suppliers for each, compare against these numbers. */
+const EQUIP = {
+  saw: (g) => ({ mc: `Automatic band saw (horizontal, double-column), capacity round ≥ Ø250 mm, bar feed + length stop ±0.3 mm, blade speed 20–100 m/min variable, coolant`,
+    tool: "Bimetal blade M42 27 × 0.9 mm, 4/6 TPI variable pitch (for Ø50–80 solid steel), 35–45 m/min in 16MnCr5",
+    fix: "Hydraulic vise + bar support rollers", gauge: "Length stop / steel tape (±0.5 mm), material certificate EN 10204 3.1 check, heat-number stamps",
+    cons: `Emulsion 5–8 %, bar 16MnCr5 Ø${g.Db} (+0/−… hot rolled or peeled)` }),
+  face: (g, P, R) => ({ mc: "CNC lathe with 3-jaw chuck Ø200 + self-centring steady rest (or a facing-centring machine for series): spindle ≥ 3000 rpm, ≥ 7.5 kW",
+    tool: `Facing insert CNMG 12 04 08 (P25, CVD coated); centre drill DIN 333 form ${R.O.face.cd.split(" ")[1] ? "B " + R.O.face.cd.split(" ")[1] : "B"} (HSS-E)`,
+    fix: "Steady rest set on the bar (runout ≤ 0.02 at the end), soft jaws", gauge: "Vernier caliper 0–300 / 0.02, centre-hole check with a 60° plug + blue paint (contact ≥ 80 %)", cons: "Emulsion, cutting oil for the centre drill" }),
+  turn: (g) => ({ mc: `CNC lathe, swing ≥ Ø300, distance between centres ≥ ${Math.ceil((g.L + 150) / 100) * 100} mm, spindle ≥ 4000 rpm, ≥ 11 kW, tailstock with quill pressure control (MT4 live centre)`,
+    tool: "Roughing CNMG 12 04 08 PM (P15–P25 CVD), finishing/profiling DNMG 15 04 04 PF / VBMT 16 04 04 (for undercuts), grooving 2–3 mm, thread insert 16ER 1.5 ISO (end thread)",
+    fix: "Face driver (or drive dog on the journal) + live centre; programmed tailstock force ≈ 3–5 kN",
+    gauge: "Outside micrometers 0–25 / 25–50 / 50–75 (0.001), caliper, thread ring gauge for the end thread (6g), surface roughness comparator", cons: "Emulsion 6–8 %, insert stock" }),
+  thread: (g, P) => (P.thr === "whirl"
+    ? { mc: `CNC lathe with C-axis + thread-whirling unit on the cross slide: whirling ring for Ø${Math.ceil(g.da / 10) * 10 + 20} mm, ring speed 1500–3000 rpm, ring swivel adjustable 0–±10° (set γ = ${f(g.gam / RAD, 2)}°), C-axis synchronised to the lead`,
+      tool: `Whirling ring with 6 form inserts, profile ground for m ${g.m} axial module, ${"ZK"}-flank, 2α = 40°, with ${P.s0} mm/flank grinding stock built into the profile; coated carbide K10–K20`,
+      fix: "Between centres (same centres as Op 30), steady rest near the whirling point for slender worms",
+      gauge: `3-wire set dw = ${f(g.dw, 3)} mm + micrometer 50–75 / 0.001 (soft over-wire M), optical profile comparator or thread template, pitch check with caliper over 5 pitches`, cons: "Neat cutting oil or MQL (whirling is often dry)" }
+    : P.thr === "mill"
+      ? { mc: `Thread / worm milling machine: work Ø ≤ 200 mm, length ≥ ${Math.ceil((g.L + 150) / 100) * 100} mm, cutter head swivel 0–±45° (set γ), lead 0.5–100 mm via electronic gearing`,
+        tool: `Disc cutter (gashed, relieved) for m ${g.m}, 2α = 40°, HSS-E PM TiAlN, Ø100–125 mm, profile includes ${P.s0} mm/flank stock`,
+        fix: "Between centres + driver", gauge: `3-wire set dw = ${f(g.dw, 3)} mm + micrometer 50–75`, cons: "Cutting oil" }
+      : { mc: `CNC lathe with threading cycle for lead ${f(g.lead, 3)} mm (non-standard lead: needs CNC or change gears 22/7 on a manual lathe), rigid cross slide, ≥ 11 kW`,
+        tool: `Form tool insert for m ${g.m} (full-profile, 40°) + narrow grooving insert for roughing; side clearance ≥ γ + 3° = ${f(g.gam / RAD + 3, 1)}° on the leading side (tilted holder / shim)`,
+        fix: "Between centres + driver; steady rest", gauge: `3-wire set dw = ${f(g.dw, 3)} mm + micrometer`, cons: "Cutting oil, many inserts (alternating flank infeed)" }),
+  ht: () => ({ mc: "Sealed-quench (integral-quench) batch furnace, working space e.g. 610 × 910 × 610 mm, 925 °C ±5 K uniformity, endothermic or N₂-methanol atmosphere, carbon-potential control (oxygen probe), oil-quench tank with agitation + oil temperature control; washer; tempering furnace 150–250 °C ±5 K",
+    tool: "Coupon of the same steel in every charge (Ø≥ section of the worm), temperature data logger / survey thermocouples (furnace uniformity check)",
+    fix: "Hanging fixture / grid of heat-resistant cast alloy (worms vertical → less bending); copper-paste masking of soft areas",
+    gauge: "Hydraulic straightening press 10–20 t with V-blocks/centres + dial gauge 0.01; wet fluorescent magnetic-particle crack test bench + UV-A lamp; furnace charts (temperature, C-potential)",
+    cons: "Quench oil (fast oil), endo gas / N₂ + methanol, copper anti-carburising paste, washer chemicals" }),
+  prep: () => ({ mc: "Shot-blast cabinet (or tumble blast) with steel shot S170 / cut wire; metallography: abrasive cut-off saw, hot mounting press, grinder/polisher; Vickers micro-hardness tester HV1 (ISO 6507); Rockwell tester HRC (ISO 6508); planetary centre-hole grinder (60° stone)",
+    tool: "Centre-hole grinding stones 60° (vitrified CBN or corundum)", fix: "Centre-hole grinder vise / chuck",
+    gauge: "Calibrated hardness test blocks (HRC 60, HV1), 60° centre-hole plug gauge + blue paint", cons: "Abrasive discs, polishing cloths, diamond paste, nital for coupon etch" }),
+  cyl: (g) => ({ mc: `CNC universal cylindrical grinder: between centres ≥ ${Math.ceil((g.L + 150) / 100) * 100} mm, swing ≥ Ø250, wheel Ø500 × 63, wheelhead 0–30° swivel, B-axis resolution, in-process 2-point gauge, roundness achievable ≤ 0.8 µm, paper-band/magnetic coolant filter`,
+    tool: "Wheel A80 K vitrified (or CBN B126 for series), single-point diamond / diamond roll dresser",
+    fix: "Dead centres both sides (hardened, 60°), driver on the journal; balance the wheel (≤ 0.4 µm/s vibration level)",
+    gauge: "In-process 2-point measuring head, indicating micrometer 0.001 / air gauge for k5 seats, roundness: V-block + dial 0.001 or roundness tester, setting masters", cons: "Grinding emulsion 3–5 % (filtered ≤ 20 µm), dressing diamonds" }),
+  tg: (g, P) => ({ mc: `CNC worm / thread grinding machine: work Ø ≤ 200 mm, between centres ≥ ${Math.ceil((g.L + 150) / 100) * 100} mm, module 0.5–10, flank forms ZA/ZI/ZK/ZN, wheelhead swivel ±45° (set γ = ${f(g.gam / RAD, 2)}°), lead accuracy ≤ 2 µm / 100 mm, separate lead per flank (duplex), CNC profile dressing, meshing-in probe, spindle power monitor (burn), oil coolant with chiller ±0.5 K`,
+    tool: `Single-rib disc wheel Ø350–400 (sintered corundum or CBN), profile dressed for ZK m ${g.m}; diamond dressing roll / disc`,
+    fix: "Dead centres (same reference as Op 70), driver", gauge: `Meshing-in probe; in-machine lead/profile check (option); 3-wire set dw ${f(g.dw, 3)} mm; temperature logger of coolant`,
+    cons: "Grinding oil (low viscosity, ISO VG 5–10), chiller, fine filtration ≤ 5 µm, dressing rolls" }),
+  etch: () => ({ mc: "Nital etch line per ISO 14104: 5–7 PP tanks (degrease, rinse, nital 2–5 %, rinse, HCl bleach, neutralise, dry), fume extraction (ATEX for alcohol), drain / neutralisation",
+    tool: "Reference samples with known burn classes", fix: "Stainless hooks/baskets", gauge: "White light ≥ 1000 lx inspection booth, burn-class reference chart; portable HRC tester for spot checks",
+    cons: "Nitric acid + ethanol (nital), HCl, alkaline neutraliser, PPE (gloves, face shield)" }),
+  gmm: (g) => ({ mc: `CNC gear measuring machine (4-axis), work Ø ≤ 400 mm, length between centres ≥ ${Math.ceil((g.L + 150) / 100) * 100} mm, worm software (lead L/R, profile ZK, pitch, runout), MPE ≈ 1.5–2.5 µm, in a 20 ±1 °C room`,
+    tool: "Ball probe Ø2 mm (ruby), calibrated master worm / lead + profile artefacts", fix: "Measuring centres (part referenced on the bearing seats)",
+    gauge: `3-wire set dw ${f(g.dw, 3)} mm (calibrated) + micrometer 50–75 with 0.001; stylus roughness tester (ISO 21920, λc 0.8 mm); temperature probe on the part`, cons: "Cleaning alcohol, lint-free cloth" }),
+  bench: (g, P) => ({ mc: `Worm gear test bench: rigid bed, adjustable centre distance ${f(g.a, 1)} mm (±0.002 readout), axial worm shift ${P.sRange} mm with micrometer, servo drive + torque sensor (worm side), hysteresis/powder brake ≥ ${Math.ceil(P.Tt * 1.5 / 100) * 100} N·m (wheel side), 2 rotary encoders ≥ 18 000 lines + interpolation (single-flank TE), temperature sensors, data acquisition`,
+    tool: `Master worm wheel z ${g.z2}, m ${g.m}, quality class 4 (better than the worm by ≥ 1 class), duplex-matched`, fix: "Worm bearing blocks identical to the rotary table (fixed + floating side)",
+    gauge: "Dial gauge 0.001 at the wheel pitch circle (backlash), marking paste (Prussian blue), sound level meter class 1, thermocouples", cons: `Gear oil ISO VG 220–460 (as in the rotary table), marking paste` }),
+  fin: () => ({ mc: "AC tunnel demagnetiser (or coil + slow pull-through); fibre laser marker 20 W with fume extraction",
+    tool: "Laser marking template (serial, pair no., DataMatrix)", fix: "V-block nest for marking", gauge: "Gauss meter / Hall probe (residual ≤ 0.3 mT), DataMatrix verifier",
+    cons: "Rust-protection oil, VCI bags, box with foam inserts, part-record print-out" }),
+};
 
 /* ------------------------------------------------------------------ geometry */
 function geom(W) {
@@ -690,6 +745,8 @@ if (box) {
         <button class="btn ghost" id="wmNew">New worm (random)</button><button class="btn ghost" id="wmExport">Download part record</button></div>
       <div class="dk-step" id="wmStep"></div>
       <div class="hr-grid"><div id="wmScene"></div><div class="apc3d-info" id="wmInfo"></div></div>
+      <div class="apc3d-bar" style="margin-top:8px"><button class="btn ghost" id="wm3dBtn">Show 3D view</button><span class="small muted">3D follows the same operation + progress · drag = turn, wheel = zoom, right drag = move</span></div>
+      <div class="mf3d" id="wm3d" hidden></div>
       <div class="wm-faults-wrap"><span class="tb-label">Inject a process fault (see where it starts and which check finds it):</span><div class="wm-faults" id="wmFaults"></div></div>
     </div>
     <div class="card" id="wmRepCard"><div class="card-head"><h2>Inspection report – gear measuring machine (Op 100)</h2><span class="sub" id="wmRepSub"></span></div><div class="wm-charts" id="wmRep"></div></div>
@@ -698,6 +755,7 @@ if (box) {
       <div class="card"><div class="card-head"><h2>Part record – route, time, cost</h2><span class="sub">per worm · set-up shared over the lot</span></div><div class="table-wrap"><table class="apc-bom" id="wmRouteT"></table></div></div>
       <div class="card"><div class="card-head"><h2>Lot simulation</h2><button class="btn ghost" id="wmLotRun">Run 50 worms</button></div><p class="small">Same process + the faults that are switched on, random variation of every value. Cpk ≥ 1.33 = capable process.</p><div class="table-wrap"><table class="apc-bom" id="wmLot"></table></div></div>
     </div>
+    <div class="card"><div class="card-head"><h2>Equipment list – machines, tooling, workholding, gauges, consumables</h2><span class="sub">required capability = purchase specification (example values) · ask 2–3 suppliers per line</span></div><div class="table-wrap"><table class="apc-bom wm-eq" id="wmEquip"></table></div></div>
     <div class="apc-main">
       <div class="card apc-incard"><div class="card-head"><h2>Process inputs</h2><button class="btn ghost" id="wmReset">Example values</button></div>
         <p class="small" id="wmGeo"></p>
@@ -740,6 +798,7 @@ if (box) {
     $("wmStep").innerHTML = `<span class="dk-n">Op ${o.no}</span> <b>${esc(steps[si])}</b>`;
     $("wmInfo").innerHTML = `<div class="apc-pi-h"><b>Op ${o.no} · ${esc(o.n)}</b></div><p class="muted">${esc(o.k === "thread" ? THR[P.thr].mc : o.mc)}</p>
       <ol class="wm-steps">${steps.map((t, i) => `<li class="${i === si ? "on" : i < si ? "done" : ""}">${esc(t)}</li>`).join("")}</ol>
+      ${eqHtml(o.k)}
       <h4>Settings</h4><table class="wm-kv">${x.par.map(([a, b]) => `<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join("")}</table>
       <h4>Checks in this operation</h4>${done ? x.res.map(([l, v, st]) => `<div class="apc-chk ${cls[st]}"><b>${ico[st]}</b><span>${esc(l)}</span><span class="muted">${esc(v)}</span></div>`).join("") : `<p class="muted">… measured at the end of the operation</p>`}
       <p class="small muted">time ${f(x.t, 1)} min/worm · set-up ${f(x.setup, 0)} min · $${f(x.cost, 1)}</p>`;
@@ -819,7 +878,13 @@ if (box) {
         <li><b>Worm + wheel = matched pair:</b> the wheel is hobbed with a duplex hob that has the SAME leads and profile as this worm (item 1). After the bench test the worm and its wheel get the same pair number.</li>
         <li><b>Make or buy:</b> the worm grinding machine + gear measuring machine are the expensive part. For a few tables per year, compare the cost per worm above with quotes from worm gear makers for a matched duplex set.</li></ul>`;
   }
-  function renderAll() { compute(); kpis(); route(); scene(); info(); reports(); formulas(); runLot(); }
+  function eqOf(k) { return EQUIP[k](g, P, R); }
+  function eqHtml(k) { const e = eqOf(k); return `<h4>Equipment</h4><table class="wm-kv">${[["Machine", e.mc], ["Tooling", e.tool], ["Workholding", e.fix], ["Gauges", e.gauge], ["Consumables", e.cons]].map(([a, b]) => `<tr><td>${a}</td><td>${esc(b)}</td></tr>`).join("")}</table>`; }
+  function equipTable() {
+    $("wmEquip").innerHTML = `<thead><tr><th>Op</th><th>Machine (required capability)</th><th>Tooling</th><th>Workholding</th><th>Gauges / test equipment</th><th>Consumables</th></tr></thead><tbody>${OPS.map((o) => { const e = eqOf(o.k);
+      return `<tr><td><b>${o.no}</b><br>${esc(o.n)}</td><td>${esc(e.mc)}</td><td>${esc(e.tool)}</td><td>${esc(e.fix)}</td><td>${esc(e.gauge)}</td><td>${esc(e.cons)}</td></tr>`; }).join("")}</tbody>`;
+  }
+  function renderAll() { compute(); kpis(); route(); scene(); info(); reports(); formulas(); runLot(); equipTable(); }
   function frame() { scene(); info(); route(); $("wmU").value = Math.round(u * 1000); $("wmPlay").textContent = playing ? "❚❚ Pause" : "▶ Play all"; }
   function go(n, keepU) { const prevDone = op; op = clamp(n, 0, OPS.length - 1); u = keepU ? u : 0; hold = 0; frame(); if (op >= 9 || prevDone >= 9) reports(); }
   function startLoop() {
@@ -848,11 +913,13 @@ if (box) {
   $("wmRoute").addEventListener("click", (ev) => { const b = ev.target.closest("[data-wmop]"); if (b) { playing = false; go(+b.dataset.wmop); } });
   $("wmSpd").addEventListener("click", (ev) => { const b = ev.target.closest("[data-wmspd]"); if (!b) return; speed = +b.dataset.wmspd; $("wmSpd").querySelectorAll(".seg-btn").forEach((x) => x.classList.toggle("active", x === b)); });
   $("wmNew").addEventListener("click", () => { serial++; renderAll(); frame(); });
+  $("wm3dBtn").addEventListener("click", () => { const el = $("wm3d"); el.hidden = !el.hidden; $("wm3dBtn").textContent = el.hidden ? "Show 3D view" : "Hide 3D view"; if (!el.hidden && !el.dataset.on) { el.dataset.on = "1"; import("./mfg3d.js").then((m) => m.create(el, () => window.wormMfg.state(), "worm")); } });
+  if (new URLSearchParams(location.search).has("show3d")) setTimeout(() => $("wm3dBtn").click(), 400);
   $("wmLotRun").addEventListener("click", () => runLot());
   $("wmExport").addEventListener("click", () => {
     const rec = { worm: `W-${String(R.sn).padStart(4, "0")}`, heat: R.O.saw.heat, geometry: { m: g.m, z1: g.z1, d1: g.d1, dp: g.dp, b1: g.b1, L: g.L }, faults: Object.keys(F).filter((k) => F[k]),
       operations: OPS.map((o) => ({ op: o.no, name: o.n, machine: o.k === "thread" ? THR[P.thr].mc : o.mc, setup_min: +R.O[o.k].setup.toFixed(1), time_min: +R.O[o.k].t.toFixed(2), cost: +R.O[o.k].cost.toFixed(2),
-        settings: Object.fromEntries(R.O[o.k].par), checks: R.O[o.k].res.map(([l, v, st]) => ({ check: l, value: v, result: st })) })), verdict: R.fails.length ? "REJECT" : "RELEASED", note: "simulated example values" };
+        settings: Object.fromEntries(R.O[o.k].par), equipment: eqOf(o.k), checks: R.O[o.k].res.map(([l, v, st]) => ({ check: l, value: v, result: st })) })), verdict: R.fails.length ? "REJECT" : "RELEASED", note: "simulated example values" };
     const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(rec, null, 2)], { type: "application/json" })); a.download = `${rec.worm}_part_record.json`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   });
   window.addEventListener("hmcrotchange", () => { if (!box.hidden) { renderAll(); frame(); } else compute(); });
@@ -860,14 +927,18 @@ if (box) {
   // item switch (HMC tab)
   function showItem(n) {
     document.querySelectorAll("[data-hritem]").forEach((b) => b.classList.toggle("active", b.dataset.hritem === n));
-    ["1", "2"].forEach((i) => { const el = $("hrItem" + i), it = $("hrIntro" + i); if (el) el.hidden = i !== n; if (it) it.hidden = i !== n; });
+    document.querySelectorAll("[data-hritem]").forEach((b) => { const i = b.dataset.hritem, el = $("hrItem" + i), it = $("hrIntro" + i); if (el) el.hidden = i !== n; if (it) it.hidden = i !== n; });
     if (n === "2") { renderAll(); frame(); startLoop(); }
+    window.dispatchEvent(new CustomEvent("hritemshow", { detail: n }));
   }
   document.querySelectorAll("[data-hritem]").forEach((b) => b.addEventListener("click", () => showItem(b.dataset.hritem)));
-  window.wormMfg = { show: () => showItem("2") };
+  window.wormMfg = { show: () => showItem("2"), showItem, current: () => { if (!R) compute(); return { R, g }; }, state: () => ({ k: OPS[op].k, no: OPS[op].no, n: OPS[op].n, u, g, R, P, F, visible: !box.hidden && pane && pane.classList.contains("active") }) };
   const q = new URLSearchParams(location.search);
   if (q.get("wmf")) q.get("wmf").split(",").forEach((k) => { if (FAULTS.some((x) => x[0] === k)) F[k] = true; });
   if (q.get("wmsn")) serial = Math.max(1, parseInt(q.get("wmsn"), 10) || 1);
-  if (q.get("hritem") === "2") { inputs(); showItem("2"); }
+  if (q.get("hritem")) { inputs(); setTimeout(() => showItem(q.get("hritem")), 0); }
   if (q.get("wmop")) { const i = OPS.findIndex((o) => o.no === parseInt(q.get("wmop"), 10)); if (i >= 0) { op = i; u = q.get("wmu") ? clamp(parseFloat(q.get("wmu")), 0, 1) : 1; renderAll(); frame(); } }
 }
+
+/* shared helpers for the worm-wheel twin (wheelmfg.js) */
+export { $, esc, f, RAD, SEC, AL, ALS, clamp, ease, lerp, rngOf, gauss, chart, svgOpen, txt, big, sparks, defs, STEEL, HARD, GRD, CARB, WHEEL, CL, CR, wormData, OPS as WORM_OPS, geom as wormGeom, thrR, segAt, htCycle, thrStateAt, THR };

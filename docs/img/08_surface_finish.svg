@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" width="1100" height="720" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<title>Surface finish – feed marks of a turning / boring insert and scallops of a ball-nose cutter</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1100" height="720" fill="#ffffff"/>
+<rect x="6" y="6" width="1088" height="708" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold">Surface finish – feed marks of a turning / boring insert and scallops of a ball-nose cutter</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#000">Profiles drawn very much enlarged in height (not to scale). Theoretical values – real Ra is higher with vibration, wear, built-up edge or rubbing.</text>
+<rect x="20.0" y="70.0" width="520.0" height="420.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="30.0" y="92.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">A  Boring / turning insert with nose radius r</text>
+<path d="M40.0,302.4 A80,80 0 0,0 140.0,302.4 A80,80 0 0,0 240.0,302.4 A80,80 0 0,0 340.0,302.4 A80,80 0 0,0 440.0,302.4 L440.0,380 L40.0,380 Z" fill="#e6e6e6" stroke="#000" stroke-width="2"/>
+<text x="80.0" y="370.0" font-size="12" text-anchor="start" fill="#000">workpiece (bore wall)</text>
+<circle cx="390.0" cy="240.0" r="80.0" fill="none" stroke="#000" stroke-width="1.2" stroke-dasharray="5 4"/>
+<circle cx="390.0" cy="240.0" r="3.0" fill="#000" stroke="#000" stroke-width="1.5"/>
+<line x1="390.0" y1="240.0" x2="430.0" y2="309.3" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<text x="404.0" y="266.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">r</text>
+<text x="330.0" y="152.0" font-size="11" text-anchor="start" fill="#000">insert nose (last revolution)</text>
+<line x1="290.0" y1="220.0" x2="390.0" y2="220.0" stroke="#c0392b" stroke-width="1.2" marker-start="url(#arA)" marker-end="url(#arA)"/>
+<line x1="290.0" y1="214.0" x2="290.0" y2="244.0" stroke="#000" stroke-width="0.6"/>
+<line x1="390.0" y1="214.0" x2="390.0" y2="244.0" stroke="#000" stroke-width="0.6"/>
+<text x="340.0" y="214.0" font-size="12" text-anchor="middle" fill="#c0392b" font-weight="bold">f (feed per rev)</text>
+<line x1="180.0" y1="302.4" x2="270.0" y2="302.4" stroke="#000" stroke-width="0.6" stroke-dasharray="2 2"/>
+<line x1="180.0" y1="320.0" x2="270.0" y2="320.0" stroke="#000" stroke-width="0.6" stroke-dasharray="2 2"/>
+<line x1="264.0" y1="280.4" x2="264.0" y2="302.4" stroke="#c0392b" stroke-width="1.2" marker-end="url(#arA)"/>
+<line x1="264.0" y1="342.0" x2="264.0" y2="320.0" stroke="#c0392b" stroke-width="1.2" marker-end="url(#arA)"/>
+<text x="270.0" y="294.4" font-size="13" text-anchor="start" fill="#c0392b" font-weight="bold">Rth</text>
+<text x="34.0" y="400.0" font-size="12" text-anchor="start" fill="#000">Rth = f² / (8 · r)  |  Ra ≈ 0.032 · f² / r ≈ Rth / 4  |  f = √(8 · r · Rth)</text>
+<text x="34.0" y="421.0" font-size="12" text-anchor="start" fill="#000">Bearing seat Ø62 fine bore: f 0.10, r 0.8 -&gt; Rth 1.56 µm, Ra ≈ 0.40 µm</text>
+<text x="34.0" y="442.0" font-size="12" text-anchor="start" fill="#000">Cylinder bore (§10.5): f 0.12, r 0.8 -&gt; Rth 2.25 µm, Ra ≈ 0.56 µm</text>
+<text x="34.0" y="463.0" font-size="12" text-anchor="start" fill="#000">Wiper insert: about 2 × feed for the same Ra</text>
+<rect x="560.0" y="70.0" width="520.0" height="420.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="570.0" y="92.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">B  Ball-nose cutter, step-over ae (3D finishing)</text>
+<path d="M650.0,302.4 A80,80 0 0,0 750.0,302.4 A80,80 0 0,0 850.0,302.4 A80,80 0 0,0 950.0,302.4 L950.0,380 L650.0,380 Z" fill="#e6e6e6" stroke="#000" stroke-width="2"/>
+<circle cx="800.0" cy="240.0" r="80.0" fill="none" stroke="#000" stroke-width="1.2" stroke-dasharray="5 4"/>
+<circle cx="800.0" cy="240.0" r="3.0" fill="#000" stroke="#000" stroke-width="1.5"/>
+<line x1="800.0" y1="240.0" x2="730.7" y2="280.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<text x="750.0" y="262.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">R</text>
+<line x1="800.0" y1="146.0" x2="900.0" y2="146.0" stroke="#c0392b" stroke-width="1.2" marker-start="url(#arA)" marker-end="url(#arA)"/>
+<text x="850.0" y="140.0" font-size="12" text-anchor="middle" fill="#c0392b" font-weight="bold">ae (step-over)</text>
+<line x1="800.0" y1="140.0" x2="800.0" y2="162.0" stroke="#000" stroke-width="0.6"/>
+<line x1="900.0" y1="140.0" x2="900.0" y2="240.0" stroke="#000" stroke-width="0.6" stroke-dasharray="2 2"/>
+<line x1="870.0" y1="280.4" x2="870.0" y2="302.4" stroke="#c0392b" stroke-width="1.2" marker-end="url(#arA)"/>
+<line x1="870.0" y1="342.0" x2="870.0" y2="320.0" stroke="#c0392b" stroke-width="1.2" marker-end="url(#arA)"/>
+<line x1="820.0" y1="320.0" x2="890.0" y2="320.0" stroke="#000" stroke-width="0.6" stroke-dasharray="2 2"/>
+<text x="876.0" y="294.4" font-size="13" text-anchor="start" fill="#c0392b" font-weight="bold">h (scallop)</text>
+<text x="574.0" y="400.0" font-size="12" text-anchor="start" fill="#000">h = R − √(R² − (ae/2)²) ≈ ae² / (8 · R)  |  ae = √(8 · R · h)</text>
+<text x="574.0" y="421.0" font-size="12" text-anchor="start" fill="#000">Ø10 ball (R 5), ae 0.5 mm -&gt; h = 6.25 µm</text>
+<text x="574.0" y="442.0" font-size="12" text-anchor="start" fill="#000">For h = 2 µm: ae = √(8 · 5 · 0.002) = 0.283 mm</text>
+<text x="574.0" y="463.0" font-size="12" text-anchor="start" fill="#000">Deff = 2·√(ap·(D − ap)): ap 1 -&gt; 6.0 mm, vc at 10 000 rpm = 188 m/min</text>
+<rect x="20.0" y="500.0" width="620.0" height="200.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="30.0" y="522.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">C  What each operation can reach (typical, good conditions)</text>
+<text x="30.0" y="546.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Operation</text>
+<text x="240.0" y="546.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Ra (µm)</text>
+<text x="330.0" y="546.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Size (IT)</text>
+<text x="450.0" y="546.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Note</text>
+<line x1="26.0" y1="552.0" x2="634.0" y2="552.0" stroke="#000" stroke-width="0.8"/>
+<text x="30.0" y="572.0" font-size="12" text-anchor="start" fill="#000">Face milling (wiper)</text>
+<text x="240.0" y="572.0" font-size="12" text-anchor="start" fill="#000">0.8–3.2</text>
+<text x="330.0" y="572.0" font-size="12" text-anchor="start" fill="#000">flat 0.01–0.03</text>
+<text x="450.0" y="572.0" font-size="12" text-anchor="start" fill="#000">per 100 mm</text>
+<text x="30.0" y="593.0" font-size="12" text-anchor="start" fill="#000">Drilling, carbide</text>
+<text x="240.0" y="593.0" font-size="12" text-anchor="start" fill="#000">1.6–6.3</text>
+<text x="330.0" y="593.0" font-size="12" text-anchor="start" fill="#000">IT8–IT10</text>
+<text x="450.0" y="593.0" font-size="12" text-anchor="start" fill="#000">position ±0.02–0.05</text>
+<text x="30.0" y="614.0" font-size="12" text-anchor="start" fill="#000">Reaming</text>
+<text x="240.0" y="614.0" font-size="12" text-anchor="start" fill="#000">0.4–1.6</text>
+<text x="330.0" y="614.0" font-size="12" text-anchor="start" fill="#000">IT6–IT7</text>
+<text x="450.0" y="614.0" font-size="12" text-anchor="start" fill="#000">follows the hole</text>
+<text x="30.0" y="635.0" font-size="12" text-anchor="start" fill="#000">Fine boring</text>
+<text x="240.0" y="635.0" font-size="12" text-anchor="start" fill="#000">0.4–1.6</text>
+<text x="330.0" y="635.0" font-size="12" text-anchor="start" fill="#000">IT6–IT7</text>
+<text x="450.0" y="635.0" font-size="12" text-anchor="start" fill="#000">corrects position</text>
+<text x="30.0" y="656.0" font-size="12" text-anchor="start" fill="#000">Helical / circular milling</text>
+<text x="240.0" y="656.0" font-size="12" text-anchor="start" fill="#000">1.6–3.2</text>
+<text x="330.0" y="656.0" font-size="12" text-anchor="start" fill="#000">IT7–IT9</text>
+<text x="450.0" y="656.0" font-size="12" text-anchor="start" fill="#000">size by D offset</text>
+<text x="30.0" y="677.0" font-size="12" text-anchor="start" fill="#000">Honing (cylinder bore)</text>
+<text x="240.0" y="677.0" font-size="12" text-anchor="start" fill="#000">0.1–0.4</text>
+<text x="330.0" y="677.0" font-size="12" text-anchor="start" fill="#000">IT5–IT6</text>
+<text x="450.0" y="677.0" font-size="12" text-anchor="start" fill="#000">plateau profile</text>
+<text x="660.0" y="520.0" font-size="12" text-anchor="start" fill="#000">Side milling feed mark ≈ fz² / (4 · D):</text>
+<text x="660.0" y="538.0" font-size="12" text-anchor="start" fill="#000">D16, fz 0.08 -&gt; 0.1 µm (negligible:</text>
+<text x="660.0" y="556.0" font-size="12" text-anchor="start" fill="#000">run-out and vibration decide Ra)</text>
+<rect x="656.0" y="654.0" width="430.0" height="52.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
+<line x1="656.0" y1="680.0" x2="1086.0" y2="680.0" stroke="#000" stroke-width="1"/>
+<text x="664.0" y="672.0" font-size="13" text-anchor="start" fill="#c0392b" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="664.0" y="698.0" font-size="12" text-anchor="start" fill="#000">Guide 08 – CNC / G-code · 08_surface_finish</text>
+</svg>

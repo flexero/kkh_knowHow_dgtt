@@ -28,6 +28,42 @@ It explains the PLC layer of the digital twin, and how to do the same work corre
 15. Data you still need
 16. Glossary
 
+**Part B – controls engineering textbook and design reference (added)**
+
+17. PLC hardware architecture – CPU, memory, I/O, distributed I/O, cycle time, redundancy
+18. IEC 61131-3 – data types, standard blocks, the 4 languages for one cell, Siemens / CODESYS / Rockwell names
+19. Program structure, coding standard, version control
+20. State machines – PackML (ISA-TR88.00.02) states and modes
+21. Sequence design with GRAFCET (IEC 60848) – the HMC01 cell
+22. Interlocks, permissives, bypasses, first-out
+23. Alarm handling in the PLC (ISA-18.2 basics)
+24. Analog signals in depth – scaling, filters, Pt100, analog outputs
+25. Counters, high-speed inputs, encoders
+26. PID control in depth – identification, tuning, anti-windup, worked coolant loop
+27. Motion control – PLCopen motion blocks, axis states, camming
+28. Safety PLC programming – F-program, PROFIsafe, response time
+29. Communication from the PLC – PROFINET, EtherNet/IP, EtherCAT, Modbus TCP, OPC UA server, MQTT
+30. Simulation and virtual commissioning
+31. Testing PLC software – unit tests, FAT/SAT test cases
+32. Cyber security of the PLC (IEC 62443)
+33. Diagnostics and troubleshooting
+34. Documentation set for the control system
+35. Buy list – catalogue examples + shopping list for the crankcase line controls
+36. Formula sheet and new glossary terms
+
+**Drawings in this guide** (files `docs/img/05_*.svg`, also in `web/img/`):
+
+| Drawing | File | Section |
+|---|---|---|
+| Control architecture of the crankcase line (PLC-01) | `img/05_plc_architecture.svg` | 2.2, 17 |
+| Scan cycle and worst-case reaction time | `img/05_scan_cycle.svg` | 3.2, 17.4 |
+| Ladder examples: seal-in, interlock, TON, CTU, set/reset | `img/05_ladder_examples.svg` | 3.5, 18.3 |
+| GRAFCET of the HMC01 machine-tending cell | `img/05_grafcet_cell.svg` | 3.6, 21 |
+| Analog scaling 4–20 mA → counts → °C | `img/05_analog_scaling.svg` | 4.4, 24 |
+| PID loop + step response with tuning values | `img/05_pid_loop.svg` | 10.7, 26 |
+| Cabinet I/O wiring of HMC01 | `img/05_cabinet_io_wiring.svg` | 14.2 |
+| PackML state model | `img/05_packml_states.svg` | 20 |
+
 > **Binding rules for the real factory** (they replace the twin's example values where they differ):
 > * E-stop: **release → reset (local, blue button) → separate start**. Never automatic restart (see 4.7, 5.8, 14.5).
 > * One address scheme for all line PLCs: chapter 12.4 (= doc 15 §3.11, HMC01 = block 2: `%I20.x`, `%IW80`, DB12). SCADA reads PLC data **by symbol over OPC UA**
@@ -100,8 +136,8 @@ The twin creates one PLC per production line, and one PLC per AS/RS stacker cran
 | PLC-03 | Crankshaft machining: LATHE-01, GRIND-01 | S7-1513-1 PN | 192.168.10.13 | standard CPU |
 | PLC-04 | Assembly & test: ASSY-01, ROBOT-01, TEST-01, TEST-02, PAINT-01 | S7-1516F (fail-safe) | 192.168.10.14 | robot cell → safety functions |
 | PLC-05 | Final assembly & packing: FINAL-01, PACK-01 | S7-1513-1 PN | 192.168.10.15 | standard CPU |
-| PLC-ASRS-RAW | Raw material AS/RS stacker crane | S7-1515-2 PN | 192.168.10.31 | crane, own safety (rack door) |
-| PLC-ASRS-FG | Finished goods AS/RS stacker crane | S7-1515-2 PN | 192.168.10.32 | same |
+| PLC-ASRS-RAW | Raw material AS/RS stacker crane | S7-1515F-2 PN (fail-safe) | 192.168.10.31 | crane, own safety (rack door) |
+| PLC-ASRS-FG | Finished goods AS/RS stacker crane | S7-1515F-2 PN (fail-safe) | 192.168.10.32 | same |
 
 Rule in the code (`PLCNet.__init__`): a line PLC gets a **fail-safe CPU** if one of its stations is a robot,
 a load station, or has a tool magazine. You can also force a station to a named PLC with a `"plc"` field in
@@ -119,6 +155,10 @@ another PLC's station. In the example:
 
 > **IP addresses**: the IPs in this table are the twin's examples. The real plan is `10.<VLAN>.0.<host>`
 > (doc 15 §3.13, VLANs in guide 07): PLC-01 → `10.51.0.11`; the host number stays the same.
+
+![Control architecture of the crankcase line: PLC-01 F-CPU rack, HMI, PN/PN coupler, PROFINET MRP ring with 5 stations, PROFIsafe devices, plant network and firewall (example)](img/05_plc_architecture.svg)
+
+The drawing shows the real-factory form of PLC-01 (IP plan of doc 15). Hardware details: chapter 17.
 
 **Buffer owner**: the PLC that "sees the sensors" of a buffer is the AS/RS PLC if the buffer is in an AS/RS,
 else the PLC of the consuming line, else the producing line. This is the PLC that answers the AGV during docking.
@@ -151,6 +191,10 @@ The PLC repeats 4 steps without end:
 
 Why a process image? During one scan all logic sees the **same** input values. A signal cannot change in
 the middle of the program. This makes the logic predictable.
+
+![Scan cycle timeline with PII, OB1, PIQ, communication; a sensor change at 2.5 ms reaches the valve after 13.75 ms; worst case 14.6 ms (example)](img/05_scan_cycle.svg)
+
+Cycle-time calculation, jitter and watchdog: chapter 17.4.
 
 ### 3.3 Addresses: %I, %Q, %IW, DB
 
@@ -190,6 +234,10 @@ Ladder logic (LD) looks like an electrical drawing. Two vertical "rails"; curren
 
 The twin draws the ladder **live**: green lines = current flows, from the real I/O values.
 
+![Five ladder patterns with HMC01 tags: start/stop seal-in, mutual interlock, TON debounce, CTU tool-life counter, set/reset alarm latch](img/05_ladder_examples.svg)
+
+The same logic in FBD, ST and SFC: chapter 18.4.
+
 ### 3.6 Step chains (sequences)
 
 Most machine work is a sequence: "unclamp → lift → rotate → lower → clamp". A **step chain** does one step at
@@ -204,6 +252,10 @@ IEC 61131-3) is the PLC language for it. You can also program a step chain in ST
 
 Why a step chain and not free logic? You always know **which step** the machine is in. If it stops, the
 operator sees "Step 4 – waiting for sensor 180°". Fault finding becomes easy.
+
+![GRAFCET of HMC01: initial step, wait for loaded pallet, macro-step APC change, AND branch machining / load-unload, part report, fault step (example)](img/05_grafcet_cell.svg)
+
+GRAFCET rules and the full cell sequence with times: chapter 21.
 
 ### 3.7 Handshake
 
@@ -229,7 +281,10 @@ If one answer is missing, the sequence waits. That is the protection a handshake
 | Who may change the program | maintenance engineer | only qualified + safety signature, change control |
 
 A fail-safe CPU (e.g. Siemens "F" CPU) runs **both** programs: standard and safety, separated.
-In the twin, PLC-01, PLC-04 and the AS/RS PLCs are safety PLCs.
+In the twin, PLC-01 and PLC-04 are fail-safe CPUs (S7-1516F), and the AS/RS PLCs are fail-safe CPUs
+(S7-1515F-2 PN, +0.4 ms in the scan formula) because the stacker crane has a PROFIsafe light curtain and door switch.
+(Older app versions showed the standard name `S7-1515-2 PN` – corrected 2026-11-12.) Alternative for a real crane:
+standard CPU + a separate safety relay for the rack door.
 
 ### 3.9 E-stop and stop categories
 
@@ -368,6 +423,10 @@ v   = 150 · 7594 / 27648 = 41.2 °C
 On real Siemens modules, values above 27648 are the overrange area. Many modules report 32767 (7FFF hex)
 for overflow or wire break – **check the manual of your module** and program a "bad value" alarm for it.
 In TIA Portal you can use the `NORM_X` + `SCALE_X` instructions for this conversion.
+
+![4–20 mA to raw counts to °C: nominal range 0–27648, under/overrange, NE 43 fault limits, HMC01 example point 8.39 mA → 7594 → 41.2 °C](img/05_analog_scaling.svg)
+
+More (other makers' counts, Pt100, analog outputs, filters): chapter 24.
 
 ### 4.5 Ladder logic of each station (5 networks)
 
@@ -854,6 +913,10 @@ endurance test for the AGV ↔ APC interface).
   simulation – in a real factory it is forbidden (release → reset → start).
 * The E-stop is a **software command** in the twin. A real E-stop is a hard-wired red mushroom button.
 * E-stop of the AS/RS crane PLCs is not simulated.
+* The AS/RS PLCs are fail-safe CPUs `S7-1515F-2 PN` (+0.4 ms in the scan formula; name corrected in the app
+  2026-11-12, see 3.8).
+* The twin's HMC pallet change uses `pallet_changer.change_s = 15` from `config/factory.json` (cycle 360 s) until
+  the APC page value 8.8 s is sent with "Use in twin" (chapter 21.2).
 * **Example addresses are not one consistent I/O list.** Examples:
   * The PLC tab numbers by slot inside the PLC (`%IW(64 + 16·k)`, `DB(20+k)`); the SCADA tag database numbers by
     machine index in the whole factory (`%IW(64 + 8·i)`, `DB(10+i)`). So HMC-01 temperature is `%IW80` in the PLC tab,
@@ -1083,6 +1146,10 @@ Rules:
 * Use **anti-wind-up** (stop integrating when the output is at 0 % or 100 %).
 * Use the vendor's tested block (e.g. Siemens `PID_Compact`) and its auto-tuning, then check on the real plant.
 * Machine-internal loops (spindle speed, axis position) are inside the CNC/drive – not your PLC job.
+
+![PID loop block diagram of the coolant temperature with anti-windup, and simulated step responses: lambda PI vs Ziegler–Nichols PID (example)](img/05_pid_loop.svg)
+
+Step test, tuning formulas, worked numbers and ST code: chapter 26.
 
 ### 10.8 Debounce and signal filtering
 
@@ -1482,7 +1549,8 @@ The F-DI channel pairing (0+4, 1+5 …) depends on the module – check the manu
 
 ### 11.13 PLC program structure (IEC 61131-3)
 
-IEC 61131-3 defines the languages (LD, FBD, ST, SFC; IL is removed in edition 3) and the program organisation
+IEC 61131-3 defines the languages (LD, FBD, ST, SFC; IL – instruction list – was marked "deprecated" in edition 3 of 2013
+and is dropped in the newer edition – do not use it) and the program organisation
 units (programs, function blocks, functions). It does **not** define names – the naming below is a project rule
 (similar to the PLCopen coding guidelines).
 
@@ -1653,7 +1721,7 @@ to avoid a wrong reference.
 
 | Number | Title (short) | Requirement for this factory | Value / clause | Verification |
 |---|---|---|---|---|
-| IEC 61131-3 | PLC programming languages | program in LD, FBD, ST, SFC; structure with FB / FC / DB | edition 3: IL not to be used | code review |
+| IEC 61131-3 | PLC programming languages | program in LD, FBD, ST, SFC; structure with FB / FC / DB | IL deprecated since edition 3 (2013) – not to be used | code review |
 | IEC 61131-2 | PLC equipment requirements | 24 V DC range, DI types | 24 V −15 %/+20 % (20.4–28.8 V); input types 1/2/3 | data sheets |
 | IEC 61131-9 | IO-Link (SDCI) | smart sensors | max 20 m cable | commissioning |
 | IEC 60204-1 | Electrical equipment of machines | stop categories 0/1/2; E-stop cat 0 or 1; wire colours; push-button and lamp colours; enclosure ≥ IP22; voltage drop ≤ 5 %; ambient 5–40 °C; documentation; conductor identification | check clause numbers in your edition | inspection, continuity of PE, insulation test, voltage test as required, functional test |
@@ -1734,6 +1802,11 @@ for them, per manual).
 switch-on the feedback must be 1 (both open), else no switch-on (welded contact detected).
 
 Wire numbers on the schematic `VC-ELE-SCH-0901` follow page.column (e.g. `23.4`), 12.3.
+
+![Cabinet I/O wiring of HMC01: fused 24 V groups, DI card with key switch and PNP sensors, DQ card with lamp, solenoid and interposing relay with diodes, AI card with two 2-wire transmitters (example)](img/05_cabinet_io_wiring.svg)
+
+The fail-safe wiring (E-stop, door, light curtain, safety contactors) is drawn in guide 24 (`img/24_io_wiring.svg`,
+`img/24_safety_circuit_cat3.svg`).
 
 ### 14.3 Addresses (from 12.4, b = 2)
 
@@ -2054,3 +2127,1495 @@ from your design, suppliers or site:
 | MRP | Media Redundancy Protocol – PROFINET ring redundancy |
 | F-signature | checksum of the safety program, recorded at validation |
 | Interface DB | data block with the values that SCADA / MES may read and write (OPC UA) |
+
+
+---
+
+# Part B – Controls engineering textbook and design reference
+
+Part A (chapters 1–16) explains the twin and the method for the real factory. Part B adds what a controls engineer
+needs to **design, program, buy, test and maintain** the PLC layer: hardware, languages with code, state machines,
+sequences, alarms, analog and fast signals, PID, motion, safety programming, networks, simulation, tests, security,
+diagnostics and buy lists. Where another guide already treats a subject in depth, this guide gives the PLC view and a
+link: robot control and safety theory (guide 23), cabinet and safety circuits (guide 24), SCADA (guide 06),
+networks, OPC UA and MQTT (guide 07), pallet changer sequence (guide 09).
+
+All numbers in Part B were checked with a small Python script (standard library only). Device data are **examples**
+– always take the real value from the current datasheet of the maker.
+
+---
+
+## 17. PLC hardware architecture
+
+### 17.1 The parts of a PLC system
+
+| Part | What it does | Example in PLC-01 (twin: S7-1500 style) |
+|---|---|---|
+| Load power supply (PM) | 230 V AC → 24 V DC for CPU and I/O | PM 70 W 120/230 V AC, or the cabinet 24 V PSU |
+| System power supply (PS) | feeds the backplane bus when many modules are plugged | only if the CPU cannot feed all modules (power budget in the hardware configuration) |
+| CPU | runs the program, holds the process image, communicates | CPU 1516F-3 PN/DP (fail-safe) |
+| Memory card | load memory: program, recipes, logs; needed to start | SIMATIC memory card (size from program + logs; spare card in stock) |
+| Central I/O | modules on the CPU rack | DI 32, DQ 32, AI 8, F-DI, F-DQ for line signals |
+| Distributed (remote) I/O | I/O stations near the machine, on PROFINET | ET 200SP per station (IP20 in a small box) or IP67 blocks on the machine |
+| Communication | PROFINET ports, plant network port, CPs | X1 field (PROFINET), X2 plant (OPC UA) |
+| HMI | operator panel on PROFINET | 12″ touch panel at the line |
+
+The architecture drawing of PLC-01 is in section 2.2 (`img/05_plc_architecture.svg`).
+
+**Why separate X1 and X2?** The field network (PROFINET, real time) and the plant network (OPC UA, IT traffic)
+are two zones (IEC 62443, chapter 32). A broadcast storm in the office network must not disturb the 2 ms
+PROFINET cycle. Most S7-1500 CPUs have two or three separate interfaces for this.
+
+### 17.2 Memory types (Siemens terms, other makers similar)
+
+| Memory | Content | Lost at power off? | Sizing rule |
+|---|---|---|---|
+| Load memory (memory card) | complete project incl. comments, recipes, data logs | no | card ≥ 2 × project size + logs |
+| Work memory – code | executable code blocks | reloaded from the card | ≤ 70 % used at FAT (company rule 11.6) |
+| Work memory – data | DBs, process image, instance data | reloaded (start values) | ≤ 70 % used at FAT |
+| Retentive memory | values that must survive power off (counters, set points) | no | mark only what is needed |
+
+Typical class of an S7-1516F: about 1–2 MB code work memory and about 5 MB data work memory (see datasheet).
+The station FB of chapter 14.5 needs a few kB per instance – memory is rarely the limit in a machining line;
+**cycle time** and **communication resources** (number of OPC UA sessions and monitored items, HMI connections) are.
+
+### 17.3 CPU sizing – a simple method
+
+1. Count I/O (with 20 % reserve), stations, axes (motion), safety I/O, HMI and OPC UA clients.
+2. Estimate the program: about 1 000–3 000 instructions per station FB (step chain, handshake, alarms, scaling).
+3. Multiply with the instruction times from the catalogue and add overhead (block calls, instance data): factor 3.
+4. Add the process-image transfer, the communication load and the interrupt OBs (F-runtime group, PID).
+5. Choose a CPU so that the **maximum** cycle time is below 1/3 of the required reaction time and below 20 ms (11.6).
+
+Catalogue instruction times (Siemens S7-1500, typical values – **check the current datasheet**):
+
+| CPU | Bit operation | Word operation | Fixed-point | Floating-point |
+|---|---|---|---|---|
+| CPU 1513(F)-1 PN | 40 ns | 48 ns | 64 ns | 256 ns |
+| CPU 1515(F)-2 PN | 30 ns | 36 ns | 48 ns | 192 ns |
+| CPU 1516(F)-3 PN/DP | 10 ns | 12 ns | 16 ns | 64 ns |
+| CPU 1517(F)-3 PN/DP | 2 ns | 3 ns | 3 ns | 12 ns |
+
+### 17.4 Cycle time calculation – worked example PLC-01
+
+Program estimate (example): 5 station FBs × 2 000 + line logic 3 000 + alarms 2 000 = **15 000 instructions**,
+mix 50 % bit, 30 % word, 10 % fixed-point, 10 % floating-point, on a CPU 1516F:
+
+```
+t_instr = 7 500·10 ns + 4 500·12 ns + 1 500·16 ns + 1 500·64 ns
+        = 75 + 54 + 24 + 96 µs = 249 µs
+t_prog  = 3 · 249 µs ≈ 0.75 ms            (factor 3 for block calls, timers, instance data)
+t_PI    ≈ 0.05 ms                         (process image of central + distributed I/O)
+
+Shares of CPU time taken by interrupts and communication (examples):
+  F-runtime group: 1.5 ms every 20 ms     → 7.5 %
+  cyclic OB30 (PID): 0.3 ms every 100 ms  → 0.3 %
+  communication load limit                → 20 %
+
+t_cycle     ≈ (t_prog + t_PI) / (1 − 0.20 − 0.075 − 0.003) = 0.80 / 0.722 ≈ 1.1 ms   (typical)
+t_cycle,max ≈ 1.1 + 1.5 (F-group interrupts OB1) + 0.3 (OB30) ≈ 2.9 ms              (worst case)
+```
+
+The twin's teaching formula gives 5.3 ms for PLC-01 (4.6) – on the safe side of this estimate. In the real CPU,
+**measure** the current / minimum / maximum cycle time online (TIA Portal: Online & diagnostics → Cycle time).
+
+**Jitter** = the change of the cycle time from one cycle to the next (IF branches, step changes, interrupts,
+communication). Logic in OB1 sees this jitter. Everything that needs a **fixed** time (PID, motion, rate
+calculations, filters) goes into a **cyclic interrupt OB** (OB30–OB38, e.g. 100 ms) – its jitter is very small.
+
+**Watchdog**: the CPU monitors the maximum cycle time (S7-1500 default 150 ms – configurable). If OB1 is longer
+(endless loop, too much code), the time-error OB80 is called; if the time is exceeded again the CPU goes to STOP.
+Rule: set the maximum cycle time to about 3 × the measured maximum, and never write loops that wait for a signal.
+
+**Reaction time with remote I/O** (PROFINET update time 2 ms each way, see the drawing in 3.2):
+
+```
+t_r,max = t_DI filter + t_PN in + 2·t_cycle + t_PN out + t_DQ
+        = 3 + 2 + 2·5.3 + 2 + 1 = 18.6 ms        (twin cycle 5.3 ms)
+        = 3 + 2 + 2·2.9 + 2 + 1 = 13.8 ms        (estimated real maximum 2.9 ms)
+```
+
+Isochronous mode (Siemens: IRT with synchronous cycle OB6x) aligns input reading, program and output writing to
+the PROFINET clock – used for motion control and fast measuring, not needed for station logic.
+
+### 17.5 Distributed I/O – design rules
+
+| Rule | Why |
+|---|---|
+| One remote I/O station per machine / station, near the devices | short sensor cables, fewer terminals, one PROFINET cable to the cabinet |
+| IP20 station in a small box on the machine, or IP67 blocks directly on the machine | IP67 blocks save the box but cost more per channel |
+| Same module order and address block in every similar station (12.4) | technicians find signals fast; one FB type |
+| Plan ≥ 20 % spare channels and 2 free slots (11.6) | changes during commissioning |
+| F-modules in the same station for safety signals (PROFIsafe) | no separate safety wiring to the main cabinet |
+| Check the station 24 V budget and the max number of modules per head module | heads have limits – see datasheet |
+| Fixed PROFINET device name and IP per station (12.6) | device exchange without a programming device |
+
+### 17.6 Redundancy – is it worth it?
+
+```
+Availability     A = MTBF / (MTBF + MTTR)
+Downtime / year  = (8 760 h / MTBF) · MTTR
+Two redundant CPUs (one is enough):  A_red = 1 − (1 − A)²
+```
+
+Example: PLC hardware MTBF 250 000 h (example – ask the maker for the value of your configuration).
+
+| Case | MTTR | A | Downtime per year |
+|---|---|---|---|
+| Spare CPU + memory card in the store, backup ready | 2 h | 0.999992 | 0.07 h (4 min) |
+| No spare, CPU must be delivered | 72 h | 0.99971 | 2.5 h |
+| Redundant CPU pair (e.g. S7-1500R/H, ControlLogix redundancy) | – | > 0.9999999 | practically 0 (from the CPU) |
+
+Conclusion for a machining line: **a spare CPU and a current backup** give about 4 min/year. A redundant system
+doubles cost and engineering effort; it is used where a stop costs much more (central coolant system, compressed
+air station, cooling water). Much more downtime comes from sensors, cables and mechanics – spend the money on
+diagnostics (chapter 33) and spare parts.
+
+---
+
+## 18. IEC 61131-3 – data types, standard blocks and the four languages
+
+### 18.1 Elementary data types
+
+| Type | Size | Range | Use / warning |
+|---|---|---|---|
+| BOOL | 1 bit | 0 / 1 | signals, flags |
+| BYTE / WORD / DWORD | 8 / 16 / 32 bit | bit strings | status words (CiA 402 statusword), alarm words |
+| INT | 16 bit | −32 768 … 32 767 | analog raw values (27648) – **not for production counters** |
+| DINT | 32 bit | −2 147 483 648 … 2 147 483 647 | counters, positions in increments |
+| REAL | 32 bit IEEE 754 | ±3.4·10³⁸, about 7 digits | engineering values (°C, bar) |
+| LREAL | 64 bit | about 15 digits | long sums (energy over years) |
+| TIME | 32 bit (ms) | up to T#24D20H31M23S647MS | timers – longest PT ≈ 24.8 days |
+| STRING[n] | n + 2 bytes | text | program names "O2102", serial numbers |
+| DATE_AND_TIME / DTL | – | date + time | time stamps (from NTP) |
+
+Worked overflow checks (HMC cycle 345 s, one count per part):
+
+```
+INT counter:  32 767 parts × 345 s = 11.3·10⁶ s = 130.8 days   → overflow within half a year!
+DINT counter: 2 147 483 647 × 345 s → 23 477 years             → safe
+TIME:         (2³¹ − 1) ms = 24.855 days                        → use DINT seconds for longer times
+```
+
+This is also why `ProgramNo` "O0720" cannot sit in a WORD (twin limit, chapter 8): use INT 720 or STRING[8].
+
+### 18.2 Standard function blocks
+
+| Block | Inputs → outputs | Behaviour | Typical use |
+|---|---|---|---|
+| TON | IN, PT → Q, ET | Q = 1 when IN was 1 for PT | debounce, timeout, "door open > 5 s" |
+| TOF | IN, PT → Q, ET | Q stays 1 for PT after IN → 0 | fan run-on, stretch a pulse |
+| TP | IN, PT → Q, ET | pulse of exactly PT on rising IN | lubrication pulse, horn |
+| CTU / CTD / CTUD | CU, R, PV → Q, CV | count edges up / down | parts, tool life |
+| R_TRIG / F_TRIG | CLK → Q | Q = 1 for one cycle on a rising / falling edge | start button, M30 |
+| SR / RS | S1, R / S, R1 → Q1 | latch; SR = set dominant, RS = reset dominant | alarm latch (RS when reset must win) |
+
+### 18.3 Ladder diagram (LD)
+
+The drawing `img/05_ladder_examples.svg` (section 3.5) shows five patterns with HMC01 tags: start/stop seal-in,
+mutual interlock, TON debounce, CTU tool-life counter (0.45 % wear per part → 100 / 0.45 = 222 parts) and a set/reset
+alarm latch.
+
+Rules for LD: one coil per address (no double coils), contacts in positive logic (the NC-wired stop button is read as
+`StopButton_Ok` = 1 → NO contact in the program), a comment on every network. LD is the best language for
+**interlocks and simple logic** because electricians can follow it online.
+
+### 18.4 The same cell logic in FBD, ST and SFC
+
+**Function block diagram (FBD)** – the cycle-start permissive of 4.5, text form of the graphic:
+
+```
+             +-------+
+AutoMode ----|  AND  |
+DoorLocked --|       |
+ClampOk -----|       |---- CycleStart_Perm
+EStop_Ok ----|       |
+CncFault ---o|       |        (o = negated input)
+             +-------+
+```
+
+FBD is good for **signal flow** (analog processing, interlock groups) and is the main language of many safety
+editors (F-FBD).
+
+**Structured text (ST)** – best for calculations, CASE step chains, arrays and strings (complete example:
+`FB_Station` in 14.5):
+
+```
+CycleStart_Perm := AutoMode AND DoorLocked AND ClampPress_Ok AND EStop_Ok AND NOT CncFault;
+rSpindleTemp    := INT_TO_REAL(iRaw) * 150.0 / 27648.0;
+```
+
+**Sequential function chart (SFC)** – the step chain of chapter 21 drawn in the editor (Siemens S7-GRAPH,
+CODESYS SFC, Rockwell SFC routine). Each step has actions with qualifiers (N, S, R, P1, D, L), each transition a
+Boolean condition. SFC shows the **active step online** – the best language for sequences that technicians follow.
+
+| Language | Best for | Avoid for |
+|---|---|---|
+| LD | interlocks, simple Boolean logic, I/O mapping | maths, data handling |
+| FBD | signal flow, analog chains, safety programs | long sequences |
+| ST | maths, CASE step chains, arrays, strings, communication | logic that electricians must trace online |
+| SFC | machine sequences with steps and parallel branches | continuous control |
+
+### 18.5 Program organisation units – names in the three big ecosystems
+
+| IEC 61131-3 idea | Siemens TIA Portal | CODESYS (Beckhoff TwinCAT, WAGO, Schneider M262 …) | Rockwell Studio 5000 |
+|---|---|---|---|
+| Cyclic task | OB1 program cycle | cyclic task (e.g. 10 ms) | continuous task |
+| Periodic / interrupt task | OB30–OB38 cyclic interrupt, OB40 hardware interrupt | cyclic / event task with priority | periodic task / event task |
+| Start-up code | OB100 | init code with a first-cycle flag, `FB_init` | first-scan bit `S:FS` |
+| Program | OB + called FBs | PROGRAM (PRG) | program with routines |
+| Function block with memory | FB + instance DB | FUNCTION_BLOCK + instance | Add-On Instruction (AOI) |
+| Function without memory | FC | FUNCTION | routine / AOI without state |
+| Global data | global DB, PLC tags | GVL (global variable list) | controller-scoped tags |
+| User data type | PLC data type (UDT) | STRUCT (DUT) | user-defined type (UDT) |
+| Fault handling | OB80–OB122 | exception handling, task watchdog | major / minor faults, fault routine |
+| Safety program | F-runtime group (STEP 7 Safety) | TwinSAFE / CODESYS Safety editor | safety task (GuardLogix) |
+
+---
+
+## 19. Program structure, coding standard, version control
+
+### 19.1 Layered structure (ISA-88 physical model idea)
+
+```
+Line (FB_Line, one per PLC)
+ └─ Unit / station (FB_Station, one per station; PackML state machine, chapter 20)
+     └─ Equipment module (FB_APC, FB_LoadStation – a group with its own sequence)
+         └─ Control module / device (FB_Valve2Pos, FB_Motor, FB_AnalogIn, FB_Axis)
+```
+
+Each layer only commands the layer **below** and reports to the layer **above**. A device FB never decides about
+the sequence; a station FB never writes an output address directly – it calls a device FB. Result: the same
+`FB_Valve2Pos` is tested once and used 200 times.
+
+### 19.2 Example device block – double-acting valve with end-position feedback
+
+```
+FUNCTION_BLOCK FB_Valve2Pos          // 5/2 or 5/3 valve, 2 end-position sensors, timeout alarm
+VAR_INPUT
+    xCmdWork, xCmdHome : BOOL;       // from the sequence
+    xFbWork, xFbHome   : BOOL;       // end-position sensors (PNP)
+    xPermWork          : BOOL;       // permissive from the station (chapter 22)
+    xManual, xJogWork, xJogHome : BOOL;
+    tMove              : TIME := T#2S;   // design time 0.8 s × 2 ... 2.5 (5.5)
+    xReset             : BOOL;
+END_VAR
+VAR_OUTPUT
+    xOutWork, xOutHome : BOOL;       // solenoids
+    xAtWork, xAtHome   : BOOL;       // confirmed positions
+    xAlarm             : BOOL;       // timeout or both sensors = 1
+END_VAR
+VAR
+    fbT : TON;  xWantWork : BOOL;
+END_VAR
+
+IF xManual THEN
+    IF xJogWork AND xPermWork THEN xWantWork := TRUE; ELSIF xJogHome THEN xWantWork := FALSE; END_IF;
+ELSE
+    IF xCmdWork AND xPermWork THEN xWantWork := TRUE; ELSIF xCmdHome THEN xWantWork := FALSE; END_IF;
+END_IF;
+xOutWork := xWantWork AND NOT xAlarm;
+xOutHome := NOT xWantWork AND NOT xAlarm;
+xAtWork  := xFbWork AND NOT xFbHome;
+xAtHome  := xFbHome AND NOT xFbWork;
+fbT(IN := (xWantWork AND NOT xAtWork) OR (NOT xWantWork AND NOT xAtHome), PT := tMove);
+IF fbT.Q OR (xFbWork AND xFbHome) THEN xAlarm := TRUE; END_IF;
+IF xReset AND NOT fbT.Q THEN xAlarm := FALSE; END_IF;
+END_FUNCTION_BLOCK
+```
+
+Note: what the valve does when `xAlarm` = 1 (both coils off: a single-solenoid 5/2 valve springs back, a 5/3
+closed-centre valve holds) is a **mechanical safety decision** – write it in the FB description.
+
+### 19.3 Coding rules (idea of the PLCopen coding guidelines – make your own company standard)
+
+| Rule | Why |
+|---|---|
+| Names per chapter 12 (tags) and 11.13 (prefixes `FB_`, `x`, `r`, `i` …), English, only fixed abbreviations | everybody reads the same |
+| One writer per variable / output (one place in the program) | no "who switched it off?" hunting |
+| No global variables or I/O addresses inside an FB – only its interface | FB can be reused and tested |
+| No jumps and no loops that wait for signals | cycle time stays bounded, logic readable |
+| Step chains: one CASE or SFC per sequence, step numbers in steps of 10 | room to insert steps later |
+| Every timer value has a reason in the comment ("2 × design time 0.8 s") | values can be checked |
+| Constants with names (`C_RAW_FULL : INT := 27648`) | one place to change |
+| Never compare `REAL = REAL`; use limits with a tolerance | rounding errors |
+| Comment every network / IF block: **why**, not what | maintenance |
+| Static code analysis before FAT (e.g. TIA Portal Test Suite style-guide check, CODESYS Static Analysis) | finds rule violations automatically |
+
+### 19.4 Version control and change management
+
+| Tool / way | Ecosystem | Notes |
+|---|---|---|
+| Git on a server in the factory network | any project that can be exported as text | offline is fine; one repository per PLC, "release" tags |
+| TIA Portal Version Control Interface (VCI), TIA Portal Openness, Multiuser Engineering / Project Server | Siemens | export blocks as text (SCL, XML) to Git; compare offline vs online |
+| TwinCAT 3 | Beckhoff | project files are text (XML) – Git works directly in Visual Studio |
+| CODESYS Git / SVN add-ons | CODESYS based | licensed add-ons – see the CODESYS store |
+| L5X export, FactoryTalk AssetCentre | Rockwell | AssetCentre also does scheduled backups and compares |
+| Multi-vendor change-management servers (e.g. versiondog / octoplant, Copia) | all | nightly upload and compare of PLCs, drives, robots |
+
+Release rule: every program loaded to a production PLC has a version number (12.6), a change note and a backup on the
+server, and the online/offline compare is clean. Safety program: record the F-signature (chapter 28).
+
+---
+
+## 20. State machines – PackML (ISA-TR88.00.02)
+
+### 20.1 Why a standard state machine?
+
+Every station of the line has the same questions: is it producing, waiting, stopped by the operator, held by an
+internal problem, starved or blocked by the neighbours, aborted by a fault? If every supplier invents its own states,
+SCADA, MES and OEE need one translation per machine. **PackML** (OMAC, standardised as ISA-TR88.00.02, current
+edition 2022) defines **one** state model for all machines – useful far beyond packaging machines.
+
+![PackML state model with 17 states, Stop and Abort envelopes and the twin state mapping](img/05_packml_states.svg)
+
+### 20.2 The 17 states
+
+| State | Type | Meaning in the crankcase line |
+|---|---|---|
+| Stopped | wait | powered, safe, not running; Reset → Resetting |
+| Resetting | acting | home positions, clear counters, check safety |
+| Idle | wait | ready, waiting for Start |
+| Starting | acting | spindle warm-up, coolant on, first pallet in |
+| **Execute** | producing | machining cycles run (step chain of chapter 21) |
+| Completing / Complete | acting / wait | order quantity done, last part out |
+| Holding / Held / Unholding | acting / wait / acting | **internal** stop: tool life reached, chip conveyor full, operator pause |
+| Suspending / Suspended / Unsuspending | acting / wait / acting | **external** wait: starved (no pallet) or blocked (B_CC1 full) |
+| Stopping | acting | controlled stop after a Stop command (category 2 stop) |
+| Aborting / Aborted | acting / wait | fast stop after a fault or E-stop |
+| Clearing | acting | fault cleared by the operator → Stopped |
+
+Commands: Reset, Start, Stop, Hold, Unhold, Suspend, Unsuspend, Abort, Clear. Acting states end themselves with
+**SC** (state complete). **Unit modes** (Production, Maintenance, Manual, plus user modes such as Changeover) decide
+which states are allowed. Link to OEE: Execute = run time; Suspended = starved/blocked (not the machine's fault);
+Held = internal stop; Aborted = breakdown – exactly the split OEE needs (guide 01, guide 06).
+
+### 20.3 PackML in ST – skeleton
+
+```
+TYPE E_PackState : (CLEARING := 1, STOPPED := 2, STARTING := 3, IDLE := 4, SUSPENDED := 5, EXECUTE := 6,
+                    STOPPING := 7, ABORTING := 8, ABORTED := 9, HOLDING := 10, HELD := 11, UNHOLDING := 12,
+                    SUSPENDING := 13, UNSUSPENDING := 14, RESETTING := 15, COMPLETING := 16, COMPLETE := 17);
+END_TYPE      // numbering as used for PackTags "StateCurrent" – check the edition you follow
+
+CASE eState OF
+  STOPPED:      IF xCmdReset THEN eState := RESETTING; END_IF;
+  RESETTING:    IF xHomeOk AND xSafety_Ok THEN eState := IDLE; END_IF;          // SC
+  IDLE:         IF xCmdStart THEN eState := STARTING; END_IF;
+  STARTING:     IF xWarmUpDone THEN eState := EXECUTE; END_IF;                  // SC
+  EXECUTE:      IF xOrderDone THEN eState := COMPLETING;
+                ELSIF xStarved OR xBlocked THEN eState := SUSPENDING;
+                ELSIF xCmdHold OR xToolLife THEN eState := HOLDING; END_IF;
+  SUSPENDING:   IF xAtCycleEnd THEN eState := SUSPENDED; END_IF;
+  SUSPENDED:    IF NOT xStarved AND NOT xBlocked THEN eState := UNSUSPENDING; END_IF;
+  UNSUSPENDING: eState := EXECUTE;
+  HOLDING:      IF xAtCycleEnd THEN eState := HELD; END_IF;
+  HELD:         IF xCmdUnhold THEN eState := UNHOLDING; END_IF;
+  UNHOLDING:    eState := EXECUTE;
+  COMPLETING:   IF xLastPartOut THEN eState := COMPLETE; END_IF;
+  COMPLETE:     IF xCmdReset THEN eState := RESETTING; END_IF;
+  STOPPING:     IF xAtSafePos THEN eState := STOPPED; END_IF;
+  ABORTING:     IF xAllStopped THEN eState := ABORTED; END_IF;
+  ABORTED:      IF xCmdClear AND xSafety_Ok THEN eState := CLEARING; END_IF;
+  CLEARING:     IF xFaultsCleared THEN eState := STOPPED; END_IF;
+END_CASE;
+// envelopes – checked AFTER the CASE so they win
+xStopAllowed  := NOT (eState = STOPPED OR eState = STOPPING OR eState = ABORTING OR eState = ABORTED OR eState = CLEARING);
+xAbortAllowed := NOT (eState = ABORTING OR eState = ABORTED);
+IF xCmdStop AND xStopAllowed THEN eState := STOPPING; END_IF;
+IF (xFault OR NOT xSafety_Ok) AND xAbortAllowed THEN eState := ABORTING; END_IF;
+```
+
+The E-stop itself is handled by the F-program (chapter 28); `NOT xSafety_Ok` only moves the **state machine** to
+Aborting so that the standard program matches reality.
+
+**PackTags** (data for SCADA/MES; OPC UA companion specification OPC 30050 "PackML"): `Command.CntrlCmd`,
+`Command.UnitMode`, `Status.StateCurrent`, `Status.UnitModeCurrent`, `Status.CurMachSpeed`,
+`Admin.ProdProcessedCount`, `Admin.ProdDefectiveCount`, `Admin.Alarm[]`, `Admin.StopReason`. Put them in the station
+interface DB (DB12 for HMC01) – then every station looks the same to SCADA.
+
+### 20.4 Twin states and PackML
+
+| Twin state (`twin/model.py`) | PackML state (proposal) | Twin stack light |
+|---|---|---|
+| RUNNING | Execute | green |
+| STARVED / BLOCKED | Suspended | yellow |
+| SETUP | Held (user mode Changeover) or Idle | yellow |
+| DOWN | Aborted (machine fault) | red |
+| STOPPED | Stopped | yellow |
+| MAINTENANCE | Stopped in mode Maintenance | red |
+
+---
+
+## 21. Sequence design with GRAFCET (IEC 60848)
+
+### 21.1 Elements and rules
+
+| Element | Symbol | Meaning |
+|---|---|---|
+| Step | square with number | a state of the sequence; active or not |
+| Initial step | double square | active at start (after homing) |
+| Transition | short bar across the link, condition beside it | the condition to go on |
+| Action | rectangle beside the step | what is done while the step is active (with qualifier) |
+| Macro-step | square with double horizontal lines | a sub-chain drawn elsewhere (APC chain, guide 09) |
+| AND divergence / convergence | double horizontal lines | parallel branches start / end together |
+| OR divergence | single line, one transition per branch | choose one branch (e.g. model VC10 or VC20) |
+
+**The five evolution rules (simplified):** (1) the initial steps are active at the start; (2) a transition is
+*enabled* when all steps before it are active, and it *fires* when its condition is also true; (3) firing activates
+all following steps and deactivates all preceding steps; (4) transitions that can fire at the same time fire
+together; (5) if a step is activated and deactivated at the same time, it stays active.
+
+Timer notation in GRAFCET: `5s/X30` = "5 s after step 30 became active" – this is how step timeouts are drawn.
+
+### 21.2 The HMC01 cell sequence
+
+The drawing `img/05_grafcet_cell.svg` is in section 3.6.
+
+| Step | Action | Transition to the next step | Nominal time | Timeout / alarm |
+|---|---|---|---|---|
+| 0 | home check, lamp yellow | Home_Ok · Safety_Ok · AutoMode · Start (rising edge) | – | – |
+| 10 | operator loads the first pallet (lamp blue) | PalletAtStation · OperatorReady · LightCurtainFree | – | none (waiting for a person is normal) |
+| 20 | macro-step: APC change (8 steps, 4.8a / guide 09) | APC_Done (FIN) · SeatingAir_Ok | 8.8 s | 15 s → HMC01_A8020 |
+| 30 ‖ 40 | AND divergence: machining branch and load branch start together | – | – | – |
+| 30 | CycleStart_Cmd := 1 (S) | CNC_InCycle | < 1 s | 5 s → HMC01_A8030 |
+| 31 | CycleStart_Cmd := 0 (R), lamp green | CNC_CycleDone (M30) | 345 s | 1.5 × 345 = 518 s |
+| 40 | unload the finished casting at the station | PartRemoved · OutputFree | within 120 s | wait if B_CC1 full (yellow, no alarm) |
+| 41 | load raw casting, clamp fixture | Fixture_Clamped · OperatorReady | | – |
+| 32 / 42 | wait steps → AND convergence | = 1 | – | – |
+| 50 | report part to MES (P1), GoodCount + 1, tool-life count | Report_Ack · NOT StopAtCycleEnd → back to 20 | < 1 s | 10 s → MES alarm |
+| 90 | fault step: lamp red, stop movements, alarm with step number | Reset (rising edge) → recovery → 0 | – | – |
+
+The step numbers here are the **sequence design** of the real station; the shorter example `FB_Station` in 14.5 uses
+steps 0–40 and the alarms A8010/A8040 – use one numbering in your project.
+
+Cycle time (numbers from `config/factory.json`: cycle 345 s, load/unload 120 s; APC page 8.8 s):
+
+```
+with APC (load hidden in parallel):  t = 8.8 + 345 = 353.8 s → 28 800 / 353.8 = 81.4 parts per 8 h shift
+without APC (load in series):        t = 345 + 120 = 465 s   → 61.9 parts per shift
+gain = (465 − 353.8) / 465 = 23.9 %
+```
+
+The twin config has `pallet_changer.change_s = 15`, so the twin shows 345 + 15 = 360 s until you press
+"Use in twin" on the APC page (8.8 s).
+
+### 21.3 From GRAFCET to code
+
+* **SFC editor** (S7-GRAPH, CODESYS SFC): draw it 1:1. Supervision times per step are built in.
+* **ST with CASE** (14.5): one step variable, one `CASE`; parallel branches become two step variables
+  (`iStepMach`, `iStepLoad`) and the convergence checks both (`iStepMach = 32 AND iStepLoad = 42`).
+* Keep **outputs out of the CASE** where possible: the CASE sets "requests", a separate section calls the device
+  FBs – then manual mode and interlocks are in one place.
+* Every step: entry action (P1), body, exit condition, timeout, alarm number = 8000 + step (HMC01_A8030 = step 30).
+
+---
+
+## 22. Interlocks, permissives, bypasses, first-out
+
+### 22.1 Words
+
+| Term | Meaning | Example (HMC01 / APC) |
+|---|---|---|
+| Permissive (start condition) | must be true to **start** a movement; losing it later does not stop | coolant pressure OK before CycleStart |
+| Interlock (running condition) | must stay true **during** the movement; losing it stops | APC rotation only while the light curtain is free |
+| Machine-protection interlock | protects the machine (standard PLC) | no unclamp while the spindle turns |
+| Safety interlock | protects people (F-program, e.g. PL d) | door lock, light curtain → STO |
+| Bypass / override | temporary removal of an interlock | jog the APC with a key switch in setup mode |
+
+### 22.2 Cause & effect matrix (small part, HMC01 + APC)
+
+| Cause ↓ / effect → | CycleStart | Unclamp | APC lift | APC rotate | Chains at load station | Spindle |
+|---|---|---|---|---|---|---|
+| E-stop (F) | block | block | stop | stop (STO) | stop | stop cat. 1 |
+| Machine door not locked (F) | block | – | stop | stop | – | stop |
+| Light curtain interrupted (F) | – | – | – | stop (SS1 → STO) | stop | – |
+| Clamp pressure low | block | – | – | – | – | – |
+| Spindle not at standstill | – | block | block | block | – | – |
+| Arm not up | – | – | – | block | – | – |
+| Station chains not down | – | – | block | block | – | – |
+| B_CC1 full (OutputFree = 0) | – | block | – | – | – | – |
+
+(F) = safety function in the F-program; the standard program gets a copy only for display and sequencing.
+The full interlock tables of the APC and the load station are in 4.8 c/d.
+
+### 22.3 First-out indication
+
+When a group of interlocks drops at once (e.g. an air pressure loss opens five switches), the operator must see the
+**first** one. Code pattern:
+
+```
+// pack the interlock conditions into one word (1 = OK)
+wIlk.%X0 := xAirOk;  wIlk.%X1 := xClampOk;  wIlk.%X2 := xCoolantOk;  wIlk.%X3 := xDoorLocked;  wIlk.%X4 := xSafety_Ok;
+IF wIlk = 16#001F THEN                    // all OK
+    xIlkOk := TRUE;
+ELSE
+    xIlkOk := FALSE;
+    IF wFirstOut = 0 THEN                 // store only the FIRST pattern of missing bits
+        wFirstOut := (NOT wIlk) AND 16#001F;
+    END_IF;
+END_IF;
+IF xAck AND xIlkOk THEN wFirstOut := 0; END_IF;     // cleared by acknowledge when all OK again
+```
+
+(`wIlk.%X0` is the bit-access syntax of Siemens SCL; CODESYS writes `wIlk.0`.)
+
+### 22.4 Bypass rules
+
+1. Bypass only in a defined mode (Setup / Maintenance), with a key switch or user login (role) – **never** for the
+   safety functions of the F-program (they have their own safe modes, e.g. reduced speed with an enabling device).
+2. Time limit (e.g. 30 min), automatic removal at mode change, alarm "bypass active" (priority 3) and an audit-trail
+   entry in SCADA (guide 06 §5.6).
+3. A list of all possible bypasses in the functional specification, approved by the safety engineer.
+
+---
+
+## 23. Alarm handling in the PLC (ISA-18.2 basics)
+
+### 23.1 Who makes the alarm?
+
+Decide in the **alarm philosophy** (guide 06 §5.3) whether an alarm is generated in the PLC (program alarm with a time
+stamp at the source – better for fast sequences and discrete faults) or in SCADA (from analog limits). Rule of this
+project: **discrete machine faults and step timeouts in the PLC; analog limits in one place only** (11.14, 14.7).
+
+### 23.2 Alarm states (ISA-18.2 / IEC 62682)
+
+| State | Process condition | Acknowledged? | Display |
+|---|---|---|---|
+| Normal | OK | yes | – |
+| Unacknowledged | abnormal | no | flashing |
+| Acknowledged | abnormal | yes | steady |
+| Returned to normal, unacknowledged | OK | no | flashing (or auto-clear, by philosophy) |
+| Shelved | any | – | hidden for a time by an authorised operator |
+| Suppressed by design | any | – | hidden by logic (e.g. "coolant pressure low" while the pump is off) |
+| Out of service | any | – | removed for maintenance, with a permit |
+
+### 23.3 Alarm FB with on-delay, deadband, latch and acknowledge
+
+```
+FUNCTION_BLOCK FB_AlarmHi
+VAR_INPUT  rValue, rLimit, rDeadband : REAL;  tOnDelay : TIME;  xEnable, xAck, xLatch : BOOL;  END_VAR
+VAR_OUTPUT xActive, xUnack : BOOL;  END_VAR
+VAR        fbOn : TON;  xCond, xOnOld : BOOL;  END_VAR
+IF rValue >= rLimit THEN xCond := TRUE;
+ELSIF rValue < rLimit - rDeadband THEN xCond := FALSE; END_IF;     // deadband against chattering
+fbOn(IN := xCond AND xEnable, PT := tOnDelay);                       // on-delay against short peaks
+IF fbOn.Q AND NOT xOnOld THEN xUnack := TRUE; END_IF;                // new alarm → needs acknowledge
+IF fbOn.Q THEN xActive := TRUE;
+ELSIF NOT xLatch OR xAck THEN xActive := FALSE; END_IF;
+IF xAck THEN xUnack := FALSE; END_IF;
+xOnOld := fbOn.Q;
+END_FUNCTION_BLOCK
+```
+
+HMC01_A5101: `rLimit = 75.0`, `rDeadband = 2.0`, `tOnDelay = T#5S` (values of table 11.14).
+
+### 23.4 Sending alarms to SCADA
+
+* **Program alarms** (Siemens `Program_Alarm`, Rockwell ALMD/ALMA instructions, CODESYS alarm manager, TwinCAT
+  EventLogger): time stamp in the PLC, text and priority in the alarm list; SCADA receives them as OPC UA
+  Alarms & Conditions events.
+* **Alarm words**: pack 32 alarm bits into one DINT in the interface DB (`MCH_L2_HMC01_AlarmWord1`); SCADA decodes
+  bit n → alarm ID. HMC01 has 12 alarms (11.14) → one DINT. Cheaper, but the time stamp comes from SCADA (± the
+  subscription interval, e.g. 1 s).
+* Do not send alarm **texts** as strings from the PLC – the text and its translations live in the alarm list.
+
+---
+
+## 24. Analog signals in depth – scaling, filters, Pt100, analog outputs
+
+### 24.1 The general scaling formula
+
+Every analog value goes through a straight line between two points (raw_lo → lo, raw_hi → hi):
+
+```
+v   = lo + (raw − raw_lo) · (hi − lo) / (raw_hi − raw_lo)        input:  counts → unit
+raw = raw_lo + (v − lo) · (raw_hi − raw_lo) / (hi − lo)          output: unit → counts
+```
+
+![4–20 mA to counts to °C with NE 43 limits (HMC01 example)](img/05_analog_scaling.svg)
+
+| System (4–20 mA input) | raw_lo … raw_hi | 41.2 °C on a 0–150 °C transmitter |
+|---|---|---|
+| Siemens S7-1500 / ET 200SP | 0 … 27648 | 7594 |
+| Beckhoff EL30xx (default representation) | 0 … 32767 | 9000 |
+| Generic 12-bit card | 0 … 4095 | 1125 |
+| Rockwell ControlLogix / CompactLogix 5000-series modules | scaled to engineering units in the module configuration (REAL) | 41.2 |
+| Mitsubishi, Omron, WAGO, others | different ranges (check the module manual) | – |
+
+Rule: write **one** scaling FB (`FB_AnalogIn`, 11.13) with raw_lo, raw_hi, lo, hi, limits and the "bad value"
+check as parameters – never copy the formula into every network.
+
+### 24.2 FB_AnalogIn – scaling, quality, limits
+
+```
+FUNCTION_BLOCK FB_AnalogIn
+VAR_INPUT  iRaw : INT;  rLo, rHi : REAL;  iRawLo : INT := 0;  iRawHi : INT := 27648;
+           iBadHi : INT := 32511;  iBadLo : INT := -4864;  rTau : REAL := 2.0;  rT : REAL := 0.1;  END_VAR
+VAR_OUTPUT rValue : REAL;  xBad : BOOL;  END_VAR
+VAR        rNew, rAlpha : REAL;  xInit : BOOL;  END_VAR
+xBad := (iRaw > iBadHi) OR (iRaw < iBadLo);                     // wire break, overflow → keep last value
+IF NOT xBad THEN
+    rNew := rLo + (INT_TO_REAL(iRaw) - INT_TO_REAL(iRawLo)) * (rHi - rLo) / (INT_TO_REAL(iRawHi) - INT_TO_REAL(iRawLo));
+    rAlpha := rT / (rTau + rT);                                 // first-order filter, called every rT seconds
+    IF NOT xInit THEN rValue := rNew; xInit := TRUE; END_IF;
+    rValue := rValue + rAlpha * (rNew - rValue);
+END_IF;
+END_FUNCTION_BLOCK
+```
+
+Call it in a cyclic interrupt OB (fixed rT). In TIA Portal the same can be done with `NORM_X` + `SCALE_X`.
+
+### 24.3 Filters – how much delay do they add?
+
+| Filter | Formula | Delay / response | Example |
+|---|---|---|---|
+| Card filter (integration time, e.g. 20 ms for 50 Hz suppression) | in the module | a few tens of ms | always on |
+| First-order (PT1) | `y += α·(x − y)`, `α = T/(τ + T)` | 63 % after τ, 95 % after 3τ | T = 0.1 s, τ = 2 s → α = 0.048, 95 % after 6 s |
+| Moving average over N samples | mean of the last N values | delay ≈ N·T/2 | N = 10, T = 0.1 s → 0.5 s |
+
+A filter makes the value calmer **and later**. Never filter a value that is used for a fast trip, and never filter
+safety values in the standard program (10.8).
+
+### 24.4 Pt100 resistance thermometers
+
+```
+R(T) = R0 · (1 + A·T + B·T²)     for 0 … 850 °C (IEC 60751), R0 = 100 Ω
+A = 3.9083·10⁻³ 1/K,  B = −5.775·10⁻⁷ 1/K²
+Example: T = 41.2 °C → R = 100·(1 + 0.16102 − 0.00098) = 116.00 Ω
+Sensitivity at 41 °C: dR/dT = 100·(A + 2·B·T) = 0.386 Ω/K
+```
+
+| Connection | Lead resistance error | Use |
+|---|---|---|
+| 2-wire | both leads add: 2 × 10 m of 0.5 mm² Cu = 2·10·0.0178/0.5 = 0.712 Ω → 0.712 / 0.386 = **+1.8 K** | only very short leads |
+| 3-wire | lead resistance compensated (if both leads equal) | standard on RTD input cards |
+| 4-wire | no lead error | test benches, accurate measurement |
+| Head transmitter 4–20 mA | conversion in the sensor head, current loop to the PLC | long cables, machines (this factory, 11.7) |
+
+RTD input cards often give the temperature directly in 0.1 °C per count (raw 412 = 41.2 °C) – check the manual.
+Accuracy classes (IEC 60751): class A ±(0.15 + 0.002·|T|) K, class B ±(0.3 + 0.005·|T|) K → at 41.2 °C:
+class A ±0.23 K, class B ±0.51 K – larger than any card resolution.
+
+### 24.5 Analog outputs
+
+```
+raw = 27648 · u / 100 %        (Siemens 4–20 mA output: 0 = 4 mA, 27648 = 20 mA)
+Example: chiller valve 35 % → raw = 9677 → I = 4 + 16·0.35 = 9.6 mA
+```
+
+Rules: define the output value at CPU STOP (substitute value 0 %, hold last value, or 4 mA) in the hardware
+configuration – for a cooling valve "hold last" or "open" is safer than "close"; a 4–20 mA output detects a broken
+wire (current cannot flow); 0–10 V outputs are cheaper but sensitive to voltage drop and noise on long cables.
+
+---
+
+## 25. Counters, high-speed inputs, encoders
+
+### 25.1 What a normal DI can count
+
+From 10.6: a standard DI with 3 ms filter and 5 ms scan sees pulses up to about **62 Hz**. Counting parts on a
+conveyor (1 part per second) is fine with a normal DI + `CTU` + edge detection. Anything faster needs a
+**high-speed counter (HSC)**: the counting is done in hardware on the module, the program only reads the result.
+
+### 25.2 Incremental encoders – formulas
+
+```
+Signal frequency per channel   f = PPR · n / 60          [Hz]        PPR = pulses per revolution
+Counts per revolution (×4)     N = 4 · PPR                           (quadrature A/B, both edges)
+Resolution on a ball screw     Δx = lead / N
+Speed from counts in window Tw n = Δcounts / (N · Tw) · 60  [rpm]
+```
+
+Worked example – axis with ball screw lead 10 mm, encoder 2500 PPR, motor 3000 rpm:
+
+```
+N  = 4 · 2500 = 10 000 counts/rev  → Δx = 10 mm / 10 000 = 1 µm per count
+f  = 2500 · 3000 / 60 = 125 kHz per channel → counting rate 500 000 counts/s
+→ an HSC module rated ≥ 125 kHz input frequency is needed (24 V HSC modules are often 100–200 kHz;
+  RS-422 inputs go much higher – see datasheet)
+32-bit counter: 2³¹ counts / 10 000 = 214 748 rev = 2 147 m of travel before overflow
+Speed at 1 500 rpm in a 10 ms window: 25 rev/s · 10 000 · 0.01 s = 2 500 counts → 1 count = 0.6 rpm (0.04 %)
+```
+
+For low speeds use **period measurement** (time between pulses) instead of counting in a window.
+
+### 25.3 HSC functions you can use without code
+
+| Function | Use in the factory |
+|---|---|
+| Counting with gate (start/stop by input) | length measurement, part counting at > 62 Hz |
+| Frequency / speed / period measurement | conveyor speed, fan speed, flow meter pulses |
+| Compare values → fast output (µs reaction) | cam switching: glue, marking, cut at a position |
+| Latch / capture (store the count at an input edge) | measure the position where a sensor switched (probe) |
+| Hardware interrupt at a comparison value | start a program part exactly at a count |
+
+### 25.4 Absolute encoders and position sensors
+
+| Type | Interface | Typical data (check datasheet) | Use |
+|---|---|---|---|
+| Single-turn absolute | SSI, BiSS-C, EnDat, PROFINET (encoder profile), IO-Link | 12–25 bit per turn | rotary positions without homing |
+| Multi-turn absolute | same, plus turn counter (gear or battery-free Wiegand) | e.g. 13 bit/turn + 12 bit turns | axes that must not be re-homed after power off |
+| Laser distance sensor | PROFINET / SSI / 4–20 mA | mm resolution, up to 100+ m | AS/RS travel axis (twin: raw = bay × 1400 mm) |
+| Linear magnetic tape / scale | SSI, sin/cos | µm range | long linear axes |
+
+Servo drives read the motor encoder themselves; the PLC gets the position over the drive telegram
+(PROFIdrive, CiA 402) – see chapter 27 and guide 23 §10.
+
+---
+
+## 26. PID control in depth – identification, tuning, anti-windup, worked coolant loop
+
+The theory (Laplace, transfer functions, Bode, phase margin, cascade loops of servo axes) is in guide 23 §4–5. This
+chapter is the **PLC practice**: slow process loops (temperature, pressure, level, flow) with a PID block.
+
+### 26.1 Controller forms
+
+```
+Parallel (ideal) form used by most PLC blocks:
+  u = Kp · [ e + (1/Ti)·∫e dt + Td · de/dt ]
+Discrete (sample time T), with derivative on the measurement (no "kick" at a set-point step):
+  P_k = Kp · e_k
+  I_k = I_(k−1) + Kp · T / Ti · e_k                (frozen while the output is limited – anti-windup)
+  D_k = −Kp · Td · (PV_k − PV_(k−1)) / T           (plus a low-pass filter, Td/N with N ≈ 10)
+  u_k = limit(P_k + I_k + D_k, 0 … 100 %)
+```
+
+**Reverse / direct acting.** A cooling valve: more opening → lower temperature (process gain negative) → the
+controller must be **reverse acting** (in PID_Compact: "invert control logic"). A wrong direction gives a loop that
+runs away to 0 % or 100 % – the first thing to check at commissioning.
+
+### 26.2 Process identification by step test (FOPDT model)
+
+Put the loop in manual, make a step Δu (e.g. 40 → 60 %), record PV. Fit a first-order-plus-dead-time model:
+
+```
+G(s) = K · e^(−θ·s) / (τ·s + 1)
+K = ΔPV / Δu          θ = dead time          τ = time constant
+Two-point method (Smith): read t28 and t63 (time to 28.3 % and 63.2 % of the final change)
+  τ = 1.5 · (t63 − t28)        θ = t63 − τ
+```
+
+Worked example – HMC spindle coolant (chiller valve, example data):
+
+```
+step Δu = +20 %, coolant falls by 4 K  → K = −4 / 20 = −0.2 K/%
+t28 = 89 s, t63 = 210 s  → τ = 1.5 · (210 − 89) = 181 s ≈ 180 s,  θ = 210 − 181 = 29 s ≈ 30 s
+sample time: T ≤ τ/10 = 18 s and ≤ θ/4 ≈ 7 s → choose T = 1 s (OB30 cyclic interrupt)
+```
+
+### 26.3 Tuning rules
+
+| Method | Kp | Ti | Td | Character |
+|---|---|---|---|---|
+| Ziegler–Nichols open loop (reaction curve), PID | 1.2·τ / (\|K\|·θ) | 2·θ | 0.5·θ | fast, ~quarter-amplitude decay, aggressive |
+| Ziegler–Nichols open loop, PI | 0.9·τ / (\|K\|·θ) | 3.33·θ | – | fast, oscillating |
+| Ziegler–Nichols closed loop (Ku, Pu) | 0.6·Ku | Pu / 2 | Pu / 8 | needs the loop at its stability limit – not on a production machine |
+| Lambda (IMC) PI | τ / (\|K\|·(λ + θ)) | τ | – | choose λ (closed-loop time constant): λ = 1…3·θ → robust, no overshoot |
+| SIMC (Skogestad) PI | τ / (\|K\|·(τc + θ)) | min(τ, 4·(τc + θ)) | – | like lambda, better for slow disturbances |
+| Vendor auto-tune (PID_Compact pre-tuning + fine tuning) | automatic | automatic | automatic | good start; check the result |
+
+Worked numbers for the coolant loop (|K| = 0.2 K/%, τ = 180 s, θ = 30 s):
+
+| Method | Kp [%/K] | Ti [s] | Td [s] |
+|---|---|---|---|
+| ZN open loop PID | 1.2·180/(0.2·30) = **36** | 60 | 15 |
+| ZN open loop PI | 0.9·180/(0.2·30) = **27** | 100 | – |
+| ZN closed loop PID (Ku = 50.4 %/K, Pu = 112.9 s from the model) | 30.2 | 56.4 | 14.1 |
+| Lambda PI, λ = 3θ = 90 s | 180/(0.2·120) = **7.5** | 180 | – |
+
+Simulated result (set point 22 → 20 °C, output limited 0–100 %, start at 50 %, T = 1 s):
+
+| Tuning | Overshoot | Settling time (2 %) | Valve output |
+|---|---|---|---|
+| ZN PID (36 / 60 / 15) | 11.8 % (down to 19.76 °C) | 197 s | hits 100 % (saturates) |
+| Lambda PI (7.5 / 180) | 0 % | 358 s | max 68 % |
+
+![PID loop of the coolant temperature and step responses (lambda PI vs ZN PID)](img/05_pid_loop.svg)
+
+Choose **lambda** for temperature loops of machines: no overshoot (the spindle is not over-cooled), calm valve,
+robust when the process changes (summer/winter, number of spindles running). Make it faster only after a real
+step test shows that the model is good.
+
+### 26.4 Anti-windup and bumpless transfer
+
+When the output sits at 0 % or 100 %, the integral keeps growing ("wind-up") and later causes a big overshoot.
+Simulated test with ZN PI and a large set-point step of −8 K:
+
+| | Overshoot | Settling time |
+|---|---|---|
+| without anti-windup | 1.9 K (24 %) | 1 114 s |
+| with clamping (integration stopped while saturated) | 0 K | 405 s |
+
+Methods: **clamping / conditional integration** (as in the code below), or **back-calculation** (feed the difference
+between limited and unlimited output back to the integrator with gain 1/Tt, Tt ≈ Ti). **Bumpless transfer**:
+when switching manual → auto, set the integral so that the output does not jump (I := u_manual − P).
+
+```
+FUNCTION_BLOCK FB_PI_AW      // reverse/direct acting PI with clamping anti-windup, called every rT seconds
+VAR_INPUT  rSP, rPV, rKp, rTi, rT : REAL;  xReverse, xManual : BOOL;  rManOut : REAL;  END_VAR
+VAR_OUTPUT rOut : REAL;  END_VAR
+VAR        rE, rI, rU : REAL;  END_VAR
+rE := rSP - rPV;
+IF xReverse THEN rE := -rE; END_IF;
+IF xManual THEN
+    rOut := rManOut;  rI := rManOut - rKp * rE;          // bumpless: integral follows manual output
+ELSE
+    rU := rKp * rE + rI + rKp * rT / rTi * rE;
+    IF (rU < 100.0 OR rE < 0.0) AND (rU > 0.0 OR rE > 0.0) THEN
+        rI := rI + rKp * rT / rTi * rE;                  // integrate only when not pushing further into a limit
+    END_IF;
+    rOut := LIMIT(0.0, rKp * rE + rI, 100.0);
+END_IF;
+END_FUNCTION_BLOCK
+```
+
+### 26.5 Other loops in the factory (starting values – tune on site)
+
+| Loop | Actuator | Typical structure | Starting values (rule of thumb) |
+|---|---|---|---|
+| Coolant supply pressure | pump VFD speed | PI, fast | Kp 0.5–2 %/%, Ti 0.5–3 s, T = 10–100 ms |
+| Washer tank temperature (WASH-01) | heater (PWM / thyristor) | PI, slow, heating only | from a step test (lambda), T = 1 s |
+| Hydraulic unit oil temperature | cooler fan / valve | on/off with hysteresis is often enough | ± 2 K hysteresis |
+| Compressor test bench pressure (TEST-01/02) | proportional valve | PI, medium | from a step test; watch valve non-linearity |
+| Spindle speed, axis position | inside the CNC / drive | cascade (guide 23) | not a PLC job |
+
+---
+
+## 27. Motion control – PLCopen motion blocks, axis states, camming
+
+### 27.1 Where motion runs
+
+| Motion | Controller | PLC job |
+|---|---|---|
+| Machine axes X/Y/Z/B of the HMC | CNC | handshake only (chapter 5.6) |
+| Robot axes | robot controller | program number, start, safe zones (guide 23) |
+| APC rotation 180° (servo) | PLC motion (technology object) or drive with integrated positioning | command + interlocks |
+| AS/RS travel / lift / fork | crane PLC with motion or drives with positioning | job sequence |
+| Conveyors, chain transfers | VFD (speed) | start/stop, speed set point |
+
+Function blocks are standardised by **PLCopen Motion Control Part 1** (used by CODESYS SoftMotion, Beckhoff TwinCAT
+NC, Omron, B&R, Schneider, Siemens S7-1500 technology objects with similar names). Rockwell uses its own motion
+instructions (MSO, MAH, MAM, MAJ, MAS, MAG, MAPC).
+
+### 27.2 Axis state diagram (PLCopen)
+
+| State | Entered by | Left by |
+|---|---|---|
+| Disabled | power off (`MC_Power` Enable = 0) | `MC_Power` Enable = 1 → Standstill |
+| Standstill | power on, motion done | any motion FB |
+| Homing | `MC_Home` | done → Standstill |
+| Discrete Motion | `MC_MoveAbsolute`, `MC_MoveRelative`, `MC_Halt` | done → Standstill |
+| Continuous Motion | `MC_MoveVelocity` | another FB, `MC_Halt`, `MC_Stop` |
+| Synchronized Motion | `MC_GearIn`, `MC_CamIn` | `MC_GearOut`, `MC_CamOut`, other motion FB |
+| Stopping | `MC_Stop` (Execute = 1) | Execute = 0 after standstill → Standstill |
+| ErrorStop | any axis error (from every state) | `MC_Reset` → Standstill (or Disabled) |
+
+Every motion FB has the same interface: `Execute` (rising edge starts), `Done`, `Busy`, `Active`,
+`CommandAborted`, `Error`, `ErrorID`, plus `BufferMode` (Aborting, Buffered, Blending…) for queueing moves.
+
+### 27.3 Worked example – APC rotation 180° in 2.5 s
+
+Trapezoid profile with 1/3 acceleration, 1/3 constant speed, 1/3 deceleration (motion laws in guide 09):
+
+```
+v_max = 1.5 · θ / t = 1.5 · 180° / 2.5 s = 108 °/s     (= 18 rpm at the table)
+a     = 4.5 · θ / t² = 4.5 · 180 / 6.25  = 129.6 °/s²
+t_acc = t / 3 = 0.83 s
+Gearbox i = 100 → motor speed = 18 · 100 = 1 800 rpm
+```
+
+```
+// APC rotation axis – PLCopen style (names may differ slightly per vendor)
+fbPower(Axis := axApc, Enable := xDrivesOk AND xSafety_Ok);           // STO is handled by the F-program
+fbHome (Axis := axApc, Execute := xHomeReq, Position := 0.0);          // absolute encoder: set position once
+fbMove (Axis := axApc, Execute := xRotateReq AND xArmUp AND xPermRotate,
+        Position := rTarget,            // 0.0 or 180.0 degrees
+        Velocity := 108.0, Acceleration := 129.6, Deceleration := 129.6, Jerk := 0.0);
+xRotDone := fbMove.Done;                // → APC step 4 "servo in position" (4.8a)
+IF fbMove.Error OR fbPower.Error THEN xApcAlarm := TRUE; END_IF;
+fbReset(Axis := axApc, Execute := xResetReq AND xApcAlarm);
+```
+
+Units: configure the axis in degrees at the table (360° per load revolution, gear 100:1, encoder resolution) – the
+program then works in degrees, not in motor increments.
+
+### 27.4 Gearing and camming
+
+* **Electronic gear** (`MC_GearIn`, ratio numerator/denominator): a slave follows a master position with a fixed
+  ratio, e.g. a transfer chain runs at 1:2 of a master conveyor.
+* **Electronic cam** (`MC_CamIn` with a cam table): slave position = f(master position); used for flying saws,
+  pick-and-place on a moving belt, and replacing mechanical cams (e.g. a cam indexer of the APC, guide 09).
+* Siemens offers this in the "T" CPUs (e.g. S7-1500T), Beckhoff in TwinCAT NC (cam licence), CODESYS in SoftMotion.
+* Motion cycle: the motion task runs isochronous with the bus (PROFINET IRT or EtherCAT, typically 1–4 ms for such
+  axes); the drives close the current and speed loops much faster (guide 23 §2).
+
+---
+
+## 28. Safety PLC programming – F-program, PROFIsafe, response time
+
+The safety theory (ISO 13849-1 PL, categories, MTTFd, DCavg, CCF, PFHd, IEC 62061 SIL) is in 10.9 and in guides 23
+§14 and 24 §8; the worked PL calculation of HMC01 is in 14.6. This chapter is about **writing and checking the safety
+program**.
+
+### 28.1 Structure of an F-program (Siemens terms; others similar)
+
+```
+F-runtime group (called from a cyclic interrupt OB, e.g. every 20–100 ms – configure)
+ └─ Main_Safety (F-FB)
+     ├─ E-stop evaluation        → ESTOP1 (ACK_NEC = TRUE)                     SF1
+     ├─ Door guard locking       → SFDOOR + lock control                        SF2
+     ├─ Light curtain / muting   → MUTING / F-logic                             SF3
+     ├─ Contactor control + EDM  → FDBACK (feedback monitoring)                 output
+     ├─ Drive safety (STO/SS1)   → PROFIsafe telegram to the drive              output
+     └─ Acknowledge / reintegration → ACK_GL (global ack of F-I/O after faults)
+Data exchange: F-program → standard program only by copy (Safety_Ok, status bits for HMI)
+               standard → F-program: only non-safety signals, checked (e.g. "request" bits, never "enable")
+```
+
+| Rule | Why |
+|---|---|
+| Use only the certified library blocks and the restricted language (F-LAD / F-FBD) | certified behaviour, no undefined code |
+| The F-program **never starts** a machine – it only enables; start comes from the standard program (14.4) | ISO 13850 / restart behaviour |
+| Reset/acknowledge on a rising edge, from a button in view of the hazard | a stuck button cannot reset (14.4) |
+| No standard-program value may switch a safety output ON without a safety condition | a standard fault must not cause danger |
+| Each change → new F-signature (collective checksum) + re-validation of the changed functions | change control (5.7, 12.6) |
+| Safety password separate from the standard program password | only qualified people change safety |
+
+Equivalent libraries: **PLCopen Safety** function blocks (`SF_EmergencyStop`, `SF_GuardMonitoring`, `SF_GuardLocking`,
+`SF_ESPE`, `SF_EDM`, `SF_TwoHandControlTypeIII`, `SF_ModeSelector`, `SF_EnableSwitch`, `SF_SafetyRequest`,
+`SF_OutControl`, `SF_MutingSeq`) used by Beckhoff TwinSAFE, CODESYS Safety, Omron, B&R and others; Rockwell
+GuardLogix safety instructions (e.g. ESTOP, DCS dual-channel, CROUT contactor monitoring).
+
+### 28.2 Passivation and reintegration
+
+When an F-module detects a fault (discrepancy of two channels, short circuit found by test pulses, PROFIsafe
+telegram error), its channels are **passivated** – the program sees the safe substitute value 0. After the fault
+is repaired the channels are **reintegrated** only after an operator acknowledge (`ACK_REI` / global `ACK_GL`).
+Show "F-I/O passivated – acknowledge needed" as an alarm with the module name (HMI text from the diagnostics).
+
+### 28.3 PROFIsafe in short
+
+PROFIsafe (IEC 61784-3-3) sends safety data in the normal PROFINET telegram (black channel). Each safety telegram
+has an **F-address** (set on the device / module, unique in the network), a **consecutive number** and a **CRC**.
+The receiver checks the telegram within the **F-monitoring time** (F_WD_Time). If no valid new telegram arrives in time
+→ safe state. Rules: set unique F-addresses (write them in the I/O list), set F_WD_Time as short as possible but
+above the worst communication time (the maker's tool calculates it), and never share the PROFINET network with
+uncontrolled traffic (chapter 32).
+
+### 28.4 Safety response time – worked example SF3 light curtain → APC STO
+
+| Part of the chain | Fault-free time (example) | With one fault / watchdog (example) |
+|---|---|---|
+| Light curtain OSSD switch-off | 15 ms | 15 ms (in the ESPE time, separate) |
+| F-DI input delay | 4 ms | 4 ms |
+| PROFIsafe input transfer | 4 ms (2 × 2 ms update) | 50 ms (F_WD_Time of the input) |
+| F-runtime group (2 × F-cycle 10 ms) | 20 ms | 20 ms |
+| PROFIsafe output transfer to the drive | 4 ms | 4 ms |
+| Drive STO reaction | 8 ms | 8 ms |
+| **F-system total (without curtain)** | **40 ms** | **86 ms** |
+
+```
+APC stopping time 300 ms (measured), light curtain 15 ms
+fault-free:  T = 0.300 + 0.015 + 0.040 = 0.355 s → S = 1600 · 0.355 = 568 mm      (10.10)
+one fault:   T = 0.300 + 0.015 + 0.086 = 0.401 s → S = 2000 · 0.401 = 802 mm > 500 → recalc K = 1600:
+             S = 1600 · 0.401 = 642 mm
+```
+
+ISO 13855 needs the **maximum** response time. The simple chain above is only to show the idea – use the value from
+the maker's calculation tool (Siemens supplies an Excel tool for S7 F-systems; other makers have similar tools),
+and set the F_WD_Time short, because it goes directly into the safety distance (here +74 mm for 46 ms).
+
+### 28.5 Validation of the F-program (ISO 13849-2)
+
+1. Review the F-program against the safety requirements specification (SRS, 12.6) – every function, every input.
+2. Functional test of every safety function in every operating mode, with the stopping time measured.
+3. Fault tests: open one channel (discrepancy → passivation), short the channels (test pulses), weld a contactor
+   (EDM blocks restart), pull the PROFINET cable (F_WD_Time → safe state), power cycle (no restart).
+4. Record the F-signature, the program version and the test results in the validation report; store it with the
+   SISTEMA file (14.6).
+
+---
+
+## 29. Communication from the PLC
+
+The network design (zones, VLANs, switches, IP plan, OPC UA node tree, MQTT topic tree, bandwidth) is in guide 07.
+This chapter is the PLC side: which fieldbus for what, how to configure it, and the PLC as OPC UA server and MQTT
+client.
+
+### 29.1 Industrial Ethernet systems compared
+
+| System | Main ecosystem | Cycle (typical) | Topology | Device description | Safety protocol | Ring redundancy |
+|---|---|---|---|---|---|---|
+| PROFINET RT / IRT | Siemens, many others (PI) | RT 1–10 ms; IRT 0.25–1 ms | line, star, ring | GSDML | PROFIsafe | MRP (≤ 200 ms), MRPD (bumpless, IRT) |
+| EtherNet/IP | Rockwell, Omron, many (ODVA) | RPI 1–100 ms | star, line, DLR ring | EDS | CIP Safety | DLR |
+| EtherCAT | Beckhoff, Omron, many (ETG) | 0.1–1 ms (maker examples) | line (processing on the fly), ring with cable redundancy | ESI (XML) | FSoE (Safety over EtherCAT) | cable redundancy |
+| Modbus TCP | everybody (simple devices) | polling 10–100 ms per request | star | register map (PDF) | – | – |
+| OPC UA (client/server) | vertical integration | 100 ms – 1 s subscriptions | any IP | information model | (OPC UA Safety – new) | network level |
+| MQTT | IT / cloud / UNS | events, seconds | broker star | topic + payload schema | – | broker cluster |
+
+Choice for this factory (guide 07 and 23 §18.5): **PROFINET + PROFIsafe** in the cells (one fieldbus family, one
+engineering tool), **OPC UA** to SCADA/MES, **MQTT** for the Unified Namespace / analytics, **Modbus TCP** only for
+simple bought-in devices (oven controller, power meters).
+
+### 29.2 PROFINET – what you configure
+
+| Item | Rule / example |
+|---|---|
+| Device name | lower case, unique: `vc-mch-hmc01-io1` (12.6) – the IP follows from the name |
+| Send clock / update time | send clock 1 ms; update time 2 ms (reduction ratio 2) for station I/O; slow devices 8–32 ms |
+| Watchdog | update time × accepted missing cycles (default 3) → 2 ms × 3 = 6 ms → device to safe state |
+| Topology | configure the port neighbours → device replacement without programming device; topology diagnostics |
+| Conformance class | CC-B (SNMP, topology, MRP) minimum for switches and devices; CC-C for IRT |
+| MRP | one manager (PLC or switch), all ring devices clients; max 50 devices per ring |
+| Shared device / I-device | one I/O station read by two controllers (e.g. safety from F-CPU, standard from another); a PLC acting as I/O device of another PLC (line coupling, 5.1) |
+
+Network load example (12 devices, 2 ms update, minimum Ethernet frames of 84 bytes on the wire in each direction):
+
+```
+frames per second = 12 devices × 2 directions / 0.002 s = 12 000 /s
+load = 12 000 × 84 byte × 8 bit = 8.06 Mbit/s → 8 % of 100 Mbit/s       (plenty of room; this adds BOTH directions – per direction it is ≈ 4.0–4.7 Mbit/s, see guide 07 §29)
+```
+
+### 29.3 EtherNet/IP and EtherCAT in short
+
+* **EtherNet/IP**: CIP objects over TCP (explicit messages, port 44818) and UDP (implicit I/O, port 2222). The
+  controller opens a connection with an RPI (requested packet interval, e.g. 10 ms). Rings with DLR. Safety with CIP
+  Safety (GuardLogix). Device files: EDS.
+* **EtherCAT**: one telegram passes through all slaves, each reads/writes its bytes "on the fly"; distributed clocks
+  synchronise all devices to < 1 µs (guide 23 §18.3). Very fast and cheap per node; the master is usually a PC-based
+  controller (TwinCAT, CODESYS). Safety with FSoE (TwinSAFE). Device files: ESI.
+
+### 29.4 Modbus TCP – register maps and the float problem
+
+The twin's paint oven temperature controller uses Modbus TCP (`twin/plc.py`, station type "paint"). Basics:
+
+| Item | Value |
+|---|---|
+| Port | TCP 502 |
+| Function codes | 03 read holding registers, 04 read input registers, 06 write single register, 16 write multiple registers |
+| Register | 16 bit; manuals count from 40001 (= address 0) – the "off by one" trap |
+| Request size | MBAP header 7 bytes + function 1 + start address 2 + quantity 2 = 12 bytes (read 10 registers) |
+| Response | 7 + 1 + byte count 1 + 20 data bytes = 29 bytes |
+
+**REAL values use two registers.** 41.2 as IEEE 754 = `16#4224CCCD` → register 40001 = `16#4224`, 40002 = `16#CCCD`
+("big-endian, ABCD"). If the device uses the swapped word order ("CDAB") and the PLC does not swap, the PLC reads
+`16#CCCD4224` = **−107 614 496** – a typical commissioning error. Check the word order with a known value first.
+
+Polling time: each request/response takes roughly 5–20 ms on a local network (device-dependent); 5 devices polled
+one after the other at 20 ms each → each value is updated every 100 ms. Good enough for an oven, not for interlocks.
+
+### 29.5 OPC UA server on the PLC – information model
+
+The interface DB of each station (DB12 for HMC01, chapter 12.5) is the only part visible to SCADA/MES. A good model:
+
+```
+Objects
+ └─ MCH (folder) ─ L2 (folder) ─ HMC01 (object, type StationType)
+     ├─ State            Int16   (PackML StateCurrent, chapter 20)       read
+     ├─ Mode             Int16   (unit mode)                              read
+     ├─ SpindleTemp      Float   °C   (EURange 0–150, EngineeringUnits)    read
+     ├─ SpindleVib       Float   mm/s                                      read
+     ├─ CoolantPress     Float   bar                                       read
+     ├─ Good_Cnt         Int32   pcs                                       read
+     ├─ Step             Int16                                             read
+     ├─ AlarmWord1       UInt32  (32 alarm bits, 23.4)                     read
+     ├─ Speed_Sp         Float   %    (50–130, role Operator)              read/write
+     ├─ StartRequest()   Method  → returns status (Good / Bad_ConditionNotMet)
+     └─ LoadRecipe(ProgramNo: Int16, ToolList: String) Method
+```
+
+Rules: same `StationType` for all stations (one SCADA faceplate for all), engineering units and ranges as OPC UA
+properties, methods for commands (5.9), security "Sign & Encrypt" with certificates, no anonymous access.
+Companion specifications that fit this factory: **OPC 30050 PackML**, **OPC 40001 Machinery** (identification,
+state), **umati / OPC 40501 Machine Tools** (CNC machines), **OPC 40100 Machine Vision**. Ask machine suppliers to
+deliver their OPC UA server according to these.
+
+Load estimate: PLC-01 with 5 stations × 30 monitored items at 1 s sampling = 150 values/s worst case (fewer with
+deadband) – check the OPC UA limits of the CPU (number of sessions, monitored items per second; see datasheet) and
+whether a runtime licence is needed (5.9).
+
+### 29.6 MQTT from the PLC
+
+Many PLCs can publish MQTT directly (e.g. Siemens LMQTT library, Beckhoff TF6701 IoT Communication, CODESYS IIoT
+libraries, WAGO PFC MQTT client). Rules for this project (topic tree in guide 07 §11.4):
+
+| Item | Rule |
+|---|---|
+| Topic | `vc/MCH/L2/HMC01/SpindleTemp` (12.1) – one topic per value or one per station object |
+| Payload | JSON `{"v": 41.2, "u": "degC", "q": "good", "t": "2026-11-12T08:15:02.120Z"}` |
+| QoS | 1 for values and states (at least once); retained flag for the last state |
+| Last will | `vc/MCH/L2/HMC01/Status = "offline"` – the broker publishes it if the PLC disappears |
+| Security | TLS (port 8883), user/password or client certificate, broker in the OT DMZ (guide 07) |
+| Direction | PLC publishes data; **commands do not come in by MQTT** – commands go by OPC UA methods (checked by the PLC) |
+
+---
+
+## 30. Simulation and virtual commissioning
+
+### 30.1 Levels of simulation
+
+| Level | What is real | What is simulated | Tools (examples) | Finds |
+|---|---|---|---|---|
+| Model-in-the-loop (MIL) | nothing | controller logic + plant model | the twin, Python, MATLAB | concept errors, buffer sizes, sequences on paper |
+| Software-in-the-loop (SIL) | the real PLC program | the CPU (soft PLC) + plant model | Siemens PLCSIM / PLCSIM Advanced, TwinCAT runtime on the PC, CODESYS Control Win, Rockwell Logix Emulate / FactoryTalk Logix Echo | program logic, step chains, interlocks, HMI, OPC UA interface |
+| Hardware-in-the-loop (HIL) | the real PLC (and HMI) | the machine (model on a PC, I/O over PROFINET) | simulation PC with PROFINET device simulation (e.g. SIMIT, other HIL tools) | timing, real I/O image, PROFINET configuration |
+| Virtual commissioning with 3D | real program in a soft PLC or real PLC | 3D machine with physics (sensors, collisions) | e.g. NX Mechatronics Concept Designer, Process Simulate, Emulate3D, ISG-virtuos, other | sequences with real geometry, collisions, cycle time |
+
+**PLCSIM vs PLCSIM Advanced** (Siemens): PLCSIM simulates one S7-1200/1500 CPU for logic tests, with limited
+communication. PLCSIM Advanced runs a **virtual controller** with its own virtual Ethernet adapter – OPC UA server,
+web server, S7 communication and an API for coupling to simulation tools; several instances at the same time.
+It needs a licence (chapter 35.7). The F-program runs in simulation too, but **safety validation must be done on
+the real hardware** (28.5).
+
+### 30.2 Coupling the real (or simulated) PLC to the digital twin
+
+The twin gives the **factory around** the PLC (5.10): other stations, buffers, AGVs, MES orders.
+
+1. Run the PLC program in PLCSIM Advanced (or on the real CPU on a test bench).
+2. Write a small gateway (OPC UA client) that reads the station interface DB (`MCH_L2_HMC01_IF`) and posts the state
+   to the twin `/api/ingest`; set the station `"external": true` in `config/factory.json` (README "Connect a real
+   machine").
+3. Feed the twin's events back as inputs (part arrives, buffer free) – a few signals of the interface DB.
+4. Test: step chains, timeouts, PackML states, buffer hand-over between PLC-01 and PLC-04, E-stop zones, recovery.
+5. Measure **test coverage**: every step reached, every transition fired, every alarm raised at least once – keep a
+   checklist (chapter 31).
+
+Time scaling: the twin can run faster than real time; a soft PLC usually runs in real time – run the coupled test
+in real time or make the PLC timers scalable (e.g. a test factor) only in the test build.
+
+---
+
+## 31. Testing PLC software – unit tests, FAT/SAT test cases
+
+### 31.1 Test levels
+
+| Level | Who | What | Tools |
+|---|---|---|---|
+| Unit test of FBs | programmer | each device FB (FB_Valve2Pos, FB_AnalogIn, FB_AlarmHi) alone with test inputs | TcUnit (open source, TwinCAT), CODESYS Test Manager, TIA Portal Test Suite (application test), or a test FB written by hand |
+| Integration test (SIL) | programmer + process engineer | station logic in a soft PLC + simulation | chapter 30 |
+| FAT | supplier + your engineer | real cabinet, real PLC, simulated or real machine | test list (5.11, 14.8) |
+| SAT | your team + supplier | real machine and real partners | same test list + interfaces + run-in |
+| Regression after a change | programmer | the tests affected by the change + a short standard set | the same test list (keep it in the repository) |
+
+### 31.2 Test case template and examples (HMC01)
+
+| ID | Function | Pre-condition | Action | Expected result | Pass criterion |
+|---|---|---|---|---|---|
+| T-HMC01-001 | I/O check DI | cabinet powered | actuate -BG1 | %I20.1 = 1, HMI tag PartPresent = 1 | correct bit + terminal -XD2:2 |
+| T-HMC01-010 | analog scaling | loop calibrator on -XD2:41/42 | inject 4 / 12 / 20 mA | 0.0 / 75.0 / 150.0 °C in PLC and SCADA | ±0.2 °C |
+| T-HMC01-011 | wire break | as 010 | open the loop | HMC01_A5103 within 1 s, value quality Bad | alarm text + priority |
+| T-HMC01-020 | step timeout | AUTO, part present | block the InCycle answer | HMC01_A8030 (or A8010 in 14.5) after 5 s, lamp red | 5 s ± 0.2 s |
+| T-HMC01-030 | interlock | spindle turning | command Unclamp | refused, message shown | no output |
+| T-HMC01-040 | first-out | all OK | close air supply | first-out shows "air" | correct first bit |
+| T-HMC01-050 | PackML | Idle | Start, then remove pallet supply | Execute → Suspending → Suspended; return supply → Execute | states on SCADA |
+| T-HMC01-060 | E-stop | running, step 31 | press E-stop, release, press Start, Reset, Start | stop; still stopped; Start refused; reset lamp off; runs | ISO 13850 behaviour |
+| T-HMC01-070 | PROFINET failure | running | pull the ET 200SP cable | station failure alarm (OB86), machine to safe state, recovery after plug-in + ack | no restart without Start |
+| T-HMC01-080 | OPC UA method | Idle | call StartRequest() with door open | returns Bad_ConditionNotMet | no start |
+| T-HMC01-090 | power loss mid-cycle | step 20 (APC rotating) | switch off cabinet, on again | no automatic movement; recovery sequence offered | operator decides |
+| T-HMC01-100 | version | – | read version + F-signature | match the release note | recorded in report |
+
+### 31.3 Punch list classes
+
+| Class | Meaning | Rule |
+|---|---|---|
+| A | safety or production-stopping defect | FAT/SAT not passed |
+| B | function missing or wrong, workaround exists | fix before hand-over, date agreed |
+| C | cosmetic (text, colour) | fix in the next release |
+
+---
+
+## 32. Cyber security of the PLC (IEC 62443)
+
+Guide 06 §5.7 and guide 07 (network plan, firewall rules) cover the network side. This chapter is the
+**PLC / component** side.
+
+### 32.1 Zones and conduits for the crankcase line
+
+| Zone | Contains | Target security level (SL-T, proposal) | Conduit to |
+|---|---|---|---|
+| Cell zone L2 (VLAN 51) | PLC-01, ET 200SP stations, CNCs, HMI, switches | SL 2 | OT DMZ / SCADA zone through the firewall: OPC UA 4840 only |
+| Safety sub-zone | F-CPU safety program, PROFIsafe devices | protected by the cell zone + safety password | – |
+| SCADA / MES zone | servers, clients | SL 2 | cell zones (OPC UA), DMZ |
+| OT DMZ | MQTT broker, jump host for remote access, patch server | SL 2–3 | IT network |
+
+The seven foundational requirements of IEC 62443 (FR1 identification and authentication, FR2 use control, FR3 system
+integrity, FR4 data confidentiality, FR5 restricted data flow, FR6 timely response to events, FR7 resource
+availability) become concrete settings below.
+
+### 32.2 PLC hardening checklist (Siemens names in brackets – other makers have equal settings)
+
+- [ ] Access protection level set (e.g. "HMI access" or "No access"), strong passwords, separate safety password (FR1/FR2)
+- [ ] Secure PG/HMI communication with certificates enabled (newer TIA Portal versions), legacy access off
+- [ ] PUT/GET access from remote partners **off** unless needed (FR5)
+- [ ] Web server off (or HTTPS only with users) (FR5)
+- [ ] OPC UA server: security policy Basic256Sha256 Sign & Encrypt, anonymous off, users with roles, only interface DBs visible (5.9)
+- [ ] Unused ports and interfaces disabled; DCP / LLDP only on the field side
+- [ ] Firmware current and from the maker (signed), firmware update procedure written (FR3)
+- [ ] Know-how protection only by agreement – you must have the source (5.12)
+- [ ] Syslog / security events to the SCADA or a log server (FR6)
+- [ ] Offline backups of all programs on the change-management server; USB use controlled (FR3/FR7)
+- [ ] Remote access only through the jump host in the DMZ, with logging and the line owner's approval
+- [ ] Ask suppliers for IEC 62443-4-2 component certificates and IEC 62443-4-1 development process evidence
+
+---
+
+## 33. Diagnostics and troubleshooting
+
+### 33.1 Where to look
+
+| Source | What it tells | How |
+|---|---|---|
+| CPU LEDs (RUN/STOP, ERROR, MAINT) | CPU state, a fault exists | first look at the cabinet |
+| Diagnostic buffer of the CPU | last events with time stamp: STOP reason, module failure, cycle-time overrun | engineering tool online, CPU display, web server (read-only) |
+| System diagnostics → HMI / SCADA alarms | module and channel faults as plain text (wire break channel 3) | enable "system diagnostics" in the project |
+| PROFINET topology / port statistics | which device, which port, CRC errors, link down | engineering tool, switch web page, PROFINET diagnostic tools |
+| Watch tables / online status of the program | live values, which network is active | engineering tool (read; force only with permit) |
+| Trace (oscilloscope in the PLC) | fast signals and timing in ms | trace function of the CPU |
+| Step number + first-out on the HMI | where the sequence waits and why | chapters 21–22 |
+
+**Forcing rule**: forcing an output can move a machine. Only with the machine in a safe state, with a written
+permit, and with "force active" shown on the HMI. Remove all forces before hand-over (the CPU shows a force LED).
+
+### 33.2 Troubleshooting table
+
+| Symptom | Likely cause | Check | Fix |
+|---|---|---|---|
+| CPU in STOP after start-up | missing OB (error OB not programmed), wrong memory card, configuration mismatch | diagnostic buffer | load OB80/82/83/86/121/122, correct hardware configuration |
+| CPU STOP "cycle time exceeded" | endless loop, large FOR loop, waiting loop | diagnostic buffer, max cycle time | remove waiting loops; move work to steps |
+| Station I/O all red, "device failure" | PROFINET cable, device name lost, power of the station | topology view, LEDs of the head | cable / connector, assign device name (or topology-based naming) |
+| Sporadic PROFINET failures | EMC, bad shield, cable too long, switch not PROFINET-capable | port CRC statistics | guide 24 §12 / guide 27 EMC rules, replace connectors |
+| Analog value 32767 or jumps | wire break, open shield, ground loop | measure mA at the terminal | repair wire, shield one side, isolated module |
+| Analog value 1.8 K too high | 2-wire Pt100 lead resistance (24.4) | check connection type | 3/4-wire or head transmitter |
+| Sensor works, PLC bit stays 0 | NPN sensor on sinking card, wrong terminal, input filter too long | measure 24 V at the input | PNP sensor (10.3), wiring per I/O list |
+| Step chain stops without alarm | no timeout on that step | step number on HMI | add timeout (5.5) |
+| Counter counts double | count on level instead of edge, contact bounce | trace | R_TRIG / P contact, debounce |
+| Valve chattering | two places write the same output | cross-reference | one writer rule (19.3) |
+| PID loop oscillates | gain too high, wrong direction, valve stick-slip | trend SP/PV/OUT | lambda tuning (26.3), check direction, valve |
+| PID output stuck at 100 % after a long disturbance | wind-up | output and I-part | anti-windup (26.4) |
+| F-I/O passivated | discrepancy, short circuit, PROFIsafe timeout | diagnostics of the F-module | repair, then acknowledge (28.2) |
+| Modbus value huge / negative | word order of REAL (29.4), register off by one | compare with the device display | swap words, address − 40001 |
+| OPC UA client cannot connect | certificate not trusted, security policy mismatch, firewall | server diagnostics, firewall log | trust certificate, same policy, open 4840 for that server only |
+| Machine starts after E-stop release | wrong reset logic | test T-HMC01-060 | seal-in with new start edge (14.5) |
+
+### 33.3 Measures that reduce MTTR
+
+Step number and first-out on every HMI; plain-text system diagnostics; alarm texts with the device designation
+(`-BG2`) and terminal; spare-part list per station; one-page "how to recover" per sequence; backups ready;
+technicians trained on the online tools.
+
+---
+
+## 34. Documentation set for the control system
+
+| Document | Content | When | Number (example, doc 15 style) |
+|---|---|---|---|
+| Control architecture | PLC split, networks, safety concept (drawing like 05_plc_architecture) | basic design | VC-ITS-ARC-0001 |
+| Functional design specification (FDS) | modes, sequences (GRAFCET), interlocks (cause & effect), PackML mapping, alarms, HMI screens, interfaces | before programming | VC-MCH-FDS-0001 |
+| Software design specification | program structure, FB list, data types, naming, task plan, cycle-time budget | before programming | VC-MCH-SDS-0001 |
+| I/O list, cable list, terminal plans | 11.12, 12.3 | before cabinet build | VC-ELE-IOL-0001 |
+| Interface sheets | signals, timing diagrams, data, timeouts per interface (5.6) | before ordering machines | VC-IF-ITS-MCH-0001 |
+| Alarm list | 11.14 | before FAT | VC-ITS-ALM-0001 |
+| Safety documents | risk assessment, SRS, PL calculation (SISTEMA), validation report with F-signature | design → SAT | VC-MCH-RA / SRS / CALC |
+| Network documents | IP plan, VLANs, firewall rules, device names (guide 07) | before installation | VC-ITS-NET-0001 |
+| Test documents | FAT/SAT test lists and reports, punch lists | FAT, SAT | VC-MCH-FAT-0001 |
+| Operating and maintenance manual | operator steps, recovery, troubleshooting (33.2), spare parts | hand-over | – |
+| Source code + backups | all PLC, HMI, drive, robot, CNC projects, with version list | every release | change-management server |
+
+---
+
+## 35. Buy list – catalogue examples
+
+**How to read these tables.** "Spec it must meet" comes from this guide. Makers and series are **examples** from public
+catalogues – models change, check the current catalogue. Key data are given only where they are well known; otherwise
+**"see datasheet"**. Price classes are rough classes only – **estimate, ask for a quote**: € < 1 k€, €€ 1–5 k€,
+€€€ 5–20 k€, €€€€ > 20 k€ (per item, without engineering). Choose **one PLC family** for the whole factory (11.6) –
+these tables help you compare, not mix.
+
+### 35.1 PLCs (standard CPUs)
+
+| Spec it must meet (from this guide) | Maker + series (example) | Key catalogue data | Price class | What to check |
+|---|---|---|---|---|
+| Line PLC, 5 stations, ~15 000 instructions, PROFINET IO controller + 2nd interface for OPC UA, max cycle ≤ 20 ms (17.3) | Siemens **SIMATIC S7-1500** (CPU 1513-1 PN, 1515-2 PN, 1516-3 PN/DP) | bit op 40 / 30 / 10 ns (17.3); integrated PROFINET (RT/IRT); OPC UA server (licence by CPU size) | €€ – €€€ | number of interfaces, work memory, OPC UA licence, max IO devices |
+| Small standalone station (washer, test bench, crane) | Siemens **S7-1200** (CPU 1214C / 1215C, new G2 generation) | compact, integrated I/O, PROFINET | € | memory, number of PROFINET devices, OPC UA support of the version |
+| Controller inside a remote I/O station (machine-mounted) | Siemens **ET 200SP CPU** (CPU 1510SP / 1512SP, F versions) | S7-1500 performance class in ET 200SP format | € – €€ | interfaces, F version, BusAdapter |
+| PC-based control with EtherCAT, motion + PLC in one device | Beckhoff **CX embedded PCs** (e.g. CX5100, CX7000 series) / **C60xx** IPCs + TwinCAT 3 | EtherCAT master; TwinCAT runtime licence per performance level | € – €€ | TwinCAT platform level, operating system, fanless / temperature range |
+| Large controller in the Rockwell world, EtherNet/IP | Rockwell **ControlLogix 5580** (1756-L8x) | EtherNet/IP integrated, Studio 5000 | €€€ | memory size, number of EtherNet/IP nodes, redundancy option |
+| Medium controller, Rockwell | Rockwell **CompactLogix 5380 / 5480** (5069-L3xx) | dual EtherNet/IP ports, DLR | €€ | node count, memory, CIP Safety version (Compact GuardLogix) |
+| Mitsubishi-based machines | Mitsubishi **MELSEC iQ-R** (R04/R08/R16CPU …) / **iQ-F** (FX5U) | CC-Link IE TSN, GX Works3 | € – €€ | network module needed for PROFINET / EtherNet/IP |
+| Machine controller with EtherCAT + EtherNet/IP | Omron **NX/NJ** (NX1P2, NX102, NJ501, NX701) | Sysmac Studio, motion + PLC | € – €€€ | number of axes, OPC UA server, safety CPU option (NX-SL) |
+| Modular controller with POWERLINK / OPC UA | B&R **X20** CPUs (X20CP series – check current models) | Automation Studio, openSAFETY (X20SL SafeLOGIC) | € – €€ | interfaces, PROFINET/EtherNet/IP via interface modules |
+| Schneider-based plant | Schneider **Modicon M580** (ePAC, Ethernet backplane) / **M262** (CODESYS-based Machine Expert) | EcoStruxure Control Expert / Machine Expert | €€ / € | safety version M580 Safety, Ethernet services |
+| Cheap CODESYS controller for utilities | WAGO **PFC200** (750-82xx) / **CC100** | CODESYS V3 (e!COCKPIT / CODESYS), Modbus, MQTT, OPC UA | € | runtime included, PROFINET device/controller option, I/O 750 series |
+| Open Linux-based PLC | Phoenix Contact **PLCnext Control** (e.g. AXC F 2152) | IEC 61131-3 + C++/Python, PROFINET | € | PLCnext Engineer licence, apps |
+
+### 35.2 Safety PLCs and configurable safety controllers
+
+| Spec it must meet | Maker + series (example) | Key catalogue data | Price class | What to check |
+|---|---|---|---|---|
+| PL e / SIL 3, PROFIsafe master, F-runtime ≤ 20 ms, ≥ 16 F-DI / 8 F-DQ per line (14.4, 28) | Siemens **S7-1500F** (CPU 1513F / 1515F / 1516F) + ET 200SP F-modules (F-DI 8×24VDC HF, F-DQ 4×24VDC PM HF) | STEP 7 Safety (Advanced) in TIA Portal; certified to SIL 3 / PL e | €€ – €€€ | safety licence, F-response time (maker tool), number of F-devices |
+| Rockwell line | Rockwell **GuardLogix 5580** / **Compact GuardLogix 5380** | CIP Safety over EtherNet/IP, SIL 3 / PL e (see certificate) | €€ – €€€ | safety task period, safety I/O (1734/5069 Guard I/O) |
+| Decentral safety, multi-vendor | Pilz **PSS 4000** (e.g. PSSu H PLC1 FS) + PSSu I/O | PAS4000 software, SafetyNET p, PL e / SIL CL 3 | €€ | fieldbus coupling to the line PLC (PROFINET device) |
+| EtherCAT / PC-based | Beckhoff **TwinSAFE** (EL6910 logic, EL1904 / EL2904 safe I/O, EK1960 compact controller) | FSoE, SIL 3 / PL e, programmed in TwinCAT | € – €€ | logic capacity, FSoE to drives, response time |
+| Small cell, configurable (no programming) | Pilz **PNOZmulti 2**, SICK **Flexi Soft**, Siemens **SIRIUS 3SK2** | graphical configuration, PL e, gateway to PROFINET for diagnostics | € – €€ | number of I/O, gateway, link between units |
+| Omron / Mitsubishi machines | Omron **NX-SL** safety CPU; Mitsubishi **iQ-R safety** (R08SFCPU) | FSoE / CIP Safety (Omron); CC-Link IE safety (Mitsubishi) | €€ | compatibility with the line PLC |
+
+### 35.3 Remote I/O
+
+| Spec it must meet | Maker + series (example) | Key catalogue data | Price class | What to check |
+|---|---|---|---|---|
+| IP20 station per machine, PROFINET, DI sinking type 1/3, DQ 0.5 A, AI 4–20 mA with wire break, F-modules in the same station (17.5) | Siemens **ET 200SP** (IM 155-6 PN ST / HF / HS) | 8/16-channel modules, BaseUnits with integrated terminals, F-modules, shared device (HF) | € – €€ per station | max modules per head, update time, power budget, HF needed for shared device |
+| IP67 on the machine, PROFINET | Siemens **ET 200eco PN**, **ET 200AL** | M12 connectors, IO-Link master versions | € | IP rating, connector type, current per port |
+| EtherCAT I/O | Beckhoff **EK1100** + **EL** terminals; **EP** box modules (IP67); **EK9300** = PROFINET coupler for EL terminals | E-bus, distributed clocks | € | E-bus current, DC support |
+| Modular IP20 multi-protocol | WAGO **750 / 753** (e.g. 750-375 PROFINET coupler, 750-352 Ethernet / Modbus TCP coupler) | many I/O types, PROFIsafe modules | € | coupler protocol, max modules, conformance class |
+| High-density IP20 | Phoenix Contact **Axioline F** (e.g. AXL F BK PN bus coupler) | fast local bus, PROFINET / EtherNet/IP couplers | € | coupler version, update time |
+| IP67 block I/O, multi-protocol | Turck **TBEN-S / TBEN-L** (also IO-Link master versions), **BL20** (IP20) | PROFINET / EtherNet/IP / Modbus TCP in one device | € | protocol selection, port current, IO-Link class |
+
+### 35.4 IO-Link masters and devices
+
+| Spec it must meet | Maker + series (example) | Key catalogue data | Price class | What to check |
+|---|---|---|---|---|
+| IO-Link master PROFINET, IP67, 8 ports, class A + some class B (11.7) | ifm **AL11xx** series (e.g. AL1102 – check protocol version) | 8 ports, IoT port for parallel data access | € | protocol (PROFINET / EtherNet/IP / EtherCAT version), class B ports |
+| same | Balluff **BNI** IO-Link masters (PROFINET versions) | 8 ports, port class A/B | € | see datasheet |
+| same, compact 4/8 ports | Turck **TBEN-S2-4IOL**, **TBEN-L…-8IOL** | multi-protocol, IP67 | € | port current, class B |
+| IO-Link master in the ET 200SP station | Siemens **CM 4×IO-Link** (ET 200SP) | 4 ports in the same station as the DI/DQ | € | port class, PCT / IO-Link configuration tool |
+| IO-Link master with REST / small systems | SICK **SIG200** (sensor integration gateway) | IO-Link master with REST API, PROFINET versions | € | protocol version |
+| Spindle vibration sensor with internal RMS (twin: raw × 0.1 mm/s) | ifm **VVB001** (IO-Link vibration sensor), Balluff **BCM** condition monitoring sensor | v-RMS, a-peak, temperature (see datasheet) | € | measuring range and frequency range vs ISO 20816 class |
+| Pressure / temperature sensors IO-Link | ifm PN / PI series, SICK PBS, Balluff BSP; temperature transmitters ifm TA, Endress+Hauser TMT | IO-Link + switching output | € | range, accuracy, process connection |
+
+### 35.5 HMI panels
+
+| Spec it must meet | Maker + series (example) | Key catalogue data | Price class | What to check |
+|---|---|---|---|---|
+| Line / station panel, 12″ touch, PROFINET, alarms, recipes, ISA-101 style (11.11) | Siemens **SIMATIC HMI Unified Comfort** (e.g. MTP1200 Unified Comfort) / **Comfort Panels** (e.g. TP1200 Comfort) | WinCC Unified / WinCC Comfort in TIA Portal | €€ | runtime options, number of tags, OPC UA, web clients |
+| PC-based panel | Beckhoff **CP29xx / CP39xx** multi-touch panels (with or without built-in PC) | TwinCAT HMI (licence per client) | € – €€ | panel PC vs display only, TwinCAT HMI client licences |
+| Rockwell line | Rockwell **PanelView 5000** (5310 / 5510) | FactoryTalk View ME / Optix | € – €€ | controller compatibility |
+| Multi-vendor, low cost | Weintek **cMT X** series / **MT8000** series | EasyBuilder Pro (free), many PLC drivers incl. S7, Modbus, OPC UA | € | driver for your PLC, IP rating of the front |
+
+### 35.6 Industrial switches (network design in guide 07)
+
+| Spec it must meet | Maker + series (example) | Key catalogue data | Price class | What to check |
+|---|---|---|---|---|
+| Managed PROFINET switch, CC-B, MRP, VLAN, cabinet mounting (11.9) | Siemens **SCALANCE XC200 / XB200**, Phoenix Contact **FL SWITCH 2000**, Hirschmann **RSP / BOBCAT**, Moxa **EDS** series | PROFINET conformance class, MRP manager/client, port count | € | PROFINET certificate, MRP role, power supply redundancy |
+| Cell firewall between zone L2 and SCADA zone (32.1) | Siemens **SCALANCE S** series, Phoenix **mGuard** / **FL mGuard**, other industrial firewalls | stateful firewall, VPN | € – €€ | throughput, rule management, IEC 62443-4-2 |
+
+### 35.7 Engineering software and licences
+
+| Need | Product (example) | Licence notes (check the current licence terms) | Price class |
+|---|---|---|---|
+| Program S7-1500 / S7-1200 / ET 200SP CPU | Siemens **TIA Portal STEP 7 Professional** | per seat (single or floating); activation with the Automation License Manager – offline activation possible; software update service yearly | €€ |
+| F-program (S7-1500F) | **STEP 7 Safety Advanced** (TIA Portal option) | additional licence per seat | €€ |
+| HMI configuration | **WinCC Unified / WinCC Comfort / Advanced** (engineering) + runtime licences on PC stations | engineering licence per seat; panel runtime included in the panel; PC runtime by tags/clients | € – €€€ |
+| Simulation | **S7-PLCSIM** (included with STEP 7 Professional), **S7-PLCSIM Advanced** | PLCSIM Advanced: separate licence, virtual controllers with Ethernet + API | €€ |
+| OPC UA server on the CPU | **SIMATIC OPC UA S7-1500** runtime licence (small / medium / large by CPU class) | per CPU – check your CPU class | € |
+| Beckhoff | **TwinCAT 3 XAE** engineering (free download) + runtime licences per device (e.g. TC1200 PLC, TF6100 OPC UA server, TF6701 IoT/MQTT, NC PTP for motion) | 7-day trial licences can be renewed for tests; runtime licence bound to the device (or a licence dongle) | € per function |
+| Rockwell | **Studio 5000 Logix Designer** (editions Lite / Standard / Professional …), FactoryTalk View, FactoryTalk Logix Echo (emulation) | FactoryTalk Activation – offline activation possible (host-ID / dongle); editions differ in features | €€ – €€€ |
+| CODESYS-based controllers | **CODESYS Development System** (free); runtime licence per device (often included by the device maker, e.g. WAGO); add-ons (Git, Static Analysis, Test Manager) from the CODESYS store | runtime licence is on the device; add-ons per seat | free – € |
+| Others | Mitsubishi **GX Works3**, Omron **Sysmac Studio**, B&R **Automation Studio**, Schneider **Control Expert / Machine Expert**, Pilz **PAS4000**, SICK **Safety Designer** | per seat; some free (safety configurators often free) | free – €€ |
+| Safety calculation | **SISTEMA** (IFA, free) + maker libraries | free download; runs offline | free |
+| Version control | Git server (free), change-management server (e.g. versiondog / octoplant) | server licence by number of devices | free – €€€ |
+
+**Offline factory PC** (project rule): all tools must run without internet. Check before ordering that the licence can
+be activated offline (licence file or USB dongle) and that the software update and the device description files
+(GSDML, EDS, ESI, IODD) can be downloaded once and installed offline.
+
+### 35.8 Consolidated shopping list – crankcase line controls (PLC-01, 5 stations, example)
+
+| # | Item | Qty | Spec (from this guide) | Example | Price class (estimate – ask for a quote) |
+|---|---|---|---|---|---|
+| 1 | Fail-safe CPU | 1 (+1 spare) | PL e / SIL 3, 2 PROFINET interfaces + plant port, ~15 000 instructions, max cycle ≤ 20 ms | S7-1516F-3 PN/DP | €€€ each |
+| 2 | Memory cards | 2 (+1 spare) | program + logs, ≥ 2 × project | SIMATIC memory card (size see datasheet) | € |
+| 3 | Load power supply + rack | 1 | 230 V AC → 24 V, rail | PM 70 W + mounting rail | € |
+| 4 | Central I/O (line signals) | 1 set | DI 32, DQ 32, AI 8 (main switch, PSU OK, reset, cabinet door, stack light) | S7-1500 I/O modules | € – €€ |
+| 5 | Remote I/O stations | 5 | per station: head HF, DI 16, DQ 16, AI 4, F-DI 8, F-DQ 4, server module, 20 % spare (11.12) | ET 200SP | €€ per station |
+| 6 | IO-Link masters | 4 | 3 HMC (vibration, temperature), 1 load station (RFID) | ifm / Balluff / Turck / Siemens CM 4×IO-Link | € each |
+| 7 | Spindle vibration sensors | 3 | IO-Link, v-RMS mm/s, ISO 20816 range | ifm VVB001 or equal | € each |
+| 8 | Temperature + pressure transmitters | 6 + 3 | 4–20 mA 2-wire or IO-Link, 0–150 °C / 0–16 bar, ±0.5 % | maker choice (11.7) | € each |
+| 9 | Line HMI panel | 1 | 12″ touch, PROFINET, ISA-101 screens | Unified Comfort 12″ (or equal) | €€ |
+| 10 | Load station operator panel | 1 | 7–9″ touch or push-button box with reset (blue), start, stop, E-stop | panel + buttons (guide 24 §17.6) | € – €€ |
+| 11 | Managed switches | 6 | PROFINET CC-B, MRP, 8 ports (1 cabinet + 5 stations) | SCALANCE XC200 / FL SWITCH 2000 / equal | € each |
+| 12 | PN/PN coupler | 1 | link to PLC-04, transfer area 16 bytes + heartbeat | PN/PN coupler (Siemens) or I-device | € |
+| 13 | Cell firewall | 1 | zone L2 ↔ SCADA, OPC UA 4840 only (32.1) | industrial firewall (guide 07) | € – €€ |
+| 14 | 24 V PSU + ECB modules + buffer | 1 set per cabinet | sized by 11.2 (10 A example), ECB per group | guide 24 §17.8 | € |
+| 15 | Safety devices (E-stop, door locks, light curtain, safety contactors) | per station | PL d, ISO 13850 / 14119 / IEC 61496 (11.8) | guide 24 §17.6–17.7, guide 21 table 24.5 | € – €€ each |
+| 16 | PROFINET cables + M12 connectors | as layout | type B/C, ≤ 100 m (11.9) | any certified | € |
+| 17 | Software: STEP 7 Professional + Safety Advanced + WinCC (engineering) | 2 seats | offline activation | TIA Portal | €€ – €€€ |
+| 18 | PLCSIM Advanced | 1 | virtual commissioning with the twin (30.2) | S7-PLCSIM Advanced | €€ |
+| 19 | OPC UA runtime licence | 1 | per CPU | SIMATIC OPC UA S7-1500 (class of the CPU) | € |
+| 20 | Loop calibrator + multimeter | 1 + 1 | inject/measure 4–20 mA, 24 V checks (31.2) | e.g. Fluke 709 / 789 class, Fluke 87V | € each |
+| 21 | PROFINET diagnostic tool / network tester | 1 | topology, port statistics, cable test | maker tools / cable certifier (service) | € – €€ |
+| 22 | Spare parts set | 1 | 1 CPU (item 1), 1 head module, 1 of each I/O module, 2 sensors of each type, fuses | from items above | €€ |
+
+Prices depend strongly on region, volume and framework contract – get at least two quotes for the PLC family
+decision and include engineering hours and training (often more than the hardware).
+
+---
+
+## 36. Formula sheet and new glossary terms
+
+### 36.1 Formula sheet (Part A + Part B)
+
+| Topic | Formula | Example (this guide) |
+|---|---|---|
+| Analog input | v = lo + (hi − lo)·raw/27648 ; I = 4 + 16·(v − lo)/(hi − lo) | 7594 → 41.2 °C, 8.39 mA |
+| General scaling | v = lo + (raw − raw_lo)·(hi − lo)/(raw_hi − raw_lo) | Beckhoff 9000 / 32767 → 41.2 °C |
+| Worst-case reaction | t ≤ t_filter + 2·t_cycle + t_DQ (+ 2·t_PN) | 3 + 10.6 + 1 = 14.6 ms (18.6 ms with PROFINET) |
+| Cycle time estimate | t ≈ (3·Σnᵢ·tᵢ + t_PI) / (1 − u_comm − u_int) | 1.1 ms typical, 2.9 ms max |
+| Availability | A = MTBF/(MTBF + MTTR) ; A_red = 1 − (1 − A)² | 4 min/year with spare CPU |
+| Overflow time | t = N_max · t_per_count | INT: 130.8 days at 345 s/part |
+| Filter | α = T/(τ + T) ; 95 % after 3τ | α = 0.048, 6 s |
+| Pt100 | R = 100·(1 + A·T + B·T²) | 41.2 °C → 116.00 Ω, 0.386 Ω/K |
+| Encoder | f = PPR·n/60 ; N = 4·PPR ; Δx = lead/N | 125 kHz, 1 µm |
+| FOPDT identification | τ = 1.5·(t63 − t28) ; θ = t63 − τ | τ ≈ 180 s, θ ≈ 30 s |
+| ZN open loop PID | Kp = 1.2τ/(\|K\|θ), Ti = 2θ, Td = 0.5θ | 36 %/K, 60 s, 15 s |
+| Lambda PI | Kp = τ/(\|K\|(λ + θ)), Ti = τ | 7.5 %/K, 180 s |
+| Trapezoid move (1/3) | v = 1.5·θ/t ; a = 4.5·θ/t² | 108 °/s, 129.6 °/s² |
+| PROFINET load | frames/s = n·2/t_update ; load = frames/s · 84 B · 8 | 8.06 Mbit/s |
+| PROFINET watchdog | t_WD = t_update · accepted missed cycles | 2 ms · 3 = 6 ms |
+| Safety distance | S = K·T + C (ISO 13855) | 568 mm (fault-free), 642 mm (one fault) |
+| Cell cycle with APC | t = t_APC + t_machining (load in parallel) | 353.8 s vs 465 s (−23.9 %) |
+
+### 36.2 New glossary terms (Part B)
+
+| Term | Meaning |
+|---|---|
+| Work memory / load memory | RAM where the code and data run / memory card with the complete project |
+| Jitter | variation of the cycle time (or of a sampling instant) from cycle to cycle |
+| Cyclic interrupt OB | program block called at a fixed time interval (e.g. OB30 every 100 ms) |
+| Isochronous mode | program and I/O synchronised to the bus clock (motion, fast measuring) |
+| MTBF / MTTR | mean time between failures / mean time to repair |
+| POU | program organisation unit: program, function block, function (IEC 61131-3) |
+| AOI | Add-On Instruction – Rockwell's function block |
+| GVL / DUT | CODESYS global variable list / data unit type (structure) |
+| PackML | standard machine state model (ISA-TR88.00.02) with 17 states, modes and PackTags |
+| SC | state complete – end of an acting state in PackML |
+| Unit mode | PackML operating mode (Production, Maintenance, Manual, user modes) |
+| GRAFCET macro-step | step that stands for a sub-sequence drawn elsewhere |
+| Permissive | condition needed to start a movement |
+| First-out | indication of which interlock dropped first |
+| Cause & effect matrix | table: which cause (sensor, fault) blocks or stops which effect (movement) |
+| Shelving | temporary hiding of an alarm by an authorised operator (ISA-18.2) |
+| HSC | high-speed counter module/function |
+| PPR | pulses per revolution of an incremental encoder |
+| SSI / BiSS / EnDat | serial interfaces of absolute encoders |
+| FOPDT | first-order plus dead-time process model (K, τ, θ) |
+| Lambda tuning | PI tuning by the chosen closed-loop time constant λ |
+| Wind-up / anti-windup | integral growth while the output is limited / measures against it |
+| Bumpless transfer | switching manual ↔ auto without a jump of the output |
+| PLCopen motion | standard motion function blocks (MC_Power, MC_MoveAbsolute …) |
+| Electronic cam / gear | slave axis follows a master by a table / fixed ratio |
+| Passivation / reintegration | F-I/O switched to safe value after a fault / back to process value after acknowledge |
+| F_WD_Time | PROFIsafe monitoring time – longest allowed time between valid safety telegrams |
+| F-address | unique PROFIsafe address of a safety device / module |
+| GSDML / EDS / ESI / IODD | device description files for PROFINET / EtherNet/IP / EtherCAT / IO-Link |
+| RPI | requested packet interval (EtherNet/IP cycle) |
+| DLR | device level ring (EtherNet/IP ring redundancy) |
+| FSoE | Fail Safe over EtherCAT |
+| MBAP | Modbus application protocol header (7 bytes) of Modbus TCP |
+| Companion specification | OPC UA information model for a machine type (PackML, Machinery, Machine Tools) |
+| Last will | MQTT message the broker publishes when a client disappears |
+| MIL / SIL / HIL | model- / software- / hardware-in-the-loop simulation |
+| PLCSIM Advanced | Siemens virtual S7-1500 controller with Ethernet and API |
+| SL-T | target security level of a zone (IEC 62443) |
+| Punch list | list of open defects after FAT/SAT, classes A/B/C |
+| FDS / SDS | functional / software design specification |

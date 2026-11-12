@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1100" width="1200" height="1100" font-family="Arial, Helvetica, sans-serif">
+<title>Achievable surface roughness Ra by manufacturing process</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#000" stroke-width="1"/></pattern></defs>
+<rect x="0" y="0" width="1200" height="1100" fill="#ffffff"/>
+<text x="30.0" y="36.0" font-size="16" text-anchor="start" fill="#000" font-weight="bold">Surface roughness Ra by manufacturing process – normal production range and fine range (log scale)</text>
+<text x="30.0" y="58.0" font-size="12" text-anchor="start" fill="#555">Dark bar = normal range in production. Light bar = fine range (sharp tool, small feed, stable machine, extra time). Values from §7.1.</text>
+<line x1="357.6" y1="100.0" x2="357.6" y2="758.0" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="357.6" y="94.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">0.012</text>
+<text x="357.6" y="776.0" font-size="11" text-anchor="middle" fill="#555"></text>
+<line x1="428.2" y1="100.0" x2="428.2" y2="758.0" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="428.2" y="94.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">0.025</text>
+<text x="428.2" y="776.0" font-size="11" text-anchor="middle" fill="#555">N1</text>
+<line x1="495.0" y1="100.0" x2="495.0" y2="758.0" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="495.0" y="94.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">0.05</text>
+<text x="495.0" y="776.0" font-size="11" text-anchor="middle" fill="#555">N2</text>
+<line x1="561.7" y1="100.0" x2="561.7" y2="758.0" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="561.7" y="94.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">0.1</text>
+<text x="561.7" y="776.0" font-size="11" text-anchor="middle" fill="#555">N3</text>
+<line x1="628.4" y1="100.0" x2="628.4" y2="758.0" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="628.4" y="94.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">0.2</text>
+<text x="628.4" y="776.0" font-size="11" text-anchor="middle" fill="#555">N4</text>
+<line x1="695.1" y1="100.0" x2="695.1" y2="758.0" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="695.1" y="94.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">0.4</text>
+<text x="695.1" y="776.0" font-size="11" text-anchor="middle" fill="#555">N5</text>
+<line x1="761.9" y1="100.0" x2="761.9" y2="758.0" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="761.9" y="94.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">0.8</text>
+<text x="761.9" y="776.0" font-size="11" text-anchor="middle" fill="#555">N6</text>
+<line x1="828.6" y1="100.0" x2="828.6" y2="758.0" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="828.6" y="94.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">1.6</text>
+<text x="828.6" y="776.0" font-size="11" text-anchor="middle" fill="#555">N7</text>
+<line x1="895.3" y1="100.0" x2="895.3" y2="758.0" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="895.3" y="94.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">3.2</text>
+<text x="895.3" y="776.0" font-size="11" text-anchor="middle" fill="#555">N8</text>
+<line x1="960.6" y1="100.0" x2="960.6" y2="758.0" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="960.6" y="94.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">6.3</text>
+<text x="960.6" y="776.0" font-size="11" text-anchor="middle" fill="#555">N9</text>
+<line x1="1026.5" y1="100.0" x2="1026.5" y2="758.0" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="1026.5" y="94.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">12.5</text>
+<text x="1026.5" y="776.0" font-size="11" text-anchor="middle" fill="#555">N10</text>
+<line x1="1093.3" y1="100.0" x2="1093.3" y2="758.0" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="1093.3" y="94.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">25</text>
+<text x="1093.3" y="776.0" font-size="11" text-anchor="middle" fill="#555">N11</text>
+<line x1="1160.0" y1="100.0" x2="1160.0" y2="758.0" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="1160.0" y="94.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">50</text>
+<text x="1160.0" y="776.0" font-size="11" text-anchor="middle" fill="#555">N12</text>
+<text x="330.0" y="94.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Ra [µm]</text>
+<text x="330.0" y="776.0" font-size="11" text-anchor="end" fill="#555">old N-class</text>
+<rect x="30.0" y="110.0" width="1140.0" height="36.0" stroke="none" stroke-width="1.2" fill="#f6f6f6"/>
+<text x="328.0" y="133.0" font-size="12" text-anchor="end" fill="#000">Flame cutting</text>
+<rect x="960.6" y="120.0" width="66.0" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="1026.5" y="118.0" width="66.7" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="1099.3" y="133.0" font-size="11" text-anchor="start" fill="#000">12.5 – 25</text>
+<text x="328.0" y="169.0" font-size="12" text-anchor="end" fill="#000">Sawing</text>
+<rect x="895.3" y="156.0" width="65.2" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="960.6" y="154.0" width="132.7" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="1099.3" y="169.0" font-size="11" text-anchor="start" fill="#000">6.3 – 25</text>
+<rect x="30.0" y="182.0" width="1140.0" height="36.0" stroke="none" stroke-width="1.2" fill="#f6f6f6"/>
+<text x="328.0" y="205.0" font-size="12" text-anchor="end" fill="#000">Laser cutting (steel 5–15 mm)</text>
+<rect x="828.6" y="192.0" width="66.7" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="895.3" y="190.0" width="131.2" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="1032.5" y="205.0" font-size="11" text-anchor="start" fill="#000">3.2 – 12.5</text>
+<text x="328.0" y="241.0" font-size="12" text-anchor="end" fill="#000">Rough turning</text>
+<rect x="895.3" y="228.0" width="65.2" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="960.6" y="226.0" width="66.0" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="1032.5" y="241.0" font-size="11" text-anchor="start" fill="#000">6.3 – 12.5</text>
+<rect x="30.0" y="254.0" width="1140.0" height="36.0" stroke="none" stroke-width="1.2" fill="#f6f6f6"/>
+<text x="328.0" y="277.0" font-size="12" text-anchor="end" fill="#000">Rough milling</text>
+<rect x="895.3" y="264.0" width="65.2" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="960.6" y="262.0" width="66.0" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="1032.5" y="277.0" font-size="11" text-anchor="start" fill="#000">6.3 – 12.5</text>
+<text x="328.0" y="313.0" font-size="12" text-anchor="end" fill="#000">Drilling</text>
+<rect x="828.6" y="300.0" width="66.7" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="895.3" y="298.0" width="65.2" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="966.6" y="313.0" font-size="11" text-anchor="start" fill="#000">3.2 – 6.3</text>
+<rect x="30.0" y="326.0" width="1140.0" height="36.0" stroke="none" stroke-width="1.2" fill="#f6f6f6"/>
+<text x="328.0" y="349.0" font-size="12" text-anchor="end" fill="#000">Finish turning</text>
+<rect x="695.1" y="336.0" width="133.5" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="828.6" y="334.0" width="66.7" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="901.3" y="349.0" font-size="11" text-anchor="start" fill="#000">1.6 – 3.2</text>
+<text x="328.0" y="385.0" font-size="12" text-anchor="end" fill="#000">Face / end milling, finishing</text>
+<rect x="695.1" y="372.0" width="133.5" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="828.6" y="370.0" width="66.7" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="901.3" y="385.0" font-size="11" text-anchor="start" fill="#000">1.6 – 3.2</text>
+<rect x="30.0" y="398.0" width="1140.0" height="36.0" stroke="none" stroke-width="1.2" fill="#f6f6f6"/>
+<text x="328.0" y="421.0" font-size="12" text-anchor="end" fill="#000">Broaching</text>
+<rect x="695.1" y="408.0" width="66.7" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="761.9" y="406.0" width="133.5" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="901.3" y="421.0" font-size="11" text-anchor="start" fill="#000">0.8 – 3.2</text>
+<text x="328.0" y="457.0" font-size="12" text-anchor="end" fill="#000">Reaming</text>
+<rect x="695.1" y="444.0" width="66.7" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="761.9" y="442.0" width="66.7" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="834.6" y="457.0" font-size="11" text-anchor="start" fill="#000">0.8 – 1.6</text>
+<rect x="30.0" y="470.0" width="1140.0" height="36.0" stroke="none" stroke-width="1.2" fill="#f6f6f6"/>
+<text x="328.0" y="493.0" font-size="12" text-anchor="end" fill="#000">Wire EDM (finish passes)</text>
+<rect x="628.4" y="480.0" width="66.7" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="695.1" y="478.0" width="133.5" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="834.6" y="493.0" font-size="11" text-anchor="start" fill="#000">0.4 – 1.6</text>
+<text x="328.0" y="529.0" font-size="12" text-anchor="end" fill="#000">Fine turning / boring (wiper, CBN)</text>
+<rect x="628.4" y="516.0" width="66.7" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="695.1" y="514.0" width="66.7" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="767.9" y="529.0" font-size="11" text-anchor="start" fill="#000">0.4 – 0.8</text>
+<rect x="30.0" y="542.0" width="1140.0" height="36.0" stroke="none" stroke-width="1.2" fill="#f6f6f6"/>
+<text x="328.0" y="565.0" font-size="12" text-anchor="end" fill="#000">Cylindrical / surface grinding</text>
+<rect x="561.7" y="552.0" width="133.5" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="695.1" y="550.0" width="66.7" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="767.9" y="565.0" font-size="11" text-anchor="start" fill="#000">0.4 – 0.8</text>
+<text x="328.0" y="601.0" font-size="12" text-anchor="end" fill="#000">Thread grinding</text>
+<rect x="628.4" y="588.0" width="66.7" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="695.1" y="586.0" width="66.7" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="767.9" y="601.0" font-size="11" text-anchor="start" fill="#000">0.4 – 0.8</text>
+<rect x="30.0" y="614.0" width="1140.0" height="36.0" stroke="none" stroke-width="1.2" fill="#f6f6f6"/>
+<text x="328.0" y="637.0" font-size="12" text-anchor="end" fill="#000">Honing</text>
+<rect x="495.0" y="624.0" width="66.7" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="561.7" y="622.0" width="133.5" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="701.1" y="637.0" font-size="11" text-anchor="start" fill="#000">0.1 – 0.4</text>
+<text x="328.0" y="673.0" font-size="12" text-anchor="end" fill="#000">Roller burnishing</text>
+<rect x="495.0" y="660.0" width="66.7" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="561.7" y="658.0" width="133.5" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="701.1" y="673.0" font-size="11" text-anchor="start" fill="#000">0.1 – 0.4</text>
+<rect x="30.0" y="686.0" width="1140.0" height="36.0" stroke="none" stroke-width="1.2" fill="#f6f6f6"/>
+<text x="328.0" y="709.0" font-size="12" text-anchor="end" fill="#000">Superfinishing</text>
+<rect x="428.2" y="696.0" width="66.7" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="495.0" y="694.0" width="133.5" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="634.4" y="709.0" font-size="11" text-anchor="start" fill="#000">0.05 – 0.2</text>
+<text x="328.0" y="745.0" font-size="12" text-anchor="end" fill="#000">Lapping</text>
+<rect x="357.6" y="732.0" width="137.4" height="16.0" stroke="#c62828" stroke-width="0.8" fill="#c62828" fill-opacity="0.3"/>
+<rect x="495.0" y="730.0" width="133.5" height="20.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="634.4" y="745.0" font-size="11" text-anchor="start" fill="#000">0.05 – 0.2</text>
+<text x="30.0" y="808.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Typical requirements (max Ra, from §7.2) – mark where your process must be:</text>
+<path d="M622.4166660432187 814 L634.4166660432187 814 L628.4166660432187 824 Z" stroke="#000" stroke-width="1.2" fill="#000"/>
+<text x="638.4" y="824.0" font-size="11" text-anchor="start" fill="#000">seal running surface 0.2–0.8</text>
+<path d="M689.1499988777937 834 L701.1499988777937 834 L695.1499988777937 844 Z" stroke="#000" stroke-width="1.2" fill="#000"/>
+<text x="705.1" y="844.0" font-size="11" text-anchor="start" fill="#000">precision bearing seat 0.2–0.4</text>
+<path d="M755.8833317123685 854 L767.8833317123685 854 L761.8833317123685 864 Z" stroke="#000" stroke-width="1.2" fill="#000"/>
+<text x="771.9" y="864.0" font-size="11" text-anchor="start" fill="#000">bearing seat IT6 0.8</text>
+<path d="M822.6166645469435 874 L834.6166645469435 874 L828.6166645469435 884 Z" stroke="#000" stroke-width="1.2" fill="#000"/>
+<text x="838.6" y="884.0" font-size="11" text-anchor="start" fill="#000">bearing seat in housing, locating face 1.6</text>
+<path d="M889.3499973815184 894 L901.3499973815184 894 L895.3499973815184 904 Z" stroke="#000" stroke-width="1.2" fill="#000"/>
+<text x="905.3" y="904.0" font-size="11" text-anchor="start" fill="#000">non-functional machined face 3.2–6.3</text>
+<text x="30.0" y="938.0" font-size="11" text-anchor="start" fill="#000">Rules: Rz ≈ 4 – 7 × Ra for turned/milled surfaces (no exact conversion). Turning: Rt ≈ f²/(8·r), e.g. f 0.15, r 0.8 → 3.5 µm → Ra ≈ 0.9 µm.</text>
+<text x="30.0" y="956.0" font-size="11" text-anchor="start" fill="#000">Each finer class needs more passes, slower feed or an extra process (cost). Specify only what the function needs. Do not use N-classes on new drawings – write Ra.</text>
+<rect x="760.0" y="1004.0" width="420.0" height="82.0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="760.0" y1="1034.0" x2="1180.0" y2="1034.0" stroke="#000" stroke-width="1"/>
+<text x="770.0" y="1025.0" font-size="14" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the current standard</text>
+<text x="770.0" y="1054.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">14_roughness_by_process – Ra chart</text>
+<text x="770.0" y="1072.0" font-size="11" text-anchor="start" fill="#000">Guide 14 §7.1 · ISO 21920 / handbook ranges</text>
+<text x="1170.0" y="1080.0" font-size="11" text-anchor="end" fill="#555">values from guide 14 · rev A</text>
+</svg>

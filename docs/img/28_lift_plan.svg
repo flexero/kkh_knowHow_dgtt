@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 990" width="1400" height="990" font-family="Arial, Helvetica, sans-serif">
+<title>Lift plan HMC 500 – 4-leg sling with CoG offset and spreader beam</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="990" fill="#ffffff"/>
+<text x="40.0" y="46.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000">Lift plan HMC 500, 12 000 kg – A: 4-leg sling, hook above the CoG (offset e = 300 mm)   B: spreader beam, vertical lower slings</text>
+<text x="60.0" y="92.0" font-size="14" text-anchor="start" font-weight="bold" fill="#000">A  Direct 4-leg sling (2 legs per side), nominal θ = 30°</text>
+<rect x="162.0" y="430.0" width="336.0" height="192.0" rx="0" stroke="#000" stroke-width="1.5" fill="#f2f2f2"/>
+<rect x="269.5" y="445.4" width="121.0" height="119.0" rx="0" stroke="#000" stroke-width="1" fill="#ffffff"/>
+<text x="172.1" y="602.8" font-size="12" text-anchor="start" fill="#555">HMC 500 (schematic)</text>
+<rect x="156.0" y="622.0" width="348.0" height="10.0" rx="0" stroke="#000" stroke-width="1" fill="#cccccc"/>
+<text x="162.0" y="650.0" font-size="11" text-anchor="start" fill="#555">transport skid / base</text>
+<circle cx="366.0" cy="535.6" r="9.0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<path d="M357.0,535.6 A9,9 0 0,1 366.0,526.6 L366.0,535.6 Z" stroke="#000" stroke-width="0" fill="#000"/>
+<path d="M375.0,535.6 A9,9 0 0,1 366.0,544.6 L366.0,535.6 Z" stroke="#000" stroke-width="0" fill="#000"/>
+<text x="380.0" y="539.6" font-size="11" text-anchor="start" fill="#000">CoG (from the maker&#x27;s drawing)</text>
+<line x1="330.0" y1="583.6" x2="330.0" y2="583.6" stroke="#000" stroke-width="1.2"/>
+<line x1="330.0" y1="602.0" x2="330.0" y2="420.0" stroke="#777777" stroke-width="1" stroke-dasharray="6 3 1 3"/>
+<line x1="330.0" y1="568.2" x2="366.0" y2="568.2" stroke="#000" stroke-width="1.2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="348.0" y="563.2" font-size="11" text-anchor="middle" fill="#000">e = 300</text>
+<line x1="366.0" y1="180.6" x2="366.0" y2="535.6" stroke="#c62828" stroke-width="1" stroke-dasharray="5 4"/>
+<line x1="366.0" y1="150.6" x2="366.0" y2="180.6" stroke="#000" stroke-width="2"/>
+<path d="M366.0,180.58468371008166 q-12,0 -12,12 q0,12 12,12" stroke="#000" stroke-width="2" fill="none"/>
+<text x="378.0" y="172.6" font-size="11" text-anchor="start" fill="#000">hook above the CoG</text>
+<line x1="186.0" y1="430.0" x2="366.0" y2="180.6" stroke="#c62828" stroke-width="2.2"/>
+<line x1="474.0" y1="430.0" x2="366.0" y2="180.6" stroke="#c62828" stroke-width="2.2"/>
+<circle cx="186.0" cy="430.0" r="5.0" stroke="#000" stroke-width="1.2" fill="#000"/>
+<circle cx="474.0" cy="430.0" r="5.0" stroke="#000" stroke-width="1.2" fill="#000"/>
+<text x="178.0" y="422.0" font-size="13" text-anchor="end" font-weight="bold" fill="#000">A</text>
+<text x="482.0" y="422.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">B</text>
+<text x="304.0" y="280.6" font-size="12" text-anchor="end" font-weight="bold" fill="#c62828">θA = 35.82°</text>
+<text x="428.0" y="280.6" font-size="12" text-anchor="start" font-weight="bold" fill="#c62828">θB = 23.41°</text>
+<line x1="356.0" y1="234.6" x2="365.0" y2="234.6" stroke="#777777" stroke-width="0.8"/>
+<text x="264.0" y="305.3" font-size="12" text-anchor="end" font-weight="bold" fill="#000">F_A = 27.22 kN/leg</text>
+<text x="264.0" y="321.3" font-size="11" text-anchor="end" fill="#555">(far side, carries less)</text>
+<text x="434.0" y="305.3" font-size="12" text-anchor="start" font-weight="bold" fill="#000">F_B = 40.09 kN/leg</text>
+<text x="434.0" y="321.3" font-size="11" text-anchor="start" fill="#555">(side nearer the CoG)</text>
+<line x1="186.0" y1="672.0" x2="474.0" y2="672.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="330.0" y="666.0" font-size="11" text-anchor="middle" fill="#000">Lp = 2 400 mm (lifting points)</text>
+<line x1="186.0" y1="672.0" x2="186.0" y2="664.0" stroke="#000" stroke-width="1.2"/>
+<line x1="474.0" y1="672.0" x2="474.0" y2="664.0" stroke="#000" stroke-width="1.2"/>
+<line x1="186.0" y1="698.0" x2="366.0" y2="698.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="276.0" y="714.0" font-size="11" text-anchor="middle" fill="#000">a = 1 500</text>
+<line x1="366.0" y1="698.0" x2="474.0" y2="698.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="420.0" y="714.0" font-size="11" text-anchor="middle" fill="#000">b = 900</text>
+<line x1="594.0" y1="180.6" x2="594.0" y2="430.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<line x1="386.0" y1="180.6" x2="600.0" y2="180.6" stroke="#777777" stroke-width="0.8"/>
+<text x="588.0" y="365.3" font-size="11" text-anchor="end" fill="#000">h = 2 078.5 mm</text>
+<text x="588.0" y="381.3" font-size="11" text-anchor="end" fill="#555">= 1 200 / tan 30°</text>
+<text x="60.0" y="765.0" font-size="12" text-anchor="start" fill="#000">W = 12 000 × 9.81 = 117.72 kN</text>
+<text x="60.0" y="781.2" font-size="12" text-anchor="start" fill="#000">F_A = W·sin θB / sin(θA+θB) / 2 = 27.22 kN</text>
+<text x="60.0" y="797.4" font-size="12" text-anchor="start" fill="#000">F_B = W·sin θA / sin(θA+θB) / 2 = 40.09 kN</text>
+<text x="60.0" y="813.6" font-size="12" text-anchor="start" fill="#000">equal share 4 legs: W/(4·cos30°) = 33.98 kN</text>
+<text x="60.0" y="829.8" font-size="12" text-anchor="start" fill="#000">3-leg rule: W/(3·cos30°) = 45.31 kN = 4.62 t  ← design</text>
+<text x="60.0" y="846.0" font-size="12" text-anchor="start" fill="#000">squeeze on the machine H = 31.86 kN per side</text>
+<text x="640.0" y="92.0" font-size="14" text-anchor="start" font-weight="bold" fill="#000">B  Spreader beam: lower slings vertical (θ = 0)</text>
+<rect x="682.0" y="430.0" width="336.0" height="192.0" rx="0" stroke="#000" stroke-width="1.5" fill="#f2f2f2"/>
+<rect x="789.5" y="445.4" width="121.0" height="119.0" rx="0" stroke="#000" stroke-width="1" fill="#ffffff"/>
+<text x="692.1" y="602.8" font-size="12" text-anchor="start" fill="#555">HMC 500 (schematic)</text>
+<rect x="676.0" y="622.0" width="348.0" height="10.0" rx="0" stroke="#000" stroke-width="1" fill="#cccccc"/>
+<text x="682.0" y="650.0" font-size="11" text-anchor="start" fill="#555">transport skid / base</text>
+<rect x="686.0" y="306.0" width="328.0" height="14.0" rx="0" stroke="#000" stroke-width="1.5" fill="#bbbbbb"/>
+<text x="850.0" y="338.0" font-size="11" text-anchor="middle" fill="#000">spreader beam 300 kg (EN 13155), several hook holes</text>
+<line x1="706.0" y1="320.0" x2="706.0" y2="430.0" stroke="#c62828" stroke-width="2.2"/>
+<line x1="994.0" y1="320.0" x2="994.0" y2="430.0" stroke="#c62828" stroke-width="2.2"/>
+<circle cx="706.0" cy="430.0" r="5.0" stroke="#000" stroke-width="1.2" fill="#000"/>
+<circle cx="994.0" cy="430.0" r="5.0" stroke="#000" stroke-width="1.2" fill="#000"/>
+<circle cx="886.0" cy="535.6" r="9.0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<path d="M877.0,535.6 A9,9 0 0,1 886.0,526.6 L886.0,535.6 Z" stroke="#000" stroke-width="0" fill="#000"/>
+<path d="M895.0,535.6 A9,9 0 0,1 886.0,544.6 L886.0,535.6 Z" stroke="#000" stroke-width="0" fill="#000"/>
+<line x1="776.0" y1="306.0" x2="886.0" y2="168.8" stroke="#000" stroke-width="2"/>
+<line x1="996.0" y1="306.0" x2="886.0" y2="168.8" stroke="#000" stroke-width="2"/>
+<line x1="886.0" y1="128.8" x2="886.0" y2="168.8" stroke="#000" stroke-width="2"/>
+<path d="M886.0,168.8215760405449 q-12,0 -12,12 q0,12 12,12" stroke="#000" stroke-width="2" fill="none"/>
+<line x1="886.0" y1="168.8" x2="886.0" y2="535.6" stroke="#c62828" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="816.0" y="188.8" font-size="11" text-anchor="end" fill="#000">top legs:</text>
+<text x="816.0" y="204.8" font-size="11" text-anchor="end" fill="#000">(W + beam)/(2·cos30°)</text>
+<text x="816.0" y="220.8" font-size="11" text-anchor="end" font-weight="bold" fill="#000">= 69.66 kN each</text>
+<text x="714.0" y="380.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">22.07 kN/leg</text>
+<text x="986.0" y="380.0" font-size="12" text-anchor="end" font-weight="bold" fill="#000">36.79 kN/leg</text>
+<text x="714.0" y="396.0" font-size="11" text-anchor="start" fill="#555">= W·b/Lp/2</text>
+<text x="986.0" y="396.0" font-size="11" text-anchor="end" fill="#555">= W·a/Lp/2</text>
+<text x="850.0" y="682.0" font-size="11" text-anchor="middle" fill="#555">no squeeze on covers; slings clear the column</text>
+<text x="620.0" y="765.0" font-size="12" text-anchor="start" fill="#000">Lever rule: heavy side 117.72 × 1 500 / 2 400 = 73.58 kN</text>
+<text x="620.0" y="781.2" font-size="12" text-anchor="start" fill="#000">  per leg (2 legs) = 36.79 kN; light side 22.07 kN</text>
+<text x="620.0" y="797.4" font-size="12" text-anchor="start" fill="#000">Hook load = 12 000 + 300 (beam) + 120 (gear) = 12 420 kg</text>
+<text x="620.0" y="813.6" font-size="12" text-anchor="start" fill="#000">Use the beam when slings at 45° touch covers (app warns)</text>
+<text x="1100.0" y="92.0" font-size="14" text-anchor="start" font-weight="bold" fill="#000">Lift plan data (fill in, sign)</text>
+<text x="1100.0" y="114.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Load</text>
+<text x="1184.0" y="114.0" font-size="11" text-anchor="start" fill="#000">HMC 500, 12 000 kg</text>
+<text x="1100.0" y="133.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">CoG</text>
+<text x="1184.0" y="133.0" font-size="11" text-anchor="start" fill="#000">x = +300 mm to B (drawing)</text>
+<text x="1100.0" y="152.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Rigging mass</text>
+<text x="1184.0" y="152.0" font-size="11" text-anchor="start" fill="#000">slings + shackles 120 kg</text>
+<text x="1100.0" y="171.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Hook load A</text>
+<text x="1184.0" y="171.0" font-size="11" text-anchor="start" fill="#000">12 120 kg</text>
+<text x="1100.0" y="190.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Crane need</text>
+<text x="1184.0" y="190.0" font-size="11" text-anchor="start" fill="#000">≥ 1.25 × 12.12 = 15.15 t</text>
+<text x="1100.0" y="209.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Legs</text>
+<text x="1184.0" y="209.0" font-size="11" text-anchor="start" fill="#000">4 (counted as 3)</text>
+<text x="1100.0" y="228.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Design F</text>
+<text x="1184.0" y="228.0" font-size="11" text-anchor="start" fill="#000">45.31 kN = 4.62 t / leg</text>
+<text x="1100.0" y="247.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Round sling</text>
+<text x="1184.0" y="247.0" font-size="11" text-anchor="start" fill="#000">5 t red (exact angle 30°)</text>
+<text x="1100.0" y="266.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000"></text>
+<text x="1184.0" y="266.0" font-size="11" text-anchor="start" fill="#000">6 t brown if angle unknown</text>
+<text x="1100.0" y="285.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000"></text>
+<text x="1184.0" y="285.0" font-size="11" text-anchor="start" fill="#000">(EN 1492-2 table: 4 legs ×2.1)</text>
+<text x="1100.0" y="304.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Shackle</text>
+<text x="1184.0" y="304.0" font-size="11" text-anchor="start" fill="#000">bow 4.75 t, WLL marked</text>
+<text x="1100.0" y="323.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Angle limit</text>
+<text x="1184.0" y="323.0" font-size="11" text-anchor="start" fill="#000">θ ≤ 45° normal, never &gt; 60°</text>
+<text x="1100.0" y="342.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Exclusion</text>
+<text x="1184.0" y="342.0" font-size="11" text-anchor="start" fill="#000">zone = load height × 1.5</text>
+<text x="1100.0" y="361.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Signals</text>
+<text x="1184.0" y="361.0" font-size="11" text-anchor="start" fill="#000">one signaller, radio check</text>
+<text x="1100.0" y="380.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Trial lift</text>
+<text x="1184.0" y="380.0" font-size="11" text-anchor="start" fill="#000">100–200 mm, hold 1 min</text>
+<text x="1100.0" y="399.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Wind</text>
+<text x="1184.0" y="399.0" font-size="11" text-anchor="start" fill="#000">stop above the crane limit</text>
+<text x="1100.0" y="418.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Signed</text>
+<text x="1184.0" y="418.0" font-size="11" text-anchor="start" fill="#000">appointed person + rigger</text>
+<rect x="1092.0" y="100.0" width="288.0" height="339.0" rx="0" stroke="#000" stroke-width="1" fill="none"/>
+<text x="1100.0" y="459.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Check sequence:</text>
+<text x="1100.0" y="479.0" font-size="11" text-anchor="start" fill="#000">1 slings + shackles inspected, labels</text>
+<text x="1100.0" y="496.0" font-size="11" text-anchor="start" fill="#000">2 hook over the CoG – machine level</text>
+<text x="1100.0" y="513.0" font-size="11" text-anchor="start" fill="#000">3 trial lift, look at all legs tight</text>
+<text x="1100.0" y="530.0" font-size="11" text-anchor="start" fill="#000">4 lift slow, tag lines, no swing</text>
+<text x="1100.0" y="547.0" font-size="11" text-anchor="start" fill="#000">5 set down on skates / plates</text>
+<rect x="12.0" y="12.0" width="1376.0" height="966.0" rx="0" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="828.0" y="894.0" width="560.0" height="84.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="828.0" y1="924.0" x2="1388.0" y2="924.0" stroke="#000" stroke-width="1.2"/>
+<line x1="1208.0" y1="924.0" x2="1208.0" y2="978.0" stroke="#000" stroke-width="1.2"/>
+<text x="838.0" y="915.0" font-size="14" text-anchor="start" font-weight="bold" fill="#c62828">EXAMPLE – check the maker&#x27;s installation manual</text>
+<text x="838.0" y="944.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Lift plan – sling forces and spreader beam</text>
+<text x="838.0" y="964.0" font-size="11" text-anchor="start" fill="#555">m 12 000 kg · θ 30° · e 300 mm · Lp 2 400 mm</text>
+<text x="1218.0" y="944.0" font-size="12" text-anchor="start" fill="#000">Doc 28 · Fig. 28-2</text>
+<text x="1218.0" y="964.0" font-size="11" text-anchor="start" fill="#555">2026-11 · not for construction</text>
+<text x="24.0" y="968.0" font-size="11" text-anchor="start" fill="#555">Values from docs/28 and web/instseq_calc.js (example data, crankcase line HMC-01/02/03).</text>
+</svg>

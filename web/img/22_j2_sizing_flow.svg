@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>J2 drive sizing – from the cycle to the chosen motor and reducer</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="eg" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#555"/></marker>
+<marker id="sg" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#555"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchB" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="818" fill="none" stroke="#000" stroke-width="1.5"/>
+<rect x="30" y="50" width="540" height="62" rx="6" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="42" y="74" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">1  Cycle → joint torque and speed (§15, §17.5)</text>
+<text x="42" y="96" font-size="11.5" text-anchor="start" fill="#000">T_m = 579 N·m (10/3 mean), peak 798 N·m, N_m = 5.15 rpm, max 20.2 rpm</text>
+<line x1="300" y1="112" x2="300" y2="130" stroke="#000" stroke-width="1.4" marker-end="url(#ek)"/>
+<rect x="30" y="130" width="540" height="62" rx="6" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="42" y="154" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">2  To the motor side: n = 120, efficiency η</text>
+<text x="42" y="176" font-size="11.5" text-anchor="start" fill="#000">τ_m,peak = 7.82 N·m,  τ_m,RMS = 3.77 N·m,  n_m,max = 2435 rpm</text>
+<line x1="300" y1="192" x2="300" y2="210" stroke="#000" stroke-width="1.4" marker-end="url(#ek)"/>
+<rect x="30" y="210" width="540" height="62" rx="6" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="42" y="234" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">3  Add the rotor (J_m = 1.2·10⁻³ kg·m², with brake)</text>
+<text x="42" y="256" font-size="11.5" text-anchor="start" fill="#000">τ_rotor = J_m · q̈ · n = 1.18 N·m → peak 9.00 N·m, RMS 4.47 N·m</text>
+<line x1="300" y1="272" x2="300" y2="290" stroke="#000" stroke-width="1.4" marker-end="url(#ek)"/>
+<rect x="30" y="290" width="540" height="62" rx="6" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="42" y="314" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">4  Margins (× 1.2, speed + 10 %)</text>
+<text x="42" y="336" font-size="11.5" text-anchor="start" fill="#000">rated ≥ 5.4 N·m,  peak ≥ 10.8 N·m,  speed ≥ 2680 rpm</text>
+<line x1="300" y1="352" x2="300" y2="370" stroke="#000" stroke-width="1.4" marker-end="url(#ek)"/>
+<rect x="30" y="370" width="540" height="62" rx="6" stroke="#1f6fd1" stroke-width="1.4" fill="#fff"/>
+<text x="42" y="394" font-size="12.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">5  Choose the motor (buy list §17.10)</text>
+<text x="42" y="416" font-size="11.5" text-anchor="start" fill="#000">2 kW, 3000 rpm: rated P/ω = 2000 / (3000·π/30) = 6.37 N·m ✓, peak ≈ 19 ✓</text>
+<line x1="300" y1="432" x2="300" y2="450" stroke="#000" stroke-width="1.4" marker-end="url(#ek)"/>
+<line x1="570" y1="401" x2="600" y2="401" stroke="#000" stroke-width="1.1" marker-end="url(#ek)"/>
+<rect x="602" y="372" width="200" height="58" rx="4" stroke="#000" stroke-width="1.2" fill="#f7f7f7"/>
+<text x="610" y="388.5" font-size="11.5" text-anchor="start" fill="#000">1.5 kW: rated 4.77 N·m</text>
+<text x="610" y="404" font-size="11.5" text-anchor="start" fill="#000">= 94 % of need → ✗</text>
+<rect x="30" y="450" width="540" height="62" rx="6" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="42" y="474" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">6  Re-check the inertia ratio</text>
+<text x="42" y="496" font-size="11.5" text-anchor="start" fill="#000">λ = 105.9 / (120² · J_m) = 6.1 ✓  (rule ≤ 5 – 10)</text>
+<line x1="300" y1="512" x2="300" y2="530" stroke="#000" stroke-width="1.4" marker-end="url(#ek)"/>
+<path d="M38,481.0 L16,481.0 L16,290.0" stroke="#555" stroke-width="1" fill="none" stroke-dasharray="4 3"/>
+<line x1="16" y1="290" x2="28" y2="290" stroke="#555" stroke-width="1" marker-end="url(#eg)"/>
+<rect x="30" y="530" width="540" height="62" rx="6" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="42" y="554" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">7  Brake and drive</text>
+<text x="42" y="576" font-size="11.5" text-anchor="start" fill="#000">brake ≥ 2 × 310 / 120 = 5.2 N·m · I_cont ≥ τ_RMS / k_T · I_peak ≥ τ_peak / k_T</text>
+<line x1="300" y1="592" x2="300" y2="610" stroke="#000" stroke-width="1.4" marker-end="url(#ek)"/>
+<rect x="30" y="610" width="540" height="62" rx="6" stroke="#1f6fd1" stroke-width="1.4" fill="#fff"/>
+<text x="42" y="634" font-size="12.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">8  Reducer life + torque (§17.7)</text>
+<text x="42" y="656" font-size="11.5" text-anchor="start" fill="#000">L10 = K · (N0 / N_m) · (T0 / T_m)^(10/3),  peak ≤ 2.5 · T0,  E-stop ≤ 5 · T0</text>
+<text x="24" y="482" font-size="11" text-anchor="start" fill="#000"></text>
+<text x="610" y="606" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Reducer candidates (J2 cycle):</text>
+<rect x="610" y="614" width="576" height="22" rx="0" stroke="#000" stroke-width="0.9" fill="#dcdcdc"/>
+<text x="614" y="630" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Model</text>
+<text x="754" y="630" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">T0 (N·m)</text>
+<text x="830" y="630" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">L10</text>
+<text x="910" y="630" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Decision</text>
+<rect x="610" y="636" width="576" height="22" rx="0" stroke="#000" stroke-width="0.5" fill="#fff"/>
+<text x="614" y="652" font-size="11.5" text-anchor="start" fill="#000">Nabtesco RV-42N</text>
+<text x="754" y="652" font-size="11.5" text-anchor="start" fill="#000">412</text>
+<text x="830" y="652" font-size="11.5" text-anchor="start" fill="#000">5 600 h</text>
+<text x="910" y="652" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">✗ life too short</text>
+<rect x="610" y="658" width="576" height="22" rx="0" stroke="#000" stroke-width="0.5" fill="#f7f7f7"/>
+<text x="614" y="674" font-size="11.5" text-anchor="start" fill="#000">Nabtesco RV-60N</text>
+<text x="754" y="674" font-size="11.5" text-anchor="start" fill="#000">600</text>
+<text x="830" y="674" font-size="11.5" text-anchor="start" fill="#000">19 700 h</text>
+<text x="910" y="674" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">✓ chosen (with waits)</text>
+<rect x="610" y="680" width="576" height="22" rx="0" stroke="#000" stroke-width="0.5" fill="#fff"/>
+<text x="614" y="696" font-size="11.5" text-anchor="start" fill="#000">Nabtesco RV-80N</text>
+<text x="754" y="696" font-size="11.5" text-anchor="start" fill="#000">784</text>
+<text x="830" y="696" font-size="11.5" text-anchor="start" fill="#000">48 000 h</text>
+<text x="910" y="696" font-size="11.5" text-anchor="start" fill="#000">✓ non-stop cycle</text>
+<line x1="750" y1="614" x2="750" y2="702" stroke="#000" stroke-width="0.5"/>
+<line x1="826" y1="614" x2="826" y2="702" stroke="#000" stroke-width="0.5"/>
+<line x1="906" y1="614" x2="906" y2="702" stroke="#000" stroke-width="0.5"/>
+<rect x="610" y="614" width="576" height="88" rx="0" stroke="#000" stroke-width="1.1" fill="none"/>
+<rect x="610" y="50" width="576" height="262" rx="4" stroke="#1f6fd1" stroke-width="1.8" fill="#fff"/>
+<text x="618" y="66.5" font-size="12.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">Chosen components (example – check the current datasheets)</text>
+<text x="618" y="82.6" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Motor:  Yaskawa Σ-7 SGM7A-20A (2.0 kW, 3000 rpm, rated 6.37 N·m)</text>
+<text x="618" y="98.1" font-size="11.5" text-anchor="start" fill="#000">    with 24 V holding brake and 24-bit absolute encoder</text>
+<text x="618" y="113.6" font-size="11.5" text-anchor="start" fill="#000">    alternatives: Panasonic MINAS A6 MSMF202, Siemens 1FK7, Beckhoff AM8000</text>
+<text x="618" y="129.2" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Reducer:  Nabtesco RV-60N, ratio nearest 1 : 120 from its datasheet</text>
+<text x="618" y="144.7" font-size="11.5" text-anchor="start" fill="#000">    (RV-80N for a non-stop cycle) – rated 600 N·m at 15 rpm</text>
+<text x="618" y="160.2" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Encoder:  absolute multi-turn, e.g. HEIDENHAIN EQN 1300 (EnDat 2.2)</text>
+<text x="618" y="175.8" font-size="11.5" text-anchor="start" fill="#000">    or Tamagawa SmartAbs class (servo makers)</text>
+<text x="618" y="191.3" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Drive:  servo amplifier sized from k_T of the chosen motor</text>
+<text x="618" y="206.8" font-size="11.5" text-anchor="start" fill="#000"></text>
+<text x="618" y="222.3" font-size="11.5" text-anchor="start" fill="#1f6fd1">Then repeat: step 3 + 6 with the REAL J_m, step 8 with the REAL</text>
+<text x="618" y="237.8" font-size="11.5" text-anchor="start" fill="#1f6fd1">ratio, §17.9 with the REAL torsional stiffness from the datasheet.</text>
+<rect x="610" y="436" width="576" height="144" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="618" y="452.5" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Formulas used</text>
+<text x="618" y="468.6" font-size="11.5" text-anchor="start" fill="#000">τ_m = τ_joint / (n · η)</text>
+<text x="618" y="484.1" font-size="11.5" text-anchor="start" fill="#000">n_m = q̇ · n / 6  (rpm, q̇ in °/s)</text>
+<text x="618" y="499.7" font-size="11.5" text-anchor="start" fill="#000">τ_RMS = √( Σ τ_i² · t_i / Σ t_i )</text>
+<text x="618" y="515.2" font-size="11.5" text-anchor="start" fill="#000">λ = J_load / (n² · J_m),   rated P = τ · ω</text>
+<text x="618" y="530.7" font-size="11.5" text-anchor="start" fill="#000">brake holds the worst static torque / n with factor ≈ 2</text>
+<text x="610" y="330" font-size="11.5" text-anchor="start" fill="#555">Encoder resolution at the tool: 20 bit, n = 120 →</text>
+<text x="610" y="345.5" font-size="11.5" text-anchor="start" fill="#555">360° / (2²⁰ · 120) = 2.9·10⁻⁶° → 0.055 µm at 1.1 m (never the limit).</text>
+<rect x="540" y="764" width="648" height="54" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="540" y1="790" x2="1188" y2="790" stroke="#000" stroke-width="0.8"/>
+<line x1="910" y1="790" x2="910" y2="818" stroke="#000" stroke-width="0.8"/>
+<text x="548" y="782" font-size="14" font-weight="bold">J2 drive sizing – from the cycle to the chosen motor and reducer</text>
+<text x="548" y="809" font-size="12" font-weight="bold" fill="#1f6fd1">EXAMPLE – check the maker's documentation</text>
+<text x="918" y="802" font-size="11.5">Dwg 22-05 · guide 22 §17.5–17.10 · flow chart</text>
+<text x="918" y="814" font-size="11">estimated mass model – check with the supplier</text>
+</svg>

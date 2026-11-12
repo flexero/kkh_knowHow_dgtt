@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 790" width="1100" height="790" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<title>Cutting forces, power and torque – face milling, drilling and the spindle power curve (GG25)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1100" height="790" fill="#ffffff"/>
+<rect x="6" y="6" width="1088" height="778" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold">Cutting forces, power and torque – face milling, drilling and the spindle power curve (GG25)</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#000">Kienzle kc = kc1.1 · h^−mc with kc1.1 = 1 150 N/mm², mc = 0.26 (EN-GJL-250, typical). Worked numbers of §20.3 / §10.3.</text>
+<rect x="20.0" y="70.0" width="520.0" height="645.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="30.0" y="92.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">A  Face milling the cylinder deck (top view)</text>
+<rect x="30.0" y="195.0" width="470.0" height="150.0" rx="0" fill="#e6e6e6" stroke="#000" stroke-width="1"/>
+<text x="400.0" y="212.0" font-size="12" text-anchor="start" fill="#000">workpiece</text>
+<text x="400.0" y="226.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">ae = 75 mm</text>
+<circle cx="230.0" cy="270.0" r="100.0" fill="none" stroke="#000" stroke-width="1.8"/>
+<circle cx="230.0" cy="270.0" r="3.0" fill="#000" stroke="#000" stroke-width="1.5"/>
+<path d="M296.1,345.0 A100,100 0 0,0 296.1,195.0" fill="none" stroke="#c0392b" stroke-width="5"/>
+<line x1="230.0" y1="270.0" x2="296.1" y2="345.0" stroke="#000" stroke-width="1" stroke-dasharray="3 2"/>
+<line x1="230.0" y1="270.0" x2="296.1" y2="195.0" stroke="#000" stroke-width="1" stroke-dasharray="3 2"/>
+<text x="260.0" y="274.0" font-size="12" text-anchor="start" fill="#c0392b" font-weight="bold">φs = 97.2°</text>
+<path d="M170,190 A100,100 0 0,1 270,178" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ar)"/>
+<text x="138.0" y="162.0" font-size="12" text-anchor="start" fill="#000">n = 700 rpm (M3, clockwise)</text>
+<line x1="200.0" y1="400.0" x2="300.0" y2="400.0" stroke="#000" stroke-width="2" marker-end="url(#ar)"/>
+<text x="306.0" y="404.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">vf = 980 mm/min</text>
+<circle cx="330.0" cy="270.0" r="5.0" fill="#000" stroke="#000" stroke-width="1.5"/>
+<line x1="330.0" y1="270.0" x2="330.0" y2="322.0" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arA)"/>
+<text x="338.0" y="314.0" font-size="12" text-anchor="start" fill="#c0392b">Fc on the tooth</text>
+<text x="135.0" y="284.0" font-size="12" text-anchor="start" fill="#000">Ø100, z = 7, κ 45°</text>
+<text x="34.0" y="450.0" font-size="12" text-anchor="start" fill="#000">n  = 1000 · vc / (π · D) = 1000 · 220 / (π · 100) = 700 rpm</text>
+<text x="34.0" y="471.0" font-size="12" text-anchor="start" fill="#000">vf = n · z · fz = 700 · 7 · 0.20 = 980 mm/min</text>
+<text x="34.0" y="492.0" font-size="12" text-anchor="start" fill="#000">Q  = ap · ae · vf / 1000 = 3 · 75 · 980 / 1000 = 220.5 cm³/min</text>
+<text x="34.0" y="513.0" font-size="12" text-anchor="start" fill="#000">φs = 2 · arcsin(ae / D) = 97.2°</text>
+<text x="34.0" y="534.0" font-size="12" text-anchor="start" fill="#000">hm = 360 · sin κ · ae · fz / (π · D · φs) = 0.125 mm</text>
+<text x="34.0" y="555.0" font-size="12" text-anchor="start" fill="#000">kc = 1 150 · 0.125^−0.26 = 1 974 N/mm²</text>
+<text x="34.0" y="576.0" font-size="12" text-anchor="start" fill="#000">Pc = Q · kc / 60 000 = 7.26 kW   (motor ≈ Pc / 0.8 = 9.1 kW)</text>
+<text x="34.0" y="597.0" font-size="12" text-anchor="start" fill="#000">M  = 9 550 · Pc / n = 99 N·m</text>
+<text x="34.0" y="618.0" font-size="12" text-anchor="start" fill="#000">Ft = 2 · M / D = 1 980 N  (sum of tangential tooth forces)</text>
+<text x="34.0" y="639.0" font-size="12" text-anchor="start" fill="#000">With ap = 2 mm: Q 147 cm³/min, Pc 4.84 kW, M 66 N·m</text>
+<rect x="560.0" y="70.0" width="520.0" height="300.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="570.0" y="92.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">B  Drilling Ø8.5 in GG25 (T4)</text>
+<rect x="643.0" y="120.0" width="34.0" height="150.0" rx="0" fill="#ddd" stroke="#000" stroke-width="1.5"/>
+<path d="M643,270 L660,290 L677,270 Z" fill="#ddd" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="316.0" font-size="11" text-anchor="start" fill="#000">118° point</text>
+<line x1="700.0" y1="320.0" x2="700.0" y2="260.0" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arA)"/>
+<text x="706.0" y="280.0" font-size="12" text-anchor="start" fill="#c0392b" font-weight="bold">Ff ≈ 790 N</text>
+<text x="706.0" y="296.0" font-size="11" text-anchor="start" fill="#c0392b">(feed force, on spindle</text>
+<text x="706.0" y="310.0" font-size="11" text-anchor="start" fill="#c0392b"> and fixture)</text>
+<text x="580.0" y="350.0" font-size="11" text-anchor="start" fill="#000">feed f = 0.20 mm/rev (down)</text>
+<text x="800.0" y="120.0" font-size="12" text-anchor="start" fill="#000">n = 3 370 rpm, vc = 90 m/min</text>
+<text x="800.0" y="140.0" font-size="12" text-anchor="start" fill="#000">h = f/2 · sin(118°/2) = 0.086 mm</text>
+<text x="800.0" y="160.0" font-size="12" text-anchor="start" fill="#000">kc = 1 150 · 0.086^−0.26</text>
+<text x="800.0" y="180.0" font-size="12" text-anchor="start" fill="#000">   = 2 178 N/mm²</text>
+<text x="800.0" y="200.0" font-size="12" text-anchor="start" fill="#000">Pc = f · vc · D · kc / 240 000</text>
+<text x="800.0" y="220.0" font-size="12" text-anchor="start" fill="#000">   = 1.39 kW</text>
+<text x="800.0" y="240.0" font-size="12" text-anchor="start" fill="#000">Mc = 9 550 · Pc / n = 3.9 N·m</text>
+<text x="800.0" y="260.0" font-size="12" text-anchor="start" fill="#000">Ff ≈ 0.5 · kc · (D/2) · f · sin κ</text>
+<text x="800.0" y="280.0" font-size="12" text-anchor="start" fill="#000">   ≈ 790 N (estimate)</text>
+<rect x="560.0" y="380.0" width="520.0" height="335.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="570.0" y="402.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">C  Is the spindle strong enough at this speed?</text>
+<line x1="620.0" y1="660.0" x2="1040.0" y2="660.0" stroke="#000" stroke-width="1.2"/>
+<line x1="620.0" y1="660.0" x2="620.0" y2="440.0" stroke="#000" stroke-width="1.2"/>
+<line x1="620.0" y1="660.0" x2="620.0" y2="665.0" stroke="#000" stroke-width="1"/>
+<text x="620.0" y="678.0" font-size="11" text-anchor="middle" fill="#000">0</text>
+<line x1="725.0" y1="660.0" x2="725.0" y2="665.0" stroke="#000" stroke-width="1"/>
+<text x="725.0" y="678.0" font-size="11" text-anchor="middle" fill="#000">1000</text>
+<line x1="830.0" y1="660.0" x2="830.0" y2="665.0" stroke="#000" stroke-width="1"/>
+<text x="830.0" y="678.0" font-size="11" text-anchor="middle" fill="#000">2000</text>
+<line x1="935.0" y1="660.0" x2="935.0" y2="665.0" stroke="#000" stroke-width="1"/>
+<text x="935.0" y="678.0" font-size="11" text-anchor="middle" fill="#000">3000</text>
+<line x1="1040.0" y1="660.0" x2="1040.0" y2="665.0" stroke="#000" stroke-width="1"/>
+<text x="1040.0" y="678.0" font-size="11" text-anchor="middle" fill="#000">4000</text>
+<line x1="615.0" y1="660.0" x2="620.0" y2="660.0" stroke="#000" stroke-width="1"/>
+<text x="612.0" y="664.0" font-size="11" text-anchor="end" fill="#000">0</text>
+<line x1="615.0" y1="605.0" x2="620.0" y2="605.0" stroke="#000" stroke-width="1"/>
+<text x="612.0" y="609.0" font-size="11" text-anchor="end" fill="#000">5</text>
+<line x1="620.0" y1="605.0" x2="1040.0" y2="605.0" stroke="#ccc" stroke-width="0.5"/>
+<line x1="615.0" y1="550.0" x2="620.0" y2="550.0" stroke="#000" stroke-width="1"/>
+<text x="612.0" y="554.0" font-size="11" text-anchor="end" fill="#000">10</text>
+<line x1="620.0" y1="550.0" x2="1040.0" y2="550.0" stroke="#ccc" stroke-width="0.5"/>
+<line x1="615.0" y1="495.0" x2="620.0" y2="495.0" stroke="#000" stroke-width="1"/>
+<text x="612.0" y="499.0" font-size="11" text-anchor="end" fill="#000">15</text>
+<line x1="620.0" y1="495.0" x2="1040.0" y2="495.0" stroke="#ccc" stroke-width="0.5"/>
+<line x1="615.0" y1="440.0" x2="620.0" y2="440.0" stroke="#000" stroke-width="1"/>
+<text x="612.0" y="444.0" font-size="11" text-anchor="end" fill="#000">20</text>
+<line x1="620.0" y1="440.0" x2="1040.0" y2="440.0" stroke="#ccc" stroke-width="0.5"/>
+<text x="1040.0" y="694.0" font-size="12" text-anchor="end" fill="#000">spindle speed n (rpm)</text>
+<text x="626.0" y="442.0" font-size="12" text-anchor="start" fill="#000">P (kW)</text>
+<path d="M620.0,660.0 L625.2,653.1 L630.5,646.2 L635.8,639.3 L641.0,632.4 L646.2,625.4 L651.5,618.5 L656.8,611.6 L662.0,604.7 L667.2,597.8 L672.5,590.9 L677.8,584.0 L683.0,577.1 L688.2,570.2 L693.5,563.2 L698.8,556.3 L704.0,549.4 L709.2,542.5 L714.5,535.6 L719.8,528.7 L725.0,521.8 L730.2,514.9 L735.5,508.0 L740.8,501.0 L746.0,495.0 L751.2,495.0 L756.5,495.0 L761.8,495.0 L767.0,495.0 L772.2,495.0 L777.5,495.0 L782.8,495.0 L788.0,495.0 L793.2,495.0 L798.5,495.0 L803.8,495.0 L809.0,495.0 L814.2,495.0 L819.5,495.0 L824.8,495.0 L830.0,495.0 L835.2,495.0 L840.5,495.0 L845.8,495.0 L851.0,495.0 L856.2,495.0 L861.5,495.0 L866.8,495.0 L872.0,495.0 L877.2,495.0 L882.5,495.0 L887.8,495.0 L893.0,495.0 L898.2,495.0 L903.5,495.0 L908.8,495.0 L914.0,495.0 L919.2,495.0 L924.5,495.0 L929.8,495.0 L935.0,495.0 L940.2,495.0 L945.5,495.0 L950.8,495.0 L956.0,495.0 L961.2,495.0 L966.5,495.0 L971.8,495.0 L977.0,495.0 L982.2,495.0 L987.5,495.0 L992.8,495.0 L998.0,495.0 L1003.2,495.0 L1008.5,495.0 L1013.8,495.0 L1019.0,495.0 L1024.2,495.0 L1029.5,495.0 L1034.8,495.0 L1040.0,495.0" fill="none" stroke="#000" stroke-width="2.2"/>
+<path d="M620.0,660.0 L625.2,654.5 L630.5,648.9 L635.8,643.4 L641.0,637.9 L646.2,632.4 L651.5,626.8 L656.8,621.3 L662.0,615.8 L667.2,610.2 L672.5,604.7 L677.8,599.2 L683.0,593.7 L688.2,588.1 L693.5,582.6 L698.8,577.1 L704.0,571.5 L709.2,566.0 L714.5,560.5 L719.8,555.0 L725.0,549.4 L730.2,543.9 L735.5,538.4 L740.8,532.8 L746.0,528.0 L751.2,528.0 L756.5,528.0 L761.8,528.0 L767.0,528.0 L772.2,528.0 L777.5,528.0 L782.8,528.0 L788.0,528.0 L793.2,528.0 L798.5,528.0 L803.8,528.0 L809.0,528.0 L814.2,528.0 L819.5,528.0 L824.8,528.0 L830.0,528.0 L835.2,528.0 L840.5,528.0 L845.8,528.0 L851.0,528.0 L856.2,528.0 L861.5,528.0 L866.8,528.0 L872.0,528.0 L877.2,528.0 L882.5,528.0 L887.8,528.0 L893.0,528.0 L898.2,528.0 L903.5,528.0 L908.8,528.0 L914.0,528.0 L919.2,528.0 L924.5,528.0 L929.8,528.0 L935.0,528.0 L940.2,528.0 L945.5,528.0 L950.8,528.0 L956.0,528.0 L961.2,528.0 L966.5,528.0 L971.8,528.0 L977.0,528.0 L982.2,528.0 L987.5,528.0 L992.8,528.0 L998.0,528.0 L1003.2,528.0 L1008.5,528.0 L1013.8,528.0 L1019.0,528.0 L1024.2,528.0 L1029.5,528.0 L1034.8,528.0 L1040.0,528.0" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="620.0" y1="462.0" x2="1040.0" y2="462.0" stroke="#666" stroke-width="1.2" stroke-dasharray="8 4"/>
+<text x="1036.0" y="457.0" font-size="11" text-anchor="end" fill="#000">twin gcode.js: 18 kW flat (no torque curve)</text>
+<text x="798.5" y="489.0" font-size="11" text-anchor="start" fill="#000">guide 12 spindle: 15 kW S1</text>
+<text x="798.5" y="529.0" font-size="11" text-anchor="start" fill="#000">dashed = 80 % rule</text>
+<text x="626.3" y="544.5" font-size="11" text-anchor="start" fill="#000">120 N·m up to</text>
+<text x="626.3" y="558.5" font-size="11" text-anchor="start" fill="#000">1 194 rpm</text>
+<circle cx="693.5" cy="580.1" r="5.0" fill="#c0392b" stroke="#c0392b" stroke-width="1.5"/>
+<text x="702.5" y="584.1" font-size="11" text-anchor="start" fill="#c0392b" font-weight="bold">deck ap 3: 7.26 kW = 82 % of 8.8</text>
+<circle cx="693.5" cy="606.8" r="5.0" fill="#000" stroke="#000" stroke-width="1.5"/>
+<text x="702.5" y="610.8" font-size="11" text-anchor="start" fill="#000">deck ap 2: 4.84 kW = 55 %</text>
+<circle cx="701.5" cy="632.8" r="5.0" fill="#000" stroke="#000" stroke-width="1.5"/>
+<text x="710.5" y="636.8" font-size="11" text-anchor="start" fill="#000">rough bore Ø61.5: 2.47 kW</text>
+<circle cx="973.9" cy="644.7" r="5.0" fill="#000" stroke="#000" stroke-width="1.5"/>
+<text x="982.9" y="648.7" font-size="11" text-anchor="start" fill="#000">drill Ø8.5</text>
+<rect x="656.0" y="724.0" width="430.0" height="52.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
+<line x1="656.0" y1="750.0" x2="1086.0" y2="750.0" stroke="#000" stroke-width="1"/>
+<text x="664.0" y="742.0" font-size="13" text-anchor="start" fill="#c0392b" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="664.0" y="768.0" font-size="12" text-anchor="start" fill="#000">Guide 08 – CNC / G-code · 08_cutting_forces</text>
+</svg>

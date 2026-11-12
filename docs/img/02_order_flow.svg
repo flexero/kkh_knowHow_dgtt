@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 900" width="1500" height="900" font-family="Arial, Helvetica, sans-serif">
+<title>Order flow end to end</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><pattern id="hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#222" stroke-width="1"/></pattern><pattern id="hatchr" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#c0392b" stroke-width="1.2"/></pattern></defs>
+<rect x="0" y="0" width="1500" height="900" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">02 – Order flow end to end: one make-to-order order 20 × VC20 through the systems (automatic mode, busy factory)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Swimlanes = who does the step. Numbers in brackets = lead time of the step (example values; queue from Little's law with the twin's 14.4 units/h and WIP 40).</text>
+<rect x="20.0" y="80.0" width="1460.0" height="105.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="30.0" y="136.5" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Customer</text>
+<rect x="20.0" y="185.0" width="1460.0" height="105.0" rx="0" fill="#f7f7f7" stroke="#222" stroke-width="1"/>
+<text x="30.0" y="241.5" font-size="13" text-anchor="start" font-weight="bold" fill="#111">ERP</text>
+<rect x="20.0" y="290.0" width="1460.0" height="105.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="30.0" y="346.5" font-size="13" text-anchor="start" font-weight="bold" fill="#111">MES</text>
+<rect x="20.0" y="395.0" width="1460.0" height="105.0" rx="0" fill="#f7f7f7" stroke="#222" stroke-width="1"/>
+<text x="30.0" y="451.5" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Shop floor</text>
+<rect x="20.0" y="500.0" width="1460.0" height="105.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="30.0" y="556.5" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Logistics</text>
+<line x1="130.0" y1="80.0" x2="130.0" y2="605.0" stroke="#222" stroke-width="1"/>
+<rect x="140.0" y="102.0" width="120.0" height="60.0" rx="4" fill="#fff" stroke="#222" stroke-width="1.3"/>
+<text x="200.0" y="122.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">1 Order</text>
+<text x="200.0" y="138.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">20 × VC20, due 48 h</text>
+<rect x="290.0" y="207.0" width="120.0" height="60.0" rx="4" fill="#fff" stroke="#222" stroke-width="1.3"/>
+<text x="350.0" y="227.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Sales order</text>
+<text x="350.0" y="243.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">ATP check [0.25 h]</text>
+<rect x="440.0" y="207.0" width="120.0" height="60.0" rx="4" fill="#fff" stroke="#222" stroke-width="1.3"/>
+<text x="500.0" y="227.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">2 Plan WO</text>
+<text x="500.0" y="243.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">plan_so, prio 3 [≈ 0]</text>
+<rect x="590.0" y="207.0" width="120.0" height="60.0" rx="4" fill="#fff" stroke="#222" stroke-width="1.3"/>
+<text x="650.0" y="227.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">3 Material</text>
+<text x="650.0" y="243.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">castings in stock [0]</text>
+<rect x="740.0" y="312.0" width="120.0" height="60.0" rx="4" fill="#fff" stroke="#222" stroke-width="1.3"/>
+<text x="800.0" y="332.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">4 Release</text>
+<text x="800.0" y="348.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">auto [0]</text>
+<text x="800.0" y="362.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">manual [≤ 8 h]</text>
+<rect x="890.0" y="312.0" width="130.0" height="60.0" rx="4" fill="#fff" stroke="#222" stroke-width="1.3"/>
+<text x="955.0" y="332.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Queue</text>
+<text x="955.0" y="348.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">60 units ahead ÷ 14.4/h</text>
+<text x="955.0" y="386.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">[4.17 h]</text>
+<rect x="1040.0" y="522.0" width="120.0" height="60.0" rx="4" fill="#fff" stroke="#222" stroke-width="1.3"/>
+<text x="1100.0" y="542.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">AGV castings</text>
+<text x="1100.0" y="558.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">4 per trip [≈ 2 min]</text>
+<rect x="1040.0" y="417.0" width="130.0" height="60.0" rx="4" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="1105.0" y="437.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">5 Production</text>
+<text x="1105.0" y="453.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">first unit [2.8 h]</text>
+<rect x="1190.0" y="417.0" width="130.0" height="60.0" rx="4" fill="#fff" stroke="#222" stroke-width="1.3"/>
+<text x="1255.0" y="437.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">rest 19 units</text>
+<text x="1255.0" y="453.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">19 × 210 s</text>
+<text x="1255.0" y="467.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">[1.11 h]</text>
+<rect x="1190.0" y="522.0" width="130.0" height="60.0" rx="4" fill="#fff" stroke="#222" stroke-width="1.3"/>
+<text x="1255.0" y="542.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">6 FG AS/RS</text>
+<text x="1255.0" y="558.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">store 60 s / unit</text>
+<rect x="1340.0" y="522.0" width="130.0" height="60.0" rx="4" fill="#fff" stroke="#222" stroke-width="1.3"/>
+<text x="1405.0" y="542.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">7 Ship</text>
+<text x="1405.0" y="558.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">truck wait [6 h]</text>
+<rect x="1340.0" y="102.0" width="130.0" height="60.0" rx="4" fill="#fff" stroke="#222" stroke-width="1.3"/>
+<text x="1405.0" y="122.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Customer</text>
+<text x="1405.0" y="138.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">transport [24 h]</text>
+<path d="M260,132 L275.0,132 L275.0,237 L290,237" fill="none" stroke="#222" stroke-width="1.3" marker-end="url(#ak)"/>
+<line x1="410.0" y1="237.0" x2="440.0" y2="237.0" stroke="#222" stroke-width="1.3" marker-end="url(#ak)"/>
+<line x1="560.0" y1="237.0" x2="590.0" y2="237.0" stroke="#222" stroke-width="1.3" marker-end="url(#ak)"/>
+<path d="M710,237 L725.0,237 L725.0,342 L740,342" fill="none" stroke="#222" stroke-width="1.3" marker-end="url(#ak)"/>
+<line x1="860.0" y1="342.0" x2="890.0" y2="342.0" stroke="#222" stroke-width="1.3" marker-end="url(#ak)"/>
+<line x1="1320.0" y1="552.0" x2="1340.0" y2="552.0" stroke="#222" stroke-width="1.3" marker-end="url(#ak)"/>
+<line x1="1255.0" y1="477.0" x2="1255.0" y2="522.0" stroke="#222" stroke-width="1.3" marker-end="url(#ak)"/>
+<line x1="1100.0" y1="522.0" x2="1100.0" y2="477.0" stroke="#222" stroke-width="1.3" marker-end="url(#ak)"/>
+<path d="M1020,342 L1030,342 L1030,425 L1040,425" fill="none" stroke="#222" stroke-width="1.3" marker-end="url(#ak)"/>
+<line x1="1170.0" y1="447.0" x2="1190.0" y2="447.0" stroke="#222" stroke-width="1.3" marker-end="url(#ak)"/>
+<line x1="1405.0" y1="522.0" x2="1405.0" y2="162.0" stroke="#222" stroke-width="1.3" marker-end="url(#ak)"/>
+<rect x="590.0" y="312.0" width="130.0" height="60.0" rx="4" fill="#fff" stroke="#222" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="655.0" y="332.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">if short:</text>
+<text x="655.0" y="348.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">foundry PO [16 h]</text>
+<text x="655.0" y="362.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">(lead_time_h)</text>
+<line x1="655.0" y1="267.0" x2="655.0" y2="312.0" stroke="#222" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#ak)"/>
+<text x="20.0" y="630.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Inside step 5 – route of one VC20 unit (cycle times from config, s):</text>
+<rect x="20.0" y="642.0" width="49.5" height="34.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="44.8" y="657.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">LOAD</text>
+<text x="44.8" y="671.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">90</text>
+<rect x="75.5" y="642.0" width="198.0" height="34.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="174.5" y="657.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">HMC</text>
+<text x="174.5" y="671.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">360</text>
+<rect x="279.5" y="642.0" width="82.5" height="34.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="320.8" y="657.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">WASH</text>
+<text x="320.8" y="671.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">150</text>
+<rect x="368.0" y="642.0" width="110.0" height="34.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="423.0" y="657.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">ASSY</text>
+<text x="423.0" y="671.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">200</text>
+<rect x="484.0" y="642.0" width="60.5" height="34.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="514.2" y="657.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">ROBOT</text>
+<text x="514.2" y="671.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">110</text>
+<rect x="550.5" y="642.0" width="198.0" height="34.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="649.5" y="657.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">TEST</text>
+<text x="649.5" y="671.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">360</text>
+<rect x="754.5" y="642.0" width="88.0" height="34.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="798.5" y="657.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">PAINT</text>
+<text x="798.5" y="671.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">160</text>
+<rect x="848.5" y="642.0" width="115.5" height="34.0" rx="0" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="906.2" y="657.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">FINAL</text>
+<text x="906.2" y="671.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">210</text>
+<rect x="970.0" y="642.0" width="66.0" height="34.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="1003.0" y="657.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">PACK</text>
+<text x="1003.0" y="671.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">120</text>
+<text x="1050.0" y="657.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">= 1 760 s process time</text>
+<text x="1050.0" y="672.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">(HMC 345 + 15 s pallet change)</text>
+<text x="20.0" y="696.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Cylinders (VMC → HONE) and crankshafts (LATHE → GRIND) come from kanban supermarkets – they are not on the order's critical path.</text>
+<text x="20.0" y="722.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Lead time of the order (bar to scale, hours):</text>
+<rect x="20.0" y="742.0" width="9.4" height="30.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="20.0" y="738.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">entry 0.25 h</text>
+<rect x="29.4" y="742.0" width="156.7" height="30.0" rx="0" fill="url(#hatch)" stroke="#222" stroke-width="1.2"/>
+<text x="107.7" y="761.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">queue before LOAD 4.17 h</text>
+<rect x="186.1" y="742.0" width="105.2" height="30.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="238.6" y="761.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">first unit 2.8 h</text>
+<rect x="291.2" y="742.0" width="41.7" height="30.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="312.1" y="738.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">rest 1.11 h</text>
+<rect x="332.9" y="742.0" width="225.4" height="30.0" rx="0" fill="url(#hatch)" stroke="#222" stroke-width="1.2"/>
+<text x="445.7" y="761.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">truck wait 6 h</text>
+<rect x="558.4" y="742.0" width="901.6" height="30.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="1009.2" y="761.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">transport 24 h</text>
+<text x="20.0" y="790.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">order → last unit in FG = 0.25 + 4.17 + 2.8 + 1.11 = 8.33 h;  to the customer = 8.33 + 6 + 24 = 38.33 h.  Hatched = pure waiting (10.17 h of the 14.33 h inside the factory and dock).</text>
+<text x="20.0" y="806.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Biggest levers: release less work ahead of the order (queue), more trucks per day, MTO priority. Machining speed is a small part of the lead time.</text>
+<text x="155.6" y="736.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111"></text>
+<rect x="1050.0" y="830.0" width="440.0" height="60.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="1050.0" y1="850.0" x2="1490.0" y2="850.0" stroke="#222" stroke-width="1"/>
+<line x1="1360.0" y1="850.0" x2="1360.0" y2="890.0" stroke="#222" stroke-width="1"/>
+<text x="1058.0" y="845.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – planning sketch</text>
+<text x="1482.0" y="845.0" font-size="11" text-anchor="end" font-weight="normal" fill="#444">Guide 02 – FMS and order flow</text>
+<text x="1058.0" y="868.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Order flow end to end</text>
+<text x="1058.0" y="883.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">MTO 20 × VC20, systems + lead time per step</text>
+<text x="1368.0" y="868.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">DWG 02-03</text>
+<text x="1368.0" y="883.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">not to scale for build</text>
+</svg>

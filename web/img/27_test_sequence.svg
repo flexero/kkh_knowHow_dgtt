@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 990" width="1400" height="990" font-family="Arial, Helvetica, sans-serif">
+<title>Test sequence before first switch-on</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker></defs>
+<rect x="0" y="0" width="1400" height="990" fill="#ffffff"/>
+<rect x="12.0" y="12.0" width="1376.0" height="966.0" rx="0" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="828.0" y="894.0" width="560.0" height="84.0" rx="0" stroke="#000" stroke-width="1.5" fill="#ffffff"/>
+<line x1="828.0" y1="924.0" x2="1388.0" y2="924.0" stroke="#000" stroke-width="1"/>
+<line x1="1208.0" y1="924.0" x2="1208.0" y2="978.0" stroke="#000" stroke-width="1"/>
+<text x="838.0" y="915.0" font-size="14" text-anchor="start" font-weight="bold" fill="#1565c0">EXAMPLE – real design by a qualified electrician</text>
+<text x="838.0" y="944.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Test sequence before first switch-on</text>
+<text x="838.0" y="964.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">IEC 60364-6 initial verification + IEC 60204-1 §18</text>
+<text x="1218.0" y="944.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Doc 27 · Fig. 27-8</text>
+<text x="1218.0" y="964.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">2026-11 · not for construction</text>
+<text x="24.0" y="970.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">Values from docs/27 and web/instelec_calc.js (example data, crankcase machining line ML1).</text>
+<text x="40.0" y="46.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000">Initial verification of the HMC-01 supply – order of tests, instrument and example limit (dead tests first, then live tests)</text>
+<text x="60.0" y="92.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">1  DEAD TESTS (installation isolated, LOTO)</text>
+<rect x="60.0" y="110.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="60.0" y="110.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="60.0" y1="134.0" x2="460.0" y2="134.0" stroke="#000" stroke-width="1"/>
+<text x="70.0" y="127.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">1 Visual inspection</text>
+<text x="70.0" y="154.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">cable type/size, glands, torque marks, labels, SPD, IP</text>
+<text x="70.0" y="172.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: drawings + eyes</text>
+<text x="70.0" y="192.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: all OK</text>
+<line x1="260.0" y1="206.0" x2="260.0" y2="226.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="60.0" y="228.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="60.0" y="228.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="60.0" y1="252.0" x2="460.0" y2="252.0" stroke="#000" stroke-width="1"/>
+<text x="70.0" y="245.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">2 Prove dead</text>
+<text x="70.0" y="272.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">2-pole voltage tester, test it before and after</text>
+<text x="70.0" y="290.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: IEC 61243-3</text>
+<text x="70.0" y="310.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: 0 V</text>
+<line x1="260.0" y1="324.0" x2="260.0" y2="344.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="60.0" y="346.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="60.0" y="346.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="60.0" y1="370.0" x2="460.0" y2="370.0" stroke="#000" stroke-width="1"/>
+<text x="70.0" y="363.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">3 PE continuity MDB → HMC-01</text>
+<text x="70.0" y="390.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">low-ohm meter ≥ 200 mA</text>
+<text x="70.0" y="408.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: IEC 61557-4</text>
+<text x="70.0" y="428.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: ≤ 0.062 Ω (meas. 0.046)</text>
+<line x1="260.0" y1="442.0" x2="260.0" y2="462.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="60.0" y="464.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="60.0" y="464.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="60.0" y1="488.0" x2="460.0" y2="488.0" stroke="#000" stroke-width="1"/>
+<text x="70.0" y="481.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">4 Bonding: base, tray, doors</text>
+<text x="70.0" y="508.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">10 A bonding tester</text>
+<text x="70.0" y="526.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: IEC 61557-4</text>
+<text x="70.0" y="546.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: ≤ 0.1 Ω each</text>
+<line x1="260.0" y1="560.0" x2="260.0" y2="580.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="60.0" y="582.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="60.0" y="582.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="60.0" y1="606.0" x2="460.0" y2="606.0" stroke="#000" stroke-width="1"/>
+<text x="70.0" y="599.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">5 Insulation L1-L3, N → PE</text>
+<text x="70.0" y="626.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">500 V DC – drives, SPD, filters OFF</text>
+<text x="70.0" y="644.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: IEC 61557-2</text>
+<text x="70.0" y="664.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: ≥ 1 MΩ (meas. 250 MΩ)</text>
+<line x1="260.0" y1="678.0" x2="260.0" y2="698.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="60.0" y="700.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="60.0" y="700.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="60.0" y1="724.0" x2="460.0" y2="724.0" stroke="#000" stroke-width="1"/>
+<text x="70.0" y="717.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">6 Earth electrode / mesh</text>
+<text x="70.0" y="744.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">fall-of-potential 62 % or clamp</text>
+<text x="70.0" y="762.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: IEC 61557-5</text>
+<text x="70.0" y="782.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: ≤ 2 Ω (meas. 0.6 Ω)</text>
+<text x="500.0" y="92.0" font-size="13" text-anchor="start" font-weight="bold" fill="#1565c0">2  LIVE TESTS (upstream ON, machine main switch OFF)</text>
+<rect x="500.0" y="110.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="500.0" y="110.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="500.0" y1="134.0" x2="900.0" y2="134.0" stroke="#000" stroke-width="1"/>
+<text x="510.0" y="127.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">7 Voltage L-L, L-N, N-PE</text>
+<text x="510.0" y="154.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">CAT III/IV multimeter</text>
+<text x="510.0" y="172.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: IEC 61010</text>
+<text x="510.0" y="192.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: 360–440 V · N–PE &lt; 2 V</text>
+<line x1="700.0" y1="206.0" x2="700.0" y2="226.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="500.0" y="228.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="500.0" y="228.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="500.0" y1="252.0" x2="900.0" y2="252.0" stroke="#000" stroke-width="1"/>
+<text x="510.0" y="245.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">8 Phase sequence</text>
+<text x="510.0" y="272.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">rotary-field indicator</text>
+<text x="510.0" y="290.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: IEC 61557-7</text>
+<text x="510.0" y="310.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: clockwise L1-L2-L3</text>
+<line x1="700.0" y1="324.0" x2="700.0" y2="344.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="500.0" y="346.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="500.0" y="346.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="500.0" y1="370.0" x2="900.0" y2="370.0" stroke="#000" stroke-width="1"/>
+<text x="510.0" y="363.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">9 Loop impedance L-PE</text>
+<text x="510.0" y="390.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">loop tester, at the main switch</text>
+<text x="510.0" y="408.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: IEC 61557-3</text>
+<text x="510.0" y="428.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: Z_s ≤ 0.192 Ω (meas. 0.105)</text>
+<line x1="700.0" y1="442.0" x2="700.0" y2="462.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="500.0" y="464.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="500.0" y="464.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="500.0" y1="488.0" x2="900.0" y2="488.0" stroke="#000" stroke-width="1"/>
+<text x="510.0" y="481.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">10 Prospective fault current</text>
+<text x="510.0" y="508.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">loop tester (computed)</text>
+<text x="510.0" y="526.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: IEC 61557-3</text>
+<text x="510.0" y="546.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: ≥ I_a 960 A (meas. 2200 A)</text>
+<line x1="700.0" y1="560.0" x2="700.0" y2="580.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="500.0" y="582.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="500.0" y="582.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="500.0" y1="606.0" x2="900.0" y2="606.0" stroke="#000" stroke-width="1"/>
+<text x="510.0" y="599.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">11 RCD (sockets 30 mA)</text>
+<text x="510.0" y="626.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">RCD tester: t at I_Δn, 5·I_Δn, ramp</text>
+<text x="510.0" y="644.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: IEC 61557-6</text>
+<text x="510.0" y="664.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: ≤ 300 ms / ≤ 40 ms / 15–30 mA</text>
+<line x1="700.0" y1="678.0" x2="700.0" y2="698.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="500.0" y="700.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="500.0" y="700.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="500.0" y1="724.0" x2="900.0" y2="724.0" stroke="#000" stroke-width="1"/>
+<text x="510.0" y="717.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">12 PE current while running</text>
+<text x="510.0" y="744.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">leakage clamp on PE</text>
+<text x="510.0" y="762.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: –</text>
+<text x="510.0" y="782.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: &gt; 10 mA → PE ≥ 10 mm² + label</text>
+<text x="940.0" y="92.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">3  FUNCTION, QUALITY, RECORDS</text>
+<rect x="940.0" y="110.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="940.0" y="110.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="940.0" y1="134.0" x2="1340.0" y2="134.0" stroke="#000" stroke-width="1"/>
+<text x="950.0" y="127.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">13 Function</text>
+<text x="950.0" y="154.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">main switch lockable OFF, e-stop, phase relay, SPD status</text>
+<text x="950.0" y="172.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: test sheet</text>
+<text x="950.0" y="192.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: all OK</text>
+<line x1="1140.0" y1="206.0" x2="1140.0" y2="226.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="940.0" y="228.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="940.0" y="228.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="940.0" y1="252.0" x2="1340.0" y2="252.0" stroke="#000" stroke-width="1"/>
+<text x="950.0" y="245.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">14 Power quality 1 week</text>
+<text x="950.0" y="272.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">class A analyser at SD-ML1</text>
+<text x="950.0" y="290.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: IEC 61000-4-30</text>
+<text x="950.0" y="310.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: THDu ≤ 5 % · unbalance ≤ 2 %</text>
+<line x1="1140.0" y1="324.0" x2="1140.0" y2="344.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="940.0" y="346.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="940.0" y="346.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="940.0" y1="370.0" x2="1340.0" y2="370.0" stroke="#000" stroke-width="1"/>
+<text x="950.0" y="363.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">15 Voltage drop at full load</text>
+<text x="950.0" y="390.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">analyser at the machine</text>
+<text x="950.0" y="408.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: –</text>
+<text x="950.0" y="428.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: ΔU ≤ 4 % (calc. 1.86 %)</text>
+<line x1="1140.0" y1="442.0" x2="1140.0" y2="462.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="940.0" y="464.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="940.0" y="464.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="940.0" y1="488.0" x2="1340.0" y2="488.0" stroke="#000" stroke-width="1"/>
+<text x="950.0" y="481.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">16 Thermography</text>
+<text x="950.0" y="508.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">after ≥ 1 month, load ≥ 40 %</text>
+<text x="950.0" y="526.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: IR camera</text>
+<text x="950.0" y="546.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: ΔT &lt; 10 K vs similar parts</text>
+<line x1="1140.0" y1="560.0" x2="1140.0" y2="580.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="940.0" y="582.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="940.0" y="582.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="940.0" y1="606.0" x2="1340.0" y2="606.0" stroke="#000" stroke-width="1"/>
+<text x="950.0" y="599.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">17 Report + signatures</text>
+<text x="950.0" y="626.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">values, instrument serial + calibration date</text>
+<text x="950.0" y="644.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: IEC 60364-6 §6.5</text>
+<text x="950.0" y="664.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: complete</text>
+<line x1="1140.0" y1="678.0" x2="1140.0" y2="698.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="940.0" y="700.0" width="400.0" height="96.0" rx="4" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="940.0" y="700.0" width="400.0" height="24.0" rx="0" stroke="#000" stroke-width="0" fill="#eeeeee"/>
+<line x1="940.0" y1="724.0" x2="1340.0" y2="724.0" stroke="#000" stroke-width="1"/>
+<text x="950.0" y="717.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">18 As-built drawings + baseline</text>
+<text x="950.0" y="744.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">SLD, settings record, PQ + PE-current baseline</text>
+<text x="950.0" y="762.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">instrument / standard: –</text>
+<text x="950.0" y="782.0" font-size="11" text-anchor="start" font-weight="bold" fill="#1565c0">limit: stored</text>
+<polyline points="460.0,748.0 480.0,748.0 480.0,80.0 700.0,80.0 700.0,104.0" stroke="#000" stroke-width="0" fill="none"/>
+<polyline points="460.0,748.0 480.0,748.0 480.0,158.0 498.0,158.0" stroke="#1565c0" stroke-width="2" fill="none" marker-end="url(#aa)"/>
+<text x="462.0" y="150.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000"></text>
+<polyline points="900.0,748.0 920.0,748.0 920.0,158.0 938.0,158.0" stroke="#1565c0" stroke-width="2" fill="none" marker-end="url(#aa)"/>
+<text x="60.0" y="828.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Blue arrow 6 → 7: ENERGISE only after all dead tests pass (machine main switch OFF, warning signs, second person).</text>
+<text x="60.0" y="846.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Any FAIL → stop, find the cause, repair, repeat the failed test AND every earlier test the repair could affect (e.g. insulation after re-termination).</text>
+<text x="60.0" y="864.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Insulation test: disconnect or bridge drives, SPDs and EMC filters first – 500 V DC can damage electronics; Y-capacitors give false low readings.</text>
+</svg>

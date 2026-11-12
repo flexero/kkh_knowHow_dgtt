@@ -28,6 +28,22 @@ Source files: `web/apc.js` (calculation page, animation, PLC, BOM, safety) and `
 15. Data you still need
 16. Glossary
 
+**Part B – design reference (added 2026-11-12):**
+
+17. APC types, pallet standards and pallet systems (change times, ISO 8526, sizes, T-slots, pallet ID)
+18. Zero-point clamping in depth (mechanism, pull-in / holding force, release oil, stud types, checks)
+19. Rotation drive design (drive options, inertia breakdown, motion laws, cam indexer, rack-pinion, stiffness)
+20. Lift design (cylinder vs cam vs screw, real lifted mass, end cushioning E = ½·m·v², guides)
+21. Slewing bearing selection and structure stiffness (THK / INA formula, life, bolts, frequencies)
+22. Positioning accuracy and repeatability budget (capture budget, final position budget)
+23. Sensors and the air-gap seating check (inductive, pressure, air gap, encoder, RFID)
+24. PLC step chain – timing, start conditions, watchdogs, extended I/O, code skeleton
+25. Safety design (ISO 16090-1, ISO 13849 safety functions, stop distance, stored hydraulic energy)
+26. Maintenance, failure modes and diagnostics (FMEA table, condition monitoring with the twin)
+27. Hydraulic circuit with accumulator and the app preset "apc" (Ø50/28 at 10 MPa vs Ø63/36 at 6–7.5 MPa)
+28. Buy list – catalogue examples + shopping list for one APC
+29. Drawings of this guide (index)
+
 ---
 
 ## 1. Purpose
@@ -337,6 +353,11 @@ Spindle time share = 343.5/(343.5 + 8.8) = **97.5 %**
 
 ### 4.10 PLC step chain
 
+![APC step chain timing diagram with interlocks and accumulator pressure](img/09_step_chain_timing.svg)
+
+Timing diagram of the 8.8 s change with all signals, the start conditions, the watchdog times and the accumulator
+pressure (details and the code skeleton in §24).
+
 | Step | Action | PLC output / command | Step done when | Interlock |
 |---|---|---|---|---|
 | 0 | NC calls the pallet change (e.g. M60) | NC → PLC: M-code strobe | PLC reads the M code | spindle stopped, coolant off |
@@ -351,9 +372,18 @@ Spindle time share = 343.5/(343.5 + 8.8) = **97.5 %**
 
 Note: in step 4 the 180° sensor is shown; on the way back the 0° sensor (%I20.2) is used.
 
+Missing start conditions in this table (added in §24.2): spindle oriented (M19) and tool retracted, B-table clamp state known,
+**accumulator pressure ≥ 7.3 MPa** (§9.2 item 4), station READY, oil level / temperature / filter OK. Every step also
+needs a watchdog time (§24.3).
+
 ### 4.11 PLC I/O list (example addresses, Siemens style)
 
 Rule: bit addresses use **.0 to .7 only** (a byte has 8 bits). After %I20.7 comes %I21.0 – never %I20.8.
+
+![APC electrical I/O overview](img/09_electrical_io.svg)
+
+The drawing also shows the I/O that the hydraulic unit with accumulator needs (pump contactor, unloading valve,
+accumulator pressure transmitter, oil level / temperature / filter, accumulator hold valve) – the extended list is in §24.4.
 
 | Address | Symbol | Type | Device |
 |---|---|---|---|
@@ -386,12 +416,18 @@ All addresses are examples. In a real project F-DI / F-DQ sit on fail-safe I/O m
 
 ### 4.12 Hydraulic circuit (ISO 1219 style, from `apc3d.js`)
 
+The table below describes the simple circuit of the page (`apc3d.js`, 6 MPa, without the table clamp). The **recommended
+circuit with accumulator** – one HPU per HMC for APC lift, zero-point release and B-table clamp, consistent with guide 25
+§14 – is drawn here and explained in §27:
+
+![APC hydraulic circuit with accumulator, ISO 1219-2 style](img/09_hydraulic_circuit.svg)
+
 | Code | Element | Function |
 |---|---|---|
 | 0P1 + M | pump + motor | builds the pressure |
 | 0V1 | relief valve | limits the pressure (set p + 10 %) |
 | check, filter 10 µm | check valve, return filter | protect pump, keep oil clean |
-| 0Z2 | bladder accumulator (example 1.4 L) | oil for the fast lift, holds release pressure |
+| 0Z2 | bladder accumulator (page: 1.4 L – **too small**, use 2.5 L, see §9.2 and §27) | oil for the fast lift, holds release pressure |
 | gauge | 0–10 MPa | shows system pressure (example 6 MPa) |
 | **1V1** | 4/3 solenoid valve, NG6, centre position **A and B to tank, P blocked** (corrected, §9.3 – a closed centre can keep the check valves 1V2 open) | lift up / down / hold |
 | **1V2** | pilot-operated check valves (in A and B) | arm cannot sink when the valve is in centre or the power fails |
@@ -410,6 +446,8 @@ Step → valve state in the animation: step 2 unclamp: 2V1 on; step 3 lift: 1V1 
 
 ### 4.13 Zero-point module – how it works (live section)
 
+![Zero-point module section – clamped and released](img/09_zero_point_module.svg)
+
 - **Clamped** (no oil): disc springs push the piston down; the piston taper presses the locking balls inward against the pull stud; the stud is pulled down (example 20 kN) onto the reference face.
 - **Open**: oil (example 5 MPa) enters the chamber below the piston, the piston moves up against the springs, the balls are free, the stud can leave.
 - **Lifted**: the APC lifts the pallet; the stud leaves the module.
@@ -420,6 +458,10 @@ Step → valve state in the animation: step 2 unclamp: 2V1 on; step 3 lift: 1V1 
 ## 5. Manufacturing, installation, commissioning
 
 ### 5.1 Main dimensions of the 3D model (example)
+
+![APC layout – top view and side view with the HMC](img/09_apc_layout.svg)
+
+![APC lift and rotation unit – section](img/09_lift_rotate_section.svg)
 
 | Item | Value |
 |---|---|
@@ -477,8 +519,8 @@ Why the carriage carries servo + gearbox + bearing: the **gear mesh does not cha
 | Lift cylinder | ISO 6020/6022, Ø63/36 × 60, double acting, end cushioning both sides | Flange on the base; rod end with a **self-aligning coupling** (no side load on the rod). |
 | Rotary union | 2 passages: oil 10 MPa, air 0.6 MPa | Below the table centre, flexible hoses to fixed pipes. |
 | HPU: tank, motor-pump, filter | ≈ 56 L, internal gear pump + IE3 motor, return filter 10 µm with clogging indicator | Bell housing + flexible coupling, relief valve p + 10 %. |
-| Bladder accumulator | 1.4 L, pre-charge 5.4 MPa, with safety block | Safety block with relief + drain valve (pressure equipment rules). |
-| Valves | 1V1 4/3 NG6 closed centre 24 V DC; 2V1 3/2 NG6; 3V1 pneumatic 3/2 + FRL (filter 5 µm) | Manual override for service. |
+| Bladder accumulator | page value 1.4 L / 5.4 MPa is too small – **2.5 L, pre-charge 5.39 MPa** (with the zero-point release oil, §9.2 item 4, guide 25 §14), with safety block | Safety block with relief + drain valve (pressure equipment rules). |
+| Valves | 1V1 4/3 NG6, centre **P blocked, A + B → T** (corrected – a closed centre keeps the pilot checks 1V2 partly open, §9.3), 24 V DC; 2V1 3/2 NG6; 3V1 pneumatic 3/2 + FRL (filter 5 µm) | Manual override for service. |
 | Pressure switches | electronic, IO-Link | switch points set in the PLC |
 | Inductive sensors M12 (6) | PNP, IO-Link: arm up, down, 0°, 180°, pallet in machine, pallet at station | Adjustable bracket, switching distance 4 mm. |
 | Safety light curtain | type 4, 14 mm resolution, OSSD | ≥ 640 mm from the danger zone (example), OSSDs to F-DI. |
@@ -680,6 +722,14 @@ So the page value 0.42 mm (3′ directly at the arm) is **on the safe side** for
    - **With accumulator:** pump stops / unloads at p2 = 7.5 MPa (pressure switch or unloading valve), relief valve **above** p2 (example 8.3 MPa), all parts rated ≥ 10 MPa, zero-point modules fed through a **pressure-reducing valve** set to the release pressure (5 MPa, never above the module's maximum).
    - **Without accumulator:** pump 14 L/min, relief 6.6 MPa, no accumulator (simpler; motor 2.2 kW).
    - (Accumulator charged only to 6.6 MPa would need V0 = 3.1 L adiabatic.)
+4. **Charging logic (added 2026-11-12, from guide 25 §14):** with the zero-point release oil added, the accumulator becomes
+   **2.5 L** (V0 1.74 L adiabatic → next size), which matches the app preset "apc" in the Hydraulics tab. A plain pressure
+   switch (cut-in / cut-out) can leave the accumulator half-empty when the next movement starts. The PLC must **recharge to
+   cut-out after every movement**, and the step chain must start a pallet change only when the accumulator pressure is
+   **≥ about 7.3 MPa** – otherwise the oil runs out before the lift reaches the top. Add this interlock to the step chain
+   (§4.10 – corrected from "§5"; worked out in §24.2) and to the functional description. See guide 25 §14 and guide 30
+   (circuit 6, accumulator clamping). Check of the number (§24.2): starting at 7.3 MPa, release + lift (0.234 L) without
+   pump help leave **6.25 MPa** (≥ 6.0 cut-in); with the pump helping, the minimum is ≈ 6.9 MPa.
 
 ### 9.3 Valve 1V1 centre position with pilot-operated check valves
 
@@ -699,6 +749,32 @@ Resultant a = √(1.15² + 1.55²) = **1.93 m/s²** > friction μ·g = 0.15·9.8
 | §4.7 ISO 13855 | – | the standard was revised (new edition about 2024). Check the formula and the K = 1600 rule in the edition you use |
 | §5.9 Machinery Directive | – | the EU Machinery Regulation (EU) 2023/1230 replaces Directive 2006/42/EC from **20 January 2027** – a machine placed on the market after that date follows the Regulation |
 | §5.7 step 1 | relief p + 10 % | only for the circuit without accumulator (see 9.2) |
+
+### 9.6 Swing circle "2r + diagonal" is an upper limit, not the real circle (added 2026-11-12)
+
+The page (and §4.6) uses Ø = 2r + √(a² + b²) = 960 + 707 = **Ø1 667 mm**. This assumes the pallet diagonal points
+radially outward, which it never does. The real outer corner of a pallet at radius r is at
+R = √((r + a/2)² + (b/2)²) = √(730² + 250²) = **771.6 mm → Ø1 543 mm** (pallet only).
+With 40 mm fixture / part overhang (guide 10 item 4): √(770² + 290²) = 823 mm → Ø1 646 mm.
+So the page value is **on the safe side** by 62 mm in radius for the bare pallet – keep it for guards, but use the real
+formula (plus the largest part outline) when space is tight. No code change needed; the page label "= 2r + diagonal" is
+correct as a formula, only the word "swing circle" should be read as "safe envelope".
+
+### 9.7 Lifted mass: carriage and rotor are missing (added 2026-11-12)
+
+§4.4 and §14.1 lift 1 200 kg (2 pallets + arm). The carriage plate (117 kg), bearing rings (52 kg), hub (≈ 40 kg),
+ring gear (27 kg), gearbox + servo (≈ 30 kg) and bushings / rod (≈ 13 kg) are lifted too → **≈ 1 480 kg**.
+Then F = 1 480·9.81·(1 + 0.375/9.81)·1.1 = **16.6 kN** (not 13.4 kN) and the cylinder needs 5.59 MPa + 0.68 MPa losses
+= **6.27 MPa at the supply**. Ø63 still works without the 25 % reserve (89 % used at 6 MPa constant pressure), and with the
+accumulator only because the start rule ≥ 7.3 MPa keeps the supply ≥ 6.9 MPa during the lift. Full check and options
+(Ø80, higher cut-in) in §20.2. The page code is not changed.
+
+### 9.8 Same tag, two meanings: 3V1 / 3S1 (added 2026-11-12)
+
+This guide (§4.12, §12.2) uses **3V1 / 3S1** for the seating-check air. Guide 25 §14 uses **3V1 / 3S1** for the B-table
+clamp valve and its pressure switch. When one HPU feeds both (§27), keep guide 25's numbers for the table clamp and
+renumber the seating air to circuit **5** (5V1, 5S1, 5Z1) – circuit 4 is already the station lift (§12.2). The drawing in
+§4.12 / §27 uses this numbering. Tag lists, I/O list and labels must be changed together (guide 15 rule).
 
 ---
 
@@ -852,6 +928,10 @@ A rigid body has **6 degrees of freedom** (3 moves, 3 rotations). To fix it exac
 - **RSS (statistical):** e_rss = √(Σ e_i²) – realistic when the errors are independent and centred.
 - Example (doc 10 item 4, mounting A): 0.02, 0.02, 0.05, 0.42, 0.20, 0.055 → worst case 0.765 mm, RSS = √(0.0004 + 0.0004 + 0.0025 + 0.1764 + 0.04 + 0.0030) = 0.47 mm.
 - Rule used here: worst case ≤ 0.8 × capture range. One big term (backlash 0.42) dominates – reduce the biggest term first.
+
+![APC positioning budget – capture and final position](img/09_positioning_budget.svg)
+
+The second budget (final position of the clamped pallet, in µm) is explained in §22.
 
 ### 10.12 Thermal expansion
 
@@ -1388,3 +1468,983 @@ Nothing below can be found in this guide or in the twin; get it before releasing
 | EN 10204 3.1 | material inspection certificate with test values, signed by the producer's inspector |
 | ISO 4406 code | oil cleanliness: particle classes ≥ 4 / 6 / 14 µm(c) |
 | B- / R- numbers | BUY part and raw-material numbers (doc 15) |
+
+**Terms added with Part B (§17–29):**
+
+| Term | Meaning |
+|---|---|
+| Shuttle APC / pallet pool | linear pallet changer / rack with many pallets and a loader (§17.1) |
+| ISO 8526 | standard for workholding pallets of machine tools (§17.3) |
+| Pull-in force / holding force | force that pulls the stud down / external pull the locked module carries (§18) |
+| Fit stud / slot stud / clearance stud | stud that locates X+Y / rotation / only Z (§18.4) |
+| Turbo (zero-point) | extra pneumatic pull-in force |
+| Motion law | shape of θ(t) – trapezoid, modified sine, cycloidal (§19.3) |
+| Cv, Ca, Cj | dimensionless speed, acceleration, jerk coefficients of a motion law |
+| Jerk | rate of change of acceleration (rad/s³) |
+| Cam indexer | cam-driven unit that turns between fixed stops with a built-in motion law (§19.5) |
+| Rack-pinion rotary actuator | hydraulic cylinders with a rack turning a pinion (§19.6) |
+| Torsional stiffness | torque per twist angle (N·m/rad or N·m/arcmin) |
+| Emergency-stop torque | highest torque a gearbox may see a limited number of times (E-stop) (§25.3) |
+| Cushioning | braking of the piston in the last millimetres by trapped oil (§20.3) |
+| Intensification | pressure rise on the rod side when it is blocked: p·A/A_r (§20.3) |
+| Equivalent load P0 | single load that has the same effect on a bearing as Fa + Fr + Mk (§21.2) |
+| Capture budget / final-position budget | error chains for "does it catch?" and "how exact is it?" (§22) |
+| Air-gap sensor | back-pressure / flow sensor that measures a small gap at a nozzle (§23.3) |
+| Watchdog | step timer – alarm if a step takes too long (§24.3) |
+| SS1 / SOS / SBC | safe stop 1 / safe operating stop / safe brake control (drive safety functions) |
+| Unloading valve | valve that sends the pump flow to tank at low pressure when the accumulator is full (§27) |
+| AccuHold | solenoid valve that keeps the accumulator closed while powered and drains it at switch-off |
+
+---
+
+# Part B – Design reference (added 2026-11-12)
+
+Part B adds what a real APC designer and builder needs beyond the page: the types on the market, the clamping
+technology, the drive and lift design with motion laws, bearing and structure checks, the accuracy budget, sensors,
+the full step chain, safety, maintenance, the hydraulic circuit with accumulator and a buy list with catalogue examples.
+All numbers are **examples** for the 500-class APC of this guide. Every number was recalculated with Python (stdlib) –
+scripts `calc.py`, `calc2.py`, `calc3.py` in the scratch folder `g09` of this work session. Use your catalogues and
+suppliers for the final design.
+
+**Gap list – what Part A did not cover (and where it is now):**
+
+| # | Gap in Part A | Why a builder needs it | New section |
+|---|---|---|---|
+| 1 | APC types (rotary, shuttle, pool) only named, no change times or selection rules | choose the concept before any calculation | §17.1–17.2 |
+| 2 | pallet standard, sizes, T-slots, pallet masses, pallet ID | buy / make pallets, plan fixtures | §17.3–17.5 |
+| 3 | zero-point mechanism, pull-in vs holding force, release oil, stud types | correct module choice and checks | §18 |
+| 4 | only the trapezoid profile; no cam laws, no jerk, no cam indexer / rack-pinion option | smoother, faster turn; alternative drives | §19.3–19.6 |
+| 5 | inertia from simple shapes only | confirm J before buying the servo | §19.2 |
+| 6 | torsional stiffness, natural frequency, emergency-stop torque on the gear | gear can break in an E-stop | §19.7, §25.3 |
+| 7 | lift: no cam / screw option, carriage + rotor mass missing, no cushioning energy | real lift force, soft end positions | §20 |
+| 8 | bearing: only M0 ≥ 2·Mk; no equivalent load, no life, no guide-column stiffness | correct bearing + guide design | §21 |
+| 9 | accuracy: only the capture chain; no final-position budget | promise a pallet-change accuracy | §22 |
+| 10 | sensors: list only; no switching distances, no air-gap design | reliable signals | §23 |
+| 11 | step chain: no start conditions (spindle orient, accumulator ≥ 7.3 MPa), no watchdogs, no timing | safe, diagnosable sequence | §24 |
+| 12 | safety: rules only; no safety-function table, no stop-distance / E-stop calculation, no stored-energy rules | CE / ISO 16090-1 design | §25 |
+| 13 | maintenance: intervals only; no failure modes | fast fault finding, twin KPIs | §26 |
+| 14 | accumulator circuit not drawn; app preset "apc" (Ø50/28, 10 MPa) not explained | one consistent HPU design | §27 |
+| 15 | no catalogue examples / shopping list | purchasing | §28 |
+| 16 | no drawings | manufacturing, discussion with suppliers | §29 + figures |
+
+---
+
+## 17. APC types, pallet standards and pallet systems
+
+### 17.1 The main APC types
+
+| Type | How it works | Typical change time (pallet-to-pallet, market range, check the maker) | Typical use | + | − |
+|---|---|---|---|---|---|
+| **Rotary swing APC (2 pallets)** – this guide | arm with 2 places lifts, turns 180°, lowers | ≈ 6–15 s (this example 8.8 s) | HMC 400–800, pallets up to ≈ 1–1.5 t | short time, one drive, parallel loading | swing circle needs space; one waiting pallet only |
+| Rotary APC with 4 places / turntable | turntable at the machine with 2–4 stations | ≈ 10–20 s | small HMC / VMC cells | more buffer | larger diameter |
+| **Shuttle APC (linear)** | pallets slide sideways on rails, a push-pull drive moves them in / out | ≈ 15–40 s | heavy pallets (1–5 t), large HMC / boring mills | no swing circle, very heavy loads | longer time, 2 load positions or a shuttle carriage |
+| **Pallet pool / rack (linear pallet system)** | rack with 6–40+ pallets, a stacker crane or loader brings any pallet to the machine APC | APC time like above + 20–60 s fetch (done while machining) | unmanned shifts, high mix, 1–8 machines | long unmanned time, flexible order | cost, floor space, software (cell control) |
+| Robot / gantry pallet handling | robot changes small pallets (≤ 100–300 kg) | ≈ 10–30 s | 5-axis machines, small parts | flexible, also parts handling | payload limit, guarding |
+| AGV-fed station (this factory) | AGV brings the pallet to the load station, the rotary APC changes | APC time + AGV transfer (guide 10 item 1) | FMS with central fixture setup | flexible routing | interfaces, interlocks (guide 10 item 4) |
+
+**Change-time model (use it to compare concepts):**
+t_change = t_door + t_unclamp + 2·t_lift + t_move + t_clamp + t_check, where t_move is the turn (rotary) or the travel
+(shuttle). For a linear move with speed v and acceleration a: t = s/v + v/a (if s ≥ v²/a), else t = 2·√(s/a).
+Example shuttle: s = 1.2 m, v = 0.4 m/s, a = 0.4 m/s² → t_move = 1.2/0.4 + 0.4/0.4 = **4.0 s** – and two moves (out + in)
+are needed, so the rotary APC (one 2.5 s turn for both pallets) is faster.
+
+**Selection rule (simple):** pallet + load ≤ ≈ 1.5 t and space for the swing circle → rotary APC. Heavier, or no space
+for the swing → shuttle. More than ≈ 1 shift unmanned, or > 3–4 different fixtures per machine → pallet pool / AGV system.
+
+### 17.2 Pallet classes and typical data
+
+| Pallet nominal size | Typical HMC class | Typical pallet mass (cast / steel, with T-slots) | Typical max. load on the pallet (machine catalogue) | Solid plate estimate (cast iron, 7.2 kg/dm³) |
+|---|---|---|---|---|
+| 400 × 400 | HMC 400 | ≈ 60–90 kg | ≈ 300–400 kg | 400·400·60 mm → 69 kg |
+| 500 × 500 | HMC 500 (this guide) | ≈ 100–150 kg (page 110 kg) | ≈ 500–700 kg (page 400 kg) | 500·500·70 → 126 kg |
+| 630 × 630 | HMC 630 | ≈ 180–260 kg | ≈ 1 000–1 500 kg | 630·630·80 → 229 kg |
+| 800 × 800 | HMC 800 | ≈ 350–500 kg | ≈ 2 000–3 000 kg | 800·800·100 → 461 kg |
+
+The solid-plate estimate is an upper value; T-slots and pockets reduce it by ≈ 10–20 %.
+
+### 17.3 Pallet standard ISO 8526
+
+- **ISO 8526-1** (modular units for machine tools – workholding pallets – part 1: pallets up to 800 mm nominal size) and
+  **ISO 8526-2** (larger pallets) define the pallet sizes, the top face (T-slots or tapped holes), the centre bore and the
+  locating / clamping interface families. **Check the current edition** – many machine builders use their own
+  (non-ISO) bottom interface with zero-point studs, so the pallets of two makers are usually **not** interchangeable.
+- T-slots to **ISO 299** (slot width with H8 or H12 tolerance). Typical: **18 mm** slots on 500 / 630 pallets (as §5.2:
+  18H8), 14 mm on smaller pallets – check the machine builder's pallet drawing.
+- Tapped-hole grid alternative: M16 (or M12) on a regular grid with a centre bore (fixture location by bore + slot).
+- Practice for this project: define **one pallet drawing** (VC-APC-PAL-0010) for all HMCs of the FMS, with the same stud
+  pattern (pitch 400 mm) and the same top face → any pallet fits any machine and any station (guide 10).
+
+### 17.4 Pallet top: T-slots vs grid vs subplate
+
+| Top design | + | − | Use |
+|---|---|---|---|
+| T-slots 18H8 | flexible, standard clamps | chips collect in slots, lower stiffness | general machining |
+| Tapped grid M16 + bores | clean, accurate fixture location (bore + slot) | holes must be protected (plugs) | fixed tombstones |
+| Zero-point **subplate** on the pallet (second zero-point level) | fixtures change in seconds | more height, cost | high-mix fixture change (Lang, Schunk, AMF …) |
+
+### 17.5 Pallet identification
+
+Each pallet carries an ID (format of §12.4, e.g. `PAL-0007`) in an **HF RFID tag** (13.56 MHz, ISO 15693) in a pocket on the
+side. The station reads it, the cell controller selects the NC program and the twin tracks the pallet. Read distance
+of HF tags is short (≈ 10–100 mm, metal-mount tags) → mount the reader head close to the tag at the load station
+(buy list §28.7).
+
+---
+
+## 18. Zero-point clamping in depth
+
+The section drawing of a module (clamped / released) is in §4.13.
+
+### 18.1 How a spring-clamp / hydraulic-release module works
+
+1. **Clamped (no oil):** a disc-spring stack pushes the annular piston down. The narrow bore of the piston presses the
+   locking balls (or slides) inward onto the upper slope of the stud groove. The slope turns the radial ball force into an
+   axial **pull-in force** (example 20 kN): the stud is pulled down until the pallet face sits on the module face.
+2. **Released (oil 5 MPa):** oil under the piston flange lifts the piston against the springs; the recess comes to the
+   ball height, the balls move out, the stud is free.
+3. **Location:** the stud taper (or the module taper) centres X/Y; the **face contact** gives Z and the two tilt angles.
+   The capture range (example ±1 mm) is how far off the stud may land and still be pulled in.
+4. **Self-locking:** in the clamped state the ball/slope angle is so flat that an external pull on the pallet cannot push
+   the balls out – this gives the **holding force**, which is higher than the pull-in force (maker value).
+
+### 18.2 Mechanism types on the market
+
+| Type | Principle | Release | Typical use |
+|---|---|---|---|
+| Ball lock, spring clamp | balls in a groove of the stud | hydraulic or pneumatic | most APC / pallet systems |
+| Slide (wedge) lock, spring clamp | 2–3 slides grip the stud head | hydraulic or pneumatic | higher holding force per size |
+| With "turbo" / boost | extra air pressure on the piston increases the pull-in | pneumatic | pneumatic systems (e.g. SCHUNK VERO-S NSE plus) |
+| Hydraulic clamp, spring release | oil clamps | spring | rare for pallets (not fail-safe at oil loss) |
+| Manual (mechanical) zero-point | screw / cam actuation | by hand | fixture change on manual machines (e.g. Lang Quick•Point) – **not for automatic APC** |
+
+For an APC in an HMC the usual choice is **spring clamp + hydraulic release** (compact, high force, fail-safe) or
+**spring clamp + pneumatic release** (no oil in the table, but larger modules and turbo air needed).
+
+### 18.3 Forces and checks (example 4 × 20 kN, page values)
+
+| Check | Formula | Example |
+|---|---|---|
+| Clamping force on the pallet | FN = n·F_pull + m·g | 4·20 kN + 510·9.81 N = **85.0 kN** |
+| No slipping (page) | S·F_side/μ ≤ FN | 2.5·4 000/0.15 = 66.7 kN → **78 %** |
+| No tilting (page, with pull-in) | S·M ≤ (n/2)·F_pull·pitch + m·g·pitch/2 | 3 000 ≤ 17 001 N·m → **18 %** |
+| Tilting with the **holding** force (example 50 kN per module – see datasheet) | M_hold = 2·50 kN·0.4 m + 5 003·0.2 | 41 000 N·m (the real safety against lifting) |
+| No face gap from the cutting moment | F_lift = M/(pitch) per module pair | 1 200/0.4 = 1 500 N per pair (750 N per module) ≪ 20 kN → the face stays closed |
+| Release force (example module) | p·A_piston ≥ 1.1·F_spring + seal friction; A = π/4·(90² − 36²) | 5 343 mm² · 5 MPa = **26.7 kN** |
+| Release oil per module | V = A·stroke | 5 343 mm² · 2.2 mm ≈ **11.8 cm³** (guide 25 value) |
+| Release oil for 4 modules | 4·V; Q = V/t | 47 cm³ in 0.8 s → **3.5 L/min** |
+| Release pressure | p_rel,min ≤ p_supply after the reducing valve ≤ p_max of the module | 5.0 MPa (2V2) – never the full 7.5 MPa accumulator pressure |
+
+Why the face must stay closed: a face gap of only 0.02 mm under one module (pitch 400) tilts the pallet by
+0.05 mm/m → **0.015 mm** at 300 mm fixture height (§22). The pull-in force must always be much larger than the lift-off
+force from cutting.
+
+### 18.4 Stud types and arrangement (exact constraint)
+
+| Stud | Function | Fit in the module |
+|---|---|---|
+| 1 × **fit stud** (reference) | X and Y | taper fully active |
+| 1 × **slot / sword stud** | rotation about Z (one direction free, towards the fit stud) | flats or narrow taper in one direction |
+| 2 × **clearance studs** | only Z and pull-in force | radial play (e.g. ±0.5 mm, see datasheet) |
+
+This is the 6-contact idea of §10.10: the face gives Z + 2 tilts, the fit stud X + Y, the slot stud the rotation. Four
+fully fitting studs would be over-determined: thermal growth or a pitch error would jam the pallet. Put the fit stud and the
+slot stud on a diagonal or on one axis as the maker shows, and mark the reference corner on the pallet.
+
+### 18.5 Module selection procedure
+
+1. Pallet + load mass, centre of gravity, cutting force and moment (from the process) → required FN and M.
+2. Choose module size and number: FN ≥ S·F_side/μ, holding moment ≥ S·M (with the holding force), pitch as large as the
+   pallet allows (here 400 mm for a 500 pallet).
+3. Release medium (oil / air) and pressure; check p_min ≤ supply after the reducing valve ≤ p_max.
+4. Capture range ≥ worst case of the capture budget / 0.8 (§22).
+5. Air seating check built in? (most APC modules have an air port) – plan the air passage in the rotary union.
+6. Cleanliness class (oil ISO 4406, air ISO 8573-1), cleaning air blow-off before lowering, chip covers.
+7. Stud fits and pallet bore tolerances from the module drawing (§11.3 part 1).
+
+---
+
+## 19. Rotation drive design
+
+### 19.1 Drive options for the 180° turn
+
+| Drive | How it positions | Accuracy at r = 480 (example) | + | − |
+|---|---|---|---|---|
+| **Servo + planetary + pinion / ring gear** (page) | absolute encoder + backlash | 0.27–0.42 mm (backlash, §9.1) | free motion law, 0°/180° by software, diagnosis | inertia ratio, E-stop torque on the gear (§25.3) |
+| Servo + **cam indexer** (barrel / globoid cam) | the cam profile and its dwell | ±(15–30)″ class at the output (catalogue) → ≈ ±0.04–0.07 mm | very repeatable, motion law in the steel, can also do lift-turn-lower in one cam | fixed angle and law, cost, size |
+| **Hydraulic rack-pinion rotary actuator** | adjustable end stops + cushions | end stops ≈ ±0.05–0.1 mm | simple, uses the HPU, high torque | speed set by throttles, hard end impact if badly cushioned |
+| Worm slewing drive | motor + encoder | backlash of the worm | compact, self-locking | low efficiency, wear, backlash |
+| Direct-drive torque motor | high-resolution encoder | very high | no backlash, no gear | expensive, large motor for 820 N·m, brake needed |
+
+**Mechanical index for any drive:** a spring-loaded or hydraulic index bolt at 0° / 180° (or a hard stop with a damper)
+removes the backlash term (0.42 mm) from the capture budget. Many APCs combine a servo with an index stop.
+
+### 19.2 Inertia – detailed check of the page value
+
+The page uses the arm as a bar of 180 kg over 1.16 m (J_a = 20.3 kg·m²). A part-by-part estimate of the rotating parts
+(example sizes from the 3D model, steel ρ = 7 850 kg/m³):
+
+| Part | Mass kg | Formula | J kg·m² |
+|---|---|---|---|
+| arm box 160 × 100 × 10, 0.28 m long | 10.6 | m·L²/12 | 0.07 |
+| 2 cross beams (hollow ≈ 50 %) at r = 0.14 m | 21.5 | m·r² | 0.42 |
+| 4 fork rails 45 × 45 × 540 at r = 0.46 m | 34.3 | m·(r² + L²/12) | **8.10** |
+| 4 wear strips 30 × 6 × 520 | 2.9 | as above | 0.69 |
+| partition wall + frame, 1 627 mm wide | 40 | m·W²/12 | **8.82** |
+| hub (hollow), Ø290 | 40 | ½·m·r² | 0.42 |
+| ring gear on hub flange, r 145–221 | 27.4 | ½·m·(r₁² + r₂²) | 0.96 |
+| bearing inner ring, r 125–175 | 25.9 | ½·m·(r₁² + r₂²) | 0.60 |
+| **Total** | **203** | | **20.1** |
+
+Result: 20.1 kg·m² ≈ page 20.3 kg·m² → the page estimate is good. Note: the big items are the **fork rails and the wall**
+(far from the axis) – keep them light. The pallets with load (2 × 158.96 = 317.9 kg·m²) are 94 % of J.
+
+### 19.3 Motion laws for the 180° turn
+
+![Motion law of the 180° APC turn](img/09_motion_law.svg)
+
+A motion law is the shape of θ(t). With h = π rad, T = 2.5 s and the normalised time x = t/T:
+ω_max = Cv·h/T, α_max = Ca·h/T², jerk_max = Cj·h/T³.
+
+| Law | Cv | Ca | ω max rad/s | α max rad/s² | T at the arm N·m (J·α + 10) | Jerk | Remark |
+|---|---|---|---|---|---|---|---|
+| trapezoid 30 % (page) | 1.43 | 4.76 | 1.80 | 2.39 | **820** | infinite (steps) | lowest torque of the common laws, but shocks at 4 corners |
+| modified sine | 1.76 | 5.53 | 2.21 | 2.78 | **950** | 69.5·h/T³ = 14.0 rad/s³ | standard for indexers: smooth, moderate torque |
+| cycloidal | 2.00 | 6.28 | 2.51 | 3.16 | **1 079** | 39.5·h/T³ = 7.9 rad/s³ | smoothest start / stop, highest torque and speed |
+| simple harmonic | 1.57 | 4.93 | 1.97 | 2.48 | 849 | infinite at start / end | not for dwell-to-dwell |
+| triangle (constant acceleration) | 2.00 | 4.00 | 2.51 | 2.01 | 690 | infinite | highest speed and centripetal load |
+
+Formulas of the two smooth laws (x = t/T, s = θ/h):
+- **Cycloidal:** s = x − sin(2πx)/(2π)
+- **Modified sine** (3 segments 1/8 – 6/8 – 1/8, k = 1/(4 + π) = 0.1400):
+  0 ≤ x ≤ 1/8: s = k·(πx − ¼·sin 4πx); 1/8 ≤ x ≤ 7/8: s = k·(2 + πx − 9/4·sin(π/3 + 4πx/3)); 7/8 ≤ x ≤ 1: s = k·(4 + πx − ¼·sin 4πx).
+
+**What this means for the design (example):**
+- Modified sine needs 950 N·m (+16 %) and 2.21 rad/s; the motor needs 5.28 N·m at 4 223 rpm → the chosen 2.0 kW
+  servo (Tmax 19 N·m, 5 000 rpm) still fits: required 1.2·(5.28 + 0.0012·2.78·200) = **7.1 N·m**.
+- Cycloidal needs 4 800 rpm – close to the 5 000 rpm limit of the example servo → modified sine is the better choice.
+- For the same acceleration torque as the trapezoid (810 N·m) the modified sine needs T = √(5.53·π·338.2/810) = **2.69 s**
+  (+0.19 s). Usually the smoother law **wins back** this time because the arm settles faster (no residual vibration at
+  the end) and the in-position window is reached earlier.
+- Pallet on the fork rails at the end of the acceleration, modified sine: a_t = 2.78·0.48 = 1.33 m/s², a_c = 2.21²·0.48 =
+  2.35 m/s² → resultant **2.70 m/s²** ≫ μ·g = 1.47 → the locating blocks of §9.4 / §11.3 part 7 must be sized for
+  510·2.70·1.5 = **2.1 kN** if the modified sine is used (1.5 kN with the trapezoid).
+- In a servo drive the law is an "electronic cam" or a jerk-limited profile (S-curve); in a cam indexer it is cut into the cam.
+
+### 19.4 Servo thermal check (RMS torque)
+
+Motor torque in the trapezoid move (J_motor 12 kg·cm², i = 200, η = 0.9):
+- accelerate (0.75 s): T = J·α/(i·η) + J_m·α·i + T_fr/(i·η) = 4.50 + 0.57 + 0.06 = **5.13 N·m**
+- constant speed (1.0 s): T = 10.3/(200·0.9) = 0.06 N·m
+- brake (0.75 s, the load drives, η helps): T = J·α·η/i + J_m·α·i − T_fr·η/i = 3.64 + 0.57 − 0.05 = **4.17 N·m**
+- RMS over the move: √((5.13²·0.75 + 0.06²·1.0 + 4.17²·0.75)/2.5) = **3.62 N·m** < Tn 6.4 N·m ✓
+- RMS over a pallet cycle (one move per 352.3 s): **0.31 N·m** – the motor is thermally almost idle.
+- Braking energy per move: E = ½·J·ω² = **545 J** (mean braking power 545/0.75 = 727 W, peak ≈ 1.45 kW) → small brake
+  resistor or a regenerative supply shared with the machine.
+
+### 19.5 Cam indexer option – sizing example
+
+Indexer with 2 stops (0° / 180°), modified sine, index time 2.5 s:
+- Inertia torque at the output: T_i = J·α_max = 338.2·2.78 = **940 N·m**; friction 10 N·m.
+- Output design torque with service factor 1.5: T_t = (940 + 10)·1.5 = **1 425 N·m** → choose an indexer size with
+  rated output torque ≥ 1 425 N·m at the index time (catalogue table).
+- Input: if the cam indexes during 180° of one input turn and the input turns once per change, the input speed for 2.5 s is
+  (180/360)/2.5 s = 0.2 rev/s = **12 rpm**.
+- Peak power of the inertia: P = J·Q_m·h²/T³ with Q_m = 5.46 (modified sine) → 338.2·5.46·π²/2.5³ = **1 166 W**.
+- Peak input torque ≈ (1 166 + 10·2.21)·1.5 / (1.257 rad/s · 0.8) ≈ **1 770 N·m** at 12 rpm → gear motor with a ratio of
+  ≈ 120 and a brake; the maker's sizing program gives the final motor (often 1.1–2.2 kW with a flywheel effect).
+- Lift-turn-lower in one unit: some makers offer a "pallet changer" cam unit where one cam lifts and a second cam turns.
+  Then the hydraulic lift cylinder is not needed – but the stroke and times are fixed by the cam.
+
+### 19.6 Hydraulic rack-pinion rotary actuator option – sizing example
+
+Torque T = n_racks·p·A·r_p·η. Required 820 N·m × 1.25 = 1 025 N·m at 6 MPa, pinion pitch radius r_p = 40 mm, η = 0.9:
+- single rack: A = 1 025/(6·10⁶·0.04·0.9) = 4 745 mm² → Ø78 → Ø80;
+- **double rack**: A = 2 373 mm² each → Ø55 → **Ø63** (gives 2·3 117·6·0.04·0.9 = 1 347 N·m).
+- Rack travel for 180° = π·r_p = 125.7 mm; oil per turn with two Ø63 racks: 2·3 117 mm²·125.7 mm = **0.78 L**
+  → 18.8 L/min for 2.5 s → this does **not** fit the 2.5 L accumulator of §27 without a
+  bigger pump or accumulator. Positioning by adjustable end stops + cushions; the speed profile is set by throttles
+  (not a clean motion law). Good for simple, robust APCs; less flexible than the servo.
+
+### 19.7 Torsional stiffness and natural frequency of the turning arm
+
+- Gear mesh stiffness (ISO 6336 idea): c_γ ≈ 14 N/(mm·µm) per mm face width → 14·40 = 560 N/µm → torsional at the ring
+  gear k_mesh = 5.6·10⁸·0.226² = **2.86·10⁷ N·m/rad**.
+- Planetary gearbox torsional stiffness (example **25 N·m/arcmin** – see datasheet) = 85 900 N·m/rad at its output →
+  at the arm × (113/15)² = **4.88·10⁶ N·m/rad**.
+- In series: k = 1/(1/2.86·10⁷ + 1/4.88·10⁶) = **4.17·10⁶ N·m/rad** → f = √(k/J)/(2π) = √(4.17·10⁶/338.2)/(2π) = **17.7 Hz**
+  (period 0.057 s).
+- Twist under the acceleration torque 810 N·m: 810/4.17·10⁶ = 0.19 mrad → **0.093 mm** at r (elastic, disappears at rest).
+- Rules: the acceleration time (0.75 s) is ≫ the period (0.057 s) → little residual vibration; the speed-controller
+  bandwidth must stay well below 17.7 Hz (e.g. ≤ 5–8 Hz); the gearbox stiffness is the weak member – a stiffer gearbox
+  (higher N·m/arcmin) or a larger ring gear ratio helps more than a stiffer arm (arm bending 67 Hz, §10.13).
+
+---
+
+## 20. Lift design
+
+### 20.1 Lift options
+
+| Lift | Force / control | + | − |
+|---|---|---|---|
+| **Hydraulic cylinder** (page) | p·A, speed by throttles, holding by pilot check | high force in a small space, HPU exists anyway | needs cushioning, leakage, oil |
+| Cam lift (in a cam unit) | cam profile | exact motion law, no oil | fixed stroke and timing, big unit |
+| Servo + ball screw / toggle | servo force, any profile | programmable, clean | screw load + brake, cost, extra axis |
+| Pneumatic cylinder | p·A at 0.6 MPa | simple | Ø ≥ 200 for 16.6 kN, soft (compressible), not for 1.5 t |
+
+### 20.2 Real lifted mass (correction §9.7) and cylinder check
+
+| Item | Mass kg |
+|---|---|
+| 2 pallets + load (2 × 510) | 1 020 |
+| arm + wall (page) | 180 |
+| carriage plate 610 × 610 × 40 S355 | 116.8 |
+| bearing outer + inner ring (r 177–215 / 125–175, h 70) | 25.7 + 25.9 |
+| hub (hollow) | ≈ 40 |
+| ring gear on hub flange | 27.4 |
+| gearbox + servo | ≈ 30 |
+| ball bushings, rod, piston | ≈ 13 |
+| **Total lifted** | **≈ 1 480** |
+
+- F = 1 480·9.81·(1 + 0.375/9.81)·1.1 = **16.6 kN**; with 25 % reserve 20.7 kN → D_min at 6 MPa = √(4·20 711/(π·6)) =
+  66.3 mm → **Ø80** would be the page rule.
+- Ø63/36 at 6 MPa constant pressure: 18.7 kN → 89 % used (works, no reserve).
+- With the accumulator (§27): needed at the cylinder 16 569/(3 117·0.95) = 5.59 MPa + 0.68 MPa losses = **6.27 MPa at the
+  supply**. The start rule ≥ 7.3 MPa keeps the supply ≥ 6.9 MPa during the lift (pump helping) → 18.4 kN (+11 %) ✓.
+  Starting at the cut-in 6.0 MPa would **not** lift the real mass.
+- Options: (a) keep Ø63 and the start interlock ≥ 7.3 MPa (and an alarm < 6.3 MPa); (b) Ø80/45: 30.2 kN at 6 MPa, but
+  0.30 L per stroke and 22.6 L/min at 75 mm/s → accumulator ≈ 3.5–4 L; (c) cut-in 6.5 MPa / cut-out 8.0 MPa (all parts
+  ≥ 10 MPa, relief 9 MPa). The lead designer must decide with the real CAD masses (§15 item 6).
+
+### 20.3 End-position cushioning – energy E = ½·m·v²
+
+Kinetic energy at the end of the stroke:
+- constant speed 75 mm/s (pump-fed, page): E = ½·1 200·0.075² = **3.4 J**;
+- peak 150 mm/s (accumulator, triangle profile): E = ½·1 200·0.15² = **13.5 J**.
+
+These are small. **When lowering, the weight works too:** over a cushion length l_c = 20 mm the cushion must also absorb
+m·g·l_c = 11 772·0.02 = 235 J → total ≈ **239–249 J**. That is why the cylinder cushion (or the throttle) at the **bottom**
+end matters most.
+
+Cushion pressure (force balance on the piston during braking, deceleration a = v²/(2·l_c)):
+- Bottom cushion (lowering, cap side trapped, rod side ≈ 1.26 MPa pilot pressure):
+  p_c = (m·g + p_rod·A_r + m·a)/A = (11 772 + 1.26·2 099 + 1 200·0.141)/3 117 = **4.68 MPa** (75 mm/s) / 4.84 MPa (150 mm/s).
+- Top cushion (lifting, rod side trapped, supply 7.5 MPa): p_c = (p·A − m·g + m·a)/A_r = (7.5·3 117 − 11 772 + 169)/2 099
+  = **5.61 MPa** (5.85 MPa at 150 mm/s).
+- If the throttle 1V3 or a blocked cushion closes the rod side completely while 7.5 MPa acts on the piston, the rod side
+  can reach 7.5·3 117/2 099 = **11.1 MPa** (intensification) → cylinder rated 16 MPa (ISO 6020-2) ✓, rod-side hose and
+  fittings ≥ 16 MPa.
+- Practice: adjustable cushions both ends, cushion length from the catalogue (it states the allowed energy per cushion);
+  set throttles so that the landing on the receivers is soft (≈ 20 mm/s in the last 5 mm → 0.1 J per pallet, §10.14).
+
+### 20.4 Guides of the carriage
+
+- Side forces on the guide columns: drive reaction 1 230 N·m / (4 columns · 0.375 m) = **821 N** per column (tangential),
+  plus the tilting moment of §21.3.
+- The cylinder rod must not take side load → self-aligning coupling (§5.3).
+- Lift sensors (arm up / down) on a flag of the carriage, not on the cylinder (the coupling has play).
+
+---
+
+## 21. Slewing bearing selection and structure stiffness
+
+### 21.1 Loads on the bearing (worst case: one pallet full, one empty, during the turn)
+
+- axial Fa = (2·510 + 180)·g = **11.8 kN** (both full – the larger axial load);
+- tilting Mk = 400·g·0.53 = **2.08 kN·m** (one full, one empty);
+- radial Fr from the unbalanced centripetal force: 400·1.795²·0.48 = **0.62 kN**.
+
+### 21.2 Static and dynamic check (crossed roller bearing, THK / INA style formula)
+
+For crossed roller rings the makers use (THK "cross-roller ring" method – check the formula of your maker):
+- static equivalent load P0 = X0·(Fr + 2·Mk/dp) + Y0·Fa with X0 = 1, Y0 = 0.44:
+  P0 = (0.62 + 2·2.08/0.35) + 0.44·11.77 = **17.7 kN**;
+- static safety f_s = C0/P0 ≥ 2 (normal) … 3 (shock / precision) → **C0 ≥ 35–53 kN**;
+- dynamic equivalent load P = X·(Fr + 2·Mk/dp) + Y·Fa with X = 1, Y = 0.45 if Fa/(Fr + 2·Mk/dp) ≤ 1.5 (here 0.94):
+  P = 17.8 kN;
+- life L10 = (C/(f_w·P))^(10/3) revolutions; the APC turns 0.5 rev per change → 0.5·3 600/352.3·6 000 h = **30 700 rev/year**.
+  Example C = 150 kN (see datasheet), f_w = 1.5: L10 = 3.2·10⁸ rev → thousands of years.
+
+**Result:** a crossed roller bearing of dp ≈ 350 mm has much more capacity than needed (C0 is usually several hundred kN).
+It is chosen for **stiffness, accuracy and the mounting interface**, not for load. Ask the maker for the tilting stiffness
+(N·m/arcmin) and the mounting-face flatness (example ≤ 0.02 mm).
+
+### 21.3 Guide columns and bushings – the weak point for the tilting moment
+
+The tilting moment Mk (one full, one empty pallet) goes from the bearing into the carriage and then into the 4 guide
+columns. The ball bushings can only carry it as **radial force couples** over their length.
+- moment per column M = 2 080/4 = **520 N·m**;
+- one bushing of 90 mm length: force pair ≈ 520/0.09 = **5.8 kN** – too high for a Ø50 linear ball bushing (check C);
+  two bushings 200 mm apart: 520/0.2 = **2.6 kN** each;
+- column bending (Ø50, I = π·50⁴/64 = 306 800 mm⁴), clamped at the base, moment at the bushing (lever L):
+  θ = M·L/(E·I) = 520·0.14/(2.1·10¹¹·3.07·10⁻⁷) = **1.1 mrad** (L 140 mm, arm down) → **0.54 mm** height error at r;
+  at the top of the stroke (L 200 mm): 1.6 mrad → **0.78 mm**.
+- With a **top tie plate** joining the 4 column tops (both ends fixed) the tilt drops to about ¼: **0.14–0.19 mm**.
+
+**Design rules from this check:** tie the column tops with a plate (or use a box-type guide frame), use 2 bushings per
+column (tandem) or one long bush, or use one large central guide (e.g. Ø120 hollow column with long bushes) or profile
+rails on a stiff column. Check the pallet height at r with one full and one empty pallet during commissioning (dial gauge
+under the fork rail, lifted position).
+
+### 21.4 Other stiffness checks (example)
+
+| Item | Formula | Example | Comment |
+|---|---|---|---|
+| arm bending at r | f = F·r³/(3·E·I) | 0.055 mm, 67 Hz (§10.13) | fine |
+| arm torsion from the load offset e = 50 mm sideways | φ = T·L/(G·J_t), J_t = 4·A_m²·t/U (thin box) | T = 400·9.81·50 = 196 N·m, J_t = 15.2·10⁶ mm⁴ → φ = 7.7·10⁻⁵ rad → 0.019 mm at the pallet edge | fine |
+| drive torsion | §19.7 | 17.7 Hz, 0.093 mm elastic at r during accel. | gearbox is the weak member |
+| lift (oil column) | guide 25 §4.10 | 40.9 Hz | on/off control OK |
+| bearing ring bolts (outer ring → carriage) 12 × M12 10.9 on Ø400 | F = 2·M/(n·R) | 2·3 120/(12·0.2) = **2.6 kN** ≪ F_V,min 64.8/1.6 = 40.5 kN | joint does not open |
+| base frame / anchors | static + AGV docking (guide 10) | – | stiff base, 6 anchors M16 |
+
+---
+
+## 22. Positioning accuracy and repeatability budget
+
+The budget drawing is in §10.11 (`img/09_positioning_budget.svg`).
+
+There are **two different questions**:
+
+**(A) Capture – does the pallet land inside the capture range of the zero-point taper?** (horizontal, worst case)
+
+| Contributor (guide 10 item 4, mounting A) | ± mm |
+|---|---|
+| pallet in the station receivers | 0.02 |
+| receivers on the station table | 0.02 |
+| station ↔ APC axis (bolted + dowelled) | 0.05 |
+| arm angle – backlash at r (page 3′; real split §9.1 = 0.27) | 0.42 |
+| pallet on the fork rails (locating blocks) | 0.20 |
+| thermal growth of the arm, 10 K | 0.055 |
+| **Worst case Σ** | **0.765** ≤ 0.8 (80 % of ±1) ✓ |
+| RSS √Σe² | 0.472 |
+| with the real backlash split 0.27 | worst 0.615 / RSS 0.345 |
+
+**(B) Final position – how exact is the clamped pallet?** (X/Y at the face, µm)
+
+| Contributor | ± µm | Source |
+|---|---|---|
+| module repeatability (same pallet) | 5 | catalogue class ≤ 5 µm |
+| pallet-to-pallet stud position | 5 | jig-bored ±0.005 mm, same program (§5.5) |
+| receiver-plate form | 2 | ground on the machine ≤ 5 µm |
+| thermal: pallet 500 mm, ΔT 2 K, half length | 5.7 | 11.5·10⁻⁶·250·2 |
+| chip / oil film under the face | 2 | limited by the seating check |
+| **Worst case** | **19.7** | |
+| **RSS** | **9.5** | realistic scatter |
+
+Plus tilt: a 0.02 mm gap under one module tilts the pallet 0.05 mm/m → 15 µm at 300 mm fixture height, 30 µm at 600 mm
+(this is why the seating check limit 0.02 mm is important; for tighter work set it to 0.01 mm).
+
+**What to promise:** a pallet-change position scatter of about ±0.01 mm (RSS) is realistic for this design; the
+worst-case value is ≈ ±0.02 mm. For bores that must line up between pallets, use probing (measure the pallet / part
+position after the change and shift the work offset – guide 08).
+
+**Measure it:** acceptance test §5.8 "Position in machine" (probe a reference bore after 20 changes) and the ISO 230-2
+style statistics (as for the B-axis acceptance in guide 12): mean, range and 2σ of the 20 values.
+
+---
+
+## 23. Sensors and the air-gap seating check
+
+### 23.1 Inductive position sensors
+
+| Item | Rule / value (example) |
+|---|---|
+| Rated switching distance Sn | M12 flush ≈ 2 mm, M12 non-flush ≈ 4 mm, M18 flush ≈ 5 mm, M18 non-flush ≈ 8 mm (see datasheet) |
+| Assured operating distance | Sa ≤ 0.81·Sn → M12 non-flush: set the target at ≤ 3.2 mm (example: 2 mm gap) |
+| Correction factor for the target material | mild steel 1.0, stainless ≈ 0.6–0.8, aluminium ≈ 0.3–0.5, brass ≈ 0.4–0.5 (typical – see datasheet) |
+| Target size | ≥ sensing face (≥ 12 × 12 mm for M12) or 3·Sn, whichever is larger |
+| Hysteresis | ≈ 5–15 % of Sn → the flag must move clearly past the sensor |
+| Mounting | adjustable bracket, protected from chips, cables in a drag chain or fixed; IO-Link versions report the distance reserve |
+| Use on the APC | arm up / down (carriage flag), 0° / 180° (cam on the rotor), pallet present (machine + station, M18) |
+
+**Pressure-rated inductive sensors** (up to tens of MPa, built into the cylinder end cap) can detect the piston end
+position directly – useful for the lift cylinder if there is no space for a flag.
+
+### 23.2 Pressure switches and transmitters
+
+- 2S1 "unclamped" (≥ 4.5 MPa rising) and "clamped / vented" (≤ 0.5 MPa falling) – electronic switch with two outputs or
+  two switches (§4.11 I20.6 / I20.7). Hysteresis ≥ 0.3 MPa so that pressure ripple does not flicker the signal.
+- 0B2 accumulator transmitter 0–16 MPa, 4–20 mA → PLC thresholds (6.0 / 7.3 / 7.5 MPa, alarm < 5.5) and diagnosis
+  (pump on-time per hour → leakage trend, guide 25 §16). Wire break < 3.6 mA = fault.
+- Range rule: working pressure in the middle third of the range (7.5 MPa on a 16 MPa sensor ✓; a 0–10 MPa gauge is at 75 %
+  – acceptable, a 0–16 MPa gauge is better).
+
+### 23.3 Air-gap seating check – how to design it
+
+Principle: air flows through a nozzle in the module (or receiver) face. If the pallet lies flat, the nozzle is blocked,
+the pressure behind an upstream orifice rises to the supply pressure and the switch / sensor says "seated". A gap
+lets air escape, the pressure falls.
+
+Slit-flow estimate (§10.8): Q = w·h³·Δp/(12·η·L) – the flow grows with **h³**:
+
+| Gap h | 5 µm | 10 µm | 20 µm | 30 µm | 50 µm |
+|---|---|---|---|---|---|
+| Q (w 31 mm, L 3 mm, Δp 0.3 MPa) | 0.11 L/min | 0.86 L/min | 6.9 L/min | 23 L/min | 108 L/min |
+
+Design steps:
+1. Supply 0.15–0.3 MPa from a precision regulator (the result depends on the supply pressure – keep it constant).
+2. One upstream orifice per circuit (example Ø0.8 mm) so that the nozzle flow at the limit gap makes a clear pressure drop.
+3. Sensor: a dedicated air-gap sensor (back-pressure or flow type, e.g. SMC ISA3, Festo SOPA – buy list §28.7) gives an
+   analog value and switch points; a simple pressure switch works but is less sensitive.
+4. Set the switch point with **feeler shims** (0.02 mm must give "not seated", §5.7 step 4), at the working temperature.
+5. One circuit per module (best diagnosis) or all 4 nozzles in parallel (cheaper, but one leaking nozzle hides a gap).
+6. Clean, dry air (ISO 8573-1 class from the module maker); blow the faces clean **before** lowering (Q21.4).
+
+### 23.4 Rotation position and pallet ID
+
+- Absolute multi-turn encoder on the servo (no homing after power loss); 0° / 180° cam sensors as a plausibility check
+  and for the safety function "arm in end position" (if required by the risk assessment).
+- RFID HF reader at the load station (and optionally in the machine): reads `PAL-xxxx` → NC program, twin tracking.
+
+---
+
+## 24. PLC step chain – timing, start conditions, watchdogs, extended I/O
+
+The timing diagram (all signals, start conditions, watchdogs, accumulator pressure) is in §4.10
+(`img/09_step_chain_timing.svg`); the I/O drawing is in §4.11.
+
+### 24.1 Structure
+
+- One **sequence block** (S7-GRAPH or a CASE state machine in SCL / ST) with steps 0–8 of §4.10, a step timer and an
+  alarm word. The safety functions (door locking, light curtain, SS1 / STO, E-stop) are in the **F program**, not in the
+  sequence – the sequence only reads their status.
+- Modes: automatic (M60 from the NC), single step (button per step, for commissioning and recovery), manual jog (each
+  actuator alone, with the interlocks of §24.2 still active), and "home" (bring the APC to arm down + 0° / 180° + clamped).
+
+### 24.2 Start conditions for step 1 (all TRUE, else no start and a clear message)
+
+| # | Condition | Signal | Why |
+|---|---|---|---|
+| 1 | spindle stopped and **oriented** (M19), tool retracted, coolant off | NC interface | the pallet / fixture must not hit the tool |
+| 2 | axes at change position, **B = 0°** | NC "in position" | arm meets the table at the right place |
+| 3 | B-table clamp state known (3S1) | I/O | table must not turn during the change |
+| 4 | **accumulator p ≥ 7.3 MPa** (else charge first) | IW64 (0B2) | release + lift must not empty the accumulator (§9.2, §20.2) |
+| 5 | station READY: pallet seated (air) + operator ready | I21.6, I21.5 | no half-loaded pallet goes into the machine |
+| 6 | station door closed + light curtain free, no E-stop | F-DI | people protection |
+| 7 | arm down, at 0° or 180°, both pallets present | I20.1, I20.2/3, I20.4/5 | known start position |
+| 8 | oil level, oil temperature (e.g. 15–55 °C), filter OK, pump motor OK, no drive fault | I21.7, I22.0–I22.2, IW66 | avoid a stop in the middle of the change |
+
+Accumulator numbers (adiabatic, p0 5.49 MPa abs, 2.5 L): starting at 7.5 MPa, release + lift (0.234 L) without pump help
+end at **6.40 MPa**; starting at 7.3 MPa → **6.25 MPa**; at 7.0 → 6.02; at 6.5 → 5.63; at 6.0 → **empty** (gas would need
+2.55 L > 2.5 L). With the pump loading during the change the minimum is ≈ **6.9 MPa** (diagram above).
+
+### 24.3 Watchdog times and reactions (example: 2 × nominal)
+
+| Step | Nominal | Watchdog | Typical cause if it trips | Reaction |
+|---|---|---|---|---|
+| 1 axes + door | 1.5 s | 3.0 s | door drive, NC not in position | stop, message |
+| 2 unclamp | 0.8 s | 1.6 s | low pressure, 2V2 setting, 2S1 fault, leak at the rotary union | 2V1 off (clamp again), message |
+| 3 lift | 0.8 s | 1.6 s | pressure < 6.3 MPa, throttle closed, POC, sensor flag | valve centre (POC holds), message |
+| 4 rotate | 2.5 s | 5.0 s | drive fault, following error, collision | SS1 → STO + brake, message |
+| 5 lower | 0.8 s | 1.6 s | pilot pressure for the POC missing, throttle | valve centre, message |
+| 6 clamp | 0.8 s | 1.6 s | stud not seated, 2V1 stuck | no FIN, message "not clamped" |
+| 7 seating | 0.4 s | 0.8 s | chip, dirt, worn face | ALARM "pallet seating", no FIN – unclamp, lift, blow, retry once, then operator |
+| 8 door close | 1.2 s | 2.4 s | door blocked | stop, message |
+
+### 24.4 Extended I/O list (additions to §4.11 for the accumulator HPU and diagnosis)
+
+| Address | Symbol | Type | Device |
+|---|---|---|---|
+| %I21.6 | PalletSeatedStation | DI | station air check |
+| %I21.7 | PumpMotorOK | DI | auxiliary contact of -QA1 / motor protection |
+| %I22.0 | OilLevelOK | DI | level switch -BL1 |
+| %I22.1 | FilterClogged | DI | 0Z1 clogging switch |
+| %I22.2 | OilTempOK | DI | thermostat -BT1 (or use IW66) |
+| %IW64 | AccuPressure | AI 4–20 mA | 0B2 transmitter 0–16 MPa |
+| %IW66 | OilTemp | AI (RTD) | PT100 in the tank |
+| %Q21.2 | PumpContactor | DQ | -QA1 0.75 kW motor |
+| %Q21.3 | UnloadValve | DQ | 0V5: energised = pump loads the circuit |
+| %Q21.4 | BlowOffAir | DQ | receiver / face cleaning before lowering |
+| %Q21.5 | AccuHold | DQ | solenoid drain of the accumulator: energised = closed, de-energised = drains (ISO 4413 – automatic discharge at switch-off) |
+
+The 3V1/3S1 names of the seating air become 5V1/5S1 when the table clamp is on the same HPU (§9.8).
+
+### 24.5 Code skeleton (Structured Text, IEC 61131-3 – example, not tested on a PLC)
+
+```
+CASE Step OF
+  0:  IF M60 AND StartOK THEN Step := 1; END_IF          (* StartOK = all §24.2 conditions *)
+  1:  DoorOpen := TRUE;
+      IF APCDoorOpen AND NcInPos THEN DoorOpen := FALSE; Step := 2; END_IF
+  2:  UnclampValve := TRUE;
+      IF MachineUnclamped THEN Step := 3; END_IF
+  3:  LiftUpValve := TRUE;
+      IF ArmUp THEN LiftUpValve := FALSE; Step := 4; END_IF
+  4:  ServoStart := TRUE; ServoTarget := SEL(Arm0deg, 0.0, 180.0);
+      IF ServoInPos AND (Arm0deg OR Arm180deg) THEN ServoStart := FALSE; Step := 5; END_IF
+  5:  LiftDownValve := TRUE;
+      IF ArmDown THEN LiftDownValve := FALSE; Step := 6; END_IF
+  6:  UnclampValve := FALSE;
+      IF MachineClamped THEN Step := 7; END_IF
+  7:  SeatingAir := TRUE;
+      IF SeatingAirOK THEN SeatingAir := FALSE; Step := 8; END_IF
+  8:  DoorClose := TRUE;
+      IF APCDoorClosed THEN DoorClose := FALSE; FIN := TRUE; Step := 0; END_IF
+END_CASE;
+(* watchdog *)
+StepTimer(IN := (Step = StepOld), PT := Watchdog[Step]);
+IF StepTimer.Q THEN Alarm := Step; ToSafeRest(); END_IF   (* valves to rest, servo stop *)
+StepOld := Step;
+(* accumulator charging rule, §9.2 item 4 *)
+UnloadValve := (AccuPressure < 7.45) OR (UnloadValve AND AccuPressure < 7.5);
+```
+
+### 24.6 Data for the twin
+
+Log per change: start time, each step duration, accumulator pressure at start / minimum, servo peak torque, seating
+result, pallet ID. The twin uses the mean change time ("Use in twin", §2.4) and the trends for maintenance (§26.2).
+
+---
+
+## 25. Safety design
+
+### 25.1 Standards and the main hazards
+
+- **ISO 16090-1** (machine tools safety – machining centres, milling machines, transfer machines) is the type-C standard
+  for the HMC **including its workpiece / pallet changing devices** – check the clauses for pallet changers, load stations
+  and guards in the edition you use. Together with ISO 12100 (risk assessment), ISO 13849-1/-2 (control system),
+  ISO 13855 / ISO 13857 (distances), ISO 14119 / ISO 14120 (interlocks, guards), ISO 4413 / ISO 4414 (fluid power) and
+  IEC 60204-1 (electrics).
+- Hazards: crushing / shearing between the turning arm, pallets and fixed parts (swing circle, partition wall, station);
+  impact by the turning pallet (1.4 m/s at the pallet corner with the trapezoid, 1.7 m/s with the modified sine);
+  falling arm (gravity, 1 480 kg); stored hydraulic energy (accumulator 2.5 L at 7.5 MPa); high-pressure oil jet;
+  unexpected start; ejection of a badly clamped pallet / part in the machine.
+
+### 25.2 Safety functions (example – the PL comes from your risk assessment)
+
+| SF | Safety function | Input → logic → output | PL r (example) |
+|---|---|---|---|
+| SF1 | No arm movement while the station door is open or the light curtain is interrupted; stop if it happens during motion | F-DI I21.3 / I21.4 → F-PLC → SS1 → STO (Q21.0) + lift valve to centre | d |
+| SF2 | Machine (APC) door locked while the APC can move | guard locking ISO 14119 (I21.2) | d |
+| SF3 | Arm cannot fall (power loss, hose burst at the valve) | pilot-operated check valve 1V2 at the cylinder (mechanical / hydraulic measure, ISO 4413) + hose-burst valve option | – (design measure, validate by test) |
+| SF4 | Safe standstill of the turn during loading / maintenance | STO + brake (SBC) + monitored standstill (SOS) | c–d |
+| SF5 | No spindle start unless the pallet is clamped and seated | 2S1 / 5S1 → PLC → NC interlock | per risk assessment (often b–c) |
+| SF6 | E-stop of HMC + APC + station together | hard-wired, stop category 0 or 1 (IEC 60204-1) | d |
+| SF7 | Stored energy: accumulator discharges / isolates at switch-off and before maintenance | AccuHold valve (Q21.5) de-energised = drain + manual valve in 0V3 + gauge | per risk assessment |
+
+### 25.3 Stop distance, light-curtain distance and the E-stop torque on the gear
+
+- Highest arm speed (trapezoid) 1.795 rad/s; real pallet corner radius 0.772 m → **1.39 m/s**.
+- Fastest stop with the full servo torque: T_arm = Tmax·i = 19·200 = 3 800 N·m; the motor must also brake its own rotor
+  (J_m·i² = 12·10⁻⁴·200² = 48 kg·m²) → α = 3 800/(338.2 + 48) = **9.84 rad/s²** → braking 0.18 s, 9.4°; with 0.1 s
+  reaction **t_stop ≈ 0.28 s**, corner travel ≈ 265 mm → S = 2 000·(0.28 + 0.02) = **604 mm** (page 640 mm with 0.3 s ✓).
+- But then the gear and the arm see **≈ 3 800 N·m – 3.1 × the design value 1 230 N·m**. The planetary gearbox, the
+  pinion / ring gear and the hub bolts must be rated for this **emergency-stop torque** (gearbox catalogues give an
+  "emergency stop torque", often 2–3 × the nominal torque – see datasheet), **or**
+- limit the stop with an SS1 ramp, e.g. α = 5 rad/s² → T = 386·5 = **1 930 N·m**, t_stop = 1.795/5 + 0.1 = 0.46 s →
+  S = 2 000·(0.46 + 0.02) = **958 mm** → the light curtain moves 320 mm further out. This is a real trade-off: gear rating
+  vs. guard distance. Decide with the drive supplier and measure the stop time (§5.7 step 9).
+
+### 25.4 Stored hydraulic energy and gravity
+
+- At 7.5 MPa the accumulator holds ≈ 0.52 L of oil (gas 1.98 L of 2.5 L). This oil can move the lift or open the
+  modules **after the pump is off**. ISO 4413: the accumulator must discharge or be isolated
+  automatically at switch-off, show its pressure and carry a label with p0 and the warning. Maintenance procedure:
+  pump off → AccuHold de-energised (drain) → open the manual drain in 0V3 → gauge reads 0 → then open lines.
+- Gravity: before working under the lifted arm, put **mechanical props** (two blocks under the carriage) – never rely on the
+  pilot check alone. Lockout / tagout per ISO 14118 (electrical isolator, hydraulic drain, air shut-off valve with exhaust).
+- Hoses with whip restraints where a burst could hit people; pressure test points with caps.
+
+### 25.5 Guards and distances (examples)
+
+| Item | Rule | Example |
+|---|---|---|
+| fixed guard around the swing circle | outside Ø1 667 + clearance (e.g. 100 mm) | guard line ≥ 934 mm from the axis |
+| openings in guards | ISO 13857 tables (opening size vs distance) | e.g. 20 mm slot → reach distance from the table |
+| light curtain | ISO 13855: S = K·T + C, measured stop time | 640 mm (page) / 604 mm / 958 mm (§25.3) |
+| station door alternative | interlocked door with guard locking instead of the curtain when the reach to the pallet is too long | I21.3 |
+| stack light / sound | warn before the turn | Q21.1 |
+
+---
+
+## 26. Maintenance, failure modes and diagnostics
+
+### 26.1 Failure modes (symptom → cause → check → fix)
+
+| Symptom | Likely cause | Check / measurement | Fix |
+|---|---|---|---|
+| ALARM "pallet seating" | chip or dirt on the face, worn face, nozzle blocked, air pressure changed | look + clean, shim test 0.02 mm, regulator value | blow-off before lowering, chip covers, regrind / replace face rings |
+| "not unclamped" (step 2 watchdog) | release pressure low (2V2), accumulator low, rotary union leak, 2S1 fault | 2V2 test point, IW64, leak oil at the union | set 2V2, replace union seals, start rule ≥ 7.3 MPa |
+| lift slow / does not reach "arm up" | supply < 6.3 MPa, throttle too closed, POC not opening, real mass higher | IW64 during lift, throttle setting, cylinder pressures | charge first, open throttle, check pilot line, §20.2 |
+| arm sinks when lifted | POC seat leaking, closed-centre valve (§9.3), cylinder seal | hold test 10 min with dial gauge | replace POC / valve centre A,B→T / seals |
+| hard landing / noise at the end | cushion or throttle mis-set, air in the oil | listen, pressure peaks, foam in the tank | bleed, set cushions, check oil level |
+| position error at 0° / 180° (studs hit the taper edge) | backlash grew (gear wear), encoder offset, station moved | dial gauge backlash test at r, master pallet | reset backlash (eccentric), re-teach, re-align station |
+| turn trips with following error | load heavier than designed, brake not released, mechanical block | servo torque trend, brake signal | check masses, brake, collision |
+| accumulator charges very often | leakage grows (valves, union), p0 lost | pump on-time per hour, p0 check (oil side at 0) | replace leaking valve / seals, recharge N₂ |
+| pallet slides on the fork rails | locating blocks missing / worn | clearance 0.1 mm → replace at 0.2 mm (§11.3 part 7) | blocks, §9.4 |
+| oil hot / dirty | cooler missing, clogged filter, wrong oil | temperature, filter indicator, particle count | filter change, flushing, ISO 4406 target |
+| bearing noise / rough turn | lubrication missing, bolts loose, contamination | grease, bolt torque marks | grease, re-torque, seals |
+
+### 26.2 Condition monitoring with the twin (KPIs)
+
+| KPI | Source | Alarm idea (example) |
+|---|---|---|
+| change time per step | PLC step timer | +20 % over the 30-day mean |
+| lift up / down time | steps 3 / 5 | +15 % → throttles, pressure, leakage |
+| accumulator minimum pressure per change | IW64 | < 6.5 MPa |
+| pump on-time per hour (leakage) | Q21.3 | doubled vs. commissioning value |
+| servo peak torque in step 4 | drive | +15 % → friction, bearing, masses |
+| seating-check value (analog sensor) | 5S1 | trend towards the switch point → clean / regrind |
+| number of seating alarms per week | alarm log | > 2 |
+| backlash at r (6-monthly measurement) | manual entry | > 0.5·capture |
+
+### 26.3 Spare parts (keep in stock – example)
+
+1 zero-point module + 4 studs + seal kits; 1 set of fork-rail wear strips + locating blocks; 1 NG6 valve of each type
+(4/3, 3/2, POC sandwich); 1 pressure switch + 1 transmitter; 2 inductive sensors M12 + 1 M18; 1 set of cylinder seals;
+filter elements; 1 bladder for the accumulator; air-gap sensor; one door switch.
+
+---
+
+## 27. Hydraulic circuit with accumulator and the app preset "apc"
+
+The circuit is drawn in §4.12 (`img/09_hydraulic_circuit.svg`). It is the same design as guide 25 §14 (example 2):
+**one HPU per HMC** for the APC lift, the zero-point release and the B-table clamp.
+
+### 27.1 Why an accumulator
+
+Per pallet the circuit needs ≈ 1.62 L in 343.5 s (change 0.397 L + 10 table clamps 0.368 L + leakage 0.86 L) → mean
+0.28 L/min, but the lift needs 14 L/min for 0.8 s. Peak / mean ≈ 50 → a small pump (4 cm³/rev, 5.4 L/min, 0.75 kW)
+charges a 2.5 L accumulator, instead of a 14 L/min pump with a 2.2 kW motor running all the time (page variant, §11.7).
+
+### 27.2 Elements and settings (tags as in the drawing)
+
+| Tag | Element | Setting / size (example) | Function |
+|---|---|---|---|
+| 0M1 + 0P1 | motor 0.75 kW, 4-pole + external gear pump 4 cm³/rev | 5.39 L/min at 1 450 rpm | charges the accumulator |
+| 0V1 | pilot-operated relief valve | **8.5 MPa** (≥ 1.1 × 7.5) | protects pump and circuit |
+| 0V5 | 2/2 solenoid unloading valve, NO | rest = pump to tank; energised < 6.0 MPa (and after every movement, §9.2 item 4) until 7.5 MPa | pump idles without load in the pauses |
+| 0V2 | check valve | 0.05 MPa | holds the accumulator when the pump unloads |
+| 0V3 | accumulator safety + shut-off block | relief 10 MPa sealed, manual drain, shut-off | ISO 4413, PED |
+| 0Z2 | bladder accumulator | **2.5 L**, p0 = 5.39 MPa (N₂, 20 °C) | stores ≈ 0.34 L usable (fast) |
+| 0B2 | pressure transmitter 0–16 MPa, 4–20 mA | 6.0 / 7.3 / 7.5 MPa, alarm < 5.5 | control + diagnosis |
+| 0Z1 | return filter 10 µm, β10(c) ≥ 200, clogging switch | – | cleanliness 17/15/12 |
+| 1V1 | 4/3 solenoid valve NG6, **centre P blocked, A + B → T** | 24 V DC | lift / lower / hold |
+| 1V2 | double pilot-operated check valve (sandwich) | ratio 3:1 → opens at ≈ 1.3 MPa | arm cannot fall |
+| 1V3 | double throttle-check (sandwich), meter-out | 0.8 s up / 0.8 s down | speed + soft end |
+| 1A1 | lift cylinder Ø63/36 × 60, ISO 6020-2, cushions | 13.4 kN (page mass) / 16.6 kN (real mass) | lift |
+| 2V2 | pressure reducing valve, 3-way (relieving) | **5.0 MPa** | module release pressure |
+| 2V1 | 3/2 solenoid valve, spring return | off = A → T = clamped | release / clamp |
+| 2S1 | pressure switch (2 outputs) | ≥ 4.5 MPa unclamped / ≤ 0.5 MPa vented | step-chain signals I20.7 / I20.6 |
+| 0R1 | rotary union (B-axis) | oil 10 MPa + air passages | media into the turning table |
+| 2A1–2A4 | zero-point modules | 20 kN, ≈ 12 cm³ each | clamp the pallet |
+| 3V2 / 3V3 | reducing valve / check valve (table clamp) | 5.0 MPa / – | clamp pressure, holds if the header drops |
+| 3V1 | 3/2 **seat** valve (leak-free), spring return | off = P → A = clamped | clamps at power loss without leakage |
+| 3S1 | pressure switch | ≥ 4.5 MPa = clamped (2 700 N·m) | no cutting below it |
+| 3A1 | B-table clamp ring | 3 000 N·m at 5 MPa (guide 12) | holds the table |
+| 5Z1 / 5V1 / 5S1 | FRL 5 µm / 3/2 air valve / air-gap switch (old names 3Z1 / 3V1 / 3S1, §9.8) | 0.15–0.3 MPa at the nozzles | seating check |
+
+### 27.3 Comparison: page variant vs accumulator circuit
+
+| Item | Page / §11.7 (no accumulator) | Accumulator circuit (this section = guide 25 §14) |
+|---|---|---|
+| pressure | 6 MPa, relief 6.6 MPa | 6.0–7.5 MPa, relief 8.5 MPa, safety block 10 MPa |
+| pump / motor | 14 L/min, 2.2 kW, runs all the time | 4 cm³/rev (5.4 L/min), 0.75 kW, unloads in the pauses |
+| accumulator | none (page shows 1.4 L – too small) | 2.5 L, p0 5.39 MPa |
+| tank / cooler | 56 L, cooler listed | 25 L, no cooler (ΔT ≈ 10 K) |
+| zero-point supply | direct 6 MPa (≤ module max?) | through 2V2 at 5.0 MPa |
+| start interlock | – | p ≥ 7.3 MPa |
+| parts rating | ≥ 6.6 MPa (better 10) | ≥ 10 MPa; cylinder rod side up to 11.1 MPa → 16 MPa cylinder |
+
+### 27.4 The app preset "apc" (Ø50/28 at 10 MPa) vs this guide (Ø63/36 at 6–7.5 MPa)
+
+The Hydraulics tab of the app (`web/hydckt_size.js`, preset "apc", guide 30 §6) sizes the same lift with **p_sys =
+10 MPa** and a load of **15 kN** (≈ 13.4 kN page force × 1.1, rounded). This guide and guide 25 §14 use **6.0–7.5 MPa**.
+Both are correct for their own pressure – but **the bore and the pressure belong together; never mix them**:
+
+| | App preset "apc" | This guide / guide 25 §14 |
+|---|---|---|
+| system pressure | 10 MPa (fixed in the preset) | 6.0 (cut-in) – 7.5 MPa (cut-out) |
+| design load | 15 kN | 13.4 kN (page mass 1 200 kg); real ≈ 16.6 kN (1 480 kg, §20.2) |
+| bore / rod | **Ø50/28**: A = 1 963 mm², A_r = 1 348 mm² | **Ø63/36**: A = 3 117 mm², A_r = 2 099 mm² |
+| force at its pressure | 10 · 1 963 = 19.6 kN | 6.0 · 3 117 = 18.7 kN |
+| pressure needed for the load | 15 000/1 963 = 7.64 MPa | 13 444/(3 117·0.95) = 4.54 MPa (5.59 MPa real mass) |
+| oil per stroke / flow at 75 mm/s | 0.118 L / 8.8 L/min | 0.187 L / 14.0 L/min |
+| why chosen | demonstrates the sizing method at a common industrial pressure; smaller cylinder and less oil | same pressure level as the machine-tool clamps (5 MPa modules + table clamp), less leakage and noise, one HPU for all |
+
+**What happens if you mix them:**
+- Ø50 in the 6.0–7.5 MPa accumulator circuit: needs 13 444/(1 963·0.95) = **7.21 MPa + 0.68 MPa losses = 7.89 MPa**
+  at the supply → more than the cut-out 7.5 MPa → the arm would **not lift** even with the page mass.
+- Ø63 in a 10 MPa circuit: 31 kN – twice the needed force (higher crash energy if something blocks) and 59 % more oil per
+  stroke than Ø50.
+
+**Recommendation:** for the real machine follow this guide (6.0–7.5 MPa, Ø63/36, start interlock ≥ 7.3 MPa, or Ø80 if the
+real mass needs the 25 % reserve, §20.2). Use the app preset to learn the method or to size a 10 MPa variant. The app code
+is not changed.
+
+### 27.5 Commissioning order (short – full list in guide 25 §15)
+
+Flush the branches (modules and rotary union bypassed) → fill oil through a filter → pre-charge 0Z2 to 5.39 MPa (oil side
+at 0) → jog the pump, vent all lines → set 0V1 8.5 MPa (flow blocked) → set 0B2 thresholds 6.0 / 7.5 → set 2V2 and 3V2 to
+5.0 MPa (test points) → set 1V3 for 0.8 s and soft ends → hold test 10 min (arm up, pump off) → seating shim test → stop
+time of the arm.
+
+---
+
+## 28. Buy list – catalogue examples
+
+How to read the tables (same rules as guide 29 §17):
+- **Spec** = what this guide calculated. **Example makers + series** are well-known examples, **not** a recommendation;
+  ask 2–3 suppliers. Series names change – use the current catalogue. "(check)" = name / scope not fully sure – confirm
+  with the supplier before writing it into a specification.
+- **Key data** only where we are confident; otherwise "see datasheet". Never order from this table.
+- **Price class** (estimate – ask for a quote), single unit, order of magnitude: low < ≈ 300 € · medium ≈ 300–1 500 € ·
+  high ≈ 1 500–8 000 € · very high > 8 000 €.
+- Hydraulic elements in general (pumps, valves, accumulators, filters, hoses): guide 29 §17 (all families) and guide 25 §18
+  (the HPU of example 2). Below only the APC-specific parts.
+
+### 28.1 Zero-point clamping systems
+
+Spec (this guide): 4 modules per pallet position, pull-in ≥ 20 kN each, spring clamp, release **hydraulic ≤ 5 MPa** (or
+pneumatic), capture ≥ ±1 mm, repeatability ≤ 0.005 mm, air seating port, studs: 1 fit + 1 slot + 2 clearance.
+
+| Maker + series | Type | Key data | Price class | What to check |
+|---|---|---|---|---|
+| **SCHUNK VERO-S NSE plus** (and automation / hydraulic variants – check) | ball/slide lock, spring clamp, pneumatic release with turbo | repeatability < 0.005 mm (maker claim); pull-in with turbo, holding force – see datasheet | medium per module | release medium (air vs oil in the B-table), pull-in **without** turbo, air seating option, module height |
+| **AMF Zero Point system K10 / K20 / K40** (number ≈ pull-in class in kN – check) | spring clamp, hydraulic or pneumatic opening | pull-in, holding force, opening pressure – see datasheet | medium | opening pressure range vs 2V2 (5 MPa), max pressure, flush or surface mounting, seating check port |
+| **Stark Speedy** (Roemheld group; e.g. "classic", "metec", "airtec" – check) | spring clamp, hydraulic / pneumatic release | see datasheet | medium–high | automation version with seating check and position monitoring, stud types |
+| **Roemheld** (sells the Stark zero-point range; also pallet clamping elements) | as Stark | see datasheet | medium–high | one supplier for modules + fixture clamping |
+| **Lang Quick•Point** (52 / 96 grid) | manual mechanical zero-point | see datasheet | low–medium | **not for automatic APC change** – use for fixture / subplate change on the pallet |
+| **EROWA MTS** (check) | zero-point chucks for machining, pneumatic | see datasheet | medium–high | automation chuck version, pull-in force, compatibility with EROWA pallets |
+
+### 28.2 Pallets and pallet systems
+
+| Item | Spec | Example source | Price class | What to check |
+|---|---|---|---|---|
+| machining pallet 500 × 500 for the HMC | ISO 8526-style top (18H8 T-slots or M16 grid), stud pattern 400, 110 kg class | the **HMC builder's spare pallet** (exact match to its APC and receivers) | high (per pallet) | stud fits, top face, RFID pocket, interchangeability certificate |
+| custom pallet (MAKE, §11.3 part 1) | EN-GJS-600-3 or C45, ground ±0.01 | local foundry + own machining / grinding | medium–high | casting quality, stress relief, jig-boring capacity |
+| pallet subplate with zero-point level | 2nd zero-point level for fixture change | Lang, SCHUNK, AMF zero-point plates | medium–high | added height (Z travel, swing circle), clamping force |
+| small pallet systems (5-axis, EDM, robot loading) | 50–320 mm pallets | **EROWA** (UPC, ITS – check), **System 3R** (Delphin, Dynafix, GPS – check) | medium–high | not for 500 mm HMC pallets; good for robot cells |
+| master pallet (VC-APC-PAL-0030) | ground studs + dial-gauge seats | MAKE or the pallet supplier | high | yearly calibration |
+
+### 28.3 Hydraulic clamping elements (fixtures on the pallet)
+
+| Maker | Elements | Key data | Price class | What to check |
+|---|---|---|---|---|
+| **Roemheld** | swing clamps, block cylinders, work supports, rotary couplings for pallets | many series for 5–50 MPa – see datasheet | low–medium each | operating pressure vs the 5 MPa branch (low-pressure series or an intensifier), position monitoring |
+| **AMF** (Andreas Maier) | swing clamps, block cylinders, pallet couplings | see datasheet | low–medium | same as above |
+| **Hilma** (Roemheld group) | machine-tool / die clamping elements (check scope) | see datasheet | medium | use for heavy fixtures / tombstones |
+
+Note: fixture clamping on the pallet needs oil **through the pallet** (automatic couplings at the station / in the
+machine) or the fixture is clamped once at the station and holds pressure with a check valve + accumulator on the pallet
+– decide early (guide 10, guide 12).
+
+### 28.4 Lift cylinder and end-position sensing
+
+| Maker + series | Spec | Key data | Price class | What to check |
+|---|---|---|---|---|
+| **Bosch Rexroth CDT3** (tie-rod, ISO 6020-2) | Ø63/36 × 60, cushions both ends, 16 MPa | 16 MPa nominal (series) – see datasheet | medium | cushion type + length (energy), inductive end switches option, mounting MF / MT, rod end for the self-aligning coupling |
+| **Parker HMI** (ISO 6020-2 compact) | same | 16 MPa series – see datasheet | medium | as above, proximity switch option |
+| **Roemheld block cylinders** | compact, short stroke, position monitoring | see datasheet | low–medium | for short strokes; check side load = 0 |
+| **Balluff** pressure-rated inductive sensors (BES … pressure rated – check type) | piston end position through the end cap | see datasheet | low | pressure rating, thread, switching distance |
+
+### 28.5 Rotation drives
+
+| Option | Maker + series (examples) | Spec | Price class | What to check |
+|---|---|---|---|---|
+| servo motor + drive with STO / SS1 / SBC | **Siemens** SIMOTICS S-1FK2 + SINAMICS S210; **Beckhoff** AM8000 + AX8000; **Bosch Rexroth** MS2N + ctrlX DRIVE (check) | 2.0 kW class, Tmax ≥ 7.1 N·m (mod. sine) – example 19 N·m, n ≥ 4 223 rpm, J motor ≥ 8.5 kg·cm² for ratio ≤ 10, absolute encoder, brake | high | inertia ratio with the catalogue J, brake torque, safety functions, regenerative energy |
+| planetary gearbox (inline or right angle) | **WITTENSTEIN alpha** SP+ / TP+ (inline), SPK+ / TPK+ / HG+ (right angle); **Neugart** PLE / PLN (inline), WPLE / WPLN (right angle) | i ≈ 26.6, backlash ≤ 3′ (better ≤ 1′), output ≥ 1 230 N·m ÷ 7.53 ≈ 163 N·m nominal, **emergency-stop torque ≥ 3 800 ÷ 7.53 ≈ 505 N·m** (§25.3), torsional stiffness | medium–high | E-stop torque, torsional stiffness (N·m/arcmin), radial load on the output (pinion), lubrication for life |
+| cam indexer (2 stops, modified sine) | **Sankyo** (indexers / roller drives – check series), **Colombo Filippetti** (indexers, also pallet-changer cam units – check), **Weiss** (TC rotary indexing tables – check) | output ≥ 1 425 N·m at 2.5 s index, J = 338 kg·m², 2 stops | high – very high | index accuracy (″), lift-turn combination, input motor sizing by the maker |
+| hydraulic rack-pinion rotary actuator | **Parker HTR** (hydraulic rack & pinion – check), Helac (helical – check) | ≥ 1 025 N·m at 6 MPa, 180°, adjustable stops + cushions | medium–high | oil per turn (0.78 L for double Ø63) vs accumulator, end-stop repeatability, backlash |
+
+### 28.6 Slewing / crossed-roller bearings
+
+Spec: dp ≈ 350 mm, Fa 11.8 kN, Mk 2.08 kN·m, Fr 0.62 kN → P0 = 17.7 kN, **C0 ≥ 53 kN** (f_s 3), mounting holes in both
+rings, tilting stiffness from the maker, optionally with gear (m 4).
+
+| Maker + series | Type | Price class | What to check |
+|---|---|---|---|
+| **INA (Schaeffler) XU** | crossed roller bearing with mounting holes, compact | high | C0, tilting stiffness, bolt pattern, preload class, seals |
+| **INA (Schaeffler) SX** | thin-section crossed roller bearing (needs a housing / clamping ring) | medium–high | housing design, fits |
+| **THK RU** | cross-roller ring with mounting holes in inner + outer ring | medium–high | sizes near Ø350, C0, rotation accuracy class |
+| **IMO** (slewing rings, with gear – check series) | slewing ring / crossed roller with external gear | high | integrated ring gear m 4 (saves the separate ring gear), gear quality |
+| **Rothe Erde (thyssenkrupp rothe erde)** | slewing rings with gear (larger sizes) | high – very high | minimum size / lead time; limit-load diagram method |
+
+### 28.7 Sensors and identification
+
+| Function | Maker + series (examples) | Spec | Price class | What to check |
+|---|---|---|---|---|
+| arm up / down, 0° / 180°, pallet present | **Balluff** BES (M12 / M18, IO-Link versions); **ifm** IF / IG (check codes); **Pepperl+Fuchs** NBB / NBN | PNP, Sn 4 mm (M12 non-flush) / 8 mm (M18), IP67/IP68, coolant resistant | low | Sn, flush / non-flush, cable vs connector, IO-Link |
+| hydraulic pressure switch (2S1, 3S1) | **Hydac EDS 3000** (electronic switch); **ifm PN7** (check) | 0–10 / 0–16 MPa, 2 switch points, hysteresis adjustable | low–medium | range, switch points, IO-Link, port thread |
+| accumulator transmitter 0B2 | **Hydac HDA 4000**; **WIKA** S-20 / A-10 | 0–16 MPa, 4–20 mA | low | accuracy, overpressure range |
+| air-gap seating check (5S1) | **SMC ISA3** (air catch sensor / gap checker); **Festo SOPA** (air gap sensor) | gap detection ≈ 0.01–0.03 mm class – see datasheet | low–medium | supply pressure, nozzle size, analog output, number of channels |
+| pallet ID (RFID HF) | **Balluff BIS** (HF); **ifm** DTE (check); **Pepperl+Fuchs** IDENTControl (check); **SICK** RFH (check) | 13.56 MHz, ISO 15693, metal-mount tags | medium | read distance on metal, tag temperature / coolant resistance |
+
+### 28.8 Hydraulic power unit and valves (APC-specific – general list in guides 25 §18 and 29 §17–18)
+
+| Tag | Example (Bosch Rexroth names; HAWE, Parker, Atos, Duplomatic, Yuken similar) | Price class |
+|---|---|---|
+| 0P1 | external gear pump AZPF size 4 (check smallest size) | low |
+| 0Z2 + 0V3 | **Hydac SB330** bladder accumulator 2.5 L + **Hydac SAF** safety & shut-off block (with solenoid drain = AccuHold) | medium |
+| 1V1 | 4WE 6 (NG6) 4/3 with the A,B→T centre (spool code from the catalogue – check) | low–medium |
+| 1V2 | Z2S 6 double pilot-operated check sandwich | low |
+| 1V3 | Z2FS 6 double throttle-check sandwich | low |
+| 2V2 / 3V2 | ZDR 6 DP sandwich pressure reducing valve (3-way) | low–medium |
+| 2V1 | 4WE 6 used as 3/2 (port plugged) or a 3/2 spool valve | low |
+| 3V1 | M-3SEW 6 3/2 seat valve (leak-free) | medium |
+| 0V5 | 2/2 solenoid poppet (cartridge) NO | low |
+| 0R1 | rotary union – see §28.10 | medium–high |
+
+### 28.9 PLC and safety
+
+| Item | Maker + series (examples) | Spec | Price class |
+|---|---|---|---|
+| safety PLC | **Siemens S7-1500F** (e.g. CPU 1513F / 1516F) + **ET 200SP** with F-DI / F-DQ | PROFINET + PROFIsafe, ≈ 40 I/O + 4 F-DI + 1 F-DQ | high |
+| alternative safety logic | **Pilz** PNOZmulti 2 (configurable safety relay) or PSS 4000 | for a separate APC control | medium–high |
+| light curtain type 4 | **SICK deTec4**; **Pilz PSENopt II**; (others) | 14 mm resolution, height to cover the opening, response time ≤ 20 ms (as §4.7) | medium–high |
+| guard locking switch | **Euchner** MGB / CTM; **Pilz PSENmlock**; **Schmersal** AZM 300 (check) | ISO 14119, PL d / e, locking force for the door | medium |
+| E-stop, enabling device, stack light | Siemens, Schneider, Eaton, Pilz | IEC 60947-5-5 | low |
+
+### 28.10 Rotary unions for pallet media (B-axis table)
+
+| Maker | Spec | Price class | What to check |
+|---|---|---|---|
+| **Deublin** (multi-passage rotary unions – check series) | 3–4 passages: release oil 10 MPa, table-clamp oil (if not separate), seating air 0.6 MPa, cleaning air | medium–high | leakage per passage, drain / leak port to tank, rotation speed (B-axis), friction torque, passage size for 3.5 L/min |
+| **OTT-JAKOB** (rotary unions for machine tools – check) | as above | medium–high | same |
+| GAT, Christian Maier (check) | as above | medium–high | same |
+
+### 28.11 Shopping list for one APC (consolidated example)
+
+| # | Qty | Item | Spec (from this guide) | Example maker / series | Price class |
+|---|---|---|---|---|---|
+| 1 | 4 | zero-point modules (machine) | 20 kN pull-in, spring clamp, hydraulic release ≤ 5 MPa, air seating | SCHUNK / AMF / Stark | 4 × medium |
+| 2 | 12 | pull studs (3 pallets × 4) | 1 fit + 1 slot + 2 clearance per pallet | module maker | 12 × low |
+| 3 | 3 | pallets 500 × 500 | §11.3 part 1, RFID pocket | HMC builder or MAKE | 3 × high |
+| 4 | 4 | station locating receivers | 16MnCr5, 58–62 HRC | MAKE (guide 10) | 4 × low |
+| 5 | 1 | crossed roller bearing | dp ≈ 350, C0 ≥ 53 kN | INA XU / THK RU / IMO | high |
+| 6 | 1 | ring gear + pinion | m 4, z 113 / 15 | gear shop (or bearing with gear) | medium–high |
+| 7 | 1 | planetary gearbox, right angle | i ≈ 26.6, ≤ 3′, E-stop torque ≥ 505 N·m output | WITTENSTEIN / Neugart | medium–high |
+| 8 | 1 | servo motor + drive | 2.0 kW class, STO / SS1 / SBC, abs. encoder, brake | Siemens / Beckhoff / Rexroth | high |
+| 9 | 1 | lift cylinder | Ø63/36 × 60, ISO 6020-2, 16 MPa, cushions (Ø80 if §20.2 decides) | Rexroth CDT3 / Parker HMI | medium |
+| 10 | 4 + 4 | guide columns Ø50 h6 + flanged ball bushings (or tandem) | §21.3 | linear-motion suppliers (e.g. Schaeffler, Bosch Rexroth, Misumi) | 8 × low–medium |
+| 11 | 1 | HPU | 0.75 kW, 4 cm³/rev, 25 L, 0V1 8.5 MPa, filter 10 µm | Rexroth / HAWE / Hydac / local builder | high |
+| 12 | 1 | accumulator + safety block | 2.5 L, p0 5.39 MPa, SAF with solenoid drain | Hydac SB330 + SAF | medium |
+| 13 | 1 set | NG6 valves 1V1, 1V2, 1V3, 2V1, 2V2 (+ 3V1–3V3 for the table clamp), manifold | §28.8 | Rexroth / HAWE / Parker | medium–high |
+| 14 | 1 | rotary union | 3–4 passages | Deublin / OTT-JAKOB | medium–high |
+| 15 | 3 | pressure switches + 1 transmitter | §28.7 | Hydac / ifm / WIKA | 4 × low |
+| 16 | 1 | air-gap sensor + FRL + 3/2 valve | §23.3 | SMC ISA3 / Festo SOPA | medium |
+| 17 | 6 | inductive sensors (4 × M12, 2 × M18) | §23.1 | Balluff / ifm / Pepperl+Fuchs | 6 × low |
+| 18 | 1 | RFID reader + 3 tags | HF 13.56 MHz | Balluff / ifm / Pepperl+Fuchs | medium |
+| 19 | 1 | safety PLC / remote I/O share | §24.4 | Siemens S7-1500F + ET 200SP | high |
+| 20 | 1 | light curtain type 4, 14 mm | S ≥ 640 mm (or 958 mm with SS1 ramp) | SICK / Pilz | medium–high |
+| 21 | 2 | door switches with guard locking | ISO 14119 | Euchner / Pilz / Schmersal | 2 × medium |
+| 22 | 1 | guards + APC door + partition wall | §5.2 | MAKE / guarding supplier | high |
+| 23 | 1 | arm, cross beams, fork rails, locating blocks, hub, carriage, base | §11.3 | MAKE | high – very high (workshop hours) |
+| 24 | 1 set | hoses, tubes, fittings, cables, drag chain | §11.7 | Parker / Rexroth / igus | medium |
+
+---
+
+## 29. Drawings of this guide (index)
+
+All drawings are **examples** (title block "EXAMPLE – check the maker's documentation"), offline SVG files in `docs/img/`
+(copies in `web/img/`), values from `web/apc.js` defaults, `web/apc3d.js` geometry and guide 25 §14.
+
+| File | Drawing no. | Shows | Embedded in |
+|---|---|---|---|
+| `img/09_apc_layout.svg` | VC-APC-ASY-0901 | top + side view with the HMC, pallet positions, swing circle Ø1 667 (real corner Ø1 543), partition wall, guard, light curtain S = 640 mm, heights H0 1 050 / wall 1 995 | §5.1 |
+| `img/09_lift_rotate_section.svg` | VC-APC-ROT-0901 | section: base, cylinder Ø63/36, columns, carriage, crossed roller bearing, ring gear, hub, arm, fork rails, pallets, sensors; view A drive; detail B bearing with P0 | §5.1 |
+| `img/09_zero_point_module.svg` | VC-APC-PAL-0901 | zero-point module clamped / released, springs, balls, piston, oil 5 MPa, air nozzle, formulas | §4.13 (§18) |
+| `img/09_hydraulic_circuit.svg` | VC-HYD-CIR-0901 | ISO 1219-2 circuit: pump, unloading valve, relief 8.5 MPa, accumulator 2.5 L + safety block, 0B2, lift, zero-point release, table clamp, seating air | §4.12 (§27) |
+| `img/09_motion_law.svg` | VC-APC-ROT-0902 | θ, ω, α of the 180° turn: trapezoid / modified sine / cycloidal, coefficients | §19.3 |
+| `img/09_step_chain_timing.svg` | VC-APC-ELE-0902 | timing diagram of the 8.8 s change, interlocks, start conditions, watchdogs, accumulator pressure | §4.10 (§24) |
+| `img/09_positioning_budget.svg` | VC-APC-ASY-0902 | capture budget (mm) and final-position budget (µm), worst case and RSS | §10.11 (§22) |
+| `img/09_electrical_io.svg` | VC-APC-ELE-0901 | PLC, remote I/O, sensors, valves, safety inputs, STO, HPU signals | §4.11 (§24.4) |

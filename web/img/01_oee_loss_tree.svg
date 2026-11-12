@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 900" width="1240" height="900" font-family="Arial, Helvetica, sans-serif">
+<title>OEE loss tree with example numbers from the twin</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1240" height="900" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">01 – OEE loss tree (time model) – HMC-01, one 8 h shift, example numbers of section 4.7</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" fill="#444">Bar length is proportional to time. Losses are cut off step by step; what remains at the end is the fully productive time.</text>
+<text x="318.0" y="114.0" font-size="13" text-anchor="end" font-weight="bold" fill="#111">Planned time</text>
+<rect x="330.0" y="90.0" width="760.0" height="36.0" rx="0" fill="#d9d9d9" stroke="#111" stroke-width="1.2"/>
+<text x="338.0" y="113.0" font-size="12" text-anchor="start" fill="#111">8.00 h = 28 800 s (no operator stop, no planned maintenance)</text>
+<text x="318.0" y="206.0" font-size="13" text-anchor="end" font-weight="bold" fill="#111">Operating time</text>
+<rect x="330.0" y="182.0" width="712.5" height="36.0" rx="0" fill="#d9d9d9" stroke="#111" stroke-width="1.2"/>
+<rect x="1042.5" y="182.0" width="47.5" height="36.0" rx="0" fill="#c0392b" stroke="#111" stroke-width="1.2"/>
+<text x="338.0" y="205.0" font-size="12" text-anchor="start" fill="#111">28 800 − DOWN 1 200 − SETUP 600 = 27 000 s</text>
+<text x="338.0" y="238.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">A = 27 000 / 28 800 = 93.8 %</text>
+<text x="550.0" y="238.0" font-size="11" text-anchor="start" fill="#c0392b">Availability losses 1 800 s: breakdowns (DOWN 1 200 s) + setup / tool-set exchange (SETUP 600 s)</text>
+<text x="318.0" y="298.0" font-size="13" text-anchor="end" font-weight="bold" fill="#111">Net operating time</text>
+<rect x="330.0" y="274.0" width="634.5" height="36.0" rx="0" fill="#d9d9d9" stroke="#111" stroke-width="1.2"/>
+<rect x="964.5" y="274.0" width="78.0" height="36.0" rx="0" fill="#c0392b" stroke="#111" stroke-width="1.2"/>
+<text x="338.0" y="297.0" font-size="12" text-anchor="start" fill="#111">ideal time of 70 parts: 70 × 343.5 s = 24 045 s</text>
+<text x="338.0" y="330.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">P = 24 045 / 27 000 = 89.1 %</text>
+<text x="550.0" y="330.0" font-size="11" text-anchor="start" fill="#c0392b">Performance losses 2 955 s: STARVED / BLOCKED, small stops, pallet change 15 s, speed &lt; 100 %</text>
+<text x="318.0" y="390.0" font-size="13" text-anchor="end" font-weight="bold" fill="#111">Fully productive time</text>
+<rect x="330.0" y="366.0" width="625.5" height="36.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<rect x="955.5" y="366.0" width="9.1" height="36.0" rx="0" fill="#c0392b" stroke="#111" stroke-width="1.2"/>
+<text x="338.0" y="389.0" font-size="12" text-anchor="start" fill="#111">69 good parts × 343.5 s = 23 701.5 s</text>
+<text x="338.0" y="422.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Q = 69 / 70 = 98.6 %</text>
+<text x="550.0" y="422.0" font-size="11" text-anchor="start" fill="#c0392b">Quality losses 343.5 s: 1 scrap part (tool wear, over-temperature, bearing)</text>
+<text x="318.0" y="464.0" font-size="16" text-anchor="end" font-weight="bold" fill="#111">OEE</text>
+<text x="330.0" y="464.0" font-size="14" text-anchor="start" font-weight="bold" fill="#c0392b">OEE = A × P × Q = 0.938 × 0.891 × 0.986 = 82.3 %   =   23 701.5 / 28 800 (identity, section 10.7)</text>
+<text x="20.0" y="498.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">Loss tree (six big losses → twin states)</text>
+<rect x="520.0" y="512.0" width="200.0" height="44.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="620.0" y="530.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">OEE losses</text>
+<text x="620.0" y="546.2" font-size="12" text-anchor="middle" fill="#111">5 098.5 s of 28 800 s</text>
+<rect x="130.0" y="598.0" width="200.0" height="44.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="230.0" y="616.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Availability</text>
+<text x="230.0" y="632.2" font-size="12" text-anchor="middle" fill="#111">1 800 s (6.25 %)</text>
+<path d="M620,556 L620,578 L230,578 L230,598" stroke="#111" stroke-width="1.2" fill="none"/>
+<rect x="40.0" y="688.0" width="180.0" height="44.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="130.0" y="706.4" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Breakdowns</text>
+<text x="130.0" y="721.4" font-size="11" text-anchor="middle" fill="#111">DOWN 1 200 s</text>
+<path d="M230,642 L230,666 L130,666 L130,688" stroke="#111" stroke-width="1.0" fill="none"/>
+<rect x="240.0" y="688.0" width="180.0" height="44.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="330.0" y="706.4" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Setup + adjust</text>
+<text x="330.0" y="721.4" font-size="11" text-anchor="middle" fill="#111">SETUP 600 s</text>
+<path d="M230,642 L230,666 L330,666 L330,688" stroke="#111" stroke-width="1.0" fill="none"/>
+<rect x="520.0" y="598.0" width="200.0" height="44.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="620.0" y="616.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Performance</text>
+<text x="620.0" y="632.2" font-size="12" text-anchor="middle" fill="#111">2 955 s (10.3 %)</text>
+<path d="M620,556 L620,578 L620,578 L620,598" stroke="#111" stroke-width="1.2" fill="none"/>
+<rect x="430.0" y="688.0" width="180.0" height="44.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="520.0" y="706.4" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Small stops, idling</text>
+<text x="520.0" y="721.4" font-size="11" text-anchor="middle" fill="#111">STARVED / BLOCKED</text>
+<path d="M620,642 L620,666 L520,666 L520,688" stroke="#111" stroke-width="1.0" fill="none"/>
+<rect x="630.0" y="688.0" width="180.0" height="44.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="720.0" y="706.4" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Reduced speed</text>
+<text x="720.0" y="721.4" font-size="11" text-anchor="middle" fill="#111">override, pallet change</text>
+<path d="M620,642 L620,666 L720,666 L720,688" stroke="#111" stroke-width="1.0" fill="none"/>
+<rect x="910.0" y="598.0" width="200.0" height="44.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="1010.0" y="616.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Quality</text>
+<text x="1010.0" y="632.2" font-size="12" text-anchor="middle" fill="#111">343.5 s (1.2 %)</text>
+<path d="M620,556 L620,578 L1010,578 L1010,598" stroke="#111" stroke-width="1.2" fill="none"/>
+<rect x="820.0" y="688.0" width="180.0" height="44.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="910.0" y="706.4" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Process defects</text>
+<text x="910.0" y="721.4" font-size="11" text-anchor="middle" fill="#111">1 scrap part</text>
+<path d="M1010,642 L1010,666 L910,666 L910,688" stroke="#111" stroke-width="1.0" fill="none"/>
+<rect x="1020.0" y="688.0" width="180.0" height="44.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="1110.0" y="706.4" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Start-up losses</text>
+<text x="1110.0" y="721.4" font-size="11" text-anchor="middle" fill="#111">not modelled</text>
+<path d="M1010,642 L1010,666 L1110,666 L1110,688" stroke="#111" stroke-width="1.0" fill="none"/>
+<text x="20.0" y="768.0" font-size="12" text-anchor="start" fill="#111">Shares of planned time: 6.25 % + 10.26 % + 1.19 % = 17.7 % losses → 82.3 % OEE. Line OEE (live run, 24 h): 345 good / (17.22 × 24) = 83.5 %.</text>
+<text x="20.0" y="786.0" font-size="12" text-anchor="start" fill="#111">TEEP = OEE × loading: with 2 shifts (16 of 24 h) planned → 0.823 × 0.667 = 54.9 %.</text>
+<rect x="798.0" y="814.0" width="430.0" height="74.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<line x1="798.0" y1="840.0" x2="1228.0" y2="840.0" stroke="#111" stroke-width="1.2"/>
+<line x1="1048.0" y1="840.0" x2="1048.0" y2="888.0" stroke="#111" stroke-width="1.2"/>
+<text x="806.0" y="832.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – check the maker's documentation</text>
+<text x="806.0" y="858.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Drawing 01-005</text>
+<text x="806.0" y="876.0" font-size="11" text-anchor="start" fill="#111">Guide 01 – Digital twin core</text>
+<text x="1056.0" y="858.0" font-size="11" text-anchor="start" fill="#111">Values: config/factory.json</text>
+<text x="1056.0" y="876.0" font-size="11" text-anchor="start" fill="#111">Rev A · 2026-11-12</text>
+</svg>

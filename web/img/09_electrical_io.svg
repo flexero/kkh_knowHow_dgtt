@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1080" width="1400" height="1080" font-family="Arial, Helvetica, sans-serif">
+<title>APC electrical I/O overview (example)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="1080" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold">APC electrical I/O overview – sensors, valves, drive, safety (example addresses from §4.11 + additions of §24.4)</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#666666">Siemens-style example: S7-1500F CPU + ET 200SP on the APC base, PROFINET + PROFIsafe. Same tags on circuit, schematic, I/O list and device label (guide 15).</text>
+<rect x="520.0" y="80.0" width="360.0" height="92.0" rx="0" stroke="#c62828" stroke-width="1.6" fill="#fff5f5"/>
+<text x="528.0" y="98.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">-KF1 safety PLC (e.g. S7-1500F class)</text>
+<text x="528.0" y="116.0" font-size="11" text-anchor="start" fill="#000">standard + F program: step chain, interlocks,</text>
+<text x="528.0" y="131.0" font-size="11" text-anchor="start" fill="#000">SS1 / STO, door locking, accumulator logic</text>
+<text x="528.0" y="146.0" font-size="11" text-anchor="start" fill="#000">OPC UA to the twin / MES (cycle data)</text>
+<line x1="150.0" y1="200.0" x2="1250.0" y2="200.0" stroke="#000" stroke-width="3"/>
+<text x="1256.0" y="204.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">PROFINET / PROFIsafe</text>
+<line x1="700.0" y1="172.0" x2="700.0" y2="200.0" stroke="#000" stroke-width="3"/>
+<rect x="60.0" y="80.0" width="330.0" height="92.0" rx="0" stroke="#000" stroke-width="1.3" fill="#fff"/>
+<text x="68.0" y="98.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">CNC (HMC) ↔ PLC interface</text>
+<text x="68.0" y="116.0" font-size="11" text-anchor="start" fill="#000">M60 strobe → PLC, FIN ← PLC</text>
+<text x="68.0" y="131.0" font-size="11" text-anchor="start" fill="#000">spindle stopped + oriented (M19), axes in</text>
+<text x="68.0" y="146.0" font-size="11" text-anchor="start" fill="#000">change position, B = 0°, door unlocked</text>
+<line x1="225.0" y1="172.0" x2="225.0" y2="200.0" stroke="#000" stroke-width="3"/>
+<rect x="1010.0" y="80.0" width="360.0" height="92.0" rx="0" stroke="#c62828" stroke-width="1.6" fill="#fff"/>
+<text x="1018.0" y="98.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">-TA1 servo drive 2.0 kW + -MA1 motor</text>
+<text x="1018.0" y="116.0" font-size="11" text-anchor="start" fill="#000">PROFIdrive positioning: 0° / 180°, in position,</text>
+<text x="1018.0" y="131.0" font-size="11" text-anchor="start" fill="#000">fault; absolute encoder; brake (SBC)</text>
+<text x="1018.0" y="146.0" font-size="11" text-anchor="start" fill="#000">STO terminals ← F-DQ Q21.0 (or PROFIsafe)</text>
+<line x1="1190.0" y1="172.0" x2="1190.0" y2="200.0" stroke="#000" stroke-width="3"/>
+<rect x="470.0" y="250.0" width="460.0" height="470.0" rx="0" stroke="#000" stroke-width="1.8" fill="#f7f7f7"/>
+<text x="480.0" y="270.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">-KF2 remote I/O station on the APC base (IP20 in a box, or IP67 modules)</text>
+<line x1="700.0" y1="200.0" x2="700.0" y2="250.0" stroke="#000" stroke-width="3"/>
+<rect x="590.0" y="286.0" width="220.0" height="52.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="700.0" y="308.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">DI 16 × 24 V</text>
+<text x="700.0" y="326.0" font-size="11" text-anchor="middle" fill="#000">I20.0 – I21.7</text>
+<rect x="590.0" y="348.0" width="220.0" height="52.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="700.0" y="370.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">DI 8 (HPU)</text>
+<text x="700.0" y="388.0" font-size="11" text-anchor="middle" fill="#000">I22.0 – I22.3</text>
+<rect x="590.0" y="410.0" width="220.0" height="52.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="700.0" y="432.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">DQ 16 × 24 V 0.5 A</text>
+<text x="700.0" y="450.0" font-size="11" text-anchor="middle" fill="#000">Q20.0 – Q21.7</text>
+<rect x="590.0" y="472.0" width="220.0" height="52.0" rx="0" stroke="#c62828" stroke-width="1.5" fill="#fff"/>
+<text x="700.0" y="494.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold">F-DI 8 (2-channel)</text>
+<text x="700.0" y="512.0" font-size="11" text-anchor="middle" fill="#000">door / curtain / E-stop</text>
+<rect x="590.0" y="534.0" width="220.0" height="52.0" rx="0" stroke="#c62828" stroke-width="1.5" fill="#fff"/>
+<text x="700.0" y="556.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold">F-DQ 4 (PM switching)</text>
+<text x="700.0" y="574.0" font-size="11" text-anchor="middle" fill="#000">Q21.0 STO</text>
+<rect x="590.0" y="596.0" width="220.0" height="52.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="700.0" y="618.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">AI 4 × 4–20 mA / RTD</text>
+<text x="700.0" y="636.0" font-size="11" text-anchor="middle" fill="#000">IW64, IW66</text>
+<rect x="590.0" y="658.0" width="220.0" height="52.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="700.0" y="680.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">IO-Link master 4 port</text>
+<text x="700.0" y="698.0" font-size="11" text-anchor="middle" fill="#000">sensors with diagnosis</text>
+<rect x="24.0" y="250.0" width="330.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="32.0" y="265.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">ArmUp / ArmDown</text>
+<text x="32.0" y="280.0" font-size="11" text-anchor="start" fill="#666666">-BG1/-BG2 inductive M12, Sn 4 mm</text>
+<text x="346.0" y="265.0" font-size="11" text-anchor="end" fill="#000" font-weight="bold">I20.0 / I20.1</text>
+<line x1="354.0" y1="268.0" x2="570.0" y2="312.0" stroke="#000" stroke-width="0.8"/>
+<rect x="24.0" y="290.0" width="330.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="32.0" y="305.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Arm0deg / Arm180deg</text>
+<text x="32.0" y="320.0" font-size="11" text-anchor="start" fill="#666666">-BG3/-BG4 on the rotor cam</text>
+<text x="346.0" y="305.0" font-size="11" text-anchor="end" fill="#000" font-weight="bold">I20.2 / I20.3</text>
+<line x1="354.0" y1="308.0" x2="570.0" y2="312.0" stroke="#000" stroke-width="0.8"/>
+<rect x="24.0" y="330.0" width="330.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="32.0" y="345.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">PalletInMachine / AtStation</text>
+<text x="32.0" y="360.0" font-size="11" text-anchor="start" fill="#666666">-BG5/-BG6 inductive M18</text>
+<text x="346.0" y="345.0" font-size="11" text-anchor="end" fill="#000" font-weight="bold">I20.4 / I20.5</text>
+<line x1="354.0" y1="348.0" x2="570.0" y2="312.0" stroke="#000" stroke-width="0.8"/>
+<rect x="24.0" y="370.0" width="330.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="32.0" y="385.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">MachineClamped / Unclamped</text>
+<text x="32.0" y="400.0" font-size="11" text-anchor="start" fill="#666666">-BP1/-BP2 (2S1) pressure switch</text>
+<text x="346.0" y="385.0" font-size="11" text-anchor="end" fill="#000" font-weight="bold">I20.6 / I20.7</text>
+<line x1="354.0" y1="388.0" x2="570.0" y2="312.0" stroke="#000" stroke-width="0.8"/>
+<rect x="24.0" y="410.0" width="330.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="32.0" y="425.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">SeatingAirOK</text>
+<text x="32.0" y="440.0" font-size="11" text-anchor="start" fill="#666666">-BP3 (5S1) air gap / pressure</text>
+<text x="346.0" y="425.0" font-size="11" text-anchor="end" fill="#000" font-weight="bold">I21.0</text>
+<line x1="354.0" y1="428.0" x2="570.0" y2="312.0" stroke="#000" stroke-width="0.8"/>
+<rect x="24.0" y="450.0" width="330.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="32.0" y="465.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">APCDoorOpen</text>
+<text x="32.0" y="480.0" font-size="11" text-anchor="start" fill="#666666">limit switch</text>
+<text x="346.0" y="465.0" font-size="11" text-anchor="end" fill="#000" font-weight="bold">I21.1</text>
+<line x1="354.0" y1="468.0" x2="570.0" y2="312.0" stroke="#000" stroke-width="0.8"/>
+<rect x="24.0" y="490.0" width="330.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="32.0" y="505.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">OperatorReady</text>
+<text x="32.0" y="520.0" font-size="11" text-anchor="start" fill="#666666">+OP01-SF1 push button</text>
+<text x="346.0" y="505.0" font-size="11" text-anchor="end" fill="#000" font-weight="bold">I21.5</text>
+<line x1="354.0" y1="508.0" x2="570.0" y2="312.0" stroke="#000" stroke-width="0.8"/>
+<rect x="24.0" y="530.0" width="330.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="32.0" y="545.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">PalletSeatedStation (new)</text>
+<text x="32.0" y="560.0" font-size="11" text-anchor="start" fill="#666666">station air check</text>
+<text x="346.0" y="545.0" font-size="11" text-anchor="end" fill="#c62828" font-weight="bold">I21.6</text>
+<line x1="354.0" y1="548.0" x2="570.0" y2="312.0" stroke="#000" stroke-width="0.8"/>
+<rect x="24.0" y="570.0" width="330.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="32.0" y="585.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">PumpMotorOK (new)</text>
+<text x="32.0" y="600.0" font-size="11" text-anchor="start" fill="#666666">-QA1/-FC1 auxiliary contact</text>
+<text x="346.0" y="585.0" font-size="11" text-anchor="end" fill="#c62828" font-weight="bold">I21.7</text>
+<line x1="354.0" y1="588.0" x2="570.0" y2="312.0" stroke="#000" stroke-width="0.8"/>
+<rect x="24.0" y="610.0" width="330.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="32.0" y="625.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">OilLevel / FilterClog / OilTemp (new)</text>
+<text x="32.0" y="640.0" font-size="11" text-anchor="start" fill="#666666">-BL1 / 0Z1 switch / -BT1</text>
+<text x="346.0" y="625.0" font-size="11" text-anchor="end" fill="#c62828" font-weight="bold">I22.0–I22.2</text>
+<line x1="354.0" y1="628.0" x2="570.0" y2="374.0" stroke="#000" stroke-width="0.8"/>
+<rect x="24.0" y="650.0" width="330.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="32.0" y="665.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">AccuPressure 0B2 (new)</text>
+<text x="32.0" y="680.0" font-size="11" text-anchor="start" fill="#666666">0–16 MPa, 4–20 mA</text>
+<text x="346.0" y="665.0" font-size="11" text-anchor="end" fill="#c62828" font-weight="bold">IW64</text>
+<line x1="354.0" y1="668.0" x2="570.0" y2="622.0" stroke="#000" stroke-width="0.8"/>
+<rect x="24.0" y="690.0" width="330.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="32.0" y="705.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">OilTemp (new)</text>
+<text x="32.0" y="720.0" font-size="11" text-anchor="start" fill="#666666">PT100 → AI</text>
+<text x="346.0" y="705.0" font-size="11" text-anchor="end" fill="#c62828" font-weight="bold">IW66</text>
+<line x1="354.0" y1="708.0" x2="570.0" y2="622.0" stroke="#000" stroke-width="0.8"/>
+<rect x="24.0" y="750.0" width="330.0" height="36.0" rx="0" stroke="#c62828" stroke-width="1.3" fill="#fff"/>
+<text x="32.0" y="765.0" font-size="11" text-anchor="start" fill="#c62828" font-weight="bold">APCDoorClosed + guard locking</text>
+<text x="32.0" y="780.0" font-size="11" text-anchor="start" fill="#666666">ISO 14119, PL d</text>
+<text x="346.0" y="765.0" font-size="11" text-anchor="end" fill="#c62828" font-weight="bold">I21.2 (F-DI)</text>
+<line x1="354.0" y1="768.0" x2="570.0" y2="498.0" stroke="#c62828" stroke-width="0.9"/>
+<rect x="24.0" y="790.0" width="330.0" height="36.0" rx="0" stroke="#c62828" stroke-width="1.3" fill="#fff"/>
+<text x="32.0" y="805.0" font-size="11" text-anchor="start" fill="#c62828" font-weight="bold">StationDoorClosed</text>
+<text x="32.0" y="820.0" font-size="11" text-anchor="start" fill="#666666">safety switch</text>
+<text x="346.0" y="805.0" font-size="11" text-anchor="end" fill="#c62828" font-weight="bold">I21.3 (F-DI)</text>
+<line x1="354.0" y1="808.0" x2="570.0" y2="498.0" stroke="#c62828" stroke-width="0.9"/>
+<rect x="24.0" y="830.0" width="330.0" height="36.0" rx="0" stroke="#c62828" stroke-width="1.3" fill="#fff"/>
+<text x="32.0" y="845.0" font-size="11" text-anchor="start" fill="#c62828" font-weight="bold">LightCurtainFree (OSSD 1/2)</text>
+<text x="32.0" y="860.0" font-size="11" text-anchor="start" fill="#666666">type 4, 14 mm</text>
+<text x="346.0" y="845.0" font-size="11" text-anchor="end" fill="#c62828" font-weight="bold">I21.4 (F-DI)</text>
+<line x1="354.0" y1="848.0" x2="570.0" y2="498.0" stroke="#c62828" stroke-width="0.9"/>
+<rect x="24.0" y="870.0" width="330.0" height="36.0" rx="0" stroke="#c62828" stroke-width="1.3" fill="#fff"/>
+<text x="32.0" y="885.0" font-size="11" text-anchor="start" fill="#c62828" font-weight="bold">E-stop chain (APC + HMC)</text>
+<text x="32.0" y="900.0" font-size="11" text-anchor="start" fill="#666666">ISO 13850</text>
+<text x="346.0" y="885.0" font-size="11" text-anchor="end" fill="#c62828" font-weight="bold">F-DI (own range)</text>
+<line x1="354.0" y1="888.0" x2="570.0" y2="498.0" stroke="#c62828" stroke-width="0.9"/>
+<rect x="1046.0" y="250.0" width="340.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="1054.0" y="265.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Q20.0  LiftUpValve 1V1-a</text>
+<text x="1054.0" y="280.0" font-size="11" text-anchor="start" fill="#666666">24 V DC coil</text>
+<line x1="830.0" y1="436.0" x2="1046.0" y2="268.0" stroke="#000" stroke-width="0.8"/>
+<rect x="1046.0" y="290.0" width="340.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="1054.0" y="305.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Q20.1  LiftDownValve 1V1-b</text>
+<text x="1054.0" y="320.0" font-size="11" text-anchor="start" fill="#666666">24 V DC coil</text>
+<line x1="830.0" y1="436.0" x2="1046.0" y2="308.0" stroke="#000" stroke-width="0.8"/>
+<rect x="1046.0" y="330.0" width="340.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="1054.0" y="345.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Q20.2  UnclampValve 2V1</text>
+<text x="1054.0" y="360.0" font-size="11" text-anchor="start" fill="#666666">oil to the modules = release</text>
+<line x1="830.0" y1="436.0" x2="1046.0" y2="348.0" stroke="#000" stroke-width="0.8"/>
+<rect x="1046.0" y="370.0" width="340.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="1054.0" y="385.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Q20.3  SeatingAir 5V1</text>
+<text x="1054.0" y="400.0" font-size="11" text-anchor="start" fill="#666666">pneumatic 3/2</text>
+<line x1="830.0" y1="436.0" x2="1046.0" y2="388.0" stroke="#000" stroke-width="0.8"/>
+<rect x="1046.0" y="410.0" width="340.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="1054.0" y="425.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Q20.4 / Q20.5  DoorOpen / DoorClose</text>
+<text x="1054.0" y="440.0" font-size="11" text-anchor="start" fill="#666666">APC door drive</text>
+<line x1="830.0" y1="436.0" x2="1046.0" y2="428.0" stroke="#000" stroke-width="0.8"/>
+<rect x="1046.0" y="450.0" width="340.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="1054.0" y="465.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Q21.1  StationLamp</text>
+<text x="1054.0" y="480.0" font-size="11" text-anchor="start" fill="#666666">stack light</text>
+<line x1="830.0" y1="436.0" x2="1046.0" y2="468.0" stroke="#000" stroke-width="0.8"/>
+<rect x="1046.0" y="490.0" width="340.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="1054.0" y="505.0" font-size="11" text-anchor="start" fill="#c62828" font-weight="bold">Q21.2  PumpContactor -QA1 (new)</text>
+<text x="1054.0" y="520.0" font-size="11" text-anchor="start" fill="#666666">0.75 kW pump motor</text>
+<line x1="830.0" y1="436.0" x2="1046.0" y2="508.0" stroke="#000" stroke-width="0.8"/>
+<rect x="1046.0" y="530.0" width="340.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="1054.0" y="545.0" font-size="11" text-anchor="start" fill="#c62828" font-weight="bold">Q21.3  UnloadValve 0V5 (new)</text>
+<text x="1054.0" y="560.0" font-size="11" text-anchor="start" fill="#666666">energised = pump loads</text>
+<line x1="830.0" y1="436.0" x2="1046.0" y2="548.0" stroke="#000" stroke-width="0.8"/>
+<rect x="1046.0" y="570.0" width="340.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="1054.0" y="585.0" font-size="11" text-anchor="start" fill="#c62828" font-weight="bold">Q21.4  BlowOffAir (new)</text>
+<text x="1054.0" y="600.0" font-size="11" text-anchor="start" fill="#666666">receiver cleaning before lowering</text>
+<line x1="830.0" y1="436.0" x2="1046.0" y2="588.0" stroke="#000" stroke-width="0.8"/>
+<rect x="1046.0" y="610.0" width="340.0" height="36.0" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<text x="1054.0" y="625.0" font-size="11" text-anchor="start" fill="#c62828" font-weight="bold">Q21.5  AccuHold (new)</text>
+<text x="1054.0" y="640.0" font-size="11" text-anchor="start" fill="#666666">energised = closed; off = drain (ISO 4413)</text>
+<line x1="830.0" y1="436.0" x2="1046.0" y2="628.0" stroke="#000" stroke-width="0.8"/>
+<rect x="1046.0" y="670.0" width="340.0" height="36.0" rx="0" stroke="#c62828" stroke-width="1.3" fill="#fff"/>
+<text x="1054.0" y="685.0" font-size="11" text-anchor="start" fill="#c62828" font-weight="bold">Q21.0 ServoSTO (F-DQ)</text>
+<text x="1054.0" y="700.0" font-size="11" text-anchor="start" fill="#666666">safe torque off → drive terminals</text>
+<line x1="830.0" y1="560.0" x2="1046.0" y2="688.0" stroke="#c62828" stroke-width="0.9"/>
+<rect x="470.0" y="740.0" width="560.0" height="226.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="482.0" y="762.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Rules (example)</text>
+<text x="482.0" y="784.0" font-size="11" text-anchor="start" fill="#000">• Bits .0–.7 only (after I20.7 comes I21.0).</text>
+<text x="482.0" y="802.0" font-size="11" text-anchor="start" fill="#000">• 24 V DC PELV (IEC 60204-1); sensors PNP; valves with LED +</text>
+<text x="482.0" y="820.0" font-size="11" text-anchor="start" fill="#000">  suppressor diode; separate fused circuits for sensors and valves.</text>
+<text x="482.0" y="838.0" font-size="11" text-anchor="start" fill="#000">• Safety functions on F-modules, 2 channels, test pulses, PL d</text>
+<text x="482.0" y="856.0" font-size="11" text-anchor="start" fill="#000">  (ISO 13849-1); E-stop also hard-wired between APC and HMC.</text>
+<text x="482.0" y="874.0" font-size="11" text-anchor="start" fill="#000">• Analog 0B2: wire break &lt; 3.6 mA = fault → no pallet change.</text>
+<text x="482.0" y="892.0" font-size="11" text-anchor="start" fill="#000">• IO-Link sensors give diagnosis (switching distance reserve,</text>
+<text x="482.0" y="910.0" font-size="11" text-anchor="start" fill="#000">  temperature) – feed the twin for predictive maintenance.</text>
+<text x="482.0" y="928.0" font-size="11" text-anchor="start" fill="#000">• Signal count (example): 16 + 4 DI, 12 DQ, 4 F-DI, 1 F-DQ, 2 AI</text>
+<text x="482.0" y="946.0" font-size="11" text-anchor="start" fill="#000">  ≈ 40 signals → one remote I/O box on the APC base.</text>
+<rect x="848.0" y="976.0" width="540.0" height="92.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="848.0" y1="1002.0" x2="1388.0" y2="1002.0" stroke="#000" stroke-width="1"/>
+<line x1="848.0" y1="1026.0" x2="1388.0" y2="1026.0" stroke="#000" stroke-width="1"/>
+<line x1="848.0" y1="1047.0" x2="1388.0" y2="1047.0" stroke="#000" stroke-width="1"/>
+<line x1="1188.0" y1="1026.0" x2="1188.0" y2="1068.0" stroke="#000" stroke-width="1"/>
+<text x="856.0" y="994.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="856.0" y="1019.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Electrical I/O overview</text>
+<text x="856.0" y="1041.0" font-size="11" text-anchor="start" fill="#000">Guide 09 – automatic pallet changer (APC)</text>
+<text x="1196.0" y="1041.0" font-size="11" text-anchor="start" fill="#000">Dwg VC-APC-ELE-0901</text>
+<text x="856.0" y="1062.0" font-size="11" text-anchor="start" fill="#000">Digital twin · values: web/apc.js defaults, guide 25 §14</text>
+<text x="1196.0" y="1062.0" font-size="11" text-anchor="start" fill="#000">block diagram · 2026-11-12</text>
+</svg>

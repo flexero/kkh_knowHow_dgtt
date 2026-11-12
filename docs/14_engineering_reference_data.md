@@ -15,6 +15,12 @@ data, hydraulics, cables, safety distances.
 >   of the range.
 > - Standards are revised. If a standard edition is named, check that it is still the current one.
 
+**Drawings in this guide** (standalone SVG files in `docs/img/`, copies in `web/img/`; every computed value
+in them and in chapters 17 – 25 was checked with Python standard-library scripts):
+`14_unit_conversion.svg` (§17) · `14_hardness_conversion.svg` (§4.8) · `14_iso286_fit_zones.svg` (§5) ·
+`14_gdt_symbols.svg` (§6.4) · `14_roughness_by_process.svg` (§7.1) · `14_beam_cases.svg` (§18.3) ·
+`14_thread_geometry.svg` (§19.1) · `14_normal_distribution.svg` (§24).
+
 ---
 
 ## Contents
@@ -35,7 +41,20 @@ data, hydraulics, cables, safety distances.
 14. [Electrical](#14-electrical)
 15. [Measurement](#15-measurement)
 16. [Safety numbers](#16-safety-numbers)
-17. [Glossary](#17-glossary)
+17. [Units, conversions and symbols – extended](#17-units-conversions-and-symbols--extended) (pressure, force, torque, power, energy, flow, NL/min and FAD, viscosity, angle, inertia, Greek alphabet, preferred numbers)
+18. [Strength of materials](#18-strength-of-materials--formulas-section-data-beams-buckling-notches-fatigue) (stress formulas, section tables, beam cases, buckling, Kt, fatigue, inertia)
+19. [Threads and fasteners – extended data](#19-threads-and-fasteners--extended-data) (thread geometry, fine threads with torques, fastener standards, nuts, washers, pipe threads)
+20. [Bearings, splines, gears, circlips, seals](#20-bearings-splines-gears-circlips-seals--data-tables) (bearing fits, designation, splines, modules, circlips, O-rings, shaft seals)
+21. [Pipes, tubes, hoses and compressed-air lines](#21-pipes-tubes-hoses-and-compressed-air-lines)
+22. [Electric motors, gearboxes and cables](#22-electric-motors-gearboxes-and-cables--design-data) (IEC frames, IE table, motor formulas, service factors)
+23. [Thermal data, heat transfer and fluid properties](#23-thermal-data-heat-transfer-and-fluid-properties) (water, air, oil viscosity)
+24. [Statistics, quality and reliability tables](#24-statistics-quality-and-reliability-tables) (normal table, Cp/Cpk, control chart constants, sample sizes)
+25. [Engineering economics](#25-engineering-economics--formulas-and-tables) (NPV, IRR, payback, annuity, machine-hour rate)
+26. [Technical drawing conventions](#26-technical-drawing-conventions) (paper sizes, lines, projection, title block, edges)
+27. [Master formula index](#27-master-formula-index--where-each-formula-is-explained-with-an-example)
+28. [Where to buy reference tools](#28-where-to-buy-reference-tools--handbooks-standards-software-measuring-references)
+29. [Glossary](#29-glossary)
+30. [Changes and corrections in this edition](#30-changes-and-corrections-in-this-edition)
 
 ---
 
@@ -139,6 +158,9 @@ Allowed stress: **σ_allow = R / S**. Example: S355J2, t = 20 mm, static: σ_all
 | °F | °C | °C = (°F − 32) / 1.8 |
 | 1 mil (thou) | µm | 25.4 * |
 | 1 l/min | m³/s | 1/60 000 |
+
+Full conversion tables (pressure matrix, power, torque, flow, normal volume NL/min and FAD, viscosity,
+angle, inertia): **§17**.
 
 **Pressure × area quick rule:** 1 bar on 1 cm² = 10 N. Example: 100 bar on a Ø 63 cylinder
 (A = 31.17 cm²) → F = 100 · 31.17 · 10 = 31 170 N ≈ 31.2 kN.
@@ -497,6 +519,8 @@ written on the drawing.** Rm from hardness is only an estimate (Rm ≈ 3.2 – 3
 Brinell values above ≈ 450 HBW need a hard-metal ball and are rarely used. Rule: HBW ≈ 0.95 × HV up
 to ≈ 450.
 
+![Hardness conversion chart – HV, HRC, HBW and approximate Rm on parallel scales](img/14_hardness_conversion.svg)
+
 ---
 
 ## 5. ISO 286 limits and fits
@@ -573,6 +597,8 @@ IT6 – IT7; reaming IT7 – IT8; turning / milling IT8 – IT10; drilling IT10 
 Max clearance = 40.025 − 40.002 = +0.023 mm. Max interference = 40.000 − 40.018 = −0.018 mm
 (negative clearance = interference) → transition fit.
 
+![ISO 286 tolerance zones of H7/g6, H7/k6 and H7/p6 at diameter 50 mm with µm values](img/14_iso286_fit_zones.svg)
+
 ### 5.4 Recommended fits (hole-basis system)
 
 Source type: common preferred fits per ISO 286-1 annex and machine design handbooks.
@@ -592,7 +618,7 @@ Source type: common preferred fits per ISO 286-1 annex and machine design handbo
 | H7/r6 | medium press | −50 … −9 | press or shrink | **worm wheel rim on hub** (plus pins/screws), heavy bushes |
 | H7/s6 | heavy press (shrink) | −59 … −18 (s6 30–50: +59/+43) | shrink | torque transmission without key (check with DIN 7190 / Lamé) |
 
-**Rolling bearing seats** – use the bearing maker's tables (they depend on load direction and size).
+**Rolling bearing seats** – summary table in §20.1; use the bearing maker's tables (they depend on load direction and size).
 Typical: rotating inner ring, normal load: shaft k5/k6 (small) to m6 (bigger, heavy); stationary outer
 ring: housing H7 or J7; precision spindle/rotary table bearings: IT5/IT4 seats per maker.
 
@@ -714,6 +740,8 @@ tolerances after machining.
 
 ### 6.4 Geometrical tolerance symbols (ISO 1101)
 
+![ISO 1101 symbol sheet with names, datum need, modifiers and example feature control frames](img/14_gdt_symbols.svg)
+
 | Group | Characteristic | Symbol | Datum needed? |
 |---|---|---|---|
 | Form | Straightness | — (straight line) | no |
@@ -763,6 +791,8 @@ for your machine's real capability (measure it).
 ## 7. Surface roughness
 
 ### 7.1 Roughness by process (achievable Ra)
+
+![Achievable Ra by manufacturing process – normal and fine range on a log scale with old N-classes](img/14_roughness_by_process.svg)
 
 Source type: typical values from ISO 1302 annex-style charts and machining handbooks. The **normal**
 range is what you get in production; **fine** needs extra care (sharp tool, small feed, stable machine).
@@ -884,6 +914,8 @@ Source: ISO 724 (basic dimensions), ISO 898-1 (stress area As), ISO 273 (clearan
 | M30 | 3.5 | 561 | 26.5 | 31 / 33 / 35 | 48 | 45 |
 
 Counterbore depth for ISO 4762 ≈ head height (= d) + 0.4 – 1 mm.
+Thread geometry formulas, M3 – M48, fine threads with preload and torque, fastener and washer standards,
+pipe threads: **§19**.
 
 ### 8.3 Preload and tightening torque – VDI 2230 style
 
@@ -1381,6 +1413,7 @@ Other useful formulas:
 | Axial load | the ring can carry high load only with a **sharp-edged** abutting part; with chamfered parts or bearing radii the allowed load falls strongly – use a support washer |
 | Not for | precise axial positioning without play (rings have axial play) – use a shaft nut, spacer or clamped end plate instead |
 | Groove effect on the shaft | sharp notch (stress concentration factor ≈ 2.5 – 4); put grooves in low-stress areas |
+| Groove data | selection table DIN 471 / 472 in §20.5 |
 
 ---
 
@@ -1494,6 +1527,8 @@ commentary literature).
 | Return line | 2 – 4 m/s |
 | Drain / leakage line | ≤ 1 – 2 m/s, no back pressure |
 | Compressed air main line | 6 – 10 m/s, pressure drop to the last user ≤ 0.1 bar |
+
+Tube sizes with pressure ratings, DN pipes, hoses and compressed-air pressure drop: **§21**.
 
 Inner diameter from flow: **d [mm] = 4.61 · √(Q [l/min] / v [m/s])**.
 Example: Q = 40 l/min, pressure line v = 4 m/s → d = 4.61 · √10 = 14.6 mm → tube 20 × 2.5 (ID 15).
@@ -1729,6 +1764,8 @@ EU rule (Regulation (EU) 2019/1781, check for updates and your country): IE3 for
 07/2021); IE4 for 75 – 200 kW (since 07/2023); IE2 for 0.12 – 0.75 kW (since 07/2023). Motors on
 frequency converters also count. Servo motors are not covered.
 
+Full IE table 0.75 – 75 kW, IEC frame sizes, duty types and gearbox service factors: **§22**.
+
 Rated current (3-phase): **I = P / (√3 · U · η · cos φ)**.
 Example: 7.5 kW, 400 V, η = 0.904, cos φ = 0.83 → I = 7500 / (1.732 · 400 · 0.904 · 0.83) = 14.4 A.
 
@@ -1796,7 +1833,7 @@ certificate).
 **Example:** micrometer, certificate U = 2 µm (k = 2) → u₁ = 1 µm; resolution 1 µm → u₂ = 0.29 µm;
 repeatability s = 1.2 µm, n = 5 → u₃ = 0.54 µm; temperature ±1 K on steel Ø 50 with steel spindle,
 difference α uncertainty ≈ 1·10⁻⁶ /K → u₄ ≈ 50 · 1·10⁻⁶ · 1 / √3 · 1000 = 0.03 µm.
-u_c = √(1² + 0.29² + 0.54² + 0.03²) = 1.17 µm → U = 2.3 µm. Tolerance ±8 µm (h6 30 – 50) →
+u_c = √(1² + 0.29² + 0.54² + 0.03²) = 1.17 µm → U = 2.3 µm. Tolerance T = 16 µm (h6 30 – 50: 0 / −16 µm) →
 U / T = 2.3 / 16 = 14 % → acceptable (≤ 1/5), not 1/10.
 
 ---
@@ -1908,7 +1945,1516 @@ brake) and add a margin (e.g. 10 – 20 %) for brake wear.**
 
 ---
 
-## 17. Glossary
+## 17. Units, conversions and symbols – extended
+
+Chapter 2 gives the short list. This chapter is the **full desk sheet**: every factor was computed with
+Python from the exact definitions (ISO 80000, SI brochure: g = 9.80665 m/s², 1 in = 25.4 mm,
+1 lb = 0.45359237 kg, 1 kcal_IT = 4.1868 kJ, 1 BTU_IT = 1055.056 J) and rounded to 5 – 6 digits.
+Script: `g14/v4_units.py` (scratchpad of this edition).
+
+![Unit conversion sheet – pressure, force, torque, power, energy, flow, normal volume, viscosity, temperature, angle](img/14_unit_conversion.svg)
+
+### 17.1 SI prefixes and writing rules
+
+| Prefix | Symbol | Factor | Prefix | Symbol | Factor |
+|---|---|---|---|---|---|
+| tera | T | 10¹² | deci | d | 10⁻¹ |
+| giga | G | 10⁹ | centi | c | 10⁻² |
+| mega | M | 10⁶ | milli | m | 10⁻³ |
+| kilo | k | 10³ | micro | µ | 10⁻⁶ |
+| hecto | h | 10² | nano | n | 10⁻⁹ |
+| deca | da | 10 | pico | p | 10⁻¹² |
+
+Writing rules (ISO 80000-1): number, space, unit: "50 mm", "6.3 µm", "12 kN·m". Unit symbols are
+upright and never get a plural "s". Use a half-high dot or a space between units (N·m, kW·h). Do not
+mix prefixes in one table column. Only **one** prefix per unit (write ns, not mµs).
+
+### 17.2 Pressure
+
+Read the table as: **1 [row unit] = factor × [column unit]**.
+
+| 1 … = | Pa | bar | MPa | psi | kgf/cm² (at) | atm |
+|---|---|---|---|---|---|---|
+| Pa | 1 | 1·10⁻⁵ | 1·10⁻⁶ | 1.45038·10⁻⁴ | 1.01972·10⁻⁵ | 9.86923·10⁻⁶ |
+| kPa | 1 000 | 0.01 | 0.001 | 0.145038 | 0.0101972 | 0.00986923 |
+| bar | 100 000 | 1 | 0.1 | 14.5038 | 1.01972 | 0.986923 |
+| MPa = N/mm² | 1 000 000 | 10 | 1 | 145.038 | 10.1972 | 9.86923 |
+| psi | 6 894.76 | 0.0689476 | 0.00689476 | 1 | 0.0703070 | 0.0680460 |
+| kgf/cm² (at) | 98 066.5 | 0.980665 | 0.0980665 | 14.2233 | 1 | 0.967841 |
+| atm | 101 325 | 1.01325 | 0.101325 | 14.6959 | 1.03323 | 1 |
+| mmHg (Torr) | 133.322 | 0.00133322 | 1.33322·10⁻⁴ | 0.0193368 | 0.00135951 | 0.00131579 |
+| mmH₂O | 9.80665 | 9.80665·10⁻⁵ | 9.80665·10⁻⁶ | 0.00142233 | 1·10⁻⁴ | 9.67841·10⁻⁵ |
+| inHg | 3 386.39 | 0.0338639 | 0.00338639 | 0.491154 | 0.0345316 | 0.0334211 |
+
+**Gauge and absolute pressure:** p_abs = p_g + p_atm (p_atm ≈ 1.013 bar at sea level, ≈ 0.90 bar at
+1 000 m). Hydraulic and pneumatic gauges show **gauge** pressure (bar(g) or "bar"); gas laws,
+compressor pressure ratios and accumulator calculations need **absolute** pressure (bar(a)). Write the
+letter: "7 bar(g)", "8.013 bar(a)".
+
+### 17.3 Force, torque, power, energy
+
+| Quantity | Conversions (1 unit = …) |
+|---|---|
+| Force | 1 kgf = 9.80665 N · 1 lbf = 4.44822 N · 1 N = 0.101972 kgf = 0.224809 lbf · 1 kN ≈ 102 kg weight |
+| Torque | 1 N·m = 0.101972 kgf·m = 10.1972 kgf·cm = 0.737562 lbf·ft = 8.85075 lbf·in = 141.612 ozf·in |
+| Torque (back) | 1 lbf·ft = 1.35582 N·m · 1 lbf·in = 0.112985 N·m · 1 kgf·m = 9.80665 N·m · 1 ozf·in = 0.00706155 N·m |
+| Power | 1 kW = 1.35962 PS = 1.34102 hp = 859.845 kcal/h = 3 412.14 BTU/h · 1 hp = 0.745700 kW · 1 PS = 0.735499 kW |
+| Energy | 1 kWh = 3.6 MJ = 859.845 kcal = 3 412.14 BTU · 1 kcal = 4.1868 kJ · 1 BTU = 1.05506 kJ · 1 kgf·m = 9.80665 J |
+| Refrigeration | 1 ton of refrigeration (US) = 12 000 BTU/h = 3.5169 kW |
+
+Drive formulas (used in guides 09, 11, 12, 22):
+
+| Formula | Units | Example |
+|---|---|---|
+| T = 9 550 · P / n | T N·m, P kW, n min⁻¹ | 7.5 kW at 1 465 min⁻¹ → T = 48.9 N·m |
+| P = T · ω, ω = 2π · n / 60 | W, N·m, rad/s | 50 N·m at 1 000 min⁻¹ → ω = 104.7 rad/s → P = 5.24 kW |
+| Hydraulic power P = p · Q / 600 | kW, bar, l/min | 160 bar · 30 l/min / 600 = 8.0 kW (hydraulic) |
+| Acceleration torque T_a = J · ω / t_a | N·m, kg·m², rad/s, s | J = 0.5 kg·m² to 1 500 min⁻¹ in 0.5 s → T_a = 157 N·m |
+
+### 17.4 Flow – liquids, gases and normal volume (NL/min, FAD)
+
+| 1 … = | m³/h | l/min | m³/min | cfm (ft³/min) | US gpm |
+|---|---|---|---|---|---|
+| m³/s | 3 600 | 60 000 | 60 | 2 118.88 | 15 850.3 |
+| m³/h | 1 | 16.6667 | 0.0166667 | 0.588578 | 4.40287 |
+| l/min | 0.06 | 1 | 0.001 | 0.0353147 | 0.264172 |
+| l/s | 3.6 | 60 | 0.06 | 2.11888 | 15.8503 |
+| m³/min | 60 | 1 000 | 1 | 35.3147 | 264.172 |
+| cfm | 1.69901 | 28.3168 | 0.0283168 | 1 | 7.48052 |
+| US gpm | 0.227125 | 3.78541 | 0.00378541 | 0.133681 | 1 |
+| UK gpm | 0.272765 | 4.54609 | 0.00454609 | 0.160544 | 1.20095 |
+
+**Gas volumes need a reference state.** A litre of air at 7 bar(g) holds ≈ 8 times more air than a litre
+at 1 bar. So compressed-air flows are always given as a volume at a **stated reference state**:
+
+| Name | Reference state | Where it is used |
+|---|---|---|
+| Normal volume Nm³, Nl (DIN 1343) | 0 °C, 1.01325 bar, dry | gas industry, many European data sheets, dryer and filter ratings ("Nm³/h") |
+| Standard atmosphere (ISO 2533) | 15 °C, 1.01325 bar | aviation, some gas data |
+| ANR (ISO 8778, pneumatics) | 20 °C, 100 kPa, 65 % relative humidity | pneumatic valve flow (ISO 6358), cylinder air consumption ("l/min ANR") |
+| FAD – free air delivery (ISO 1217) | air at the compressor **inlet** conditions, reported for standard inlet 1 bar(a), 20 °C (ISO 1217 Annex C/E) | **compressor capacity** – the number on the compressor data sheet |
+
+Conversion between states (ideal gas, dry air): **V₂ = V₁ · (p₁ / p₂) · (T₂ / T₁)** with absolute p and T in K.
+
+Examples (computed):
+- 1 m³ of air at 7 bar(g), 20 °C → V_N = 1 · (8.013 / 1.01325) · (273.15 / 293.15) = **7.37 Nm³**.
+- 1 m³ FAD (1 bar(a), 20 °C) = 1 · (1.0 / 1.01325) · (273.15 / 293.15) = **0.920 Nm³**; 1 Nm³ = 1.087 m³ FAD.
+- A dryer rated 100 Nm³/h handles 100 / 0.920 = 109 m³/h FAD at the reference state – always check the
+  correction factors of the dryer maker for real inlet pressure and temperature.
+
+The compressor plant (guide 13 §4, test bench ISO 1217) uses FAD. Guide 13 §23 has the FAD and
+specific power formulas.
+
+### 17.5 Viscosity
+
+| Item | Formula / value |
+|---|---|
+| Kinematic viscosity ν | mm²/s = cSt (centistokes); 1 St = 100 cSt = 1 cm²/s |
+| Dynamic viscosity η | mPa·s = cP (centipoise); 1 P = 100 cP = 0.1 Pa·s |
+| Relation | **ν = η / ρ** → ν [mm²/s] = η [mPa·s] / ρ [g/cm³] |
+| Example | HLP 46 at 40 °C: ν = 46 mm²/s, ρ = 0.857 g/cm³ → η = 39.4 mPa·s |
+| Old units | Saybolt SUS ≈ 4.63 × ν (for ν > ≈ 75 mm²/s); Engler °E ≈ ν / 7.6 (for ν > ≈ 60 mm²/s) – approximate, use conversion tables of ASTM D2161 for exact values |
+
+Temperature dependence of oils: §23.5.
+
+### 17.6 Angle, slope, rotation, inertia, length
+
+| Quantity | Conversions |
+|---|---|
+| Angle | 1° = 60′ = 3 600″ = 17.4533 mrad · 1′ = 0.290888 mrad · 1″ = 4.84814 µrad = 4.848 µm per m |
+| Slope | 1 mm/m = 206.26″ = 3.438′ · 0.02 mm/m (precision level) = 4.1″ · 1 mrad = 0.0572958° = 1 µm/mm |
+| Rotation | 1 rev = 360° = 2π rad · ω [rad/s] = 2π · n / 60 · peripheral speed v [m/s] = π · d [mm] · n / 60 000 |
+| Speed | 1 m/s = 3.6 km/h = 196.85 ft/min · 1 knot = 0.514444 m/s |
+| Mass moment of inertia | 1 lb·ft² = 0.0421401 kg·m² · 1 lb·in² = 2.9264·10⁻⁴ kg·m² · 1 kgf·m·s² = 9.80665 kg·m² · J = GD² / 4 (GD² = old "flywheel effect", kg·m²) |
+| Length | 1 in = 25.4 mm · 1 ft = 304.8 mm · 1 thou (mil) = 25.4 µm · 1 µin = 0.0254 µm · 1 mile = 1.609344 km |
+| Area, volume | 1 in² = 645.16 mm² · 1 ft² = 0.092903 m² · 1 ft³ = 28.3168 l · 1 US gal = 3.78541 l · 1 UK gal = 4.54609 l |
+| Temperature | °C = (°F − 32) / 1.8 · K = °C + 273.15 · ΔT: 1 K = 1 °C = 1.8 °F · 68 °F = 20 °C · −40 °F = −40 °C |
+
+### 17.7 Greek alphabet and common engineering meanings
+
+| Letter | Name | Common meaning in this book | Letter | Name | Common meaning |
+|---|---|---|---|---|---|
+| Α α | alpha | thermal expansion, angle, tightening factor α_A, stress concentration α_k | Ν ν | nu | Poisson's ratio, kinematic viscosity, bolt utilisation |
+| Β β | beta | helix angle, fatigue notch factor β_k, filter ratio β_x | Ξ ξ | xi | damping ratio (also ζ) |
+| Γ γ | gamma | shear strain, partial safety factor γ_M | Ο ο | omicron | – |
+| Δ δ | delta | difference (ΔT, Δp), deflection δ | Π π | pi | 3.14159…, product sign Π |
+| Ε ε | epsilon | strain, emissivity, contact ratio | Ρ ρ | rho | density, resistivity, radius of curvature |
+| Ζ ζ | zeta | loss coefficient (pipes), damping ratio | Σ σ | sigma | normal stress, standard deviation; Σ = sum |
+| Η η | eta | efficiency, dynamic viscosity | Τ τ | tau | shear stress, time constant |
+| Θ θ | theta | angle, temperature (°C), mass moment of inertia (DIN: Θ = J) | Υ υ | upsilon | – |
+| Ι ι | iota | – | Φ φ | phi | angle of twist, phase angle (cos φ), Φ = normal distribution function |
+| Κ κ | kappa | isentropic exponent (air 1.4), approach angle κ_r | Χ χ | chi | buckling reduction factor (EN 1993) |
+| Λ λ | lambda | slenderness, thermal conductivity, pipe friction factor, wavelength | Ψ ψ | psi | ratio factors |
+| Μ μ | mu | friction coefficient, mean value μ, micro (µ) | Ω ω | omega | angular velocity ω; Ω = ohm |
+
+### 17.8 Preferred numbers (ISO 3, Renard series)
+
+Preferred numbers make sizes, speeds, forces and pressures step by the **same ratio**. Standard sizes
+(cylinder bores, motor powers, sheet thicknesses, pressure stages ISO 2944) are built from them.
+
+| Series | Step ratio | Values between 1 and 10 (rounded series) |
+|---|---|---|
+| R5 | ⁵√10 = 1.585 | 1.00 · 1.60 · 2.50 · 4.00 · 6.30 |
+| R10 | ¹⁰√10 = 1.259 | 1.00 · 1.25 · 1.60 · 2.00 · 2.50 · 3.15 · 4.00 · 5.00 · 6.30 · 8.00 |
+| R20 | ²⁰√10 = 1.122 | 1.00 · 1.12 · 1.25 · 1.40 · 1.60 · 1.80 · 2.00 · 2.24 · 2.50 · 2.80 · 3.15 · 3.55 · 4.00 · 4.50 · 5.00 · 5.60 · 6.30 · 7.10 · 8.00 · 9.00 |
+| R40 | ⁴⁰√10 = 1.059 | 1.00 · 1.06 · 1.12 · 1.18 · 1.25 · 1.32 · 1.40 · 1.50 · 1.60 · 1.70 · 1.80 · 1.90 · 2.00 · 2.12 · 2.24 · 2.36 · 2.50 · 2.65 · 2.80 · 3.00 · 3.15 · 3.35 · 3.55 · 3.75 · 4.00 · 4.25 · 4.50 · 4.75 · 5.00 · 5.30 · 5.60 · 6.00 · 6.30 · 6.70 · 7.10 · 7.50 · 8.00 · 8.50 · 9.00 · 9.50 |
+
+The exact values are 10^(i/n) (R10: 1.000, 1.259, 1.585, 1.995, 2.512, 3.162, 3.981, 5.012, 6.310, 7.943);
+ISO 3 rounds them as shown. Multiply by 10, 100 … for bigger numbers (R10: 100, 125, 160, 200 …
+→ pressure stages 100, 160, 250, 400 bar; cylinder bores 25, 32, 40, 50, 63, 80, 100, 125, 160 mm).
+
+### 17.9 Mathematical signs used in the guides
+
+| Sign | Meaning | Sign | Meaning |
+|---|---|---|---|
+| ≈ | approximately equal | ∝ | proportional to |
+| ≤ / ≥ | less / greater than or equal | ∑ | sum of |
+| ± | plus or minus (symmetric tolerance) | √ / ∛ | square root / cube root |
+| ⌀ or Ø | diameter | ∫ | integral (area under a curve) |
+| ∠ | angle | ∂ | partial derivative |
+| · | multiply | lg / ln | log base 10 / natural log (base e = 2.71828) |
+| ∥ / ⊥ | parallel / perpendicular | x̄ | mean value of x |
+| ° ′ ″ | degree, minute, second of angle | ⇒ | therefore / gives |
+
+---
+
+## 18. Strength of materials – formulas, section data, beams, buckling, notches, fatigue
+
+Source type: classic strength-of-materials formulas (Roloff/Matek, Dubbel, Shigley, Roark), EN 1993-1-1
+(buckling curves), DIN 743-2 (fatigue factors for shafts), FKM guideline (fatigue of machine parts). The
+formulas are exact for the stated assumptions; the material factors are **approximate – check the
+standard** for final design. Script: `g14/v6_struct.py`.
+
+### 18.1 Basic stress formulas
+
+| Load | Stress | Deformation | Notes |
+|---|---|---|---|
+| Tension / compression | σ = F / A | ΔL = F · L / (E · A); ε = σ / E | Hooke's law, below yield |
+| Shear (pins, keys) | τ = F / A (single shear), τ = F / (2·A) (double shear) | γ = τ / G | mean value; real peak higher |
+| Bending | σ_b = M / W | see beam cases 18.3 | W = section modulus = I / e |
+| Torsion (round) | τ_t = T / W_p, W_p = π · d³ / 16 | φ = T · L / (G · I_p), I_p = π · d⁴ / 32 | φ in rad |
+| Surface pressure | p = F / A_projected (pin in bore: A = d · l) | – | compare with p_allow of the softer part |
+| Thin-walled cylinder / tube | σ_hoop = p · D / (2 · t); σ_axial = p · D / (4 · t) | – | t < D/20; Barlow for tubes (13.2, 21.1) |
+| Thick-walled cylinder (Lamé) | σ_t,max (inner) = p · (D² + d²) / (D² − d²) | – | shrink fits: guide 12 W4.3, DIN 7190 |
+| Combined (von Mises) | σ_v = √(σ² + 3·τ²) | – | ductile materials; compare with Rp0.2 / S |
+| Combined (Tresca) | σ_v = √(σ² + 4·τ²) | – | a bit more conservative |
+| Thermal stress (fully restrained) | σ = E · α · ΔT | – | steel: 210 000 · 11.5·10⁻⁶ · 10 K = 24 MPa per 10 K |
+| Hertz – ball on flat / line contact | p_max = 0.388 · ∛(F · E² / R²) (point, ν = 0.3); p_max = √(F · E / (2π · (1 − ν²) · R · l)) (line) | – | worked examples guide 09 §10.6, guide 10 §10.4 |
+
+### 18.2 Section properties
+
+| Section | Area A | Second moment I (bending axis) | Section modulus W | Polar W_p (torsion) |
+|---|---|---|---|---|
+| Solid round Ø d | π·d²/4 | π·d⁴/64 | π·d³/32 | π·d³/16 |
+| Tube D × d | π·(D² − d²)/4 | π·(D⁴ − d⁴)/64 | π·(D⁴ − d⁴)/(32·D) | π·(D⁴ − d⁴)/(16·D) |
+| Rectangle b × h (h in load direction) | b·h | b·h³/12 | b·h²/6 | ≈ c·b·h² (c 0.21 – 0.33, square 0.208·a³) |
+| Hollow rectangle B × H, inner b × h | B·H − b·h | (B·H³ − b·h³)/12 | (B·H³ − b·h³)/(6·H) | thin wall: 2·A_m·t (Bredt) |
+| Parallel axis (Steiner) | – | I = I_s + A · a² | – | a = distance between axes |
+
+Radius of gyration **i = √(I / A)** (needed for buckling 18.4).
+
+**Solid round bars** (computed):
+
+| d [mm] | I [cm⁴] | W [cm³] | W_p [cm³] |
+|---|---|---|---|
+| 20 | 0.785 | 0.785 | 1.57 |
+| 30 | 3.98 | 2.65 | 5.30 |
+| 40 | 12.57 | 6.28 | 12.57 |
+| 50 | 30.68 | 12.27 | 24.54 |
+| 60 | 63.62 | 21.21 | 42.41 |
+| 80 | 201.1 | 50.27 | 100.5 |
+| 100 | 490.9 | 98.17 | 196.3 |
+
+**Square and rectangular hollow sections (EN 10219 cold-formed, EN 10210 hot-finished)** – values
+**computed with sharp corners** (the real profiles have corner radii; the table values of the standard are
+about 2 – 6 % lower for A and I – use the maker's or EN 10219-2 table for final design):
+
+| Section [mm] | A [cm²] | I [cm⁴] | W [cm³] | mass [kg/m] |
+|---|---|---|---|---|
+| SHS 40 × 40 × 3 | 4.44 | 10.2 | 5.1 | 3.49 |
+| SHS 50 × 50 × 3 | 5.64 | 20.8 | 8.3 | 4.43 |
+| SHS 60 × 60 × 4 | 8.96 | 47.1 | 15.7 | 7.03 |
+| SHS 80 × 80 × 4 | 12.16 | 117.4 | 29.3 | 9.55 |
+| SHS 80 × 80 × 5 | 15.00 | 141.2 | 35.3 | 11.77 |
+| SHS 100 × 100 × 5 | 19.00 | 286.6 | 57.3 | 14.91 |
+| SHS 100 × 100 × 6 | 22.56 | 333.6 | 66.7 | 17.71 |
+| SHS 120 × 120 × 6 | 27.36 | 594.3 | 99.0 | 21.48 |
+| SHS 150 × 150 × 8 | 45.44 | 1 532 | 204.3 | 35.67 |
+| RHS 100 × 50 × 4 (strong axis) | 11.36 | 144.1 | 28.8 | 8.92 |
+| RHS 120 × 60 × 5 | 17.00 | 309.4 | 51.6 | 13.34 |
+| RHS 160 × 80 × 5 | 23.00 | 761.9 | 95.2 | 18.05 |
+| RHS 200 × 100 × 6 | 34.56 | 1 794 | 179.4 | 27.13 |
+| Tube 48.3 × 3.2 | 4.53 | 11.6 | 4.80 | 3.56 |
+| Tube 60.3 × 4.0 | 7.07 | 28.2 | 9.34 | 5.55 |
+| Tube 88.9 × 5.0 | 13.18 | 116.4 | 26.2 | 10.35 |
+| Tube 114.3 × 6.0 | 20.41 | 300.2 | 52.5 | 16.03 |
+
+**IPE beams (EN 10365, former DIN 1025-5)** – table values (check the current maker table):
+
+| Profile | h × b [mm] | A [cm²] | I_y [cm⁴] | W_y [cm³] | I_z [cm⁴] | mass [kg/m] |
+|---|---|---|---|---|---|---|
+| IPE 100 | 100 × 55 | 10.3 | 171 | 34.2 | 15.9 | 8.1 |
+| IPE 120 | 120 × 64 | 13.2 | 318 | 53.0 | 27.7 | 10.4 |
+| IPE 140 | 140 × 73 | 16.4 | 541 | 77.3 | 44.9 | 12.9 |
+| IPE 160 | 160 × 82 | 20.1 | 869 | 109 | 68.3 | 15.8 |
+| IPE 180 | 180 × 91 | 23.9 | 1 317 | 146 | 101 | 18.8 |
+| IPE 200 | 200 × 100 | 28.5 | 1 943 | 194 | 142 | 22.4 |
+| IPE 220 | 220 × 110 | 33.4 | 2 772 | 252 | 205 | 26.2 |
+| IPE 240 | 240 × 120 | 39.1 | 3 892 | 324 | 284 | 30.7 |
+| IPE 270 | 270 × 135 | 45.9 | 5 790 | 429 | 420 | 36.1 |
+| IPE 300 | 300 × 150 | 53.8 | 8 356 | 557 | 604 | 42.2 |
+
+Machine bases need stiffness in **both** axes and against torsion: closed hollow sections (SHS/RHS) are
+about 50 – 200 times stiffer in torsion than an open I-section of the same mass. Use I-beams for simple
+bending (crane runway, mezzanine), hollow sections for machine frames.
+
+### 18.3 Beams – standard load cases
+
+![Six standard beam load cases with deflected shape, moment diagram and formulas](img/14_beam_cases.svg)
+
+| Case | Max bending moment | Max deflection f | Slope at support / free end |
+|---|---|---|---|
+| 1 Simply supported, F at centre | F·L/4 | F·L³ / (48·E·I) | F·L² / (16·E·I) |
+| 1a Simply supported, F at a (b = L − a) | F·a·b/L (under the load) | under the load: F·a²·b² / (3·E·I·L) | – |
+| 2 Simply supported, uniform q | q·L²/8 | 5·q·L⁴ / (384·E·I) | q·L³ / (24·E·I) |
+| 3 Cantilever, F at free end | F·L | F·L³ / (3·E·I) | F·L² / (2·E·I) |
+| 4 Cantilever, uniform q | q·L²/2 | q·L⁴ / (8·E·I) | q·L³ / (6·E·I) |
+| 5 Both ends fixed, F at centre | F·L/8 (ends and centre) | F·L³ / (192·E·I) | 0 |
+| 6 Both ends fixed, uniform q | q·L²/12 (ends), q·L²/24 (centre) | q·L⁴ / (384·E·I) | 0 |
+| 7 Fixed + simply supported, uniform q | q·L²/8 (fixed end) | q·L⁴ / (185·E·I) (at 0.42·L) | – |
+
+**Worked example (case 1, computed):** IPE 200, I = 1 943 cm⁴, W = 194 cm³, L = 3 m, F = 10 kN at centre:
+f = 10 000 · 3 000³ / (48 · 210 000 · 1 943·10⁴) = **1.38 mm** (L/2 176); M = 7.5 kN·m;
+σ = 7.5·10⁶ / 194·10³ = **38.7 MPa**. With a uniform load q = 5 N/mm (5 kN/m) instead: f = 1.29 mm,
+M = 5.63 kN·m.
+
+**Worked example (case 3):** sensor bracket SHS 80 × 80 × 4 (I = 117.4 cm⁴, W = 29.3 cm³), L = 1 m,
+F = 2 kN at the free end: f = 2 000 · 1 000³ / (3 · 210 000 · 117.4·10⁴) = **2.70 mm**,
+σ = 2 000 · 1 000 / 29 300 = **68 MPa**. Strength is fine, but 2.7 mm deflection is too much for a
+measuring bracket → shorter arm, bigger section or a diagonal strut.
+
+Deflection limits (orientation): building steelwork L/250 – L/300; crane runways L/500 – L/800;
+machine frames, gauges, fixture plates **L/1 000 – L/5 000** – for machines the stiffness decides, not the
+stress.
+
+### 18.4 Column buckling – Euler, Tetmajer, EN 1993 χ
+
+| Step | Formula | Notes |
+|---|---|---|
+| Buckling length | L_k = β · L | β = 2 (fixed – free), 1 (pinned – pinned), 0.7 (fixed – pinned), 0.5 (fixed – fixed) |
+| Slenderness | λ = L_k / i, i = √(I / A) | solid round: i = d/4; tube: i = √(D² + d²)/4 |
+| Limit slenderness | λ₀ = π · √(E / σ_p), σ_p ≈ 0.8 · Re | S235: λ₀ ≈ 105; S355: λ₀ ≈ 85 (computed) |
+| Elastic (λ ≥ λ₀) – **Euler** | F_k = π² · E · I / L_k²; σ_k = π² · E / λ² | safety 3 – 5 (machine parts, cylinder rods) |
+| Inelastic (λ < λ₀) – **Tetmajer** | σ_k = a − b · λ | S235: σ_k = 310 − 1.14·λ (λ 60 – 105); E295/E335 (also used for S355): σ_k = 335 − 0.62·λ (λ 60 – 89); grey cast iron: σ_k = 776 − 12·λ + 0.053·λ² (λ < 80) |
+| Short (λ < ≈ 60) | compression yield: σ = F / A ≤ Re / S | |
+| Steel structures – EN 1993-1-1 | N_b,Rd = χ · A · f_y / γ_M1; λ̄ = λ / λ₁, λ₁ = π·√(E/f_y) (S235: 93.9; S355: 76.4) | χ from the buckling curve below; γ_M1 = 1.0 (check national annex) |
+
+**Buckling reduction factor χ (EN 1993-1-1, 6.3.1.2; computed with Φ = 0.5·(1 + α·(λ̄ − 0.2) + λ̄²),
+χ = 1 / (Φ + √(Φ² − λ̄²)) ≤ 1):**
+
+| λ̄ | curve a₀ (α 0.13) | curve a (α 0.21) | curve b (α 0.34) | curve c (α 0.49) | curve d (α 0.76) |
+|---|---|---|---|---|---|
+| 0.2 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
+| 0.4 | 0.970 | 0.953 | 0.926 | 0.897 | 0.850 |
+| 0.6 | 0.928 | 0.890 | 0.837 | 0.785 | 0.710 |
+| 0.8 | 0.853 | 0.796 | 0.724 | 0.662 | 0.580 |
+| 1.0 | 0.725 | 0.666 | 0.597 | 0.540 | 0.467 |
+| 1.2 | 0.573 | 0.530 | 0.478 | 0.434 | 0.376 |
+| 1.5 | 0.395 | 0.372 | 0.342 | 0.315 | 0.277 |
+| 2.0 | 0.232 | 0.223 | 0.209 | 0.196 | 0.177 |
+| 2.5 | 0.151 | 0.147 | 0.140 | 0.132 | 0.121 |
+| 3.0 | 0.106 | 0.104 | 0.099 | 0.095 | 0.088 |
+
+Curve choice (EN 1993-1-1 Table 6.2, summary – check): hot-finished hollow sections curve a; cold-formed
+hollow sections curve c; rolled I-sections h/b > 1.2 curve a (y-axis) / b (z-axis); welded boxes curve b – c.
+
+**Example 1 (EN 1993):** tube 60.3 × 4.0, S235 hot-finished, pinned – pinned, L = 2 m:
+A = 707.5 mm², I = 281 729 mm⁴, i = 19.96 mm, λ = 100.2, λ̄ = 100.2 / 93.9 = 1.067, curve a → χ = 0.619,
+N_b,Rd = 0.619 · 707.5 · 235 = **102.8 kN** (Euler load 146 kN – the real column carries 30 % less).
+
+**Example 2 (Tetmajer):** solid rod Ø 40, S235, pinned – pinned, L = 800 mm: i = 10, λ = 80 < 105 → Tetmajer:
+σ_k = 310 − 1.14 · 80 = 218.8 MPa → F_k = 218.8 · 1 257 = **275 kN**; with S = 3 → 92 kN allowed.
+(Euler would give σ_k = 324 MPa > Re – wrong in this range.)
+
+Hydraulic cylinder rods: §13.1 and guide 30 §16; ball screws: guide 12 M4.4.
+
+### 18.5 Stress concentration – Kt and fatigue notch factor βk
+
+Stress concentration factor **Kt = σ_max / σ_nominal** (elastic, from geometry only). For fatigue the
+material is less sensitive than Kt says: fatigue notch factor **βk = 1 + q · (Kt − 1)**, notch sensitivity
+q ≈ 0.5 – 0.7 (soft steel, Rm ≈ 400 – 600), 0.8 – 0.95 (QT steel, Rm ≥ 900), ≈ 0.2 – 0.5 for cast iron.
+For static load of ductile steel Kt can be ignored (local yielding); for fatigue it must not.
+
+**Stepped round shaft with shoulder fillet r (D = large Ø, d = small Ø)** – Kt computed with the
+Shigley curve fits to Peterson's charts (± 5 – 10 %; check Peterson's Stress Concentration Factors for
+final design):
+
+| Load | D/d | r/d = 0.02 | 0.05 | 0.10 | 0.15 | 0.20 |
+|---|---|---|---|---|---|---|
+| Bending | 2.0 | 2.78 | 2.14 | 1.76 | 1.56 | 1.44 |
+| Bending | 1.5 | 2.57 | 2.03 | 1.70 | 1.53 | 1.42 |
+| Bending | 1.2 | 2.26 | 1.86 | 1.60 | 1.46 | 1.38 |
+| Torsion | 2.0 | 2.20 | 1.76 | 1.50 | 1.36 | 1.27 |
+| Torsion | 1.33 | 2.10 | 1.70 | 1.45 | 1.32 | 1.23 |
+| Torsion | 1.2 | 1.95 | 1.60 | 1.37 | 1.26 | 1.18 |
+
+**Typical values for other notches (orientation, steel; DIN 743-2 / FKM / handbook values – check):**
+
+| Notch | Kt (bending) | βk (bending, Rm 600 – 1 000 MPa) | Remedy |
+|---|---|---|---|
+| Keyway, end-milled (form A), in the shaft | ≈ 2.0 – 3.0 | ≈ 1.8 – 2.4 | disc-milled keyway (form B) runs out smoothly; place hub edge away |
+| Press-fit hub edge (H7/r6 etc.) | – | ≈ 2.0 – 2.8 (fretting!) | relief groove, raised seat Ø, rounded hub edge |
+| Circlip groove DIN 471 | ≈ 2.5 – 4 | ≈ 2.5 – 3.5 | groove only in low-stress zones |
+| Transverse hole (d_hole/d ≈ 0.1 – 0.2) | ≈ 2.0 – 2.5 | ≈ 1.7 – 2.1 | chamfer and deburr the hole |
+| Rolled thread (bolt) | – | ≈ 2.5 – 3.5 (rolled after heat treatment better) | fatigue-proof bolts, long elastic shank |
+| Undercut DIN 509 (form E/F) at a shoulder | ≈ 1.8 – 2.5 | ≈ 1.6 – 2.2 | use the largest undercut radius allowed |
+| Fillet weld toe | – | covered by FAT class (9.2) | grind the toe, move weld away from stress peak |
+
+Rules: biggest possible radius (r/d ≥ 0.05, better 0.1); no sharp corners at shoulders; polish highly
+stressed radii; shot peening and rolling of radii raise fatigue strength by ≈ 20 – 50 %.
+
+### 18.6 Fatigue strength – material values and correction factors
+
+For steel the fatigue (endurance) limits for **polished, notch-free specimens Ø ≈ 7.5 – 10 mm** are about
+(DIN 743-3 / handbook relations, orientation):
+
+**σ_bW ≈ 0.5 · Rm (bending), σ_zdW ≈ 0.4 · Rm (tension – compression), τ_tW ≈ 0.3 · Rm (torsion)**
+(valid up to Rm ≈ 1 400 MPa). Use Rm min of the real diameter (tables 3.1 – 3.3).
+
+| Material (Rm used) | Rm [MPa] | σ_bW [MPa] | σ_zdW [MPa] | τ_tW [MPa] |
+|---|---|---|---|---|
+| S235JR | 360 | 180 | 144 | 108 |
+| S355J2 | 470 | 235 | 188 | 141 |
+| C45+N (16 < d ≤ 100) | 580 | 290 | 232 | 174 |
+| C45+QT (16 < d ≤ 40) | 650 | 325 | 260 | 195 |
+| 42CrMo4+QT (16 < d ≤ 40) | 1 000 | 500 | 400 | 300 |
+| 42CrMo4+QT (40 < d ≤ 100) | 900 | 450 | 360 | 270 |
+| 34CrNiMo6+QT (40 < d ≤ 100) | 1 000 | 500 | 400 | 300 |
+| 16MnCr5 core (typical, Ø 30) | 800 | 400 | 320 | 240 |
+| EN-GJL-250 / GJL-300 (FKM: σ_zdW ≈ 0.30·Rm) | 250 / 300 | ≈ 90 – 120 | 75 / 90 | – |
+| EN-GJS-400 / GJS-600 (FKM: σ_zdW ≈ 0.34·Rm) | 400 / 600 | ≈ 170 / 240 | 136 / 204 | – |
+| Aluminium wrought 6082-T6 (at 10⁷ cycles, no true limit) | 295 | ≈ 90 – 100 | ≈ 80 – 90 | – |
+
+**Correction factors for the real part (DIN 743-2 style – check the standard):**
+
+| Factor | Formula / values (computed) |
+|---|---|
+| Geometric size factor K₂ (bending, torsion; 7.5 ≤ d < 150 mm) | K₂ = 1 − 0.2 · lg(d/7.5) / lg 20 → d 10: 0.98 · 20: 0.94 · 30: 0.91 · 50: 0.87 · 80: 0.84 · 100: 0.83 · ≥ 150: 0.80 |
+| Surface roughness factor K_F | K_F = 1 − 0.22 · lg(Rz) · (lg(Rm/20) − 1), Rz in µm |
+| K_F, Rm 600 MPa | Rz 3.2: 0.95 · Rz 6.3: 0.92 · Rz 12.5: 0.89 · Rz 25: 0.85 · Rz 50: 0.82 |
+| K_F, Rm 1 000 MPa | Rz 3.2: 0.92 · Rz 6.3: 0.88 · Rz 12.5: 0.83 · Rz 25: 0.79 · Rz 50: 0.74 |
+| Total influence factor | K = (βk / K₂ + 1/K_F − 1) / K_V (K_V = surface hardening factor: 1.0 none; ≈ 1.1 – 1.5 nitrided / case hardened / rolled) |
+| Part fatigue limit | σ_W,part = σ_bW · K₁(d) / K (K₁ = technological size factor – already in "Rm of the real diameter") |
+
+**Mean stress (Goodman line):** allowed stress amplitude σ_a = σ_W,part · (1 − σ_m / Rm).
+Example: 42CrMo4+QT, Rm 900, σ_bW = 450 MPa (polished), mean stress 150 MPa → σ_a ≤ 450 · (1 − 150/900)
+= 375 MPa before notch, size and surface factors; then divide by the safety factor S ≈ 1.5 – 2.5 (1.2).
+
+**Example – shaft shoulder in bending:** 42CrMo4+QT, d = 50, D/d = 1.2, r/d = 0.05 → Kt = 1.86, q ≈ 0.9 →
+βk = 1 + 0.9 · 0.86 = 1.77; K₂ = 0.87; turned Rz 6.3 → K_F ≈ 0.88 (Rm 1 000) → K = 1.77/0.87 + 1/0.88 − 1
+= 2.17 → σ_W,part = 450 / 2.17 = **207 MPa** amplitude (fully reversed bending); with S = 2 → 104 MPa
+allowed. The notch halves the fatigue strength – that is why shaft calculations are done per DIN 743 or
+with FKM software, not with the plain material value.
+
+### 18.7 Mass moments of inertia (dynamics of drives)
+
+| Body (axis) | J |
+|---|---|
+| Solid cylinder / disc, axis = its axis | J = m · D² / 8 = m · r² / 2 |
+| Hollow cylinder (ring) D, d | J = m · (D² + d²) / 8 |
+| Thin ring radius r | J = m · r² |
+| Slender rod length L, axis through centre, perpendicular | J = m · L² / 12 (through one end: m · L² / 3) |
+| Rectangular plate a × b, axis perpendicular through centre | J = m · (a² + b²) / 12 |
+| Point mass at radius r (e.g. pallet on a turn arm) | J = m · r² |
+| Parallel axis (Steiner) | J = J_s + m · a² |
+| Reflected through a gearbox (ratio i = n_motor / n_load) | J_motor-side = J_load / i² |
+| Linear mass on a ball screw (lead p_h) | J = m · (p_h / 2π)² |
+
+Example: steel disc Ø 400 × 40 mm: m = 7 850 · π · 0.4²/4 · 0.04 = 39.5 kg; J = 39.5 · 0.4² / 8 = 0.79 kg·m².
+Through a gearbox i = 10: J at the motor = 0.0079 kg·m². Worked drive examples: guide 09 §4.2 and §19.2
+(APC), guide 12 M5 (axis servos), guide 22 §11 (robot inertia tensor).
+
+---
+
+## 19. Threads and fasteners – extended data
+
+### 19.1 Metric ISO thread – geometry and coarse-thread table
+
+![Metric ISO thread basic profile with pitch, diameters and stress area](img/14_thread_geometry.svg)
+
+Formulas (ISO 68-1 basic profile): **H = 0.866025·P; d₂ = d − 0.649519·P; d₃ = d − 1.226869·P;
+D₁ = d − 1.082532·P; A_s = (π/4) · ((d₂ + d₃)/2)²**. Thread overlap depth = 5H/8 = 0.541·P.
+Values computed (`g14/v3_fine.py`) – they reproduce the ISO 724 / ISO 898-1 table values.
+
+| Thread | P | d₂ | d₃ | D₁ | A_s [mm²] | Tap drill | Hex s ISO 4017 | Socket key ISO 4762 |
+|---|---|---|---|---|---|---|---|---|
+| M3 | 0.5 | 2.675 | 2.387 | 2.459 | 5.03 | 2.5 | 5.5 | 2.5 |
+| M4 | 0.7 | 3.545 | 3.141 | 3.242 | 8.78 | 3.3 | 7 | 3 |
+| M5 | 0.8 | 4.480 | 4.019 | 4.134 | 14.2 | 4.2 | 8 | 4 |
+| M6 | 1.0 | 5.350 | 4.773 | 4.917 | 20.1 | 5.0 | 10 | 5 |
+| M8 | 1.25 | 7.188 | 6.466 | 6.647 | 36.6 | 6.8 | 13 | 6 |
+| M10 | 1.5 | 9.026 | 8.160 | 8.376 | 58.0 | 8.5 | 16 | 8 |
+| M12 | 1.75 | 10.863 | 9.853 | 10.106 | 84.3 | 10.2 | 18 | 10 |
+| M16 | 2.0 | 14.701 | 13.546 | 13.835 | 157 | 14.0 | 24 | 14 |
+| M20 | 2.5 | 18.376 | 16.933 | 17.294 | 245 | 17.5 | 30 | 17 |
+| M24 | 3.0 | 22.051 | 20.319 | 20.752 | 353 | 21.0 | 36 | 19 |
+| M30 | 3.5 | 27.727 | 25.706 | 26.211 | 561 | 26.5 | 46 | 22 |
+| M36 | 4.0 | 33.402 | 31.093 | 31.670 | 817 | 32.0 | 55 | 27 |
+| M42 | 4.5 | 39.077 | 36.479 | 37.129 | 1 121 | 37.5 | 65 | 32 |
+| M48 | 5.0 | 44.752 | 41.866 | 42.587 | 1 473 | 43.0 | 75 | 36 |
+
+Tap drill values are for cutting taps (standard drill sizes, ISO 2306 – check); form taps need a bigger
+hole from the tap maker's table. Tolerance class for normal bolts and nuts: **6g / 6H** (ISO 965-1).
+
+### 19.2 Metric fine threads – geometry, preload and tightening torque
+
+Fine threads have a bigger stress area and a smaller lead angle (more self-locking, finer adjustment),
+but they strip more easily in soft nut materials and are more sensitive to damage and dirt. Use them for
+adjusting screws, shaft nuts, thin walls, and hydraulic ports.
+
+Preload and torque **computed with the VDI 2230-1 formulas of §8.3** (ν = 0.9, μ_G = μ_K = μ, head
+bearing diameter D_Km = (d_w,min + d_h,medium)/2 – this assumption reproduces the coarse table §8.3 within
+± 1 %). **Check against VDI 2230-1 Table A2 before use.** F_M in kN, M_A in N·m.
+
+| Thread | A_s [mm²] | Tap drill | 8.8 F_M μ0.12 | 8.8 M_A μ0.12 | 8.8 M_A μ0.14 | 10.9 F_M μ0.12 | 10.9 M_A μ0.12 | 10.9 M_A μ0.14 | 12.9 F_M μ0.12 | 12.9 M_A μ0.12 | 12.9 M_A μ0.14 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| M8 × 1 | 39.2 | 7.0 | 20.2 | 26.1 | 29.2 | 29.7 | 38.3 | 42.8 | 34.8 | 44.9 | 50.1 |
+| M10 × 1 | 64.5 | 9.0 | 33.7 | 53.2 | 59.7 | 49.5 | 78.2 | 87.7 | 57.9 | 91.5 | 103 |
+| M10 × 1.25 | 61.2 | 8.8 | 31.6 | 50.8 | 56.8 | 46.5 | 74.7 | 83.4 | 54.4 | 87.4 | 97.6 |
+| M12 × 1.25 | 92.1 | 10.8 | 48.0 | 90.4 | 101 | 70.6 | 133 | 149 | 82.6 | 155 | 174 |
+| M12 × 1.5 | 88.1 | 10.5 | 45.5 | 87.0 | 97.2 | 66.9 | 128 | 143 | 78.3 | 150 | 167 |
+| M14 × 1.5 | 125 | 12.5 | 64.9 | 143 | 160 | 95.3 | 210 | 235 | 112 | 245 | 275 |
+| M16 × 1.5 | 167 | 14.5 | 87.7 | 218 | 245 | 129 | 320 | 359 | 151 | 375 | 421 |
+| M18 × 1.5 | 216 | 16.5 | 117 | 327 | 368 | 167 | 465 | 524 | 196 | 545 | 613 |
+| M20 × 1.5 | 272 | 18.5 | 148 | 454 | 512 | 211 | 647 | 729 | 247 | 757 | 853 |
+| M22 × 1.5 | 333 | 20.5 | 182 | 614 | 693 | 259 | 874 | 986 | 303 | 1 023 | 1 154 |
+| M24 × 2 | 384 | 22.0 | 209 | 770 | 866 | 297 | 1 096 | 1 233 | 348 | 1 283 | 1 443 |
+| M27 × 2 | 496 | 25.0 | 270 | 1 121 | 1 263 | 385 | 1 596 | 1 799 | 450 | 1 868 | 2 105 |
+| M30 × 2 | 621 | 28.0 | 339 | 1 559 | 1 759 | 483 | 2 220 | 2 505 | 566 | 2 598 | 2 932 |
+
+(8.8 uses Rp0.2 = 640 MPa up to M16 and 660 MPa above, as in ISO 898-1.)
+
+### 19.3 Fastener standards – which part is which
+
+| Part | ISO standard | Old DIN | Notes |
+|---|---|---|---|
+| Hexagon head bolt, partly threaded | ISO 4014 | DIN 931 | shank bolt – best for preloaded joints (elastic) |
+| Hexagon head screw, fully threaded | ISO 4017 | DIN 933 | most used hexagon screw |
+| Hexagon head, fine thread | ISO 8765 / ISO 8676 | DIN 960 / 961 | |
+| Hexagon socket head cap screw | ISO 4762 | DIN 912 | machine building standard, 8.8 / 10.9 / 12.9 |
+| Low head cap screw | DIN 7984 (no ISO) | DIN 7984 | small heads, lower strength of the drive – check torque |
+| Countersunk socket screw | ISO 10642 | DIN 7991 | 90° countersink; limited preload (head) |
+| Button head socket screw | ISO 7380-1 | – | covers, guards – not for high preload |
+| Set screws (grub screws) | ISO 4026 (flat) / 4027 (cone) / 4028 (dog) / 4029 (cup) | DIN 913 / 914 / 915 / 916 | hardness class 45H |
+| Hexagon nut, style 1 | ISO 4032 | DIN 934 (other s and m) | class 8 / 10 / 12 matching the bolt |
+| Hexagon thin nut | ISO 4035 | DIN 439 | jam nut – low load |
+| Prevailing torque nut, nylon insert | ISO 7040 / ISO 10511 (thin) | DIN 982 / 985 | ≤ ≈ 120 °C |
+| Prevailing torque nut, all-metal | ISO 7042 | DIN 980 | high temperature |
+| Flange nut / flange bolt | ISO 4161 / ISO 4162 | DIN 6923 / 6921 | big bearing face – soft material |
+| Plain washer normal / chamfered | ISO 7089 / ISO 7090 | DIN 125 | 200 HV or 300 HV |
+| Washer for cap screws | ISO 7092 (small) | DIN 433 | |
+| Washer for steel structures | ISO 7091 / EN 14399-6 | DIN 126 / 6916 | HV structural bolting EN 14399 |
+| Stud bolt | – | DIN 938 / 939 / 940 (b = 1d / 1.25d / 2.5d metal end) | metal end length by nut material |
+| Eye bolt / eye nut (lifting) | – | DIN 580 / DIN 582 | rated load printed – check the angle reduction |
+| Wire thread insert | ISO 22849 / DIN 8140 | | aluminium, cast iron, repairs |
+| T-slot bolts and nuts | DIN 787 / DIN 508 | | machine tables (guide 08 fixturing) |
+
+**Watch out: ISO and old DIN width across flats differ for four sizes:** M10 (ISO 16 / DIN 17),
+M12 (18 / 19), M14 (21 / 22), M22 (34 / 32). Check your spanners and the space in counterbores.
+
+### 19.4 Nuts and washers – main dimensions (selection, check the standard)
+
+| Size | Nut ISO 4032 height m [mm] | Nut s [mm] | Washer ISO 7089 d₁ × d₂ × h [mm] | Washer ISO 7092 d₁ × d₂ × h [mm] |
+|---|---|---|---|---|
+| M5 | 4.7 | 8 | 5.3 × 10 × 1 | 5.3 × 9 × 1 |
+| M6 | 5.2 | 10 | 6.4 × 12 × 1.6 | 6.4 × 11 × 1.6 |
+| M8 | 6.8 | 13 | 8.4 × 16 × 1.6 | 8.4 × 15 × 1.6 |
+| M10 | 8.4 | 16 | 10.5 × 20 × 2 | 10.5 × 18 × 1.6 |
+| M12 | 10.8 | 18 | 13 × 24 × 2.5 | 13 × 20 × 2 |
+| M16 | 14.8 | 24 | 17 × 30 × 3 | 17 × 28 × 2.5 |
+| M20 | 18.0 | 30 | 21 × 37 × 3 | 21 × 34 × 3 |
+| M24 | 21.5 | 36 | 25 × 44 × 4 | 25 × 39 × 4 |
+| M30 | 25.6 | 46 | 31 × 56 × 4 | 31 × 50 × 4 |
+
+### 19.5 Pipe threads (hydraulic and pneumatic ports)
+
+| Size | Threads per inch | Major Ø [mm] (ISO 228-1 G) | Tap drill G (approx.) | Typical use |
+|---|---|---|---|---|
+| G 1/8 | 28 | 9.728 | 8.8 | pneumatic valves, gauges |
+| G 1/4 | 19 | 13.157 | 11.8 | pneumatic, small hydraulic ports, gauges |
+| G 3/8 | 19 | 16.662 | 15.25 | hydraulic ports up to ≈ 20 l/min |
+| G 1/2 | 14 | 20.955 | 19.0 | hydraulic ports, coolant |
+| G 3/4 | 14 | 26.441 | 24.5 | pump suction / return, coolant |
+| G 1 | 11 | 33.249 | 30.5 | suction lines, air mains |
+| G 1 1/4 | 11 | 41.910 | 39.25 | air mains, big suction |
+| G 1 1/2 | 11 | 47.803 | 45.0 | air mains |
+| G 2 | 11 | 59.614 | 57.0 | air mains, coolant |
+
+- **G (ISO 228-1)** = parallel thread, **not sealing in the thread** → seal with a bonded seal, O-ring
+  or elastomer edge (ISO 1179 ports, "BSPP"). Standard for hydraulics in Europe.
+- **R / Rp / Rc (ISO 7-1)** = taper 1:16, sealing in the thread with sealant (old water and air pipes,
+  "BSPT"). Do not mix G and R.
+- **Metric ports ISO 6149** (M12 × 1.5, M14 × 1.5, M16 × 1.5, M18 × 1.5, M22 × 1.5, M27 × 2 …) with O-ring –
+  identified by a ring mark on the spot face; preferred for new hydraulic designs (guide 29 §14).
+- **NPT** (ANSI B1.20.1, taper, 60°) on US equipment – not interchangeable with R.
+
+---
+
+## 20. Bearings, splines, gears, circlips, seals – data tables
+
+### 20.1 Rolling bearing seats – shaft and housing tolerances
+
+Source type: general recommendations of the large bearing makers (SKF, Schaeffler, NSK, Timken
+catalogues) – **summary for orientation; use the table of your bearing maker**, which depends on the
+bearing type, size, load and material of the housing. P = equivalent dynamic load, C = dynamic load
+rating. "Rotating load" = the load turns relative to the ring (that ring needs an interference fit).
+
+**Shaft (solid steel shaft, radial bearings):**
+
+| Load case | Load | Ball bearings, d [mm] | Roller bearings, d [mm] | Shaft tolerance |
+|---|---|---|---|---|
+| Inner ring stationary, must slide on shaft (idler wheels, floating bearing) | any | all | all | g6 |
+| Inner ring stationary, no axial movement needed | any | all | all | h6 (js6) |
+| Rotating inner ring load | light (P ≤ 0.05·C) | ≤ 17 / 17 – 100 / 100 – 140 | ≤ 25 / 25 – 60 / 60 – 140 | js5 / j6 / k6 |
+| Rotating inner ring load | normal (0.05·C < P ≤ 0.1·C) | ≤ 10 / 10 – 17 / 17 – 100 / 100 – 140 | ≤ 30 / 30 – 50 / 50 – 65 / 65 – 100 | js5 / j5 / k5 (k6) / m5 (m6) – for roller n5/n6 above 65 |
+| Rotating inner ring load | heavy (P > 0.1·C), shock | – | 30 – 50 / 50 – 65 / 65 – 100 / > 100 | m5 – n6 – p6 (use bearings with C3 clearance) |
+| Axial load only | – | all | all | j6 / js6 |
+| Precision spindles, rotary tables (P4 bearings) | – | – | – | k4 / k5 or per maker, seat IT3 – IT4, roundness ≤ IT2 |
+
+**Housing (solid housing of steel or cast iron):**
+
+| Load case | Housing tolerance | Outer ring axially movable? |
+|---|---|---|
+| Stationary outer ring load, normal (machine shafts, gearboxes) | H7 (G7 if the shaft heats more than the housing) | yes |
+| Stationary outer ring load, accurate running needed | J7 / JS7 (H6 for precision) | usually yes |
+| Direction of load not defined, medium load (pumps, motors) | J7 | normally yes |
+| Rotating outer ring load (wheel hubs, rollers, idler pulleys) | M7 (light) / N7 (normal) / P7 (heavy, thin-walled housing) | no |
+| Light-alloy housing | one class tighter than above (thermal expansion of aluminium 23·10⁻⁶ /K) | check the fit at operating temperature |
+
+Seat geometry: roundness and cylindricity ≈ IT5/2 (normal), IT3/2 (precision); shoulder run-out ≈ IT5;
+Ra per §7.2. Shoulder and fillet heights: from the bearing catalogue (r_a max, d_a min).
+Mounting by heating the inner ring: ≈ 80 – 100 K above the shaft, **never above 120 °C** (guide 17 §19).
+
+### 20.2 Bearing designation and example catalogue data
+
+Basic designation (ISO 15 dimension series, maker codes):
+
+| Code part | Meaning | Example 6208-2RS1/C3 |
+|---|---|---|
+| First digit(s) | type: 1 self-aligning ball, 2 spherical roller, 3 taper roller, 6 deep groove ball, 7 angular contact ball, N / NU cylindrical roller, 51 thrust ball | 6 = deep groove ball bearing |
+| Next digit | dimension series (width/diameter series): 0 extra light, 2 light, 3 medium, 4 heavy | 2 = light series |
+| Last two digits = bore code | 00 = 10, 01 = 12, 02 = 15, 03 = 17 mm; from 04: **bore = code × 5** | 08 → d = 40 mm |
+| Suffix seals | Z/2Z shields, RS/2RS contact seals (maker variants: 2RSH, 2RS1, 2RSR …) | 2RS1 = seals both sides |
+| Suffix clearance | C2 smaller, CN normal (no mark), C3 bigger, C4 much bigger | C3 – for tight fits or warm shafts |
+| Suffix accuracy | P0 (normal), P6, P5, P4, P2 (ISO 492 classes; ABEC 1/3/5/7/9) | normal |
+
+Deep groove ball bearings – data of a large maker's catalogue (rounded – **check the current catalogue
+of your maker**, values differ between makers):
+
+| Bearing | d × D × B [mm] | C [kN] | C₀ [kN] |
+|---|---|---|---|
+| 6204 | 20 × 47 × 14 | 13.5 | 6.55 |
+| 6205 | 25 × 52 × 15 | 14.8 | 7.8 |
+| 6206 | 30 × 62 × 16 | 20.3 | 11.2 |
+| 6208 | 40 × 80 × 18 | 32.5 | 19.0 |
+| 6210 | 50 × 90 × 20 | 37.1 | 23.2 |
+| 6304 | 20 × 52 × 15 | 16.8 | 7.8 |
+| 6305 | 25 × 62 × 17 | 23.4 | 11.6 |
+| 6308 | 40 × 90 × 23 | 42.3 | 24.0 |
+
+Speed factor n · d_m (d_m = (d + D)/2): grease-lubricated deep groove ball bearings up to ≈ 0.5·10⁶ mm/min
+normal, spindle bearings with special grease ≈ 1 – 1.5·10⁶, oil-air ≈ 2·10⁶ and more (guide 20 §21).
+
+### 20.3 Splines – straight-sided ISO 14 and involute DIN 5480 / ISO 4156
+
+**Straight-sided splines ISO 14 (designation N × d × D, inner diameter centring)** – dimensions in mm
+(selection, check ISO 14):
+
+| Light series N × d × D | Spline width B | Medium series N × d × D | Spline width B |
+|---|---|---|---|
+| 6 × 23 × 26 | 6 | 6 × 11 × 14 | 3 |
+| 6 × 26 × 30 | 6 | 6 × 13 × 16 | 3.5 |
+| 6 × 28 × 32 | 7 | 6 × 16 × 20 | 4 |
+| 8 × 32 × 36 | 6 | 6 × 18 × 22 | 5 |
+| 8 × 36 × 40 | 7 | 6 × 21 × 25 | 5 |
+| 8 × 42 × 46 | 8 | 6 × 23 × 28 | 6 |
+| 8 × 46 × 50 | 9 | 6 × 26 × 32 | 6 |
+| 8 × 52 × 58 | 10 | 6 × 28 × 34 | 7 |
+| 8 × 56 × 62 | 10 | 8 × 32 × 38 | 6 |
+| 8 × 62 × 68 | 12 | 8 × 36 × 42 | 7 |
+| 10 × 72 × 78 | 12 | 8 × 42 × 48 | 8 |
+| 10 × 82 × 88 | 12 | 8 × 46 × 54 | 9 |
+| 10 × 92 × 98 | 14 | 8 × 52 × 60 | 10 |
+| 10 × 102 × 108 | 16 | 8 × 62 × 72 | 12 |
+
+**Involute splines DIN 5480** (30° pressure angle, flank centring – used for most new gearbox and motor
+shafts): designation example **W 40 × 2 × 18 × 8f** = shaft (W), reference diameter 40 mm, module 2,
+18 teeth, tolerance class 8f (hub "N … 9H"). Modules 0.5 – 10. ISO 4156 (= ANSI B92.2M) is the
+international equivalent with pressure angles 30°, 37.5°, 45°.
+
+Surface pressure check (similar to keys, §11.2): p = 2·T / (d_m · h · L · z · φ) ≤ p_allow,
+d_m = mean diameter, h = load-carrying tooth height, z = number of splines/teeth, φ ≈ 0.75 (load share).
+Splines carry ≈ 2 – 4 times the torque of one key of the same length and allow axial sliding.
+
+### 20.4 Gears – standard modules and basic geometry
+
+Standard modules (ISO 54 / DIN 780, series I preferred): **0.5 · 0.6 · 0.8 · 1 · 1.25 · 1.5 · 2 · 2.5 · 3 · 4 ·
+5 · 6 · 8 · 10 · 12 · 16 · 20 · 25** mm (series II: 0.7 · 0.9 · 1.125 · 1.375 · 1.75 · 2.25 · 2.75 · 3.5 · 4.5 · 5.5 · 7 · 9 · 11 · 14 · 18).
+
+Spur gear, standard basic rack ISO 53 (α = 20°, addendum 1·m, dedendum 1.25·m):
+
+| Quantity | Formula | Example m = 3, z₁ = 20, z₂ = 60 |
+|---|---|---|
+| Pitch (reference) diameter | d = m · z | d₁ = 60 mm, d₂ = 180 mm |
+| Tip diameter | d_a = m · (z + 2) | d_a1 = 66 mm |
+| Root diameter | d_f = m · (z − 2.5) | d_f1 = 52.5 mm |
+| Pitch | p = π · m | 9.42 mm |
+| Centre distance | a = m · (z₁ + z₂) / 2 | 120 mm |
+| Ratio | i = z₂ / z₁ = n₁ / n₂ | 3 |
+| Base diameter | d_b = d · cos α | d_b1 = 56.38 mm |
+| Helical gear (helix β) | d = m_n · z / cos β; a = m_n · (z₁ + z₂) / (2·cos β) | β = 15°: d₁ = 62.12 mm, a = 124.23 mm |
+| Minimum teeth without undercut (α 20°) | z_min = 17 (practical 14 with small undercut; fewer with profile shift) | |
+| Tangential force | F_t = 2 · T / d | T = 100 N·m on d₁ = 60 → F_t = 3.33 kN |
+| Radial / axial force | F_r = F_t · tan α_n / cos β; F_a = F_t · tan β | |
+
+Strength of gears: ISO 6336 (spur/helical), worm gears ISO/TS 14521 / DIN 3996 (guide 12 §10.4).
+Quality grades ISO 1328-1 (classes 1 – 11; machine tool drives 5 – 7, general gearboxes 7 – 9).
+
+### 20.5 Circlips (retaining rings) DIN 471 / DIN 472 – selection
+
+Groove data of common sizes (DIN 471 for shafts, DIN 472 for bores – rounded values, **check the
+standard or the maker's table**, e.g. Seeger, Rotor Clip, Würth):
+
+| DIN 471 shaft d₁ [mm] | Ring thickness s | Groove Ø d₂ | Groove width m (H13) | Min. edge distance n | DIN 472 bore d₁ | Groove Ø d₂ | Groove width m |
+|---|---|---|---|---|---|---|---|
+| 10 | 1.0 | 9.6 | 1.1 | 0.6 | 20 | 21.0 | 1.1 |
+| 15 | 1.0 | 14.3 | 1.1 | 1.1 | 26 | 27.2 | 1.3 |
+| 20 | 1.2 | 19.0 | 1.3 | 1.5 | 32 | 33.7 | 1.3 |
+| 25 | 1.2 | 23.9 | 1.3 | 1.7 | 37 | 39.0 | 1.6 |
+| 30 | 1.5 | 28.6 | 1.6 | 2.1 | 42 | 44.5 | 1.85 |
+| 35 | 1.5 | 33.0 | 1.6 | 3.0 | 47 | 49.5 | 1.85 |
+| 40 | 1.75 | 37.5 | 1.85 | 3.8 | 52 | 55.0 | 2.15 |
+| 50 | 2.0 | 47.0 | 2.15 | 4.5 | 62 | 65.0 | 2.15 |
+
+Several bore sizes in the right part match the outer rings of common bearings (32 = 6002, 42 = 6004,
+47 = 6204, 52 = 6205/6304, 62 = 6206/6305) – handy for bearing housings. Rules: §11.4.
+
+### 20.6 O-rings – ISO 3601 sizes and groove design
+
+**Cross-sections (d₂):** ISO 3601-1 inch-based series (same as AS568): **1.78 · 2.62 · 3.53 · 5.33 · 6.99 mm**;
+common metric series (DIN 3771 / maker standard): 1.0 · 1.5 · 2.0 · 2.5 · 3.0 · 4.0 · 5.0 · 6.0 mm. Inner
+diameters d₁ in fine steps (ISO 3601-1 table) – order as "d₁ × d₂ material hardness", e.g.
+"O-ring 44.04 × 3.53 NBR 70".
+
+**Groove design – static seals, without back-up ring** (orientation in the style of ISO 3601-2 and seal
+makers' handbooks; compression and fill **computed**; check the seal maker's tables):
+
+| d₂ [mm] | Radial static: groove depth t | Groove width b | Compression | Groove fill | Axial (face) static: depth t | Width b | Compression | Fill |
+|---|---|---|---|---|---|---|---|---|
+| 1.78 | 1.35 | 2.4 | 24 % | 77 % | 1.28 | 2.6 | 28 % | 75 % |
+| 2.62 | 2.05 | 3.6 | 22 % | 73 % | 1.97 | 3.8 | 25 % | 72 % |
+| 3.53 | 2.80 | 4.8 | 21 % | 73 % | 2.75 | 5.0 | 22 % | 71 % |
+| 5.33 | 4.35 | 7.1 | 18 % | 72 % | 4.24 | 7.3 | 20 % | 72 % |
+| 6.99 | 5.85 | 9.5 | 16 % | 69 % | 5.70 | 9.7 | 18 % | 69 % |
+
+Compression = (d₂ − t)/d₂; fill = O-ring cross-section area / groove area (π·d₂²/4)/(t·b).
+
+Design rules:
+
+| Item | Rule (orientation) |
+|---|---|
+| Compression | static 15 – 30 %; dynamic (piston, rod) 10 – 20 % |
+| Groove fill | ≤ 75 – 85 % (room for swell and thermal expansion) |
+| Stretch on the inner diameter (piston groove) | ≤ 5 – 6 % (more stretch → thinner cross-section → leak) |
+| Compression of the outer diameter (rod / bore groove) | ≤ 1 – 3 % |
+| Extrusion gap (radial clearance) | NBR 70 Shore A: ≈ 0.10 – 0.15 mm up to 100 bar; NBR 90: ≈ 0.10 – 0.20 mm up to 160 bar; above that → **back-up ring** (PTFE / PU), groove wider by the back-up thickness |
+| Surface | groove bottom Ra ≤ 1.6, flanks Ra ≤ 3.2, sealing face Ra 0.8 – 1.6 (static), 0.1 – 0.4 (dynamic) – §7.2 |
+| Lead-in chamfer | 15° – 20°, length ≥ d₂/2; no sharp edges, no thread crossing the O-ring path |
+| Hardness | 70 Shore A standard; 90 Shore A for high pressure / dynamic |
+
+Materials (orientation – check the media resistance table of the seal maker):
+
+| Material | Temperature [°C] | Good for | Not for |
+|---|---|---|---|
+| NBR (nitrile) | −30 … +100 (short +120) | mineral oil HLP, greases, water, air | ozone/weather (outdoor), brake fluid, strong acids |
+| HNBR | −30 … +150 | mineral oil, hot water, coolant emulsions | strong acids, aromatic solvents |
+| FKM (Viton®) | −20 … +200 | hot oil, fuels, many chemicals, high temperature | hot water/steam, amines, brake fluid |
+| EPDM | −45 … +150 | water, steam, brake fluid, coolant (glycol), air | **mineral oil and grease** |
+| VMQ (silicone) | −60 … +200 | air, food, high and low temperature (static) | oils, abrasion, dynamic seals |
+| PTFE / PTFE compounds | −200 … +260 | all media, low friction (back-up rings, rod seals) | is not elastic – needs an energiser |
+
+### 20.7 Radial shaft seals (DIN 3760 / ISO 6194)
+
+Common sizes d × D × b [mm] (type A / AS with dust lip): 20 × 35 × 7 · 25 × 40 × 7 · 30 × 47 × 7 ·
+35 × 52 × 7 · 40 × 62 × 8 · 45 × 62 × 8 · 50 × 72 × 8 · 55 × 72 × 8 · 60 × 80 × 8 · 70 × 90 × 10 · 80 × 100 × 10.
+
+| Item | Value (orientation – seal maker's catalogue) |
+|---|---|
+| Shaft tolerance | h11 (ISO 6194 / DIN 3760) |
+| Housing bore | H8 |
+| Shaft surface | Ra 0.2 – 0.8 µm, Rz 1 – 5, **plunge ground without lead** (§7.2), hardness ≥ 45 – 55 HRC |
+| Lead-in chamfer on the shaft | 15° – 30°, length per size |
+| Circumferential speed NBR | ≤ ≈ 10 – 12 m/s; FKM ≤ ≈ 30 – 35 m/s (depends on pressure, lubrication) |
+| Pressure | standard seals ≈ ≤ 0.5 bar; pressure versions up to ≈ 5 – 10 bar at low speed |
+| Run-out / eccentricity | ≤ ≈ 0.1 – 0.2 mm (depends on speed) |
+
+---
+
+## 21. Pipes, tubes, hoses and compressed-air lines
+
+### 21.1 Precision steel tubes for hydraulics – EN 10305-4 (seamless, cold drawn, +N)
+
+Material E235+N (Re ≥ 235 MPa) or E355+N (Re ≥ 355 MPa). The pressure values below are **computed
+orientation values** with the Barlow formula p = 2 · t_min · (Re / S) / D, S = 1.5, t_min = 0.9·t (wall
+tolerance − 10 %), static load. The makers' tables (DIN 2413 / EN 13480 methods, dynamic load,
+fitting type) can be **lower** – **the lower rating of tube and fitting counts** (§13.2). Flow at
+4 m/s from Q [l/min] = A [cm²] · v [m/s] · 6.
+
+| OD × wall [mm] | ID [mm] | Flow area [cm²] | Q at 4 m/s [l/min] | p static E235 [bar] | p static E355 [bar] | Fitting series (ISO 8434-1, typical) |
+|---|---|---|---|---|---|---|
+| 6 × 1 | 4 | 0.126 | 3.0 | 470 | 710 | L / S |
+| 8 × 1 | 6 | 0.283 | 6.8 | 352 | 532 | L |
+| 8 × 1.5 | 5 | 0.196 | 4.7 | 529 | 799 | S |
+| 10 × 1 | 8 | 0.503 | 12.1 | 282 | 426 | L |
+| 10 × 1.5 | 7 | 0.385 | 9.2 | 423 | 639 | S |
+| 12 × 1 | 10 | 0.785 | 18.8 | 235 | 355 | L |
+| 12 × 1.5 | 9 | 0.636 | 15.3 | 352 | 532 | L |
+| 12 × 2 | 8 | 0.503 | 12.1 | 470 | 710 | S |
+| 15 × 1.5 | 12 | 1.131 | 27.1 | 282 | 426 | L |
+| 15 × 2 | 11 | 0.950 | 22.8 | 376 | 568 | L |
+| 16 × 2 | 12 | 1.131 | 27.1 | 352 | 532 | S |
+| 18 × 1.5 | 15 | 1.767 | 42.4 | 235 | 355 | L |
+| 18 × 2 | 14 | 1.539 | 36.9 | 313 | 473 | L |
+| 20 × 2 | 16 | 2.011 | 48.3 | 282 | 426 | S |
+| 20 × 2.5 | 15 | 1.767 | 42.4 | 352 | 532 | S |
+| 22 × 2 | 18 | 2.545 | 61.1 | 256 | 387 | L |
+| 25 × 2.5 | 20 | 3.142 | 75.4 | 282 | 426 | S |
+| 25 × 3 | 19 | 2.835 | 68.0 | 338 | 511 | S |
+| 28 × 2 | 24 | 4.524 | 109 | 201 | 304 | L |
+| 30 × 3 | 24 | 4.524 | 109 | 282 | 426 | S |
+| 30 × 4 | 22 | 3.801 | 91.2 | 376 | 568 | S |
+| 35 × 3 | 29 | 6.605 | 159 | 242 | 365 | L |
+| 38 × 4 | 30 | 7.069 | 170 | 297 | 448 | S |
+| 42 × 3 | 36 | 10.18 | 244 | 201 | 304 | L |
+| 42 × 4 | 34 | 9.079 | 218 | 269 | 406 | L / S |
+
+Fitting series ISO 8434-1 (24° cone): LL (very light, ≤ ≈ 100 bar), L (light, ≈ 160 – 500 bar depending
+on size), S (heavy, ≈ 250 – 800 bar depending on size) – the **fitting** rating is printed in the
+maker's catalogue per size. Example: tube 12 × 1.5 E235 → 352 bar static (computed), but an L-series
+12 fitting may be rated 400 bar and the maker's tube table may say ≈ 300 bar for pulsating pressure → design
+pressure ≤ the lowest value.
+
+### 21.2 Steel pipes for air, water, coolant – DN sizes (EN 10255 medium, EN 10220)
+
+| DN | Inch | OD [mm] | Wall (EN 10255 medium) [mm] | ID [mm] | Flow area [cm²] | Mass [kg/m] (computed) |
+|---|---|---|---|---|---|---|
+| 15 | 1/2" | 21.3 | 2.6 | 16.1 | 2.04 | 1.20 |
+| 20 | 3/4" | 26.9 | 2.6 | 21.7 | 3.70 | 1.56 |
+| 25 | 1" | 33.7 | 3.2 | 27.3 | 5.85 | 2.41 |
+| 32 | 1 1/4" | 42.4 | 3.2 | 36.0 | 10.18 | 3.09 |
+| 40 | 1 1/2" | 48.3 | 3.2 | 41.9 | 13.79 | 3.56 |
+| 50 | 2" | 60.3 | 3.6 | 53.1 | 22.15 | 5.03 |
+| 65 | 2 1/2" | 76.1 | 3.6 | 68.9 | 37.28 | 6.44 |
+| 80 | 3" | 88.9 | 4.0 | 80.9 | 51.40 | 8.38 |
+| 100 | 4" | 114.3 | 4.5 | 105.3 | 87.09 | 12.19 |
+
+Compressed-air mains today are often aluminium or stainless press systems (outer diameters 20, 25, 32,
+40, 50, 63, 80, 110 mm) – take the inner diameter from the maker.
+
+### 21.3 Hydraulic hoses – EN 853 / EN 856 (maximum working pressure, check the hose print)
+
+| DN (inner Ø) | Dash size | Inch | 1SN (EN 853) [bar] | 2SN (EN 853) [bar] | 4SP (EN 856) [bar] |
+|---|---|---|---|---|---|
+| 6 | −4 | 1/4" | 225 | 400 | 450 |
+| 8 | −5 | 5/16" | 215 | 350 | – |
+| 10 | −6 | 3/8" | 180 | 330 | 445 |
+| 12 | −8 | 1/2" | 160 | 275 | 415 |
+| 16 | −10 | 5/8" | 130 | 250 | 350 |
+| 19 | −12 | 3/4" | 105 | 215 | 350 |
+| 25 | −16 | 1" | 88 | 165 | 280 |
+| 31 | −20 | 1 1/4" | 63 | 125 | 210 |
+
+Burst pressure ≥ 4 × working pressure. Minimum bend radius from the catalogue (≈ 4 – 10 × OD). Hose
+assemblies: EN 853/856 + ISO 17165-2 (installation), maximum use ≈ 6 years from manufacture (DGUV
+rule 113-020 in Germany – check your national rule), always with the production date on the fitting.
+
+### 21.4 Compressed-air lines – pressure drop and sizing
+
+Empirical formula (compressed-air handbooks, e.g. Atlas Copco Compressed Air Manual – orientation):
+
+**Δp = 450 · q_c^1.85 · L / (d⁵ · p)** with Δp in bar, q_c = FAD flow in l/s, L = pipe length in m
+(add ≈ 0.3 – 1 m per elbow/tee/valve as equivalent length), d = inner diameter in mm, p = absolute inlet
+pressure in bar(a).
+
+Computed pressure drop [bar] for **L = 100 m, 7 bar(g) = 8 bar(a)**:
+
+| FAD [m³/min] | d = 20 | 25 | 32 | 40 | 50 | 65 | 80 | 100 mm |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 0.320 | 0.105 | 0.031 | 0.010 | 0.003 | 0.001 | < 0.001 | < 0.001 |
+| 2 | 1.15 | 0.378 | 0.110 | 0.036 | 0.012 | 0.003 | 0.001 | < 0.001 |
+| 5 | 6.29 | 2.06 | 0.600 | 0.196 | 0.064 | 0.017 | 0.006 | 0.002 |
+| 10 | – | 7.43 | 2.16 | 0.708 | 0.232 | 0.063 | 0.022 | 0.007 |
+| 20 | – | – | 7.79 | 2.55 | 0.837 | 0.225 | 0.080 | 0.026 |
+
+Design targets: total drop from compressor to the last user **≤ 0.1 bar** (main line ≤ ≈ 0.03 bar,
+distribution ≤ 0.03 bar, drops and hoses the rest); velocity in mains 6 – 10 m/s (§13.2). Every 1 bar of
+extra compressor pressure costs ≈ 6 – 8 % more energy. Example: 5 m³/min over 100 m DN 50 (d = 53.1 mm)
+→ 0.064 · (50/53.1)⁵ = 0.047 bar → OK; DN 40 (d 41.9) → 0.196 · (40/41.9)⁵ = 0.155 bar → too much.
+
+Water content of air (to size condensate drains and dryers, computed with the Magnus formula):
+
+| Dew point [°C] | −70 | −40 | −20 | 0 | +3 | +10 | +20 | +30 | +40 |
+|---|---|---|---|---|---|---|---|---|---|
+| Saturation water content [g/m³] (of the volume at that state) | 0.003 | 0.12 | 0.88 | 4.85 | 5.94 | 9.38 | 17.2 | 30.3 | 51.0 |
+
+(Below 0 °C over ice.) Example: compressor sucks 5 m³/min at 20 °C, 70 % RH → 0.7 · 17.2 = 12 g/m³ · 300 m³/h
+= 3.6 kg water per hour enters; after compression to 8 bar(a) and an aftercooler at 30 °C the volume is only
+300 · (1/8) · (303/293) = 38.8 m³/h, which can hold 38.8 · 30.3 g = 1.2 kg/h → **≈ 2.4 kg/h condense** in the
+aftercooler and receiver – drains needed, and a dryer for the rest (guide 13 §4.8).
+
+---
+
+## 22. Electric motors, gearboxes and cables – design data
+
+### 22.1 IEC frame sizes, shaft ends and standard powers (IEC 60072-1, EN 50347)
+
+Three-phase squirrel-cage motors, foot mounting IM B3, totally enclosed fan cooled (IC 411). The frame
+number = shaft height H in mm. Standard power per frame per EN 50347 (4-pole, 50 Hz) – the motor makers
+follow it, but **IE3/IE4 motors are sometimes one frame bigger – check the catalogue**.
+
+| Frame | Shaft height H [mm] | Shaft end D × E [mm] (2-pole / 4-pole) | Flange B5 (FF) / B14 (FT) [mm] | 4-pole power [kW] |
+|---|---|---|---|---|
+| 63 | 63 | 11 × 23 | FF115 / FT75 | 0.12 / 0.18 |
+| 71 | 71 | 14 × 30 | FF130 / FT85 | 0.25 / 0.37 |
+| 80 | 80 | 19 × 40 | FF165 / FT100 | 0.55 / 0.75 |
+| 90S / 90L | 90 | 24 × 50 | FF165 / FT115 | 1.1 / 1.5 |
+| 100L | 100 | 28 × 60 | FF215 / FT130 | 2.2 / 3.0 |
+| 112M | 112 | 28 × 60 | FF215 / FT130 | 4.0 |
+| 132S / 132M | 132 | 38 × 80 | FF265 / FT165 | 5.5 / 7.5 |
+| 160M / 160L | 160 | 42 × 110 | FF300 | 11 / 15 |
+| 180M / 180L | 180 | 48 × 110 | FF300 | 18.5 / 22 |
+| 200L | 200 | 55 × 110 | FF350 | 30 |
+| 225S / 225M | 225 | 55 × 110 / 60 × 140 | FF400 | 37 / 45 |
+| 250M | 250 | 60 × 140 / 65 × 140 | FF500 | 55 |
+| 280S / 280M | 280 | 65 × 140 / 75 × 140 | FF500 | 75 / 90 |
+| 315S / 315M | 315 | 65 × 140 / 80 × 170 | FF600 | 110 / 132 |
+
+Shaft tolerance: k6 up to Ø 48, m6 above (EN 50347). Keys DIN 6885 (§11.2).
+
+Mounting arrangements (IEC 60034-7): **IM B3** foot · **IM B5** flange with through holes (FF) · **IM B14**
+face flange with tapped holes (FT) · **IM B35** foot + flange · **IM V1** flange, shaft down · **IM V3**
+flange, shaft up.
+
+### 22.2 Efficiency classes – full table and computed rated data
+
+Minimum efficiency, **4-pole, 50 Hz**, per IEC 60034-30-1 (check the current edition; values for 2- and
+6-pole differ). Rated current and torque **computed** with I = P / (√3 · 400 V · η · cos φ) and
+T = 9 550 · P / n, using the IE3 efficiency and **typical** cos φ and speed of catalogue motors (your
+motor's name plate decides).
+
+| P [kW] | Frame (typical) | IE2 [%] | IE3 [%] | IE4 [%] | cos φ (typ.) | n (typ.) [min⁻¹] | I at 400 V [A] | T_N [N·m] |
+|---|---|---|---|---|---|---|---|---|
+| 0.75 | 80M | 79.6 | 82.5 | 85.7 | 0.75 | 1 440 | 1.7 | 5.0 |
+| 1.1 | 90S | 81.4 | 84.1 | 87.2 | 0.78 | 1 440 | 2.4 | 7.3 |
+| 1.5 | 90L | 82.8 | 85.3 | 88.2 | 0.79 | 1 445 | 3.2 | 9.9 |
+| 2.2 | 100L | 84.3 | 86.7 | 89.5 | 0.81 | 1 450 | 4.5 | 14.5 |
+| 3 | 100L | 85.5 | 87.7 | 90.4 | 0.82 | 1 450 | 6.0 | 19.8 |
+| 4 | 112M | 86.6 | 88.6 | 91.1 | 0.82 | 1 460 | 7.9 | 26.2 |
+| 5.5 | 132S | 87.7 | 89.6 | 91.9 | 0.83 | 1 465 | 10.7 | 35.9 |
+| 7.5 | 132M | 88.7 | 90.4 | 92.6 | 0.83 | 1 465 | 14.4 | 48.9 |
+| 11 | 160M | 89.8 | 91.4 | 93.3 | 0.84 | 1 470 | 20.7 | 71.5 |
+| 15 | 160L | 90.6 | 92.1 | 93.9 | 0.85 | 1 470 | 27.7 | 97.4 |
+| 18.5 | 180M | 91.2 | 92.6 | 94.2 | 0.85 | 1 475 | 33.9 | 120 |
+| 22 | 180L | 91.6 | 93.0 | 94.5 | 0.86 | 1 475 | 39.7 | 142 |
+| 30 | 200L | 92.3 | 93.6 | 94.9 | 0.86 | 1 480 | 53.8 | 194 |
+| 37 | 225S | 92.7 | 93.9 | 95.2 | 0.86 | 1 480 | 66.1 | 239 |
+| 45 | 225M | 93.1 | 94.2 | 95.4 | 0.86 | 1 480 | 80.2 | 290 |
+| 55 | 250M | 93.5 | 94.6 | 95.7 | 0.87 | 1 485 | 96.5 | 354 |
+| 75 | 280S | 94.0 | 95.0 | 96.0 | 0.87 | 1 485 | 131 | 482 |
+
+The 1.1 / 4 / 7.5 / 11 kW rows agree with table §14.7. Energy saving IE2 → IE3 at 7.5 kW, 4 000 h/year at
+75 % load: P_in difference = 5.625 · (1/0.887 − 1/0.904) = 0.119 kW → 477 kWh/year.
+
+### 22.3 Motor formulas, duty types, insulation classes
+
+| Item | Formula / value |
+|---|---|
+| Synchronous speed | n_s = 120 · f / p (p = number of **poles**): 50 Hz → 2-pole 3 000, 4-pole 1 500, 6-pole 1 000, 8-pole 750 min⁻¹ |
+| Slip | s = (n_s − n) / n_s, typically 1 – 5 % (bigger motors less) |
+| Starting (direct on line) | starting current ≈ 6 – 8 × I_N, starting torque ≈ 2 – 3 × T_N, breakdown torque ≈ 2.5 – 3.5 × T_N |
+| Star-delta start | current and torque fall to 1/3 of DOL |
+| On a frequency converter | constant torque up to 50 Hz (87 Hz with 230/400 V motor in delta at 400 V), field weakening above; self-cooled motor at low speed → derate torque (≈ 50 – 70 % at 10 Hz) or use a separate fan |
+| Duty types (IEC 60034-1) | S1 continuous · S2 short-time (e.g. S2 30 min) · S3 intermittent periodic (e.g. S3 40 %) · S4/S5 with starts/braking · S6 continuous with intermittent load · S9 variable load and speed |
+| Insulation class (IEC 60085) | B 130 °C · **F 155 °C** (standard today, used with class B rise = reserve) · H 180 °C |
+| Altitude / ambient | rated for ≤ 1 000 m and ≤ 40 °C; above → derate (≈ 1 % per 100 m above 1 000 m; ≈ 3 – 4 % per K above 40 °C – maker table) |
+| Protection | IP55 standard for TEFC; IP65/66 for wet areas (§14.6) |
+| Vibration and balance | IEC 60034-14 grade A (normal), B (reduced); half-key balancing (ISO 21940-32) |
+
+### 22.4 Gearbox service factors
+
+The gearbox catalogue rating is valid for **uniform load, 8 – 10 h/day, few starts**. For other duties the
+required gearbox rating is: **T_gearbox,rated ≥ T_application · f_B**. Typical service factors in the style
+of AGMA 6010 / gearmotor makers (SEW, NORD, Bonfiglioli, Siemens Flender – each uses its own table and
+load classes – **check the maker's catalogue**):
+
+| Load class (mass acceleration factor m_AF = J_ext / J_motor) | 8 h/day | 16 h/day | 24 h/day |
+|---|---|---|---|
+| I – uniform (m_AF ≤ 0.2): fans, light conveyors, pumps (centrifugal) | 1.0 | 1.1 – 1.25 | 1.25 – 1.4 |
+| II – moderate shock (m_AF ≤ 3): heavy conveyors, AGV drives, hoists, mixers, machine tool auxiliary drives | 1.25 – 1.4 | 1.4 – 1.5 | 1.5 – 1.75 |
+| III – heavy shock (m_AF ≤ 10): crushers, punch presses, reversing drives with high inertia | 1.6 – 1.75 | 1.75 – 2.0 | 2.0 – 2.25 |
+
+Add for many starts per hour (> ≈ 10 – 100 starts/h) and for reversing operation – the gearmotor makers
+give diagrams f_B = f(starts/h, hours/day, load class). Worm gearboxes have additional thermal and
+efficiency factors (η at start ≈ 0.4 – 0.7 for small ratios, lower for high ratios; check self-locking claims).
+
+Example: AGV traction gearbox, load class II, 16 h/day, application torque 120 N·m → required rating
+≥ 120 · 1.5 = 180 N·m (guide 11 §20.5 uses the maker's values).
+
+### 22.5 Cables – where to find the data
+
+Current capacity and voltage drop: §14.1 – §14.3 of this book (IEC 60204-1 Table 6). Full cable sizing
+with grouping, ambient temperature, short-circuit and earth-fault loop checks: **guide 27 §C.7 – §C.10**;
+control and servo cabling, drag-chain cables and cabinet wiring: **guide 24 §10 and §14**; EMC cable
+categories and segregation: guide 27 §B.3 and §D.6.
+
+---
+
+## 23. Thermal data, heat transfer and fluid properties
+
+### 23.1 Thermal properties of materials (room temperature, typical)
+
+Source type: engineering handbooks (VDI Heat Atlas, Dubbel), material data sheets. Values depend on the
+exact alloy – ranges given. α = linear expansion 20 – 100 °C (see also §2.4).
+
+| Material | Thermal conductivity λ [W/(m·K)] | Specific heat c [kJ/(kg·K)] | α [10⁻⁶/K] | Note |
+|---|---|---|---|---|
+| Unalloyed / low-alloy steel (S355, C45, 42CrMo4) | 42 – 50 | 0.46 – 0.49 | 11 – 12.5 | |
+| Austenitic stainless 1.4301 | 15 | 0.50 | 16.0 | poor conductor – hot spots |
+| Grey cast iron EN-GJL-250 | 45 – 55 | 0.50 – 0.54 | 10 – 11 | |
+| Ductile iron EN-GJS-400 | 30 – 36 | 0.50 – 0.52 | 12.5 | |
+| Aluminium 6082 / 5083 / 7075 | 170 / 120 / 130 | 0.90 – 0.96 | 23 – 24 | |
+| Copper Cu-ETP | 390 | 0.385 | 17 | |
+| Tin bronze CuSn12 / brass CuZn39Pb3 | ≈ 50 – 60 / ≈ 110 – 120 | 0.38 | 18 / 20 | |
+| Invar (FeNi36) | ≈ 13 | 0.51 | ≈ 1.2 – 2 | length standards, low-drift fixtures |
+| Granite (measuring plates) | 2.5 – 3.5 | 0.8 | 6 – 8 | thermally slow – good for plates |
+| Polymer concrete (machine beds) | 1.5 – 2.0 | 0.9 – 1.0 | 12 – 15 | damping ≈ 6 – 10 × grey iron |
+| Concrete | 1.6 – 2.1 | 0.88 | 10 – 12 | |
+| Technical ceramics Al₂O₃ / Si₃N₄ | 25 – 35 / 20 – 30 | 0.8 – 0.9 / 0.7 | 7 – 8 / ≈ 3 | Si₃N₄ = hybrid bearing balls |
+| PA6 / POM / PE-UHMW | 0.23 / 0.31 / 0.40 | 1.7 / 1.5 / 1.8 | 80 – 100 / 100 – 120 / 150 – 200 | |
+| PTFE | 0.25 | 1.0 | 100 – 160 | |
+| Mineral wool (insulation) | 0.035 – 0.040 | 0.8 – 1.0 | – | |
+| Air (20 °C, still) | 0.026 | 1.005 | – | |
+| Water (20 °C) | 0.60 | 4.18 | – (volume 0.21·10⁻³/K) | |
+| Mineral oil HLP | 0.13 | 1.9 – 2.0 | – (volume ≈ 0.7·10⁻³/K) | trapped oil: pressure rise ≈ 10 – 15 bar/K (guide 25 §4.12) |
+
+### 23.2 Heat transfer – formulas, coefficients, examples
+
+| Mode | Formula | Typical values |
+|---|---|---|
+| Heat for a temperature change | Q = m · c · ΔT [kJ]; power P = ṁ · c · ΔT [kW] | |
+| Conduction through a wall | Q̇ = λ · A · ΔT / s | |
+| Convection | Q̇ = h · A · ΔT | h [W/(m²·K)]: free convection air 3 – 10 (vertical cabinet wall ≈ 5); forced air 10 – 100 (fan, 2 – 10 m/s); water forced in tubes 1 000 – 10 000; oil forced 100 – 1 500; condensing steam 5 000 – 50 000 |
+| Radiation | Q̇ = ε · σ · A · (T₁⁴ − T₂⁴), σ = 5.670·10⁻⁸ W/(m²·K⁴), T in K | ε: polished aluminium 0.05, machined steel 0.2 – 0.4, oxidised steel 0.8, paint (any colour) 0.85 – 0.95 |
+| Heat exchanger | Q̇ = U · A · ΔT_m; log-mean ΔT_m = (ΔT₁ − ΔT₂) / ln(ΔT₁/ΔT₂) | U [W/(m²·K)]: oil – water plate ≈ 300 – 700; water – water plate 2 000 – 5 000; oil – air cooler ≈ 30 – 80 (per air-side area) |
+| Overall wall coefficient | 1/U = 1/h₁ + s/λ + 1/h₂ | sheet-steel cabinet wall k ≈ 5.5 W/(m²·K) (IEC/TR 60890) |
+| Thermal time constant | τ = m · c / (h · A); after t = τ: 63 %, 3τ: 95 %, 5τ: 99 % of the final temperature | |
+
+Worked examples (computed, `g14/v9_heat.py`):
+
+1. **Insulation:** 10 m² wall, mineral wool 100 mm (λ 0.04), ΔT 30 K → Q̇ = 0.04 · 10 · 30 / 0.1 = **120 W**.
+2. **Cabinet wall convection:** effective surface 4 m², h = 5.5, inside 10 K warmer than the hall → **220 W**
+   can leave without a cooler (guide 05 §11.5, guide 24 §13).
+3. **Radiation:** 1 m² painted surface (ε 0.9) at 60 °C to walls at 20 °C →
+   0.9 · 5.67·10⁻⁸ · (333.15⁴ − 293.15⁴) = **252 W**.
+4. **Hydraulic oil cooler:** 40 l/min HLP 46, ρ 0.86, c 1.9 kJ/(kg·K), cooled 55 → 45 °C:
+   ṁ = 0.573 kg/s → Q̇ = 0.573 · 1.9 · 10 = **10.9 kW**. Water 20 → 28 °C: water flow = 10.9 / (4.18 · 8)
+   = 0.326 kg/s = **19.5 l/min**. Counterflow ΔT₁ = 55 − 28 = 27 K, ΔT₂ = 45 − 20 = 25 K →
+   ΔT_m = 26.0 K; with U = 400 W/(m²·K): A = 10 900 / (400 · 26.0) = **1.05 m²** plate area.
+5. **Warm-up of a steel block:** 100 kg, c = 0.48 kJ/(kg·K), h · A = 10 · 1.5 = 15 W/K → τ = 100 · 480 / 15
+   = 3 200 s = **0.9 h** → wait ≈ 3 τ ≈ 2.7 h before measuring at hall temperature (rule 1.1/6, §15.1).
+
+### 23.3 Water – properties at 1 bar (table values, IAPWS-based handbooks)
+
+| t [°C] | ρ [kg/m³] | c_p [kJ/(kg·K)] | ν [mm²/s] | λ [W/(m·K)] | Vapour pressure [bar] |
+|---|---|---|---|---|---|
+| 0 | 999.8 | 4.217 | 1.787 | 0.561 | 0.0061 |
+| 10 | 999.7 | 4.192 | 1.307 | 0.580 | 0.0123 |
+| 20 | 998.2 | 4.182 | 1.004 | 0.598 | 0.0234 |
+| 40 | 992.2 | 4.179 | 0.658 | 0.631 | 0.0738 |
+| 60 | 983.2 | 4.185 | 0.475 | 0.654 | 0.199 |
+| 80 | 971.8 | 4.197 | 0.365 | 0.670 | 0.474 |
+| 100 | 958.4 | 4.216 | 0.294 | 0.679 | 1.013 |
+
+Coolant emulsions (3 – 8 % concentrate) are close to water (c ≈ 4.0 – 4.1). Water–glycol 30 % (frost to
+≈ −15 °C): c ≈ 3.7, ν at 20 °C ≈ 2.5 – 3 mm²/s.
+
+### 23.4 Air – properties at 1.01325 bar (computed: ideal gas, Sutherland viscosity)
+
+| t [°C] | ρ [kg/m³] | η [10⁻⁶ Pa·s] | ν [mm²/s] |
+|---|---|---|---|
+| −20 | 1.394 | 16.2 | 11.6 |
+| 0 | 1.292 | 17.2 | 13.3 |
+| 20 | 1.204 | 18.1 | 15.1 |
+| 40 | 1.127 | 19.1 | 16.9 |
+| 60 | 1.060 | 20.0 | 18.9 |
+| 80 | 1.000 | 20.9 | 20.9 |
+| 100 | 0.946 | 21.7 | 23.0 |
+| 150 | 0.834 | 23.8 | 28.5 |
+| 200 | 0.746 | 25.7 | 34.5 |
+
+Other constants: R_air = 287.05 J/(kg·K), c_p = 1.005 kJ/(kg·K), κ = c_p/c_v = 1.40, λ = 0.026 W/(m·K).
+Density of compressed air at 20 °C: 1 bar(g) 2.39 · 4 bar(g) 5.96 · 7 bar(g) 9.52 · 8 bar(g) 10.7 ·
+10 bar(g) 13.1 kg/m³ (ρ = p_abs / (R · T)). Water content and dew point: §21.4.
+
+### 23.5 Hydraulic oil – viscosity versus temperature
+
+Computed with the Walther equation (ASTM D341: lg lg(ν + 0.7) = A − B · lg T) for mineral oils with
+viscosity index ≈ 100 (HLP / HM): ν₄₀ = grade, ν₁₀₀ = 5.4 (VG 32), 6.8 (VG 46), 8.7 (VG 68) mm²/s.
+**Use the data sheet of your oil** (HVLP oils with VI 140 – 200 change less with temperature).
+
+| t [°C] | 0 | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 100 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| HLP 32 ν [mm²/s] | 336 | 161 | 86 | 51 | 32 | 21.5 | 15.2 | 11.2 | 8.5 | 5.4 |
+| HLP 46 ν [mm²/s] | 577 | 262 | 134 | 75 | 46 | 30.0 | 20.6 | 14.8 | 11.1 | 6.8 |
+| HLP 68 ν [mm²/s] | 1 033 | 442 | 215 | 116 | 68 | 42.9 | 28.7 | 20.1 | 14.7 | 8.7 |
+
+Reading: the pump's best range (≈ 16 – 36 mm²/s, §13.3) is reached with HLP 46 at ≈ 45 – 68 °C, with
+HLP 32 at ≈ 38 – 58 °C. Cold start limit of many gear/vane pumps ≈ 800 – 1 000 mm²/s → HLP 46 is fine
+down to ≈ −5 °C (904 mm²/s computed), HLP 68 only to ≈ 0 – +2 °C. Density: ρ ≈ 0.870 · (1 − 0.00065 · (t − 15)) kg/dm³
+→ 0.867 at 20 °C, 0.856 at 40 °C, 0.845 at 60 °C. Bulk modulus ≈ 1.4 – 1.8 GPa (§2.4, guide 25 §4.9).
+
+---
+
+## 24. Statistics, quality and reliability tables
+
+![Normal distribution with ±σ areas and the meaning of Cp and Cpk](img/14_normal_distribution.svg)
+
+All values in this chapter were computed with Python (math.erf, math.gamma, numerical integration) –
+script `g14/v7_stats.py`. The full SPC method with the twin's quality data: guide 04 §4.3 and §10.7.
+
+### 24.1 Standard normal distribution
+
+Φ(z) = probability that a value is below μ + z·σ.
+
+| z | Φ(z) | Inside ±z·σ | Outside one side [ppm] | Outside both sides [ppm] | Typical use |
+|---|---|---|---|---|---|
+| 0.5 | 0.69146 | 38.29 % | 308 538 | 617 075 | |
+| 1.0 | 0.84134 | 68.27 % | 158 655 | 317 311 | ±1σ |
+| 1.28 | 0.89973 | 79.95 % | 100 273 | 200 545 | 90 % one-sided bound |
+| 1.5 | 0.93319 | 86.64 % | 66 807 | 133 614 | |
+| 1.645 | 0.95002 | 90.00 % | 49 985 | 99 970 | 95 % one-sided, 90 % two-sided |
+| 1.96 | 0.97500 | 95.00 % | 24 998 | 49 996 | 95 % two-sided |
+| 2.0 | 0.97725 | 95.45 % | 22 750 | 45 500 | ±2σ, warning limits |
+| 2.326 | 0.99000 | 98.00 % | 10 000 | 20 000 | 99 % one-sided |
+| 2.576 | 0.99500 | 99.00 % | 4 998 | 9 995 | 99 % two-sided |
+| 3.0 | 0.99865 | 99.73 % | 1 350 | 2 700 | ±3σ, control limits |
+| 3.5 | 0.99977 | 99.953 % | 233 | 465 | |
+| 4.0 | 0.999968 | 99.9937 % | 31.7 | 63.3 | Cpk 1.33 |
+| 4.5 | 0.9999966 | 99.99932 % | 3.40 | 6.80 | "six sigma" with 1.5σ shift |
+| 5.0 | 0.99999971 | 99.999943 % | 0.287 | 0.573 | Cpk 1.67 |
+| 6.0 | ≈ 1 − 10⁻⁹ | – | 0.00099 | 0.0020 | Cpk 2.0 |
+
+### 24.2 Capability indices
+
+| Index | Formula | Meaning |
+|---|---|---|
+| Cp | (USL − LSL) / (6·σ̂), σ̂ = R̄/d₂ or s̄/c₄ (short-term, within subgroups) | spread only |
+| Cpk | min(USL − μ̂, μ̂ − LSL) / (3·σ̂) | spread and centring |
+| Pp, Ppk | same with the overall standard deviation s of all values (long-term) | what the customer receives |
+| Cm, Cmk (machine capability) | same as Cp/Cpk from ≥ 50 consecutive parts on one machine, short time | machine acceptance (often ≥ 1.67) |
+| Cg, Cgk (gauge capability) | Cg = 0.2·T / (6·s_g), Cgk = (0.1·T − abs(x̄_g − x_ref)) / (3·s_g) | measuring system, ≥ 1.33 (VDA 5 / MSA type 1 study) |
+| ppm from Cpk (one side) | p = 1 − Φ(3·Cpk) | Cpk 1.00 → 1 350 ppm; 1.33 → 32 ppm; 1.67 → 0.29 ppm |
+
+### 24.3 Control chart constants (X̄–R and X̄–s charts, subgroup size n)
+
+Limits: X̄ chart: X̄̄ ± A₂·R̄ (or ± A₃·s̄); R chart: D₃·R̄ … D₄·R̄; s chart: B₃·s̄ … B₄·s̄; σ̂ = R̄/d₂ = s̄/c₄.
+Individuals chart (I–MR): X̄ ± 2.660 · MR̄ (= 3/d₂ with n = 2), MR chart upper limit 3.267 · MR̄.
+
+| n | A₂ | D₃ | D₄ | d₂ | A₃ | B₃ | B₄ | c₄ |
+|---|---|---|---|---|---|---|---|---|
+| 2 | 1.880 | 0 | 3.267 | 1.128 | 2.659 | 0 | 3.267 | 0.7979 |
+| 3 | 1.023 | 0 | 2.574 | 1.693 | 1.954 | 0 | 2.568 | 0.8862 |
+| 4 | 0.729 | 0 | 2.282 | 2.059 | 1.628 | 0 | 2.266 | 0.9213 |
+| 5 | 0.577 | 0 | 2.114 | 2.326 | 1.427 | 0 | 2.089 | 0.9400 |
+| 6 | 0.483 | 0 | 2.004 | 2.534 | 1.287 | 0.030 | 1.970 | 0.9515 |
+| 7 | 0.419 | 0.076 | 1.924 | 2.704 | 1.182 | 0.118 | 1.882 | 0.9594 |
+| 8 | 0.373 | 0.136 | 1.864 | 2.847 | 1.099 | 0.185 | 1.815 | 0.9650 |
+| 9 | 0.337 | 0.184 | 1.816 | 2.970 | 1.032 | 0.239 | 1.761 | 0.9693 |
+| 10 | 0.308 | 0.223 | 1.777 | 3.078 | 0.975 | 0.284 | 1.716 | 0.9727 |
+
+(d₂ by numerical integration, c₄ by the gamma function; A₂ = 3/(d₂·√n), A₃ = 3/(c₄·√n),
+D₃,₄ = 1 ∓ 3·d₃/d₂ with the tabulated d₃.) Worked X̄–R example: guide 13 §9.4.
+
+### 24.4 Sample sizes
+
+**a) "Zero failures in n parts" – how many parts must be good to show that the defect rate is below p**
+(binomial, n = ln(1 − C) / ln(1 − p)):
+
+| Defect rate p to prove | n at 90 % confidence | n at 95 % confidence | n at 99 % confidence |
+|---|---|---|---|
+| 10 % | 22 | 29 | 44 |
+| 5 % | 45 | 59 | 90 |
+| 2 % | 114 | 149 | 228 |
+| 1 % | 230 | 299 | 459 |
+| 0.5 % | 460 | 598 | 919 |
+| 0.1 % (1 000 ppm) | 2 302 | 2 995 | 4 603 |
+
+So a 30-part run-off with zero rejects only proves "< 10 % defective at 95 %" – not "zero defects".
+
+**b) How sure is a measured Cpk?** Lower 95 % one-sided confidence bound (Bissell approximation:
+Cpk_low = Cpk − 1.645 · √(1/(9n) + Cpk²/(2(n − 1)))):
+
+| Measured Cpk | n = 25 | n = 50 | n = 100 | n = 125 | n = 200 |
+|---|---|---|---|---|---|
+| 1.33 | 1.00 | 1.10 | 1.17 | 1.18 | 1.21 |
+| 1.67 | 1.26 | 1.38 | 1.47 | 1.49 | 1.53 |
+| 2.00 | 1.51 | 1.66 | 1.76 | 1.79 | 1.83 |
+
+To *prove* Cpk ≥ 1.33 with 50 parts you must measure ≈ 1.67. (Guide 04 §10.7.6 has the same idea.)
+
+**c) Sample size for a mean value:** n = (z · s / E)², E = allowed error of the mean.
+Example: s = 1 µm, E = ±0.25 µm, 95 % (z = 1.96) → n = (1.96 · 1 / 0.25)² = 61.5 → **62 measurements**.
+
+**d) Acceptance sampling ISO 2859-1 (AQL) – sample size code letters, general inspection level II,
+single sampling, normal inspection** (check the standard for the accept/reject numbers per AQL):
+
+| Lot size | Code | Sample n | Lot size | Code | Sample n |
+|---|---|---|---|---|---|
+| 2 – 8 | A | 2 | 501 – 1 200 | J | 80 |
+| 9 – 15 | B | 3 | 1 201 – 3 200 | K | 125 |
+| 16 – 25 | C | 5 | 3 201 – 10 000 | L | 200 |
+| 26 – 50 | D | 8 | 10 001 – 35 000 | M | 315 |
+| 51 – 90 | E | 13 | 35 001 – 150 000 | N | 500 |
+| 91 – 150 | F | 20 | 150 001 – 500 000 | P | 800 |
+| 151 – 280 | G | 32 | over 500 000 | Q | 1 250 |
+| 281 – 500 | H | 50 | | | |
+
+AQL sampling accepts lots with some defects – for safety and function characteristics use 100 %
+inspection or a capable process (Cpk), not AQL.
+
+### 24.5 Reliability and availability basics
+
+| Quantity | Formula | Example |
+|---|---|---|
+| Failure rate (constant, random failures) | λ = 1 / MTBF | MTBF 500 h → λ = 0.002 /h |
+| Reliability for mission time t | R(t) = e^(−t/MTBF) | 8 h shift: R = e^(−8/500) = 0.984 (98.4 % no failure) |
+| Availability | A = MTBF / (MTBF + MTTR) | MTTR 4 h → A = 500/504 = 99.2 % |
+| Series system (all needed) | R = R₁ · R₂ · … ; A = A₁ · A₂ · … | 3 machines in line at 99.2 % → 97.6 % |
+| Parallel (redundant, one is enough) | R = 1 − (1 − R₁)·(1 − R₂) | two pumps 0.984 each → 0.99974 |
+| Weibull | R(t) = e^(−(t/η)^β); β < 1 early failures, β = 1 random, β > 1 wear-out | bearings β ≈ 1.1 – 1.5 (L₁₀ = η · 0.1054^(1/β)) |
+| B₁₀ life | time at which 10 % have failed (bearings: L₁₀) | §11.1 |
+
+OEE and its link to availability: guide 01 §4.7, guide 06 §23.2. Safety-related reliability (MTTF_D, PL):
+ISO 13849-1 (guide 23/24).
+
+---
+
+## 25. Engineering economics – formulas and tables
+
+All numbers in this chapter are **example values** (price, rates). Formulas and factors were computed with
+Python (`g14/v8_econ.py`). The full investment case of the compressor factory: guide 13 §13.
+
+### 25.1 Formulas
+
+| Item | Formula | Notes |
+|---|---|---|
+| Present value of a future amount | PV = C_t / (1 + i)^t | i = discount (interest) rate per year |
+| Net present value | NPV = −I₀ + Σ C_t / (1 + i)^t + R_n / (1 + i)^n | invest if NPV > 0 |
+| Internal rate of return | IRR = the i at which NPV = 0 (solve by trial or bisection) | invest if IRR > required rate (WACC + risk) |
+| Simple payback | t_p = I₀ / C (constant yearly cash flow C) | ignores time value and life after payback |
+| Discounted payback | year in which the cumulated PV of C_t reaches I₀ | |
+| Annuity (capital recovery) factor | a = i · (1 + i)^n / ((1 + i)^n − 1) | yearly cost of capital: I₀ · a |
+| Present value of an annuity | PVA = C · ((1 + i)^n − 1) / (i · (1 + i)^n) | = C / a |
+| Straight-line depreciation | D = (I₀ − R_n) / n per year | |
+| Imputed interest (cost accounting) | Z = (I₀ / 2) · i (average tied-up capital) | used in machine-hour rates |
+| Break-even quantity | Q_BE = F / (p − v) | F fixed cost, p price, v variable cost per unit |
+| Cost per part | c = (k_M + k_L) · t_e + material + tooling per part; set-up cost / lot size | k_M machine-hour rate, k_L labour rate, t_e time per part [h] |
+
+### 25.2 Discount and annuity factor tables (computed)
+
+**Present value factor 1 / (1 + i)^n:**
+
+| n [years] | 4 % | 6 % | 8 % | 10 % | 12 % | 15 % |
+|---|---|---|---|---|---|---|
+| 1 | 0.962 | 0.943 | 0.926 | 0.909 | 0.893 | 0.870 |
+| 2 | 0.925 | 0.890 | 0.857 | 0.826 | 0.797 | 0.756 |
+| 3 | 0.889 | 0.840 | 0.794 | 0.751 | 0.712 | 0.658 |
+| 4 | 0.855 | 0.792 | 0.735 | 0.683 | 0.636 | 0.572 |
+| 5 | 0.822 | 0.747 | 0.681 | 0.621 | 0.567 | 0.497 |
+| 6 | 0.790 | 0.705 | 0.630 | 0.564 | 0.507 | 0.432 |
+| 7 | 0.760 | 0.665 | 0.583 | 0.513 | 0.452 | 0.376 |
+| 8 | 0.731 | 0.627 | 0.540 | 0.467 | 0.404 | 0.327 |
+| 10 | 0.676 | 0.558 | 0.463 | 0.386 | 0.322 | 0.247 |
+| 12 | 0.625 | 0.497 | 0.397 | 0.319 | 0.257 | 0.187 |
+| 15 | 0.555 | 0.417 | 0.315 | 0.239 | 0.183 | 0.123 |
+
+**Annuity (capital recovery) factor a:**
+
+| n [years] | 4 % | 6 % | 8 % | 10 % | 12 % | 15 % |
+|---|---|---|---|---|---|---|
+| 3 | 0.3603 | 0.3741 | 0.3880 | 0.4021 | 0.4163 | 0.4380 |
+| 5 | 0.2246 | 0.2374 | 0.2505 | 0.2638 | 0.2774 | 0.2983 |
+| 7 | 0.1666 | 0.1791 | 0.1921 | 0.2054 | 0.2191 | 0.2404 |
+| 8 | 0.1485 | 0.1610 | 0.1740 | 0.1874 | 0.2013 | 0.2229 |
+| 10 | 0.1233 | 0.1359 | 0.1490 | 0.1627 | 0.1770 | 0.1993 |
+| 12 | 0.1066 | 0.1193 | 0.1327 | 0.1468 | 0.1614 | 0.1845 |
+| 15 | 0.0899 | 0.1030 | 0.1168 | 0.1315 | 0.1468 | 0.1710 |
+
+### 25.3 Worked investment example – automation cell (example values)
+
+Investment I₀ = 450 000 €, yearly saving (labour, scrap, energy) C = 95 000 €, life 8 years, residual value
+60 000 €, required rate i = 8 %:
+
+- NPV(8 %) = −450 000 + 95 000 · 5.747 + 60 000 · 0.540 = **+128 300 €** → invest.
+- NPV(10 %) = +84 800 €. IRR (bisection) = **14.7 %**.
+- Simple payback = 450 000 / 95 000 = **4.7 years**; discounted payback (8 %) = **6.2 years**.
+- Sensitivity: with only 70 000 €/year saving NPV(8 %) = −450 000 + 70 000 · 5.747 + 32 400 = −15 300 € →
+  marginal. Always show the NPV for pessimistic / expected / optimistic savings (guide 13 §13.6).
+
+### 25.4 Machine-hour rate (Maschinenstundensatz) – HMC example
+
+| Cost item | Basis (example) | €/year | €/h at 3 800 h |
+|---|---|---|---|
+| Depreciation | (450 000 machine + 30 000 installation) / 10 years | 48 000 | 12.63 |
+| Imputed interest | 480 000 / 2 · 6 % | 14 400 | 3.79 |
+| Floor space | 40 m² · 10 €/(m²·month) · 12 | 4 800 | 1.26 |
+| Energy | 25 kW · 60 % average load · 0.20 €/kWh · 3 800 h | 11 400 | 3.00 |
+| Maintenance and repair | 4 % of the machine price | 18 000 | 4.74 |
+| Tools, coolant, consumables | estimate | 15 000 | 3.95 |
+| Share of overheads (supervision, IT, QA) | estimate | 20 000 | 5.26 |
+| **Total machine-hour rate (without operator)** | | **131 600** | **34.63** |
+
+Cost per part: cycle time 12 min (0.2 h), one operator for two machines at 45 €/h →
+(34.63 + 45/2) · 0.2 = **11.43 €** machine + labour per part, plus material and set-up share. Hours per
+year: 2 shifts · 230 days · 7.5 h ≈ 3 450 h · OEE-related correction – use the **planned productive hours**,
+not calendar hours; fewer hours → higher rate.
+
+### 25.5 Break-even example
+
+Fixed cost F = 120 000 €/year, price p = 380 €/unit, variable cost v = 230 €/unit →
+Q_BE = 120 000 / (380 − 230) = **800 units/year**. Guide 13 §13.4 has the factory break-even.
+
+---
+
+## 26. Technical drawing conventions
+
+Source: ISO 128 (lines), ISO 129-1 (dimensions), ISO 216 / ISO 5457 (sheets), ISO 5455 (scales),
+ISO 3098 (lettering), ISO 7200 (title block), ISO 5456 (projection), ISO 13715 (edges), ISO 8015
+(tolerancing principles). Numbering of drawings in this project: guide 15.
+
+### 26.1 Paper sizes (ISO 216, A-series) and drawing frame (ISO 5457)
+
+| Size | mm | Area | Typical use |
+|---|---|---|---|
+| A0 | 841 × 1 189 | 1 m² | layouts, large welded frames |
+| A1 | 594 × 841 | 0.5 m² | assemblies (rotary table, APC) |
+| A2 | 420 × 594 | 0.25 m² | assemblies, large parts |
+| A3 | 297 × 420 | 0.125 m² | most part drawings |
+| A4 | 210 × 297 | 0.0625 m² | small parts, standard sheets (portrait) |
+
+Frame (ISO 5457): border **20 mm** on the left (filing edge), **10 mm** on the other sides; centring marks
+on all four sides; grid reference zones (letters vertical, numbers horizontal). Title block in the bottom
+right corner, width **180 mm** (ISO 7200).
+
+### 26.2 Scales, lines and lettering
+
+| Item | Values |
+|---|---|
+| Scales (ISO 5455) | enlargement 2:1, 5:1, 10:1, 20:1, 50:1 · full size 1:1 · reduction 1:2, 1:5, 1:10, 1:20, 1:50, 1:100, 1:200 |
+| Line width groups (ISO 128-2, ratio wide : narrow = 2 : 1) | 0.5 / 0.25 · **0.7 / 0.35** (A3 – A1) · 1.0 / 0.5 (A0) mm |
+| Lettering heights (ISO 3098) | 1.8 · 2.5 · 3.5 · 5 · 7 · 10 · 14 · 20 mm (dimensions 3.5 mm on A3/A2, title 5 – 7 mm) |
+
+| Line type (ISO 128-2) | Use |
+|---|---|
+| Continuous wide | visible edges and outlines |
+| Continuous narrow | dimension and extension lines, leader lines, hatching, imaginary intersection, short centre lines, thread root (external thread) |
+| Dashed narrow | hidden edges (avoid on modern drawings when possible) |
+| Long-dashed dotted narrow (chain) | centre lines, axes, pitch circles, symmetry lines |
+| Long-dashed dotted wide | areas with special requirements (e.g. hardened zone) |
+| Chain narrow with wide ends and direction arrows | cutting planes of sections |
+| Long-dashed double-dotted narrow | adjacent parts, extreme positions of moving parts, initial outline before forming |
+| Freehand / zigzag narrow | break lines |
+
+### 26.3 Projection method and views
+
+- **First-angle projection (ISO method E, Europe, also China, India):** the top view is drawn **below** the
+  front view, the left view on the **right** side. Symbol: truncated cone with the circles on the right.
+- **Third-angle projection (method A, USA):** top view above, left view on the left. Symbol: circles on the left.
+- Always print the projection symbol in the title block. A drawing without symbol is ambiguous with an
+  international supplier.
+- Sections: hatching 45°, narrow lines; do not hatch shafts, pins, bolts, keys, ribs cut lengthwise.
+
+### 26.4 Title block (ISO 7200) – mandatory and useful fields
+
+| Field | Content (project example) |
+|---|---|
+| Legal owner | company name |
+| Identification number | drawing / part number per guide 15 (e.g. VC-HMC-WRM-0011) |
+| Revision index | A, B, C … with revision table (what changed, date, who) |
+| Date of issue | ISO 8601: 2026-11-12 |
+| Title | part name (+ supplementary title) |
+| Document type | part drawing, assembly drawing, welding drawing … |
+| Created by / approved by | names |
+| Sheet number | 1/2 … |
+| Language | en |
+| Recommended extra fields | scale, projection symbol, material with standard (e.g. 42CrMo4+QT EN ISO 683-2), mass, general tolerances (ISO 2768-mK or ISO 22081), surface default (√Ra 3.2), edge default (ISO 13715), tolerancing principle note "ISO 8015", treatment / coating, CAD file name |
+
+### 26.5 Edges (ISO 13715) and standard notes
+
+| Symbol on the drawing | Meaning |
+|---|---|
+| Edge symbol with "+0.3" | external edge: material may **stay** (burr) up to 0.3 mm |
+| "−0.3" | external edge: material must be **removed** (chamfer/round) 0 … 0.3 mm |
+| "±0.05" | sharp edge: burr or removal up to 0.05 mm |
+| General note "ISO 13715 −0.1 … −0.5" | all edges broken 0.1 – 0.5 mm unless marked |
+
+Standard notes block for machined parts in this project (example):
+
+```
+1. General tolerances ISO 2768-mK (or: ISO 22081, general geometrical tolerance 0.2)
+2. Tolerancing ISO 8015; dimensions at 20 °C
+3. Surface √Ra 3.2 (√) unless marked; edges ISO 13715 −0.2…−0.5, no burrs
+4. Material 42CrMo4+QT EN ISO 683-2, Rm 900–1100 MPa, cert. EN 10204-3.1
+5. Heat treatment: gas nitrided ≥ 600 HV1, Nht 0.3 +0.1 (ISO 18203) – zone as marked
+6. Unmarked radii R0.5; threads ISO 965 6H / 6g
+```
+
+---
+
+## 27. Master formula index – where each formula is explained with an example
+
+Use this index to jump from a formula to the place where it is **derived or used with real numbers**.
+"14 §x" = this book. Section numbers of other guides were checked against the guide headings of this edition.
+
+| Field | Formula | This book | Explained / worked example in |
+|---|---|---|---|
+| Units | conversions, normal volume V_N, FAD | 14 §2.3, §17 | guide 13 §23 (FAD), guide 25 §3.2 (hydraulic units), guide 26 E1 |
+| Statics | σ = F/A, τ, σ_b = M/W, von Mises | 14 §18.1 | guide 09 §10.1, guide 22 §9 (robot statics τ = Jᵀ·F) |
+| Beams | f = F·L³/(48·E·I) etc. | 14 §18.3 | guide 08 §10.7 (stiffness), guide 12 M2.2 |
+| Buckling | Euler, Tetmajer, χ | 14 §18.4, §13.1 | guide 12 M4.4 (ball screw), guide 30 §16 (cylinder rods) |
+| Fatigue | βk, K₂, K_F, Goodman | 14 §18.5 – §18.6 | guide 18 §18 (spindle shaft materials and heat treatment) |
+| Contact | Hertz p_max | 14 §18.1 | guide 09 §10.6, guide 10 §10.4 |
+| Fits | clearance / interference, ISO 286 | 14 §5 | guide 17 §18, guide 18 §21 |
+| Press / shrink fit | Lamé p, ΔT for shrinking | 14 §5.4 | guide 12 W4.3 – W4.5, guide 19 §23 |
+| Thermal growth | ΔL = α·L·ΔT | 14 §2.4 | guide 12 M14, guide 20 §23, guide 26 E5 |
+| Bolts | F_M, M_A (VDI 2230), slip check | 14 §8.3 – §8.4, §19.2 | guide 17 §20, guide 09 §14.2, guide 12 §11.9 |
+| Keys, splines | p = 2T/(d·h'·l) | 14 §11.2, §20.3 | guide 17 §18 |
+| Shafts | d ≥ ∛(16T/(π·τ)), torsion angle | 14 §11.3 | guide 18 §4 |
+| Bearings | L₁₀ = (C/P)^p, L₁₀h | 14 §11.1 | guide 01 §10.4, guide 12 §10.5, guide 20 §20, guide 09 §21.2 (slewing bearing) |
+| Bearing friction / speed | n·d_m, Palmgren M | 14 §20.2 | guide 20 §21 – §22 |
+| Springs | c = G·d⁴/(8·D³·n) | 14 §12.1 | guide 19 §24 (disc-spring pack of the drawbar) |
+| Gears | d = m·z, a, F_t | 14 §20.4 | guide 09 §10.9, guide 22 §17 |
+| Worm gears | lead angle, efficiency, Bach load | – | guide 12 §4.2, §4.6, §10.1 – §10.4 |
+| Ball screws | lead, critical speed, buckling, life | – | guide 12 M4 |
+| Drive dynamics | T = J·α, J_red = J/i², RMS torque | 14 §17.3, §18.7 | guide 09 §19.2 – §19.4, guide 12 M5.1, guide 11 §10.6, guide 22 §17.2 |
+| Motion profiles | trapezoid / S-curve | – | guide 03 §10.1, guide 22 §10 |
+| Robot kinematics | DH, FK, IK, Jacobian | – | guide 22 §5 – §8, formula sheet guide 22 §21 |
+| Motors | T = 9550·P/n, I = P/(√3·U·η·cos φ) | 14 §14.7, §22 | guide 27 A.3, guide 24 §21 |
+| Cables | I_b ≤ I_n ≤ I_z, ΔU | 14 §14.1 – §14.2 | guide 27 §C.7 – §C.8, guide 24 §21 |
+| Short circuit, earth fault | I_k, Z_s, disconnection | – | guide 27 §C.9 – §C.10 |
+| Control | PID, analog scaling, filters | – | guide 05 §10.7, §24 – §26, formula sheet guide 05 §36 |
+| Encoders | resolution, counts | – | guide 05 §25.2 |
+| Cabinet heat | Q = k·A·ΔT | 14 §23.2 | guide 05 §11.5, guide 24 §13 |
+| Hydraulics – basics | F = p·A, Q = A·v, P = p·Q | 14 §13.1 | guide 25 §4 – §5, guide 29 §3 |
+| Hydraulics – losses | Darcy, orifice, Reynolds | 14 §13.2 | guide 25 §4.5 – §4.8 |
+| Hydraulics – stiffness, water hammer | ω₀, Joukowsky | – | guide 25 §4.10 – §4.11 |
+| Accumulators | p·V^n = const | – | guide 25 §7.8, guide 09 §9.2, guide 30 §10 |
+| Hydraulic heat | P_loss → cooler | 14 §23.2 | guide 25 §9 |
+| Hydraulic circuits sizing | – | – | guide 30 §15 – §16 |
+| Pneumatics | air consumption, Δp in mains, leaks | 14 §13.5, §21.4 | guide 13 §17.3 (compressed-air leaks) |
+| Compressor thermodynamics | P_iso, P_ad, T₂, λ_v, FAD | – | guide 13 §4.2, formula sheet guide 13 §23 |
+| Cutting | n, v_f, Q, Kienzle F_c, P_c | 14 §10 | guide 08 §20.1, guide 18 §19.1 |
+| Grinding | q = v_s/v_w, Q′w | 14 §10.5 | guide 18 §20.1 |
+| Tool life and cost | Taylor, cost per part | 14 §25.1 | guide 08 §22.4 |
+| Roughness | R_t ≈ f²/(8r) | 14 §7.1 | guide 08 §10.5 |
+| Measurement uncertainty | GUM, u_c, U = k·u_c | 14 §15.4 | guide 18 §24 |
+| Machine accuracy | ISO 230-2 statistics | – | guide 17 §4.8 and §10.6, guide 26 E4 |
+| Vibration | SDOF, isolation | – | guide 26 D1 – D2, guide 20 §25, §27 |
+| Balancing | U = m·e, ISO 21940 grades | – | guide 20 §26, guide 19 §25 |
+| Foundations | Westergaard, plate load | – | guide 26 C2 – C4 |
+| SPC and capability | X̄–R, I–MR, Cp, Cpk | 14 §24 | guide 04 §10.7, guide 13 §9.4, guide 06 §22.2 |
+| Sampling, confidence | zero-failure n, Cpk bound | 14 §24.4 | guide 04 §10.7.6 |
+| OEE | A × P × Q | – | guide 01 §4.7 and §10.7, guide 06 §23.2 |
+| Flow and capacity | takt, machine count, Little's law | – | guide 13 §5.1 – §5.5, guide 02 §10.1, guide 04 §10.5 |
+| Kanban / safety stock | – | – | guide 02 §4.5, §10.9 |
+| AGVs | fleet size, battery, stopping distance | – | guide 03 §10.4 – §10.8, guide 11 §10.1, §22.3, §23.3, §25.4 |
+| Safety distance | S = K·T + C | 14 §16.1 | guide 21 §17.5, guide 09 §25.3 |
+| Gripping | F = m·(g + a)·S/(μ·n) | – | guide 21 §13.2 – §13.4 |
+| Networks | frame efficiency, link budget, subnets | – | guide 07 §17.5, §18.4, §21.1, formula sheet guide 07 §36 |
+| Alarms | alarm rate KPIs | – | guide 06 §4.4, §10.5, formula sheet guide 06 §31 |
+| Economics | NPV, IRR, payback, machine-hour rate | 14 §25 | guide 13 §13.3 – §13.6 |
+| Heat of the hall | heat balance | 14 §23.2 | guide 13 §7.5 |
+| Statistics | normal table, Φ(z) | 14 §24.1 | guide 01 §10.8 (simulation statistics) |
+
+---
+
+## 28. Where to buy reference tools – handbooks, standards, software, measuring references
+
+Price class (2026, orientation, without tax): **€** < 200 · **€€** 200 – 2 000 · **€€€** 2 000 – 10 000 ·
+**€€€€** > 10 000. Products and prices change – **check with the publisher or distributor**. Brand names
+are examples, not a recommendation.
+
+### 28.1 Handbooks and table books
+
+| Title | Publisher | Language | Price | Why |
+|---|---|---|---|---|
+| Roloff/Matek Maschinenelemente (textbook + Tabellenbuch) | Springer Vieweg | German (translations exist in some languages – check) | € | standard machine-element design method used in this book (bolts, shafts, keys, springs, gears) |
+| Tabellenbuch Metall / English edition "Mechanical and Metal Trades Handbook" | Europa-Lehrmittel | German, English | € | the workshop table book: fits, threads, materials, cutting data |
+| Machinery's Handbook (current edition) | Industrial Press | English | € | US reference, very complete; inch and metric |
+| Dubbel – Taschenbuch für den Maschinenbau / Springer Handbook of Mechanical Engineering | Springer | German / English | € – €€ | engineering encyclopaedia |
+| Shigley's Mechanical Engineering Design | McGraw-Hill | English | € | textbook with fatigue and machine elements |
+| Peterson's Stress Concentration Factors | Wiley | English | € | Kt charts (§18.5) |
+| Roark's Formulas for Stress and Strain | McGraw-Hill | English | € | beams, plates, shells (§18) |
+| VDI-Wärmeatlas / VDI Heat Atlas | Springer | German / English | €€ | heat transfer data (§23) |
+| Free maker handbooks (PDF) | SKF / Schaeffler (bearings), Parker O-Ring Handbook, Freudenberg seals, Bossard / Würth fastener technology, Atlas Copco Compressed Air Manual, Bosch Rexroth hydraulics trainer | English, German | free | catalogues with real design data – download and keep offline |
+
+### 28.2 Standards (ISO / DIN / EN / IEC / VDI)
+
+| Source | What | Notes |
+|---|---|---|
+| ISO Store (iso.org) | ISO standards, PDF or paper | ≈ 100 – 250 CHF per standard; ISO Online Browsing Platform (OBP) shows scope and terms free |
+| DIN Media (formerly Beuth Verlag) | DIN, EN, ISO (in German/English), VDI guidelines (e.g. VDI 2230) | single standards or subscriptions; check the current company name and terms |
+| National standards bodies | BSI (UK), AFNOR (FR), SAC (CN), BIS (IN), ANSI webstore (US) … | the EN/ISO text is the same; local prices differ |
+| IEC Webstore | IEC 60204-1, IEC 60034, IEC 61131 … | |
+| Standard subscriptions | DIN Media Nautos/Perinorm-type services, ASTM Compass, IHS/Accuris | €€€ per year – worth it once you have > ≈ 30 standards in use |
+| EU sources (free) | EUR-Lex (directives, regulations), lists of harmonised standards (Official Journal) | for CE marking (guide 16) |
+| Free summaries | maker catalogues (fits, threads, O-rings), university tables | not binding – the standard text is binding |
+
+Priority list of the standards to buy first: guide 16 §5.
+
+### 28.3 Calculation software
+
+| Software | Maker | Field | Price class | Note |
+|---|---|---|---|---|
+| KISSsoft | Gleason (KISSsoft AG) | gears, shafts, bearings, bolts, springs, whole gearboxes | €€€ – €€€€ (per module set) | industry standard for gears (ISO 6336, DIN 3996) |
+| MDESIGN | TEDATA | machine elements, VDI 2230, DIN 743 | €€ – €€€ | German standards focus |
+| MITCalc | MITCalc | Excel-based machine-element calculations | € | low-cost, good for checks |
+| eAssistant | GWJ Technology | web-based gear, shaft, bearing, bolt calculations | €€ (subscription; free trial – **check**) | runs in the browser – needs internet (not on the offline factory PC) |
+| Hexagon (WL, ZAR, FED …) | HEXAGON Industriesoftware | springs, gears, shafts, bolts | € – €€ per module | small modules, offline |
+| SKF Bearing Select / SKF SimPro, Schaeffler medias / Bearinx-online | SKF, Schaeffler | bearing selection and life | free (basic) / €€€ (expert tools) | online tools |
+| Parker inPHorm / O-ring calculators of seal makers | Parker, Trelleborg, Freudenberg | O-ring grooves | free | |
+| FEM: FreeCAD FEM + CalculiX / Code_Aster / Salome-Meca | open source | stress, modal | free | offline possible; validation needed |
+| FEM commercial: Ansys, Abaqus, SolidWorks Simulation, Autodesk Inventor Nastran | various | stress, modal, thermal | €€€ – €€€€ | |
+| Python (standard library) scripts of this project | – | all tables of this book | free | offline; scripts `g14/*.py` show how each number was computed |
+
+### 28.4 Measuring reference sets (calibrate the workshop)
+
+| Item | Standard | Makers (examples) | Price class | Use |
+|---|---|---|---|---|
+| Gauge block set, steel, 47 / 87 / 112 pieces, grade 1 (workshop) or 0 (inspection room) | ISO 3650 | Mitutoyo, Mahr, TESA, Kolb & Baumann (KOBA), Starrett-Webber, Hoffmann (Garant) | €€ (grade 1 steel) – €€€ (grade 0, ceramic) | setting micrometers, height gauges, checking calipers |
+| Setting ring gauges (one per bore size, e.g. Ø 47 / 52 / 62 / 72 / 80 H7 bearing seats) | DIN 2250-1 / ISO 1938 type | Mahr, Bowers, Diatest, Mitutoyo, Hoffmann | € per ring (≈ 80 – 300 €) | zeroing bore gauges for bearing seats |
+| GO / NO-GO plug gauges H7 | ISO 1938-1 / DIN 2245 | same makers | € per size | series inspection of holes |
+| Thread plug and ring gauges 6H / 6g | ISO 1502 | Hoffmann, Vargus, Mitutoyo, local makers | € per size | threads M3 – M30 |
+| Roughness comparison specimens (turned, milled, ground) | ISO 21920 style | Rubert & Co, Flexbar | € | shop-floor visual/tactile check |
+| Roughness tester (portable) | ISO 21920 / ISO 3274 | Mitutoyo SJ-210, Mahr MarSurf PS 10, Hommel (Jenoptik) | €€ – €€€ | Ra / Rz check of seats and seal surfaces |
+| Hardness test blocks (calibrated HRC / HV / HBW) | ISO 6506-3 / 6507-3 / 6508-3 | Yamamoto, Wilson, Emco-Test, Qness | € per block | daily check of the hardness tester |
+| Precision square, straight edge, granite surface plate grade 0/00 | DIN 875 / DIN 874 / ISO 8512-2 | Mitutoyo, Mahr, Kolb & Baumann, Eley | €€ | flatness, perpendicularity |
+| Electronic level / precision level 0.02 mm/m | – | Wyler, Mahr, Starrett, RSK | €€ – €€€ | machine installation (guide 26 B1) |
+| Calibration service (accredited ISO/IEC 17025) | ISO/IEC 17025 | national labs, maker service | € per item | traceable certificates (§15.1) |
+
+---
+
+## 29. Glossary
 
 | Term | Meaning |
 |---|---|
@@ -1951,7 +3497,49 @@ brake) and add a margin (e.g. 10 – 20 %) for brake wear.**
 | VG | viscosity grade (ISO 3448) |
 | 3.1 certificate | inspection certificate per EN 10204 with test results of the delivered material, confirmed by the maker's inspector |
 
+Terms added with chapters 17 – 28:
+
+| Term | Meaning |
+|---|---|
+| ANR | reference state for pneumatic flows: 20 °C, 100 kPa, 65 % RH (ISO 8778) |
+| Annuity factor a | converts an investment into an equal yearly cost: a = i·(1+i)ⁿ / ((1+i)ⁿ − 1) |
+| AQL | acceptance quality limit of a sampling plan (ISO 2859-1) – not an "allowed defect rate" for safety parts |
+| Back-up ring | PTFE/PU ring beside an O-ring that closes the extrusion gap at high pressure |
+| βk (fatigue notch factor) | how much a notch lowers the fatigue strength: βk = 1 + q·(Kt − 1) |
+| Bore code | last two digits of a bearing number: from 04 up, code × 5 = bore in mm |
+| Cg / Cgk | gauge capability indices (type-1 study) |
+| χ (chi) | buckling reduction factor of EN 1993-1-1 |
+| Discount rate i | interest rate used to compare money at different times |
+| FAD | free air delivery – compressor output converted to inlet conditions (ISO 1217) |
+| First-angle projection | European view arrangement (ISO method E): top view below the front view |
+| f_B (service factor) | multiplier on the application torque to choose a gearbox for the real duty |
+| G thread | parallel pipe thread ISO 228-1, sealed by a washer or O-ring, not in the thread |
+| Groove fill | O-ring section area / groove area – keep ≤ 75 – 85 % |
+| IM B3 / B5 / B14 | motor mounting: foot / flange with through holes / face flange with tapped holes |
+| IRR | internal rate of return – the rate at which NPV = 0 |
+| Kt | elastic stress concentration factor = peak stress / nominal stress |
+| LMTD (ΔT_m) | log-mean temperature difference of a heat exchanger |
+| Machine-hour rate | all costs of a machine per productive hour (without operator) |
+| MTBF / MTTR | mean time between failures / mean time to repair |
+| Nm³ (normal cubic metre) | gas volume at 0 °C, 1.01325 bar (DIN 1343) |
+| NPV | net present value – sum of all discounted cash flows including the investment |
+| Preferred numbers | geometric number series R5/R10/R20/R40 (ISO 3) used for standard sizes |
+| Slenderness λ | buckling length / radius of gyration |
+| Walther equation | viscosity–temperature law of mineral oils (ASTM D341) |
+| Weibull β | shape of the failure distribution: < 1 early failures, 1 random, > 1 wear-out |
+
 ---
+
+## 30. Changes and corrections in this edition
+
+| Item | Change |
+|---|---|
+| New chapters 17 – 28 | units and symbols, strength of materials, threads and fasteners, bearings/splines/gears/seals, pipes and hoses, motors and gearboxes, thermal and fluid data, statistics, economics, drawing conventions, master formula index, where to buy reference tools |
+| Glossary | moved from chapter 17 to chapter 29 (no other guide refers to the old number); new terms added |
+| 8 drawings | `docs/img/14_*.svg` (copies in `web/img/`), embedded in §4.8, §5, §6.4, §7.1, §17, §18.3, §19.1, §24 |
+| §15.4 example | wording corrected: the h6 tolerance for 30 – 50 mm is 0 / −16 µm (width 16 µm), not "±8 µm"; the result U/T = 14 % was already right |
+| §8.3 tables | re-checked with the VDI 2230 formula: preloads agree to 0.1 kN; torques agree within ± 1 % when the head bearing diameter is (d_w,min + d_h,medium)/2 – no change needed |
+| §2.3, §5, §8.1, §8.2, §11.1 – §11.3, §12.1, §13.1, §14.1, §14.2, §14.7, §15.4, §16 | recomputed or compared with the standards' values – no other errors found |
 
 *End of guide 14. If you find a value that differs from the current edition of a standard, correct it
 here and write the edition and date in the table's source line.*

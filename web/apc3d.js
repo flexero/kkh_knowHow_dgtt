@@ -169,7 +169,7 @@ function create3D(host) {
   const clipPlane = new THREE.Plane(new THREE.Vector3(0, 0, -1), 0);
   let M = {}, sel = null, selBox = null, labels = [], explode = 0, explodeTarget = 0, onPick = null;
   const cs = getComputedStyle(document.documentElement);
-  scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed");
+  scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed"); if (window.dtTheme) window.dtTheme.scene(scene);
 
   const mat = (color, o = {}) => new THREE.MeshStandardMaterial({ color, metalness: o.m ?? 0.35, roughness: o.r ?? 0.55, transparent: !!o.op, opacity: o.op ?? 1, side: o.ds ? THREE.DoubleSide : THREE.FrontSide, depthWrite: o.op ? false : true });
   const C = {
@@ -235,7 +235,7 @@ function create3D(host) {
     const d = dims(P, R); M.d = d;
     const { a, b, r } = d;
     // floor
-    const fl = new THREE.Mesh(new THREE.PlaneGeometry(9000, 7000), C.floor); fl.rotation.x = -Math.PI / 2; fl.position.set(-400, 0, -400); fl.userData.part = null; root.add(fl);
+    const fl = new THREE.Mesh(new THREE.PlaneGeometry(9000, 7000), C.floor); fl.rotation.x = -Math.PI / 2; fl.position.set(-400, 0, -400); fl.userData.part = null; root.add(fl); if (window.dtTheme) window.dtTheme.floor(C.floor);
 
     // ---------------- base frame (static)
     const base = new THREE.Group(); root.add(base); M.base = base;

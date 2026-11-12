@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 1000" width="1240" height="1000" font-family="Arial, Helvetica, sans-serif">
+<title>Asset Administration Shell of HMC-01 with submodels</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1240" height="1000" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">01 – Asset Administration Shell (AAS, IEC 63278-1) of machining centre HMC-01 with submodels</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" fill="#444">One AAS per asset. Submodels are standard templates (IDTA numbers – check the current version). Values from config/factory.json; maker data = see datasheet.</text>
+<rect x="440.0" y="360.0" width="360.0" height="190.0" rx="0" fill="#f4f4f4" stroke="#c0392b" stroke-width="2"/>
+<text x="452.0" y="384.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">AAS  HMC_01  (idShort)</text>
+<text x="452.0" y="404.0" font-size="12" text-anchor="start" fill="#111">id: https://example.com/ids/aas/HMC-01</text>
+<text x="452.0" y="424.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">assetInformation:</text>
+<text x="452.0" y="444.0" font-size="12" text-anchor="start" fill="#111">  assetKind = Instance</text>
+<text x="452.0" y="464.0" font-size="12" text-anchor="start" fill="#111">  globalAssetId = https://example.com/ids/asset/HMC-01</text>
+<text x="452.0" y="484.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">submodels: 8 references (below)</text>
+<text x="452.0" y="504.0" font-size="12" text-anchor="start" fill="#111">package file: HMC-01.aasx (IDTA-01005)</text>
+<text x="452.0" y="524.0" font-size="12" text-anchor="start" fill="#111">served by: BaSyx / FA³ST server or file</text>
+<rect x="40.0" y="80.0" width="360.0" height="170.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<rect x="40.0" y="80.0" width="360.0" height="30.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="50.0" y="100.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Digital Nameplate</text>
+<text x="390.0" y="100.0" font-size="11" text-anchor="end" font-weight="bold" fill="#c0392b">IDTA 02006</text>
+<text x="50.0" y="130.0" font-size="11" text-anchor="start" font-style="italic" fill="#444">SubmodelElements (Property):</text>
+<text x="54.0" y="154.0" font-size="12" text-anchor="start" fill="#111">ManufacturerName: see datasheet</text>
+<text x="54.0" y="176.0" font-size="12" text-anchor="start" fill="#111">ManufacturerProductDesignation: HMC</text>
+<text x="54.0" y="198.0" font-size="12" text-anchor="start" fill="#111">SerialNumber: from nameplate</text>
+<text x="54.0" y="220.0" font-size="12" text-anchor="start" fill="#111">YearOfConstruction: 2027 (example)</text>
+<line x1="220.0" y1="250.0" x2="480.0" y2="360.0" stroke="#111" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ak)"/>
+<rect x="440.0" y="80.0" width="360.0" height="170.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<rect x="440.0" y="80.0" width="360.0" height="30.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="450.0" y="100.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Technical Data</text>
+<text x="790.0" y="100.0" font-size="11" text-anchor="end" font-weight="bold" fill="#c0392b">IDTA 02003</text>
+<text x="450.0" y="130.0" font-size="11" text-anchor="start" font-style="italic" fill="#444">SubmodelElements (Property):</text>
+<text x="454.0" y="154.0" font-size="12" text-anchor="start" fill="#111">SpindleSpeedMax: 6 000 rpm</text>
+<text x="454.0" y="176.0" font-size="12" text-anchor="start" fill="#111">RunPower: 18 kW · IdlePower: 4 kW</text>
+<text x="454.0" y="198.0" font-size="12" text-anchor="start" fill="#111">PalletChangeTime: 15 s</text>
+<text x="454.0" y="220.0" font-size="12" text-anchor="start" fill="#111">ToolSetsInMagazine: 2</text>
+<line x1="620.0" y1="250.0" x2="620.0" y2="360.0" stroke="#111" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ak)"/>
+<rect x="840.0" y="80.0" width="360.0" height="170.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<rect x="840.0" y="80.0" width="360.0" height="30.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="850.0" y="100.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Simulation Models</text>
+<text x="1190.0" y="100.0" font-size="11" text-anchor="end" font-weight="bold" fill="#c0392b">IDTA 02005</text>
+<text x="850.0" y="130.0" font-size="11" text-anchor="start" font-style="italic" fill="#444">SubmodelElements (Property):</text>
+<text x="854.0" y="154.0" font-size="12" text-anchor="start" fill="#111">CycleTime VC10/20/30: 270/345/450 s</text>
+<text x="854.0" y="176.0" font-size="12" text-anchor="start" fill="#111">MTBF: 30 h (running) · MTTR: 20 min</text>
+<text x="854.0" y="198.0" font-size="12" text-anchor="start" fill="#111">BaseScrapRate: 0.008</text>
+<text x="854.0" y="220.0" font-size="12" text-anchor="start" fill="#111">ToolWearPerPart: 0.45 %</text>
+<line x1="1020.0" y1="250.0" x2="760.0" y2="360.0" stroke="#111" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ak)"/>
+<rect x="40.0" y="370.0" width="360.0" height="170.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<rect x="40.0" y="370.0" width="360.0" height="30.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="50.0" y="390.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Time Series Data</text>
+<text x="390.0" y="390.0" font-size="11" text-anchor="end" font-weight="bold" fill="#c0392b">IDTA 02008</text>
+<text x="50.0" y="420.0" font-size="11" text-anchor="start" font-style="italic" fill="#444">SubmodelElements (Property):</text>
+<text x="54.0" y="444.0" font-size="12" text-anchor="start" fill="#111">Segment: historian samples (15 s)</text>
+<text x="54.0" y="466.0" font-size="12" text-anchor="start" fill="#111">MCH_L2_HMC01_SpindleTemp °C</text>
+<text x="54.0" y="488.0" font-size="12" text-anchor="start" fill="#111">MCH_L2_HMC01_SpindleVib mm/s</text>
+<text x="54.0" y="510.0" font-size="12" text-anchor="start" fill="#111">MCH_L2_HMC01_Power kW</text>
+<line x1="400.0" y1="455.0" x2="440.0" y2="455.0" stroke="#111" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ak)"/>
+<rect x="840.0" y="370.0" width="360.0" height="170.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<rect x="840.0" y="370.0" width="360.0" height="30.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="850.0" y="390.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Condition Monitoring</text>
+<text x="1190.0" y="390.0" font-size="11" text-anchor="end" font-weight="bold" fill="#c0392b">custom / project</text>
+<text x="850.0" y="420.0" font-size="11" text-anchor="start" font-style="italic" fill="#444">SubmodelElements (Property):</text>
+<text x="854.0" y="444.0" font-size="12" text-anchor="start" fill="#111">VibrationWarn: 4.5 mm/s RMS</text>
+<text x="854.0" y="466.0" font-size="12" text-anchor="start" fill="#111">VibrationAlarm: 7.1 mm/s RMS</text>
+<text x="854.0" y="488.0" font-size="12" text-anchor="start" fill="#111">TempLimit: 75 °C</text>
+<text x="854.0" y="510.0" font-size="12" text-anchor="start" fill="#111">HealthIndex, ToolRUL (live)</text>
+<line x1="840.0" y1="455.0" x2="800.0" y2="455.0" stroke="#111" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ak)"/>
+<rect x="40.0" y="660.0" width="360.0" height="170.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<rect x="40.0" y="660.0" width="360.0" height="30.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="50.0" y="680.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Handover Documentation</text>
+<text x="390.0" y="680.0" font-size="11" text-anchor="end" font-weight="bold" fill="#c0392b">IDTA 02004</text>
+<text x="50.0" y="710.0" font-size="11" text-anchor="start" font-style="italic" fill="#444">SubmodelElements (Property):</text>
+<text x="54.0" y="734.0" font-size="12" text-anchor="start" fill="#111">Operating manual (VDI 2770 class)</text>
+<text x="54.0" y="756.0" font-size="12" text-anchor="start" fill="#111">Electrical drawings, PLC list</text>
+<text x="54.0" y="778.0" font-size="12" text-anchor="start" fill="#111">Spare parts list</text>
+<text x="54.0" y="800.0" font-size="12" text-anchor="start" fill="#111">CE declaration</text>
+<line x1="220.0" y1="660.0" x2="480.0" y2="550.0" stroke="#111" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ak)"/>
+<rect x="440.0" y="660.0" width="360.0" height="170.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<rect x="440.0" y="660.0" width="360.0" height="30.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="450.0" y="680.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Contact Information</text>
+<text x="790.0" y="680.0" font-size="11" text-anchor="end" font-weight="bold" fill="#c0392b">IDTA 02002</text>
+<text x="450.0" y="710.0" font-size="11" text-anchor="start" font-style="italic" fill="#444">SubmodelElements (Property):</text>
+<text x="454.0" y="734.0" font-size="12" text-anchor="start" fill="#111">Service hotline: see maker</text>
+<text x="454.0" y="756.0" font-size="12" text-anchor="start" fill="#111">Local service partner</text>
+<text x="454.0" y="778.0" font-size="12" text-anchor="start" fill="#111">Owner: maintenance (33)</text>
+<text x="454.0" y="800.0" font-size="12" text-anchor="start" fill="#111"></text>
+<line x1="620.0" y1="660.0" x2="620.0" y2="550.0" stroke="#111" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ak)"/>
+<rect x="840.0" y="660.0" width="360.0" height="170.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<rect x="840.0" y="660.0" width="360.0" height="30.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="850.0" y="680.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Carbon Footprint</text>
+<text x="1190.0" y="680.0" font-size="11" text-anchor="end" font-weight="bold" fill="#c0392b">IDTA 02023</text>
+<text x="850.0" y="710.0" font-size="11" text-anchor="start" font-style="italic" fill="#444">SubmodelElements (Property):</text>
+<text x="854.0" y="734.0" font-size="12" text-anchor="start" fill="#111">PCF of the machine: see maker</text>
+<text x="854.0" y="756.0" font-size="12" text-anchor="start" fill="#111">Energy per part (twin):</text>
+<text x="854.0" y="778.0" font-size="12" text-anchor="start" fill="#111">≈ 1.79 kWh run energy per</text>
+<text x="854.0" y="800.0" font-size="12" text-anchor="start" fill="#111">compressor for 3 HMCs (25)</text>
+<line x1="1020.0" y1="660.0" x2="760.0" y2="550.0" stroke="#111" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ak)"/>
+<text x="40.0" y="860.0" font-size="12" text-anchor="start" fill="#111">Every Property has idShort, valueType (xs:double, xs:string …), value, unit and a semanticId (ECLASS / IEC CDD IRDI) so other software understands it.</text>
+<rect x="798.0" y="914.0" width="430.0" height="74.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<line x1="798.0" y1="940.0" x2="1228.0" y2="940.0" stroke="#111" stroke-width="1.2"/>
+<line x1="1048.0" y1="940.0" x2="1048.0" y2="988.0" stroke="#111" stroke-width="1.2"/>
+<text x="806.0" y="932.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – check the maker's documentation</text>
+<text x="806.0" y="958.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Drawing 01-006</text>
+<text x="806.0" y="976.0" font-size="11" text-anchor="start" fill="#111">Guide 01 – Digital twin core</text>
+<text x="1056.0" y="958.0" font-size="11" text-anchor="start" fill="#111">Values: config/factory.json</text>
+<text x="1056.0" y="976.0" font-size="11" text-anchor="start" fill="#111">Rev A · 2026-11-12</text>
+</svg>

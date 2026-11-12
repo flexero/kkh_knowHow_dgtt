@@ -1,0 +1,101 @@
+/* Hydraulics tab – items 2 (standard circuits) + 3 (system sizing). Uses style.css variables → dark theme works. */
+#hyItem2, #hyItem3 { --hc-flow: #ffd23f; }
+.hc-nav { display: flex; flex-wrap: wrap; gap: 6px; }
+.hc-note { color: var(--text-2); font-size: 12.5px; margin: 8px 0 0; max-width: 1100px; }
+.hc-ex { font-size: 11.5px; font-weight: 400; color: var(--text-2); margin-left: 6px; }
+.hc-main { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 16px; }
+.hc-g2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.hc-g2t { gap: 14px; }
+@media (max-width: 1100px) { .hc-main, .hc-g2 { grid-template-columns: minmax(0, 1fr); } }
+.hc-ttl h3 { margin: 0; font-size: 16px; } .hc-sub { color: var(--text-2); font-size: 12.5px; }
+.hc-ctrl { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 8px 0; align-items: center; }
+.hc-seg { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; font-size: 12.5px; }
+.hc-seg > span { color: var(--text-2); margin-right: 2px; }
+.hc-sb { border: 1px solid var(--border); background: var(--surface-2); color: var(--text); font: inherit; font-size: 12.5px; padding: 4px 10px; border-radius: 7px; cursor: pointer; }
+.hc-sb:hover { border-color: var(--accent); }
+.hc-sb.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; font-weight: 600; }
+.hc-run { border-color: var(--accent); }
+.hc-time { color: var(--text-2); font-variant-numeric: tabular-nums; margin-left: 4px; }
+.hc-svgw { border: 1px solid var(--border); border-radius: 8px; background: var(--page); overflow: hidden; }
+.hc-svg { width: 100%; height: auto; display: block; color: var(--text); }
+.hc-cbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 11.5px; color: var(--text-2); margin-top: 6px; }
+.hc-cbar i { display: inline-block; width: 120px; height: 8px; border-radius: 4px; }
+.hc-cbar i.hc-cav { width: 14px; background: #b067ff; }
+.hc-dash { letter-spacing: 1px; color: var(--text); }
+.hc-params { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px 16px; margin-top: 10px; }
+.hc-pi { display: flex; flex-direction: column; gap: 3px; font-size: 12.5px; color: var(--text-2); }
+.hc-pi b { color: var(--text); font-variant-numeric: tabular-nums; }
+.hc-pi select, .hc-pi input[type=number] { font: inherit; font-size: 12.5px; padding: 3px 6px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 6px; max-width: 100%; }
+.hc-pi input[type=range] { width: 100%; accent-color: var(--accent); }
+.hc-in { display: flex; gap: 6px; align-items: center; } .hc-in input { width: 90px; }
+.hc-wrong { margin-top: 10px; padding: 8px 10px; border: 1px solid var(--critical); border-radius: 8px; font-size: 12.5px; display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; }
+.hc-wrong b { color: var(--critical); }
+.hc-wi { display: flex; gap: 6px; align-items: center; cursor: pointer; } .hc-wi input { accent-color: var(--critical); }
+.hc-right h4, .hc-step h4, .card h4 { margin: 10px 0 4px; font-size: 13px; }
+.hc-info { min-height: 40px; }
+.hc-ib { position: relative; border: 1px solid var(--accent); border-radius: 8px; padding: 8px 28px 8px 10px; font-size: 12.5px; background: var(--surface-2); }
+.hc-ib p { margin: 4px 0; } .hc-ib dl { margin: 4px 0 0; display: grid; grid-template-columns: max-content 1fr; gap: 2px 10px; } .hc-ib dt { color: var(--text-2); } .hc-ib dd { margin: 0; }
+.hc-x { position: absolute; right: 6px; top: 4px; border: 0; background: none; color: var(--text-2); font-size: 18px; cursor: pointer; }
+table.hc-tbl { font-size: 12.5px; } table.hc-tbl td, table.hc-tbl th { padding: 4px 6px; white-space: normal; vertical-align: top; }
+table.hc-rd td:first-child { color: var(--text-2); } td.hc-v { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.hc-bad { color: var(--critical); } .hc-ok { color: var(--good-text); }
+.hc-ch { margin-top: 10px; } .hc-cht { font-size: 12.5px; font-weight: 600; margin-bottom: 2px; }
+.hc-chart { width: 100%; height: auto; display: block; }
+.hc-grid { stroke: var(--grid); stroke-width: 1; } .hc-ax { fill: var(--text-2); font-size: 10px; }
+.hc-ser { fill: none; stroke-width: 1.8; stroke-linejoin: round; }
+.hc-cross { stroke: var(--text-2); stroke-width: 1; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
+.hc-tip { fill: var(--surface); stroke: var(--border); rx: 4; } .hc-tipt { fill: var(--text); font-size: 10.5px; }
+.hc-leg { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 11.5px; color: var(--text-2); margin-top: 2px; }
+.hc-leg i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; margin-right: 5px; vertical-align: middle; }
+.hc-c5 { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-top: 6px; }
+@media (max-width: 1100px) { .hc-c5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .hc-c5 { grid-template-columns: minmax(0, 1fr); } }
+.hc-c5i { border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; background: var(--surface-2); }
+.hc-c5i p { margin: 4px 0 0; } .hc-c5m { border-color: var(--serious); } .hc-c5m b { color: var(--serious); }
+.hc-pre { font-family: ui-monospace, Consolas, monospace; font-size: 12px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; overflow-x: auto; white-space: pre; line-height: 1.45; margin: 6px 0; }
+.hc-twin { font-size: 12.5px; color: var(--text-2); border-left: 3px solid var(--accent); padding-left: 8px; }
+.hc-sys { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px 14px; }
+.hc-scroll { overflow-x: auto; }
+table.hc-ld input, table.hc-ld select { font: inherit; font-size: 12px; padding: 2px 4px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 5px; }
+table.hc-ld td { white-space: nowrap; vertical-align: middle; }
+.hc-step h3 { display: flex; align-items: center; gap: 8px; }
+.hc-stn { display: inline-flex; width: 24px; height: 24px; border-radius: 12px; background: var(--accent); color: #fff; align-items: center; justify-content: center; font-size: 13px; }
+.hc-chk { font-size: 12.5px; color: var(--text-2); border-left: 3px solid var(--good); padding-left: 8px; }
+.hc-warnc { border-color: var(--critical); } .hc-warnc b { color: var(--critical); }
+.hc-ol { font-size: 12.5px; padding-left: 20px; margin: 4px 0; } .hc-ol li { margin: 3px 0; }
+/* ---- ISO 1219 symbols (hs…) */
+.hs-s { fill: none; stroke: currentColor; stroke-width: 1.4; }
+.hs-bg { fill: var(--surface); } .hs-nofill { fill: none; }
+.hs-fill { fill: currentColor; stroke: none; }
+.hs-tri { fill: currentColor; }
+.hs-ln { fill: none; stroke-width: 3.2; stroke-linejoin: round; stroke-linecap: round; }
+.hs-fl { fill: none; stroke: var(--hc-flow); stroke-width: 1.6; stroke-dasharray: 5 9; stroke-linecap: round; pointer-events: none; }
+.hs-pil { fill: none; stroke: currentColor; stroke-width: 1.1; stroke-dasharray: 5 3; opacity: .8; }
+.hs-el { fill: none; stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 2 3; }
+.hs-mech { fill: none; stroke: currentColor; stroke-width: 1.2; stroke-dasharray: 8 2 2 2; }
+.hs-dot { fill: currentColor; }
+.hs-tag { fill: var(--text-2); font-size: 10.5px; font-weight: 600; }
+.hs-port { fill: var(--text-2); font-size: 8.5px; }
+.hs-val { fill: var(--text); font-size: 10.5px; font-variant-numeric: tabular-nums; }
+.hs-set { fill: var(--accent); font-size: 10px; font-weight: 600; }
+.hs-sym-t { fill: currentColor; font-size: 10px; font-weight: 600; }
+.hs-hint { fill: var(--text-2); font-size: 11.5px; }
+.hs-big { fill: var(--text); font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.hs-warnbig { fill: var(--critical); font-size: 13px; font-weight: 700; }
+.hs-warn { fill: var(--critical); font-size: 9.5px; font-weight: 700; } .hs-ok { fill: var(--good-text); font-size: 9.5px; font-weight: 700; }
+.hs-click { cursor: pointer; } .hs-click:hover .hs-s { stroke: var(--accent); }
+.hs-solb { cursor: pointer; } .hs-solon { fill: var(--accent); }
+.hs-on { fill: var(--good); } .hs-off { fill: var(--muted); }
+.hs-act { fill: var(--serious); opacity: .25; stroke: none; } .hs-actf { fill: var(--serious); }
+.hs-dash2 { stroke-dasharray: 4 2; }
+.hs-encl { fill: none; stroke: currentColor; stroke-width: 1; stroke-dasharray: 10 3 2 3; opacity: .7; }
+.hs-regbox { stroke: var(--serious); stroke-width: 2; }
+.hs-needle { stroke: var(--critical); stroke-width: 1.6; }
+.hs-oil { fill: #e3a33a; opacity: .7; }
+.hs-rot { stroke: var(--serious); stroke-width: 2.4; stroke-linecap: round; }
+.hs-brk { fill: var(--critical); fill-opacity: .25; }
+.hs-psOn { fill: var(--good); fill-opacity: .3; }
+.hs-ch { opacity: .45; stroke: none; }
+.hs-piston { fill: currentColor; } .hs-rod { fill: var(--muted); stroke: currentColor; stroke-width: 1; }
+.hs-load { fill: var(--surface-2); stroke: currentColor; stroke-width: 1.4; }
+.hs-plat { stroke: currentColor; stroke-width: 6; stroke-linecap: round; }

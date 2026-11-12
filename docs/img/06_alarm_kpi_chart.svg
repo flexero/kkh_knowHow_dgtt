@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" width="1240" height="760" font-family="Arial, Helvetica, sans-serif">
+<title>Alarm rate per hour vs ISA-18.2 targets</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1240" height="760" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">06 – Alarm rate of one operator position over 24 h: before and after rationalisation (example data)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Before: 156 alarms/day (avg 6.5 /h, max 26 /h, 7 h above 6 /h).  After: 59 alarms/day (avg 2.5 /h, max 11 /h, 0 h above 12 /h).</text>
+<rect x="90.0" y="90.0" width="1100.0" height="470.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<line x1="90.0" y1="560.0" x2="1190.0" y2="560.0" stroke="#dddddd" stroke-width="0.8"/>
+<text x="82.0" y="564.0" font-size="11" text-anchor="end" font-weight="normal" fill="#111">0</text>
+<line x1="90.0" y1="492.9" x2="1190.0" y2="492.9" stroke="#dddddd" stroke-width="0.8"/>
+<text x="82.0" y="496.9" font-size="11" text-anchor="end" font-weight="normal" fill="#111">4</text>
+<line x1="90.0" y1="425.7" x2="1190.0" y2="425.7" stroke="#dddddd" stroke-width="0.8"/>
+<text x="82.0" y="429.7" font-size="11" text-anchor="end" font-weight="normal" fill="#111">8</text>
+<line x1="90.0" y1="358.6" x2="1190.0" y2="358.6" stroke="#dddddd" stroke-width="0.8"/>
+<text x="82.0" y="362.6" font-size="11" text-anchor="end" font-weight="normal" fill="#111">12</text>
+<line x1="90.0" y1="291.4" x2="1190.0" y2="291.4" stroke="#dddddd" stroke-width="0.8"/>
+<text x="82.0" y="295.4" font-size="11" text-anchor="end" font-weight="normal" fill="#111">16</text>
+<line x1="90.0" y1="224.3" x2="1190.0" y2="224.3" stroke="#dddddd" stroke-width="0.8"/>
+<text x="82.0" y="228.3" font-size="11" text-anchor="end" font-weight="normal" fill="#111">20</text>
+<line x1="90.0" y1="157.1" x2="1190.0" y2="157.1" stroke="#dddddd" stroke-width="0.8"/>
+<text x="82.0" y="161.1" font-size="11" text-anchor="end" font-weight="normal" fill="#111">24</text>
+<line x1="90.0" y1="90.0" x2="1190.0" y2="90.0" stroke="#dddddd" stroke-width="0.8"/>
+<text x="82.0" y="94.0" font-size="11" text-anchor="end" font-weight="normal" fill="#111">28</text>
+<text x="30.0" y="325.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">alarms / h</text>
+<rect x="94.0" y="492.9" width="17.9" height="67.1" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="113.9" y="526.4" width="17.9" height="33.6" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="112.9" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">00</text>
+<rect x="139.8" y="509.6" width="17.9" height="50.4" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="159.8" y="543.2" width="17.9" height="16.8" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="158.8" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">01</text>
+<rect x="185.7" y="476.1" width="17.9" height="83.9" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="205.6" y="526.4" width="17.9" height="33.6" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="204.6" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">02</text>
+<rect x="231.5" y="526.4" width="17.9" height="33.6" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="251.4" y="543.2" width="17.9" height="16.8" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="250.4" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">03</text>
+<rect x="277.3" y="509.6" width="17.9" height="50.4" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="297.3" y="543.2" width="17.9" height="16.8" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="296.3" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">04</text>
+<rect x="323.2" y="492.9" width="17.9" height="67.1" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="343.1" y="526.4" width="17.9" height="33.6" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="342.1" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">05</text>
+<rect x="369.0" y="257.9" width="17.9" height="302.1" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="388.9" y="442.5" width="17.9" height="117.5" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="387.9" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">06</text>
+<text x="378.5" y="253.9" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">18</text>
+<rect x="414.8" y="408.9" width="17.9" height="151.1" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="434.8" y="509.6" width="17.9" height="50.4" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="433.8" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">07</text>
+<rect x="460.7" y="442.5" width="17.9" height="117.5" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="480.6" y="526.4" width="17.9" height="33.6" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="479.6" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">08</text>
+<rect x="506.5" y="459.3" width="17.9" height="100.7" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="526.4" y="526.4" width="17.9" height="33.6" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="525.4" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">09</text>
+<rect x="552.3" y="476.1" width="17.9" height="83.9" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="572.2" y="526.4" width="17.9" height="33.6" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="571.2" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">10</text>
+<rect x="598.2" y="123.6" width="17.9" height="436.4" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="618.1" y="375.4" width="17.9" height="184.6" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="617.1" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">11</text>
+<text x="607.6" y="119.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">26</text>
+<rect x="644.0" y="425.7" width="17.9" height="134.3" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="663.9" y="509.6" width="17.9" height="50.4" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="662.9" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">12</text>
+<rect x="689.8" y="459.3" width="17.9" height="100.7" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="709.8" y="526.4" width="17.9" height="33.6" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="708.8" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">13</text>
+<rect x="735.7" y="476.1" width="17.9" height="83.9" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="755.6" y="526.4" width="17.9" height="33.6" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="754.6" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">14</text>
+<rect x="781.5" y="492.9" width="17.9" height="67.1" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="801.4" y="543.2" width="17.9" height="16.8" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="800.4" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">15</text>
+<rect x="827.3" y="442.5" width="17.9" height="117.5" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="847.2" y="509.6" width="17.9" height="50.4" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="846.2" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">16</text>
+<rect x="873.2" y="459.3" width="17.9" height="100.7" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="893.1" y="526.4" width="17.9" height="33.6" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="892.1" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">17</text>
+<rect x="919.0" y="476.1" width="17.9" height="83.9" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="938.9" y="526.4" width="17.9" height="33.6" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="937.9" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">18</text>
+<rect x="964.8" y="492.9" width="17.9" height="67.1" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="984.8" y="543.2" width="17.9" height="16.8" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="983.8" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">19</text>
+<rect x="1010.7" y="509.6" width="17.9" height="50.4" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="1030.6" y="543.2" width="17.9" height="16.8" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="1029.6" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">20</text>
+<rect x="1056.5" y="408.9" width="17.9" height="151.1" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="1076.4" y="509.6" width="17.9" height="50.4" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="1075.4" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">21</text>
+<rect x="1102.3" y="492.9" width="17.9" height="67.1" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="1122.3" y="526.4" width="17.9" height="33.6" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="1121.3" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">22</text>
+<rect x="1148.2" y="509.6" width="17.9" height="50.4" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<rect x="1168.1" y="543.2" width="17.9" height="16.8" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="1167.1" y="576.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">23</text>
+<text x="640.0" y="594.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">hour of the day (3 shifts: 06–14, 14–22, 22–06)</text>
+<line x1="90.0" y1="459.3" x2="1190.0" y2="459.3" stroke="#c0392b" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="96.0" y="454.3" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">6 /h ≈ 1 per 10 min – very likely acceptable</text>
+<line x1="90.0" y1="358.6" x2="1190.0" y2="358.6" stroke="#c0392b" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="96.0" y="353.6" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">12 /h ≈ 2 per 10 min – maximum manageable</text>
+<text x="378.8" y="239.9" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">shift start 06:00</text>
+<text x="617.1" y="105.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">flood 11:00: 14 alarms in 10 min</text>
+<rect x="90.0" y="640.0" width="16.0" height="12.0" rx="0" fill="#bdbdbd" stroke="#111" stroke-width="0.8"/>
+<text x="112.0" y="651.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">before rationalisation</text>
+<rect x="290.0" y="640.0" width="16.0" height="12.0" rx="0" fill="#111" stroke="#111" stroke-width="0.8"/>
+<text x="312.0" y="651.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">after (bad actor VMC-01 vibration fixed, 31 → 0; deadbands + delays)</text>
+<text x="90.0" y="674.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Daily targets per operator: ~150 very likely acceptable, ~300 maximum manageable (ISA-18.2 / EEMUA 191).</text>
+<rect x="798.0" y="686.0" width="430.0" height="62.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<line x1="798.0" y1="708.0" x2="1228.0" y2="708.0" stroke="#111" stroke-width="0.8"/>
+<line x1="1048.0" y1="708.0" x2="1048.0" y2="748.0" stroke="#111" stroke-width="0.8"/>
+<text x="806.0" y="702.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – check the maker's documentation</text>
+<text x="806.0" y="726.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Drawing 06-05  alarm KPI chart</text>
+<text x="806.0" y="742.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Guide 06 SCADA · V-compressor factory</text>
+<text x="1056.0" y="726.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">no scale</text>
+<text x="1056.0" y="742.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">rev A · 2026-11-12</text>
+</svg>

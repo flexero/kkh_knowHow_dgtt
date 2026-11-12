@@ -10,6 +10,45 @@
 > values are marked **Correction** (castor spring model 3.2/4.1.5, battery voltage, brake chopper, main fuse,
 > CAN length, quick-stop state, crushing gaps, weight-share test).
 
+## Contents
+
+**Part A – the twin pages and the build data of item 1**
+
+1. Purpose
+2. Where in the twin
+3. Concepts in simple words
+4. Design calculations per item (4.1 crate AGV · 4.2 servo drive control · 4.3 1 t pallet AGV · 4.4 docking accuracy)
+5. Build step by step (manufacturing, wiring, programming, commissioning, acceptance, maintenance, faults)
+6. Checklists
+7. Common mistakes and lessons learned
+8. Limits of the twin pages
+9. Note on chapters 10–15
+10. Science principles (vehicle dynamics, kinematics, stability, PU wheels, BLDC motor, gearbox, control, CAN, LiFePO4, charging, wiring, scissor, cam/screw, springs, safety field, localisation)
+11. Detailed specification of item 1 (chassis, drive module, castor unit, lift, fasteners, electrical, battery sheet, safety, CiA 402 objects, navigation parameters, measuring plan, commissioning sheet)
+12. Identification and numbering
+13. Standards
+14. Complete worked example AGV-01 (crate AGV U300)
+15. Data you still need
+16. Glossary
+
+**Part B – design reference: types, technologies, sizing, buying (added 2026-11-12)**
+
+17. AGV and AMR types, market overview and make-or-buy
+18. Navigation and localisation technologies (tape, wire, QR grid, reflectors, natural contour, accuracy values)
+19. Drive kinematics: differential, tricycle, dual steer-drive, mecanum, omni (drawing `11_kinematics.svg`)
+20. Traction, motor and gearbox sizing – worked example for the 1 t pallet AGV (drawing `11_traction_forces.svg`)
+21. Wheels, floor and suspension (PU types, load rating, floor pressure, joints, rocker / bogie)
+22. Battery technology, sizing and charging (LFP / NMC / LTO / lead, Ah formula, opportunity and inductive charging, BMS) (drawing `11_battery_sizing.svg`)
+23. Safety design in depth (ISO 3691-4 zones, field sizing incl. slopes, width, curves, bumpers, PL, stop categories) (drawing `11_safety_fields.svg`)
+24. Electrical architecture – overview schematic (drawing `11_electrical_schematic.svg`)
+25. Fleet management, VDA 5050, traffic control and fleet size for the crankcase line (drawing `11_fleet_layout.svg`)
+26. Communication: Wi-Fi roaming, network design, private 5G
+27. Station integration: handshakes, time-outs and the docking accuracy budget (drawing `11_docking_budget.svg`)
+28. Commissioning additions, maintenance plan, spare parts and KPIs
+29. Buy list – catalogue examples + shopping list for the crankcase-line fleet
+30. Corrections found in the review of 2026-11-12
+31. Drawings of this guide (index)
+
 ---
 
 ## 1. Purpose
@@ -218,6 +257,13 @@ All formulas are written the way the code calculates them. g = 9.81 m/s².
 | Battery energy | U × Ah | 48 × 60 = 2.88 kWh |
 | Battery length (170 Wh/L, 240 × 150 mm section) | kWh·1000/170 / (0.24·0.15) | 471 mm (space ≈ L/2 + 10 = 560 mm → fits) |
 
+![AGV U300 – chassis plan (drive rocker, castors, battery, cam shafts, control box, scanners with fields) and side view with dimensions](img/11_agv_layout.svg)
+
+*Drawing `11_agv_layout.svg`: one possible arrangement of item 1 with the example values (L 1100, W 560, H 300 mm,
+track 440, castors ±390 / ±210 mm, battery 471 × 240 × 150 mm under the rear cam shaft, scanners FL + RR,
+protective fields 213 … 1294 mm). The battery sits in the middle (z = ±120 mm) and the castors outside
+(z = ±210 mm), so they do not touch, even if the side view shows them on top of each other.*
+
 #### 4.1.3 Mass budget
 
 | Part | Formula / value | kg |
@@ -419,6 +465,12 @@ Check: protective field at full speed ≤ 1500 mm (ok) – long fields mean many
 The docking field under the stand must be part of the **risk assessment**; the station area must be marked
 and people kept out by the layout (ISO 3691-4 restricted zone).
 
+> **Correction (slope, added 2026-11-12):** the formula above used a = 0.8 m/s² on a **flat** floor. **The app now uses a_eff = a − g·slope (downhill on the allowed slope), so its fields are the downhill values (1.2 m/s → 1 432 mm).**
+> The input "max. slope 1 %" means the AGV can also brake **downhill**; then the usable deceleration is
+> a − g · p = 0.8 − 0.098 = 0.70 m/s² and the fields get longer: 222 / 484 / 1054 / **1432 mm** at 0.3 / 0.6 / 1.0 /
+> 1.2 m/s (still ≤ 1500 mm). Use the downhill fields on sloped route parts (or limit the speed there). See 23.3 and
+> drawing `11_safety_fields.svg`.
+
 #### 4.1.11 Stop accuracy budget (RSS)
 
 | Error source | Formula | Example ± mm |
@@ -441,7 +493,8 @@ Station capture: flare 40 mm (mechanical item 3), V-guide 55 mm (item 2)  → en
 
 **Conclusion on the page:** this AGV stops about ±10 mm / ±0.5°. Items 2 and 3 catch ±40–55 mm
 mechanically – **do not pay for a ±2 mm AGV**. The two biggest sources are localisation and the scanner
-mount angle → rigid, pinned scanner brackets are cheap and effective.
+mount angle → rigid, pinned scanner brackets are cheap and effective. Drawing of this budget and of the
+item 4 chains: `11_docking_budget.svg` (chapter 27).
 
 **Navigation methods (from the page, typical values):**
 
@@ -1074,7 +1127,8 @@ COMPT. The station also has HO_AVBL (hand-over available) and ES (emergency stop
 
 #### 4.3.11 The 18 checks of item 3 (example)
 
-Drive motor ok · grip ×3.15 ok · braking 0.8 ≤ 1.72 ok · drive wheel load 264 ≤ 425 kg ok · tipping forward
+Drive motor ok · grip ×3.15 ok · braking 0.8 ≤ 1.72 ok · drive wheel load 264 ≤ 425 kg ok (425 = 0.85 × the
+500 kg rating of 4.3.8 – the "ok" limit of the code) · tipping forward
 ×7.4 ok · sideways ×22 ok · deck up → no driving (interlock, ×14.5 at 0.3 m/s²) · pallet on the deck at
 emergency stop ×1.84 ok · scissor fits under the deck (base 330 ≥ 300) ok · end angle 51.3° ok · scissor fits
 in the AGV length ok · actuator 2 × 25 kN ok · float range ±20 ≥ ±13.1 + 5 ok · ball transfer units ok · lock
@@ -1384,7 +1438,8 @@ Put the AGV on **6 scales** (2 drive wheels + 4 castors), all scale tops at the 
 castor spring preload until the drive wheels carry **50 % of the EMPTY AGV** (item 1: 93.5 kg on the two drive
 wheels together, castors ≈ 23.4 kg each). **Loaded** (300 kg) the castors stay at about 24 kg each and the drive
 wheels carry about 390 kg together (see 10.1.4) – this is correct, not a fault. Then:
-- put a 4 mm plate under **one** castor: each drive wheel (empty) must still carry ≥ 390 N (458 − 60 N, with k_c = 15 N/mm);
+- put a 4 mm plate under **one** castor: each drive wheel (empty) must still carry ≥ 398 N (458 − 60 N, with k_c = 15 N/mm – conservative: the whole
+60 N taken from one wheel; *corrected 2026-11-12, the text said 390 N*);
 - put 4 mm plates under **all four** castors (= dip under the drive line): the two drive wheels (empty) must still
   carry ≥ 677 N together (69 kg). If not, the castor springs are too stiff.
 
@@ -1827,7 +1882,9 @@ Backlash at the wheel rim   x = r · backlash(rad) = 75 · (15/60 · π/180) = 0
 
 **Grip vs motor:** the wheel can transmit μ · N · r. Empty: 0.35 · 458 · 0.075 = 12 Nm < 35.7 Nm → the motor
 **can spin the wheel** when the AGV is empty. So acceleration ramps and current limits must stay below the grip
-limit (0.5 m/s² ramp → 9 Nm needed per wheel at the wheel, ok). The gearbox catalogue must also give the
+limit (empty AGV with the 0.5 m/s² ramp: (0.025 · 187 · 9.81 + 187 · 0.5) / 2 · 0.075 = 5.2 Nm needed per wheel
+< 12 Nm grip, ok; loaded 13.6 Nm needed < 0.35 · 1916 · 0.075 = 50 Nm grip, ok. *Corrected 2026-11-12: the text said
+"9 Nm" – that is only the acceleration part of the loaded AGV and was compared with the empty grip.*). The gearbox catalogue must also give the
 **emergency-stop torque** (often 2 × nominal) and the **permitted radial load** on the output shaft if the wheel
 sits directly on it.
 
@@ -2115,6 +2172,11 @@ stiff and safe; a cheaper C45+QT would also pass – 42CrMo4 is kept for wear on
 | Cover screws | A2-70 stainless or 8.8 zinc, captive where possible |
 
 ### 11.7 Electrical power circuit (item 1)
+
+![AGV U300 electrical overview – battery, BMS, FC1, QB1, precharge, QA1, DC bus, branch fuses, drives, chopper, DC/DC, 24 V, safety controller, STO, scanners, E-stops, CAN, charging contacts](img/11_electrical_schematic.svg)
+
+*Drawing `11_electrical_schematic.svg`: overview of 11.7 + 11.9 in one picture (not a wiring diagram – the real
+schematic `VC-ELE-SCH-09xx` is drawn in your E-CAD with the drive and battery manuals). Explanation per block: chapter 24.*
 
 #### 11.7.1 Fuses, cables, switching devices
 
@@ -2802,3 +2864,999 @@ PFH_D numbers are orders of magnitude; the castor spring example is not fatigue-
 | COB-ID | CAN identifier of a CANopen message = function code + node ID |
 | UN 38.3 | Transport tests T1–T8 for lithium batteries |
 | IEC 62619 | Safety standard for industrial lithium batteries (AGV traction batteries) |
+
+---
+
+# Part B – design reference: types, technologies, sizing, buying (added 2026-11-12)
+
+Part B is the "textbook + catalogue" part. It does not change chapters 1–16; it adds what a designer, buyer or
+integrator of AGVs/AMRs needs on top of them. All numbers are again **example values**, calculated with the same
+inputs as chapters 4 and 14 and checked with a small Python (standard library) script. Two vehicles are used:
+
+- **U300** = item 1, underride crate AGV (empty 187 kg, payload 300 kg, 1.2 m/s, 16s LFP 60 Ah).
+- **P1000** = item 3, 1 t pallet AGV (empty 545 kg, pallet 510 kg, total 1055 kg, 1.0 m/s, 16s LFP 105 Ah).
+
+---
+
+## 17. AGV and AMR types, market overview and make-or-buy
+
+### 17.1 AGV or AMR – what is the difference?
+
+| | AGV (automated guided vehicle) | AMR (autonomous mobile robot) |
+|---|---|---|
+| Path | fixed virtual or physical paths (tape, wire, codes, or lines in the map) | free path planning in a map, goes around obstacles |
+| Obstacle in the path | stops and waits (safety field) | stops, then plans a way around it (if allowed in that zone) |
+| Navigation | tape, wire, QR grid, reflectors, contour | natural contour (SLAM) + 3D cameras |
+| Repeatability at stations | high (±3–10 mm) | ±10–50 mm without help, better with markers / docking aids |
+| Typical payload | 100 kg … 60 t | 50 … 1500 kg (some more) |
+| Fleet control | central fleet manager, traffic zones | fleet manager + local decisions |
+| Strength | predictable cycle time, heavy loads, exact docking | quick to install and change, mixed traffic with people |
+| Weak point | route change = work by the supplier | cycle time less predictable, path not exactly repeatable |
+
+The border is not sharp: many modern "AGVs" use contour navigation and many "AMRs" can be told to follow fixed
+paths. **For this factory** (fixed stations, passive docking, people only at marked crossings) a vehicle that drives
+**fixed virtual paths** in a contour map is the right choice – items 1 and 3 of this guide are such vehicles.
+
+### 17.2 Vehicle classes
+
+| Class | How the load is handled | Typical payload / speed | Use in this factory | Market examples (check the current range) |
+|---|---|---|---|---|
+| Underride / latent lifting | drives under a rack, crate stand or shelf, lifts 30–60 mm | 300 kg … 3 t, 1–2 m/s | **crates** to load station / AS/RS (item 1) | Geek+ P-series, Hikrobot latent robots, MiR600/MiR1350 with lift top module, OMRON HD with top module |
+| Unit-load carrier with conveyor / lift deck | roller, chain or belt deck, often with lift | 100 kg … 2 t | **pallets to the APC**, crates to conveyors (item 3) | KUKA KMP 1500 (with deck), SAFELOG, custom builders |
+| Tugger (tow tractor) | pulls a train of trailers | 1 … 10 t towed, 1.5–2 m/s | milk-run of small parts to final assembly | Linde P-MATIC (check), Jungheinrich EZS a (check), MiR hook |
+| Forklift AGV (pallet stacker / counterbalance) | forks, lifts up to several metres | 1 … 2 t, 1–2 m/s | floor-stored pallets, trucks, block storage | Linde L-MATIC / R-MATIC, Jungheinrich EKS 215a / ERC 215a / ERE 225a (check), AGILOX ONE / OCF (check) |
+| Assembly-line platform | low platform carrying the product through stations | 0.5 … 10 t, slow | compressor final assembly line (optional) | SAFELOG, custom |
+| Heavy-load carrier | dual steer-drive or mecanum, hydraulic lift | 5 … 60 t | not needed here | KUKA omniMove (check), special builders |
+| Small AMR | top box / shelf / cart hook | 50 … 250 kg | tools, documents, small parts | MiR250, OMRON LD-90 / LD-250 |
+
+### 17.3 Make or buy (how to decide)
+
+| Question | Build yourself (as items 1 and 3) | Buy a series vehicle |
+|---|---|---|
+| Is there a series vehicle that fits the load and the station? | no – special crate stand, floating deck, 1104 mm transfer height | yes – standard pallet, shelf, cart |
+| Who is the manufacturer (CE, ISO 3691-4, risk assessment, PL d validation)? | **you** | the supplier (you still do the **system** risk assessment of routes, stations, charging) |
+| Navigation + fleet software | must be bought anyway (chapters 18, 25) | included |
+| Time to the first vehicle | 9–18 months for a first team | 2–6 months |
+| Changes later | you can change everything | depends on the supplier's options |
+| Spare parts | your own BOM, standard catalogue parts | supplier; ask for 10-year availability |
+| Number of vehicles | 2–5 similar vehicles: building pays only if no series vehicle fits | many vehicles: series vehicle usually cheaper per unit |
+
+**Recommendation for the crankcase line:** buy the **navigation controller, safety components, drives and fleet
+manager** in any case. Build the **chassis, lift and deck** yourself only for the special loads (crate on stand rails,
+pallet with floating deck to the APC). Ask two series suppliers (17.2) for an offer first – if one has a lift or
+conveyor top module that fits the station interface sheet (4.3.10), buying is faster and the CE work is smaller.
+
+---
+
+## 18. Navigation and localisation technologies
+
+### 18.1 Overview with typical values
+
+| Method | Principle | Position accuracy (typ., at stations) | Infrastructure | Route change | Good for | Weak points |
+|---|---|---|---|---|---|---|
+| Inductive wire | wire in a floor slot carries AC current; coils on the AGV measure the field | ±5–10 mm sideways | slot + wire + generator | very hard (new slot) | old heavy systems, outdoor | expensive change, floor damage |
+| Magnetic tape + RFID / magnets | magnetic line sensor (e.g. 16 Hall sensors, ≈ 1 mm resolution) follows tape; RFID tags or magnets for stops | ±5 sideways, ±10 along (RFID stop); ±2–5 with a magnet stop point | tape glued or cut into the floor | easy but manual | simple loops, low cost | tape wear by forklifts, swarf sticks to it |
+| Optical line | camera / optical sensor follows a painted or taped line | ±5 mm | coloured tape | easy | clean areas | dirt, wear, light |
+| QR / Data-Matrix grid | downward camera reads a code every ≈ 1 m; odometry between codes | ±5–10 mm, ±0.5–1° (maker claims ±10 mm – check) | codes on the floor in a grid | add codes | dense warehouses, latent robots | foundry sand, forklift tyres and cleaning machines wear the codes |
+| Laser + reflectors (triangulation) | rotating laser measures angle and distance to ≥ 3 reflectors whose positions are in a map | ±3–5 mm, ±0.1–0.2° | reflector strips on columns / walls at scanner height | add reflectors + map | high accuracy, changing contour | reflectors must stay visible and clean |
+| Natural contour (SLAM / contour localisation) | 2D lidar (often the safety scanners) compares walls, columns, machines with the map | ±10 mm, ±0.5° with good contour; worse in empty halls or with many moving objects | none (map recording) | software only | most AMRs and modern AGVs | needs about 1/3 fixed contour in view; open areas, mirrors, glass |
+| 3D camera / ceiling features | camera sees ceiling lights / structure or 3D features | ±10–30 mm | none | software | as a supplement | light changes, high halls |
+| Fine positioning at the station | extra sensor on a target (camera on a marker, 2D laser on a V-shape, magnet) for the last 100 mm | ±1–2 mm | one target per station | per station | precise docking without mechanics | cost per station |
+
+The values are typical orders of magnitude from supplier data and practice – **ask for the guaranteed value at your
+station, with your floor and contour, as ±3σ**, and test it with the 30-run test (5.6).
+
+### 18.2 Reflector triangulation in one formula
+
+With two or more reflectors the position is the intersection of measured distance circles (or bearing lines). The
+error is smallest when the lines cross at a good angle γ (60–120°):
+
+```
+σ_pos ≈ σ_r / sin γ        (σ_r = distance noise after filtering, γ = crossing angle)
+Example: σ_r = 4 mm, γ = 60°  →  σ_pos = 4 / 0.866 = 4.6 mm (1σ)
+         γ = 20° (reflectors almost in one line) → 4 / 0.342 = 11.7 mm
+```
+
+**Rule:** at least 3 reflectors in view at every station, spread around the vehicle, not all on one wall; at
+scanner height (here ≈ 175 mm); on fixed columns, not on racks that move with forklift impacts.
+
+### 18.3 QR grid – why odometry matters between the codes
+
+The camera gives a very good fix only above a code. Between codes the vehicle drives on odometry and the error
+grows (10.2.2): with 0.5 % wheel error and codes every 1 m the along-error reaches 5 mm before the next code.
+Clean floors are a must – in the casting area (sand, swarf) QR grids are a poor choice.
+
+### 18.4 Natural contour – what makes it work
+
+1. **Fixed contour in view**: walls, columns, machine bases. Pallets, crates and people do not count.
+2. **Map quality**: record the map with the machines in their final positions; record again after layout changes.
+3. **Scanner mounting**: rigid, dowelled, known height; 0.05° = 3.5 mm at 4 m (10.16).
+4. **Localisation confidence**: the vehicle must stop (or slow down) when the confidence is low (11.11: 15 mm / 0.5° 1σ).
+5. **Hybrid**: contour for driving + reflectors near the critical stations (APC, AS/RS) is a cheap and strong mix.
+
+### 18.5 Which method for which part of this factory
+
+| Area | Recommended | Why |
+|---|---|---|
+| Main aisle, machining hall | natural contour | many columns and machines, no infrastructure |
+| AS/RS I/O, crate stands | contour + reflectors at the station, mechanical V-guides | ±10 mm is enough (V-guides catch ±47–60 mm) |
+| APC load stations (P1000) | contour + reflectors, floating deck + cone pins | navigation ±10 mm, mechanics give ±0.02 mm (4.4) |
+| Casting store / foundry dust | contour (no floor codes, no tape) | sand wears codes and tape |
+
+---
+
+## 19. Drive kinematics: differential, tricycle, dual steer-drive, mecanum, omni
+
+![Drive kinematics – differential, tricycle and mecanum with formulas and example values](img/11_kinematics.svg)
+
+### 19.1 Differential drive (items 1 and 3)
+
+Formulas in 10.2.1. Example (item 1): v = 0.6 m/s on R = 1.0 m, track b = 0.44 m → ω = 0.6 rad/s,
+v_R = 0.732 m/s, v_L = 0.468 m/s = 1864 / 1192 rpm at the motor (2546 rpm per m/s).
+The castors must swivel freely; their **swivel offset** (trail, often 30–50 mm) gives a short sideways push when the
+direction reverses – one reason for the ±0.5° angle error at stations.
+
+### 19.2 Tricycle (one steer-drive unit in front, fixed rear axle)
+
+```
+ω = v_s · sin δ / L          v (rear axle centre) = v_s · cos δ          R = L / tan δ
+Example: v_s = 0.6 m/s, δ = 30°, L = 0.9 m  →  v = 0.520 m/s, ω = 0.333 rad/s, R = 1.559 m
+δ = 85° → R = 0.079 m (it turns almost on the spot about the rear axle centre)
+```
+
+Standard for tuggers and forklift AGVs: one drive, simple, robust. Needs a large swept area in curves.
+
+### 19.3 Dual steer-drive (two steer-drive units, e.g. front and rear on the long axis)
+
+Each unit i at (x_i, y_i) must point in the direction of its own velocity:
+
+```
+v_ix = v_x − ω · y_i          v_iy = v_y + ω · x_i
+steering angle θ_i = atan2(v_iy, v_ix)          wheel speed = √(v_ix² + v_iy²)
+Example: units at x = ±0.6 m, v_x = 0.5, v_y = 0.2 m/s, ω = 0.3 rad/s
+         front unit: 0.628 m/s at 37.2° · rear unit: 0.500 m/s at 2.3°
+```
+
+Full omnidirectional motion with normal PU wheels (good on industrial floors, good odometry). Two servo axes per
+unit (drive + steer) – more cost and software.
+
+### 19.4 Mecanum (4 wheels with 45° rollers)
+
+```
+ω1 (FL) = (v_x − v_y − k·ω) / r        ω2 (FR) = (v_x + v_y + k·ω) / r
+ω3 (RL) = (v_x + v_y − k·ω) / r        ω4 (RR) = (v_x − v_y + k·ω) / r          k = l_x + l_y
+Example r = 0.1 m, l_x = 0.4 m, l_y = 0.3 m (k = 0.7 m):
+  v_x 0.5 m/s → all 5.0 rad/s (47.7 rpm) · v_y 0.3 m/s → −3 / +3 / +3 / −3 rad/s · ω 0.5 rad/s → −3.5 / +3.5 / −3.5 / +3.5
+```
+
+Moves sideways and diagonally – good for very narrow places and docking without manoeuvring. Price: the rollers need
+a **flat, clean, hard floor**; efficiency sideways is low; rollers slip so odometry is worse; floor joints and foundry
+dust wear the rollers. Payload per wheel is limited by the small roller contact.
+
+### 19.5 Omni wheels (3 wheels at 120°)
+
+`v_i = −sin θ_i · v_x + cos θ_i · v_y + R · ω` (wheels at θ = 90°/210°/330°, R = 0.25 m): v_x = 0.4 m/s gives wheel
+speeds −0.4 / +0.2 / +0.2 m/s. Only for small, light robots on very good floors – not for 1 t.
+
+### 19.6 Choice for this factory
+
+Items 1 and 3 keep **differential drive on a rocker + sprung castors**: lowest cost, good odometry, turns on the
+spot, and the stations need no sideways move because the **mechanics catch** the stop error (4.4). Choose dual
+steer-drive or mecanum only when the layout forces sideways docking (e.g. a station that can only be approached
+from the side in a 1.2 m aisle).
+
+---
+
+## 20. Traction, motor and gearbox sizing – worked example for the 1 t pallet AGV
+
+![Traction forces of the 1 t pallet AGV – free-body diagram, torque vs slope, step climbing](img/11_traction_forces.svg)
+
+### 20.1 The four forces
+
+```
+F = F_r + F_s + F_a (+ F_step)
+F_r = c_rr · m · g                rolling (PU on concrete 0.010–0.015; castors included in 0.015)
+F_s = m · g · sin(atan p)         slope p (1 % → 0.01)
+F_a = m · a (· 1.01–1.05)         acceleration (+ rotating parts, usually 1–5 %)
+F_step = N · √(2·r·h − h²)/(r − h) extra force at a step h for a wheel of radius r with load N
+```
+
+### 20.2 Worked example P1000 (values of item 3, see 4.3.8)
+
+| Step | Formula | Result |
+|---|---|---|
+| Mass | 545 kg empty + 510 kg pallet | m = 1055 kg (1054.7) |
+| Rolling | 0.015 · 1055 · 9.81 | 155 N |
+| Slope 1 % | 0.01 · 1055 · 9.81 | 103 N |
+| Acceleration 0.3 m/s² | 1055 · 0.3 | 316 N |
+| Peak force | 155 + 103 + 316 | **575 N** → 288 N per drive wheel |
+| Rotating parts | 2 · J · i² / r² with J ≈ 7.5e-5 kg·m² (motor + gearbox, assumed) | ≈ 13.5 kg = 1.3 % → ignored |
+| Wheel speed | 1.0 · 60 / (π · 0.2) | 95.5 rpm |
+| Gear ratio | i ≤ 3000 / 95.5 / 0.97 = 32.4 → standard ratio | **i = 30** (top speed 1.05 m/s, limited to 1.0) |
+| Motor peak torque | 288 · 0.1 / (30 · 0.9) | **1.07 Nm** ≤ 0.8 · 3.8 = 3.04 Nm (400 W) ✓ |
+| Motor continuous torque | (155 + 103) / 2 · 0.1 / 27 | **0.48 Nm** ≤ 0.8 · 1.27 = 1.02 Nm ✓ |
+| Continuous power per motor | 1055 · 0.025 · 9.81 · 1.0 / 0.9 / 2 | 144 W ≤ 0.6 · 400 W = 240 W ✓ (200 W fails: 144 > 120 W) |
+| RMS torque over one part cycle (174 s: 4 × 3.3 s accelerating at 1.07 Nm, 17.3 s cruising at 0.48 Nm, 4 × 3.3 s braking at −0.10 Nm, 130 s standing at hand-overs) | √(Σ T² · t / Σ t) | **0.33 Nm** ≤ 1.02 Nm ✓ |
+| Grip loaded (50 % share, μ 0.35) | 0.35 · 5173 N = 1811 N vs 575 N | ×3.15 ✓ |
+| Grip empty | 0.35 · 2672 N = 935 N vs 297 N | ×3.15 ✓ |
+| Wheel spin when empty | grip torque per wheel 0.35 · 1336 · 0.1 = 46.8 Nm; motor peak gives 3.8 · 30 · 0.94 = 107 Nm | limit the motor torque to **≈ 1.66 Nm (44 % of peak)** when empty, or ramp |
+
+**Result:** 2 × 400 W, i = 30, Ø200 – the same as the twin (4.3.8). The motor is chosen by the **continuous power
+rule**, not by the peak torque.
+
+### 20.3 Slopes and ramps (uphill, loaded)
+
+| Slope | Peak force | Motor peak | Motor continuous | Downhill braking grip available (μ 0.35, loaded) |
+|---|---|---|---|---|
+| 0 % | 472 N | 0.87 Nm | 0.29 Nm | 1.72 m/s² |
+| 1 % | 575 N | 1.06 Nm | 0.48 Nm | 1.62 m/s² |
+| 2 % | 678 N | 1.26 Nm | 0.67 Nm | 1.52 m/s² |
+| 4 % | 885 N | 1.64 Nm | **1.05 Nm > 1.02** | 1.32 m/s² |
+| 6 % | 1091 N | 2.02 Nm | **1.44 Nm** | 1.13 m/s² |
+
+Reading: the 400 W motor is fine up to 2 %. On a 4 % ramp it is above its continuous limit – acceptable only for a
+short ramp (< 10 s; check the motor's thermal time constant) – otherwise use 750 W. Downhill the available braking
+falls (a − g · p) and the safety fields must be longer (23.3).
+
+### 20.4 Steps, joints and door sills
+
+```
+F_step = N · √(2·r·h − h²) / (r − h)
+Castor Ø150 (r = 75 mm), load N = 1293 N:  h = 2 mm → 305 N · h = 5 mm → 497 N · h = 10 mm → 744 N
+Drive wheel Ø200 (r = 100 mm): needed F/N = 0.203 (2 mm) · 0.329 (5 mm) · 0.484 (10 mm) vs μ = 0.35
+```
+
+A drive wheel cannot climb a 10 mm step by its own grip (0.484 > 0.35), and one castor on a 5 mm step needs almost
+the whole 575 N drive force. **Floor rule:** joints, rails and sills ≤ 3 mm and chamfered; cross them slowly and
+straight.
+
+### 20.5 Gearbox and brake selection
+
+| Item | Rule | P1000 value |
+|---|---|---|
+| Gearbox rated output torque T_2N | ≥ continuous wheel torque × service factor 1.5 | 0.48 · 30 · 0.9 · 1.5 ≈ 19.4 Nm → T_2N ≥ 20 Nm |
+| Emergency-stop torque | ≥ the peak torque the motor can give (current limit) × i × η | 3.8 · 30 · 0.94 = 107 Nm (or limit the current) |
+| Radial load on the output | wheel on its own bearings (11.2) or gearbox rated for the wheel load | 2587 N per wheel – use own bearings |
+| Backlash | ≤ 15 arcmin (odometry and stop accuracy) | 100 mm · 15′ = 0.44 mm at the rim |
+| Holding brake | static torque ≥ 1.5 × the torque to hold the loaded AGV on the max. slope, at the motor | (103 N / 2) · 0.1 / 30 = 0.17 Nm → ≥ 0.26 Nm; take ≥ 1 Nm (also parking on 4 %) |
+| Brake as safety function (SBC) | B10_D from the maker; monthly brake test (28.2) | – |
+
+---
+
+## 21. Wheels, floor and suspension
+
+### 21.1 Wheel and tyre materials
+
+| Tread | Hardness | c_rr (typ.) | Grip | Load per width | Notes |
+|---|---|---|---|---|---|
+| Cast PU (polyurethane elastomer, e.g. Vulkollan-type, "high-grade" PU) | 92–95 Shore A | 0.010–0.015 | good (μ 0.5–0.6 clean, 0.3–0.35 dusty) | highest | standard AGV drive wheel; heat limits speed × load |
+| Cast PU soft | 75–85 Shore A | 0.015–0.02 | very good | lower | quieter, better on joints, more heat |
+| Thermoplastic PU (TPU) | 92–98 Shore A | 0.010–0.015 | medium | medium | cheap castors; lower load and heat resistance |
+| Elastic rubber | 65–75 Shore A | 0.02–0.03 | very good | low | outdoor, rough floor; more energy |
+| Nylon / PA | – | 0.005–0.01 | poor | high | castors on clean floors only; noisy, hard on the floor and on joints |
+
+**Rule:** drive wheels cast PU 92–95 ShA on an Al or steel hub; castors PU 92–95 ShA with ball-bearing swivel. Keep
+loads ≤ 70 % of the catalogue rating at your speed for continuous duty (10.4).
+
+### 21.2 Load rating, specific load, floor pressure
+
+```
+Specific load (to compare wheels)  k = F / (D · b)
+  P1000 drive wheel Ø200 × 60, 2587 N  → k = 0.216 N/mm²
+  U300 drive wheel Ø150 × 50, 1916 N   → k = 0.255 N/mm²   (catalogue Ø150 × 50, 350 kg ≈ 0.46 N/mm² → 56 %)
+Contact pressure (rough estimate; contact length l = 2·√(r·δ), δ = tyre deflection – assumed, ask the maker)
+  Ø200, δ ≈ 1.0 mm → l ≈ 20 mm   → p ≈ 2587 / (60 · 20)   ≈ 2.2 N/mm²
+  Ø150, δ ≈ 0.8 mm → l ≈ 15.5 mm → p ≈ 1916 / (50 · 15.5) ≈ 2.5 N/mm²
+```
+
+Concrete floors (C25/30 and better) take this easily. **Floor coatings** (epoxy, PU screed), tiles and expansion
+joints have their own limits – ask the floor maker for the allowed wheel pressure, and avoid coatings that become
+slippery with oil mist.
+
+### 21.3 Floor requirements (give them to the floor contractor)
+
+| Item | Requirement (example – check with the AGV supplier) |
+|---|---|
+| Flatness | as for high-quality industrial floors (e.g. DIN 18202 table 3, increased requirements – verify line and edition); the AGV needs ≤ ±4 mm over its wheel base (input Δ of item 1) |
+| Slope | ≤ 1 % on routes; stations level (≤ 0.2 %) |
+| Joints, rails, sills | ≤ 3 mm high, ≤ 10 mm wide, chamfered (20.4) |
+| Friction | μ ≥ 0.35 with PU (dusty); no oil – drip trays at machines along the route |
+| Cleaning | daily on the AGV routes in the casting area (sand reduces grip, wears wheels and scanner windows) |
+| Conductivity | only if ESD / static charging is a topic (conductive wheels and floor) – usually not needed here |
+
+### 21.4 Suspension concepts
+
+| Concept | How it works | + | − | Where |
+|---|---|---|---|---|
+| Rigid 4 wheels | chassis with 4 fixed wheels | simple | statically indeterminate – one wheel lifts on an uneven floor | tiny AGVs on very flat floors |
+| **Rigid drive rocker + sprung castors** (items 1, 3) | rocker pivot along x equalises the two drive wheels; castor springs carry a constant preload | drive load grows with payload (good grip), simple | castor spring rate must be low (10.1.4); pitch when braking | most latent AGVs, this guide |
+| Spring-loaded drive units | each drive unit pressed down by its own spring | castors rigid; good for bought drive units | spring force fixed – lifts the empty AGV or slips when loaded (lesson 3.2), unless the preload fits the whole load range | many bought AMRs – check the spring data |
+| Bogie / pendulum axle | 2 wheels on a pivoting beam | equal loads on both wheels | more parts | 6-wheel platforms, tricycle rear axle |
+| Fully sprung + dampers | all wheels sprung | gentle for fragile loads | complex, height changes with load | heavy or outdoor vehicles |
+
+For the rocker of item 1 the key numbers are in 10.1.4 and 14.4: spring 15 N/mm, preload 229 N (15.3 mm), a 4 mm
+dip leaves 677 N on the drive wheels (empty) → braking 1.27 m/s² ✓.
+
+---
+
+## 22. Battery technology, sizing and charging
+
+![Battery sizing – energy per 8 h shift and state of charge over two shifts](img/11_battery_sizing.svg)
+
+### 22.1 Chemistries compared
+
+| Chemistry | Cell voltage | Energy (cell) | Cycle life (80 % DoD, typ.) | Charge rate | Safety / thermal | Use in AGVs |
+|---|---|---|---|---|---|---|
+| **LFP (LiFePO4)** | 3.2 V nominal | 90–160 Wh/kg | 2000–6000 | 0.5–1 C (some 2 C) | very stable, no oxygen release | **standard for AGVs**, opportunity charging |
+| NMC (Li-NiMnCo) | 3.6–3.7 V | 150–250 Wh/kg | 1000–2000 | 0.5–1 C | thermal runaway starts at a lower temperature than LFP | where mass and volume are critical |
+| LTO (lithium titanate) | 2.3–2.4 V | 60–90 Wh/kg | 10 000–20 000 | up to 5–10 C | very safe, works in the cold | very fast charging in short stops, high cost |
+| Lead-acid (flooded / AGM / gel) | 2.0 V | 30–40 Wh/kg | 500–1500 | 0.1–0.2 C | gassing (flooded), acid | old trucks; poor with opportunity charging |
+| NiMH / NiCd | 1.2 V | 40–80 Wh/kg | 1000–2000 | 0.3–1 C | memory effect (NiCd), cadmium toxic | rare today |
+
+The cell values are typical ranges – the cell data sheet decides. **Choose LFP** for both vehicles: long life, safe,
+accepts many short charges, flat voltage (needs coulomb counting for the SOC, 10.9).
+
+### 22.2 Energy per shift (what the battery must deliver)
+
+```
+E_shift = Σ (E_trip / η) + P_electronics · t
+U300  (8 transports/h, 120 m, 6 stops, 150 W electronics):
+      rolling 113 + accelerating 28 + lift 3 + electronics 1200 = 1344 Wh per 8 h   (168 W average)
+P1000 (crankcase line: 8.6 crankcases/h per vehicle, 4 hand-overs each, 24 m driving, 200 W electronics):
+      per crankcase: drive 7293 J + 4 scissor lifts 4 · 5995 J + chains 4 · 187 W · 3.7 s = 2768 J → 34 042 J = 9.46 Wh
+      per 8 h: rolling 89 + accelerating 50 + lift 458 + chains 53 + electronics 1600 = 2250 Wh (281 W average)
+```
+
+The lift energy uses the design load with k_dyn = 1.25 (as the twin) – with the real weight it is 4796 J instead of
+5995 J per lift. **The electronics use 75–90 % of the energy** – the standby power of PC, scanners and drives decides
+the battery size. Ask every supplier for it.
+
+### 22.3 Capacity formula
+
+```
+C [Ah] = E_shift / (U_nom · DoD · SOH_end)
+  DoD     = usable depth of discharge (LFP 0.8 in daily use)
+  SOH_end = capacity left at the end of life (0.8 = "80 % SOH")
+U300,  8 h without charging:  1344 / (51.2 · 0.8) = 32.8 Ah → / 0.8 = 41.0 Ah  (16 h: 82.0 Ah)
+P1000, 8 h without charging:  2250 / (51.2 · 0.8) = 54.9 Ah → / 0.8 = 68.7 Ah  (16 h: 137 Ah)
+Chosen: U300 60 Ah, P1000 105 Ah – both with opportunity charging (22.5):
+  U300  runtime 3072 · 0.8 / 168   = 14.6 h new, 11.7 h at end of life
+  P1000 runtime 5376 · 0.8 / 281.3 = 15.3 h new, 12.2 h at end of life   (twin with 252 W: 16 h)
+```
+
+### 22.4 C-rate, cycles, temperature
+
+| Value | U300 | P1000 |
+|---|---|---|
+| Peak discharge | 14.3 A = 0.24 C | 17.5 A = 0.17 C (driving) · 26 A = 0.25 C (scissor lift) |
+| Charge 1.5 kW / 27 A | 0.45 C | 0.26 C (20 → 90 % in 2.7 h; with 3 kW / 54 A: 1.4 h) |
+| Full cycles per day (16 h) | 0.88 → ≈ 290 per year | 0.84 → ≈ 280 per year |
+| Life by cycles (3000 cycles) | ≈ 10 years | ≈ 10 years – calendar ageing often ends life earlier |
+
+Never charge LFP below 0 °C (lithium plating); keep the battery at about 10–35 °C for long life; the BMS must block
+charging when cold (11.8).
+
+### 22.5 Charging strategies
+
+| Strategy | How | + | − | For this factory |
+|---|---|---|---|---|
+| **Opportunity charging on floor contacts** | spring collectors on the AGV, contact plates at stations / charger; 27–100 A | small battery, no idle time, cheap | contacts dead until docked (10.10), wear, cleaning | **U300 at CHG-01/02; P1000 at the load station LOAD-CC** |
+| Inductive (contactless) charging | coil in the floor, pick-up coil under the AGV, air gap ≈ 10–40 mm, 1–3 kW | no wear, no open contacts, works in dirt | efficiency ≈ 90–93 % vs ≈ 95–96 % contact; positioning tolerance; cost | good option in the casting area (sand on contacts) |
+| Charging station with plug / robot connector | AGV drives to a charger, a connector closes | high currents | slower, more mechanics | heavy vehicles |
+| Battery swap | change the battery pack | 24/7 without charging time | spare packs, swap station, handling | not needed here |
+| Overnight charging only | big battery, charged in the break | simple | big, heavy, expensive battery | not with 2 shifts |
+
+**How much charging is needed?** Charge share = P_average / (P_charger · η):
+U300 168 / 1380 = **12.2 %** (7.3 min per hour), P1000 281 / 1380 = **20.4 %** (12.2 min per hour). The P1000 stands
+130 s per crankcase at hand-overs; with contacts at the load station it charges during the two hand-overs there
+(≈ 65 s per crankcase × 8.6/h = 9.3 min per hour). With 10 min per hour the SOC falls only ≈ 51 Wh per hour and is
+still about 85 % after 16 h (drawing). Inductive loss per day for ≈ 4.5 kWh charged: 4.5 / 0.92 − 4.5 / 0.96 = 0.2 kWh – small.
+
+**Chargers needed** (doc 03 4.3): chargers ≥ N · t_charge / (t_work + t_charge), +1 for small fleets.
+
+### 22.6 BMS and battery safety (check list for the purchase)
+
+1. Voltage + temperature of every cell group, current; insulation monitoring optional at 48 V.
+2. Separate charge / discharge switches, short-circuit reaction in µs, precharge support.
+3. SOC by coulomb counting with reset at full charge, SOH, cycle counter, event log.
+4. CAN (CANopen or documented protocol), node ID settable (project: **20**), heartbeat.
+5. IEC 62619 (industrial lithium batteries), UN 38.3 test summary, EU Battery Regulation documents.
+6. Charging blocked below 0 °C; derating above about 45 °C.
+7. Mechanics: IP54 or better, fixed for 1 g vertical / 2 g horizontal (ask), connector with pilot contact (11.7.3).
+
+---
+
+## 23. Safety design in depth
+
+![Safety laser scanner fields vs speed – field length curves (flat and 1 % downhill), components, field sets, curve field, docking field](img/11_safety_fields.svg)
+
+### 23.1 ISO 3691-4 in short (verify each clause in the current edition)
+
+| Topic | What it means for items 1 and 3 |
+|---|---|
+| Zones | the standard describes the **operating zone** and special zones (e.g. **restricted** zone – only trained people, **confined** zone – little room to step aside, **hazard** zone – verify the exact names and rules). Mark them on the layout (chapter 25) and on the floor. |
+| Personnel detection | in the direction of travel at all speeds above creep; tested with defined **test pieces** (e.g. a standing Ø200 mm cylinder – check the dimensions and the lying test piece) |
+| Speed and braking | the vehicle must stop before contact with a detected person, also loaded, on the worst floor and slope |
+| Warning | visual (lights, optional blue spot / arrow projection) and acoustic signals when moving, turning, lifting |
+| Load handling | lifting only at standstill; load secured during travel (pawl, interlocks 4.3.9) |
+| Emergency stop | on the vehicle, reachable from both sides (SF1/SF2), stop category 0 or 1 |
+| Battery and charging | charging contacts dead until docked; IEC 62619 battery |
+| Stability | verification of stability (10.3) incl. braking + curve |
+| Information for use | operating manual, zone marking, training, maintenance of safety functions |
+| Verification | functional tests, stopping distance test, detection test with test pieces (5.7, 14.15) |
+
+EN 1175 (electrical requirements for battery-powered industrial trucks) and IEC 60204-1 – applicability: see chapter 13 (verify).
+
+### 23.2 Performance levels (ISO 13849-1)
+
+| PL | PFH_D (dangerous failures per hour) | Typical AGV use |
+|---|---|---|
+| a | 10⁻⁵ … < 10⁻⁴ | – |
+| b | 3 · 10⁻⁶ … < 10⁻⁵ | – |
+| c | 10⁻⁶ … < 3 · 10⁻⁶ | some load-handling functions (risk assessment) |
+| **d** | **10⁻⁷ … < 10⁻⁶** | **personnel detection, speed monitoring, E-stop, field switching (most functions, FS1–FS7 in 11.9)** |
+| e | 10⁻⁸ … < 10⁻⁷ | safety controller hardware is often rated PL e |
+
+Stop categories (IEC 60204-1): **0** = power removed at once (STO, brake falls); **1** = controlled braking on the
+quick-stop ramp, then STO (shorter stopping distance with a good ramp; needs safe ramp monitoring = SS1);
+**2** = controlled stop, power stays on (not for the E-stop).
+
+### 23.3 Field length – full formula with slope and brake build-up
+
+```
+D = v · (t_scanner + t_ctrl + t_brake) + v² / (2 · (a − g · p)) · k + Z
+  t_scanner = 0.07 s, t_ctrl (safety controller + STO) = 0.10 s, t_brake = time until brake / ramp acts (0 in the twin)
+  a = 0.8 m/s², p = downhill slope, k = 1.1 (wear, floor scatter), Z = 100 mm (scanner tolerance + reserve)
+```
+
+| Speed | Real stopping distance v·t + v²/2a | Field flat (twin) | Field 1 % downhill | Field 2 % downhill | Field flat with t_brake = 0.05 s |
+|---|---|---|---|---|---|
+| 0.3 m/s | 107 mm | 213 mm | 222 mm | 233 mm | – |
+| 0.6 m/s | 327 mm | 450 mm | 484 mm | 530 mm | – |
+| 1.0 m/s | 795 mm | 958 mm | 1054 mm | 1181 mm | 1008 mm |
+| 1.2 m/s | 1104 mm | 1294 mm | **1432 mm** | **1616 mm** (> 1500) | 1354 mm |
+
+So: on 2 % downhill route parts limit the speed to 1.0 m/s, and always **measure** the real stopping distance (5.5 D).
+
+### 23.4 Field width, curves, docking, side fields
+
+- **Width:** vehicle width + 2 × (sway + tolerance) = 560 + 2 × 150 = **860 mm** (U300), 720 + 300 = **1020 mm**
+  (P1000). If the load sticks out (crate 800 mm wide on the U300), use the load width: 800 + 300 = 1100 mm – check
+  the real crate position on the plate.
+- **Curves:** field sets bent to the inside of the curve, chosen by the planned path (navigation sends "curve left /
+  right", the safety controller checks the speed). A straight field sees the wall outside the curve → false stops.
+- **Docking field:** 150 mm, only at ≤ 0.05 m/s and only inside the marked station zone (FS7). The risk assessment
+  shows why nobody can be in that zone (fence, floor marking, the station posts).
+- **Side fields:** where people are near, add short side fields for turning on the spot – the corners of the U300
+  sweep a circle of radius √(0.55² + 0.28²) = 0.62 m.
+
+### 23.5 Bumpers – only for slow vehicles
+
+A bumper (ISO 13856-3) must give enough travel to stop the vehicle after the first touch:
+
+```
+s_bumper ≥ v · t_r + v² / (2 · a)        (t_r ≈ 0.05 s for bumper + safety relay, a = 0.8 m/s²)
+0.3 m/s → 71 mm · 0.5 m/s → 181 mm · 1.0 m/s → 675 mm
+```
+
+Above about 0.3 m/s bumpers are not practical – use scanners. Kinetic energy to remove: U300 loaded
+½ · 487 · 1.2² = 351 J, P1000 ½ · 1055 · 1.0² = 528 J.
+
+### 23.6 Other safety functions and details
+
+| Function | Detail |
+|---|---|
+| Field switching by speed (FS2) | the safety controller compares the two encoder speeds; field set chosen by the **measured** speed band; wrong or missing set → stop |
+| Safely limited speed (SLS) | in zones with people (0.3 m/s) the safety controller limits the speed independent of the navigation |
+| Lift only at standstill (FS4) | safe standstill monitoring before the lift drive gets its enable |
+| Load secured (item 3) | deck DOWN + lock pin closed + pawl closed with pallet, else no driving |
+| Brake test | monthly test of each holding brake (torque test by the drive, SBC) |
+| Scanner window dirt | scanner reports contamination → warning → stop; daily cleaning in the casting area (5.8) |
+| Muting at stations | never mute personnel detection on routes; only the docking field inside the station zone |
+| Warning devices | blue spot or arrow projection, flashing light, buzzer, LED colours (4.1.12) |
+
+---
+
+## 24. Electrical architecture – overview schematic
+
+The drawing `11_electrical_schematic.svg` (embedded in 11.7) puts 4.2.5, 11.7 and 11.9 into one picture.
+
+| Block | Job | Key values (U300) |
+|---|---|---|
+| G1 battery + BMS | 16s LFP, protects the cells, SOC / SOH over CAN | 51.2 V, 60 Ah, node 20 |
+| -FC1 main fuse | protects the battery cable over its whole length | 40 A DC ≥ 80 V, breaking ≥ 2 kA, ≤ 150 mm from + |
+| -QB1 main switch | service isolation, lockable (LOTO) | ≥ 40 A DC |
+| -QA2 + R1 precharge | charges the 3000 µF DC bus slowly | 47 Ω ≥ 50 W, 90 % in 0.32 s, time-out 2 s |
+| -QA1 main contactor | switches the DC bus; opened by E-stop chain / BMS / KF1 | ≥ 40 A DC, 80 V, coil with suppressor |
+| DC bus + branch fuses | one fuse per consumer | FC2 / FC3 20 A drives, FC4 16 A lift, FC5 10 A DC/DC |
+| A1 / A2 / A3 drives | CiA 402, STO 2-channel, encoder and brake output | 10/30 A, nodes 1 / 2 / 3 |
+| A4 + R2 brake chopper | burns braking energy when the battery cannot take it | ON at 58 V, 6.8 Ω, ≥ 100 W |
+| -TB1 DC/DC 48/24 V | 24 V (PELV) for PC, scanners, safety, brakes, sensors | ≥ 13 A |
+| KF1 safety controller | personnel detection, SLS, E-stop, STO, SBC, field switching | PL e device, Cat 3 / PL d functions |
+| KF2 navigation PC | localisation, path, VDA 5050, CAN master | node 10, SYNC 10 ms |
+| XD10 + FC6 + QA3 charging | floor contacts with own fuse and contactor | 27 A, 40 A fuse, dead until docked |
+
+**24 V budget (example – use the data sheets):** nav PC 40 W · 2 scanners ≈ 2 × 8 W · safety controller 5 W ·
+Wi-Fi 6 W · 2 brakes released ≈ 2 × 12 W · sensors, lights, display 15 W · drive logic 3 × 5 W = 121 W, + DC/DC loss
+≈ 10 % → ≈ 133 W, plus drive standby → the 150 W "electronics" input of item 1 is realistic. 133 W / 24 V = 5.5 A →
+the 13 A DC/DC has reserve for peaks (PC start, brake release).
+
+---
+
+## 25. Fleet management, VDA 5050, traffic control and fleet size for the crankcase line
+
+![Fleet route plan for the crankcase line – AS/RS, load station, 3 HMCs, lanes, traffic zones, chargers](img/11_fleet_layout.svg)
+
+### 25.1 What the fleet manager does
+
+| Function | Content |
+|---|---|
+| Order management | receives transport orders (from MES / WMS / PLC, or the twin logic of doc 03 3.3) |
+| Task assignment | chooses the vehicle: nearest free, lowest total cost (drive time + battery + priority), or optimal assignment for many orders (Hungarian method) |
+| Route planning | shortest path in the route graph (nodes + edges) with speed and direction rules |
+| Traffic control | zone reservation, intersections, waiting points, deadlock prevention |
+| Charging management | sends vehicles to chargers by SOC and workload; opportunity charging at stations |
+| Interfaces | VDA 5050 to the vehicles; OPC UA / REST / MQTT to MES and PLCs; station handshakes (27) |
+| Monitoring | positions, states, faults, KPIs (28.4) |
+
+### 25.2 VDA 5050 in practice (version 2.x – verify with the fleet manager)
+
+Topics: `order`, `instantActions` (fleet → vehicle); `state`, `visualization`, `connection`, `factsheet`
+(vehicle → fleet). An **order** is a list of **nodes** (points) and **edges** (paths) with **actions**. Nodes and edges
+with `released: true` are the **base** (the vehicle may drive there); the rest is the **horizon** (planned, not yet
+allowed) – this is how the fleet manager does traffic control.
+
+```json
+{ "headerId": 101, "timestamp": "2026-11-12T08:15:00.00Z", "version": "2.0.0",
+  "manufacturer": "VC", "serialNumber": "AGV-2546-00001",
+  "orderId": "TR-CC-000815", "orderUpdateId": 0,
+  "nodes": [
+    { "nodeId": "ASRS_OUT", "sequenceId": 0, "released": true,
+      "actions": [ { "actionType": "pick", "actionId": "a1", "blockingType": "HARD" } ] },
+    { "nodeId": "C1", "sequenceId": 2, "released": true, "actions": [] },
+    { "nodeId": "STAND_CC0_A", "sequenceId": 4, "released": false,
+      "actions": [ { "actionType": "drop", "actionId": "a2", "blockingType": "HARD" } ] } ],
+  "edges": [
+    { "edgeId": "e1", "sequenceId": 1, "startNodeId": "ASRS_OUT", "endNodeId": "C1", "released": true, "maxSpeed": 1.2 },
+    { "edgeId": "e2", "sequenceId": 3, "startNodeId": "C1", "endNodeId": "STAND_CC0_A", "released": false, "maxSpeed": 1.2 } ] }
+```
+
+(Shortened – node positions, descriptions and the full field list are in the VDA 5050 document. Node C1 is the
+crossing; the edge after it stays horizon until the way to the stand is free.)
+
+### 25.3 Traffic rules for the crankcase line (see the drawing)
+
+1. **Zone reservation (mutex):** only one vehicle in each APC spur zone Z1, Z2, Z3 and in crossing C1.
+2. Release nodes only up to the next reserved zone (base / horizon).
+3. **Waiting points** W1, W2 on the single P1000 lane – the second P1000 waits there while the first docks.
+4. **Deadlock prevention:** never release a vehicle into a dead-end spur unless its exit path is reserved too.
+5. Right of way at C1: loaded before empty, then first come first served.
+6. Speed zones are map zones with matching safety field sets (1.2 / 0.6 / 0.3 / 0.05 m/s).
+7. People cross only at marked crossings; the APC stations are restricted zones (ISO 3691-4).
+
+### 25.4 Fleet size – formula and the crankcase-line example
+
+```
+N = workload / (3600 · u · A)          workload [s/h] = Σ (trips per hour · cycle time)
+  u = target utilisation (0.70 – room for peaks, traffic, blocked paths)
+  A = availability (charging, maintenance) – 0.90 with opportunity charging
+Little's law check: vehicles busy on average = throughput · cycle time / 3600
+```
+
+**U300 (castings: full crate in, empty crate back):**
+
+```
+leg AS/RS ↔ stand 34.8 m in 3 straight parts, 1.2 m/s, a = 0.5 m/s²: 3 · (11.6/1.2 + 1.2/0.5) + 2 turns · 3.14 s = 42.5 s
+station event: slow zone 3 m at 0.3 m/s (+7.5 s), creep 0.3 m at 0.05 m/s (6 s), lift 1.2 s, handshake 3 s, leave 2 s = 19.7 s
+cycle = 2 · 42.5 + 4 · 19.7 + shuffle between the two stands ≈ 10 s + crane wait ≈ 10 s = 184 s   (twin item 1: 180 s)
+trips = 5.0 per hour (doc 03: 0.29 casting trips per crankcase · 17.2 crankcases/h)
+workload = 5.0 · 184 = 922 s/h  →  N = 922 / (3600 · 0.7 · 0.9) = 0.41  →  1 vehicle (+ shared spare)
+```
+
+**P1000 (pallets load station ↔ HMC APC, 4 hand-overs per crankcase):**
+
+```
+hand-overs: pick finished pallet at the APC 33 s + deliver to LOAD-CC 32 s + pick loaded pallet at LOAD-CC 33 s
+            + deliver to the APC 32 s = 130 s   (sequence 4.3.1 incl. slow zone, docking, E84, transfer)
+legs: 2 · (2 · (6/1.0 + 1.0/0.3) + one turn 3.14 s) = 2 · 21.8 = 43.6 s
+      (12 m per leg – conservative; the lane distances are 11.0 / 6.2 / 2.2 m)
+cycle = 173.6 s per crankcase
+workload = 17.2 · 173.6 = 2986 s/h  →  N = 2986 / (3600 · 0.7 · 0.9) = 1.32  →  2 vehicles
+each 46 % busy (2986 / (2 · 3600 · 0.9)); one P1000 down → 92 % → the line slows a little (accept, or buy a 3rd)
+maximum with 2 P1000 at 85 %: 2 · 3600 · 0.9 · 0.85 / 173.6 = 31.7 crankcases/h  (need 17.2)
+Little: 17.2 · 173.6 / 3600 = 0.83 vehicles busy on average
+```
+
+**Fleet for the crankcase line:** 2 × P1000 + 1 × U300 for castings + 1 × U300 that also runs the cylinder,
+crankshaft and FG loops of doc 03 (their 334 + 305 + 1720 s/h need a vehicle anyway) and is the spare for the casting
+loop. Chargers: CHG-01/02 for the U300s (as in the twin) + contacts at LOAD-CC for the P1000s.
+
+### 25.5 Simulation before buying
+
+The formula gives averages. Before ordering, run the **what-if tab** of the twin (doc 03) with the real cycle times
+and ask the fleet supplier for a **traffic simulation** of the peak hour (single P1000 lane, crossing C1, charging).
+Check: no line starved, queue at W1/W2, utilisation ≤ 75 %, battery never below 20 %.
+
+---
+
+## 26. Communication: Wi-Fi roaming, network design, private 5G
+
+### 26.1 What runs over the radio
+
+| Data | Rate | Size | Need |
+|---|---|---|---|
+| VDA 5050 `state` | on change + cyclic (≈ 1 Hz) | 1–3 kB | ≈ 2 kB/s per vehicle → 8 kB/s for 4 vehicles |
+| `visualization` (position) | up to 10 Hz | ≈ 0.5 kB | 20 kB/s for 4 vehicles |
+| `order`, `instantActions` | on demand | 1–10 kB | latency < 100–200 ms |
+| Remote service (scanner tool, logs) | rare | large | only when standing |
+
+The bandwidth is small – **latency and roaming** are the problem, not throughput. **Safety never runs over Wi-Fi:**
+the vehicle is safe without any radio (personnel detection on board).
+
+### 26.2 Roaming – why it matters
+
+A client changes from one access point (AP) to the next while driving. Standard roaming can take 50–300 ms, or even
+more than 1 s (scan + authentication). Meanwhile the vehicle drives on:
+
+```
+distance = v · t_roam:   0.05 s → 60 mm · 0.3 s → 360 mm · 1.0 s → 1200 mm at 1.2 m/s
+```
+
+The vehicle keeps driving on its **released base** (VDA 5050), so a short loss is no problem if the base is long
+enough. Use fast roaming (IEEE 802.11r fast transition, 802.11k/v neighbour reports) or the supplier's industrial
+roaming (e.g. Siemens iPCF – check) for < 50 ms, and set the **behaviour on loss** (11.11: finish the released path,
+then stop).
+
+### 26.3 Coverage design (rules of thumb)
+
+```
+Free-space path loss at 5.5 GHz:  FSPL [dB] = 20 · log10(d [m]) + 20 · log10(f [Hz]) − 147.55
+  d = 10 / 20 / 30 / 50 m → 67.3 / 73.3 / 76.8 / 81.2 dB
+Link budget: AP 17 dBm + antennas 5 + 3 dBi − FSPL(30 m) 76.8 − machines / racks 10 dB → RSSI ≈ −62 dBm
+Design target: RSSI ≥ −67 dBm and SNR ≥ 25 dB everywhere on the route, 15–20 % cell overlap
+```
+
+- 5 GHz band; prefer **non-DFS channels** for AGVs (on a DFS channel the AP must leave when it detects radar →
+  short outage; check the national channel plan).
+- AP spacing in a machining hall ≈ 20–30 m → the crankcase routes (≈ 180 m of aisle and lanes) need about **9 APs**.
+- Own SSID + VLAN for AGVs (project: VLAN 60 `OT-L1-AGV-WIFI`, 12.1), WPA2/WPA3 per the security concept (doc 07),
+  fixed IPs 10.60.0.50–99.
+- **Site survey before installation and again after the machines are in place** (metal changes everything).
+
+### 26.4 Private 5G and Wi-Fi 6 / 6E / 7
+
+Private 5G (in Germany e.g. local licences at 3.7–3.8 GHz – check your country) gives planned coverage, mobility
+without classic roaming gaps and low latency; cost and complexity are higher and the AGV needs a 5G modem. Wi-Fi 6
+(802.11ax) handles many clients better; Wi-Fi 6E / 7 add the 6 GHz band. For 4–10 vehicles a well-planned 5 GHz
+Wi-Fi with fast roaming is enough; choose 5G only if the whole site goes 5G.
+
+---
+
+## 27. Station integration: handshakes, time-outs and the docking accuracy budget
+
+![Docking accuracy budget – RSS stop error and the coarse-to-fine catching chains A, B, C](img/11_docking_budget.svg)
+
+### 27.1 Handshake options
+
+| Method | How | + | − | Use here |
+|---|---|---|---|---|
+| Optical parallel I/O (E84-style IR) | IR transceiver pair AGV ↔ station, 8 signals each way | no network, fast, proven | line of sight, short range | **P1000 ↔ APC load station** (4.3.9) |
+| VDA 5050 action + PLC via the fleet manager | fleet manager talks OPC UA / MQTT to the station PLC | no extra hardware | latency, depends on Wi-Fi + server | U300 ↔ AS/RS conveyor (slow process) |
+| Wi-Fi I/O module on the AGV ↔ PLC | direct Ethernet I/O over Wi-Fi | flexible | roaming affects it | not for interlocks |
+| Hard-wired contacts at the docking position | spring contacts carry the signals | simple | wear, dirt | possible together with charging contacts |
+
+### 27.2 Signal sequence and time-outs (example: P1000 at the APC load station)
+
+| Step | AGV → station | Station → AGV | Time-out (example) | On time-out |
+|---|---|---|---|---|
+| 1 | VALID (in position, docked B25/B26) | – | – | – |
+| 2 | TR_REQ (transfer request) | L_REQ / U_REQ (station can load / unload) | 5 s | retry once, then fault to the fleet |
+| 3 | – | READY | 5 s | abort, deck down, AGV leaves, operator call |
+| 4 | BUSY (chains run) | station chains run | 3.7 s + 50 % ≈ 6 s | stop chains, fault; both keep the pallet where it is |
+| 5 | – | pallet seated (receivers, air check) | 3 s | fault – never leave with a half-transferred pallet |
+| 6 | COMPT (complete) | READY off | 2 s | – |
+| 7 | VALID off, deck down, leave | HO_AVBL stays | – | – |
+
+**Interlock rules:** the station never runs its chains without READY + BUSY; the AGV never drives with BUSY on; ES
+(station emergency stop) stops both sides; after a power loss both sides start in "fault, manual reset".
+
+### 27.3 Docking accuracy budget (summary of 4.1.11 and 4.4)
+
+- U300 stop error RSS ±9.5 mm, ±0.50° → ±14.7 mm at the crate corner; station capture 40–55 mm → OK.
+- Chain A (APC): AGV ±13.1 → cone pins ±16 → deck ±0.4 → stop ±1.5 → receivers ±3 → ±0.02 mm.
+- Chain B (AS/RS IN): ±15.2 → flare ±47 → ±7 → P&D ±10 → fork ±90 → rack ±25.
+- Chain C (OUT → stand): plate ±22.2 vs rim ±25 (**tight**) → stand ±37.5 vs flare ±60 → ±5.
+- Every guide **resets** the error to its own clearance; errors only add while nothing re-centres (case C).
+
+---
+
+## 28. Commissioning additions, maintenance plan, spare parts and KPIs
+
+### 28.1 Fleet-level commissioning (after each vehicle passed 5.5 / 14.14)
+
+| # | Test | Accept |
+|---|---|---|
+| F1 | Wi-Fi survey along all routes with the final machines | RSSI ≥ −67 dBm, SNR ≥ 25 dB, roaming < 50 ms (or loss behaviour OK) |
+| F2 | VDA 5050 conformance (order, instantActions, state, factsheet, connection with last will) | all messages correct, serialNumber per 12.7 |
+| F3 | Traffic: two P1000 to neighbouring APCs at the same time, U300 at crossing C1 | no deadlock, waiting at W1/W2, correct right of way |
+| F4 | Charging: SOC 30 % → to the charger; opportunity charging at LOAD-CC | right choice; contacts dead before arrival and after leaving |
+| F5 | Throughput: 2 h at 17.2 crankcases/h, then +20 % | no line starved, utilisation ≤ 75 %, no fault |
+| F6 | Fault recovery: one vehicle off; one AP off; server restart | fleet re-plans; vehicles stop safely and resume |
+| F7 | People: person crosses at C1, stands in a lane, enters a restricted zone | correct stops / slow-downs, warning devices work |
+| F8 | 72 h endurance run in production | availability ≥ 98 %, all faults recorded and explained |
+
+### 28.2 Maintenance plan (per vehicle; adapt to the supplier's manual)
+
+| Interval | Component | Work |
+|---|---|---|
+| Daily | scanners, E-stops | clean windows (casting dust), E-stop test, look at covers and wheels |
+| Weekly | charging contacts / collectors | clean, check wear and spring force; inductive pad free of swarf |
+| Monthly | holding brakes | brake torque test via the drive; record |
+| Monthly | wheels, castors | drive wheel Ø (both), flat spots, castor swivel bearings, PU bond to the hub |
+| Monthly | lift (cam rollers, chain / scissor pivots, actuators) | grease, chain tension, actuator synchronisation (P1000 ≤ 2 mm) |
+| 3 months | battery / BMS | SOH, cell balance (max. cell difference), event log, torque marks on cables |
+| 6 months | stopping distance + accuracy | stopping distance per speed band; 30-run check at 2 stations (5.6) |
+| 6 months | fasteners | torque stripes on critical joints (11.6) |
+| Yearly | safety functions | full validation, checksums vs vehicle file (12.6), PL d documentation |
+| Yearly | electrical | insulation 48 V to chassis, bonding, IP seals of the control box |
+| By km / wear | drive wheels | replace both at Ø −2 mm (= 1.3 % odometry error), recalibrate the wheel Ø |
+
+Distance per year (330 days × 16 h): U300 120 m × 8/h ≈ 5 070 km; P1000 24 m × 8.6/h ≈ 1 090 km. Track wheel wear
+against km to find your own replacement interval.
+
+### 28.3 Spare parts (for the 4-vehicle fleet)
+
+1 complete drive module (motor + gearbox + wheel) · 2 drive wheels · 2 castors · 1 servo drive · 1 safety laser
+scanner (with a copy of the configuration) · 1 DC/DC · fuses of every rating · 1 set charging collectors · 1 lift
+actuator (P1000) · sensors (2 inductive, 1 diffuse) · 1 Wi-Fi client · 1 E-stop button. Do not stock a spare battery
+(it ages on the shelf) – agree a delivery time with the supplier.
+
+### 28.4 KPIs for the AGV system
+
+| KPI | Formula | Target (example) |
+|---|---|---|
+| Fleet utilisation | busy time / available time | 50–75 % (P1000 example 46 %) |
+| Vehicle availability | MTBF / (MTBF + MTTR) | ≥ 99 % (MTBF 400 h, MTTR 2 h → 99.5 %) |
+| Fleet availability (2 needed of 2) | A² | 99.0 % with A = 99.5 % – that is why N + 1 matters |
+| Transport on time | transports within the due time / all | ≥ 99 % |
+| Mean transport time | Σ (order created → delivered) / n | as simulated (U300 cycle 184 s) |
+| Energy per transport | Wh from the BMS / transports | U300 ≈ 21 Wh incl. electronics (2.3 Wh driving + lift) · P1000 ≈ 33 Wh per crankcase |
+| Charge balance | SOC at the end of the shift | ≥ 50 % with opportunity charging |
+| Docking first-time-right | dockings without retry / all | ≥ 99.5 % |
+| Stop accuracy trend | ±3σ per station, monthly | ≤ ±11 mm, no drift |
+| Safety stops | protective-field stops per 100 km | falling trend; each cluster = a layout or behaviour problem |
+| Network | connection losses per day | 0 losses > 2 s |
+
+The twin (doc 03) already shows busy %, battery and km per vehicle – a bridge from the real fleet manager to the
+twin would need new code (doc 03 limits).
+
+---
+
+## 29. Buy list – catalogue examples + shopping list for the crankcase-line fleet
+
+How to read the tables (same rules as guide 09 §28 and guide 29 §17):
+
+- **Spec** = what this guide calculated. **Example makers + series** are well-known examples, **not** a
+  recommendation; ask 2–3 suppliers. Series names change – use the current catalogue. "(check)" = name or scope not
+  fully sure – confirm before writing it into a specification.
+- **Key data** only where we are confident; otherwise "see datasheet". Never order from this table.
+- **Price class** (estimate – ask for a quote), per unit, order of magnitude: low < ≈ 300 € · medium ≈ 300–1 500 € ·
+  high ≈ 1 500–8 000 € · very high > 8 000 €.
+
+### 29.1 Complete AGVs / AMRs (to compare with building items 1 and 3)
+
+| Maker + series | Type | Key data | Price class | What to check |
+|---|---|---|---|---|
+| **KUKA KMP 1500** (and successors – check) | omnidirectional (mecanum) mobile platform | payload 1500 kg (maker); speed, accuracy – see datasheet | very high | floor quality for mecanum, top module for 1104 mm transfer height, VDA 5050, safety concept |
+| **MiR600 / MiR1350** (Mobile Industrial Robots) | AMR, differential, natural navigation | payload 600 kg / 1350 kg (maker) | very high | top modules (lift, rollers), docking accuracy with markers, MiR Fleet, ISO 3691-4 statement |
+| **OMRON LD-90 / LD-250, HD-1500** | AMR | payload 90 / 250 / 1500 kg (maker) | high – very high | top modules, fleet manager (name – check), VDA 5050 support |
+| **Linde L-MATIC / R-MATIC / P-MATIC** (check range) | automated pallet truck / reach truck / tugger | see datasheet | very high | pallet type, lift height, navigation, integration package |
+| **Jungheinrich EKS 215a / ERC 215a / ERE 225a** (check) | automated stacker / pallet truck | see datasheet | very high | good for floor pallets, not for the APC deck |
+| **SAFELOG** (AGV M- / X-series – check) | modular AGVs, assembly-line and logistics platforms | see datasheet | high – very high | fleet concept, custom deck options |
+| **AGILOX ONE / OCF** (check) | autonomous pallet forklift, omnidirectional | see datasheet | very high | pallet handling only, own fleet logic |
+| **Geek+ P-series** (e.g. P800 / P1200 – check) | latent lifting robot, QR grid | payload by model – see datasheet | high | QR grid needs clean floors – not for the casting area; rack format |
+| **Hikrobot latent lifting robots** (Q-series – check) | latent lifting robot, QR / SLAM | see datasheet | high | as above; local support |
+
+### 29.2 Drive units and traction motors
+
+Spec: U300 2 × 200 W (0.64 / 1.9 Nm), i = 20, Ø150, 48 V; P1000 2 × 400 W (1.27 / 3.8 Nm), i = 30, Ø200; wheel on
+its own bearings or a unit rated for 2.6 kN wheel load; holding brake; encoder.
+
+| Maker + series | Type | Key data | Price class | What to check |
+|---|---|---|---|---|
+| **ebm-papst ArgoDrive** | complete AGV drive (motor + gearbox + wheel + electronics), 24/48 V | see datasheet | medium – high | wheel load, top speed with the wheel Ø, brake, STO, CANopen |
+| **Framo Morat** AGV drive units (check) | drive / steer-drive units | see datasheet | high | load, steering option for a tricycle, motor interface |
+| **Schabmüller** traction motors (check) | low-voltage AC / PM traction motors | see datasheet | medium – high | voltage, cooling, encoder, matching controller (Curtis / ZAPI) |
+| **MRT / Metalrota** (check) | AGV drive and steer-drive units | see datasheet | high | as above |
+| **Kollmorgen** AGV drive solutions (check) | drive units + servo | see datasheet | high | low-voltage winding, CANopen, combination with NDC navigation |
+| Ehrhardt / Schmidt-Kranz / BEUMER (**check – not confirmed as AGV drive-unit makers**) | – | – | – | confirm before sending an enquiry |
+| Own design (11.2) | planetary gearbox + BLDC + PU wheel on own bearings | 11.2 | medium | cheapest, but you carry the design |
+
+### 29.3 Servo motors and drives for 24/48 V
+
+| Maker + series | Type | Key data | Price class | What to check |
+|---|---|---|---|---|
+| **Kollmorgen AKM** motors (**AKD** drives are mains-voltage drives – for 48 V ask for a low-voltage winding and a matching low-voltage drive – check) | PMSM servo | see datasheet | medium – high | low-voltage winding, brake, encoder, drive running at 48 V DC |
+| **Bosch Rexroth** (low-voltage servo range – check) | servo | see datasheet | medium – high | 48 V option, STO, CANopen |
+| **Maxon EC motors + EPOS4 / ESCON** | BLDC + controller up to ≈ 50 V | see datasheet | medium | power class (strong up to a few 100 W), GP gearbox, encoder, STO version |
+| **ebm-papst ECI** (BLDC with integrated electronics) | 24/48 V BLDC | see datasheet | low – medium | CANopen version, gearbox, brake |
+| **Roboteq** (SBL / HBL / FBL brushless controllers – check) | dual-channel BLDC controller up to ≈ 60 V | see datasheet | medium | CANopen; STO often not certified – check |
+| **Curtis** (1232SE / 1236SE / 1212 – check) | truck AC / PM motor controllers 24–80 V | see datasheet | medium | CANopen, encoder, safety functions |
+| **ZAPI** (ACE2 / ACE0 – check), **Sevcon / BorgWarner Gen4** (check) | truck motor controllers | see datasheet | medium | as Curtis |
+| **Elmo** (Gold Twitter / Gold Solo – check), **Ingenia** (Everest / Capitan – check), **Kinco FD** low-voltage servo (check) | compact low-voltage servo drives | see datasheet | low – medium | STO SIL rating, CiA 402 CSV mode, DC bus rating ≥ 70 V (chopper 58 V, 4.2.3) |
+
+### 29.4 Wheels and castors
+
+| Maker + series | Spec | Key data | Price class | What to check |
+|---|---|---|---|---|
+| **Blickle** (Extrathane / Besthane PU wheels, castor ranges – check series) | drive Ø150 × 50 ≥ 350 kg; Ø200 × 60 ≥ 500 kg; castors Ø100 150 kg, Ø150 sprung | see datasheet | low – medium | load at your speed (4–6 km/h), 92–95 ShA, hub bore and key, bond quality |
+| **Tente** (industrial and sprung castors – check) | castors Ø100 / Ø150, sprung | see datasheet | low – medium | spring rate (want 10–15 N/mm, 10.1.4), swivel bearing |
+| **RADO** (check) | PU wheels and castors | see datasheet | low – medium | as above |
+| Vulkollan-type cast PU (Covestro elastomer, used by many wheel makers) | high-load drive wheels | – | medium | ask for the PU type in writing |
+
+### 29.5 Batteries and BMS
+
+Spec: LFP 16s, 51.2 V, U300 ≥ 60 Ah, P1000 ≥ 105 Ah, BMS with CAN (node 20), charge ≤ 0.5 C, regeneration 30 A,
+IEC 62619 + UN 38.3 (11.8).
+
+| Maker + series | Type | Key data | Price class | What to check |
+|---|---|---|---|---|
+| **BMZ** (industrial Li-ion systems – check range) | LFP / NMC packs with BMS | see datasheet | high | custom size 471 × 240 × 150 mm, CAN protocol, IEC 62619 |
+| **Hoppecke** (lithium traction range – check) | traction batteries | see datasheet | high | AGV formats, chargers from the same maker |
+| **Ultralife** (check), **Super B** (LFP modules – check) | LFP modules / packs | see datasheet | medium – high | series connection, BMS master, certificates |
+| Custom pack from LFP cells (e.g. CATL / EVE / CALB – check) by a pack assembler | 16s1p 60 Ah / 16s1p 105 Ah | see datasheet | medium – high | assembler's IEC 62619 test, BMS supplier, warranty |
+| **Orion BMS / REC BMS** (check) | separate BMS for own packs | see datasheet | medium | CAN messages, contactor control, balancing current |
+
+### 29.6 Chargers and charging contacts
+
+| Maker + series | Spec | Key data | Price class | What to check |
+|---|---|---|---|---|
+| **Wiferion etaLINK** (now part of the **PULS** group – check name) | inductive, 1.5–3 kW class (e.g. etaLINK 3000 = 3 kW – check) | air gap, efficiency – see datasheet | high | position tolerance, LFP 48 V charge curve, CAN to the BMS |
+| **Delta-Q** (IC650 / IC1200 – check) | on-board / off-board chargers 48 V | see datasheet | medium | LFP profile, CAN, IP rating |
+| **Fronius Selectiva** (check) | industrial truck chargers | see datasheet | medium – high | LFP profile, communication |
+| **Stäubli** automatic charging connectors for AGVs (series – check) | contact system ≥ 50 A | see datasheet | medium | misalignment tolerance, current, pilot contact |
+| **Conductix-Wampfler**, **Schunk Transit Systems** (check) | floor contacts / collectors, inductive | see datasheet | medium – high | current, wear parts, dead-until-docked function |
+
+### 29.7 Safety laser scanners
+
+Spec: Type 3 (IEC 61496-3), PL d, ≥ 16 field sets (better 32+), 275°, protective field ≥ 1.5 m (U300 1294 mm flat,
+1432 mm downhill), measurement data on Ethernet for the navigation.
+
+| Maker + series | Key data | Price class | What to check |
+|---|---|---|---|
+| **SICK nanoScan3** | 275°, protective field ≈ 3 m (check variant), compact for AGVs | high | number of field sets, response time, data output for your navigation software |
+| **SICK outdoorScan3** | outdoor-rated safety scanner (check) | high | only for outdoor routes |
+| **SICK microScan3** | 275°, longer protective-field variants (check) | high | size, field range |
+| **Hokuyo UAM-01** (e.g. UAM-01LP – check) | Type 3, ≈ 270° | medium – high | field sets, data output |
+| **Leuze RSL 400** (RSL 410 … 445 – check) | Type 3, 270°, long-range variants | high | measurement data, field sets |
+| **Pilz PSENscan** | Type 3, 275° (check) | medium – high | data output for navigation (often not available) |
+
+### 29.8 Navigation sensors and controllers
+
+| Maker + series | Type | Price class | What to check |
+|---|---|---|---|
+| **SICK NAV350** | reflector navigation laser (position output) | high | reflector type, range, interface to your controller |
+| **SICK LiDAR-LOC** | contour localisation software with SICK scanners | high | licence, accuracy on your map |
+| **Kollmorgen NDC** (NDC8 vehicle controller – check) | complete navigation controller + fleet | very high | VDA 5050, supported vehicle types, engineering support |
+| **BlueBotics ANT** (ANT lite+ / ANT driven – check) | natural navigation kit + fleet server | high – very high | supported drives, VDA 5050, scanner pairing |
+| **NAVITEC Systems** (Navitrol – check) | natural navigation for AGV builders | high | as above |
+| **Pepperl+Fuchs PGV** (position guided vision) | camera reads floor Data-Matrix tape / codes | medium | durability (not in the casting area) |
+| **SICK MLS / OLS** | magnetic / optical line sensor | low – medium | simple tape routes, fine positioning |
+| **ROS 2 Nav2** (open source) on your PC | software stack | low licence, high engineering | **not** certified – safety stays in KF1; prototypes only |
+
+### 29.9 Safety controllers
+
+| Maker + series | Key data | Price class | What to check |
+|---|---|---|---|
+| **SICK Flexi Soft** (with drive monitor / motion control module – check FX3-MOC) | PL e, safe speed from 2 encoders, scanner field switching | medium – high | encoder types, number of field sets switched, EFI link to SICK scanners |
+| **SICK Flexi Compact** (check) | compact safety controller | medium | speed monitoring option |
+| **Pilz PNOZmulti 2** (with speed monitoring modules – check) | PL e, configurable | medium – high | safe speed modules, scanner integration |
+| Safety PLC (e.g. Siemens S7-1500F / ET 200SP F – check) | PL e | high | size and 24 V power on a small AGV |
+
+### 29.10 Fleet software (VDA 5050)
+
+| Maker / product | Type | Price class | What to check |
+|---|---|---|---|
+| **Kollmorgen** fleet manager (NDC – check) | AGV fleet manager | very high | VDA 5050 master, mixed fleets, offline install |
+| **MiR Fleet** | for MiR robots (VDA 5050 – check) | high | mixed-fleet support |
+| **NAVITEC** fleet manager (check) | fleet manager for its navigation | high | VDA 5050 |
+| **SYNAOS** (intralogistics platform – check) | VDA 5050 master, mixed fleets | high – very high | on-premise / offline possible? |
+| **openTCS** (Fraunhofer IML, open source, Java) | fleet control, VDA 5050 driver available (check) | low (licence free) | good for a first offline test with the twin; support by community / integrators |
+
+**Offline rule (project):** all software must run on-premise without internet (licence server, updates by file).
+
+### 29.11 Industrial Wi-Fi
+
+| Maker + series | Use | Price class | What to check |
+|---|---|---|---|
+| **Siemens SCALANCE W** (W1700 / W700 APs, W721 / W722 / W734 clients – check) | APs + clients, iPCF fast roaming (check) | medium – high | roaming mode, 5 GHz non-DFS channels, M12 connectors |
+| **Moxa AWK** (AWK-1137C client, AWK-3252A AP – check) | client + AP, Turbo Roaming (check) | medium | roaming time, 24 V supply, IP rating |
+| **Phoenix Contact FL WLAN** (1100 / 5100 – check) | APs + clients | medium | as above |
+| **Cisco Catalyst IW**, **Hirschmann BAT** (check) | industrial APs | high | fast roaming (802.11r), management |
+
+### 29.12 Lift units
+
+| Item | Spec (this guide) | Example makers (check) | What to check |
+|---|---|---|---|
+| Worm gear motor for the cam lift (U300) | 48 V BLDC 200 W, i = 120, hollow shaft Ø30 (11.4) | SEW-EURODRIVE, NORD, ebm-papst (worm + ECI) | self-locking, 48 V version |
+| Screw jacks (alternative B) | Tr 30 × 6, ≥ 5 kN each (4.1.7) | Pfaff-silberblau, ZIMM, NEFF | self-locking, bellows, end switches |
+| Electric actuators for the scissor (P1000) | 2 × 25 kN, stroke ≥ 187 mm, servo, brake, CANopen (4.3.12) | Ewellix (CASM – check), Thomson, Servomech, Tolomatic | force at 48 V, synchronisation, encoder, brake holding force |
+| Ball transfer units, track rollers, chains | 1.5 kN BTU, KR 22, 10B-1 (4.3, 4.1.7) | Alwayse / Omnitrack (BTU – check), INA / SKF (rollers), iwis / Renold (chains) | catalogue load, sealing against dust |
+
+### 29.13 Consolidated shopping list – crankcase-line fleet (2 × P1000, 2 × U300)
+
+| # | Item | Qty | Spec | Section |
+|---|---|---|---|---|
+| 1 | Navigation controller + licence (contour + reflectors) | 4 | VDA 5050 client, offline | 18, 29.8 |
+| 2 | Fleet manager software + on-premise server + MQTT broker | 1 | VDA 5050 2.x, traffic zones, charging | 25, 29.10 |
+| 3 | Safety laser scanner | 8 | Type 3, PL d, ≥ 16 field sets, Ethernet data | 23, 29.7 |
+| 4 | Safety controller with safe speed | 4 | PL e, 2 encoder inputs | 11.9, 29.9 |
+| 5 | Servo drive 48 V, CiA 402, STO | 4 (U300 drive) + 2 (U300 lift) + 4 (P1000 drive) + 2 (P1000 actuators, if not integrated) + 2 (P1000 chain) | U300 10/30 A; P1000 size from the 400 W motor data | 4.2, 29.3 |
+| 6 | BLDC servo motor + planetary gearbox + brake | 4 × 200 W i = 20 · 4 × 400 W i = 30 | 4.1.4, 20.2 | 29.2, 29.3 |
+| 7 | Drive wheel PU 92–95 ShA | 4 × Ø150 · 4 × Ø200 (+ 4 spare) | 21.1 | 29.4 |
+| 8 | Castors (with own spring units 11.3 or sprung castors) | 8 × Ø100 · 8 × Ø150 | 15 N/mm | 29.4 |
+| 9 | LFP battery + BMS | 2 × 60 Ah · 2 × 105 Ah | 16s 51.2 V, IEC 62619 | 22, 29.5 |
+| 10 | Charging collector on the vehicle + floor contacts | 4 + 3 stations | ≥ 50 A, dead until docked | 22.5, 29.6 |
+| 11 | Charger 48 V LFP 1.5 kW (or inductive 3 kW) | 3 | CAN to the BMS | 29.6 |
+| 12 | Lift: worm gear motor + cams (U300) / actuators 25 kN (P1000) | 2 / 4 | 4.1.7, 4.3.4 | 29.12 |
+| 13 | Main fuse, main switch, contactors, precharge, DC/DC, branch fuses | 4 sets | 11.7.1 | 24 |
+| 14 | E-stops, mode key, pendant, LED strip, buzzer | 4 sets | 11.9 | 23 |
+| 15 | E84-style optical I/O pairs | 2 (on P1000) + 4 (LOAD-CC + 3 APC stations) | 4.3.9 | 27 |
+| 16 | Industrial Wi-Fi APs + clients | ≈ 9 APs + 4 clients | 5 GHz, fast roaming | 26, 29.11 |
+| 17 | Reflectors for the stations | ≈ 30 | at scanner height | 18.2 |
+| 18 | Spare parts set | 1 | 28.3 | 28 |
+| 19 | Measuring tools: 6 platform scales, Ø200 test body, laser distance meter, 1 kN load cell | 1 set | 5.5, 5.7 | – |
+| 20 | Safety tools: scanner + safety controller software, SISTEMA | 1 | offline installation | 11.9 |
+
+---
+
+## 30. Corrections found in the review of 2026-11-12
+
+| # | Where | Problem | Fix |
+|---|---|---|---|
+| 1 | 10.6 "Grip vs motor" | "0.5 m/s² ramp → 9 Nm needed per wheel" – 9 Nm is only the acceleration part of the **loaded** AGV and was compared with the **empty** grip (12 Nm) | corrected in the text: empty needs 5.2 Nm < 12 Nm; loaded 13.6 Nm < 50 Nm |
+| 2 | 5.5 C, floor-step test | "≥ 390 N (458 − 60 N)" – 458 − 60 = 398 N | corrected to ≥ 398 N |
+| 3 | 4.1.10 / 14.11 and app `web/agv.js` (`R.fields`) – **app fixed 2026-11-12** | safety field formula uses a = 0.8 m/s² on a flat floor, although the input allows 1 % slope; downhill the fields are longer (1.2 m/s: 1432 mm instead of 1294 mm) | correction note in 4.1.10, full table in 23.3. **App:** use a − g · slope in the field formula |
+| 4 | 4.3.11 vs 4.3.8 | wheel load limit shown as 425 kg in one place, 500 kg in the other | clarified: 425 kg = 0.85 × 500 kg, the "ok" limit of the code |
+| 5 | Item 3 input "6 transports/h (3 HMCs)" in `web/agvpallet.js` | at the line rate (17.2 crankcases/h, 4 hand-overs each, 2 vehicles) one P1000 makes ≈ 8.6 cycles/h on short routes; average power 281 W instead of 252 W, battery still 15.3 h | no text change needed; **app:** consider renaming / resetting this input (22.2) |
+
+No other numeric errors were found when the formulas of chapters 4, 10 and 14 were re-calculated (Python, standard library).
+
+---
+
+## 31. Drawings of this guide (index)
+
+All drawings are standalone SVG files (offline, no external fonts or links), in `docs/img/` and `web/img/`.
+Each has the title block "EXAMPLE – check the maker's documentation".
+
+| File | Content | Where |
+|---|---|---|
+| `11_agv_layout.svg` | U300 chassis plan + side view: rocker, drive wheels, castors, battery, cam shafts, control box, scanners with fields, dimensions | 4.1.2 |
+| `11_kinematics.svg` | differential, tricycle, mecanum with formulas and examples; dual steer-drive and omni formulas; choice table | 19 |
+| `11_traction_forces.svg` | P1000 free-body diagram (rolling, slope, inertia, normal forces), torque vs slope, step forces | 20 |
+| `11_battery_sizing.svg` | energy per 8 h shift (U300, P1000), SOC over 16 h with and without opportunity charging, sizing formula | 22 |
+| `11_safety_fields.svg` | protective field vs speed (flat, 1 % downhill), field components, field sets, curve field, docking field, table | 23 (and 4.1.10) |
+| `11_electrical_schematic.svg` | battery, BMS, FC1, QB1, precharge, QA1, DC bus, branch fuses, drives, chopper, DC/DC, 24 V, KF1, STO, scanners, E-stops, CAN, charging | 11.7 (and 24) |
+| `11_fleet_layout.svg` | crankcase-line route plan (coordinates from `config/factory.json`), lanes, zones Z1–Z3, crossing C1, waiting points, chargers, fleet sizing | 25 |
+| `11_docking_budget.svg` | U300 RSS stop-error budget and the catching chains A / B / C on a log scale | 27 (and 4.1.11) |
+
+### 31.1 Glossary additions (Part B)
+
+| Term | Meaning |
+|---|---|
+| AMR | Autonomous mobile robot: plans its own path in a map and drives around obstacles |
+| SLAM | Simultaneous localisation and mapping; here: localisation in a contour map |
+| Triangulation | Position from angles / distances to known reflectors |
+| ICR | Instantaneous centre of rotation of a vehicle in a curve |
+| Tricycle / dual steer-drive / mecanum / omni | Drive concepts, see chapter 19 |
+| DoD / SOH_end | Usable depth of discharge / capacity left at the end of battery life |
+| Opportunity charging | Short charges during normal stops (stations) instead of long charging breaks |
+| Inductive charging | Contactless energy transfer through an air gap (coil in the floor) |
+| Base / horizon (VDA 5050) | Released part of an order (may drive) / planned part (not yet allowed) |
+| Mutex zone | Traffic zone that only one vehicle may occupy at a time |
+| Deadlock | Two or more vehicles block each other for ever – prevented by reserving exit paths |
+| Roaming | Wi-Fi client changing from one access point to the next |
+| RSSI / SNR | Received signal strength (dBm) / signal-to-noise ratio (dB) |
+| DFS channel | 5 GHz channel that the AP must leave when radar is detected |
+| MTBF / MTTR | Mean time between failures / mean time to repair |
+| Little's law | Vehicles busy = throughput × cycle time |

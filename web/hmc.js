@@ -434,3 +434,6 @@ if (boxH) {
   if (q.get("hrshift")) { shift = parseFloat(q.get("hrshift")) || 0; $("hrShift").value = shift; drawMesh(); }
   if (q.get("hrplan")) { plan = q.get("hrplan"); tables(); }
 }
+
+/* shared with the Assembly tab (asmrt.js) */
+export { sectionSVG, calc as hmcCalc, DEF as HMC_DEF, apcCtx, PARTS as HMC_PARTS };

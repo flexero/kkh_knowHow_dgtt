@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 980" width="1500" height="980" font-family="Arial, Helvetica, sans-serif">
+<title>AGV fleet route plan for the crankcase line with stations and traffic zones (example)</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1500" height="980" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="18" text-anchor="start" fill="#000" font-weight="bold">Fleet route plan – crankcase line (castings → load station → 3 HMCs), coordinates from config/factory.json</text>
+<text x="24.0" y="52.0" font-size="12" text-anchor="start" fill="#444">Plan view, x → east, z ▼. 17 px per m. Grey = machines from the twin; black lines = AGV paths; red = traffic zones. Example – the real layout decides.</text>
+<line x1="67.0" y1="90.0" x2="67.0" y2="821.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="67.0" y="835.0" font-size="11" text-anchor="middle" fill="#666">-45</text>
+<line x1="152.0" y1="90.0" x2="152.0" y2="821.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="152.0" y="835.0" font-size="11" text-anchor="middle" fill="#666">-40</text>
+<line x1="237.0" y1="90.0" x2="237.0" y2="821.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="237.0" y="835.0" font-size="11" text-anchor="middle" fill="#666">-35</text>
+<line x1="322.0" y1="90.0" x2="322.0" y2="821.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="322.0" y="835.0" font-size="11" text-anchor="middle" fill="#666">-30</text>
+<line x1="407.0" y1="90.0" x2="407.0" y2="821.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="407.0" y="835.0" font-size="11" text-anchor="middle" fill="#666">-25</text>
+<line x1="492.0" y1="90.0" x2="492.0" y2="821.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="492.0" y="835.0" font-size="11" text-anchor="middle" fill="#666">-20</text>
+<line x1="577.0" y1="90.0" x2="577.0" y2="821.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="577.0" y="835.0" font-size="11" text-anchor="middle" fill="#666">-15</text>
+<line x1="662.0" y1="90.0" x2="662.0" y2="821.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="662.0" y="835.0" font-size="11" text-anchor="middle" fill="#666">-10</text>
+<line x1="747.0" y1="90.0" x2="747.0" y2="821.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="747.0" y="835.0" font-size="11" text-anchor="middle" fill="#666">-5</text>
+<line x1="50.0" y1="90.0" x2="798.0" y2="90.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="46.0" y="94.0" font-size="11" text-anchor="end" fill="#666">-25</text>
+<line x1="50.0" y1="175.0" x2="798.0" y2="175.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="46.0" y="179.0" font-size="11" text-anchor="end" fill="#666">-20</text>
+<line x1="50.0" y1="260.0" x2="798.0" y2="260.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="46.0" y="264.0" font-size="11" text-anchor="end" fill="#666">-15</text>
+<line x1="50.0" y1="345.0" x2="798.0" y2="345.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="46.0" y="349.0" font-size="11" text-anchor="end" fill="#666">-10</text>
+<line x1="50.0" y1="430.0" x2="798.0" y2="430.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="46.0" y="434.0" font-size="11" text-anchor="end" fill="#666">-5</text>
+<line x1="50.0" y1="515.0" x2="798.0" y2="515.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="46.0" y="519.0" font-size="11" text-anchor="end" fill="#666">0</text>
+<line x1="50.0" y1="600.0" x2="798.0" y2="600.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="46.0" y="604.0" font-size="11" text-anchor="end" fill="#666">5</text>
+<line x1="50.0" y1="685.0" x2="798.0" y2="685.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="46.0" y="689.0" font-size="11" text-anchor="end" fill="#666">10</text>
+<line x1="50.0" y1="770.0" x2="798.0" y2="770.0" stroke="#eeeeee" stroke-width="0.8" />
+<text x="46.0" y="774.0" font-size="11" text-anchor="end" fill="#666">15</text>
+<text x="424.0" y="851.0" font-size="11" text-anchor="middle" fill="#666">x (m)</text>
+<rect x="92.5" y="158.0" width="85.0" height="476.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1.2" />
+<rect x="114.6" y="158.0" width="40.8" height="476.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8" />
+<text x="135.0" y="396.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold" transform="rotate(-90 135.0 396.0)">ASRS-RAW</text>
+<text x="149.0" y="396.0" font-size="11" text-anchor="middle" fill="#000" transform="rotate(-90 149.0 396.0)">28 m · 280 slots · crane 50 s</text>
+<rect x="118.0" y="634.0" width="34.0" height="44.2" rx="0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="155.4" y="657.8" font-size="11" text-anchor="start" fill="#000">I/O [−41, 9.6]</text>
+<rect x="397.6" y="125.7" width="76.5" height="57.8" rx="0" fill="#d0d0d0" stroke="#000" stroke-width="1" />
+<text x="435.9" y="158.6" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">HMC-01</text>
+<rect x="397.6" y="207.3" width="76.5" height="57.8" rx="0" fill="#d0d0d0" stroke="#000" stroke-width="1" />
+<text x="435.9" y="240.2" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">HMC-02</text>
+<rect x="397.6" y="288.9" width="76.5" height="57.8" rx="0" fill="#d0d0d0" stroke="#000" stroke-width="1" />
+<text x="435.9" y="321.8" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">HMC-03</text>
+<rect x="299.9" y="285.5" width="57.8" height="51.0" rx="0" fill="#d0d0d0" stroke="#000" stroke-width="1" />
+<text x="328.8" y="315.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">LOAD-CC</text>
+<rect x="560.0" y="217.5" width="68.0" height="51.0" rx="0" fill="#d0d0d0" stroke="#000" stroke-width="1" />
+<text x="594.0" y="247.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">WASH-01</text>
+<rect x="330.5" y="421.5" width="68.0" height="51.0" rx="0" fill="#d0d0d0" stroke="#000" stroke-width="1" />
+<text x="364.5" y="451.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">VMC-01</text>
+<rect x="339.0" y="591.5" width="68.0" height="51.0" rx="0" fill="#d0d0d0" stroke="#000" stroke-width="1" />
+<text x="373.0" y="621.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">LATHE-01</text>
+<rect x="560.0" y="421.5" width="68.0" height="51.0" rx="0" fill="#d0d0d0" stroke="#000" stroke-width="1" />
+<text x="594.0" y="451.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">HONE-01</text>
+<rect x="560.0" y="591.5" width="68.0" height="51.0" rx="0" fill="#d0d0d0" stroke="#000" stroke-width="1" />
+<text x="594.0" y="621.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">GRIND-01</text>
+<rect x="308.4" y="130.8" width="34.0" height="125.8" rx="0" fill="#fff" stroke="#000" stroke-width="1" stroke-dasharray="4 3" />
+<text x="325.4" y="151.2" font-size="11" text-anchor="middle" fill="#000">pallet</text>
+<text x="325.4" y="164.2" font-size="11" text-anchor="middle" fill="#000">buffer</text>
+<text x="325.4" y="177.2" font-size="11" text-anchor="middle" fill="#000">PPS-1</text>
+<rect x="384.9" y="144.4" width="15.3" height="20.4" rx="0" fill="#000" stroke="#000" stroke-width="1.2" />
+<rect x="384.9" y="226.0" width="15.3" height="20.4" rx="0" fill="#000" stroke="#000" stroke-width="1.2" />
+<rect x="384.9" y="307.6" width="15.3" height="20.4" rx="0" fill="#000" stroke="#000" stroke-width="1.2" />
+<rect x="257.4" y="300.8" width="23.8" height="20.4" rx="0" fill="#000" stroke="#000" stroke-width="1.2" />
+<text x="294.8" y="257.0" font-size="11" text-anchor="end" fill="#000">crate stands B_CC0 (black)</text>
+<line x1="67.0" y1="724.1" x2="781.0" y2="724.1" stroke="#000" stroke-width="3" />
+<text x="628.0" y="716.1" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">main aisle z = 12.3 · two-way · 1.2 m/s</text>
+<line x1="267.6" y1="724.1" x2="267.6" y2="321.2" stroke="#000" stroke-width="2.4" />
+<line x1="135.0" y1="678.2" x2="135.0" y2="724.1" stroke="#000" stroke-width="2.4" />
+<text x="281.6" y="464.0" font-size="11" text-anchor="start" fill="#000" transform="rotate(-90 281.6 464.0)">U300 lane x = −33.2, 1.2 m/s</text>
+<text x="259.6" y="617.0" font-size="11" text-anchor="middle" fill="#000" transform="rotate(-90 259.6 617.0)">casting route 34.8 m</text>
+<line x1="366.2" y1="132.5" x2="366.2" y2="353.5" stroke="#000" stroke-width="2.4" />
+<line x1="366.2" y1="154.6" x2="384.9" y2="154.6" stroke="#000" stroke-width="2" />
+<line x1="366.2" y1="236.2" x2="384.9" y2="236.2" stroke="#000" stroke-width="2" />
+<line x1="366.2" y1="317.8" x2="384.9" y2="317.8" stroke="#000" stroke-width="2" />
+<line x1="354.3" y1="311.0" x2="366.2" y2="311.0" stroke="#000" stroke-width="2" />
+<text x="374.2" y="372.2" font-size="11" text-anchor="start" fill="#000" font-weight="bold">P1000 lane x = −27.4, 0.6 m/s</text>
+<text x="374.2" y="385.2" font-size="11" text-anchor="start" fill="#000">(dashed: to service / charger)</text>
+<line x1="366.2" y1="353.5" x2="366.2" y2="379.0" stroke="#000" stroke-width="1.2" stroke-dasharray="4 3" />
+<rect x="220.0" y="277.0" width="81.6" height="68.0" rx="0" fill="none" stroke="#c62828" stroke-width="1.4" stroke-dasharray="6 3" />
+<text x="220.0" y="271.0" font-size="11" text-anchor="start" fill="#c62828">U300 slow + dock zone</text>
+<rect x="345.8" y="124.0" width="57.8" height="224.4" rx="0" fill="none" stroke="#c62828" stroke-width="1.4" stroke-dasharray="6 3" />
+<text x="345.8" y="118.0" font-size="11" text-anchor="start" fill="#c62828">P1000 zone 0.3–0.6 m/s, mutex Z1–Z3</text>
+<text x="374.7" y="141.0" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">Z1</text>
+<text x="374.7" y="222.6" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">Z2</text>
+<text x="374.7" y="304.2" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">Z3</text>
+<rect x="247.2" y="703.7" width="40.8" height="40.8" rx="0" fill="none" stroke="#c62828" stroke-width="1.4" stroke-dasharray="6 3" />
+<text x="247.2" y="758.5" font-size="11" text-anchor="start" fill="#c62828">crossing C1</text>
+<rect x="109.5" y="657.8" width="51.0" height="86.7" rx="0" fill="none" stroke="#c62828" stroke-width="1.4" stroke-dasharray="6 3" />
+<text x="109.5" y="758.5" font-size="11" text-anchor="start" fill="#c62828">AS/RS slow + dock</text>
+<circle cx="366.2" cy="277.0" r="5.0" fill="#fff" stroke="#c62828" stroke-width="1.6"/>
+<text x="358.2" y="281.0" font-size="11" text-anchor="end" fill="#c62828" font-weight="bold">W1</text>
+<circle cx="366.2" cy="192.0" r="5.0" fill="#fff" stroke="#c62828" stroke-width="1.6"/>
+<text x="358.2" y="196.0" font-size="11" text-anchor="end" fill="#c62828" font-weight="bold">W2</text>
+<rect x="532.8" y="771.7" width="20.4" height="17.0" rx="0" fill="#c62828" stroke="#000" stroke-width="1" />
+<rect x="573.6" y="771.7" width="20.4" height="17.0" rx="0" fill="#c62828" stroke="#000" stroke-width="1" />
+<rect x="617.8" y="771.7" width="20.4" height="17.0" rx="0" fill="#fff" stroke="#000" stroke-width="1" />
+<rect x="658.6" y="771.7" width="20.4" height="17.0" rx="0" fill="#fff" stroke="#000" stroke-width="1" />
+<rect x="699.4" y="771.7" width="20.4" height="17.0" rx="0" fill="#fff" stroke="#000" stroke-width="1" />
+<rect x="740.2" y="771.7" width="20.4" height="17.0" rx="0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="563.4" y="806.2" font-size="11" text-anchor="middle" fill="#c62828">chargers CHG-01/02</text>
+<text x="689.2" y="806.2" font-size="11" text-anchor="middle" fill="#000">park P1–P4</text>
+<rect x="352.6" y="329.7" width="6.8" height="17.0" rx="0" fill="#c62828" stroke="#c62828" stroke-width="1.2" />
+<text x="349.2" y="355.2" font-size="11" text-anchor="end" fill="#c62828" font-weight="bold">XD10</text>
+<text x="830.0" y="100.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">Fleet sizing (guide §25.4)</text>
+<text x="830.0" y="122.0" font-size="12" text-anchor="start" fill="#000">N = workload / (3600 · u · A),  workload = trips/h · cycle time</text>
+<text x="830.0" y="140.0" font-size="12" text-anchor="start" fill="#000">u = 0.70 target utilisation · A = 0.90 availability (charging, service)</text>
+<text x="830.0" y="172.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Vehicle / task</text>
+<text x="1080.0" y="172.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">cycle</text>
+<text x="1150.0" y="172.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">per h</text>
+<text x="1220.0" y="172.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">s/h</text>
+<text x="1290.0" y="172.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">N calc</text>
+<text x="1370.0" y="172.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">buy</text>
+<line x1="830.0" y1="178.0" x2="1470.0" y2="178.0" stroke="#000" stroke-width="1" />
+<text x="830.0" y="198.0" font-size="12" text-anchor="start" fill="#000">U300 castings: full crate in,</text>
+<text x="1080.0" y="198.0" font-size="12" text-anchor="start" fill="#000">184 s</text>
+<text x="1150.0" y="198.0" font-size="12" text-anchor="start" fill="#000">5.0</text>
+<text x="1220.0" y="198.0" font-size="12" text-anchor="start" fill="#000">922</text>
+<text x="1290.0" y="198.0" font-size="12" text-anchor="start" fill="#000">0.41</text>
+<text x="1370.0" y="198.0" font-size="12" text-anchor="start" fill="#000">1 + 1</text>
+<text x="830.0" y="216.0" font-size="12" text-anchor="start" fill="#000">   empty crate back to AS/RS</text>
+<text x="1080.0" y="216.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="1150.0" y="216.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="1220.0" y="216.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="1290.0" y="216.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="1370.0" y="216.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="830.0" y="234.0" font-size="12" text-anchor="start" fill="#000">P1000 pallets: 4 hand-overs</text>
+<text x="1080.0" y="234.0" font-size="12" text-anchor="start" fill="#000">174 s</text>
+<text x="1150.0" y="234.0" font-size="12" text-anchor="start" fill="#000">17.2</text>
+<text x="1220.0" y="234.0" font-size="12" text-anchor="start" fill="#000">2986</text>
+<text x="1290.0" y="234.0" font-size="12" text-anchor="start" fill="#000">1.32</text>
+<text x="1370.0" y="234.0" font-size="12" text-anchor="start" fill="#000">2</text>
+<text x="830.0" y="252.0" font-size="12" text-anchor="start" fill="#000">   per crankcase (LOAD – HMC)</text>
+<text x="1080.0" y="252.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="1150.0" y="252.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="1220.0" y="252.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="1290.0" y="252.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="1370.0" y="252.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="830.0" y="290.0" font-size="12" text-anchor="start" fill="#000">U300 cycle = 2 legs × 42.5 s + 4 station events × 19.7 s + 10 s shuffle + 10 s crane wait.</text>
+<text x="830.0" y="308.0" font-size="12" text-anchor="start" fill="#000">P1000 cycle = 32 + 33 + 32 + 33 s hand-over (§4.3.1) + 2 legs × 21.8 s.</text>
+<text x="830.0" y="326.0" font-size="12" text-anchor="start" fill="#000">2 × P1000: each 46 % busy; one down → 92 % → line slows (accept or buy 3rd).</text>
+<text x="830.0" y="344.0" font-size="12" text-anchor="start" fill="#000">Maximum with 2 P1000 at 85 %: 31.7 crankcases/h (needed 17.2).</text>
+<text x="830.0" y="380.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">Traffic rules (fleet manager, VDA 5050)</text>
+<text x="830.0" y="402.0" font-size="12" text-anchor="start" fill="#000">1  Zone reservation (mutex): only one vehicle in Z1, Z2, Z3 and in crossing C1.</text>
+<text x="830.0" y="420.0" font-size="12" text-anchor="start" fill="#000">2  A vehicle enters a zone only when the fleet manager released the nodes</text>
+<text x="830.0" y="438.0" font-size="12" text-anchor="start" fill="#000">   (VDA 5050 base = released, horizon = planned, not yet allowed).</text>
+<text x="830.0" y="456.0" font-size="12" text-anchor="start" fill="#000">3  Waiting points W1 / W2 on the P1000 lane – the second P1000 waits there</text>
+<text x="830.0" y="474.0" font-size="12" text-anchor="start" fill="#000">   while the first docks (no passing in the lane).</text>
+<text x="830.0" y="492.0" font-size="12" text-anchor="start" fill="#000">4  Deadlock rule: never release a vehicle into a dead-end (APC spur)</text>
+<text x="830.0" y="510.0" font-size="12" text-anchor="start" fill="#000">   unless its exit path is free; reserve spur + lane node together.</text>
+<text x="830.0" y="528.0" font-size="12" text-anchor="start" fill="#000">5  Right of way at C1: loaded before empty, then first come first served.</text>
+<text x="830.0" y="546.0" font-size="12" text-anchor="start" fill="#000">6  Speed zones are map zones: 1.2 m/s aisle, 0.6 m/s lanes, 0.3 m/s near</text>
+<text x="830.0" y="564.0" font-size="12" text-anchor="start" fill="#000">   stations and people, 0.05 m/s docking – with the matching field sets.</text>
+<text x="830.0" y="582.0" font-size="12" text-anchor="start" fill="#000">7  People cross only at marked crossings; restricted zone at the APC</text>
+<text x="830.0" y="600.0" font-size="12" text-anchor="start" fill="#000">   stations (ISO 3691-4) – fence or floor marking + signs.</text>
+<text x="830.0" y="618.0" font-size="12" text-anchor="start" fill="#000">8  Opportunity charging at LOAD-CC (P1000) and CHG-01/02 (U300);</text>
+<text x="830.0" y="636.0" font-size="12" text-anchor="start" fill="#000">   send to charger at SOC ≤ 25 %, release at ≥ 60 % if work waits.</text>
+<text x="830.0" y="676.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">Distances (example)</text>
+<text x="830.0" y="698.0" font-size="12" text-anchor="start" fill="#000">AS/RS I/O → stand: 2.7 + 7.8 + 24.3 = 34.8 m (Manhattan route of the twin)</text>
+<text x="830.0" y="716.0" font-size="12" text-anchor="start" fill="#000">LOAD-CC → APC HMC-01 / 02 / 03: ≈ 11.0 / 6.2 / 2.2 m (lane + spurs), mean 6.5 m;</text>
+<text x="830.0" y="734.0" font-size="12" text-anchor="start" fill="#000">   sizing uses 12 m per leg (conservative: turns, buffer, detours).</text>
+<text x="830.0" y="752.0" font-size="12" text-anchor="start" fill="#000">Wi-Fi: APs every ≈ 25 m along aisle and lanes → about 9 APs (§26).</text>
+<rect x="1016.0" y="892.0" width="470.0" height="74.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<line x1="1016.0" y1="916.0" x2="1486.0" y2="916.0" stroke="#000" stroke-width="1" />
+<line x1="1016.0" y1="941.0" x2="1486.0" y2="941.0" stroke="#000" stroke-width="1" />
+<line x1="1316.0" y1="916.0" x2="1316.0" y2="966.0" stroke="#000" stroke-width="1" />
+<text x="1024.0" y="909.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="1024.0" y="933.0" font-size="11" text-anchor="start" fill="#000">Fleet route plan crankcase line</text>
+<text x="1324.0" y="933.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">VC-AGV-DOC-1106</text>
+<text x="1024.0" y="958.0" font-size="11" text-anchor="start" fill="#000">Guide 11 – AGV build · Part B · 2026-11-12</text>
+<text x="1324.0" y="958.0" font-size="11" text-anchor="start" fill="#000">17 px per m</text>
+</svg>

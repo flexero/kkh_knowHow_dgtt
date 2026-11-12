@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 770" width="1300" height="770" font-family="Arial, Helvetica, sans-serif">
+<title>FMS types – FMC, FMS, FML, pallet pool</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><pattern id="hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#222" stroke-width="1"/></pattern><pattern id="hatchr" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#c0392b" stroke-width="1.2"/></pattern></defs>
+<rect x="0" y="0" width="1300" height="770" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">02 – Types of flexible manufacturing: FMC, FMS with linear pallet storage, FML and multi-level pallet pool</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Top: typical arrangement (plan view, schematic). Bottom: comparison with typical ranges (orientation only – real values from suppliers). Accent = our crankcase cell.</text>
+<rect x="20.0" y="75.0" width="300.0" height="330.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="30.0" y="95.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">(a) FMC – flexible manufacturing cell</text>
+<rect x="335.0" y="75.0" width="300.0" height="330.0" rx="0" fill="#fff" stroke="#c0392b" stroke-width="2.2"/>
+<text x="345.0" y="95.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">(b) FMS – linear pallet storage (our cell)</text>
+<rect x="650.0" y="75.0" width="300.0" height="330.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="660.0" y="95.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">(c) FML – flexible manufacturing line</text>
+<rect x="965.0" y="75.0" width="300.0" height="330.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="975.0" y="95.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">(d) Multi-level pallet pool / tower</text>
+<rect x="190.0" y="145.0" width="90.0" height="80.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="235.0" y="189.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">HMC</text>
+<rect x="160.0" y="170.0" width="30.0" height="30.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="175.0" y="217.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">APC</text>
+<circle cx="100.0" cy="185.0" r="48" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<rect x="125.0" y="176.0" width="18.0" height="18.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="108.0" y="205.4" width="18.0" height="18.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="74.0" y="205.4" width="18.0" height="18.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="57.0" y="176.0" width="18.0" height="18.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="74.0" y="146.6" width="18.0" height="18.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="108.0" y="146.6" width="18.0" height="18.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<text x="100.0" y="189.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">6–12</text>
+<text x="100.0" y="129.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">rotary pallet store</text>
+<rect x="60.0" y="290.0" width="60.0" height="36.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="90.0" y="312.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">load</text>
+<line x1="90.0" y1="290.0" x2="90.0" y2="235.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<text x="32.0" y="355.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">1 machine + pallet store or robot</text>
+<text x="32.0" y="371.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">lights-out on long cycles</text>
+<text x="32.0" y="387.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">all parts on one machine</text>
+<line x1="375.0" y1="195.0" x2="615.0" y2="195.0" stroke="#222" stroke-width="2"/>
+<line x1="375.0" y1="203.0" x2="615.0" y2="203.0" stroke="#222" stroke-width="2"/>
+<rect x="455.0" y="186.0" width="30.0" height="26.0" rx="0" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="470.0" y="225.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#c0392b">RGV</text>
+<rect x="385.0" y="115.0" width="64.0" height="50.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="417.0" y="144.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">HMC-01</text>
+<rect x="403.0" y="167.0" width="28.0" height="18.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<rect x="465.0" y="115.0" width="64.0" height="50.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="497.0" y="144.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">HMC-02</text>
+<rect x="483.0" y="167.0" width="28.0" height="18.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<rect x="545.0" y="115.0" width="64.0" height="50.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="577.0" y="144.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">HMC-03</text>
+<rect x="563.0" y="167.0" width="28.0" height="18.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<rect x="375.0" y="245.0" width="24.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="403.0" y="245.0" width="24.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="431.0" y="245.0" width="24.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="459.0" y="245.0" width="24.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="487.0" y="245.0" width="24.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="515.0" y="245.0" width="24.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="543.0" y="245.0" width="24.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="571.0" y="245.0" width="24.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<text x="485.0" y="289.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">rack 8 m × 2 levels (16 places)</text>
+<rect x="375.0" y="300.0" width="70.0" height="32.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="410.0" y="321.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">LOAD-CC</text>
+<text x="347.0" y="355.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">3–8 machines, 1 rail vehicle</text>
+<text x="347.0" y="371.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">any part → any machine with tools</text>
+<text x="347.0" y="387.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">10–100 pallets, 1–2 load stations</text>
+<line x1="670.0" y1="205.0" x2="935.0" y2="205.0" stroke="#222" stroke-width="1.5" marker-end="url(#ak)"/>
+<text x="800.0" y="225.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">transfer conveyor (fixed route)</text>
+<rect x="672.0" y="135.0" width="54.0" height="50.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="699.0" y="164.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">OP10</text>
+<line x1="699.0" y1="185.0" x2="699.0" y2="203.0" stroke="#222" stroke-width="1"/>
+<rect x="738.0" y="135.0" width="54.0" height="50.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="765.0" y="164.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">OP20</text>
+<line x1="765.0" y1="185.0" x2="765.0" y2="203.0" stroke="#222" stroke-width="1"/>
+<rect x="804.0" y="135.0" width="54.0" height="50.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="831.0" y="164.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">OP30</text>
+<line x1="831.0" y1="185.0" x2="831.0" y2="203.0" stroke="#222" stroke-width="1"/>
+<rect x="870.0" y="135.0" width="54.0" height="50.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="897.0" y="164.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">OP40</text>
+<line x1="897.0" y1="185.0" x2="897.0" y2="203.0" stroke="#222" stroke-width="1"/>
+<rect x="674.0" y="245.0" width="16.0" height="12.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="703.0" y="245.0" width="16.0" height="12.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="732.0" y="245.0" width="16.0" height="12.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="761.0" y="245.0" width="16.0" height="12.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="790.0" y="245.0" width="16.0" height="12.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="819.0" y="245.0" width="16.0" height="12.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="848.0" y="245.0" width="16.0" height="12.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="877.0" y="245.0" width="16.0" height="12.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="906.0" y="245.0" width="16.0" height="12.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<text x="800.0" y="275.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">pallets / fixtures circulate</text>
+<text x="662.0" y="355.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">machines in sequence, 1 route</text>
+<text x="662.0" y="371.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">family of similar parts, high volume</text>
+<text x="662.0" y="387.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">station time balanced to takt</text>
+<rect x="1005.0" y="125.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1041.0" y="125.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1077.0" y="125.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1113.0" y="125.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1149.0" y="125.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1185.0" y="125.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1005.0" y="155.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1041.0" y="155.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1077.0" y="155.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1113.0" y="155.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1149.0" y="155.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1185.0" y="155.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1005.0" y="185.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1041.0" y="185.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1077.0" y="185.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1113.0" y="185.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1149.0" y="185.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1185.0" y="185.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1005.0" y="215.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1041.0" y="215.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1077.0" y="215.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1113.0" y="215.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1149.0" y="215.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<rect x="1185.0" y="215.0" width="32.0" height="24.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<text x="1115.0" y="255.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">multi-level rack, stacker crane</text>
+<line x1="995.0" y1="267.0" x2="1235.0" y2="267.0" stroke="#222" stroke-width="2"/>
+<rect x="1095.0" y="259.0" width="30.0" height="16.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<rect x="1005.0" y="280.0" width="70.0" height="50.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="1040.0" y="309.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">HMC 1</text>
+<rect x="1155.0" y="280.0" width="70.0" height="50.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="1190.0" y="309.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">HMC 2</text>
+<rect x="1090.0" y="290.0" width="40.0" height="30.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="1110.0" y="310.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">load</text>
+<text x="977.0" y="355.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">high pallet density per m²</text>
+<text x="977.0" y="371.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">1–4 machines, 30–200+ pallets</text>
+<text x="977.0" y="387.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">small footprint, higher price/place</text>
+<rect x="20.0" y="435.0" width="1240.0" height="216.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="26.0" y="452.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Criterion</text>
+<line x1="250.0" y1="435.0" x2="250.0" y2="651.0" stroke="#222" stroke-width="0.8"/>
+<text x="256.0" y="452.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">(a) FMC</text>
+<line x1="480.0" y1="435.0" x2="480.0" y2="651.0" stroke="#222" stroke-width="0.8"/>
+<text x="486.0" y="452.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">(b) FMS linear storage</text>
+<line x1="750.0" y1="435.0" x2="750.0" y2="651.0" stroke="#222" stroke-width="0.8"/>
+<text x="756.0" y="452.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">(c) FML</text>
+<line x1="990.0" y1="435.0" x2="990.0" y2="651.0" stroke="#222" stroke-width="0.8"/>
+<text x="996.0" y="452.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">(d) Multi-level pool</text>
+<line x1="20.0" y1="459.0" x2="1260.0" y2="459.0" stroke="#222" stroke-width="1.2"/>
+<text x="26.0" y="475.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Machines</text>
+<text x="256.0" y="475.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">1 (+ store or robot)</text>
+<text x="486.0" y="475.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c0392b">3–8 (our cell: 3 HMC)</text>
+<text x="756.0" y="475.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">3–10 in sequence</text>
+<text x="996.0" y="475.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">1–4</text>
+<line x1="20.0" y1="483.0" x2="1260.0" y2="483.0" stroke="#cccccc" stroke-width="0.8"/>
+<text x="26.0" y="499.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Part variety</text>
+<text x="256.0" y="499.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">high</text>
+<text x="486.0" y="499.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c0392b">high (families)</text>
+<text x="756.0" y="499.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">low–medium (one family)</text>
+<text x="996.0" y="499.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">high</text>
+<line x1="20.0" y1="507.0" x2="1260.0" y2="507.0" stroke="#cccccc" stroke-width="0.8"/>
+<text x="26.0" y="523.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Volume per part number / year</text>
+<text x="256.0" y="523.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">10 – 5 000</text>
+<text x="486.0" y="523.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c0392b">1 000 – 50 000</text>
+<text x="756.0" y="523.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">20 000 – 500 000</text>
+<text x="996.0" y="523.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">100 – 20 000</text>
+<line x1="20.0" y1="531.0" x2="1260.0" y2="531.0" stroke="#cccccc" stroke-width="0.8"/>
+<text x="26.0" y="547.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Routing</text>
+<text x="256.0" y="547.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">one machine</text>
+<text x="486.0" y="547.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c0392b">any machine with tools</text>
+<text x="756.0" y="547.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">fixed sequence</text>
+<text x="996.0" y="547.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">any machine (2–4)</text>
+<line x1="20.0" y1="555.0" x2="1260.0" y2="555.0" stroke="#cccccc" stroke-width="0.8"/>
+<text x="26.0" y="571.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Pallets</text>
+<text x="256.0" y="571.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">6 – 30</text>
+<text x="486.0" y="571.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c0392b">10 – 100</text>
+<text x="756.0" y="571.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">per station + loop</text>
+<text x="996.0" y="571.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">30 – 200+</text>
+<line x1="20.0" y1="579.0" x2="1260.0" y2="579.0" stroke="#cccccc" stroke-width="0.8"/>
+<text x="26.0" y="595.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Unmanned operation</text>
+<text x="256.0" y="595.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">good (long cycles)</text>
+<text x="486.0" y="595.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c0392b">good with pallet buffer</text>
+<text x="756.0" y="595.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">limited (whole line)</text>
+<text x="996.0" y="595.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">very good</text>
+<line x1="20.0" y1="603.0" x2="1260.0" y2="603.0" stroke="#cccccc" stroke-width="0.8"/>
+<text x="26.0" y="619.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Investment (order of magnitude)</text>
+<text x="256.0" y="619.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">machine + 15 – 40 %</text>
+<text x="486.0" y="619.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c0392b">machines + 40 – 80 %</text>
+<text x="756.0" y="619.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">dedicated, high</text>
+<text x="996.0" y="619.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">machines + 60 – 120 %</text>
+<line x1="20.0" y1="627.0" x2="1260.0" y2="627.0" stroke="#cccccc" stroke-width="0.8"/>
+<text x="26.0" y="643.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Best fit when …</text>
+<text x="256.0" y="643.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">few parts, long cycles</text>
+<text x="486.0" y="643.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c0392b">many variants, mid volume</text>
+<text x="756.0" y="643.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">stable, high volume</text>
+<text x="996.0" y="643.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">small hall, many pallets</text>
+<text x="20.0" y="671.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">Ranges are typical orientation values from literature and supplier brochures – not limits. Investment % = extra over the stand-alone machines (estimate – ask for a quote).</text>
+<rect x="850.0" y="700.0" width="440.0" height="60.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="850.0" y1="720.0" x2="1290.0" y2="720.0" stroke="#222" stroke-width="1"/>
+<line x1="1160.0" y1="720.0" x2="1160.0" y2="760.0" stroke="#222" stroke-width="1"/>
+<text x="858.0" y="715.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – planning sketch</text>
+<text x="1282.0" y="715.0" font-size="11" text-anchor="end" font-weight="normal" fill="#444">Guide 02 – FMS and order flow</text>
+<text x="858.0" y="738.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">FMS types comparison</text>
+<text x="858.0" y="753.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">FMC / FMS / FML / multi-level pallet pool</text>
+<text x="1168.0" y="738.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">DWG 02-02</text>
+<text x="1168.0" y="753.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">not to scale for build</text>
+</svg>

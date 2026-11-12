@@ -1,0 +1,260 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Arial, Helvetica, sans-serif">
+<title>4/3 solenoid spool valve NG6 – section and spool centre types (example)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="1000" fill="#ffffff"/>
+<text x="30.0" y="36.0" font-size="18" text-anchor="start" fill="#000" font-weight="bold">4/3 directional spool valve NG6 (ISO 4401-03 / CETOP 03) – section in centre position + centre types</text>
+<text x="30.0" y="58.0" font-size="12" text-anchor="start" fill="#555">Solenoid pushes the spool against the centring spring. Spool clearance ≈ 4–10 µm radial → always some leakage (5–50 cm³/min): a spool valve cannot hold a load.</text>
+<rect x="230.0" y="190.0" width="480.0" height="140.0" rx="0" stroke="#000" stroke-width="2" fill="#d9d9d9"/>
+<rect x="230.0" y="248.0" width="480.0" height="44.0" rx="0" stroke="#000" stroke-width="0" fill="#fff"/>
+<line x1="230.0" y1="248.0" x2="710.0" y2="248.0" stroke="#000" stroke-width="1.4"/>
+<line x1="230.0" y1="292.0" x2="710.0" y2="292.0" stroke="#000" stroke-width="1.4"/>
+<rect x="255.0" y="222.0" width="30.0" height="96.0" rx="0" stroke="#000" stroke-width="1.4" fill="#fff"/>
+<rect x="335.0" y="222.0" width="40.0" height="96.0" rx="0" stroke="#000" stroke-width="1.4" fill="#fff"/>
+<rect x="445.0" y="222.0" width="50.0" height="96.0" rx="0" stroke="#000" stroke-width="1.4" fill="#f6d5d5"/>
+<rect x="565.0" y="222.0" width="40.0" height="96.0" rx="0" stroke="#000" stroke-width="1.4" fill="#fff"/>
+<rect x="655.0" y="222.0" width="30.0" height="96.0" rx="0" stroke="#000" stroke-width="1.4" fill="#fff"/>
+<rect x="262.0" y="318.0" width="16.0" height="12.0" rx="0" stroke="#000" stroke-width="0" fill="#fff"/>
+<line x1="262.0" y1="318.0" x2="262.0" y2="330.0" stroke="#000" stroke-width="1.4"/>
+<line x1="278.0" y1="318.0" x2="278.0" y2="330.0" stroke="#000" stroke-width="1.4"/>
+<text x="270.0" y="350.0" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">T</text>
+<rect x="347.0" y="318.0" width="16.0" height="12.0" rx="0" stroke="#000" stroke-width="0" fill="#fff"/>
+<line x1="347.0" y1="318.0" x2="347.0" y2="330.0" stroke="#000" stroke-width="1.4"/>
+<line x1="363.0" y1="318.0" x2="363.0" y2="330.0" stroke="#000" stroke-width="1.4"/>
+<text x="355.0" y="350.0" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">A</text>
+<rect x="462.0" y="318.0" width="16.0" height="12.0" rx="0" stroke="#000" stroke-width="0" fill="#f6d5d5"/>
+<line x1="462.0" y1="318.0" x2="462.0" y2="330.0" stroke="#000" stroke-width="1.4"/>
+<line x1="478.0" y1="318.0" x2="478.0" y2="330.0" stroke="#000" stroke-width="1.4"/>
+<text x="470.0" y="350.0" font-size="14" text-anchor="middle" fill="#c62828" font-weight="bold">P</text>
+<rect x="577.0" y="318.0" width="16.0" height="12.0" rx="0" stroke="#000" stroke-width="0" fill="#fff"/>
+<line x1="577.0" y1="318.0" x2="577.0" y2="330.0" stroke="#000" stroke-width="1.4"/>
+<line x1="593.0" y1="318.0" x2="593.0" y2="330.0" stroke="#000" stroke-width="1.4"/>
+<text x="585.0" y="350.0" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">B</text>
+<rect x="662.0" y="318.0" width="16.0" height="12.0" rx="0" stroke="#000" stroke-width="0" fill="#fff"/>
+<line x1="662.0" y1="318.0" x2="662.0" y2="330.0" stroke="#000" stroke-width="1.4"/>
+<line x1="678.0" y1="318.0" x2="678.0" y2="330.0" stroke="#000" stroke-width="1.4"/>
+<text x="670.0" y="350.0" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">T</text>
+<text x="470.0" y="370.0" font-size="12" text-anchor="middle" fill="#555">mounting face ISO 4401-03 (4 × M5 bolts, flatness ≤ 0.01 mm/100 mm)</text>
+<rect x="170.0" y="260.0" width="600.0" height="20.0" rx="0" stroke="#000" stroke-width="1.6" fill="#bbb"/>
+<rect x="232.0" y="249.0" width="23.0" height="42.0" rx="0" stroke="#000" stroke-width="1.6" fill="#999"/>
+<rect x="325.0" y="249.0" width="60.0" height="42.0" rx="0" stroke="#000" stroke-width="1.6" fill="#999"/>
+<rect x="555.0" y="249.0" width="60.0" height="42.0" rx="0" stroke="#000" stroke-width="1.6" fill="#999"/>
+<rect x="685.0" y="249.0" width="23.0" height="42.0" rx="0" stroke="#000" stroke-width="1.6" fill="#999"/>
+<rect x="445.0" y="249.0" width="50.0" height="42.0" rx="0" stroke="#000" stroke-width="0" fill="#f6d5d5"/>
+<rect x="385.0" y="262.0" width="170.0" height="16.0" rx="0" stroke="#000" stroke-width="0" fill="#bbb"/>
+<rect x="385.0" y="249.0" width="60.0" height="42.0" rx="0" stroke="#000" stroke-width="0" fill="#f6d5d5"/>
+<rect x="495.0" y="249.0" width="60.0" height="42.0" rx="0" stroke="#000" stroke-width="0" fill="#f6d5d5"/>
+<rect x="385.0" y="262.0" width="170.0" height="16.0" rx="0" stroke="#000" stroke-width="1.2" fill="#bbb"/>
+<rect x="150.0" y="236.0" width="80.0" height="68.0" rx="0" stroke="#000" stroke-width="1.6" fill="#fff"/>
+<rect x="710.0" y="236.0" width="80.0" height="68.0" rx="0" stroke="#000" stroke-width="1.6" fill="#fff"/>
+<polyline points="152.0,270.0 158.5,283.0 165.0,257.0 171.5,283.0 178.0,257.0 184.5,283.0 191.0,257.0 197.5,283.0 204.0,257.0 210.5,283.0 217.0,257.0 223.5,283.0 230.0,270.0" stroke="#000" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+<polyline points="710.0,270.0 716.5,283.0 723.0,257.0 729.5,283.0 736.0,257.0 742.5,283.0 749.0,257.0 755.5,283.0 762.0,257.0 768.5,283.0 775.0,257.0 781.5,283.0 788.0,270.0" stroke="#000" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+<rect x="40.0" y="210.0" width="110.0" height="120.0" rx="0" stroke="#000" stroke-width="2" fill="#e8e8e8"/>
+<rect x="54.0" y="222.0" width="82.0" height="96.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<line x1="58.0" y1="226.0" x2="58.0" y2="314.0" stroke="#888" stroke-width="0.8"/>
+<line x1="72.0" y1="226.0" x2="72.0" y2="314.0" stroke="#888" stroke-width="0.8"/>
+<line x1="86.0" y1="226.0" x2="86.0" y2="314.0" stroke="#888" stroke-width="0.8"/>
+<line x1="100.0" y1="226.0" x2="100.0" y2="314.0" stroke="#888" stroke-width="0.8"/>
+<line x1="114.0" y1="226.0" x2="114.0" y2="314.0" stroke="#888" stroke-width="0.8"/>
+<line x1="128.0" y1="226.0" x2="128.0" y2="314.0" stroke="#888" stroke-width="0.8"/>
+<rect x="70.0" y="254.0" width="50.0" height="32.0" rx="0" stroke="#000" stroke-width="1.6" fill="#999"/>
+<rect x="80.0" y="172.0" width="40.0" height="38.0" rx="0" stroke="#000" stroke-width="1.6" fill="#ddd"/>
+<text x="100.0" y="196.0" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">a</text>
+<rect x="790.0" y="210.0" width="110.0" height="120.0" rx="0" stroke="#000" stroke-width="2" fill="#e8e8e8"/>
+<rect x="804.0" y="222.0" width="82.0" height="96.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<line x1="808.0" y1="226.0" x2="808.0" y2="314.0" stroke="#888" stroke-width="0.8"/>
+<line x1="822.0" y1="226.0" x2="822.0" y2="314.0" stroke="#888" stroke-width="0.8"/>
+<line x1="836.0" y1="226.0" x2="836.0" y2="314.0" stroke="#888" stroke-width="0.8"/>
+<line x1="850.0" y1="226.0" x2="850.0" y2="314.0" stroke="#888" stroke-width="0.8"/>
+<line x1="864.0" y1="226.0" x2="864.0" y2="314.0" stroke="#888" stroke-width="0.8"/>
+<line x1="878.0" y1="226.0" x2="878.0" y2="314.0" stroke="#888" stroke-width="0.8"/>
+<rect x="820.0" y="254.0" width="50.0" height="32.0" rx="0" stroke="#000" stroke-width="1.6" fill="#999"/>
+<rect x="830.0" y="172.0" width="40.0" height="38.0" rx="0" stroke="#000" stroke-width="1.6" fill="#ddd"/>
+<text x="850.0" y="196.0" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">b</text>
+<rect x="18.0" y="263.0" width="22.0" height="14.0" rx="0" stroke="#000" stroke-width="1.4" fill="#bbb"/>
+<rect x="900.0" y="263.0" width="22.0" height="14.0" rx="0" stroke="#000" stroke-width="1.4" fill="#bbb"/>
+<line x1="120.0" y1="270.0" x2="150.0" y2="270.0" stroke="#000" stroke-width="4"/>
+<line x1="790.0" y1="270.0" x2="830.0" y2="270.0" stroke="#000" stroke-width="4"/>
+<text x="470.0" y="100.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">Section in centre position: all ports blocked (closed centre)</text>
+<line x1="420.0" y1="160.0" x2="355.0" y2="251.0" stroke="#000" stroke-width="0.9"/>
+<circle cx="355.0" cy="251.0" r="2.2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="416.0" y="164.0" font-size="12" text-anchor="end" fill="#000">land (covers A)</text>
+<line x1="540.0" y1="160.0" x2="470.0" y2="268.0" stroke="#000" stroke-width="0.9"/>
+<circle cx="470.0" cy="268.0" r="2.2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="544.0" y="164.0" font-size="12" text-anchor="start" fill="#000">groove: P only</text>
+<line x1="300.0" y1="128.0" x2="234.0" y2="205.0" stroke="#000" stroke-width="0.9"/>
+<circle cx="234.0" cy="205.0" r="2.2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="296.0" y="132.0" font-size="12" text-anchor="end" fill="#000">cast body</text>
+<line x1="215.0" y1="160.0" x2="190.0" y2="250.0" stroke="#000" stroke-width="0.9"/>
+<circle cx="190.0" cy="250.0" r="2.2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="211.0" y="164.0" font-size="12" text-anchor="end" fill="#000">centring spring</text>
+<line x1="60.0" y1="385.0" x2="85.0" y2="300.0" stroke="#000" stroke-width="0.9"/>
+<circle cx="85.0" cy="300.0" r="2.2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="64.0" y="389.0" font-size="12" text-anchor="start" fill="#000">wet-pin DC solenoid (24 V, 25–35 W)</text>
+<line x1="20.0" y1="412.0" x2="29.0" y2="270.0" stroke="#000" stroke-width="0.9"/>
+<circle cx="29.0" cy="270.0" r="2.2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="24.0" y="416.0" font-size="12" text-anchor="start" fill="#000">manual override</text>
+<line x1="20.0" y1="112.0" x2="60.0" y2="180.0" stroke="#000" stroke-width="0.9"/>
+<circle cx="60.0" cy="180.0" r="2.2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="24.0" y="116.0" font-size="12" text-anchor="start" fill="#000">plug, LED + suppressor</text>
+<line x1="300.0" y1="440.0" x2="105.0" y2="270.0" stroke="#000" stroke-width="0.9"/>
+<circle cx="105.0" cy="270.0" r="2.2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="304.0" y="444.0" font-size="12" text-anchor="start" fill="#000">armature + push pin</text>
+<text x="480.0" y="410.0" font-size="12" text-anchor="start" fill="#c62828">Solenoid a ON → spool moves RIGHT → P→A, B→T (cylinder extends)</text>
+<text x="480.0" y="428.0" font-size="12" text-anchor="start" fill="#000">Solenoid b ON → spool moves LEFT → P→B, A→T (cylinder retracts)</text>
+<text x="480.0" y="446.0" font-size="12" text-anchor="start" fill="#000">Both OFF → springs centre the spool → centre function (table)</text>
+<text x="960.0" y="140.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">ISO 1219 symbol of this valve</text>
+<rect x="1020.0" y="200.0" width="56.0" height="56.0" rx="0" stroke="#000" stroke-width="1.8" fill="none"/>
+<rect x="1076.0" y="200.0" width="56.0" height="56.0" rx="0" stroke="#000" stroke-width="1.8" fill="none"/>
+<rect x="1132.0" y="200.0" width="56.0" height="56.0" rx="0" stroke="#000" stroke-width="1.8" fill="none"/>
+<line x1="1034.0" y1="253.0" x2="1034.0" y2="204.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="1062.0" y1="204.0" x2="1062.0" y2="253.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="1090.0" y1="256.0" x2="1090.0" y2="266.0" stroke="#000" stroke-width="1.4"/>
+<line x1="1085.0" y1="266.0" x2="1095.0" y2="266.0" stroke="#000" stroke-width="1.4"/>
+<line x1="1090.0" y1="200.0" x2="1090.0" y2="210.0" stroke="#000" stroke-width="1.4"/>
+<line x1="1085.0" y1="210.0" x2="1095.0" y2="210.0" stroke="#000" stroke-width="1.4"/>
+<line x1="1118.0" y1="256.0" x2="1118.0" y2="266.0" stroke="#000" stroke-width="1.4"/>
+<line x1="1113.0" y1="266.0" x2="1123.0" y2="266.0" stroke="#000" stroke-width="1.4"/>
+<line x1="1118.0" y1="200.0" x2="1118.0" y2="210.0" stroke="#000" stroke-width="1.4"/>
+<line x1="1113.0" y1="210.0" x2="1123.0" y2="210.0" stroke="#000" stroke-width="1.4"/>
+<line x1="1146.0" y1="253.0" x2="1174.0" y2="204.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="1174.0" y1="253.0" x2="1146.0" y2="204.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="1004.0" y="208.0" width="16.0" height="40.0" rx="0" stroke="#000" stroke-width="1.4" fill="none"/>
+<line x1="1004.0" y1="248.0" x2="1020.0" y2="208.0" stroke="#000" stroke-width="1.2"/>
+<rect x="1188.0" y="208.0" width="16.0" height="40.0" rx="0" stroke="#000" stroke-width="1.4" fill="none"/>
+<line x1="1188.0" y1="248.0" x2="1204.0" y2="208.0" stroke="#000" stroke-width="1.2"/>
+<polyline points="1020.0,242.0 1016.3,237.0 1012.7,247.0 1009.0,237.0 1005.3,247.0 1001.7,237.0 998.0,242.0" stroke="#000" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+<polyline points="1188.0,242.0 1191.7,247.0 1195.3,237.0 1199.0,247.0 1202.7,237.0 1206.3,247.0 1210.0,242.0" stroke="#000" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+<text x="994.0" y="222.0" font-size="13" text-anchor="end" fill="#000" font-weight="bold">a</text>
+<text x="1214.0" y="222.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">b</text>
+<line x1="1090.0" y1="200.0" x2="1090.0" y2="182.0" stroke="#000" stroke-width="1.6"/>
+<text x="1090.0" y="178.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">A</text>
+<line x1="1118.0" y1="200.0" x2="1118.0" y2="182.0" stroke="#000" stroke-width="1.6"/>
+<text x="1118.0" y="178.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">B</text>
+<line x1="1090.0" y1="256.0" x2="1090.0" y2="274.0" stroke="#000" stroke-width="1.6"/>
+<text x="1090.0" y="288.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">P</text>
+<line x1="1118.0" y1="256.0" x2="1118.0" y2="274.0" stroke="#000" stroke-width="1.6"/>
+<text x="1118.0" y="288.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">T</text>
+<text x="960.0" y="320.0" font-size="12" text-anchor="start" fill="#000">Example type codes (read the SYMBOL, not the letter):</text>
+<text x="960.0" y="335.6" font-size="12" text-anchor="start" fill="#000">Bosch Rexroth 4WE 6 E…/EG24… (check), Parker D1VW,</text>
+<text x="960.0" y="351.2" font-size="12" text-anchor="start" fill="#000">Atos DHI, Danfoss (Vickers) DG4V-3, HAWE NG6.</text>
+<text x="960.0" y="366.8" font-size="12" text-anchor="start" fill="#000">NG6: P, A, B 31.5–35 MPa · T 16–21 MPa (check)</text>
+<text x="960.0" y="382.4" font-size="12" text-anchor="start" fill="#000">Q max 60–80 L/min (performance limit curve)</text>
+<text x="960.0" y="398.0" font-size="12" text-anchor="start" fill="#000">Δp ≈ 0.5–1.0 MPa per path at 60 L/min</text>
+<text x="960.0" y="413.6" font-size="12" text-anchor="start" fill="#000">Guide-25 job 18.7 L/min: 0.078 MPa P→A ✓</text>
+<text x="30.0" y="482.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">Centre types (middle box of a 4/3 valve) – what pump and load do in neutral</text>
+<rect x="30.0" y="494.0" width="1340.0" height="398.0" rx="0" stroke="#000" stroke-width="1.2" fill="none"/>
+<rect x="30.0" y="494.0" width="1340.0" height="26.0" rx="0" stroke="#000" stroke-width="0" fill="#e6e6e6"/>
+<text x="38.0" y="512.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Centre</text>
+<text x="128.0" y="512.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Name</text>
+<text x="338.0" y="512.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Pump in neutral</text>
+<text x="548.0" y="512.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Load in neutral</text>
+<text x="768.0" y="512.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Use it for</text>
+<text x="1058.0" y="512.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Rexroth 4WE example (check)</text>
+<line x1="30.0" y1="520.0" x2="1370.0" y2="520.0" stroke="#999" stroke-width="0.7"/>
+<text x="128.0" y="556.0" font-size="12" text-anchor="start" fill="#000">Closed (all blocked)</text>
+<text x="338.0" y="556.0" font-size="12" text-anchor="start" fill="#000">held at pressure</text>
+<text x="548.0" y="556.0" font-size="12" text-anchor="start" fill="#000">held (spool leakage)</text>
+<text x="768.0" y="556.0" font-size="12" text-anchor="start" fill="#000">accumulator, variable pump, many valves</text>
+<text x="1058.0" y="556.0" font-size="12" text-anchor="start" fill="#000">E</text>
+<line x1="30.0" y1="582.0" x2="1370.0" y2="582.0" stroke="#999" stroke-width="0.7"/>
+<text x="128.0" y="618.0" font-size="12" text-anchor="start" fill="#000">Tandem (P→T)</text>
+<text x="338.0" y="618.0" font-size="12" text-anchor="start" fill="#000">unloaded, no heat</text>
+<text x="548.0" y="618.0" font-size="12" text-anchor="start" fill="#000">held (spool leakage)</text>
+<text x="768.0" y="618.0" font-size="12" text-anchor="start" fill="#000">fixed pump, valves in series</text>
+<text x="1058.0" y="618.0" font-size="12" text-anchor="start" fill="#000">G</text>
+<line x1="30.0" y1="644.0" x2="1370.0" y2="644.0" stroke="#999" stroke-width="0.7"/>
+<text x="128.0" y="680.0" font-size="12" text-anchor="start" fill="#000">Float (A, B → T)</text>
+<text x="338.0" y="680.0" font-size="12" text-anchor="start" fill="#000">held at pressure</text>
+<text x="548.0" y="680.0" font-size="12" text-anchor="start" fill="#000">free; pilot lines vent</text>
+<text x="768.0" y="680.0" font-size="12" text-anchor="start" fill="#000">with pilot-op. check / counterbalance</text>
+<text x="1058.0" y="680.0" font-size="12" text-anchor="start" fill="#000">J</text>
+<line x1="30.0" y1="706.0" x2="1370.0" y2="706.0" stroke="#999" stroke-width="0.7"/>
+<text x="128.0" y="742.0" font-size="12" text-anchor="start" fill="#000">Open 'H' (all joined)</text>
+<text x="338.0" y="742.0" font-size="12" text-anchor="start" fill="#000">unloaded</text>
+<text x="548.0" y="742.0" font-size="12" text-anchor="start" fill="#000">free</text>
+<text x="768.0" y="742.0" font-size="12" text-anchor="start" fill="#000">hydraulic motors (coast), simple circuits</text>
+<text x="1058.0" y="742.0" font-size="12" text-anchor="start" fill="#000">H</text>
+<line x1="30.0" y1="768.0" x2="1370.0" y2="768.0" stroke="#999" stroke-width="0.7"/>
+<text x="128.0" y="804.0" font-size="12" text-anchor="start" fill="#000">Regenerative (P, A, B)</text>
+<text x="338.0" y="804.0" font-size="12" text-anchor="start" fill="#000">to the cylinder</text>
+<text x="548.0" y="804.0" font-size="12" text-anchor="start" fill="#000">fast extend</text>
+<text x="768.0" y="804.0" font-size="12" text-anchor="start" fill="#000">rapid advance of a differential cylinder</text>
+<text x="1058.0" y="804.0" font-size="12" text-anchor="start" fill="#000">– (special)</text>
+<line x1="30.0" y1="830.0" x2="1370.0" y2="830.0" stroke="#999" stroke-width="0.7"/>
+<text x="128.0" y="866.0" font-size="12" text-anchor="start" fill="#000">Float via throttles</text>
+<text x="338.0" y="866.0" font-size="12" text-anchor="start" fill="#000">held at pressure</text>
+<text x="548.0" y="866.0" font-size="12" text-anchor="start" fill="#000">soft venting</text>
+<text x="768.0" y="866.0" font-size="12" text-anchor="start" fill="#000">soft stop of motors, smooth start</text>
+<text x="1058.0" y="866.0" font-size="12" text-anchor="start" fill="#000">Y / R (check)</text>
+<rect x="52.0" y="536.0" width="30.0" height="30.0" rx="0" stroke="#000" stroke-width="1.4" fill="none"/>
+<line x1="60.0" y1="536.0" x2="60.0" y2="530.0" stroke="#000" stroke-width="1.6"/>
+<line x1="60.0" y1="566.0" x2="60.0" y2="572.0" stroke="#000" stroke-width="1.6"/>
+<line x1="74.0" y1="536.0" x2="74.0" y2="530.0" stroke="#000" stroke-width="1.6"/>
+<line x1="74.0" y1="566.0" x2="74.0" y2="572.0" stroke="#000" stroke-width="1.6"/>
+<line x1="60.0" y1="536.0" x2="60.0" y2="542.0" stroke="#000" stroke-width="1.4"/>
+<line x1="55.0" y1="542.0" x2="65.0" y2="542.0" stroke="#000" stroke-width="1.4"/>
+<line x1="60.0" y1="566.0" x2="60.0" y2="572.0" stroke="#000" stroke-width="1.4"/>
+<line x1="55.0" y1="572.0" x2="65.0" y2="572.0" stroke="#000" stroke-width="1.4"/>
+<line x1="74.0" y1="536.0" x2="74.0" y2="542.0" stroke="#000" stroke-width="1.4"/>
+<line x1="69.0" y1="542.0" x2="79.0" y2="542.0" stroke="#000" stroke-width="1.4"/>
+<line x1="74.0" y1="566.0" x2="74.0" y2="572.0" stroke="#000" stroke-width="1.4"/>
+<line x1="69.0" y1="572.0" x2="79.0" y2="572.0" stroke="#000" stroke-width="1.4"/>
+<rect x="52.0" y="598.0" width="30.0" height="30.0" rx="0" stroke="#000" stroke-width="1.4" fill="none"/>
+<line x1="60.0" y1="598.0" x2="60.0" y2="592.0" stroke="#000" stroke-width="1.6"/>
+<line x1="60.0" y1="628.0" x2="60.0" y2="634.0" stroke="#000" stroke-width="1.6"/>
+<line x1="74.0" y1="598.0" x2="74.0" y2="592.0" stroke="#000" stroke-width="1.6"/>
+<line x1="74.0" y1="628.0" x2="74.0" y2="634.0" stroke="#000" stroke-width="1.6"/>
+<line x1="60.0" y1="598.0" x2="60.0" y2="604.0" stroke="#000" stroke-width="1.4"/>
+<line x1="55.0" y1="604.0" x2="65.0" y2="604.0" stroke="#000" stroke-width="1.4"/>
+<line x1="74.0" y1="598.0" x2="74.0" y2="604.0" stroke="#000" stroke-width="1.4"/>
+<line x1="69.0" y1="604.0" x2="79.0" y2="604.0" stroke="#000" stroke-width="1.4"/>
+<polyline points="60.0,628.0 60.0,619.0 74.0,619.0 74.0,628.0" stroke="#000" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+<rect x="52.0" y="660.0" width="30.0" height="30.0" rx="0" stroke="#000" stroke-width="1.4" fill="none"/>
+<line x1="60.0" y1="660.0" x2="60.0" y2="654.0" stroke="#000" stroke-width="1.6"/>
+<line x1="60.0" y1="690.0" x2="60.0" y2="696.0" stroke="#000" stroke-width="1.6"/>
+<line x1="74.0" y1="660.0" x2="74.0" y2="654.0" stroke="#000" stroke-width="1.6"/>
+<line x1="74.0" y1="690.0" x2="74.0" y2="696.0" stroke="#000" stroke-width="1.6"/>
+<line x1="60.0" y1="690.0" x2="60.0" y2="696.0" stroke="#000" stroke-width="1.4"/>
+<line x1="55.0" y1="696.0" x2="65.0" y2="696.0" stroke="#000" stroke-width="1.4"/>
+<polyline points="60.0,660.0 60.0,669.0 74.0,669.0" stroke="#000" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+<line x1="74.0" y1="660.0" x2="74.0" y2="690.0" stroke="#000" stroke-width="1.4"/>
+<rect x="52.0" y="722.0" width="30.0" height="30.0" rx="0" stroke="#000" stroke-width="1.4" fill="none"/>
+<line x1="60.0" y1="722.0" x2="60.0" y2="716.0" stroke="#000" stroke-width="1.6"/>
+<line x1="60.0" y1="752.0" x2="60.0" y2="758.0" stroke="#000" stroke-width="1.6"/>
+<line x1="74.0" y1="722.0" x2="74.0" y2="716.0" stroke="#000" stroke-width="1.6"/>
+<line x1="74.0" y1="752.0" x2="74.0" y2="758.0" stroke="#000" stroke-width="1.6"/>
+<line x1="60.0" y1="722.0" x2="60.0" y2="752.0" stroke="#000" stroke-width="1.4"/>
+<line x1="74.0" y1="722.0" x2="74.0" y2="752.0" stroke="#000" stroke-width="1.4"/>
+<line x1="60.0" y1="737.0" x2="74.0" y2="737.0" stroke="#000" stroke-width="1.4"/>
+<rect x="52.0" y="784.0" width="30.0" height="30.0" rx="0" stroke="#000" stroke-width="1.4" fill="none"/>
+<line x1="60.0" y1="784.0" x2="60.0" y2="778.0" stroke="#000" stroke-width="1.6"/>
+<line x1="60.0" y1="814.0" x2="60.0" y2="820.0" stroke="#000" stroke-width="1.6"/>
+<line x1="74.0" y1="784.0" x2="74.0" y2="778.0" stroke="#000" stroke-width="1.6"/>
+<line x1="74.0" y1="814.0" x2="74.0" y2="820.0" stroke="#000" stroke-width="1.6"/>
+<line x1="60.0" y1="784.0" x2="60.0" y2="814.0" stroke="#000" stroke-width="1.4"/>
+<polyline points="74.0,784.0 74.0,793.0 60.0,793.0" stroke="#000" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+<line x1="74.0" y1="814.0" x2="74.0" y2="820.0" stroke="#000" stroke-width="1.4"/>
+<line x1="69.0" y1="820.0" x2="79.0" y2="820.0" stroke="#000" stroke-width="1.4"/>
+<rect x="52.0" y="846.0" width="30.0" height="30.0" rx="0" stroke="#000" stroke-width="1.4" fill="none"/>
+<line x1="60.0" y1="846.0" x2="60.0" y2="840.0" stroke="#000" stroke-width="1.6"/>
+<line x1="60.0" y1="876.0" x2="60.0" y2="882.0" stroke="#000" stroke-width="1.6"/>
+<line x1="74.0" y1="846.0" x2="74.0" y2="840.0" stroke="#000" stroke-width="1.6"/>
+<line x1="74.0" y1="876.0" x2="74.0" y2="882.0" stroke="#000" stroke-width="1.6"/>
+<line x1="60.0" y1="876.0" x2="60.0" y2="882.0" stroke="#000" stroke-width="1.4"/>
+<line x1="55.0" y1="882.0" x2="65.0" y2="882.0" stroke="#000" stroke-width="1.4"/>
+<polyline points="60.0,846.0 60.0,855.0 74.0,855.0" stroke="#000" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+<line x1="74.0" y1="846.0" x2="74.0" y2="876.0" stroke="#000" stroke-width="1.4"/>
+<text x="86.0" y="872.0" font-size="11" text-anchor="start" fill="#000">)(</text>
+<line x1="120.0" y1="494.0" x2="120.0" y2="892.0" stroke="#999" stroke-width="0.7"/>
+<line x1="330.0" y1="494.0" x2="330.0" y2="892.0" stroke="#999" stroke-width="0.7"/>
+<line x1="540.0" y1="494.0" x2="540.0" y2="892.0" stroke="#999" stroke-width="0.7"/>
+<line x1="760.0" y1="494.0" x2="760.0" y2="892.0" stroke="#999" stroke-width="0.7"/>
+<line x1="1050.0" y1="494.0" x2="1050.0" y2="892.0" stroke="#999" stroke-width="0.7"/>
+<text x="30.0" y="912.0" font-size="12" text-anchor="start" fill="#555">Small box: A, B on top · P, T below. Letters differ per maker – always compare the drawn symbol in the catalogue.</text>
+<rect x="940.0" y="894.0" width="440.0" height="86.0" rx="0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="940.0" y1="924.0" x2="1380.0" y2="924.0" stroke="#000" stroke-width="1"/>
+<text x="950.0" y="915.0" font-size="14" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the supplier's catalogue</text>
+<text x="950.0" y="944.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">29_directional_valve_section – 4/3 NG6</text>
+<text x="950.0" y="962.0" font-size="11" text-anchor="start" fill="#000">Guide 29 §7.1 – 7.3 · rev A</text>
+<text x="1370.0" y="974.0" font-size="11" text-anchor="end" fill="#555">values = example · ISO 1219 style</text>
+</svg>

@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Arial, Helvetica, sans-serif">
+<title>Electrical overview single-line</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker><pattern id="hat" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="0.6"/></pattern><pattern id="hat2" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="0.6"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="1000" fill="#fff"/>
+<text x="20.0" y="30.0" font-size="15" text-anchor="start" fill="#000" font-weight="bold">Spindle test station – electrical overview (single-line, simplified) – drive, safety, PLC, sensors</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" fill="#000">example: 15 kW S1 / 22 kW S6 motor spindle, 400 V 3~ 50 Hz, SINAMICS S120 booksize; safety via S7-1500F + PROFIsafe; accent = safety / signal lines</text>
+<text x="30.0" y="92.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">L1 L2 L3 N PE  400 V 50 Hz (TN-S)</text>
+<polyline points="30.0,100.0 380.0,100.0" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="70.0,100.0 70.0,130.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="20.0" y="130.0" width="100.0" height="40.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="70.0" y="147.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">Q0 main switch</text>
+<text x="70.0" y="160.7" font-size="11" text-anchor="middle" fill="#000">lockable</text>
+<polyline points="70.0,170.0 70.0,195.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="20.0" y="195.0" width="100.0" height="40.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="70.0" y="212.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">F1 fuses / MCCB</text>
+<text x="70.0" y="225.7" font-size="11" text-anchor="middle" fill="#000">size: S120 manual</text>
+<polyline points="70.0,235.0 70.0,260.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="20.0" y="260.0" width="100.0" height="40.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="70.0" y="277.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">K1 line contactor</text>
+<text x="70.0" y="290.7" font-size="11" text-anchor="middle" fill="#000">(via F-DQ)</text>
+<polyline points="70.0,300.0 70.0,325.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="20.0" y="325.0" width="100.0" height="40.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="70.0" y="342.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">line filter (EMC)</text>
+<text x="70.0" y="355.7" font-size="11" text-anchor="middle" fill="#000">+ line reactor</text>
+<polyline points="70.0,365.0 70.0,390.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="20.0" y="390.0" width="100.0" height="50.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="70.0" y="412.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">Smart / Active</text>
+<text x="70.0" y="425.7" font-size="11" text-anchor="middle" fill="#000">Line Module</text>
+<text x="130.0" y="420.0" font-size="11" text-anchor="start" fill="#000">DC link ≈ 540–600 V</text>
+<polyline points="70.0,440.0 70.0,470.0" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+<rect x="20.0" y="470.0" width="100.0" height="50.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="70.0" y="492.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">Motor Module</text>
+<text x="70.0" y="505.7" font-size="11" text-anchor="middle" fill="#000">≥ S6 current</text>
+<polyline points="70.0,520.0 70.0,600.0" fill="none" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="78.0" y="560.0" font-size="11" text-anchor="start" fill="#000">shielded motor cable U V W PE</text>
+<text x="78.0" y="574.0" font-size="11" text-anchor="start" fill="#000">(≤ length in the manual; output</text>
+<text x="78.0" y="588.0" font-size="11" text-anchor="start" fill="#000">reactor / dU/dt filter if long)</text>
+<circle cx="70.0" cy="640.0" r="40.0" fill="#fff" stroke="#000" stroke-width="1.8"/>
+<text x="70.0" y="636.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">M 3~</text>
+<text x="70.0" y="652.0" font-size="11" text-anchor="middle" fill="#000">spindle</text>
+<text x="120.0" y="625.0" font-size="11" text-anchor="start" fill="#000">built-in synchronous motor (example):</text>
+<text x="120.0" y="638.8" font-size="11" text-anchor="start" fill="#000">15 kW S1 / 22 kW S6, 120 N·m,</text>
+<text x="120.0" y="652.5" font-size="11" text-anchor="start" fill="#000">12 000 rpm, I_S1 ≈ 26 A, I_S6 ≈ 38 A</text>
+<text x="120.0" y="666.2" font-size="11" text-anchor="start" fill="#000">(calc. – use the motor datasheet)</text>
+<rect x="60.0" y="690.0" width="20.0" height="14.0" rx="0" fill="#1565c0" stroke="#1565c0" stroke-width="1.2"/>
+<rect x="60.0" y="712.0" width="20.0" height="14.0" rx="0" fill="#1565c0" stroke="#1565c0" stroke-width="1.2"/>
+<text x="20.0" y="750.0" font-size="11" text-anchor="start" fill="#1565c0">upper: encoder sin/cos 1 Vpp</text>
+<text x="20.0" y="763.8" font-size="11" text-anchor="start" fill="#1565c0">lower: KTY / Pt1000 in the winding</text>
+<rect x="260.0" y="690.0" width="130.0" height="45.0" rx="4" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="325.0" y="709.5" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">SMC20 / SME</text>
+<text x="325.0" y="723.2" font-size="11" text-anchor="middle" fill="#000">sensor module</text>
+<polyline points="80.0,697.0 260.0,705.0" fill="none" stroke="#1565c0" stroke-width="1.2" stroke-linejoin="round"/>
+<polyline points="80.0,719.0 260.0,720.0" fill="none" stroke="#1565c0" stroke-width="1.2" stroke-linejoin="round"/>
+<rect x="260.0" y="470.0" width="130.0" height="50.0" rx="4" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="325.0" y="492.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">CU320-2 control unit</text>
+<text x="325.0" y="505.7" font-size="11" text-anchor="middle" fill="#000">Safety Integrated</text>
+<polyline points="325.0,690.0 325.0,520.0" fill="none" stroke="#1565c0" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="332.0" y="610.0" font-size="11" text-anchor="start" fill="#1565c0">DRIVE-CLiQ</text>
+<polyline points="260.0,495.0 120.0,495.0" fill="none" stroke="#1565c0" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="400.0" y="545.0" font-size="11" text-anchor="start" fill="#000">STO · SS1 · SLS · SSM</text>
+<text x="400.0" y="558.8" font-size="11" text-anchor="start" fill="#000">(safe torque off, safe stop 1,</text>
+<text x="400.0" y="572.5" font-size="11" text-anchor="start" fill="#000">safely limited speed,</text>
+<text x="400.0" y="586.2" font-size="11" text-anchor="start" fill="#000">safe speed monitor)</text>
+<polyline points="500.0,100.0 500.0,140.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="445.0" y="140.0" width="110.0" height="40.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="500.0" y="157.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">F2 MCB 3P</text>
+<text x="500.0" y="170.7" font-size="11" text-anchor="middle" fill="#000">C 10 A (example)</text>
+<polyline points="500.0,180.0 500.0,215.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="445.0" y="215.0" width="110.0" height="45.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="500.0" y="234.5" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">chiller 400 V 3~</text>
+<text x="500.0" y="248.2" font-size="11" text-anchor="middle" fill="#000">≈ 2–3 kW el.</text>
+<polyline points="650.0,100.0 650.0,140.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="595.0" y="140.0" width="110.0" height="40.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="650.0" y="157.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">F3 MCB 3P</text>
+<text x="650.0" y="170.7" font-size="11" text-anchor="middle" fill="#000">motor protector</text>
+<polyline points="650.0,180.0 650.0,215.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="595.0" y="215.0" width="110.0" height="45.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="650.0" y="234.5" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">hydraulic unit</text>
+<text x="650.0" y="248.2" font-size="11" text-anchor="middle" fill="#000">≈ 1.1 kW (example)</text>
+<polyline points="800.0,100.0 800.0,140.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="745.0" y="140.0" width="110.0" height="40.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="800.0" y="157.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">F4 MCB 1P+N</text>
+<text x="800.0" y="170.7" font-size="11" text-anchor="middle" fill="#000">C 10 A + RCD</text>
+<polyline points="800.0,180.0 800.0,215.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="745.0" y="215.0" width="110.0" height="45.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="800.0" y="234.5" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">oil-air unit +</text>
+<text x="800.0" y="248.2" font-size="11" text-anchor="middle" fill="#000">230 V sockets</text>
+<polyline points="950.0,100.0 950.0,140.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="895.0" y="140.0" width="110.0" height="40.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="950.0" y="157.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">F5 MCB 1P+N</text>
+<text x="950.0" y="170.7" font-size="11" text-anchor="middle" fill="#000">C 6 A</text>
+<polyline points="950.0,180.0 950.0,215.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="895.0" y="215.0" width="110.0" height="45.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="950.0" y="234.5" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">UPS → station PC,</text>
+<text x="950.0" y="248.2" font-size="11" text-anchor="middle" fill="#000">edge PC, DAQ</text>
+<polyline points="1100.0,100.0 1100.0,140.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="1045.0" y="140.0" width="110.0" height="40.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1100.0" y="157.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">F6 MCB 1P+N</text>
+<text x="1100.0" y="170.7" font-size="11" text-anchor="middle" fill="#000">C 6 A</text>
+<polyline points="1100.0,180.0 1100.0,215.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<rect x="1045.0" y="215.0" width="110.0" height="45.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1100.0" y="234.5" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">24 V DC PSU</text>
+<text x="1100.0" y="248.2" font-size="11" text-anchor="middle" fill="#000">(e.g. SITOP 20 A)</text>
+<polyline points="380.0,100.0 1100.0,100.0" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1100.0,260.0 1100.0,300.0" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="830.0,300.0 1360.0,300.0" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+<text x="1150.0" y="293.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">24 V DC (PELV)</text>
+<rect x="720.0" y="360.0" width="220.0" height="90.0" rx="4" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="830.0" y="388.2" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">S7-1500F safety PLC</text>
+<text x="830.0" y="402.0" font-size="11" text-anchor="middle" fill="#000">F-DI: E-stops, door, PS/FS</text>
+<text x="830.0" y="415.7" font-size="11" text-anchor="middle" fill="#000">F-DQ: K1, guard lock</text>
+<text x="830.0" y="429.5" font-size="11" text-anchor="middle" fill="#000">AI: TT, FT, PT, ZT</text>
+<polyline points="830.0,300.0 830.0,360.0" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="720.0,405.0 390.0,495.0" fill="none" stroke="#1565c0" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="600.0" y="470.0" font-size="11" text-anchor="start" fill="#1565c0">PROFINET + PROFIsafe</text>
+<rect x="1010.0" y="340.0" width="160.0" height="50.0" rx="4" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="1090.0" y="362.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">S0 E-stop ×2</text>
+<text x="1090.0" y="375.7" font-size="11" text-anchor="middle" fill="#000">2-channel (PL d example)</text>
+<rect x="1010.0" y="410.0" width="160.0" height="50.0" rx="4" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="1090.0" y="432.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">S1 door switch with</text>
+<text x="1090.0" y="445.7" font-size="11" text-anchor="middle" fill="#000">guard locking (ISO 14119)</text>
+<rect x="1200.0" y="340.0" width="170.0" height="120.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1285.0" y="376.4" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">field sensors</text>
+<text x="1285.0" y="390.1" font-size="11" text-anchor="middle" fill="#000">TT-101/102, FT-101,</text>
+<text x="1285.0" y="403.9" font-size="11" text-anchor="middle" fill="#000">PT-101, PS-201, LSL-202,</text>
+<text x="1285.0" y="417.6" font-size="11" text-anchor="middle" fill="#000">PT-401, ZT-402</text>
+<text x="1285.0" y="431.4" font-size="11" text-anchor="middle" fill="#000">4–20 mA / Pt100 / DI</text>
+<polyline points="1010.0,365.0 940.0,380.0" fill="none" stroke="#1565c0" stroke-width="1.2" stroke-linejoin="round"/>
+<polyline points="1010.0,435.0 940.0,420.0" fill="none" stroke="#1565c0" stroke-width="1.2" stroke-linejoin="round"/>
+<polyline points="1200.0,400.0 1170.0,400.0" fill="none" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<polyline points="1285.0,300.0 1285.0,340.0" fill="none" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<rect x="720.0" y="540.0" width="220.0" height="70.0" rx="4" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="830.0" y="565.1" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">Station PC (twin)</text>
+<text x="830.0" y="578.9" font-size="11" text-anchor="middle" fill="#000">server.py · /api/spst</text>
+<text x="830.0" y="592.6" font-size="11" text-anchor="middle" fill="#000">spstation.db</text>
+<polyline points="830.0,450.0 830.0,540.0" fill="none" stroke="#1565c0" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="838.0" y="500.0" font-size="11" text-anchor="start" fill="#1565c0">Ethernet: Modbus TCP 502 / OPC UA 4840</text>
+<rect x="1010.0" y="540.0" width="160.0" height="70.0" rx="4" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="1090.0" y="565.1" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">Edge PC + DAQ</text>
+<text x="1090.0" y="578.9" font-size="11" text-anchor="middle" fill="#000">cDAQ / QuantumX</text>
+<text x="1090.0" y="592.6" font-size="11" text-anchor="middle" fill="#000">A1, A2, PRB-01</text>
+<polyline points="1010.0,575.0 940.0,575.0" fill="none" stroke="#1565c0" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="950.0" y="630.0" font-size="11" text-anchor="start" fill="#1565c0">MQTT 1883 / HTTP</text>
+<rect x="1200.0" y="540.0" width="170.0" height="70.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1285.0" y="565.1" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">cell switch (VLAN)</text>
+<text x="1285.0" y="578.9" font-size="11" text-anchor="middle" fill="#000">firewall to MES zone</text>
+<text x="1285.0" y="592.6" font-size="11" text-anchor="middle" fill="#000">(IEC 62443)</text>
+<polyline points="1170.0,575.0 1200.0,575.0" fill="none" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<rect x="480.0" y="680.0" width="890.0" height="190.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="490.0" y="700.0" font-size="11" text-anchor="start" fill="#000">Design notes (example – the electrical designer and the risk assessment decide):</text>
+<text x="490.0" y="721.0" font-size="11" text-anchor="start" fill="#000">• The twin is NOT a safety function. Speed limit, guard locking and STO/SS1 are in the drive + safety PLC (ISO 13849-1 / IEC 62061).</text>
+<text x="490.0" y="742.0" font-size="11" text-anchor="start" fill="#000">• Door unlock only at safe standstill (SSM, e.g. &lt; 10 rpm); opening while turning → SS1 → STO.</text>
+<text x="490.0" y="763.0" font-size="11" text-anchor="start" fill="#000">• Overspeed: SLS set to nmax of the spindle on test (e.g. 12 000 rpm + 5 %); set by the recipe, checked by a 2nd channel.</text>
+<text x="490.0" y="784.0" font-size="11" text-anchor="start" fill="#000">• Braking: Smart Line Module cannot feed back → braking module + resistor, or Active Line Module (regenerative).</text>
+<text x="490.0" y="805.0" font-size="11" text-anchor="start" fill="#000">• E = ½·J·ω² ≈ 10 kJ at 12 000 rpm (J ≈ 0.0128 kg·m²) – size the brake resistor and the guard for this energy.</text>
+<text x="490.0" y="826.0" font-size="11" text-anchor="start" fill="#000">• EMC: shielded motor cable, 360° shield clamps, separate trays for power / signals, PE star point (see guide 27).</text>
+<text x="490.0" y="847.0" font-size="11" text-anchor="start" fill="#000">• Insulation test before the first run: 500 V DC ≥ 100 MΩ (step 13, example – motor maker value first).</text>
+<rect x="950.0" y="928.0" width="440.0" height="62.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="950.0" y1="950.0" x2="1390.0" y2="950.0" stroke="#000" stroke-width="0.8"/>
+<text x="958.0" y="944.0" font-size="12" text-anchor="start" fill="#1565c0" font-weight="bold">EXAMPLE – check the maker&#x27;s documentation</text>
+<text x="958.0" y="966.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">20_electrical_overview – drive, safety, PLC, sensors</text>
+<text x="958.0" y="982.0" font-size="11" text-anchor="start" fill="#000">Guide 20 – spindle station live twin · values: examples from the guide / app</text>
+</svg>

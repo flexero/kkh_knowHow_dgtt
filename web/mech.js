@@ -317,7 +317,7 @@ function partInfo(key, R, M) {
       "Hangs under the top frame, drives the shaft with a short 08B drive chain (tensioner)."],
     stop: ["Retractable pallet stop", "BUY", "heavy-duty conveyor stop with hydraulic damper (or Ø32 cylinder + guided head)",
       "Stops the pallet exactly over the receivers and keeps it from running into the APC. Goes DOWN before the APC turns.",
-      `Force ${f(R.Fstop, 0)} N (creep 0.05 m/s + chain sliding under the pallet) → design 1.5× = ${f(R.Fstop * 1.5 / 1000, 1)} kN. Up: top at ${R.Ht + 30} mm, down: ${H0 - 20} mm.`,
+      `Force ${f(R.Fstop, 0)} N (creep 0.05 m/s + chain sliding under the pallet) → design 1.5× = ${f(R.Fstop * 1.5 / 1000, 1)} kN. Up: top at ${R.Ht + 30} mm, down: ${H0 - 20} mm. Damper energy per stroke = kinetic energy + chain push × stroke (the chains keep pushing while the damper strokes): example ≥ 36 J with 25 mm stroke or ≥ 22 J with 10 mm stroke – not only ½mv² (guide 10 §9.5, §30).`,
       "PU face 90 Shore A. 2 sensors: up / down. PLC interlock: APC rotation only when the stop is down."],
     dpost: ["Buffer post + front plate", "MAKE", "S355 tube 60×60 + plate 15 mm",
       "Carries the 2 safety shock absorbers, 2 PU end pads and the docking pin of the manual cart. The AGV normally stops 40 mm before it and never touches it.",
@@ -412,7 +412,7 @@ function create3D(host) {
   const root = new THREE.Group(); scene.add(root);
   let O = {}, selBox = null, labels = [], onPick = null, chainTex = [], M_SB = 25;
   const cs = getComputedStyle(document.documentElement);
-  scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed");
+  scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed"); if (window.dtTheme) window.dtTheme.scene(scene);
 
   const mat = (color, o = {}) => new THREE.MeshStandardMaterial({ color, metalness: o.m ?? 0.35, roughness: o.r ?? 0.55, transparent: !!o.op, opacity: o.op ?? 1, side: o.ds ? THREE.DoubleSide : THREE.FrontSide, depthWrite: o.op ? false : true });
   const C = {
@@ -499,7 +499,7 @@ function create3D(host) {
     labels = []; chainTex = []; O = {}; if (selBox) { scene.remove(selBox); selBox = null; }
     const a = A.a, b = A.b, zc = R.zc, r = A.r;
     O.R = R;
-    const fl = new THREE.Mesh(new THREE.PlaneGeometry(8000, 6000), C.floor); fl.rotation.x = -Math.PI / 2; fl.position.set(600, 0, 0); root.add(fl);
+    const fl = new THREE.Mesh(new THREE.PlaneGeometry(8000, 6000), C.floor); fl.rotation.x = -Math.PI / 2; fl.position.set(600, 0, 0); root.add(fl); if (window.dtTheme) window.dtTheme.floor(C.floor);
     // floor marking: AGV docking lane
     for (const sz of [1, -1]) box(2600, 2, 60, C.yellow, R.XD + 1300, 1, sz * (R.wA / 2 + 130), null, root);
 

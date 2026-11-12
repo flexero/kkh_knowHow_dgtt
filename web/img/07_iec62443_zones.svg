@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<title>IEC 62443 zones and conduits of the factory, DMZ, target security levels and firewall rules</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b62c4"/></marker><pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#e3eefb"/><line x1="0" y1="0" x2="0" y2="8" stroke="#0b62c4" stroke-width="2"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="1000" fill="#ffffff"/>
+<text x="20.0" y="32.0" font-size="17" text-anchor="start" font-weight="bold" fill="#000">IEC 62443 – zones (dashed), conduits (firewalls) and rules of the factory – deny everything that is not listed</text>
+<rect x="20.0" y="60.0" width="300.0" height="100.0" rx="8" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="30.0" y="80.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Internet / partners / vendors</text>
+<text x="310.0" y="80.0" font-size="12" text-anchor="end" font-weight="bold" fill="#0b62c4">untrusted</text>
+<text x="30.0" y="100.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">EDI partners (AS2), bank, cloud</text>
+<text x="30.0" y="117.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">vendor remote support (VPN)</text>
+<rect x="430.0" y="60.0" width="420.0" height="100.0" rx="8" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="440.0" y="80.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Enterprise IT – VLAN 10</text>
+<text x="840.0" y="80.0" font-size="12" text-anchor="end" font-weight="bold" fill="#0b62c4">IT policy</text>
+<text x="440.0" y="100.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">ERP, e-mail, office PCs  10.10.0.0/16</text>
+<rect x="20.0" y="220.0" width="830.0" height="110.0" rx="8" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="30.0" y="240.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">DMZ – VLAN 20 · 10.20.0.0/24</text>
+<text x="840.0" y="240.0" font-size="12" text-anchor="end" font-weight="bold" fill="#0b62c4">SL-T 2 – 3</text>
+<text x="30.0" y="260.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">time server .100 · B2MML gateway .101 · historian mirror .102 · patch server .103 · jump host (MFA, recording)</text>
+<text x="30.0" y="277.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">every flow ENDS here and a new one starts – nothing passes through</text>
+<rect x="20.0" y="400.0" width="400.0" height="110.0" rx="8" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="30.0" y="420.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Plant operations L3 – VLAN 30</text>
+<text x="410.0" y="420.0" font-size="12" text-anchor="end" font-weight="bold" fill="#0b62c4">SL-T 2</text>
+<text x="30.0" y="440.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">MES .100 · MQTT broker .101/.102</text>
+<text x="30.0" y="457.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">historian .103 · NMS, syslog, DNS</text>
+<rect x="450.0" y="400.0" width="400.0" height="110.0" rx="8" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="460.0" y="420.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Supervisory L2 – VLAN 40</text>
+<text x="840.0" y="420.0" font-size="12" text-anchor="end" font-weight="bold" fill="#0b62c4">SL-T 2</text>
+<text x="460.0" y="440.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">SCADA .100 · fleet manager .101</text>
+<text x="460.0" y="457.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">digital twin .102 · HMI clients</text>
+<rect x="20.0" y="580.0" width="560.0" height="130.0" rx="8" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="30.0" y="600.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Cells L1 – VLANs 51 · 52 · 53 · 54</text>
+<text x="570.0" y="600.0" font-size="12" text-anchor="end" font-weight="bold" fill="#0b62c4">SL-T 2</text>
+<text x="30.0" y="620.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">PLC-01 10.51.0.11 · PLC-02/03 10.52.0.12/.13 · PLC-04/05 10.53.0.14/.15</text>
+<text x="30.0" y="637.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">AS/RS PLCs 10.54.0.31/.32 · CNCs .5x · remote I/O .15x</text>
+<text x="30.0" y="654.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">PROFINET RT stays inside each cell (not routed)</text>
+<rect x="610.0" y="580.0" width="240.0" height="130.0" rx="8" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="620.0" y="600.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">AGV Wi-Fi – VLAN 60</text>
+<text x="840.0" y="600.0" font-size="12" text-anchor="end" font-weight="bold" fill="#0b62c4">SL-T 2</text>
+<text x="620.0" y="620.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">AGV-01 10.60.0.51</text>
+<text x="620.0" y="637.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">AGV-02 10.60.0.52</text>
+<text x="620.0" y="654.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">WPA3-Ent. EAP-TLS</text>
+<rect x="20.0" y="760.0" width="560.0" height="70.0" rx="8" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="30.0" y="780.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Safety network (if separate)</text>
+<text x="570.0" y="780.0" font-size="12" text-anchor="end" font-weight="bold" fill="#0b62c4">SL-T 2+</text>
+<text x="30.0" y="800.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">PROFIsafe inside the cells · no routing, no conduit</text>
+<rect x="327.0" y="95.0" width="96.0" height="34.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="2"/>
+<line x1="327.0" y1="106.3" x2="423.0" y2="106.3" stroke="#000" stroke-width="0.7"/>
+<line x1="327.0" y1="117.6" x2="423.0" y2="117.6" stroke="#000" stroke-width="0.7"/>
+<rect x="337.0" y="102.0" width="76.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="375.0" y="117.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">C0</text>
+<line x1="320.0" y1="112.0" x2="327.0" y2="112.0" stroke="#000" stroke-width="2"/>
+<line x1="423.0" y1="112.0" x2="430.0" y2="112.0" stroke="#000" stroke-width="2"/>
+<rect x="560.0" y="176.0" width="96.0" height="34.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="2"/>
+<line x1="560.0" y1="187.3" x2="656.0" y2="187.3" stroke="#000" stroke-width="0.7"/>
+<line x1="560.0" y1="198.6" x2="656.0" y2="198.6" stroke="#000" stroke-width="0.7"/>
+<rect x="570.0" y="183.0" width="76.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="608.0" y="198.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">C1 IT FW</text>
+<line x1="608.0" y1="160.0" x2="608.0" y2="176.0" stroke="#000" stroke-width="2"/>
+<line x1="608.0" y1="210.0" x2="608.0" y2="220.0" stroke="#000" stroke-width="2"/>
+<rect x="170.0" y="176.0" width="96.0" height="34.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="2"/>
+<line x1="170.0" y1="187.3" x2="266.0" y2="187.3" stroke="#000" stroke-width="0.7"/>
+<line x1="170.0" y1="198.6" x2="266.0" y2="198.6" stroke="#000" stroke-width="0.7"/>
+<rect x="180.0" y="183.0" width="76.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="218.0" y="198.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">C6 VPN</text>
+<line x1="218.0" y1="160.0" x2="218.0" y2="176.0" stroke="#000" stroke-width="2"/>
+<line x1="218.0" y1="210.0" x2="218.0" y2="220.0" stroke="#000" stroke-width="2"/>
+<rect x="380.0" y="352.0" width="96.0" height="34.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="2"/>
+<line x1="380.0" y1="363.3" x2="476.0" y2="363.3" stroke="#000" stroke-width="0.7"/>
+<line x1="380.0" y1="374.6" x2="476.0" y2="374.6" stroke="#000" stroke-width="0.7"/>
+<rect x="390.0" y="359.0" width="76.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="428.0" y="374.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">C2 OT FW</text>
+<line x1="428.0" y1="330.0" x2="428.0" y2="352.0" stroke="#000" stroke-width="2"/>
+<line x1="428.0" y1="386.0" x2="220.0" y2="400.0" stroke="#000" stroke-width="2"/>
+<line x1="428.0" y1="386.0" x2="650.0" y2="400.0" stroke="#000" stroke-width="2"/>
+<rect x="380.0" y="532.0" width="96.0" height="34.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="2"/>
+<line x1="380.0" y1="543.3" x2="476.0" y2="543.3" stroke="#000" stroke-width="0.7"/>
+<line x1="380.0" y1="554.6" x2="476.0" y2="554.6" stroke="#000" stroke-width="0.7"/>
+<rect x="390.0" y="539.0" width="76.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="428.0" y="554.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">C3 OT FW</text>
+<line x1="220.0" y1="510.0" x2="428.0" y2="532.0" stroke="#000" stroke-width="2"/>
+<line x1="650.0" y1="510.0" x2="428.0" y2="532.0" stroke="#000" stroke-width="2"/>
+<line x1="428.0" y1="566.0" x2="300.0" y2="580.0" stroke="#000" stroke-width="2"/>
+<line x1="428.0" y1="566.0" x2="730.0" y2="580.0" stroke="#000" stroke-width="2"/>
+<text x="486.0" y="554.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">C3 to cells · C4 to AGV zone</text>
+<text x="870.0" y="990.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000"></text>
+<text x="880.0" y="74.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Conduit rules (11.7, 31.3) – stateful, log every deny</text>
+<rect x="880.0" y="84.0" width="80.0" height="26.0" rx="0" fill="#e3eefb" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="102.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Rule</text>
+<rect x="960.0" y="84.0" width="270.0" height="26.0" rx="0" fill="#e3eefb" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="102.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">From → to</text>
+<rect x="1230.0" y="84.0" width="150.0" height="26.0" rx="0" fill="#e3eefb" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="102.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Port</text>
+<rect x="880.0" y="110.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="128.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-01</text>
+<rect x="960.0" y="110.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="128.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">ERP → B2MML gateway (DMZ)</text>
+<rect x="1230.0" y="110.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="128.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">TCP 443</text>
+<rect x="880.0" y="136.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="154.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-02</text>
+<rect x="960.0" y="136.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="154.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">B2MML gateway → MES</text>
+<rect x="1230.0" y="136.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="154.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">443 / 5671</text>
+<rect x="880.0" y="162.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="180.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-03</text>
+<rect x="960.0" y="162.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="180.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">MES, SCADA → cells 51–54</text>
+<rect x="1230.0" y="162.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="180.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">TCP 4840</text>
+<rect x="880.0" y="188.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="206.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-04</text>
+<rect x="960.0" y="188.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="206.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">cells → broker .101/.102</text>
+<rect x="1230.0" y="188.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="206.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">TCP 8883</text>
+<rect x="880.0" y="214.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="232.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-05</text>
+<rect x="960.0" y="214.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="232.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">fleet manager → broker</text>
+<rect x="1230.0" y="214.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="232.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">TCP 8883</text>
+<rect x="880.0" y="240.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="258.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-06</text>
+<rect x="960.0" y="240.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="258.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">AGVs (VLAN 60) → broker</text>
+<rect x="1230.0" y="240.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="258.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">TCP 8883</text>
+<rect x="880.0" y="266.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="284.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-07</text>
+<rect x="960.0" y="266.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="284.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">all OT → time server</text>
+<rect x="1230.0" y="266.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="284.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">UDP 123</text>
+<rect x="880.0" y="292.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="310.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-08</text>
+<rect x="960.0" y="292.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="310.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">jump host → OT (per session)</text>
+<rect x="1230.0" y="292.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="310.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">22 / 3389 / 443</text>
+<rect x="880.0" y="318.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="336.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-09/10</text>
+<rect x="960.0" y="318.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="336.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">NMS ↔ switches (SNMPv3)</text>
+<rect x="1230.0" y="318.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="336.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">UDP 161 / 162</text>
+<rect x="880.0" y="344.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="362.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-11</text>
+<rect x="960.0" y="344.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="362.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">all OT → syslog</text>
+<rect x="1230.0" y="344.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="362.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">UDP 514 / 6514</text>
+<rect x="880.0" y="370.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="388.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-12</text>
+<rect x="960.0" y="370.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="388.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">all OT → DNS</text>
+<rect x="1230.0" y="370.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="388.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">53</text>
+<rect x="880.0" y="396.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="414.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-13</text>
+<rect x="960.0" y="396.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="414.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">historian → mirror (DMZ)</text>
+<rect x="1230.0" y="396.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="414.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">maker port</text>
+<rect x="880.0" y="422.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="440.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-14</text>
+<rect x="960.0" y="422.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="440.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">patch server → OT servers</text>
+<rect x="1230.0" y="422.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="440.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">443 (window)</text>
+<rect x="880.0" y="448.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="466.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-15</text>
+<rect x="960.0" y="448.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="466.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">eng. station → PLCs</text>
+<rect x="1230.0" y="448.0" width="150.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="466.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">102 (work order)</text>
+<rect x="880.0" y="474.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="492.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-16</text>
+<rect x="960.0" y="474.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="492.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">cells → internet</text>
+<rect x="1230.0" y="474.0" width="150.0" height="26.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="492.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">DENY + alarm</text>
+<rect x="880.0" y="500.0" width="80.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="886.0" y="518.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">FW-99</text>
+<rect x="960.0" y="500.0" width="270.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="966.0" y="518.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">any → any</text>
+<rect x="1230.0" y="500.0" width="150.0" height="26.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1"/>
+<text x="1236.0" y="518.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">DENY + log</text>
+<text x="880.0" y="550.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Never allowed: Enterprise → cells · Internet → any OT zone ·</text>
+<text x="880.0" y="568.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">cloud → machines (data goes out only, via the DMZ).</text>
+<text x="880.0" y="586.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">SL-T = target security level (proposal – confirm in the</text>
+<text x="880.0" y="604.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">risk assessment IEC 62443-3-2). SL 1 mistakes · SL 2 simple</text>
+<text x="880.0" y="622.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">intentional attack · SL 3 sophisticated · SL 4 extended resources.</text>
+<text x="20.0" y="860.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Conduits: C0 internet edge · C1 IT ↔ DMZ · C2 DMZ ↔ OT (operations, supervisory) · C3 L3/L2 ↔ cells · C4 AGV zone · C6 vendor VPN → jump host</text>
+<text x="20.0" y="878.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Back-to-back DMZ (two firewalls, ideally two makers) – HA pairs. Remote access only: VPN → jump host (MFA, personal account, time limit, recording) → target.</text>
+<rect x="968.0" y="910.0" width="420.0" height="78.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="968.0" y1="936.0" x2="1388.0" y2="936.0" stroke="#000" stroke-width="1"/>
+<text x="976.0" y="928.0" font-size="13" text-anchor="start" font-weight="bold" fill="#0b62c4">EXAMPLE – check the maker's documentation</text>
+<text x="976.0" y="954.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">IEC 62443 zones, conduits and firewall rules</text>
+<text x="976.0" y="972.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">VC compressor factory – guide 07 · 07_iec62443_zones.svg · 2026-11</text>
+</svg>

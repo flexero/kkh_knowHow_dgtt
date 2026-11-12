@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 990" width="1400" height="990" font-family="Arial, Helvetica, sans-serif">
+<title>Compressed-air network – compressor room and ring main</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="990" fill="#ffffff"/>
+<text x="40.0" y="46.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000">Compressed-air system for the crankcase line – compressor room, treatment to ISO 8573-1 class 1.4.1, ring main, drops (EXAMPLE)</text>
+<text x="40.0" y="92.0" font-size="14" text-anchor="start" font-weight="bold" fill="#000">1  Compressor room (supply + treatment)</text>
+<rect x="50.0" y="125.0" width="130.0" height="90.0" rx="0" stroke="#000" stroke-width="1.5" fill="#f2f2f2"/>
+<circle cx="95.0" cy="170.0" r="24.0" stroke="#000" stroke-width="1.5" fill="none"/>
+<polygon points="95.0,146.0 77.0,184.0 113.0,184.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<text x="140.0" y="162.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#000">M</text>
+<circle cx="140.0" cy="158.0" r="13.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<text x="115.0" y="232.0" font-size="11" text-anchor="middle" fill="#000">oil-injected screw</text>
+<text x="115.0" y="246.0" font-size="11" text-anchor="middle" fill="#000">compressor, VSD</text>
+<text x="115.0" y="260.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">11–15 kW class</text>
+<text x="115.0" y="274.0" font-size="11" text-anchor="middle" fill="#555">(with after-cooler)</text>
+<line x1="180.0" y1="170.0" x2="250.0" y2="170.0" stroke="#000" stroke-width="3"/>
+<rect x="250.0" y="100.0" width="60.0" height="140.0" rx="28" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="280.0" y="208.0" font-size="11" text-anchor="middle" fill="#000">wet</text>
+<text x="280.0" y="222.0" font-size="11" text-anchor="middle" fill="#000">receiver</text>
+<text x="280.0" y="175.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">500 L</text>
+<text x="280.0" y="190.0" font-size="11" text-anchor="middle" fill="#000">11 bar</text>
+<line x1="280.0" y1="240.0" x2="280.0" y2="266.0" stroke="#000" stroke-width="1.2"/>
+<polygon points="272.0,266.0 288.0,266.0 280.0,278.0" stroke="#000" stroke-width="1.2" fill="#000"/>
+<circle cx="280.0" cy="120.0" r="7.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<text x="296.0" y="124.0" font-size="11" text-anchor="start" fill="#000">PI, safety valve</text>
+<line x1="310.0" y1="170.0" x2="380.0" y2="170.0" stroke="#000" stroke-width="3"/>
+<polygon points="400.0,148.0 422.0,170.0 400.0,192.0 378.0,170.0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="385.0" y1="170.0" x2="415.0" y2="170.0" stroke="#000" stroke-width="1.2" stroke-dasharray="3 2"/>
+<text x="400.0" y="138.0" font-size="11" text-anchor="middle" fill="#000">pre-filter</text>
+<text x="400.0" y="210.0" font-size="11" text-anchor="middle" fill="#000">1 µm</text>
+<line x1="400.0" y1="214.0" x2="400.0" y2="240.0" stroke="#000" stroke-width="1.2"/>
+<polygon points="392.0,240.0 408.0,240.0 400.0,252.0" stroke="#000" stroke-width="1.2" fill="#000"/>
+<line x1="422.0" y1="170.0" x2="480.0" y2="170.0" stroke="#000" stroke-width="3"/>
+<rect x="480.0" y="130.0" width="120.0" height="80.0" rx="0" stroke="#000" stroke-width="1.5" fill="#f2f2f2"/>
+<text x="540.0" y="162.0" font-size="12" text-anchor="middle" fill="#000">refrigeration</text>
+<text x="540.0" y="178.0" font-size="12" text-anchor="middle" fill="#000">dryer</text>
+<text x="540.0" y="196.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">PDP +3 °C</text>
+<line x1="540.0" y1="210.0" x2="540.0" y2="236.0" stroke="#000" stroke-width="1.2"/>
+<polygon points="532.0,236.0 548.0,236.0 540.0,248.0" stroke="#000" stroke-width="1.2" fill="#000"/>
+<line x1="600.0" y1="170.0" x2="660.0" y2="170.0" stroke="#000" stroke-width="3"/>
+<polygon points="680.0,148.0 702.0,170.0 680.0,192.0 658.0,170.0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="665.0" y1="170.0" x2="695.0" y2="170.0" stroke="#000" stroke-width="1.2" stroke-dasharray="3 2"/>
+<line x1="670.0" y1="162.0" x2="690.0" y2="178.0" stroke="#000" stroke-width="1.2"/>
+<text x="680.0" y="138.0" font-size="11" text-anchor="middle" fill="#000">coalescing</text>
+<text x="680.0" y="210.0" font-size="11" text-anchor="middle" fill="#000">0.01 mg/m³</text>
+<line x1="680.0" y1="214.0" x2="680.0" y2="240.0" stroke="#000" stroke-width="1.2"/>
+<polygon points="672.0,240.0 688.0,240.0 680.0,252.0" stroke="#000" stroke-width="1.2" fill="#000"/>
+<line x1="702.0" y1="170.0" x2="760.0" y2="170.0" stroke="#000" stroke-width="3"/>
+<circle cx="780.0" cy="170.0" r="20.0" stroke="#000" stroke-width="1.5" fill="none"/>
+<text x="780.0" y="175.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">FT</text>
+<text x="780.0" y="140.0" font-size="11" text-anchor="middle" fill="#000">flow meter</text>
+<line x1="800.0" y1="170.0" x2="860.0" y2="170.0" stroke="#000" stroke-width="3"/>
+<polygon points="860.0,160.0 880.0,170.0 860.0,180.0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<polygon points="900.0,160.0 880.0,170.0 900.0,180.0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="880.0" y="148.0" font-size="11" text-anchor="middle" fill="#000">main valve</text>
+<line x1="900.0" y1="170.0" x2="960.0" y2="170.0" stroke="#000" stroke-width="3"/>
+<circle cx="980.0" cy="170.0" r="9.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<text x="996.0" y="156.0" font-size="11" text-anchor="start" fill="#000">PT 7 bar</text>
+<line x1="960.0" y1="170.0" x2="1000.0" y2="170.0" stroke="#000" stroke-width="3"/>
+<line x1="1000.0" y1="170.0" x2="1000.0" y2="390.0" stroke="#000" stroke-width="3"/>
+<text x="1010.0" y="300.0" font-size="11" text-anchor="start" fill="#000">to ring main</text>
+<line x1="280.0" y1="298.0" x2="680.0" y2="298.0" stroke="#000" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="280.0" y1="278.0" x2="280.0" y2="298.0" stroke="#000" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="400.0" y1="252.0" x2="400.0" y2="298.0" stroke="#000" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="540.0" y1="248.0" x2="540.0" y2="298.0" stroke="#000" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="680.0" y1="252.0" x2="680.0" y2="298.0" stroke="#000" stroke-width="1.2" stroke-dasharray="6 3"/>
+<rect x="720.0" y="283.0" width="150.0" height="34.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="795.0" y="304.0" font-size="11" text-anchor="middle" fill="#000">oil-water separator</text>
+<line x1="680.0" y1="298.0" x2="720.0" y2="298.0" stroke="#000" stroke-width="1.2" stroke-dasharray="6 3"/>
+<text x="300.0" y="314.0" font-size="11" text-anchor="start" fill="#555">condensate is oily: treat it, never into the sewer; use level-controlled drains</text>
+<text x="1060.0" y="92.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Design values (from docs/28, example)</text>
+<text x="1060.0" y="114.0" font-size="11" text-anchor="start" fill="#000">Σ average 910 NL/min, Σ peak 2 200 NL/min</text>
+<text x="1060.0" y="131.0" font-size="11" text-anchor="start" fill="#000">design q = 910 × 1.10 × 1.20 = 1 201 NL/min</text>
+<text x="1060.0" y="148.0" font-size="11" text-anchor="start" fill="#000">  = 20.02 l/s = 72.1 Nm³/h</text>
+<text x="1060.0" y="165.0" font-size="11" text-anchor="start" fill="#000">set pressure 7 bar g, need 0.5–0.6 MPa at machine</text>
+<text x="1060.0" y="182.0" font-size="11" text-anchor="start" fill="#000">ring main ID 32 mm, L = 100 m + 30 % = 130 m</text>
+<text x="1060.0" y="199.0" font-size="11" text-anchor="start" fill="#000">Δp = 450·q^1.85·L/(d^5·p) = 0.0556 bar ✓</text>
+<text x="1060.0" y="216.0" font-size="11" text-anchor="start" fill="#000">(25 mm: 0.191 bar ✗), v = 3.15 m/s</text>
+<text x="1060.0" y="233.0" font-size="11" text-anchor="start" fill="#000">quality ISO 8573-1 class 1.4.1:</text>
+<text x="1060.0" y="250.0" font-size="11" text-anchor="start" fill="#000">  particles 1, PDP ≤ +3 °C, oil ≤ 0.01 mg/m³</text>
+<text x="1060.0" y="267.0" font-size="11" text-anchor="start" fill="#000">condensate ≈ 0.94 L/h at 25 °C / 60 % RH</text>
+<text x="40.0" y="380.0" font-size="14" text-anchor="start" font-weight="bold" fill="#000">2  Ring main in the hall (plan, schematic) – both directions feed every drop</text>
+<rect x="90.0" y="450.0" width="810.0" height="270.0" rx="0" stroke="#000" stroke-width="4" fill="none"/>
+<line x1="1000.0" y1="390.0" x2="840.0" y2="390.0" stroke="#000" stroke-width="3"/>
+<line x1="840.0" y1="390.0" x2="840.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#ar)"/>
+<text x="240.0" y="474.0" font-size="18" text-anchor="middle" font-weight="bold" fill="#c62828">→</text>
+<text x="640.0" y="474.0" font-size="18" text-anchor="middle" font-weight="bold" fill="#c62828">←</text>
+<text x="300.0" y="710.0" font-size="18" text-anchor="middle" font-weight="bold" fill="#c62828">←</text>
+<text x="700.0" y="710.0" font-size="18" text-anchor="middle" font-weight="bold" fill="#c62828">→</text>
+<polygon points="475.0,442.0 485.0,450.0 475.0,458.0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<polygon points="495.0,442.0 485.0,450.0 495.0,458.0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<polygon points="475.0,712.0 485.0,720.0 475.0,728.0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<polygon points="495.0,712.0 485.0,720.0 495.0,728.0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="485.0" y="436.0" font-size="11" text-anchor="middle" fill="#000">section valve</text>
+<line x1="90.0" y1="720.0" x2="90.0" y2="754.0" stroke="#000" stroke-width="2"/>
+<line x1="90.0" y1="754.0" x2="90.0" y2="780.0" stroke="#000" stroke-width="1.2"/>
+<polygon points="82.0,780.0 98.0,780.0 90.0,792.0" stroke="#000" stroke-width="1.2" fill="#000"/>
+<line x1="900.0" y1="720.0" x2="900.0" y2="754.0" stroke="#000" stroke-width="2"/>
+<line x1="900.0" y1="754.0" x2="900.0" y2="780.0" stroke="#000" stroke-width="1.2"/>
+<polygon points="892.0,780.0 908.0,780.0 900.0,792.0" stroke="#000" stroke-width="1.2" fill="#000"/>
+<text x="100.0" y="780.0" font-size="11" text-anchor="start" fill="#000">drain leg + auto drain at every low point</text>
+<text x="560.0" y="740.0" font-size="11" text-anchor="middle" fill="#555">slope 1–2 % towards the drain legs</text>
+<path d="M160,450 L160,436 L178,436 L178,490" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="164.0" y="490.0" width="30.0" height="52.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="179.0" y="510.0" font-size="11" text-anchor="middle" fill="#000">FRL</text>
+<text x="179.0" y="530.0" font-size="11" text-anchor="middle" fill="#000">PS</text>
+<text x="179.0" y="560.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">HMC-01</text>
+<text x="179.0" y="575.0" font-size="11" text-anchor="middle" fill="#555">300 NL/min pk</text>
+<path d="M280,450 L280,436 L298,436 L298,490" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="284.0" y="490.0" width="30.0" height="52.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="299.0" y="510.0" font-size="11" text-anchor="middle" fill="#000">FRL</text>
+<text x="299.0" y="530.0" font-size="11" text-anchor="middle" fill="#000">PS</text>
+<text x="299.0" y="560.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">HMC-02</text>
+<text x="299.0" y="575.0" font-size="11" text-anchor="middle" fill="#555">300 NL/min pk</text>
+<path d="M400,450 L400,436 L418,436 L418,490" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="404.0" y="490.0" width="30.0" height="52.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="419.0" y="510.0" font-size="11" text-anchor="middle" fill="#000">FRL</text>
+<text x="419.0" y="530.0" font-size="11" text-anchor="middle" fill="#000">PS</text>
+<text x="419.0" y="560.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">HMC-03</text>
+<text x="419.0" y="575.0" font-size="11" text-anchor="middle" fill="#555">300 NL/min pk</text>
+<path d="M560,450 L560,436 L578,436 L578,490" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="564.0" y="490.0" width="30.0" height="52.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="579.0" y="510.0" font-size="11" text-anchor="middle" fill="#000">FRL</text>
+<text x="579.0" y="530.0" font-size="11" text-anchor="middle" fill="#000">PS</text>
+<text x="579.0" y="560.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">WASH-01</text>
+<text x="579.0" y="575.0" font-size="11" text-anchor="middle" fill="#555">900 NL/min pk</text>
+<path d="M680,450 L680,436 L698,436 L698,490" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="684.0" y="490.0" width="30.0" height="52.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="699.0" y="510.0" font-size="11" text-anchor="middle" fill="#000">FRL</text>
+<text x="699.0" y="530.0" font-size="11" text-anchor="middle" fill="#000">PS</text>
+<text x="699.0" y="560.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">VMC-01</text>
+<text x="699.0" y="575.0" font-size="11" text-anchor="middle" fill="#555">250 NL/min pk</text>
+<path d="M800,450 L800,436 L818,436 L818,490" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="804.0" y="490.0" width="30.0" height="52.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="819.0" y="510.0" font-size="11" text-anchor="middle" fill="#000">FRL</text>
+<text x="819.0" y="530.0" font-size="11" text-anchor="middle" fill="#000">PS</text>
+<text x="819.0" y="560.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">ROBOT</text>
+<text x="819.0" y="575.0" font-size="11" text-anchor="middle" fill="#555">150 NL/min pk</text>
+<text x="102.0" y="686.0" font-size="11" text-anchor="start" fill="#555">aluminium push-fit system or galvanised steel; no PVC (brittle)</text>
+<text x="980.0" y="420.0" font-size="14" text-anchor="start" font-weight="bold" fill="#000">3  Detail of one drop (elevation)</text>
+<line x1="980.0" y1="470.0" x2="1360.0" y2="470.0" stroke="#000" stroke-width="5"/>
+<text x="1350.0" y="488.0" font-size="11" text-anchor="end" fill="#000">main 32 mm</text>
+<path d="M1060,467 L1060,445 L1110,445 L1110,680" stroke="#000" stroke-width="3" fill="none"/>
+<text x="1120.0" y="450.0" font-size="11" text-anchor="start" fill="#000">take-off from the TOP (goose neck):</text>
+<text x="1120.0" y="464.0" font-size="11" text-anchor="start" fill="#000">condensate stays in the main</text>
+<polygon points="1100.0,500.0 1110.0,510.0 1120.0,500.0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<polygon points="1100.0,520.0 1110.0,510.0 1120.0,520.0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="1130.0" y="514.0" font-size="11" text-anchor="start" fill="#000">lockable ball valve (LOTO)</text>
+<polygon points="1110.0,540.0 1125.0,555.0 1110.0,570.0 1095.0,555.0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="1130.0" y="558.0" font-size="11" text-anchor="start" fill="#000">filter 5 µm + manual / auto drain</text>
+<rect x="1097.0" y="585.0" width="26.0" height="26.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<line x1="1100.0" y1="608.0" x2="1120.0" y2="588.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<text x="1130.0" y="603.0" font-size="11" text-anchor="start" fill="#000">regulator 0.5–0.6 MPa + gauge</text>
+<circle cx="1110.0" cy="637.0" r="10.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<text x="1130.0" y="641.0" font-size="11" text-anchor="start" fill="#000">pressure switch → CNC alarm</text>
+<text x="1130.0" y="675.0" font-size="11" text-anchor="start" fill="#000">quick coupling / hose to machine</text>
+<line x1="1110.0" y1="680.0" x2="1110.0" y2="710.0" stroke="#000" stroke-width="3"/>
+<line x1="1110.0" y1="710.0" x2="1050.0" y2="710.0" stroke="#000" stroke-width="3"/>
+<line x1="1110.0" y1="680.0" x2="1110.0" y2="750.0" stroke="#000" stroke-width="2" stroke-dasharray="4 3"/>
+<line x1="1110.0" y1="750.0" x2="1110.0" y2="776.0" stroke="#000" stroke-width="1.2"/>
+<polygon points="1102.0,776.0 1118.0,776.0 1110.0,788.0" stroke="#000" stroke-width="1.2" fill="#000"/>
+<text x="1130.0" y="772.0" font-size="11" text-anchor="start" fill="#000">drip leg with drain at the end of the drop</text>
+<rect x="990.0" y="700.0" width="60.0" height="30.0" rx="0" stroke="#000" stroke-width="1.2" fill="#f2f2f2"/>
+<text x="1020.0" y="719.0" font-size="11" text-anchor="middle" fill="#000">HMC</text>
+<rect x="12.0" y="12.0" width="1376.0" height="966.0" rx="0" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="828.0" y="894.0" width="560.0" height="84.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="828.0" y1="924.0" x2="1388.0" y2="924.0" stroke="#000" stroke-width="1.2"/>
+<line x1="1208.0" y1="924.0" x2="1208.0" y2="978.0" stroke="#000" stroke-width="1.2"/>
+<text x="838.0" y="915.0" font-size="14" text-anchor="start" font-weight="bold" fill="#c62828">EXAMPLE – check the maker&#x27;s installation manual</text>
+<text x="838.0" y="944.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Compressed-air network – ring main</text>
+<text x="838.0" y="964.0" font-size="11" text-anchor="start" fill="#555">1 201 NL/min · 32 mm · Δp 0.0556 bar · class 1.4.1</text>
+<text x="1218.0" y="944.0" font-size="12" text-anchor="start" fill="#000">Doc 28 · Fig. 28-5</text>
+<text x="1218.0" y="964.0" font-size="11" text-anchor="start" fill="#555">2026-11 · not for construction</text>
+<text x="24.0" y="968.0" font-size="11" text-anchor="start" fill="#555">Values from docs/28 and web/instseq_calc.js (example data, crankcase line HMC-01/02/03).</text>
+</svg>

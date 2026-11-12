@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1040" width="1500" height="1040" font-family="Arial, Helvetica, sans-serif">
+<title>AGV safety laser scanner fields vs speed with stopping distance (example)</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1500" height="1040" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="18" text-anchor="start" fill="#000" font-weight="bold">Safety laser scanner fields – length grows with v², switched by speed (item 1 crate AGV)</text>
+<text x="24.0" y="52.0" font-size="12" text-anchor="start" fill="#444">D = v·(t_scanner + t_ctrl) + v²/(2·(a − g·p))·1.1 + Z     t = 0.07 + 0.10 = 0.17 s · a = 0.8 m/s² · Z = 100 mm · p = downhill slope (0 or 0.01)</text>
+<text x="30.0" y="86.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Protective field length vs speed</text>
+<line x1="90.0" y1="500.0" x2="710.0" y2="500.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="82.0" y="504.0" font-size="11" text-anchor="end" fill="#000">0</text>
+<line x1="90.0" y1="450.0" x2="710.0" y2="450.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="82.0" y="454.0" font-size="11" text-anchor="end" fill="#000">250</text>
+<line x1="90.0" y1="400.0" x2="710.0" y2="400.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="82.0" y="404.0" font-size="11" text-anchor="end" fill="#000">500</text>
+<line x1="90.0" y1="350.0" x2="710.0" y2="350.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="82.0" y="354.0" font-size="11" text-anchor="end" fill="#000">750</text>
+<line x1="90.0" y1="300.0" x2="710.0" y2="300.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="82.0" y="304.0" font-size="11" text-anchor="end" fill="#000">1000</text>
+<line x1="90.0" y1="250.0" x2="710.0" y2="250.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="82.0" y="254.0" font-size="11" text-anchor="end" fill="#000">1250</text>
+<line x1="90.0" y1="200.0" x2="710.0" y2="200.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="82.0" y="204.0" font-size="11" text-anchor="end" fill="#000">1500</text>
+<line x1="90.0" y1="150.0" x2="710.0" y2="150.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="82.0" y="154.0" font-size="11" text-anchor="end" fill="#000">1750</text>
+<line x1="90.0" y1="100.0" x2="710.0" y2="100.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="82.0" y="104.0" font-size="11" text-anchor="end" fill="#000">2000</text>
+<line x1="90.0" y1="100.0" x2="90.0" y2="500.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="90.0" y="518.0" font-size="11" text-anchor="middle" fill="#000">0.0</text>
+<line x1="178.6" y1="100.0" x2="178.6" y2="500.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="178.6" y="518.0" font-size="11" text-anchor="middle" fill="#000">0.2</text>
+<line x1="267.1" y1="100.0" x2="267.1" y2="500.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="267.1" y="518.0" font-size="11" text-anchor="middle" fill="#000">0.4</text>
+<line x1="355.7" y1="100.0" x2="355.7" y2="500.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="355.7" y="518.0" font-size="11" text-anchor="middle" fill="#000">0.6</text>
+<line x1="444.3" y1="100.0" x2="444.3" y2="500.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="444.3" y="518.0" font-size="11" text-anchor="middle" fill="#000">0.8</text>
+<line x1="532.9" y1="100.0" x2="532.9" y2="500.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="532.9" y="518.0" font-size="11" text-anchor="middle" fill="#000">1.0</text>
+<line x1="621.4" y1="100.0" x2="621.4" y2="500.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="621.4" y="518.0" font-size="11" text-anchor="middle" fill="#000">1.2</text>
+<line x1="710.0" y1="100.0" x2="710.0" y2="500.0" stroke="#e4e4e4" stroke-width="0.8" />
+<text x="710.0" y="518.0" font-size="11" text-anchor="middle" fill="#000">1.4</text>
+<line x1="90.0" y1="500.0" x2="710.0" y2="500.0" stroke="#000" stroke-width="1.2" />
+<line x1="90.0" y1="100.0" x2="90.0" y2="500.0" stroke="#000" stroke-width="1.2" />
+<text x="400.0" y="538.0" font-size="12" text-anchor="middle" fill="#000">speed v (m/s)</text>
+<text x="34.0" y="300.0" font-size="12" text-anchor="middle" fill="#000" transform="rotate(-90 34.0 300.0)">mm</text>
+<path d="M90.0,500.0 L98.9,499.3 L107.7,498.4 L116.6,497.5 L125.4,496.5 L134.3,495.4 L143.1,494.1 L152.0,492.8 L160.9,491.4 L169.7,489.8 L178.6,488.2 L187.4,486.5 L196.3,484.6 L205.1,482.7 L214.0,480.7 L222.9,478.6 L231.7,476.3 L240.6,474.0 L249.4,471.6 L258.3,469.0 L267.1,466.4 L276.0,463.7 L284.9,460.8 L293.7,457.9 L302.6,454.9 L311.4,451.8 L320.3,448.5 L329.1,445.2 L338.0,441.8 L346.9,438.2 L355.7,434.6 L364.6,430.9 L373.4,427.0 L382.3,423.1 L391.1,419.1 L400.0,414.9 L408.9,410.7 L417.7,406.4 L426.6,402.0 L435.4,397.4 L444.3,392.8 L453.1,388.1 L462.0,383.2 L470.9,378.3 L479.7,373.3 L488.6,368.1 L497.4,362.9 L506.3,357.6 L515.1,352.2 L524.0,346.6 L532.9,341.0 L541.7,335.3 L550.6,329.4 L559.4,323.5 L568.3,317.5 L577.1,311.3 L586.0,305.1 L594.9,298.8 L603.7,292.4 L612.6,285.8 L621.4,279.2 L630.3,272.5 L639.1,265.6 L648.0,258.7 L656.9,251.7 L665.7,244.5 L674.6,237.3 L683.4,230.0 L692.3,222.6 L701.1,215.0 L710.0,207.4" fill="none" stroke="#9e9e9e" stroke-width="2" />
+<path d="M90.0,480.0 L98.9,479.3 L107.7,478.4 L116.6,477.5 L125.4,476.4 L134.3,475.2 L143.1,473.9 L152.0,472.5 L160.9,471.0 L169.7,469.4 L178.6,467.7 L187.4,465.9 L196.3,463.9 L205.1,461.9 L214.0,459.7 L222.9,457.4 L231.7,455.0 L240.6,452.5 L249.4,449.9 L258.3,447.2 L267.1,444.4 L276.0,441.5 L284.9,438.4 L293.7,435.3 L302.6,432.0 L311.4,428.6 L320.3,425.1 L329.1,421.5 L338.0,417.8 L346.9,414.0 L355.7,410.1 L364.6,406.1 L373.4,401.9 L382.3,397.7 L391.1,393.3 L400.0,388.8 L408.9,384.2 L417.7,379.5 L426.6,374.7 L435.4,369.8 L444.3,364.8 L453.1,359.7 L462.0,354.4 L470.9,349.1 L479.7,343.6 L488.6,338.0 L497.4,332.3 L506.3,326.5 L515.1,320.6 L524.0,314.6 L532.9,308.5 L541.7,302.3 L550.6,295.9 L559.4,289.5 L568.3,282.9 L577.1,276.2 L586.0,269.4 L594.9,262.5 L603.7,255.5 L612.6,248.4 L621.4,241.2 L630.3,233.9 L639.1,226.4 L648.0,218.9 L656.9,211.2 L665.7,203.4 L674.6,195.5 L683.4,187.5 L692.3,179.4 L701.1,171.2 L710.0,162.9" fill="none" stroke="#000" stroke-width="2.2" />
+<path d="M90.0,480.0 L98.9,479.3 L107.7,478.4 L116.6,477.4 L125.4,476.3 L134.3,475.0 L143.1,473.7 L152.0,472.2 L160.9,470.5 L169.7,468.8 L178.6,466.9 L187.4,464.9 L196.3,462.8 L205.1,460.6 L214.0,458.2 L222.9,455.7 L231.7,453.1 L240.6,450.3 L249.4,447.4 L258.3,444.4 L267.1,441.3 L276.0,438.1 L284.9,434.7 L293.7,431.2 L302.6,427.6 L311.4,423.8 L320.3,419.9 L329.1,415.9 L338.0,411.8 L346.9,407.6 L355.7,403.2 L364.6,398.7 L373.4,394.0 L382.3,389.3 L391.1,384.4 L400.0,379.4 L408.9,374.3 L417.7,369.0 L426.6,363.6 L435.4,358.1 L444.3,352.5 L453.1,346.7 L462.0,340.9 L470.9,334.9 L479.7,328.7 L488.6,322.5 L497.4,316.1 L506.3,309.6 L515.1,302.9 L524.0,296.2 L532.9,289.3 L541.7,282.3 L550.6,275.1 L559.4,267.9 L568.3,260.5 L577.1,253.0 L586.0,245.3 L594.9,237.6 L603.7,229.7 L612.6,221.7 L621.4,213.5 L630.3,205.3 L639.1,196.9 L648.0,188.4 L656.9,179.7 L665.7,170.9 L674.6,162.1 L683.4,153.0 L692.3,143.9 L701.1,134.6 L710.0,125.2" fill="none" stroke="#c62828" stroke-width="2.2" stroke-dasharray="8 4" />
+<line x1="90.0" y1="200.0" x2="710.0" y2="200.0" stroke="#c62828" stroke-width="1" stroke-dasharray="2 3" />
+<text x="96.0" y="194.0" font-size="11" text-anchor="start" fill="#c62828">design limit 1500 mm (narrow aisles)</text>
+<circle cx="222.9" cy="457.4" r="4.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<circle cx="222.9" cy="455.7" r="4.0" fill="#c62828" stroke="#c62828" stroke-width="1.2"/>
+<text x="228.9" y="473.4" font-size="11" text-anchor="start" fill="#000">213</text>
+<text x="216.9" y="447.7" font-size="11" text-anchor="end" fill="#c62828">222</text>
+<circle cx="355.7" cy="410.1" r="4.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<circle cx="355.7" cy="403.2" r="4.0" fill="#c62828" stroke="#c62828" stroke-width="1.2"/>
+<text x="361.7" y="426.1" font-size="11" text-anchor="start" fill="#000">450</text>
+<text x="349.7" y="395.2" font-size="11" text-anchor="end" fill="#c62828">484</text>
+<circle cx="532.9" cy="308.5" r="4.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<circle cx="532.9" cy="289.3" r="4.0" fill="#c62828" stroke="#c62828" stroke-width="1.2"/>
+<text x="538.9" y="324.5" font-size="11" text-anchor="start" fill="#000">958</text>
+<text x="526.9" y="281.3" font-size="11" text-anchor="end" fill="#c62828">1054</text>
+<circle cx="621.4" cy="241.2" r="4.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<circle cx="621.4" cy="213.5" r="4.0" fill="#c62828" stroke="#c62828" stroke-width="1.2"/>
+<text x="627.4" y="257.2" font-size="11" text-anchor="start" fill="#000">1294</text>
+<text x="615.4" y="205.5" font-size="11" text-anchor="end" fill="#c62828">1432</text>
+<line x1="110.0" y1="120.0" x2="140.0" y2="120.0" stroke="#000" stroke-width="2.2" />
+<text x="146.0" y="124.0" font-size="11" text-anchor="start" fill="#000">protective field, flat floor (twin, §4.1.10)</text>
+<line x1="110.0" y1="138.0" x2="140.0" y2="138.0" stroke="#c62828" stroke-width="2.2" stroke-dasharray="8 4" />
+<text x="146.0" y="142.0" font-size="11" text-anchor="start" fill="#c62828">protective field, 1 % downhill (a_eff 0.70 m/s²)</text>
+<line x1="110.0" y1="156.0" x2="140.0" y2="156.0" stroke="#9e9e9e" stroke-width="2" />
+<text x="146.0" y="160.0" font-size="11" text-anchor="start" fill="#000">real stopping distance v·t + v²/2a (no margin, no Z)</text>
+<text x="820.0" y="86.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">What the field length is made of (flat floor)</text>
+<text x="820.0" y="160.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">0.3 m/s</text>
+<rect x="890.0" y="144.0" width="13.3" height="26.0" rx="0" fill="#000" stroke="#000" stroke-width="1" />
+<rect x="903.3" y="144.0" width="14.6" height="26.0" rx="0" fill="#9e9e9e" stroke="#000" stroke-width="1" />
+<rect x="917.9" y="144.0" width="1.5" height="26.0" rx="0" fill="#c62828" stroke="#000" stroke-width="1" />
+<rect x="919.3" y="144.0" width="26.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="951.3" y="162.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">213 mm</text>
+<text x="890.0" y="186.0" font-size="11" text-anchor="start" fill="#444">51 + 56 + 6 + 100</text>
+<text x="820.0" y="240.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">0.6 m/s</text>
+<rect x="890.0" y="224.0" width="26.5" height="26.0" rx="0" fill="#000" stroke="#000" stroke-width="1" />
+<rect x="916.5" y="224.0" width="58.5" height="26.0" rx="0" fill="#9e9e9e" stroke="#000" stroke-width="1" />
+<rect x="975.0" y="224.0" width="5.8" height="26.0" rx="0" fill="#c62828" stroke="#000" stroke-width="1" />
+<rect x="980.9" y="224.0" width="26.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="1012.9" y="242.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">450 mm</text>
+<text x="890.0" y="266.0" font-size="11" text-anchor="start" fill="#444">102 + 225 + 23 + 100</text>
+<text x="820.0" y="320.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1.0 m/s</text>
+<rect x="890.0" y="304.0" width="44.2" height="26.0" rx="0" fill="#000" stroke="#000" stroke-width="1" />
+<rect x="934.2" y="304.0" width="162.5" height="26.0" rx="0" fill="#9e9e9e" stroke="#000" stroke-width="1" />
+<rect x="1096.7" y="304.0" width="16.2" height="26.0" rx="0" fill="#c62828" stroke="#000" stroke-width="1" />
+<rect x="1113.0" y="304.0" width="26.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="1145.0" y="322.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">958 mm</text>
+<text x="890.0" y="346.0" font-size="11" text-anchor="start" fill="#444">170 + 625 + 63 + 100</text>
+<text x="820.0" y="400.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1.2 m/s</text>
+<rect x="890.0" y="384.0" width="53.0" height="26.0" rx="0" fill="#000" stroke="#000" stroke-width="1" />
+<rect x="943.0" y="384.0" width="234.0" height="26.0" rx="0" fill="#9e9e9e" stroke="#000" stroke-width="1" />
+<rect x="1177.0" y="384.0" width="23.4" height="26.0" rx="0" fill="#c62828" stroke="#000" stroke-width="1" />
+<rect x="1200.4" y="384.0" width="26.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1" />
+<text x="1232.4" y="402.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1294 mm</text>
+<text x="890.0" y="426.0" font-size="11" text-anchor="start" fill="#444">204 + 900 + 90 + 100</text>
+<rect x="890.0" y="460.0" width="14.0" height="12.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2" />
+<text x="910.0" y="471.0" font-size="11" text-anchor="start" fill="#000">reaction v·t</text>
+<rect x="1040.0" y="460.0" width="14.0" height="12.0" rx="0" fill="#9e9e9e" stroke="#000" stroke-width="1.2" />
+<text x="1060.0" y="471.0" font-size="11" text-anchor="start" fill="#000">braking v²/2a</text>
+<rect x="1190.0" y="460.0" width="14.0" height="12.0" rx="0" fill="#c62828" stroke="#000" stroke-width="1.2" />
+<text x="1210.0" y="471.0" font-size="11" text-anchor="start" fill="#000">10 % margin</text>
+<rect x="1340.0" y="460.0" width="14.0" height="12.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<text x="1360.0" y="471.0" font-size="11" text-anchor="start" fill="#000">Z tolerance</text>
+<text x="24.0" y="560.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Field sets on the vehicle (plan, 0.12 px per mm) – the safety controller switches the set by the measured speed</text>
+<rect x="84.0" y="676.4" width="132.0" height="67.2" rx="0" fill="#000" stroke="#000" stroke-width="1" />
+<rect x="216.0" y="658.4" width="25.5" height="103.2" rx="0" fill="none" stroke="#c62828" stroke-width="1" />
+<line x1="241.5" y1="658.4" x2="241.5" y2="636.4" stroke="#c62828" stroke-width="0.6" />
+<text x="244.5" y="636.4" font-size="11" text-anchor="start" fill="#c62828">0.3 m/s: 213</text>
+<rect x="216.0" y="658.4" width="53.9" height="103.2" rx="0" fill="none" stroke="#c62828" stroke-width="1" stroke-dasharray="6 3" />
+<line x1="269.9" y1="658.4" x2="269.9" y2="622.4" stroke="#c62828" stroke-width="0.6" />
+<text x="272.9" y="622.4" font-size="11" text-anchor="start" fill="#c62828">0.6 m/s: 450</text>
+<rect x="216.0" y="658.4" width="114.9" height="103.2" rx="0" fill="none" stroke="#c62828" stroke-width="1" stroke-dasharray="3 3" />
+<line x1="330.9" y1="658.4" x2="330.9" y2="608.4" stroke="#c62828" stroke-width="0.6" />
+<text x="333.9" y="608.4" font-size="11" text-anchor="start" fill="#c62828">1.0 m/s: 958</text>
+<rect x="216.0" y="658.4" width="155.3" height="103.2" rx="0" fill="#fbe9e7" stroke="#c62828" stroke-width="1.4" />
+<line x1="371.3" y1="658.4" x2="371.3" y2="594.4" stroke="#c62828" stroke-width="0.6" />
+<text x="374.3" y="594.4" font-size="11" text-anchor="start" fill="#c62828">1.2 m/s: 1294</text>
+<rect x="216.0" y="646.4" width="299.3" height="127.2" rx="0" fill="none" stroke="#c62828" stroke-width="1" stroke-dasharray="10 5" />
+<text x="511.3" y="789.6" font-size="11" text-anchor="end" fill="#c62828">warning 1.2 m/s: 2494 mm (protective + v·1 s)</text>
+<line x1="529.3" y1="658.4" x2="529.3" y2="761.6" stroke="#000" stroke-width="0.9" marker-end="url(#ak)" marker-start="url(#ak)" />
+<text x="535.3" y="710.0" font-size="11" text-anchor="middle" fill="#000" transform="rotate(90 535.3 710.0)">860</text>
+<text x="24.0" y="813.6" font-size="11" text-anchor="start" fill="#000">Width 860 = vehicle 560 + 2 × 150 (sway + tolerance Z 100 + 50)</text>
+<text x="600.0" y="590.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Curve (turning left, R = 1 m, 0.6 m/s):</text>
+<rect x="566.0" y="711.0" width="154.0" height="78.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2" />
+<path d="M720.0,810.2 L724.5,810.1 L729.0,810.0 L733.5,809.7 L738.0,809.4 L742.5,808.9 L746.9,808.4 L751.4,807.7 L755.8,807.0 L760.3,806.1 L764.7,805.2 L769.0,804.1 L773.4,802.9 L777.7,801.7 L782.0,800.3 L786.3,798.9 L790.5,797.4 L794.7,795.7 L798.9,794.0 L803.0,792.2 L807.1,790.3 L754.7,681.9 L753.1,682.6 L751.4,683.3 L749.8,684.0 L748.1,684.7 L746.4,685.3 L744.7,685.9 L743.0,686.4 L741.3,686.9 L739.5,687.4 L737.8,687.8 L736.0,688.2 L734.3,688.5 L732.5,688.8 L730.7,689.1 L729.0,689.3 L727.2,689.5 L725.4,689.6 L723.6,689.7 L721.8,689.8 L720.0,689.8 Z" fill="#fbe9e7" stroke="#c62828" stroke-width="1.4" />
+<rect x="720.0" y="689.8" width="63.0" height="120.4" rx="0" fill="none" stroke="#c62828" stroke-width="1" stroke-dasharray="3 3" />
+<circle cx="720.0" cy="610.0" r="3.0" fill="#c62828" stroke="#c62828" stroke-width="1.2"/>
+<text x="726.0" y="614.0" font-size="11" text-anchor="start" fill="#c62828">ICR</text>
+<text x="570.0" y="830.0" font-size="11" text-anchor="start" fill="#000">Field bent to the inside of the curve</text>
+<text x="570.0" y="845.0" font-size="11" text-anchor="start" fill="#000">(solid); a straight field (dashed)</text>
+<text x="570.0" y="860.0" font-size="11" text-anchor="start" fill="#000">sees the wall outside the curve</text>
+<text x="570.0" y="875.0" font-size="11" text-anchor="start" fill="#000">→ false stops.</text>
+<text x="930.0" y="590.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Docking under a stand:</text>
+<rect x="937.0" y="693.0" width="66.0" height="34.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2" />
+<line x1="910.0" y1="670.0" x2="1060.0" y2="670.0" stroke="#000" stroke-width="3" />
+<line x1="910.0" y1="750.0" x2="1060.0" y2="750.0" stroke="#000" stroke-width="3" />
+<rect x="1003.0" y="693.0" width="18.0" height="34.0" rx="0" fill="#fbe9e7" stroke="#c62828" stroke-width="1.2" />
+<text x="930.0" y="770.0" font-size="11" text-anchor="start" fill="#000">Short docking field 150 mm only at</text>
+<text x="930.0" y="785.0" font-size="11" text-anchor="start" fill="#000">≤ 0.05 m/s and only inside the</text>
+<text x="930.0" y="800.0" font-size="11" text-anchor="start" fill="#000">marked station zone (FS7) – the</text>
+<text x="930.0" y="815.0" font-size="11" text-anchor="start" fill="#000">posts of the stand would stop the AGV.</text>
+<text x="1150.0" y="590.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Field set table (example, flat / 1 % downhill)</text>
+<text x="1150.0" y="612.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">speed band</text>
+<text x="1238.0" y="612.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">protective</text>
+<text x="1320.0" y="612.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">downhill 1 %</text>
+<text x="1416.0" y="612.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">warning</text>
+<line x1="1150.0" y1="618.0" x2="1480.0" y2="618.0" stroke="#000" stroke-width="1" />
+<text x="1150.0" y="636.0" font-size="11" text-anchor="start" fill="#000">≤ 0.05 dock</text>
+<text x="1238.0" y="636.0" font-size="11" text-anchor="start" fill="#000">150</text>
+<text x="1320.0" y="636.0" font-size="11" text-anchor="start" fill="#c62828">150</text>
+<text x="1416.0" y="636.0" font-size="11" text-anchor="start" fill="#000">–</text>
+<text x="1150.0" y="654.0" font-size="11" text-anchor="start" fill="#000">≤ 0.3</text>
+<text x="1238.0" y="654.0" font-size="11" text-anchor="start" fill="#000">213</text>
+<text x="1320.0" y="654.0" font-size="11" text-anchor="start" fill="#c62828">222</text>
+<text x="1416.0" y="654.0" font-size="11" text-anchor="start" fill="#000">513</text>
+<text x="1150.0" y="672.0" font-size="11" text-anchor="start" fill="#000">≤ 0.6</text>
+<text x="1238.0" y="672.0" font-size="11" text-anchor="start" fill="#000">450</text>
+<text x="1320.0" y="672.0" font-size="11" text-anchor="start" fill="#c62828">484</text>
+<text x="1416.0" y="672.0" font-size="11" text-anchor="start" fill="#000">1050</text>
+<text x="1150.0" y="690.0" font-size="11" text-anchor="start" fill="#000">≤ 1.0</text>
+<text x="1238.0" y="690.0" font-size="11" text-anchor="start" fill="#000">958</text>
+<text x="1320.0" y="690.0" font-size="11" text-anchor="start" fill="#c62828">1054</text>
+<text x="1416.0" y="690.0" font-size="11" text-anchor="start" fill="#000">1958</text>
+<text x="1150.0" y="708.0" font-size="11" text-anchor="start" fill="#000">≤ 1.2</text>
+<text x="1238.0" y="708.0" font-size="11" text-anchor="start" fill="#000">1294</text>
+<text x="1320.0" y="708.0" font-size="11" text-anchor="start" fill="#c62828">1432</text>
+<text x="1416.0" y="708.0" font-size="11" text-anchor="start" fill="#000">2494</text>
+<text x="1150.0" y="740.0" font-size="11" text-anchor="start" fill="#000">Measured stopping distance must be</text>
+<text x="1150.0" y="755.0" font-size="11" text-anchor="start" fill="#000">≤ protective field − Z (113 / 350 / 858 /</text>
+<text x="1150.0" y="770.0" font-size="11" text-anchor="start" fill="#000">1194 mm flat) – empty and loaded,</text>
+<text x="1150.0" y="785.0" font-size="11" text-anchor="start" fill="#000">dustiest floor, every speed band.</text>
+<rect x="1016.0" y="952.0" width="470.0" height="74.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<line x1="1016.0" y1="976.0" x2="1486.0" y2="976.0" stroke="#000" stroke-width="1" />
+<line x1="1016.0" y1="1001.0" x2="1486.0" y2="1001.0" stroke="#000" stroke-width="1" />
+<line x1="1316.0" y1="976.0" x2="1316.0" y2="1026.0" stroke="#000" stroke-width="1" />
+<text x="1024.0" y="969.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="1024.0" y="993.0" font-size="11" text-anchor="start" fill="#000">Safety fields vs speed + stopping distance</text>
+<text x="1324.0" y="993.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">VC-AGV-DOC-1104</text>
+<text x="1024.0" y="1018.0" font-size="11" text-anchor="start" fill="#000">Guide 11 – AGV build · Part B · 2026-11-12</text>
+<text x="1324.0" y="1018.0" font-size="11" text-anchor="start" fill="#000">not to scale</text>
+</svg>

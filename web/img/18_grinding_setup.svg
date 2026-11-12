@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 940" width="1400" height="940" font-family="Arial, Helvetica, sans-serif">
+<title>Grinding set-up spindle shaft (example)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker><pattern id="hat" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="0.6"/></pattern><pattern id="hatA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1565c0" stroke-width="0.7"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="940" fill="#fff"/>
+<text x="20.0" y="30.0" font-size="15" text-anchor="start" fill="#000" font-weight="bold">Grinding set-ups of the spindle shaft – Op 100 OD plunge grinding between centres and Op 110 internal grinding of the HSK taper</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" fill="#000">Schematic, not to scale · example values from the twin (CBN wheels, in-process gauge, chilled grinding oil)</text>
+<text x="30.0" y="82.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">A · Op 100 OD plunge grinding – plan view</text>
+<polygon points="110.0,142.0 136.2,142.0 136.2,168.2 236.0,168.2 236.0,168.2 254.9,168.2 254.9,169.3 296.9,169.3 296.9,170.9 464.9,170.9 464.9,171.9 506.9,171.9 506.9,173.5 551.0,173.5 551.0,173.5 566.8,173.5 566.8,178.8 614.0,178.8 614.0,231.2 566.8,231.2 566.8,236.5 551.0,236.5 551.0,236.5 506.9,236.5 506.9,238.1 464.9,238.1 464.9,239.1 296.9,239.1 296.9,240.7 254.9,240.7 254.9,241.8 236.0,241.8 236.0,241.8 136.2,241.8 136.2,268.0 110.0,268.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="94.2" y1="205.0" x2="629.8" y2="205.0" stroke="#000" stroke-width="0.7" stroke-dasharray="14 3 3 3"/>
+<rect x="32.0" y="165.0" width="55.0" height="80.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="59.0" y="261.0" font-size="11" text-anchor="middle" fill="#000">workhead</text>
+<rect x="636.0" y="175.0" width="55.0" height="60.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="664.0" y="251.0" font-size="11" text-anchor="middle" fill="#000">tailstock</text>
+<polygon points="87.0,196.0 118.0,205.0 87.0,214.0" fill="#1565c0" stroke="#1565c0" stroke-width="1"/>
+<polygon points="636.0,196.0 606.0,205.0 636.0,214.0" fill="#1565c0" stroke="#1565c0" stroke-width="1"/>
+<text x="120.0" y="129.0" font-size="11" text-anchor="start" fill="#1565c0">hardened + lapped centre plugs in the 60° bore chamfers (runout ≤ 0.5 µm)</text>
+<line x1="150.0" y1="133.0" x2="114.0" y2="199.0" stroke="#1565c0" stroke-width="0.7" marker-end="url(#arA)"/>
+<rect x="157.2" y="244.8" width="42.0" height="70.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<path d="M153.2,314.8 l8,-6 l8,6 l8,-6 l8,6 l8,-6 l8,6 l6,-4" fill="none" stroke="#000" stroke-width="1"/>
+<text x="209.2" y="280.0" font-size="11" text-anchor="start" fill="#000">CBN wheel 1A1 400 × 40 (B126 / B91)</text>
+<text x="209.2" y="296.0" font-size="11" text-anchor="start" fill="#000">v_s = 45 m/s → n_s = 2 149 rpm</text>
+<text x="209.2" y="312.0" font-size="11" text-anchor="start" fill="#000">plunge on Ø70 js4 (3 plunges for 95 mm)</text>
+<line x1="179.2" y1="353.8" x2="179.2" y2="323.8" stroke="#1565c0" stroke-width="1.6" marker-end="url(#arA)"/>
+<text x="187.2" y="349.8" font-size="11" text-anchor="start" fill="#1565c0">infeed v_fr</text>
+<line x1="220.2" y1="138.2" x2="220.2" y2="166.2" stroke="#1565c0" stroke-width="2"/>
+<line x1="220.2" y1="243.8" x2="220.2" y2="263.8" stroke="#1565c0" stroke-width="2"/>
+<text x="226.2" y="150.2" font-size="11" text-anchor="start" fill="#1565c0">in-process gauge (2-point, 0.1 µm)</text>
+<text x="30.0" y="285.0" font-size="11" text-anchor="start" fill="#000">nose face:</text>
+<text x="30.0" y="299.0" font-size="11" text-anchor="start" fill="#000">angle head / B-axis</text>
+<text x="563.5" y="153.0" font-size="11" text-anchor="start" fill="#000">driver on the tail</text>
+<text x="30.0" y="380.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">B · Op 100 kinematics (section, not to scale)</text>
+<circle cx="170.0" cy="530.0" r="46.0" fill="url(#hat)" stroke="#000" stroke-width="1.5"/>
+<circle cx="170.0" cy="530.0" r="14.5" fill="#fff" stroke="#000" stroke-width="1"/>
+<circle cx="312.0" cy="530.0" r="95.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<circle cx="312.0" cy="530.0" r="85.0" fill="none" stroke="#1565c0" stroke-width="6"/>
+<circle cx="312.0" cy="530.0" r="25.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<path d="M140.0,582.0 A60,60 0 0 1 118.0,500.0" fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#ar)"/>
+<text x="20.0" y="590.0" font-size="11" text-anchor="start" fill="#000">n_w = 91 rpm</text>
+<text x="20.0" y="604.0" font-size="11" text-anchor="start" fill="#000">(v_w = 20 m/min)</text>
+<path d="M228.5,459.9 A109,109 0 0 1 366.5,435.6" fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#ar)"/>
+<text x="282.0" y="409.0" font-size="11" text-anchor="start" fill="#000">v_s = 45 m/s</text>
+<line x1="437.0" y1="530.0" x2="411.0" y2="530.0" stroke="#1565c0" stroke-width="1.8" marker-end="url(#arA)"/>
+<text x="419.0" y="548.0" font-size="11" text-anchor="start" fill="#1565c0">v_fr</text>
+<polygon points="210.0,438.0 222.0,438.0 220.0,480.0 214.0,480.0" fill="#1565c0" stroke="#1565c0" stroke-width="1"/>
+<line x1="217.0" y1="482.0" x2="217.0" y2="522.0" stroke="#1565c0" stroke-width="1.2" marker-end="url(#arA)"/>
+<text x="204.0" y="432.0" font-size="11" text-anchor="end" fill="#1565c0">coolant jet ≈ v_s into the gap</text>
+<line x1="164.0" y1="462.0" x2="164.0" y2="484.0" stroke="#1565c0" stroke-width="2"/>
+<line x1="164.0" y1="576.0" x2="164.0" y2="598.0" stroke="#1565c0" stroke-width="2"/>
+<text x="20.0" y="622.0" font-size="11" text-anchor="start" fill="#1565c0">2-point gauge on the seat</text>
+<text x="421.0" y="590.0" font-size="11" text-anchor="start" fill="#000">wheel Ø400</text>
+<text x="421.0" y="604.0" font-size="11" text-anchor="start" fill="#000">(CBN layer)</text>
+<text x="730.0" y="82.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">C · Op 110 internal grinding of the HSK taper – plan view</text>
+<polygon points="877.2,158.1 900.9,156.9 902.1,180.6 992.2,176.1 992.2,176.1 1009.3,175.2 1009.3,176.2 1047.3,174.3 1047.3,175.7 1199.2,168.1 1199.2,169.1 1237.2,167.2 1237.2,168.6 1277.1,166.6 1277.1,166.6 1291.3,165.9 1291.5,170.6 1334.2,168.5 1336.6,216.0 1293.9,218.1 1294.2,222.8 1279.9,223.5 1279.9,223.5 1240.1,225.5 1240.1,227.0 1202.2,228.9 1202.2,229.8 1050.4,237.4 1050.5,238.8 1012.5,240.7 1012.6,241.7 995.5,242.5 995.5,242.5 905.4,247.0 906.6,270.7 882.8,271.9" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="865.8" y1="215.7" x2="1349.7" y2="191.5" stroke="#000" stroke-width="0.7" stroke-dasharray="14 3 3 3"/>
+<rect x="1236.6" y="156.1" width="44.0" height="80.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1258.6" y="252.1" font-size="11" text-anchor="middle" fill="#000">collet on ground</text>
+<text x="1258.6" y="266.1" font-size="11" text-anchor="middle" fill="#000">rear seat (B)</text>
+<text x="1258.6" y="280.1" font-size="11" text-anchor="middle" fill="#000">work turns on A-B</text>
+<polygon points="936.3,257.6 960.3,257.6 948.3,246.8" fill="#000" stroke="#000" stroke-width="1"/>
+<polygon points="936.3,165.6 960.3,165.6 948.3,176.3" fill="#000" stroke="#000" stroke-width="1"/>
+<text x="978.3" y="287.6" font-size="11" text-anchor="middle" fill="#000">steady rest on ground</text>
+<text x="978.3" y="301.6" font-size="11" text-anchor="middle" fill="#000">front seat (A)</text>
+<rect x="705.0" y="193.0" width="100.0" height="44.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="755.0" y="219.0" font-size="11" text-anchor="middle" fill="#000">HF spindle</text>
+<rect x="805.0" y="209.0" width="80.0" height="12.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="885.0" y="200.0" width="28.0" height="30.0" rx="0" fill="#1565c0" stroke="#1565c0" stroke-width="1"/>
+<text x="705.0" y="140.0" font-size="11" text-anchor="start" fill="#1565c0">internal wheel Ø32 CBN</text>
+<text x="705.0" y="154.0" font-size="11" text-anchor="start" fill="#1565c0">35 m/s → 20 889 rpm</text>
+<text x="705.0" y="255.0" font-size="11" text-anchor="start" fill="#000">short, thick quill (L ≤ 2.5 × Ø)</text>
+<text x="705.0" y="269.0" font-size="11" text-anchor="start" fill="#1565c0">wheel oscillates axially</text>
+<line x1="899.0" y1="241.0" x2="930.0" y2="241.0" stroke="#1565c0" stroke-width="1.4" marker-end="url(#arA)" marker-start="url(#arA)"/>
+<line x1="880.0" y1="215.0" x2="1180.0" y2="215.0" stroke="#000" stroke-width="0.7" stroke-dasharray="4 3"/>
+<path d="M1140.0,215.0 A260,260 0 0 0 1139.7,202.0" fill="none" stroke="#000" stroke-width="1.2"/>
+<text x="990.0" y="123.0" font-size="12" text-anchor="start" fill="#1565c0">table swivel α/2 = atan(1/20) = 2.862°</text>
+<text x="990.0" y="139.0" font-size="11" text-anchor="start" fill="#1565c0">check: sine bar 100 mm → block 4.994 mm</text>
+<text x="730.0" y="330.0" font-size="11" text-anchor="start" fill="#000">Same set-up: grind the HSK face (flange contact). Then blue test ≥ 80 %, test mandrel runout ≤ 2 µm (nose) / ≤ 5 µm (300 mm).</text>
+<text x="730.0" y="380.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">D · Plunge cycle with in-process gauge (Op 100, Ø70 seat)</text>
+<rect x="790.0" y="400.0" width="560.0" height="230.0" rx="0" fill="none" stroke="#000" stroke-width="1"/>
+<line x1="790.0" y1="630.0" x2="1350.0" y2="630.0" stroke="#ccc" stroke-width="0.5"/>
+<text x="784.0" y="634.0" font-size="11" text-anchor="end" fill="#000">0</text>
+<line x1="790.0" y1="597.1" x2="1350.0" y2="597.1" stroke="#ccc" stroke-width="0.5"/>
+<text x="784.0" y="601.1" font-size="11" text-anchor="end" fill="#000">10</text>
+<line x1="790.0" y1="564.3" x2="1350.0" y2="564.3" stroke="#ccc" stroke-width="0.5"/>
+<text x="784.0" y="568.3" font-size="11" text-anchor="end" fill="#000">20</text>
+<line x1="790.0" y1="498.6" x2="1350.0" y2="498.6" stroke="#ccc" stroke-width="0.5"/>
+<text x="784.0" y="502.6" font-size="11" text-anchor="end" fill="#000">40</text>
+<line x1="790.0" y1="432.9" x2="1350.0" y2="432.9" stroke="#ccc" stroke-width="0.5"/>
+<text x="784.0" y="436.9" font-size="11" text-anchor="end" fill="#000">60</text>
+<text x="790.0" y="646.0" font-size="11" text-anchor="middle" fill="#000">0</text>
+<text x="914.4" y="646.0" font-size="11" text-anchor="middle" fill="#000">0.1</text>
+<text x="1038.9" y="646.0" font-size="11" text-anchor="middle" fill="#000">0.2</text>
+<text x="1163.3" y="646.0" font-size="11" text-anchor="middle" fill="#000">0.3</text>
+<text x="1287.8" y="646.0" font-size="11" text-anchor="middle" fill="#000">0.4</text>
+<text x="1070.0" y="664.0" font-size="11" text-anchor="middle" fill="#000">time (min)</text>
+<text x="756.0" y="515.0" font-size="11" text-anchor="middle" fill="#000" transform="rotate(-90 756.0 515.0)">stock on Ø (µm)</text>
+<polyline points="790.0,413.1 852.2,432.9 1026.4,597.1 1163.3,630.0 1287.8,630.0 1325.1,610.3" fill="none" stroke="#000" stroke-width="2.2"/>
+<text x="858.4" y="419.7" font-size="11" text-anchor="start" fill="#000">air gap / gap eliminator</text>
+<text x="947.3" y="505.1" font-size="11" text-anchor="start" fill="#000">rough 0.002 mm/rev: 0.14 min</text>
+<text x="1057.6" y="557.7" font-size="11" text-anchor="start" fill="#000">finish 0.0005 mm/rev: 0.11 min</text>
+<text x="1175.8" y="610.9" font-size="11" text-anchor="start" fill="#000">spark-out 0.1 min</text>
+<line x1="790.0" y1="597.1" x2="1350.0" y2="597.1" stroke="#1565c0" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="1346.0" y="593.1" font-size="11" text-anchor="end" fill="#1565c0">gauge switch point final + 10 µm</text>
+<rect x="20.0" y="660.0" width="860.0" height="255.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="34.0" y="684.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Key numbers (formulas in chapter 20)</text>
+<text x="34.0" y="708.0" font-size="12" text-anchor="start" fill="#000">q_s = v_s · 60 / v_w = 45 · 60 / 20 = 135 (external 60–150)</text>
+<text x="34.0" y="729.0" font-size="12" text-anchor="start" fill="#000">d_e = d_s · d_w / (d_s + d_w) = 400 · 70 / 470 = 59.6 mm ; internal 32 · 46.4 / 14.4 = 103 mm</text>
+<text x="34.0" y="750.0" font-size="12" text-anchor="start" fill="#000">Q′_w = π · d_w · v_fr = π · 70 · 0.00303 = 0.67 mm³/(mm·s) ; h_eq = 0.015 µm</text>
+<text x="34.0" y="771.0" font-size="12" text-anchor="start" fill="#000">l_g = √(a_e · d_e) = √(0.002 · 59.6) = 0.35 mm ; P = e_c · Q′_w · b = 40 · 0.67 · 40 = 1.07 kW</text>
+<text x="34.0" y="792.0" font-size="12" text-anchor="start" fill="#000">Burn estimate: CBN careful Δθ ≈ 34 K (safe) · corundum aggressive Δθ ≈ 500 K (burn!)</text>
+<text x="34.0" y="813.0" font-size="12" text-anchor="start" fill="#000">Plunge time = 0.14 + 0.11 + 0.1 = 0.35 min ; all ground surfaces + dressing ≈ 20 min</text>
+<text x="34.0" y="834.0" font-size="12" text-anchor="start" fill="#000">Coolant: neat oil, 40–80 l/min for a 40 mm wheel, ≤ 5 µm filter, chiller ±0.5 K</text>
+<text x="34.0" y="855.0" font-size="12" text-anchor="start" fill="#000">Thermal: 0.5 K coolant drift → 0.4 µm on Ø70 (js4 band ±4 µm)</text>
+<text x="34.0" y="876.0" font-size="12" text-anchor="start" fill="#000">Dressing: U_d = b_d / f_ad = 0.5 / 0.1 = 5 ; rotary dresser q_d ≈ +0.5 … +0.8</text>
+<rect x="905.0" y="830.0" width="485.0" height="96.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="905.0" y1="856.0" x2="1390.0" y2="856.0" stroke="#000" stroke-width="1"/>
+<line x1="905.0" y1="882.0" x2="1390.0" y2="882.0" stroke="#000" stroke-width="1"/>
+<line x1="905.0" y1="904.0" x2="1390.0" y2="904.0" stroke="#000" stroke-width="1"/>
+<text x="913.0" y="848.0" font-size="13" text-anchor="start" fill="#1565c0" font-weight="bold">EXAMPLE – check the maker&#x27;s documentation</text>
+<text x="913.0" y="874.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Grinding set-ups (OD + internal taper)</text>
+<text x="913.0" y="898.0" font-size="11" text-anchor="start" fill="#000">Ops 80 / 100 / 110 · machines CGR-01 / IGR-01</text>
+<text x="1382.0" y="898.0" font-size="11" text-anchor="end" fill="#000">Guide 18 · spindle manufacturing</text>
+<text x="913.0" y="920.0" font-size="11" text-anchor="start" fill="#000">Values = twin example values · not to scale · 2026-11</text>
+</svg>

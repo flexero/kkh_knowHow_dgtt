@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 820" width="1240" height="820" font-family="Arial, Helvetica, sans-serif">
+<title>Tag naming scheme</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1240" height="820" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">06 – Tag naming scheme of the project (doc 15 §3.10) compared with ISA-5.1 and KKS</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">One name for the same signal in PLC symbol, OPC UA node, SCADA tag, historian and MQTT topic.</text>
+<rect x="40.0" y="90.0" width="150.0" height="56.0" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.6"/>
+<text x="115.0" y="126.0" font-size="22" text-anchor="middle" font-weight="bold" fill="#111">MCH</text>
+<text x="115.0" y="168.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#c0392b">Area</text>
+<text x="48.0" y="190.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">MCH machining</text>
+<text x="48.0" y="206.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">ASM assembly</text>
+<text x="48.0" y="222.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">TST test</text>
+<text x="48.0" y="238.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">PNT paint</text>
+<text x="48.0" y="254.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">FIN final</text>
+<text x="48.0" y="270.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">LOG logistics</text>
+<text x="48.0" y="286.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">UTL utilities</text>
+<text x="199.0" y="128.0" font-size="22" text-anchor="middle" font-weight="bold" fill="#111">_</text>
+<rect x="208.0" y="90.0" width="120.0" height="56.0" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.6"/>
+<text x="268.0" y="126.0" font-size="22" text-anchor="middle" font-weight="bold" fill="#111">L2</text>
+<text x="268.0" y="168.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#c0392b">Line</text>
+<text x="216.0" y="190.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">L1 crankshaft</text>
+<text x="216.0" y="206.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">L2 crankcase FMS</text>
+<text x="216.0" y="222.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">L3 cylinder</text>
+<text x="216.0" y="238.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">L0 whole area</text>
+<text x="337.0" y="128.0" font-size="22" text-anchor="middle" font-weight="bold" fill="#111">_</text>
+<rect x="346.0" y="90.0" width="190.0" height="56.0" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.6"/>
+<text x="441.0" y="126.0" font-size="22" text-anchor="middle" font-weight="bold" fill="#111">HMC01</text>
+<text x="441.0" y="168.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#c0392b">Machine</text>
+<text x="354.0" y="190.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">HMC01..03, VMC01</text>
+<text x="354.0" y="206.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">HONE01, LATHE01</text>
+<text x="354.0" y="222.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">GRIND01, WASH01</text>
+<text x="354.0" y="238.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">AGV01, PLC01 …</text>
+<text x="545.0" y="128.0" font-size="22" text-anchor="middle" font-weight="bold" fill="#111">_</text>
+<rect x="554.0" y="90.0" width="260.0" height="56.0" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.6"/>
+<text x="684.0" y="126.0" font-size="22" text-anchor="middle" font-weight="bold" fill="#111">SpindleTemp</text>
+<text x="684.0" y="168.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#c0392b">Signal</text>
+<text x="562.0" y="190.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">fixed words:</text>
+<text x="562.0" y="206.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Temp Press Flow Vib</text>
+<text x="562.0" y="222.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Power Energy Speed</text>
+<text x="562.0" y="238.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Pos Current Level</text>
+<text x="562.0" y="254.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Count State</text>
+<text x="823.0" y="128.0" font-size="22" text-anchor="middle" font-weight="bold" fill="#111">_</text>
+<rect x="832.0" y="90.0" width="190.0" height="56.0" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.6"/>
+<text x="927.0" y="126.0" font-size="22" text-anchor="middle" font-weight="bold" fill="#111">Hi</text>
+<text x="927.0" y="168.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#c0392b">Suffix (opt.)</text>
+<text x="840.0" y="190.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">_Sp set point</text>
+<text x="840.0" y="206.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">_Cmd _Fb</text>
+<text x="840.0" y="222.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">_Hi _HiHi _Lo _LoLo</text>
+<text x="840.0" y="238.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">_Ok status</text>
+<text x="840.0" y="254.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">_Cnt counter</text>
+<text x="40.0" y="330.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Result:</text>
+<text x="110.0" y="330.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">MCH_L2_HMC01_SpindleTemp (value)</text>
+<text x="400.0" y="330.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">MCH_L2_HMC01_SpindleTemp_Hi = 75 °C (alarm limit)</text>
+<text x="800.0" y="330.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">MCH_L2_HMC01_Speed_Sp (writable 50–130 %)</text>
+<text x="40.0" y="370.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">The same signal in every system</text>
+<text x="40.0" y="394.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">PLC symbol / interface DB12</text>
+<text x="360.0" y="394.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">"MCH_L2_HMC01_IF"."SpindleTemp"</text>
+<text x="40.0" y="416.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">OPC UA node</text>
+<text x="360.0" y="416.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">ns=3;s="MCH_L2_HMC01_IF"."SpindleTemp"  (endpoint opc.tcp://10.51.0.11:4840)</text>
+<text x="40.0" y="438.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">OPC UA browse path</text>
+<text x="360.0" y="438.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">MCH/L2/HMC01/SpindleTemp</text>
+<text x="40.0" y="460.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">SCADA tag / historian point</text>
+<text x="360.0" y="460.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">MCH_L2_HMC01_SpindleTemp</text>
+<text x="40.0" y="482.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">MQTT topic (UNS)</text>
+<text x="360.0" y="482.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">vc/MCH/L2/HMC01/SpindleTemp</text>
+<text x="40.0" y="504.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Alarm ID / text</text>
+<text x="360.0" y="504.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">HMC01_A5101  Spindle temperature high (group 5 = process values)</text>
+<text x="40.0" y="526.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Screen</text>
+<text x="360.0" y="526.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">SCR3_MCH_L2_HMC01 (faceplate)</text>
+<text x="40.0" y="548.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Twin (simplified – not for the real plant)</text>
+<text x="360.0" y="548.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">HMC-01.Temperature</text>
+<rect x="40.0" y="600.0" width="360.0" height="120.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="48.0" y="618.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">ISA-5.1 (instrument tag)</text>
+<text x="48.0" y="635.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">TT-5101  = Temperature Transmitter, loop 5101</text>
+<text x="48.0" y="651.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">TAH-5101 = Temperature Alarm High</text>
+<text x="48.0" y="667.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">letters: 1st = measured variable,</text>
+<text x="48.0" y="683.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">next = function (I, T, A, C …)</text>
+<rect x="420.0" y="600.0" width="360.0" height="120.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="428.0" y="618.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">KKS (power-plant style – check)</text>
+<text x="428.0" y="635.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">1 LAB10 CT001</text>
+<text x="428.0" y="651.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">plant · system code · equipment code</text>
+<text x="428.0" y="667.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">CT = temperature measurement</text>
+<text x="428.0" y="683.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">used in power and process plants</text>
+<rect x="800.0" y="600.0" width="400.0" height="120.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="808.0" y="618.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Project rule (this factory)</text>
+<text x="808.0" y="635.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">readable, same as PLC symbol</text>
+<text x="808.0" y="651.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">≤ 40 characters (example), A–Z a–z 0–9 _ only</text>
+<text x="808.0" y="667.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">no spaces, '-' or '.' (not accepted by all tools)</text>
+<text x="808.0" y="683.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">ISA-5.1 tag kept in the I/O list column</text>
+<rect x="798.0" y="746.0" width="430.0" height="62.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<line x1="798.0" y1="768.0" x2="1228.0" y2="768.0" stroke="#111" stroke-width="0.8"/>
+<line x1="1048.0" y1="768.0" x2="1048.0" y2="808.0" stroke="#111" stroke-width="0.8"/>
+<text x="806.0" y="762.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – check the maker's documentation</text>
+<text x="806.0" y="786.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Drawing 06-07  tag naming</text>
+<text x="806.0" y="802.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Guide 06 SCADA · V-compressor factory</text>
+<text x="1056.0" y="786.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">no scale</text>
+<text x="1056.0" y="802.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">rev A · 2026-11-12</text>
+</svg>

@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 940" width="1560" height="940" font-family="Arial, Helvetica, sans-serif">
+<title>Serial and lot genealogy: backward and forward trace</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1560" height="940" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">04 – Traceability: backward trace of one serial and forward trace of one lot (genealogy graph, example values)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Every arrow = one consumption event (11.10): output ID ◀ input ID, qty, station, time. Backward = follow arrows from the unit; forward = from the lot.</text>
+<rect x="20.0" y="70.0" width="700.0" height="780.0" rx="0" fill="#fff" stroke="#111" stroke-width="1"/>
+<text x="32.0" y="94.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">A  Backward trace  (field failure of one compressor)</text>
+<rect x="240.0" y="115.0" width="260.0" height="60.0" rx="4" fill="#fbeaea" stroke="#c0392b" stroke-width="2"/>
+<text x="370.0" y="132.6" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">VC20-2646-00123</text>
+<text x="370.0" y="149.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">WO-2646-0012 · SO-2646-0006</text>
+<text x="370.0" y="166.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">Delta Compressors (CUS-0004)</text>
+<rect x="60.0" y="210.0" width="250.0" height="66.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="185.0" y="231.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Crankcase CC20-CAST</text>
+<text x="185.0" y="247.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">LOT-CC20-2645-007</text>
+<text x="185.0" y="263.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">AUTO_FIFO @ 0010</text>
+<path d="M 310,243 L 370,243" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)"/>
+<rect x="370.0" y="218.0" width="230.0" height="50.0" rx="4" fill="#f2f2f2" stroke="#111" stroke-width="1.2"/>
+<text x="485.0" y="239.3" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Foundry A lot FA-L0007</text>
+<text x="485.0" y="254.3" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">heat H26-4302, cert 3.1</text>
+<line x1="42.0" y1="243.0" x2="60.0" y2="243.0" stroke="#222" stroke-width="1.2"/>
+<rect x="60.0" y="310.0" width="250.0" height="66.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="185.0" y="331.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">2 × CYL-CAST</text>
+<text x="185.0" y="347.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">LOT-CYL-2646-002</text>
+<text x="185.0" y="363.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">SCAN @ 0040</text>
+<path d="M 310,343 L 370,343" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)"/>
+<rect x="370.0" y="318.0" width="230.0" height="50.0" rx="4" fill="#f2f2f2" stroke="#111" stroke-width="1.2"/>
+<text x="485.0" y="339.4" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Foundry A lot FA-L0011</text>
+<text x="485.0" y="354.4" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">heat H26-4490, cert 3.1</text>
+<line x1="42.0" y1="343.0" x2="60.0" y2="343.0" stroke="#222" stroke-width="1.2"/>
+<rect x="60.0" y="410.0" width="250.0" height="66.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="185.0" y="431.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">1 × CS-FORG</text>
+<text x="185.0" y="447.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">LOT-CS-2645-011</text>
+<text x="185.0" y="463.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">SCAN @ 0040</text>
+<path d="M 310,443 L 370,443" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)"/>
+<rect x="370.0" y="418.0" width="230.0" height="50.0" rx="4" fill="#f2f2f2" stroke="#111" stroke-width="1.2"/>
+<text x="485.0" y="439.4" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Forge B lot FB-2611</text>
+<text x="485.0" y="454.4" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">heat 8812-C45</text>
+<line x1="42.0" y1="443.0" x2="60.0" y2="443.0" stroke="#222" stroke-width="1.2"/>
+<rect x="60.0" y="510.0" width="250.0" height="66.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="185.0" y="531.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">TANK-300</text>
+<text x="185.0" y="547.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">serial TW-300-8812</text>
+<text x="185.0" y="563.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">SCAN @ 0080</text>
+<path d="M 310,543 L 370,543" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)"/>
+<rect x="370.0" y="518.0" width="230.0" height="50.0" rx="4" fill="#f2f2f2" stroke="#111" stroke-width="1.2"/>
+<text x="485.0" y="539.4" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Tank Works C</text>
+<text x="485.0" y="554.4" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">PED documents</text>
+<line x1="42.0" y1="543.0" x2="60.0" y2="543.0" stroke="#222" stroke-width="1.2"/>
+<rect x="60.0" y="610.0" width="250.0" height="66.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="185.0" y="631.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">MOT-4KW</text>
+<text x="185.0" y="647.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">serial MD-4K-55120</text>
+<text x="185.0" y="663.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">SCAN @ 0080</text>
+<path d="M 310,643 L 370,643" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)"/>
+<rect x="370.0" y="618.0" width="230.0" height="50.0" rx="4" fill="#f2f2f2" stroke="#111" stroke-width="1.2"/>
+<text x="485.0" y="639.4" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Motor D</text>
+<text x="485.0" y="654.4" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">nameplate, IE3</text>
+<line x1="42.0" y1="643.0" x2="60.0" y2="643.0" stroke="#222" stroke-width="1.2"/>
+<rect x="60.0" y="710.0" width="250.0" height="66.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="185.0" y="731.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Test TR-000457</text>
+<text x="185.0" y="747.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">FAD 20.31 m³/h PASS</text>
+<text x="185.0" y="763.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">TEST-01 08:44</text>
+<path d="M 310,743 L 370,743" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)"/>
+<rect x="370.0" y="718.0" width="230.0" height="50.0" rx="4" fill="#f2f2f2" stroke="#111" stroke-width="1.2"/>
+<text x="485.0" y="739.4" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Bench calibration</text>
+<text x="485.0" y="754.4" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">CAL-2645-0003</text>
+<line x1="42.0" y1="743.0" x2="60.0" y2="743.0" stroke="#222" stroke-width="1.2"/>
+<line x1="42.0" y1="743.0" x2="42.0" y2="145.0" stroke="#222" stroke-width="1.2"/>
+<line x1="42.0" y1="145.0" x2="240.0" y2="145.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<text x="610.0" y="250.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">supplier</text>
+<text x="610.0" y="264.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">lot / heat</text>
+<text x="40.0" y="820.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Answer: lots, heats, test data, route (stations + times) of the unit in one query (SQL in 24.4).</text>
+<rect x="740.0" y="70.0" width="800.0" height="780.0" rx="0" fill="#fff" stroke="#111" stroke-width="1"/>
+<text x="752.0" y="94.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">B  Forward trace  (foundry reports porosity in LOT-CYL-2646-002)</text>
+<rect x="1000.0" y="115.0" width="300.0" height="60.0" rx="4" fill="#fbeaea" stroke="#c0392b" stroke-width="2"/>
+<text x="1150.0" y="132.6" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">LOT-CYL-2646-002</text>
+<text x="1150.0" y="149.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">received 240 cylinder castings</text>
+<text x="1150.0" y="166.6" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">PO-2646-0011 · supplier lot FA-L0011</text>
+<line x1="1150.0" y1="175.0" x2="885.0" y2="230.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="780.0" y="230.0" width="210.0" height="56.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="885.0" y="254.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Consumed in units</text>
+<text x="885.0" y="270.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">148 pcs = 74 units (2 per unit)</text>
+<line x1="1150.0" y1="175.0" x2="1165.0" y2="230.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="1060.0" y="230.0" width="210.0" height="56.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="1165.0" y="254.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Scrapped in machining</text>
+<text x="1165.0" y="270.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">3 pcs (VMC 2, HONE 1) · NCR</text>
+<line x1="1150.0" y1="175.0" x2="1415.0" y2="230.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="1310.0" y="230.0" width="210.0" height="56.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="1415.0" y="254.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Still on hand</text>
+<text x="1415.0" y="270.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">89 pcs: 77 raw + 12 machined</text>
+<line x1="1395.0" y1="286.0" x2="1395.0" y2="330.0" stroke="#222" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="1290.0" y="330.0" width="220.0" height="56.0" rx="4" fill="#fff" stroke="#c0392b" stroke-width="1.2"/>
+<text x="1400.0" y="354.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Action: BLOCK</text>
+<text x="1400.0" y="370.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">quality status ▶ BLOCKED</text>
+<line x1="1165.0" y1="286.0" x2="1165.0" y2="330.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="1060.0" y="330.0" width="210.0" height="56.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="1165.0" y="354.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Already in NCR</text>
+<text x="1165.0" y="370.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">no action</text>
+<path d="M 885,286 L 885,460 L 920,460" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)"/>
+<rect x="920.0" y="430.0" width="250.0" height="64.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="1045.0" y="450.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Shipped: 40 units</text>
+<text x="1045.0" y="466.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">Alpha Tools 20, Delta 20</text>
+<text x="1045.0" y="482.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#c0392b">customer letter / recall</text>
+<path d="M 885,286 L 885,555 L 920,555" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)"/>
+<rect x="920.0" y="525.0" width="250.0" height="64.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="1045.0" y="545.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">In FG stock: 28 units</text>
+<text x="1045.0" y="561.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">ASRS-FG</text>
+<text x="1045.0" y="577.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#c0392b">block + re-test / exchange</text>
+<path d="M 885,286 L 885,650 L 920,650" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)"/>
+<rect x="920.0" y="620.0" width="250.0" height="64.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="1045.0" y="640.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">In WIP: 5 units</text>
+<text x="1045.0" y="656.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">ASSY … PAINT</text>
+<text x="1045.0" y="672.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#c0392b">hold WO, exchange cylinders</text>
+<path d="M 885,286 L 885,745 L 920,745" stroke="#222" stroke-width="1.2" fill="none" marker-end="url(#ak)"/>
+<rect x="920.0" y="715.0" width="250.0" height="64.0" rx="4" fill="#fff" stroke="#111" stroke-width="1.2"/>
+<text x="1045.0" y="735.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Scrapped at test: 1 unit</text>
+<text x="1045.0" y="751.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">NCR-2646-0002</text>
+<text x="1045.0" y="767.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#c0392b">check if same cause</text>
+<text x="1200.0" y="450.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Mass balance of the lot (check of data quality):</text>
+<text x="1200.0" y="472.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">received 240 = consumed 148 + scrapped 3</text>
+<text x="1200.0" y="491.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">             + on hand 89          ✔ 240</text>
+<text x="1200.0" y="510.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">units: 40 + 28 + 5 + 1 = 74 = 148 ÷ 2  ✔</text>
+<text x="1200.0" y="529.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111"></text>
+<text x="1200.0" y="548.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Recall size (10.8): max 120 units (lot ÷ 2);</text>
+<text x="1200.0" y="567.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">real 74 – 33 still in the plant (28 FG + 5 WIP).</text>
+<text x="1200.0" y="586.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111"></text>
+<text x="1200.0" y="605.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Time target: answer in &lt; 5 s (MES-06),</text>
+<text x="1200.0" y="624.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">decision within 1 hour.</text>
+<text x="752.0" y="820.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">If lots were mixed in one bin, the trace would have to include the neighbour lot too (recall up to 240 units).</text>
+<rect x="1110.0" y="870.0" width="440.0" height="60.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="1110.0" y1="890.0" x2="1550.0" y2="890.0" stroke="#222" stroke-width="1"/>
+<line x1="1420.0" y1="890.0" x2="1420.0" y2="930.0" stroke="#222" stroke-width="1"/>
+<text x="1118.0" y="885.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – planning sketch</text>
+<text x="1542.0" y="885.0" font-size="11" text-anchor="end" font-weight="normal" fill="#444">Guide 04 – MES and ERP</text>
+<text x="1118.0" y="908.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Serial / lot genealogy</text>
+<text x="1118.0" y="923.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">backward + forward trace, mass balance</text>
+<text x="1428.0" y="908.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">DWG 04-06</text>
+<text x="1428.0" y="923.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">not to scale for build</text>
+</svg>

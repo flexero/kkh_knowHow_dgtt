@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 980" width="1240" height="980" font-family="Arial, Helvetica, sans-serif">
+<title>SCADA architecture of the V-compressor factory</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1240" height="980" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">06 – SCADA system architecture: field → PLC → redundant SCADA servers → historian → clients → MES</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Example for the V-compressor factory (16 stations, ≈ 1 200 tags). Host names and IPs per doc 15 (10.&lt;VLAN&gt;.0.&lt;host&gt;).</text>
+<rect x="20.0" y="70.0" width="1200.0" height="105.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.0" stroke-dasharray="6 4"/>
+<text x="30.0" y="86.0" font-size="12" text-anchor="start" font-weight="bold" fill="#444">Level 4 · Enterprise zone (IT)</text>
+<rect x="20.0" y="185.0" width="1200.0" height="120.0" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.0" stroke-dasharray="6 4"/>
+<text x="30.0" y="201.0" font-size="12" text-anchor="start" font-weight="bold" fill="#444">Industrial DMZ (Level 3.5)</text>
+<rect x="20.0" y="315.0" width="1200.0" height="140.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.0" stroke-dasharray="6 4"/>
+<text x="30.0" y="331.0" font-size="12" text-anchor="start" font-weight="bold" fill="#444">Level 3 · Operations zone · VLAN 30 OT-L3-OPS</text>
+<rect x="20.0" y="465.0" width="1200.0" height="205.0" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.0" stroke-dasharray="6 4"/>
+<text x="30.0" y="481.0" font-size="12" text-anchor="start" font-weight="bold" fill="#444">Level 2 · Supervisory · VLAN 40</text>
+<rect x="20.0" y="680.0" width="1200.0" height="140.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.0" stroke-dasharray="6 4"/>
+<text x="30.0" y="696.0" font-size="12" text-anchor="start" font-weight="bold" fill="#444">Level 1 · Control</text>
+<rect x="20.0" y="830.0" width="1200.0" height="70.0" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.0" stroke-dasharray="6 4"/>
+<text x="30.0" y="846.0" font-size="12" text-anchor="start" font-weight="bold" fill="#444">Level 0 · Field</text>
+<rect x="60.0" y="95.0" width="230.0" height="70.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="68.0" y="113.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">ERP server</text>
+<text x="68.0" y="130.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">orders, material, cost</text>
+<text x="68.0" y="146.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">REST / database link to MES</text>
+<rect x="320.0" y="95.0" width="230.0" height="70.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="328.0" y="113.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Office PCs</text>
+<text x="328.0" y="130.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">reports (PDF/CSV) via web</text>
+<text x="328.0" y="146.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">no direct OT access</text>
+<rect x="620.0" y="168.0" width="150.0" height="26.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+<text x="695.0" y="186.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#c0392b">FIREWALL 1 (IT/DMZ)</text>
+<rect x="620.0" y="298.0" width="150.0" height="26.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+<text x="695.0" y="316.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#c0392b">FIREWALL 2 (DMZ/OT)</text>
+<rect x="60.0" y="210.0" width="250.0" height="82.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="68.0" y="228.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Historian replica / web reports</text>
+<text x="68.0" y="245.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">read-only copy for office users</text>
+<text x="68.0" y="261.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">HTTPS 443 from IT only</text>
+<rect x="330.0" y="210.0" width="230.0" height="82.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="338.0" y="228.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Remote-access gateway</text>
+<text x="338.0" y="245.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">jump host, MFA, session record</text>
+<text x="338.0" y="261.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">time-limited vendor access</text>
+<rect x="820.0" y="210.0" width="230.0" height="82.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="828.0" y="228.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Patch + antivirus server</text>
+<text x="828.0" y="245.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">tested OS / AV updates</text>
+<text x="828.0" y="261.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">pushed into OT zones</text>
+<rect x="60.0" y="340.0" width="230.0" height="100.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="68.0" y="358.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">MES server</text>
+<text x="68.0" y="375.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">orders, serial numbers, OEE</text>
+<text x="68.0" y="391.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">reads SCADA / PLC via OPC UA</text>
+<text x="68.0" y="407.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">vc-ops-mes01 (example)</text>
+<rect x="310.0" y="340.0" width="260.0" height="100.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="318.0" y="358.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Historian server</text>
+<text x="318.0" y="375.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">vc-ops-hist01 · RAID 10</text>
+<text x="318.0" y="391.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">≈ 4.5 M values/day (ch. 21)</text>
+<text x="318.0" y="407.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">store-and-forward from collectors</text>
+<rect x="590.0" y="340.0" width="230.0" height="100.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="598.0" y="358.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Engineering station</text>
+<text x="598.0" y="375.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">PLC + SCADA projects</text>
+<text x="598.0" y="391.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">version control, backup</text>
+<text x="598.0" y="407.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">only by named engineers</text>
+<rect x="840.0" y="340.0" width="230.0" height="100.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="848.0" y="358.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Domain + NTP + backup</text>
+<text x="848.0" y="375.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">OT domain (users, roles)</text>
+<text x="848.0" y="391.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">2 NTP sources (GPS/DCF)</text>
+<text x="848.0" y="407.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">backup NAS, 3-2-1 rule</text>
+<rect x="60.0" y="490.0" width="250.0" height="120.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="68.0" y="508.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">SCADA server A (active)</text>
+<text x="68.0" y="525.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">vc-sup-scada01 · 10.40.0.100</text>
+<text x="68.0" y="541.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">I/O + alarm + display server</text>
+<text x="68.0" y="557.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">OPC UA client to 5 PLCs</text>
+<text x="68.0" y="573.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">licence ≥ 2 500 tags</text>
+<rect x="420.0" y="490.0" width="250.0" height="120.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="428.0" y="508.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">SCADA server B (standby)</text>
+<text x="428.0" y="525.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">vc-sup-scada02 · 10.40.0.101</text>
+<text x="428.0" y="541.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">same project, hot standby</text>
+<text x="428.0" y="557.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">takes over in ≤ 10 s (spec)</text>
+<text x="428.0" y="573.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">own UPS feed</text>
+<line x1="310.0" y1="550.0" x2="420.0" y2="550.0" stroke="#111" stroke-width="2.2" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="365.0" y="542.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">sync link</text>
+<rect x="780.0" y="480.0" width="200.0" height="78.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="788.0" y="498.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Control room</text>
+<text x="788.0" y="515.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">2 operator stations</text>
+<text x="788.0" y="531.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">2 × 24" each + 65" wall</text>
+<rect x="990.0" y="480.0" width="210.0" height="78.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="998.0" y="498.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Line panels / thin clients</text>
+<text x="998.0" y="515.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">web client, IP65 touch</text>
+<text x="998.0" y="531.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">5 lines × 1</text>
+<rect x="780.0" y="568.0" width="420.0" height="52.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="788.0" y="586.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Edge gateway + MQTT broker</text>
+<text x="788.0" y="603.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">AGV fleet (VDA 5050) + 26 energy meters (Modbus TCP)</text>
+<line x1="670.0" y1="520.0" x2="780.0" y2="520.0" stroke="#111" stroke-width="1.4" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="725.0" y="512.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">screens</text>
+<line x1="670.0" y1="540.0" x2="990.0" y2="540.0" stroke="#111" stroke-width="1.0" stroke-dasharray="4 3"/>
+<line x1="250.0" y1="490.0" x2="250.0" y2="440.0" stroke="#111" stroke-width="1.4" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="257.0" y="480.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">OPC UA: orders ▼ states ▲</text>
+<line x1="470.0" y1="490.0" x2="470.0" y2="440.0" stroke="#111" stroke-width="1.4" marker-end="url(#ak)"/>
+<text x="477.0" y="480.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">historian collector (buffer 7 days)</text>
+<rect x="40.0" y="712.0" width="222.0" height="82.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="48.0" y="730.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">PLC-01 · L2 crankcase</text>
+<text x="48.0" y="746.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">10.51.0.11</text>
+<text x="48.0" y="761.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">HMC-01..03, WASH-01, LOAD</text>
+<text x="48.0" y="776.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">OPC UA server :4840</text>
+<line x1="151.0" y1="712.0" x2="151.0" y2="660.0" stroke="#111" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="276.0" y="712.0" width="222.0" height="82.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="284.0" y="730.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">PLC · L1 crankshaft</text>
+<text x="284.0" y="746.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">VLAN 52 (ex.)</text>
+<text x="284.0" y="761.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">LATHE-01, GRIND-01</text>
+<text x="284.0" y="776.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">OPC UA server :4840</text>
+<line x1="387.0" y1="712.0" x2="387.0" y2="660.0" stroke="#111" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="512.0" y="712.0" width="222.0" height="82.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="520.0" y="730.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">PLC · L3 cylinder</text>
+<text x="520.0" y="746.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">VLAN 53 (ex.)</text>
+<text x="520.0" y="761.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">VMC-01, HONE-01</text>
+<text x="520.0" y="776.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">OPC UA server :4840</text>
+<line x1="623.0" y1="712.0" x2="623.0" y2="660.0" stroke="#111" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="748.0" y="712.0" width="222.0" height="82.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="756.0" y="730.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">PLC · assembly + test</text>
+<text x="756.0" y="746.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">VLAN 54 (ex.)</text>
+<text x="756.0" y="761.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">ASSY, ROBOT, TEST, PAINT</text>
+<text x="756.0" y="776.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">OPC UA server :4840</text>
+<line x1="859.0" y1="712.0" x2="859.0" y2="660.0" stroke="#111" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="984.0" y="712.0" width="222.0" height="82.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4"/>
+<text x="992.0" y="730.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">PLC · final + packing</text>
+<text x="992.0" y="746.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">VLAN 55 (ex.)</text>
+<text x="992.0" y="761.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">FINAL-01, PACK-01</text>
+<text x="992.0" y="776.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">OPC UA server :4840</text>
+<line x1="1095.0" y1="712.0" x2="1095.0" y2="660.0" stroke="#111" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="151.0" y1="660.0" x2="1095.0" y2="660.0" stroke="#111" stroke-width="2.0"/>
+<line x1="185.0" y1="660.0" x2="185.0" y2="610.0" stroke="#111" stroke-width="1.6" marker-end="url(#ak)"/>
+<line x1="545.0" y1="660.0" x2="545.0" y2="610.0" stroke="#111" stroke-width="1.6" marker-end="url(#ak)"/>
+<text x="690.0" y="645.0" font-size="11" text-anchor="start" font-weight="bold" fill="#c0392b">OPC UA :4840 · sampling 500 ms · publishing 1 000 ms · Sign &amp; Encrypt</text>
+<text x="40.0" y="860.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">4–20 mA (temperature 0–150 °C, pressure 0–16 bar)  ·  IO-Link vibration  ·  PROFINET drives / CNC  ·  safety (PROFIsafe) – never via SCADA</text>
+<text x="40.0" y="884.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Each line PLC keeps its machines running if SCADA, network or historian fail – SCADA is supervisory only.</text>
+<rect x="798.0" y="906.0" width="430.0" height="62.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<line x1="798.0" y1="928.0" x2="1228.0" y2="928.0" stroke="#111" stroke-width="0.8"/>
+<line x1="1048.0" y1="928.0" x2="1048.0" y2="968.0" stroke="#111" stroke-width="0.8"/>
+<text x="806.0" y="922.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – check the maker's documentation</text>
+<text x="806.0" y="946.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Drawing 06-01  architecture</text>
+<text x="806.0" y="962.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Guide 06 SCADA · V-compressor factory</text>
+<text x="1056.0" y="946.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">no scale</text>
+<text x="1056.0" y="962.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">rev A · 2026-11-12</text>
+</svg>

@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1120" width="1400" height="1120" font-family="Arial, Helvetica, sans-serif">
+<title>Spindle test station P&amp;ID</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker><pattern id="hat" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="0.6"/></pattern><pattern id="hat2" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="0.6"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="1120" fill="#fff"/>
+<text x="20.0" y="30.0" font-size="15" text-anchor="start" fill="#000" font-weight="bold">Spindle test station – P&amp;ID of cooling water, oil-air / sealing air and hydraulic unclamp circuits (example)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" fill="#000">ISA-5.1 style tags; accent = signals to the PLC / twin; values are examples from the guide (4 l/min, 20 °C, stop &lt; 2 l/min or ΔT_w &gt; 8 K)</text>
+<text x="20.0" y="90.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">1  Cooling water circuit (spindle jacket + stator)</text>
+<rect x="30.0" y="110.0" width="330.0" height="250.0" rx="0" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="8 4"/>
+<text x="40.0" y="128.0" font-size="11" text-anchor="start" fill="#000">chiller package (≥ 2.5 kW @ 20 °C)</text>
+<rect x="50.0" y="230.0" width="90.0" height="100.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="50.0" y1="255.0" x2="140.0" y2="255.0" stroke="#1565c0" stroke-width="1"/>
+<text x="95.0" y="290.0" font-size="11" text-anchor="middle" fill="#000">tank 20 l</text>
+<circle cx="95.0" cy="170.0" r="19.0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<line x1="76.0" y1="170.0" x2="114.0" y2="170.0" stroke="#000" stroke-width="0.8"/>
+<text x="95.0" y="166.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">LSL</text>
+<text x="95.0" y="183.0" font-size="11" text-anchor="middle" fill="#000">101</text>
+<line x1="95.0" y1="230.0" x2="95.0" y2="189.0" stroke="#000" stroke-width="0.8"/>
+<rect x="180.0" y="150.0" width="110.0" height="50.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="235.0" y="172.0" font-size="11" text-anchor="middle" fill="#000">refrigeration</text>
+<text x="235.0" y="185.7" font-size="11" text-anchor="middle" fill="#000">unit + heater</text>
+<line x1="140.0" y1="300.0" x2="190.0" y2="300.0" stroke="#000" stroke-width="1.2"/>
+<circle cx="206.0" cy="300.0" r="16.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<polygon points="197.0,290.0 197.0,310.0 219.0,300.0" fill="#000" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="206.0" y="332.0" font-size="11" text-anchor="middle" fill="#000">P-101</text>
+<line x1="222.0" y1="300.0" x2="330.0" y2="300.0" stroke="#000" stroke-width="1.2"/>
+<polygon points="293.0,240.0 307.0,240.0 293.0,260.0 307.0,260.0" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="300.0" y1="260.0" x2="300.0" y2="300.0" stroke="#000" stroke-width="1.2"/>
+<line x1="300.0" y1="240.0" x2="300.0" y2="225.0" stroke="#000" stroke-width="1.2"/>
+<line x1="300.0" y1="225.0" x2="140.0" y2="225.0" stroke="#000" stroke-width="1.2"/>
+<text x="290.0" y="246.0" font-size="11" text-anchor="end" fill="#000">RV-101</text>
+<line x1="330.0" y1="300.0" x2="420.0" y2="300.0" stroke="#000" stroke-width="1.2"/>
+<polygon points="400.0,288.0 412.0,300.0 400.0,312.0 388.0,300.0" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="400.0" y1="288.0" x2="400.0" y2="312.0" stroke="#000" stroke-width="1.2" stroke-dasharray="2 2"/>
+<text x="400.0" y="282.0" font-size="11" text-anchor="middle" fill="#000">F-101 25 µm</text>
+<line x1="420.0" y1="300.0" x2="800.0" y2="300.0" stroke="#000" stroke-width="1.2"/>
+<circle cx="480.0" cy="250.0" r="19.0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<line x1="461.0" y1="250.0" x2="499.0" y2="250.0" stroke="#000" stroke-width="0.8"/>
+<text x="480.0" y="246.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">TT</text>
+<text x="480.0" y="263.0" font-size="11" text-anchor="middle" fill="#000">101</text>
+<line x1="480.0" y1="300.0" x2="480.0" y2="269.0" stroke="#000" stroke-width="0.8"/>
+<text x="480.0" y="322.0" font-size="11" text-anchor="middle" fill="#1565c0">T4 water in</text>
+<circle cx="570.0" cy="250.0" r="19.0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<line x1="551.0" y1="250.0" x2="589.0" y2="250.0" stroke="#000" stroke-width="0.8"/>
+<text x="570.0" y="246.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">FT</text>
+<text x="570.0" y="263.0" font-size="11" text-anchor="middle" fill="#000">101</text>
+<line x1="570.0" y1="300.0" x2="570.0" y2="269.0" stroke="#000" stroke-width="0.8"/>
+<text x="575.0" y="322.0" font-size="11" text-anchor="middle" fill="#1565c0">flow, FSL &lt; 2 l/min</text>
+<circle cx="660.0" cy="250.0" r="19.0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<line x1="641.0" y1="250.0" x2="679.0" y2="250.0" stroke="#000" stroke-width="0.8"/>
+<text x="660.0" y="246.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">PT</text>
+<text x="660.0" y="263.0" font-size="11" text-anchor="middle" fill="#000">101</text>
+<line x1="660.0" y1="300.0" x2="660.0" y2="269.0" stroke="#000" stroke-width="0.8"/>
+<text x="665.0" y="322.0" font-size="11" text-anchor="middle" fill="#1565c0">0–10 bar</text>
+<polygon points="730.0,293.0 730.0,307.0 750.0,293.0 750.0,307.0" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="740.0" y="325.0" font-size="11" text-anchor="middle" fill="#000">V-101</text>
+<rect x="800.0" y="270.0" width="220.0" height="70.0" rx="0" fill="#f0f0f0" stroke="#000" stroke-width="1.2"/>
+<text x="910.0" y="300.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">SPINDLE cooling jacket</text>
+<text x="910.0" y="318.0" font-size="11" text-anchor="middle" fill="#000">≈ 1.6 kW at nmax (example)</text>
+<line x1="1020.0" y1="320.0" x2="1100.0" y2="320.0" stroke="#000" stroke-width="1.2"/>
+<line x1="1100.0" y1="320.0" x2="1100.0" y2="370.0" stroke="#000" stroke-width="1.2"/>
+<line x1="1100.0" y1="370.0" x2="140.0" y2="370.0" stroke="#000" stroke-width="1.2"/>
+<line x1="140.0" y1="370.0" x2="140.0" y2="330.0" stroke="#000" stroke-width="1.2"/>
+<line x1="1060.0" y1="300.0" x2="1060.0" y2="300.0" stroke="#000" stroke-width="1.2"/>
+<circle cx="1160.0" cy="320.0" r="19.0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<line x1="1141.0" y1="320.0" x2="1179.0" y2="320.0" stroke="#000" stroke-width="0.8"/>
+<text x="1160.0" y="316.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">TT</text>
+<text x="1160.0" y="333.0" font-size="11" text-anchor="middle" fill="#000">102</text>
+<line x1="1100.0" y1="320.0" x2="1160.0" y2="301.0" stroke="#000" stroke-width="0.8"/>
+<text x="1160.0" y="290.0" font-size="11" text-anchor="middle" fill="#1565c0">T5 water out</text>
+<text x="600.0" y="365.0" font-size="11" text-anchor="middle" fill="#000">return</text>
+<line x1="1179.0" y1="320.0" x2="1260.0" y2="320.0" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="489.0" y1="233.0" x2="489.0" y2="200.0" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6 3"/>
+<rect x="1250.0" y="150.0" width="130.0" height="60.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="1315.0" y="176.7" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">PLC</text>
+<text x="1315.0" y="191.7" font-size="12" text-anchor="middle" fill="#000">S7-1500F</text>
+<line x1="480.0" y1="231.0" x2="480.0" y2="205.0" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="480.0" y1="205.0" x2="1250.0" y2="205.0" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="570.0" y1="231.0" x2="570.0" y2="205.0" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="660.0" y1="231.0" x2="660.0" y2="205.0" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="1260.0" y1="320.0" x2="1260.0" y2="210.0" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6 3"/>
+<text x="1260.0" y="238.0" font-size="11" text-anchor="start" fill="#1565c0">ΔT_w = TT102 − TT101</text>
+<text x="1260.0" y="252.0" font-size="11" text-anchor="start" fill="#1565c0">stop &gt; 8 K (rule cool)</text>
+<text x="20.0" y="425.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">2  Oil-air lubrication (only for oil-air spindles – the example spindle is greased) and sealing air</text>
+<text x="40.0" y="544.0" font-size="11" text-anchor="start" fill="#000">6 bar dry</text>
+<text x="40.0" y="558.0" font-size="11" text-anchor="start" fill="#000">oil-free air</text>
+<line x1="110.0" y1="540.0" x2="160.0" y2="540.0" stroke="#000" stroke-width="1.2"/>
+<polygon points="160.0,533.0 160.0,547.0 180.0,533.0 180.0,547.0" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="180.0" y1="540.0" x2="220.0" y2="540.0" stroke="#000" stroke-width="1.2"/>
+<text x="170.0" y="564.0" font-size="11" text-anchor="middle" fill="#000">V-201</text>
+<polygon points="235.0,528.0 247.0,540.0 235.0,552.0 223.0,540.0" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="235.0" y1="528.0" x2="235.0" y2="552.0" stroke="#000" stroke-width="1.2" stroke-dasharray="2 2"/>
+<text x="235.0" y="522.0" font-size="11" text-anchor="middle" fill="#000">F-201 5 µm</text>
+<line x1="247.0" y1="540.0" x2="290.0" y2="540.0" stroke="#000" stroke-width="1.2"/>
+<rect x="290.0" y="525.0" width="40.0" height="30.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="310.0" y="544.0" font-size="11" text-anchor="middle" fill="#000">PR</text>
+<text x="310.0" y="572.0" font-size="11" text-anchor="middle" fill="#000">PRV-201</text>
+<line x1="330.0" y1="540.0" x2="700.0" y2="540.0" stroke="#000" stroke-width="1.2"/>
+<circle cx="400.0" cy="485.0" r="19.0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<line x1="381.0" y1="485.0" x2="419.0" y2="485.0" stroke="#000" stroke-width="0.8"/>
+<text x="400.0" y="481.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">PS</text>
+<text x="400.0" y="498.0" font-size="11" text-anchor="middle" fill="#000">201</text>
+<line x1="400.0" y1="540.0" x2="400.0" y2="504.0" stroke="#000" stroke-width="0.8"/>
+<text x="430.0" y="480.0" font-size="11" text-anchor="start" fill="#1565c0">air pressure low → no start</text>
+<rect x="470.0" y="590.0" width="80.0" height="70.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="470.0" y1="610.0" x2="550.0" y2="610.0" stroke="#1565c0" stroke-width="1.2"/>
+<text x="510.0" y="640.0" font-size="11" text-anchor="middle" fill="#000">oil tank</text>
+<circle cx="600.0" cy="625.0" r="19.0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<line x1="581.0" y1="625.0" x2="619.0" y2="625.0" stroke="#000" stroke-width="0.8"/>
+<text x="600.0" y="621.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">LSL</text>
+<text x="600.0" y="638.0" font-size="11" text-anchor="middle" fill="#000">202</text>
+<line x1="550.0" y1="625.0" x2="600.0" y2="606.0" stroke="#000" stroke-width="0.8"/>
+<line x1="510.0" y1="590.0" x2="510.0" y2="570.0" stroke="#000" stroke-width="1.2"/>
+<circle cx="510.0" cy="554.0" r="16.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<polygon points="501.0,544.0 501.0,564.0 523.0,554.0" fill="#000" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="510.0" y="586.0" font-size="11" text-anchor="middle" fill="#000"></text>
+<text x="470.0" y="580.0" font-size="11" text-anchor="end" fill="#000">piston pump</text>
+<line x1="526.0" y1="554.0" x2="700.0" y2="554.0" stroke="#000" stroke-width="1.2"/>
+<rect x="690.0" y="520.0" width="200.0" height="60.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="790.0" y="547.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">oil-air mixing block</text>
+<text x="790.0" y="560.7" font-size="11" text-anchor="middle" fill="#000">metering per stroke: see datasheet</text>
+<line x1="890.0" y1="540.0" x2="1030.0" y2="540.0" stroke="#000" stroke-width="2.4"/>
+<text x="950.0" y="532.0" font-size="11" text-anchor="middle" fill="#000">oil-air line ≥ 2 m (check)</text>
+<rect x="1030.0" y="510.0" width="150.0" height="60.0" rx="0" fill="#f0f0f0" stroke="#000" stroke-width="1.2"/>
+<text x="1105.0" y="534.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">SPINDLE bearings</text>
+<text x="1105.0" y="552.0" font-size="11" text-anchor="middle" fill="#000">front + rear nozzles</text>
+<circle cx="950.0" cy="595.0" r="19.0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<line x1="931.0" y1="595.0" x2="969.0" y2="595.0" stroke="#000" stroke-width="0.8"/>
+<text x="950.0" y="591.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">PS</text>
+<text x="950.0" y="608.0" font-size="11" text-anchor="middle" fill="#000">203</text>
+<line x1="950.0" y1="540.0" x2="950.0" y2="576.0" stroke="#000" stroke-width="0.8"/>
+<text x="980.0" y="615.0" font-size="11" text-anchor="start" fill="#1565c0">line pressure / oil streak sensor</text>
+<line x1="360.0" y1="540.0" x2="360.0" y2="710.0" stroke="#000" stroke-width="1.2"/>
+<line x1="360.0" y1="710.0" x2="700.0" y2="710.0" stroke="#000" stroke-width="1.2"/>
+<rect x="700.0" y="695.0" width="40.0" height="30.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="720.0" y="714.0" font-size="11" text-anchor="middle" fill="#000">PR</text>
+<text x="720.0" y="742.0" font-size="11" text-anchor="middle" fill="#000">PRV-301</text>
+<line x1="740.0" y1="710.0" x2="1030.0" y2="710.0" stroke="#000" stroke-width="1.2"/>
+<circle cx="820.0" cy="660.0" r="19.0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<line x1="801.0" y1="660.0" x2="839.0" y2="660.0" stroke="#000" stroke-width="0.8"/>
+<text x="820.0" y="656.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">FI</text>
+<text x="820.0" y="673.0" font-size="11" text-anchor="middle" fill="#000">301</text>
+<line x1="820.0" y1="710.0" x2="820.0" y2="679.0" stroke="#000" stroke-width="0.8"/>
+<text x="850.0" y="652.0" font-size="11" text-anchor="start" fill="#1565c0">sealing-air flow (example 1–2 bar at the labyrinth – check)</text>
+<rect x="1030.0" y="685.0" width="150.0" height="50.0" rx="0" fill="#f0f0f0" stroke="#000" stroke-width="1.2"/>
+<text x="1105.0" y="715.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">front labyrinth</text>
+<line x1="419.0" y1="485.0" x2="1250.0" y2="485.0" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="969.0" y1="595.0" x2="1250.0" y2="595.0" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="839.0" y1="660.0" x2="1250.0" y2="660.0" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="619.0" y1="625.0" x2="660.0" y2="625.0" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6 3"/>
+<text x="664.0" y="629.0" font-size="11" text-anchor="start" fill="#1565c0">→ PLC</text>
+<rect x="1250.0" y="465.0" width="130.0" height="220.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="1315.0" y="558.2" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">PLC</text>
+<text x="1315.0" y="572.0" font-size="11" text-anchor="middle" fill="#000">inputs:</text>
+<text x="1315.0" y="585.7" font-size="11" text-anchor="middle" fill="#000">PS-201, LSL-202,</text>
+<text x="1315.0" y="599.5" font-size="11" text-anchor="middle" fill="#000">PS-203, FI-301</text>
+<text x="20.0" y="820.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">3  Hydraulic unclamp (tool release, assembly step 16 + clamping test 17/20)</text>
+<rect x="40.0" y="930.0" width="100.0" height="90.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="40.0" y1="955.0" x2="140.0" y2="955.0" stroke="#1565c0" stroke-width="1.2"/>
+<text x="90.0" y="990.0" font-size="11" text-anchor="middle" fill="#000">tank</text>
+<line x1="90.0" y1="930.0" x2="90.0" y2="920.0" stroke="#000" stroke-width="1.2"/>
+<line x1="90.0" y1="920.0" x2="160.0" y2="920.0" stroke="#000" stroke-width="1.2"/>
+<circle cx="176.0" cy="920.0" r="16.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<polygon points="167.0,910.0 167.0,930.0 189.0,920.0" fill="#000" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="176.0" y="952.0" font-size="11" text-anchor="middle" fill="#000">P-401</text>
+<line x1="192.0" y1="920.0" x2="520.0" y2="920.0" stroke="#000" stroke-width="1.2"/>
+<polygon points="273.0,940.0 287.0,940.0 273.0,960.0 287.0,960.0" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<line x1="280.0" y1="920.0" x2="280.0" y2="940.0" stroke="#000" stroke-width="1.2"/>
+<line x1="280.0" y1="960.0" x2="280.0" y2="985.0" stroke="#000" stroke-width="1.2"/>
+<line x1="280.0" y1="985.0" x2="140.0" y2="985.0" stroke="#000" stroke-width="1.2"/>
+<text x="292.0" y="954.0" font-size="11" text-anchor="start" fill="#000">RV-401 set 6.5 MPa (example)</text>
+<circle cx="400.0" cy="870.0" r="19.0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<line x1="381.0" y1="870.0" x2="419.0" y2="870.0" stroke="#000" stroke-width="0.8"/>
+<text x="400.0" y="866.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">PT</text>
+<text x="400.0" y="883.0" font-size="11" text-anchor="middle" fill="#000">401</text>
+<line x1="400.0" y1="920.0" x2="400.0" y2="889.0" stroke="#000" stroke-width="0.8"/>
+<text x="430.0" y="864.0" font-size="11" text-anchor="start" fill="#1565c0">= PRS-01: release pressure (calc. 2.90 MPa &lt; supply 6 MPa)</text>
+<rect x="520.0" y="900.0" width="60.0" height="40.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="580.0" y="900.0" width="60.0" height="40.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="530.0" y1="910.0" x2="570.0" y2="930.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<line x1="530.0" y1="930.0" x2="570.0" y2="910.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<line x1="590.0" y1="910.0" x2="590.0" y2="930.0" stroke="#000" stroke-width="1.2"/>
+<line x1="630.0" y1="910.0" x2="630.0" y2="930.0" stroke="#000" stroke-width="1.2"/>
+<text x="600.0" y="960.0" font-size="11" text-anchor="start" fill="#000">Y-401 4/2 solenoid valve</text>
+<line x1="640.0" y1="920.0" x2="900.0" y2="920.0" stroke="#000" stroke-width="1.2"/>
+<rect x="900.0" y="890.0" width="180.0" height="60.0" rx="0" fill="#f0f0f0" stroke="#000" stroke-width="1.2"/>
+<text x="990.0" y="916.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">SPINDLE unclamp cylinder</text>
+<text x="990.0" y="934.0" font-size="11" text-anchor="middle" fill="#000">Ø63 annular, stroke 6 mm</text>
+<circle cx="1150.0" cy="920.0" r="19.0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<line x1="1131.0" y1="920.0" x2="1169.0" y2="920.0" stroke="#000" stroke-width="0.8"/>
+<text x="1150.0" y="916.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">ZT</text>
+<text x="1150.0" y="933.0" font-size="11" text-anchor="middle" fill="#000">402</text>
+<line x1="1080.0" y1="920.0" x2="1150.0" y2="901.0" stroke="#000" stroke-width="0.8"/>
+<text x="1150.0" y="955.0" font-size="11" text-anchor="middle" fill="#1565c0">clamp position (analog)</text>
+<line x1="560.0" y1="940.0" x2="560.0" y2="1000.0" stroke="#000" stroke-width="1.2"/>
+<line x1="560.0" y1="1000.0" x2="140.0" y2="1000.0" stroke="#000" stroke-width="1.2"/>
+<text x="350.0" y="996.0" font-size="11" text-anchor="middle" fill="#000">return to tank</text>
+<line x1="419.0" y1="870.0" x2="1250.0" y2="870.0" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="1169.0" y1="920.0" x2="1250.0" y2="920.0" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6 3"/>
+<rect x="1250.0" y="845.0" width="130.0" height="100.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="1315.0" y="885.1" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">PLC</text>
+<text x="1315.0" y="898.9" font-size="11" text-anchor="middle" fill="#000">PT-401, ZT-402,</text>
+<text x="1315.0" y="912.6" font-size="11" text-anchor="middle" fill="#000">Y-401 output</text>
+<rect x="920.0" y="1048.0" width="470.0" height="62.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="920.0" y1="1070.0" x2="1390.0" y2="1070.0" stroke="#000" stroke-width="0.8"/>
+<text x="928.0" y="1064.0" font-size="12" text-anchor="start" fill="#1565c0" font-weight="bold">EXAMPLE – check the maker&#x27;s documentation</text>
+<text x="928.0" y="1086.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">20_test_station_pid – P&amp;ID cooling, lubrication, air, hydraulics</text>
+<text x="928.0" y="1102.0" font-size="11" text-anchor="start" fill="#000">Guide 20 – spindle station live twin · values: examples from the guide / app</text>
+</svg>

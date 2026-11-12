@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 720" width="1300" height="720" font-family="Arial, Helvetica, sans-serif">
+<title>Part families – rank order clustering</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><pattern id="hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#222" stroke-width="1"/></pattern><pattern id="hatchr" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#c0392b" stroke-width="1.2"/></pattern></defs>
+<rect x="0" y="0" width="1300" height="720" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">02 – Group technology: machine–part matrix before and after rank order clustering (ROC, King 1980)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">1 = the part needs this machine. ROC sorts rows and columns by their binary weight until nothing changes (2 passes here). Blocks = machine cells + part families.</text>
+<text x="30.0" y="120.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Before: rows and columns in arbitrary order</text>
+<text x="190.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 190.0 194.0)">P1 Crankcase</text>
+<text x="242.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 242.0 194.0)">P2 Cylinder</text>
+<text x="294.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 294.0 194.0)">P3 Crankshaft</text>
+<text x="346.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 346.0 194.0)">P4 Cyl. head</text>
+<text x="398.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 398.0 194.0)">P5 Valve plate</text>
+<text x="450.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 450.0 194.0)">P6 Pulley</text>
+<text x="502.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 502.0 194.0)">P7 Bearing cover</text>
+<text x="554.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 554.0 194.0)">P8 Conrod</text>
+<text x="152.0" y="221.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M1 HMC</text>
+<rect x="160.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="186.0" y="222.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="212.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="264.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="316.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="342.0" y="222.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="368.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="420.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="472.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="524.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="152.0" y="255.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M2 VMC</text>
+<rect x="160.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="212.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="238.0" y="256.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="264.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="316.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="368.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="394.0" y="256.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="420.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="446.0" y="256.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="472.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="524.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="550.0" y="256.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<text x="152.0" y="289.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M3 Hone</text>
+<rect x="160.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="212.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="238.0" y="290.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="264.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="316.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="368.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="420.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="472.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="524.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="550.0" y="290.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<text x="152.0" y="323.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M4 Lathe</text>
+<rect x="160.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="212.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="264.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="290.0" y="324.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="316.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="368.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="420.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="446.0" y="324.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="472.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="498.0" y="324.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="524.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="152.0" y="357.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M5 Cyl.grinder</text>
+<rect x="160.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="212.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="264.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="290.0" y="358.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="316.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="368.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="420.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="472.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="498.0" y="358.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="524.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="152.0" y="391.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M6 Washer</text>
+<rect x="160.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="186.0" y="392.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="212.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="238.0" y="392.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="264.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="316.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="342.0" y="392.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="368.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="394.0" y="392.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="420.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="472.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="524.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="152.0" y="425.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M7 Lapping</text>
+<rect x="160.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="212.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="264.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="316.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="368.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="394.0" y="426.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="420.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="472.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="524.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="550.0" y="426.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="160.0" y="200.0" width="416.0" height="238.0" rx="0" fill="none" stroke="#222" stroke-width="1.2"/>
+<text x="640.0" y="120.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">After ROC: 3 cells / families on the diagonal</text>
+<rect x="770.0" y="200.0" width="104.0" height="68.0" rx="0" fill="#ececec" stroke="#222" stroke-width="2"/>
+<rect x="874.0" y="268.0" width="156.0" height="102.0" rx="0" fill="#ececec" stroke="#222" stroke-width="2"/>
+<rect x="1030.0" y="370.0" width="156.0" height="68.0" rx="0" fill="#ececec" stroke="#222" stroke-width="2"/>
+<text x="800.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 800.0 194.0)">P1 Crankcase</text>
+<text x="852.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 852.0 194.0)">P4 Cyl. head</text>
+<text x="904.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 904.0 194.0)">P2 Cylinder</text>
+<text x="956.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 956.0 194.0)">P5 Valve plate</text>
+<text x="1008.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 1008.0 194.0)">P8 Conrod</text>
+<text x="1060.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 1060.0 194.0)">P6 Pulley</text>
+<text x="1112.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 1112.0 194.0)">P3 Crankshaft</text>
+<text x="1164.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111" transform="rotate(-60 1164.0 194.0)">P7 Bearing cover</text>
+<text x="762.0" y="221.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M6 Washer</text>
+<rect x="770.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="796.0" y="222.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="822.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="848.0" y="222.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="874.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<circle cx="900.0" cy="217.0" r="12" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="900.0" y="222.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#c0392b">1</text>
+<rect x="926.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<circle cx="952.0" cy="217.0" r="12" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="952.0" y="222.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#c0392b">1</text>
+<rect x="978.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1030.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1082.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1134.0" y="200.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="762.0" y="255.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M1 HMC</text>
+<rect x="770.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="796.0" y="256.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="822.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="848.0" y="256.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="874.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="926.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="978.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1030.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1082.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1134.0" y="234.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="762.0" y="289.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M2 VMC</text>
+<rect x="770.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="822.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="874.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="900.0" y="290.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="926.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="952.0" y="290.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="978.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="1004.0" y="290.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="1030.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<circle cx="1056.0" cy="285.0" r="12" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="1056.0" y="290.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#c0392b">1</text>
+<rect x="1082.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1134.0" y="268.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="762.0" y="323.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M3 Hone</text>
+<rect x="770.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="822.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="874.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="900.0" y="324.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="926.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="978.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="1004.0" y="324.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="1030.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1082.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1134.0" y="302.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="762.0" y="357.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M7 Lapping</text>
+<rect x="770.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="822.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="874.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="926.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="952.0" y="358.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="978.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="1004.0" y="358.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="1030.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1082.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1134.0" y="336.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="762.0" y="391.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M4 Lathe</text>
+<rect x="770.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="822.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="874.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="926.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="978.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1030.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="1056.0" y="392.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="1082.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="1108.0" y="392.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="1134.0" y="370.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="1160.0" y="392.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<text x="762.0" y="425.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">M5 Cyl.grinder</text>
+<rect x="770.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="822.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="874.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="926.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="978.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1030.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<rect x="1082.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="1108.0" y="426.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="1134.0" y="404.0" width="52.0" height="34.0" rx="0" fill="none" stroke="#bbbbbb" stroke-width="0.6"/>
+<text x="1160.0" y="426.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<rect x="770.0" y="200.0" width="416.0" height="238.0" rx="0" fill="none" stroke="#222" stroke-width="1.2"/>
+<text x="640.0" y="470.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">Result</text>
+<text x="640.0" y="490.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Cell A – prismatic housings: M6 Washer + M1 HMC → P1 crankcase, P4 cylinder head</text>
+<text x="640.0" y="510.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Cell B – bores and flat faces: M2 VMC + M3 Hone + M7 Lapping → P2 cylinder, P5 valve plate, P8 conrod</text>
+<text x="640.0" y="530.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Cell C – rotational parts: M4 Lathe + M5 cyl. grinder → P6 pulley, P3 crankshaft, P7 bearing cover</text>
+<text x="640.0" y="550.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Exceptional elements (red circles) = 3: P2 and P5 need the washer of cell A; P6 needs the VMC for its keyway.</text>
+<text x="640.0" y="570.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Fix: washer as a shared central resource (taken out of the matrix) + lathe with driven tools for the keyway → 0 exceptions.</text>
+<text x="40.0" y="470.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Grouping efficacy τ (Kumar &amp; Chandrasekharan)</text>
+<text x="40.0" y="490.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">τ = (e − e_out) ÷ (e + e_void)</text>
+<text x="40.0" y="510.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">e = 19 ones in the matrix</text>
+<text x="40.0" y="530.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">e_out = 3 exceptional elements (outside blocks)</text>
+<text x="40.0" y="550.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">e_void = 3 empty cells inside blocks</text>
+<text x="40.0" y="570.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">τ = (19 − 3) ÷ (19 + 3) = 16 ÷ 22 = 0.727</text>
+<text x="40.0" y="590.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">after the fixes: e = 14, e_out = 0, e_void = 3</text>
+<text x="40.0" y="610.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">τ = 14 ÷ 17 = 0.824  (1.0 = perfect cells)</text>
+<rect x="850.0" y="650.0" width="440.0" height="60.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="850.0" y1="670.0" x2="1290.0" y2="670.0" stroke="#222" stroke-width="1"/>
+<line x1="1160.0" y1="670.0" x2="1160.0" y2="710.0" stroke="#222" stroke-width="1"/>
+<text x="858.0" y="665.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – planning sketch</text>
+<text x="1282.0" y="665.0" font-size="11" text-anchor="end" font-weight="normal" fill="#444">Guide 02 – FMS and order flow</text>
+<text x="858.0" y="688.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Part families (group technology)</text>
+<text x="858.0" y="703.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">machine–part matrix, ROC clustering, efficacy</text>
+<text x="1168.0" y="688.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">DWG 02-07</text>
+<text x="1168.0" y="703.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">not to scale for build</text>
+</svg>

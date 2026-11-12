@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 820" width="1120" height="820" font-family="Arial, Helvetica, sans-serif" font-size="12">
+<title>Sizing flow of item 3</title>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b5ea8"/></marker>
+</defs>
+<rect x="0" y="0" width="1120" height="820" fill="#fff"/>
+<g fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+<text x="30" y="32" font-size="16" text-anchor="start" fill="#000" stroke="none" font-weight="bold">Item 3 – sizing steps with the numbers of the guide-25 job (blue) and the 200 kN press (black, italic)</text>
+<rect x="40" y="76" width="500" height="96" fill="none" stroke="#000" stroke-width="1.4" rx="6"/>
+<text x="52" y="100" font-size="14" text-anchor="start" fill="#000" stroke="none" font-weight="bold">Load list</text>
+<text x="52" y="126" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none">F 20 kN, 200 mm, 2 s / 2 s, cycle 60 s, vertical, pinned–pinned</text>
+<text x="52" y="150" font-size="12" text-anchor="start" fill="#000" stroke="none" font-style="italic">F 200 kN over 300 mm, 4 s / 2.5 s, cycle 20 s, K = 0.7</text>
+<line x1="290.0" y1="172" x2="290.0" y2="196" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="40" y="198" width="500" height="96" fill="none" stroke="#000" stroke-width="1.4" rx="6"/>
+<text x="52" y="222" font-size="14" text-anchor="start" fill="#000" stroke="none" font-weight="bold">1  Pressure</text>
+<text x="52" y="248" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none">p_eff = 10 · (1 − 0.15) = 8.5 MPa</text>
+<text x="52" y="272" font-size="12" text-anchor="start" fill="#000" stroke="none" font-style="italic">p_eff = 21 · 0.85 = 17.85 MPa</text>
+<line x1="290.0" y1="294" x2="290.0" y2="318" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="40" y="320" width="500" height="96" fill="none" stroke="#000" stroke-width="1.4" rx="6"/>
+<text x="52" y="344" font-size="14" text-anchor="start" fill="#000" stroke="none" font-weight="bold">2  Cylinder + buckling</text>
+<text x="52" y="370" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none">A 24.77 cm² → Ø63/36, 6.75 MPa, F_k 302 kN → 86 kN allowed</text>
+<text x="52" y="394" font-size="12" text-anchor="start" fill="#000" stroke="none" font-style="italic">A 117.9 cm² → Ø125/70, 17.16 MPa, 348 kN allowed</text>
+<line x1="290.0" y1="416" x2="290.0" y2="440" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="40" y="442" width="500" height="96" fill="none" stroke="#000" stroke-width="1.4" rx="6"/>
+<text x="52" y="466" font-size="14" text-anchor="start" fill="#000" stroke="none" font-weight="bold">3  Flows</text>
+<text x="52" y="492" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none">18.7 / 12.6 L/min, return 18.7 L/min, oil 0.623 / 0.420 L</text>
+<text x="52" y="516" font-size="12" text-anchor="start" fill="#000" stroke="none" font-style="italic">55.2 / 60.6 L/min, cap out 88.4 L/min</text>
+<line x1="290.0" y1="538" x2="290.0" y2="562" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="40" y="564" width="500" height="96" fill="none" stroke="#000" stroke-width="1.4" rx="6"/>
+<text x="52" y="588" font-size="14" text-anchor="start" fill="#000" stroke="none" font-weight="bold">4  Duty cycle + supply</text>
+<text x="52" y="614" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none">peak 18.7, avg 1.04 L/min (17.9) → pump + accumulator, 0.75 kW</text>
+<text x="52" y="638" font-size="12" text-anchor="start" fill="#000" stroke="none" font-style="italic">peak 60.6, avg 18.6 (3.26), V0 40 L → variable pump 18.5 kW</text>
+<line x1="290.0" y1="660" x2="290.0" y2="684" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="40" y="686" width="500" height="96" fill="none" stroke="#000" stroke-width="1.4" rx="6"/>
+<text x="52" y="710" font-size="14" text-anchor="start" fill="#000" stroke="none" font-weight="bold">5  Accumulator (n = 1.4, abs)</text>
+<text x="52" y="736" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none">p1 7.85, p2 10.1, p0 7.07 abs → V0 4.09 L → 5 L</text>
+<text x="52" y="760" font-size="12" text-anchor="start" fill="#000" stroke="none" font-style="italic">(acc option: 40.4 L → 50 L – not practical)</text>
+<rect x="580" y="76" width="500" height="96" fill="none" stroke="#000" stroke-width="1.4" rx="6"/>
+<text x="592" y="100" font-size="14" text-anchor="start" fill="#000" stroke="none" font-weight="bold">6  Valves + settings</text>
+<text x="592" y="126" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none">NG6, Δp 0.135 MPa; relief 11 MPa (≥ 1.1 × 10); CBV 8.3 MPa; PS 10/8.1; PLC recharge</text>
+<text x="592" y="150" font-size="12" text-anchor="start" fill="#000" stroke="none" font-style="italic">NG10 (1.08 MPa) → better NG16; relief 21 / comp 21 + 22 MPa</text>
+<line x1="830.0" y1="172" x2="830.0" y2="196" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="580" y="198" width="500" height="96" fill="none" stroke="#000" stroke-width="1.4" rx="6"/>
+<text x="592" y="222" font-size="14" text-anchor="start" fill="#000" stroke="none" font-weight="bold">7  Pipes</text>
+<text x="592" y="248" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none">15×2.5 (3.97 m/s, 0.152 MPa), 18×2, 16×2</text>
+<text x="592" y="272" font-size="12" text-anchor="start" fill="#000" stroke="none" font-style="italic">hand: 25×3 E355 (3.57 m/s), 35×3, suction DN 51</text>
+<line x1="830.0" y1="294" x2="830.0" y2="318" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="580" y="320" width="500" height="96" fill="none" stroke="#000" stroke-width="1.4" rx="6"/>
+<text x="592" y="344" font-size="14" text-anchor="start" fill="#000" stroke="none" font-weight="bold">8  Heat, tank, cooler</text>
+<text x="592" y="370" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none">0.137 kW &lt; 0.20 kW (25 L tank) → no cooler</text>
+<text x="592" y="394" font-size="12" text-anchor="start" fill="#000" stroke="none" font-style="italic">4.96 kW − 0.93 → cooler 5.1 kW, tank 250 L</text>
+<line x1="830.0" y1="416" x2="830.0" y2="440" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="580" y="442" width="500" height="96" fill="none" stroke="#000" stroke-width="1.4" rx="6"/>
+<text x="592" y="466" font-size="14" text-anchor="start" fill="#000" stroke="none" font-weight="bold">9  Oil + filter</text>
+<text x="592" y="492" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none">18/16/13, return filter 40 L/min 10 µm β ≥ 200</text>
+<text x="592" y="516" font-size="12" text-anchor="start" fill="#000" stroke="none" font-style="italic">16/14/11, pressure filter 5 µm β ≥ 1000, return 180 L/min</text>
+<line x1="830.0" y1="538" x2="830.0" y2="562" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="580" y="564" width="500" height="96" fill="none" stroke="#000" stroke-width="1.4" rx="6"/>
+<text x="592" y="588" font-size="14" text-anchor="start" fill="#000" stroke="none" font-weight="bold">Parts list (tags)</text>
+<text x="592" y="614" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none">0Z0 25 L · 0P1 4 cm³ · 0M1 0.75 kW · 0Z5 5 L · 1V1 NG6 · 1A1 Ø63/36</text>
+<text x="592" y="638" font-size="12" text-anchor="start" fill="#000" stroke="none" font-style="italic">real press design §14.1: 5.5 kW, prefill, safety valves</text>
+<polyline points="290,782 290,796 550,796 550,52 830,52" stroke="#000" stroke-width="1.6"/>
+<line x1="830" y1="52" x2="830" y2="74" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="700" y="690" width="380" height="96" fill="none" stroke="#000" stroke-width="1.4" rx="0"/>
+<polyline points="700,716 1080,716" stroke="#000" stroke-width="1.0"/>
+<polyline points="700,740 1080,740" stroke="#000" stroke-width="1.0"/>
+<polyline points="700,762 1080,762" stroke="#000" stroke-width="1.0"/>
+<text x="708" y="708" font-size="13" text-anchor="start" fill="#000" stroke="none" font-weight="bold">30_sizing_flow – item 3 steps</text>
+<text x="708" y="732" font-size="11" text-anchor="start" fill="#000" stroke="none">same method as guide 25 §6–7 (12 steps → 9 app steps)</text>
+<text x="708" y="755" font-size="11" text-anchor="start" fill="#000" stroke="none">Guide 30 – hydraulic circuits and sizing · digital twin</text>
+<text x="708" y="779" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none" font-weight="bold">EXAMPLE – check the supplier's catalogue</text>
+</g>
+</svg>

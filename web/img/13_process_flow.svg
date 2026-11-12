@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 720" width="1240" height="720" font-family="Arial, Helvetica, sans-serif">
+<title>Part routings – crankcase, cylinder, crankshaft, assembly, test</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666"/></marker></defs>
+<rect x="0" y="0" width="1240" height="720" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">13 – Process flow: part routings with operations and example cycle times (VC20, config/factory.json)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Box = operation (OP no., machine id, VC20 cycle). Diamond = inspection. Thick accent line = path of the finished compressor.</text>
+<rect x="10.0" y="72.0" width="900.0" height="102.0" rx="0" fill="#fafafa" stroke="#ccc" stroke-width="1" />
+<text x="20.0" y="86.0" font-size="12" text-anchor="start" font-weight="bold" fill="#333">CRANKCASE (EN-GJL-250 casting)</text>
+<rect x="10.0" y="192.0" width="900.0" height="102.0" rx="0" fill="#fafafa" stroke="#ccc" stroke-width="1" />
+<text x="20.0" y="206.0" font-size="12" text-anchor="start" font-weight="bold" fill="#333">CYLINDER ×2 (EN-GJL-250 casting)</text>
+<rect x="10.0" y="312.0" width="900.0" height="102.0" rx="0" fill="#fafafa" stroke="#ccc" stroke-width="1" />
+<text x="20.0" y="326.0" font-size="12" text-anchor="start" font-weight="bold" fill="#333">CRANKSHAFT (C45 forging)</text>
+<rect x="20.0" y="98.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.3" />
+<text x="95.0" y="116.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">AS/RS → AGV</text>
+<text x="95.0" y="133.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">casting, 4/trip</text>
+<text x="95.0" y="149.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">raw store</text>
+<rect x="190.0" y="98.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.3" />
+<text x="265.0" y="116.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP10 LOAD-CC</text>
+<text x="265.0" y="133.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">fixture pallet + serial</text>
+<text x="265.0" y="149.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">90 s</text>
+<rect x="360.0" y="98.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.3" />
+<text x="435.0" y="116.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP20/30 HMC-01..03</text>
+<text x="435.0" y="133.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">faces, bores, threads</text>
+<text x="435.0" y="149.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">345 s + 15 s APC</text>
+<rect x="530.0" y="98.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.3" />
+<text x="605.0" y="116.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP40 WASH-01</text>
+<text x="605.0" y="133.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">spray + dry</text>
+<text x="605.0" y="149.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">150 s</text>
+<polygon points="758.0,96.0 816.0,129.0 758.0,162.0 700.0,129.0" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="758.0" y="127.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Q</text>
+<text x="758.0" y="141.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">leak, CMM</text>
+<line x1="170.0" y1="129.0" x2="190.0" y2="129.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="340.0" y1="129.0" x2="360.0" y2="129.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="510.0" y1="129.0" x2="530.0" y2="129.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="680.0" y1="129.0" x2="700.0" y2="129.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="20.0" y="218.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.3" />
+<text x="95.0" y="236.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">AS/RS → AGV</text>
+<text x="95.0" y="253.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">casting, 12/trip</text>
+<text x="95.0" y="269.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">raw store</text>
+<rect x="190.0" y="218.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.3" />
+<text x="265.0" y="236.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP10 VMC-01</text>
+<text x="265.0" y="253.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">face, bore Ø75, holes</text>
+<text x="265.0" y="269.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">100 s / cyl.</text>
+<rect x="360.0" y="218.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.3" />
+<text x="435.0" y="236.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP20 HONE-01</text>
+<text x="435.0" y="253.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">plateau hone Ø75 H7</text>
+<text x="435.0" y="269.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">90 s / cyl.</text>
+<polygon points="588.0,216.0 646.0,249.0 588.0,282.0 530.0,249.0" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="588.0" y="247.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Q</text>
+<text x="588.0" y="261.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">air gauge</text>
+<rect x="700.0" y="218.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.3" />
+<text x="775.0" y="236.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Supermarket</text>
+<text x="775.0" y="253.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">kanban 12 / 6</text>
+<text x="775.0" y="269.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">B_CYL 36</text>
+<line x1="170.0" y1="249.0" x2="190.0" y2="249.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="340.0" y1="249.0" x2="360.0" y2="249.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="510.0" y1="249.0" x2="530.0" y2="249.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="646.0" y1="249.0" x2="700.0" y2="249.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="20.0" y="338.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.3" />
+<text x="95.0" y="356.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">AS/RS → AGV</text>
+<text x="95.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">forging, 6/trip</text>
+<text x="95.0" y="389.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">raw store</text>
+<rect x="190.0" y="338.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.3" />
+<text x="265.0" y="356.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP10 LATHE-01</text>
+<text x="265.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">turn, centre, keyway</text>
+<text x="265.0" y="389.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">170 s</text>
+<rect x="360.0" y="338.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.3" />
+<text x="435.0" y="356.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP15 (subcontract)</text>
+<text x="435.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">induction harden pin</text>
+<text x="435.0" y="389.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">batch, outside</text>
+<rect x="530.0" y="338.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.3" />
+<text x="605.0" y="356.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP20 GRIND-01</text>
+<text x="605.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">journals + pin</text>
+<text x="605.0" y="389.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">190 s</text>
+<rect x="700.0" y="338.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#111" stroke-width="1.3" />
+<text x="775.0" y="356.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Supermarket</text>
+<text x="775.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">kanban 8 / 4</text>
+<text x="775.0" y="389.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">B_CS 24</text>
+<line x1="170.0" y1="369.0" x2="190.0" y2="369.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="340.0" y1="369.0" x2="360.0" y2="369.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="510.0" y1="369.0" x2="530.0" y2="369.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="680.0" y1="369.0" x2="700.0" y2="369.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="930.0" y="72.0" width="300.0" height="360.0" rx="0" fill="#fafafa" stroke="#ccc" stroke-width="1" />
+<text x="940.0" y="88.0" font-size="12" text-anchor="start" font-weight="bold" fill="#333">MERGE – kit check at assembly</text>
+<rect x="960.0" y="100.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#c0392b" stroke-width="2" />
+<text x="1035.0" y="118.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP60 ASSY-01</text>
+<text x="1035.0" y="135.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">kit: 1 CC + 2 CYL + 1 CS</text>
+<text x="1035.0" y="151.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">200 s</text>
+<line x1="816.0" y1="129.0" x2="960.0" y2="129.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="850.0" y1="249.0" x2="940.0" y2="249.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="940.0" y1="249.0" x2="940.0" y2="150.0" stroke="#222" stroke-width="1.2"/>
+<line x1="940.0" y1="150.0" x2="960.0" y2="150.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="850.0" y1="369.0" x2="920.0" y2="369.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="920.0" y1="369.0" x2="920.0" y2="140.0" stroke="#222" stroke-width="1.2"/>
+<line x1="920.0" y1="140.0" x2="960.0" y2="140.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="960.0" y="210.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#c0392b" stroke-width="2" />
+<text x="1035.0" y="228.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP70 ROBOT-01</text>
+<text x="1035.0" y="245.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">head bolting, torque+angle</text>
+<text x="1035.0" y="261.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">110 s</text>
+<line x1="1035.0" y1="162.0" x2="1035.0" y2="210.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="960.0" y="320.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#c0392b" stroke-width="2" />
+<text x="1035.0" y="338.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP80 TEST-01 / 02</text>
+<text x="1035.0" y="355.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">FAD at 8 bar, ISO 1217</text>
+<text x="1035.0" y="371.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">360 s, 2 benches</text>
+<line x1="1035.0" y1="272.0" x2="1035.0" y2="320.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<text x="1118.0" y="360.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">fail → rework</text>
+<rect x="10.0" y="470.0" width="1220.0" height="110.0" rx="0" fill="#fafafa" stroke="#ccc" stroke-width="1" />
+<text x="20.0" y="486.0" font-size="12" text-anchor="start" font-weight="bold" fill="#333">FINISHING – after the performance test</text>
+<rect x="1040.0" y="500.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#c0392b" stroke-width="2" />
+<text x="1115.0" y="518.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP90 PAINT-01</text>
+<text x="1115.0" y="535.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">powder coat + cure</text>
+<text x="1115.0" y="551.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">160 s takt</text>
+<rect x="820.0" y="500.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#c0392b" stroke-width="2" />
+<text x="895.0" y="518.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP100 FINAL-01</text>
+<text x="895.0" y="535.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">tank + motor + belt</text>
+<text x="895.0" y="551.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">210 s</text>
+<polygon points="688.0,498.0 746.0,531.0 688.0,564.0 630.0,531.0" fill="#fff" stroke="#111" stroke-width="1.3"/>
+<text x="688.0" y="529.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Q</text>
+<text x="688.0" y="543.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">final check</text>
+<rect x="380.0" y="500.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#c0392b" stroke-width="2" />
+<text x="455.0" y="518.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">OP110 PACK-01</text>
+<text x="455.0" y="535.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">crate + stretch wrap</text>
+<text x="455.0" y="551.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">120 s</text>
+<rect x="160.0" y="500.0" width="150.0" height="62.0" rx="4" fill="#ffffff" stroke="#c0392b" stroke-width="2" />
+<text x="235.0" y="518.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">FG AS/RS</text>
+<text x="235.0" y="535.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">AGV, 1 crate/trip</text>
+<text x="235.0" y="551.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">ship by order</text>
+<polyline points="1035.0,382.0 1035.0,440.0 1115.0,440.0 1115.0,500.0" fill="none" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="1040.0" y1="531.0" x2="970.0" y2="531.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="820.0" y1="531.0" x2="746.0" y2="531.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="630.0" y1="531.0" x2="530.0" y2="531.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="380.0" y1="531.0" x2="310.0" y2="531.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<text x="900.0" y="466.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">tanks 100/300/500 L + motors 2.2/4/5.5 kW from stores</text>
+<text x="20.0" y="610.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Work content VC20 (one machine per group, 2 cylinders): 90 + 345 + 150 + 2×100 + 2×90 + 170 + 190 + 200 + 110 + 360 + 160 + 210 + 120 = 2 485 s = 41.4 min</text>
+<text x="20.0" y="628.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Supermarkets (kanban) decouple the three part lines from assembly; the crankcase is pushed by the FMS rule (EDD) – guide 02.</text>
+<rect x="800.0" y="648.0" width="430.0" height="62.0" rx="0" fill="#ffffff" stroke="#222" stroke-width="1.5" />
+<line x1="800.0" y1="670.0" x2="1230.0" y2="670.0" stroke="#222" stroke-width="1"/>
+<line x1="1100.0" y1="670.0" x2="1100.0" y2="710.0" stroke="#222" stroke-width="1"/>
+<text x="808.0" y="664.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – planning sketch</text>
+<text x="1222.0" y="664.0" font-size="11" text-anchor="end" font-weight="normal" fill="#444">Guide 13 – real factory roadmap</text>
+<text x="808.0" y="688.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Process flow – part routings</text>
+<text x="808.0" y="703.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">OP numbers = MES routing steps (guide 04)</text>
+<text x="1108.0" y="688.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">DWG 13-02</text>
+<text x="1108.0" y="703.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">not to scale for build</text>
+</svg>

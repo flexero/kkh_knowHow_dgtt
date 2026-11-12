@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Factory Digital Twin</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="instmech.css">
+<link rel="stylesheet" href="instelec.css">
+<link rel="stylesheet" href="instseq.css">
+<link rel="stylesheet" href="hydlib.css">
+<link rel="stylesheet" href="hydckt.css">
+<script src="theme.js"></script>
 </head>
 <body>
 <header class="topbar">
@@ -24,9 +30,13 @@
     <button class="tab" data-tab="scada">SCADA</button>
     <button class="tab" data-tab="cnc">CNC / G-code</button>
     <button class="tab" data-tab="hmc">HMC build</button>
+    <button class="tab" data-tab="asm">Assembly</button>
     <button class="tab" data-tab="apc">Pallet changer</button>
     <button class="tab" data-tab="mech">Mechanical elements</button>
     <button class="tab" data-tab="agv">AGV build</button>
+    <button class="tab" data-tab="robot">Industrial robot</button>
+    <button class="tab" data-tab="inst">Installation</button>
+    <button class="tab" data-tab="hyd">Hydraulics</button>
     <button class="tab" data-tab="comm">Communication</button>
     <button class="tab" data-tab="whatif">What-if simulation</button>
     <button class="tab" data-tab="learn">How it works</button>
@@ -731,8 +741,17 @@
       <div class="mx-nav" role="group" aria-label="HMC item">
         <button class="mx-el active" data-hritem="1">1 · Rotary table (B-axis, worm drive) – machining + assembly</button>
         <button class="mx-el" data-hritem="2">2 · Worm manufacturing – digital twin (saw → inspection → test bench)</button>
-        <button class="mx-el" disabled title="next item">3 · next – you decide (e.g. spindle unit, column + slides, tool magazine)</button>
+        <button class="mx-el" data-hritem="3">3 · Worm wheel manufacturing – digital twin (bronze rim → hobbing → roll test → pair)</button>
+        <button class="mx-el" data-hritem="4">4 · Spindle manufacturing – digital twin (shaft + housing + spacers + drawbar)</button>
+        <button class="mx-el" disabled title="next item">5 · next – you decide (e.g. spindle unit, column + slides, tool magazine)</button>
       </div>
+      <p class="intro" id="hrIntro4" hidden>A <b>digital twin of the motor-spindle manufacturing</b> (HSK-A63, 12 000 rpm, hybrid angular-contact bearings, built-in motor, drawbar with disc springs).
+        The spindle shaft runs through every operation (2D + 3D) with the real equipment; housing, spacers and drawbar have their process plans. Design data are shared with the spindle assembly
+        (Assembly tab, item 2). All values are examples.</p>
+      <p class="intro" id="hrIntro3" hidden>A <b>digital twin of the worm wheel process</b> (the bronze wheel that runs with the duplex worm of item 2). 11 operations: steel hub, centrifugal-cast
+        bronze rim with incoming inspection, fit turning, <b>shrink fit</b> with torque test, finish turning in one set-up, drilling, <b>hobbing with a duplex hob</b> on a hobbing machine with
+        tangential head, deburring, gear measuring machine, <b>double-flank roll test</b> with a master worm and the <b>pairing</b> with its worm from item 2. Every operation lists the real
+        equipment (machine capability, tooling, workholding, gauges, consumables). Faults, part record, lot simulation, time and cost as in item 2. All values are examples.</p>
       <p class="intro" id="hrIntro2" hidden>A <b>digital twin of the process</b> that makes the duplex worm of item 1. The worm runs through 12 operations: saw, face + centre, rough turn,
         rough thread, case hardening, hardness test + centre holes, cylindrical grinding, thread grinding, nital etch, gear measuring machine and the test bench with a master wheel.
         Every operation is animated and every worm gets a <b>part record</b> with simulated measured values (random variation). Switch on a <b>process fault</b> to see where it starts
@@ -744,6 +763,35 @@
     </div>
     <div id="hrItem1"></div>
     <div id="hrItem2" hidden></div>
+    <div id="hrItem3" hidden></div>
+    <div id="hrItem4" hidden></div>
+  </section>
+
+  <section id="tab-asm" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>Assembly – how to assemble the machines in reality</h2>
+        <span class="sub">steps · equipment to buy · jigs to make · torques · checks · assembly record · example values · offline</span></div>
+      <div class="mx-nav" role="group" aria-label="Assembly item">
+        <button class="mx-el active" data-asitem="1">1 · Rotary table (B-axis) – assembly twin</button>
+        <button class="mx-el" data-asitem="2">2 · Motor spindle – assembly twin</button>
+        <button class="mx-el" data-asitem="3">3 · Motor spindle – LIVE station twin (devices, operator, run-in)</button>
+        <button class="mx-el" disabled title="next item">4 · next – you decide (e.g. pallet changer, AGV)</button>
+      </div>
+      <p class="intro" id="asIntro1">The <b>rotary table of HMC build item 1</b> assembled step by step in 18 steps: kit check, washing and 20 °C soak, housing on a rotatable stand, main bearing,
+        table, worm wheel, worm cartridges, contact pattern, backlash with the duplex worm (spacer ring), hydraulic clamp, angle encoder, rotary union, seals + oil, zero-point modules,
+        grinding the table top in its own bearing, run-in and the <b>ISO 230-2 acceptance test</b>. For every step: what to do, the <b>equipment to buy</b>, the <b>jigs to make</b>
+        (drawn in blue on the cross-section), torques, the check with its limit and a simulated measured value. The worm and wheel serials come from HMC items 2 + 3.</p>
+      <p class="intro" id="asIntro2" hidden>The <b>motor spindle of HMC build item 4</b> assembled step by step in the clean room: bearing matching, preload with ground spacers, heating and mounting the bearings,
+        lock-nut runout correction, grease fill, rotor shrink fit, housing, drawbar + disc springs with clamping-force test, balancing, run-in and the final spindle test. Equipment, jigs, torques,
+        checks and the assembly record – in 2D and 3D. All values are examples.</p>
+      <p class="intro" id="asIntro3" hidden>The <b>real digital twin of the spindle assembly station</b>: work orders and serials, an operator terminal that guides every step and
+        <b>cannot skip a check</b>, measured values that come <b>live from the devices</b> (torque wrench, induction heater, comparator, force gauge, balancing machine, run-in sensors –
+        Modbus TCP, MQTT or HTTP gateway) or are typed in, sign-off and NCR, every record saved in the database, the <b>live run-in</b> with automatic stop rules, the final test report,
+        SPC over all spindles and a 3D view that follows the real station. Without devices the built-in device simulator feeds the data. All values are examples.</p>
+    </div>
+    <div id="arItem1"></div>
+    <div id="arItem2" hidden></div>
+    <div id="arItem3" hidden></div>
   </section>
 
   <section id="tab-apc" class="tabpane">
@@ -1049,6 +1097,98 @@
     <div id="avItem2" hidden></div>
     <div id="avItem3" hidden></div>
     <div id="avItem4" hidden></div>
+  </section>
+
+  <section id="tab-robot" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>Industrial robot – 6-axis articulated robot, digital twin</h2>
+        <span class="sub">real catalogue data (reference robots) · real kinematics · real motion limits · example values – check with the current datasheet · offline</span></div>
+      <div class="mx-nav" role="group" aria-label="Robot item">
+        <button class="mx-el active" data-rbitem="1">1 · 6-axis robot – 3D twin (structure, kinematics, teach pendant, machine-tending cell)</button>
+        <button class="mx-el" data-rbitem="2">2 · Robot control system – controller, servo loops, safety, I/O (live simulation)</button>
+        <button class="mx-el" data-rbitem="3">3 · Control circuits – electrical schematics (power, drives, safety, I/O, earthing) – live</button>
+        <button class="mx-el" disabled title="next item">4 · next – you decide (e.g. gripper design, offline programming, robot on the HMC line)</button>
+      </div>
+      <p class="intro" id="rbIntro1">A <b>6-axis articulated industrial robot</b> built from the <b>public catalogue data</b> of real robots (reach, payload, axis ranges,
+        axis speeds, arm dimensions). Choose the robot size, see its <b>mechanical structure</b> (base, column, lower arm, balancing device, upper arm, forearm, wrist, flange,
+        servo motors, reducers, cables – click a part, or open the exploded view), move it with the <b>teach pendant</b> (joint jog, linear jog, tool frame),
+        teach points and <b>run a real program</b> (MoveJ / MoveL with the real speed limits) in a <b>machine-tending cell</b>: pick a compressor part from the conveyor,
+        load the machine, unload, place. Live joint angles, speeds, TCP position, cycle time, work envelope and payload check. All values are examples.</p>
+      <p class="intro" id="rbIntro2" hidden>The <b>robot control system</b>: what is inside the controller cabinet (main computer, axis computer, servo drives, DC bus,
+        safety controller, I/O, teach pendant) and how it moves the arm – from the program line through path planning and interpolation to the
+        <b>cascade servo loops</b> (position → speed → current) of every joint, with feedforward from the dynamic model. Live simulation of a joint
+        servo you can tune, <b>collision detection</b> with the dynamic model, the <b>safety system</b> (emergency stop categories, STO, SS1, safe speed,
+        safe zones, brake test) as a live state machine, and the <b>I/O handshake</b> with the machine and the line PLC. All values are examples.</p>
+      <p class="intro" id="rbIntro3" hidden>The <b>electrical circuits</b> of the robot cell, drawn as real schematic pages (like an electrical design tool):
+        mains supply and main switch, fuses and motor-protection, the <b>servo drive power stage</b> (rectifier, DC bus, IGBT inverter, brake chopper),
+        motor + brake + encoder wiring, the <b>24 V control supply</b>, the <b>safety circuits</b> (emergency stop, safety gate, enabling device,
+        safety relay / safety PLC, STO, contactors – dual channel), the <b>I/O wiring</b> to sensors, valves and the machine (PNP, NPN, relays), fieldbus,
+        and <b>earthing + EMC</b>. Press buttons and watch the current flow and the contacts switch. With symbols explained, wire and fuse sizing,
+        component list, test procedure and guide. All values are examples – the real design follows IEC 60204-1 and the supplier's manuals.</p>
+    </div>
+    <div id="rbItem1"></div>
+    <div id="rbItem2" hidden></div>
+    <div id="rbItem3" hidden></div>
+  </section>
+
+  <section id="tab-inst" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>Installation – how to install the CNC machines in the factory</h2>
+        <span class="sub">reference machine = HMC 500 of the crankcase line · step by step · formulas with example numbers · example values – follow the machine maker's installation manual · offline</span></div>
+      <div class="mx-nav" role="group" aria-label="Installation item">
+        <button class="mx-el active" data-initem="1">1 · Foundation, anchoring, vibration isolation</button>
+        <button class="mx-el" data-initem="2">2 · Levelling, alignment, geometric acceptance</button>
+        <button class="mx-el" data-initem="3">3 · Electrical installation – supply, cables, protection, earthing</button>
+        <button class="mx-el" data-initem="4">4 · Electrical noise (EMC), cable routing, signal wiring</button>
+        <button class="mx-el" data-initem="5">5 · Installation sequence – transport, utilities, commissioning, run-off</button>
+      </div>
+      <p class="intro" id="inIntro1">The <b>floor and the foundation</b> under a CNC machine: what load the slab must carry, when a machine needs its own
+        <b>isolated foundation block</b>, how to choose <b>anchor bolts or levelling mounts</b>, and how to stop <b>vibration</b> coming in from
+        neighbours (presses, compressors, forklifts) or going out from the machine. Live calculators and a floor plan. All values are examples.</p>
+      <p class="intro" id="inIntro2" hidden>How to <b>level and align</b> the machine after it is placed: the levelling sequence with a precision level,
+        removing <b>twist</b> of the bed, aligning the machine to the pallet changer, robot and conveyors, and the <b>geometric acceptance tests</b>
+        (ISO 230, ISO 10791) with real instruments. Turn the levelling screws yourself and watch the readings. All values are examples.</p>
+      <p class="intro" id="inIntro3" hidden>Bringing <b>power</b> to the machine: transformer and distribution, cable size, voltage drop, fuses and breakers,
+        RCD type, surge protection, <b>earthing and equipotential bonding</b>, power quality (harmonics, unbalance), and the electrical tests before
+        switch-on. All values are examples – the real design follows IEC 60364, IEC 60204-1 and a qualified electrician.</p>
+      <p class="intro" id="inIntro4" hidden>How to <b>protect against electrical noise</b>: why servo drives and spindle inverters make noise, cable
+        separation in trays, 360° shield connection, filters, ferrites, and the correct wiring of encoders, sensors and the network.
+        Pick a fault and see the symptom on the machine. All values are examples.</p>
+      <p class="intro" id="inIntro5" hidden>The <b>whole installation project</b> from start to production: site preparation, transport and rigging,
+        placing, utilities (compressed air, coolant, chips, exhaust air), first power-on, commissioning, test cuts, run-off and handover –
+        with time plan, responsibilities and checklists you can tick. All values are examples.</p>
+    </div>
+    <div id="inItem1"></div>
+    <div id="inItem2" hidden></div>
+    <div id="inItem3" hidden></div>
+    <div id="inItem4" hidden></div>
+    <div id="inItem5" hidden></div>
+  </section>
+
+  <section id="tab-hyd" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>Hydraulics – elements, circuits and system design</h2>
+        <span class="sub">ISO 1219 symbols · real catalogue-class data (examples) · formulas with example numbers · check every part with the supplier's current catalogue · offline</span></div>
+      <div class="mx-nav" role="group" aria-label="Hydraulics item">
+        <button class="mx-el active" data-hyitem="1">1 · Element data book – pumps, motors, cylinders, valves (directional, pressure, flow, check / lock), accumulators, filters, pipes …</button>
+        <button class="mx-el" data-hyitem="2">2 · Standard circuits – hydraulic lock, counterbalance, meter-in/out, sequence, regenerative, motor + brake … (live)</button>
+        <button class="mx-el" data-hyitem="3">3 · System sizing – from the load list to pump, motor, valves, pipes, tank, cooler and parts list</button>
+      </div>
+      <p class="intro" id="hyIntro1">Every <b>hydraulic element</b> with its ISO 1219 symbol, how it works inside, the types, <b>real data ranges</b>
+        (sizes, pressure, flow, speed, efficiency, leakage), how to <b>select</b> it with a formula and example numbers, how it is mounted, and how it
+        typically fails. Pumps, motors, cylinders, directional valves, pressure valves, flow valves, check and lock valves, cartridge valves,
+        proportional and servo valves, accumulators, filters, coolers, tanks, pipes, hoses, fittings, sensors and fluids. All values are examples.</p>
+      <p class="intro" id="hyIntro2" hidden>The <b>standard circuits</b> a designer uses again and again, as live ISO 1219 diagrams: you move the
+        lever or switch the solenoid and see pressure, flow and the load move. Hydraulic lock (double pilot-operated check), counterbalance for a
+        vertical load, meter-in / meter-out / bleed-off, sequence (clamp then work), regenerative, pressure reducing branch, accumulator clamping,
+        unloading, hydraulic motor with brake valve, load sensing. What goes wrong without the right valve. All values are examples.</p>
+      <p class="intro" id="hyIntro3" hidden>The <b>complete design</b> of a hydraulic system step by step: load list and sequence → system pressure
+        → cylinders and motors → flows and duty cycle → pump, electric motor, accumulator → valve sizes (NG / CETOP) → pipes and hoses →
+        tank, cooler, filter → <b>parts list</b>. Change the inputs and every number updates. All values are examples.</p>
+    </div>
+    <div id="hyItem1"></div>
+    <div id="hyItem2" hidden></div>
+    <div id="hyItem3" hidden></div>
   </section>
 
   <section id="tab-comm" class="tabpane">
@@ -1373,10 +1513,30 @@
 <script type="module" src="mech4.js"></script>
 <script type="module" src="hmc.js"></script>
 <script type="module" src="wormmfg.js"></script>
+<script type="module" src="wheelmfg.js"></script>
+<script type="module" src="asmrt.js"></script>
+<script type="module" src="spdmfg.js"></script>
+<script type="module" src="asmsp.js"></script>
+<script type="module" src="spst.js"></script>
 <script type="module" src="agv.js"></script>
 <script type="module" src="agvdrive.js"></script>
 <script type="module" src="agvpallet.js"></script>
 <script type="module" src="agvdock.js"></script>
+<script type="module" src="robot.js"></script>
+<script type="module" src="robotdynui.js"></script>
+<script type="module" src="robotctl.js"></script>
+<script type="module" src="robotckt.js"></script>
+<script type="module" src="robotref.js"></script>
+<script type="module" src="inst.js"></script>
+<script type="module" src="instmech.js"></script>
+<script type="module" src="instelec.js"></script>
+<script type="module" src="instseq.js"></script>
+<script type="module" src="instref.js"></script>
+<script type="module" src="hyd.js"></script>
+<script type="module" src="hydlib.js"></script>
+<script type="module" src="hydckt.js"></script>
+<script type="module" src="hydref.js"></script>
+<script type="module" src="machref.js"></script>
 <script type="module">
   import { createFactory3D } from "./factory3d.js";
   const msg = document.getElementById("sceneMsg");

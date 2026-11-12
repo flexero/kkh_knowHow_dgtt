@@ -222,7 +222,7 @@ function create3D(host) {
   const fill = new THREE.DirectionalLight(0xffffff, 0.5); fill.position.set(-2500, 1500, -2000); scene.add(fill);
   const root = new THREE.Group(); scene.add(root);
   const cs = getComputedStyle(document.documentElement);
-  scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed");
+  scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed"); if (window.dtTheme) window.dtTheme.scene(scene);
   let O = {}, labels = [], selBox = null, onPick = null, chainTex = [], covers = true;
   const mat = (color, o = {}) => new THREE.MeshStandardMaterial({ color, metalness: o.m ?? 0.35, roughness: o.r ?? 0.55, transparent: !!o.op, opacity: o.op ?? 1, side: o.ds ? THREE.DoubleSide : THREE.FrontSide, depthWrite: !o.op });
   const C = { frame: mat(0x3c6e9e), dark: mat(0x3a4048), black: mat(0x23262a), steel: mat(0x9aa4ae, { m: 0.6, r: 0.35 }), alu: mat(0xc8ccd0, { m: 0.5, r: 0.4 }), pu: mat(0xd9832b, { m: 0, r: 0.7 }),
@@ -255,7 +255,7 @@ function create3D(host) {
     while (root.children.length) root.remove(root.children[0]);
     labels = []; chainTex = []; O = { R, M };
     const A = R.A, a = A.a, b = A.b;
-    const fl = new THREE.Mesh(new THREE.PlaneGeometry(9000, 5000), C.floor); fl.rotation.x = -Math.PI / 2; fl.position.set(1200, -1, 0); root.add(fl);
+    const fl = new THREE.Mesh(new THREE.PlaneGeometry(9000, 5000), C.floor); fl.rotation.x = -Math.PI / 2; fl.position.set(1200, -1, 0); root.add(fl); if (window.dtTheme) window.dtTheme.floor(C.floor);
     const grid = new THREE.GridHelper(9000, 45, 0xb9b6ad, 0xc9c6bd); grid.position.x = 1200; grid.scale.z = 5 / 9; root.add(grid);
     // ---- station (simplified, from mechanical item 1)
     const S = new THREE.Group(); root.add(S);

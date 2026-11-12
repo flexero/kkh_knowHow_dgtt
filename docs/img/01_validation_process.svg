@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 960" width="1240" height="960" font-family="Arial, Helvetica, sans-serif">
+<title>Verification and validation process of the twin</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1240" height="960" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">01 – Verification and validation (V&amp;V) of the digital twin – process, tests and worked numbers</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" fill="#444">After Sargent's model of the simulation life cycle and VDI 3633. Verification = the model is built right. Validation = it is the right model for the decision.</text>
+<rect x="470.0" y="80.0" width="300.0" height="90.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="620.0" y="113.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">REAL SYSTEM / PROBLEM</text>
+<text x="620.0" y="129.2" font-size="12" text-anchor="middle" fill="#111">factory (planned or running)</text>
+<text x="620.0" y="145.2" font-size="12" text-anchor="middle" fill="#111">question: e.g. 2nd honing machine?</text>
+<rect x="60.0" y="330.0" width="300.0" height="90.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="210.0" y="363.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">CONCEPTUAL MODEL</text>
+<text x="210.0" y="379.2" font-size="12" text-anchor="middle" fill="#111">assumption list (section 8)</text>
+<text x="210.0" y="395.2" font-size="12" text-anchor="middle" fill="#111">flow, states, data sources (5.2)</text>
+<rect x="880.0" y="330.0" width="300.0" height="90.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="1030.0" y="363.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">COMPUTER MODEL</text>
+<text x="1030.0" y="379.2" font-size="12" text-anchor="middle" fill="#111">config/factory.json + twin/*.py</text>
+<text x="1030.0" y="395.2" font-size="12" text-anchor="middle" fill="#111">release record VC-ITS-REP-0001</text>
+<rect x="470.0" y="580.0" width="300.0" height="90.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="620.0" y="613.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">EXPERIMENTS + DECISION</text>
+<text x="620.0" y="629.2" font-size="12" text-anchor="middle" fill="#111">what-if, ≥ 3–5 replications</text>
+<text x="620.0" y="645.2" font-size="12" text-anchor="middle" fill="#111">95 % CI, 2 × SE rule (10.8)</text>
+<path d="M470,125 C300,125 210,200 210,328" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#ak)"/>
+<text x="205.0" y="165.0" font-size="12" text-anchor="end" font-weight="bold" fill="#111">analysis + modelling</text>
+<path d="M360,375 L878,375" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#ak)"/>
+<text x="765.0" y="366.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">programming / configuration</text>
+<path d="M1030,422 C1030,560 900,625 772,625" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#ak)"/>
+<text x="1045.0" y="560.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">experimentation</text>
+<path d="M620,578 L620,172" stroke="#c0392b" stroke-width="1.6" fill="none" stroke-dasharray="6 4" marker-end="url(#ar)"/>
+<text x="632.0" y="470.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">decision → real system</text>
+<rect x="60.0" y="210.0" width="300.0" height="74.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1.4" stroke-dasharray="5 3"/>
+<text x="70.0" y="230.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">CONCEPTUAL MODEL VALIDITY</text>
+<text x="70.0" y="248.0" font-size="12" text-anchor="start" fill="#111">face validity: walk the list with</text>
+<text x="70.0" y="266.0" font-size="12" text-anchor="start" fill="#111">production, maintenance, logistics</text>
+<rect x="880.0" y="190.0" width="300.0" height="74.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1.4" stroke-dasharray="5 3"/>
+<text x="890.0" y="210.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">DATA VALIDITY</text>
+<text x="890.0" y="228.0" font-size="12" text-anchor="start" fill="#111">source + date of every number</text>
+<text x="890.0" y="246.0" font-size="12" text-anchor="start" fill="#111">cycle: median of ≥ 30 parts</text>
+<rect x="380.0" y="410.0" width="480.0" height="92.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1.4" stroke-dasharray="5 3"/>
+<text x="390.0" y="430.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">COMPUTER MODEL VERIFICATION</text>
+<text x="390.0" y="448.0" font-size="12" text-anchor="start" fill="#111">tools/verify_engine.py: 11 hand-calculation tests, all PASS</text>
+<text x="390.0" y="466.0" font-size="12" text-anchor="start" fill="#111">trace one part · extreme values · same seed → same result</text>
+<text x="390.0" y="484.0" font-size="12" text-anchor="start" fill="#111">M/M/1 DES check: simulated Wq 8.09 ± 0.49 min vs theory 8.0 min</text>
+<rect x="60.0" y="490.0" width="300.0" height="74.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1.4" stroke-dasharray="5 3"/>
+<text x="70.0" y="510.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">OPERATIONAL VALIDATION</text>
+<text x="70.0" y="528.0" font-size="12" text-anchor="start" fill="#111">compare with history (right)</text>
+<text x="70.0" y="546.0" font-size="12" text-anchor="start" fill="#111">sensitivity: ± 10 % cycle time</text>
+<text x="40.0" y="700.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Operational validation – worked example (illustrative daily output, 10 days, units/day)</text>
+<rect x="40.0" y="710.0" width="730.0" height="72.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="48.0" y="728.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">day</text>
+<text x="181.0" y="728.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<text x="243.0" y="728.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">2</text>
+<text x="305.0" y="728.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">3</text>
+<text x="367.0" y="728.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">4</text>
+<text x="429.0" y="728.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">5</text>
+<text x="491.0" y="728.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">6</text>
+<text x="553.0" y="728.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">7</text>
+<text x="615.0" y="728.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">8</text>
+<text x="677.0" y="728.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">9</text>
+<text x="739.0" y="728.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">10</text>
+<text x="48.0" y="750.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">real</text>
+<text x="181.0" y="750.0" font-size="12" text-anchor="middle" fill="#111">282</text>
+<text x="243.0" y="750.0" font-size="12" text-anchor="middle" fill="#111">290</text>
+<text x="305.0" y="750.0" font-size="12" text-anchor="middle" fill="#111">275</text>
+<text x="367.0" y="750.0" font-size="12" text-anchor="middle" fill="#111">301</text>
+<text x="429.0" y="750.0" font-size="12" text-anchor="middle" fill="#111">288</text>
+<text x="491.0" y="750.0" font-size="12" text-anchor="middle" fill="#111">279</text>
+<text x="553.0" y="750.0" font-size="12" text-anchor="middle" fill="#111">295</text>
+<text x="615.0" y="750.0" font-size="12" text-anchor="middle" fill="#111">284</text>
+<text x="677.0" y="750.0" font-size="12" text-anchor="middle" fill="#111">270</text>
+<text x="739.0" y="750.0" font-size="12" text-anchor="middle" fill="#111">292</text>
+<text x="48.0" y="772.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">twin</text>
+<text x="181.0" y="772.0" font-size="12" text-anchor="middle" fill="#111">289</text>
+<text x="243.0" y="772.0" font-size="12" text-anchor="middle" fill="#111">286</text>
+<text x="305.0" y="772.0" font-size="12" text-anchor="middle" fill="#111">291</text>
+<text x="367.0" y="772.0" font-size="12" text-anchor="middle" fill="#111">288</text>
+<text x="429.0" y="772.0" font-size="12" text-anchor="middle" fill="#111">293</text>
+<text x="491.0" y="772.0" font-size="12" text-anchor="middle" fill="#111">284</text>
+<text x="553.0" y="772.0" font-size="12" text-anchor="middle" fill="#111">290</text>
+<text x="615.0" y="772.0" font-size="12" text-anchor="middle" fill="#111">287</text>
+<text x="677.0" y="772.0" font-size="12" text-anchor="middle" fill="#111">283</text>
+<text x="739.0" y="772.0" font-size="12" text-anchor="middle" fill="#111">291</text>
+<text x="40.0" y="808.0" font-size="12" text-anchor="start" fill="#111">mean real 285.6 · mean twin 288.2 · difference d = real − twin: mean −2.6, s_d = 8.67, SE = 2.74</text>
+<text x="40.0" y="828.0" font-size="12" text-anchor="start" fill="#111">paired t = −2.6 / 2.74 = −0.95;  |t| &lt; t(0.975; 9) = 2.262  → no significant bias;  95 % CI of d: −8.8 … +3.6 (−0.9 % of output)</text>
+<text x="40.0" y="848.0" font-size="12" text-anchor="start" fill="#c0392b">spread: s_real = 9.47, s_twin = 3.22  →  F = 8.6 &gt; F(0.975; 9, 9) = 4.03  → the twin is TOO STEADY: add micro stops, operator variation</text>
+<text x="40.0" y="868.0" font-size="12" text-anchor="start" fill="#111">acceptance (example): |mean d| ≤ 3 %, bottleneck the same, state shares ± 3 points, KS test of cycle times D &lt; 1.36/√n (n = 30: 0.248)</text>
+<rect x="798.0" y="874.0" width="430.0" height="74.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<line x1="798.0" y1="900.0" x2="1228.0" y2="900.0" stroke="#111" stroke-width="1.2"/>
+<line x1="1048.0" y1="900.0" x2="1048.0" y2="948.0" stroke="#111" stroke-width="1.2"/>
+<text x="806.0" y="892.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – check the maker's documentation</text>
+<text x="806.0" y="918.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Drawing 01-008</text>
+<text x="806.0" y="936.0" font-size="11" text-anchor="start" fill="#111">Guide 01 – Digital twin core</text>
+<text x="1056.0" y="918.0" font-size="11" text-anchor="start" fill="#111">Values: config/factory.json</text>
+<text x="1056.0" y="936.0" font-size="11" text-anchor="start" fill="#111">Rev A · 2026-11-12</text>
+</svg>

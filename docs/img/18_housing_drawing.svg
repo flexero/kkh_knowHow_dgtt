@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" font-family="Arial, Helvetica, sans-serif">
+<title>Spindle housing drawing (example)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker><pattern id="hat" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="0.6"/></pattern><pattern id="hatA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1565c0" stroke-width="0.7"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="900" fill="#fff"/>
+<text x="20.0" y="30.0" font-size="15" text-anchor="start" fill="#000" font-weight="bold">Spindle housing (cartridge) VC-HMC-SPN-0102-A with shrunk cooling sleeve VC-HMC-SPN-0103-A (half section above, outside view below)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" fill="#000">Housing 42CrMo4 +QT · sleeve S355J2 / stainless · all dimensions in mm · example values (twin: L 450, outside Ø230, bores Ø110 / Ø120)</text>
+<polygon points="120.0,169.2 163.0,169.2 163.0,212.2 894.0,212.2 894.0,306.8 756.4,306.8 756.4,289.6 687.6,289.6 687.6,238.0 360.8,238.0 360.8,327.4 297.2,327.4 297.2,315.4 133.8,315.4 133.8,310.2 120.0,310.2" fill="url(#hat)" stroke="#000" stroke-width="1.6"/>
+<rect x="352.2" y="212.2" width="17.2" height="10.3" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<rect x="388.3" y="212.2" width="17.2" height="10.3" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<rect x="424.4" y="212.2" width="17.2" height="10.3" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<rect x="460.6" y="212.2" width="17.2" height="10.3" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<rect x="496.7" y="212.2" width="17.2" height="10.3" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<rect x="532.8" y="212.2" width="17.2" height="10.3" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<rect x="568.9" y="212.2" width="17.2" height="10.3" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<rect x="605.0" y="212.2" width="17.2" height="10.3" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<rect x="641.2" y="212.2" width="17.2" height="10.3" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<rect x="677.3" y="212.2" width="17.2" height="10.3" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<polygon points="317.8,189.8 747.8,189.8 747.8,212.2 317.8,212.2" fill="url(#hatA)" stroke="#1565c0" stroke-width="1.4"/>
+<circle cx="329.8" cy="215.2" r="3.2" fill="#000" stroke="#000" stroke-width="1"/>
+<circle cx="735.8" cy="215.2" r="3.2" fill="#000" stroke="#000" stroke-width="1"/>
+<rect x="372.0" y="167.8" width="12.0" height="22.0" rx="0" fill="#fff" stroke="#1565c0" stroke-width="1.2"/>
+<text x="378.0" y="162.8" font-size="11" text-anchor="middle" fill="#1565c0">inlet G1/4</text>
+<rect x="681.6" y="167.8" width="12.0" height="22.0" rx="0" fill="#fff" stroke="#1565c0" stroke-width="1.2"/>
+<text x="687.6" y="162.8" font-size="11" text-anchor="middle" fill="#1565c0">outlet G1/4</text>
+<polyline points="120.0,410.0 120.0,650.8 163.0,650.8 163.0,607.8 894.0,607.8 894.0,410.0" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<line x1="163.0" y1="410.0" x2="163.0" y2="650.8" stroke="#000" stroke-width="1.6"/>
+<rect x="317.8" y="607.8" width="430.0" height="22.4" rx="0" fill="#fff" stroke="#1565c0" stroke-width="1.4"/>
+<line x1="120.0" y1="509.8" x2="133.8" y2="509.8" stroke="#000" stroke-width="0.8" stroke-dasharray="6 3"/>
+<line x1="133.8" y1="504.6" x2="297.2" y2="504.6" stroke="#000" stroke-width="0.8" stroke-dasharray="6 3"/>
+<line x1="297.2" y1="492.6" x2="360.8" y2="492.6" stroke="#000" stroke-width="0.8" stroke-dasharray="6 3"/>
+<line x1="360.8" y1="582.0" x2="687.6" y2="582.0" stroke="#000" stroke-width="0.8" stroke-dasharray="6 3"/>
+<line x1="687.6" y1="530.4" x2="756.4" y2="530.4" stroke="#000" stroke-width="0.8" stroke-dasharray="6 3"/>
+<line x1="756.4" y1="513.2" x2="894.0" y2="513.2" stroke="#000" stroke-width="0.8" stroke-dasharray="6 3"/>
+<line x1="120.0" y1="628.4" x2="163.0" y2="628.4" stroke="#000" stroke-width="0.7" stroke-dasharray="10 3 2 3"/>
+<text x="171.0" y="632.4" font-size="11" text-anchor="start" fill="#000">8 × M12 on PCD 254</text>
+<line x1="85.6" y1="410.0" x2="928.4" y2="410.0" stroke="#000" stroke-width="0.8" stroke-dasharray="18 4 3 4"/>
+<text x="214.6" y="400.0" font-size="11" text-anchor="middle" fill="#000">front bearings 4 × 7014</text>
+<text x="524.2" y="400.0" font-size="11" text-anchor="middle" fill="#000">stator bore Ø200</text>
+<text x="825.2" y="400.0" font-size="11" text-anchor="middle" fill="#000">rear sleeve</text>
+<text x="20.0" y="92.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">front bore Ø110 JS4 (±0.005)</text>
+<rect x="20.0" y="100.0" width="72.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<line x1="42.0" y1="100.0" x2="42.0" y2="120.0" stroke="#000" stroke-width="1"/>
+<circle cx="31.0" cy="110.0" r="5.5" fill="none" stroke="#000" stroke-width="1.2"/>
+<text x="67.0" y="114.5" font-size="12" text-anchor="middle" fill="#000">0.0015</text>
+<rect x="20.0" y="122.0" width="104.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<line x1="42.0" y1="122.0" x2="42.0" y2="142.0" stroke="#000" stroke-width="1"/>
+<circle cx="31.0" cy="132.0" r="6.0" fill="none" stroke="#000" stroke-width="1.2"/>
+<circle cx="31.0" cy="132.0" r="3.0" fill="none" stroke="#000" stroke-width="1.2"/>
+<text x="67.0" y="136.5" font-size="12" text-anchor="middle" fill="#000">Ø0.003</text>
+<line x1="92.0" y1="122.0" x2="92.0" y2="142.0" stroke="#000" stroke-width="1"/>
+<text x="108.0" y="136.5" font-size="12" text-anchor="middle" fill="#000">A-B</text>
+<rect x="20.0" y="144.0" width="97.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<line x1="42.0" y1="144.0" x2="42.0" y2="164.0" stroke="#000" stroke-width="1"/>
+<line x1="26.0" y1="160.0" x2="35.0" y2="150.0" stroke="#000" stroke-width="1.2"/>
+<polygon points="37.0,147.0 32.0,149.0 35.0,152.0" fill="#000" stroke="#000" stroke-width="1"/>
+<text x="63.5" y="158.5" font-size="12" text-anchor="middle" fill="#000">0.002</text>
+<line x1="85.0" y1="144.0" x2="85.0" y2="164.0" stroke="#000" stroke-width="1"/>
+<text x="101.0" y="158.5" font-size="12" text-anchor="middle" fill="#000">A-B</text>
+<line x1="124.0" y1="132.0" x2="223.2" y2="317.4" stroke="#000" stroke-width="0.7" marker-end="url(#ar)"/>
+<line x1="117.0" y1="154.0" x2="296.2" y2="322.3" stroke="#000" stroke-width="0.7" marker-end="url(#ar)"/>
+<text x="860.0" y="92.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">rear sleeve bore Ø120 H5 (0/+0.015)</text>
+<rect x="860.0" y="100.0" width="72.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<line x1="882.0" y1="100.0" x2="882.0" y2="120.0" stroke="#000" stroke-width="1"/>
+<circle cx="871.0" cy="110.0" r="5.5" fill="none" stroke="#000" stroke-width="1.2"/>
+<text x="907.0" y="114.5" font-size="12" text-anchor="middle" fill="#000">0.0015</text>
+<rect x="860.0" y="122.0" width="104.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<line x1="882.0" y1="122.0" x2="882.0" y2="142.0" stroke="#000" stroke-width="1"/>
+<circle cx="871.0" cy="132.0" r="6.0" fill="none" stroke="#000" stroke-width="1.2"/>
+<circle cx="871.0" cy="132.0" r="3.0" fill="none" stroke="#000" stroke-width="1.2"/>
+<text x="907.0" y="136.5" font-size="12" text-anchor="middle" fill="#000">Ø0.003</text>
+<line x1="932.0" y1="122.0" x2="932.0" y2="142.0" stroke="#000" stroke-width="1"/>
+<text x="948.0" y="136.5" font-size="12" text-anchor="middle" fill="#000">A-B</text>
+<line x1="900.0" y1="142.0" x2="825.2" y2="308.8" stroke="#000" stroke-width="0.7" marker-end="url(#ar)"/>
+<text x="250.0" y="92.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">front face / spigot</text>
+<rect x="250.0" y="100.0" width="97.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<line x1="272.0" y1="100.0" x2="272.0" y2="120.0" stroke="#000" stroke-width="1"/>
+<line x1="261.0" y1="104.0" x2="261.0" y2="116.0" stroke="#000" stroke-width="1.2"/>
+<line x1="254.0" y1="116.0" x2="268.0" y2="116.0" stroke="#000" stroke-width="1.2"/>
+<text x="293.5" y="114.5" font-size="12" text-anchor="middle" fill="#000">0.002</text>
+<line x1="315.0" y1="100.0" x2="315.0" y2="120.0" stroke="#000" stroke-width="1"/>
+<text x="331.0" y="114.5" font-size="12" text-anchor="middle" fill="#000">A-B</text>
+<rect x="250.0" y="122.0" width="97.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<line x1="272.0" y1="122.0" x2="272.0" y2="142.0" stroke="#000" stroke-width="1"/>
+<line x1="256.0" y1="138.0" x2="265.0" y2="128.0" stroke="#000" stroke-width="1.2"/>
+<polygon points="267.0,125.0 262.0,127.0 265.0,130.0" fill="#000" stroke="#000" stroke-width="1"/>
+<text x="293.5" y="136.5" font-size="12" text-anchor="middle" fill="#000">0.003</text>
+<line x1="315.0" y1="122.0" x2="315.0" y2="142.0" stroke="#000" stroke-width="1"/>
+<text x="331.0" y="136.5" font-size="12" text-anchor="middle" fill="#000">A-B</text>
+<line x1="270.0" y1="142.0" x2="121.0" y2="183.0" stroke="#000" stroke-width="0.7" marker-end="url(#ar)"/>
+<path d="M234.4,307.4 L240.4,316.4 L252.4,294.4 L270.4,294.4" fill="none" stroke="#000" stroke-width="1"/>
+<line x1="234.4" y1="307.4" x2="244.4" y2="307.4" stroke="#000" stroke-width="1"/>
+<text x="253.4" y="291.4" font-size="11" text-anchor="start" fill="#000">Ra 0.2–0.4</text>
+<path d="M819.2,298.8 L825.2,307.8 L837.2,285.8 L855.2,285.8" fill="none" stroke="#000" stroke-width="1"/>
+<line x1="819.2" y1="298.8" x2="829.2" y2="298.8" stroke="#000" stroke-width="1"/>
+<text x="838.2" y="282.8" font-size="11" text-anchor="start" fill="#000">Ra 0.4</text>
+<polygon points="208.6,504.6 220.6,504.6 214.6,513.6" fill="#000" stroke="#000" stroke-width="1"/>
+<line x1="214.6" y1="513.6" x2="214.6" y2="526.6" stroke="#000" stroke-width="1"/>
+<rect x="204.6" y="526.6" width="20.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="214.6" y="541.6" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">A</text>
+<polygon points="819.2,513.2 831.2,513.2 825.2,522.2" fill="#000" stroke="#000" stroke-width="1"/>
+<line x1="825.2" y1="522.2" x2="825.2" y2="535.2" stroke="#000" stroke-width="1"/>
+<rect x="815.2" y="535.2" width="20.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="825.2" y="550.2" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">B</text>
+<line x1="120.0" y1="690.0" x2="163.0" y2="690.0" stroke="#000" stroke-width="0.8" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="141.5" y="687.0" font-size="11" text-anchor="middle" fill="#000">25</text>
+<line x1="163.0" y1="690.0" x2="297.2" y2="690.0" stroke="#000" stroke-width="0.8" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="230.1" y="687.0" font-size="11" text-anchor="middle" fill="#000">78</text>
+<line x1="297.2" y1="690.0" x2="360.8" y2="690.0" stroke="#000" stroke-width="0.8" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="329.0" y="687.0" font-size="11" text-anchor="middle" fill="#000">37</text>
+<line x1="360.8" y1="690.0" x2="687.6" y2="690.0" stroke="#000" stroke-width="0.8" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="524.2" y="687.0" font-size="11" text-anchor="middle" fill="#000">190</text>
+<line x1="687.6" y1="690.0" x2="756.4" y2="690.0" stroke="#000" stroke-width="0.8" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="722.0" y="687.0" font-size="11" text-anchor="middle" fill="#000">40</text>
+<line x1="756.4" y1="690.0" x2="894.0" y2="690.0" stroke="#000" stroke-width="0.8" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="825.2" y="687.0" font-size="11" text-anchor="middle" fill="#000">80</text>
+<line x1="120.0" y1="684.0" x2="120.0" y2="696.0" stroke="#000" stroke-width="0.6"/>
+<line x1="163.0" y1="684.0" x2="163.0" y2="696.0" stroke="#000" stroke-width="0.6"/>
+<line x1="297.2" y1="684.0" x2="297.2" y2="696.0" stroke="#000" stroke-width="0.6"/>
+<line x1="360.8" y1="684.0" x2="360.8" y2="696.0" stroke="#000" stroke-width="0.6"/>
+<line x1="687.6" y1="684.0" x2="687.6" y2="696.0" stroke="#000" stroke-width="0.6"/>
+<line x1="756.4" y1="684.0" x2="756.4" y2="696.0" stroke="#000" stroke-width="0.6"/>
+<line x1="894.0" y1="684.0" x2="894.0" y2="696.0" stroke="#000" stroke-width="0.6"/>
+<line x1="120.0" y1="722.0" x2="894.0" y2="722.0" stroke="#000" stroke-width="0.8" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="507.0" y="719.0" font-size="11" text-anchor="middle" fill="#000">450</text>
+<line x1="924.0" y1="212.2" x2="924.0" y2="607.8" stroke="#000" stroke-width="0.8" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="928.0" y="410.0" font-size="11" text-anchor="middle" fill="#000" transform="rotate(-90 928.0 410.0)">Ø230</text>
+<line x1="90.0" y1="169.2" x2="90.0" y2="650.8" stroke="#000" stroke-width="0.8" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="86.0" y="410.0" font-size="11" text-anchor="middle" fill="#000" transform="rotate(-90 86.0 410.0)">Ø280 flange</text>
+<text x="120.0" y="750.0" font-size="11" text-anchor="start" fill="#1565c0">cooling sleeve shrunk at ≈ 150 °C (ΔT = 132 K), then pressure test 9 bar / 10 min</text>
+<text x="120.0" y="766.0" font-size="11" text-anchor="start" fill="#1565c0">bores finished AFTER shrink + pressure test (otherwise oval by several µm)</text>
+<rect x="1000.0" y="170.0" width="385.0" height="470.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="1010.0" y="192.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Notes (housing)</text>
+<text x="1010.0" y="214.0" font-size="12" text-anchor="start" fill="#000">1. 42CrMo4 +QT 280–340 HB, 3.1 certificate.</text>
+<text x="1010.0" y="232.0" font-size="12" text-anchor="start" fill="#000">2. Stress relieve 580 °C / 2 h after roughing.</text>
+<text x="1010.0" y="250.0" font-size="12" text-anchor="start" fill="#000">3. Datums A = front bore, B = rear bore,</text>
+<text x="1010.0" y="268.0" font-size="12" text-anchor="start" fill="#000">    common axis A-B.</text>
+<text x="1010.0" y="286.0" font-size="12" text-anchor="start" fill="#000">4. Bores Ø110 / Ø120 finished in ONE clamping</text>
+<text x="1010.0" y="304.0" font-size="12" text-anchor="start" fill="#000">    from both sides (B-axis 180°) – fine boring</text>
+<text x="1010.0" y="322.0" font-size="12" text-anchor="start" fill="#000">    + internal grinding or honing (chapter 22).</text>
+<text x="1010.0" y="340.0" font-size="12" text-anchor="start" fill="#000">5. B-axis reversal 2″ at 200 mm = 1.9 µm:</text>
+<text x="1010.0" y="358.0" font-size="12" text-anchor="start" fill="#000">    probe both bores and correct.</text>
+<text x="1010.0" y="376.0" font-size="12" text-anchor="start" fill="#000">6. Fits from the bearing maker (JS4 / K5 front,</text>
+<text x="1010.0" y="394.0" font-size="12" text-anchor="start" fill="#000">    H5 rear floating sleeve) – check.</text>
+<text x="1010.0" y="412.0" font-size="12" text-anchor="start" fill="#000">7. Measure at 20 °C after ≥ 8 h soak (CMM /</text>
+<text x="1010.0" y="430.0" font-size="12" text-anchor="start" fill="#000">    roundness tester with long column).</text>
+<text x="1010.0" y="448.0" font-size="12" text-anchor="start" fill="#000">8. Cross holes (coolant, oil-air, sensors)</text>
+<text x="1010.0" y="466.0" font-size="12" text-anchor="start" fill="#000">    deburred, cleanliness per 26.3.</text>
+<text x="1010.0" y="484.0" font-size="12" text-anchor="start" fill="#000">9. O-ring grooves per ISO 3601-2 / seal maker.</text>
+<text x="1010.0" y="502.0" font-size="12" text-anchor="start" fill="#000">10. Mark serial SPH-YYWW-nnnnn on the flange OD.</text>
+<text x="1010.0" y="520.0" font-size="12" text-anchor="start" fill="#000">11. Front: 3rd frame (runout 0.002 A-B) = bearing</text>
+<text x="1010.0" y="538.0" font-size="12" text-anchor="start" fill="#000">    shoulder face in the front bore.</text>
+<rect x="1010.0" y="548.0" width="30.0" height="14.0" rx="0" fill="url(#hat)" stroke="#000" stroke-width="1"/>
+<text x="1048.0" y="560.0" font-size="11" text-anchor="start" fill="#000">= housing section</text>
+<rect x="1010.0" y="572.0" width="30.0" height="14.0" rx="0" fill="url(#hatA)" stroke="#1565c0" stroke-width="1"/>
+<text x="1048.0" y="584.0" font-size="11" text-anchor="start" fill="#000">= cooling sleeve (shrunk)</text>
+<text x="1010.0" y="610.0" font-size="11" text-anchor="start" fill="#000">◎ = coaxiality, ⊥ = perpendicularity,</text>
+<text x="1010.0" y="626.0" font-size="11" text-anchor="start" fill="#000">single arrow = circular runout</text>
+<rect x="905.0" y="790.0" width="485.0" height="96.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="905.0" y1="816.0" x2="1390.0" y2="816.0" stroke="#000" stroke-width="1"/>
+<line x1="905.0" y1="842.0" x2="1390.0" y2="842.0" stroke="#000" stroke-width="1"/>
+<line x1="905.0" y1="864.0" x2="1390.0" y2="864.0" stroke="#000" stroke-width="1"/>
+<text x="913.0" y="808.0" font-size="13" text-anchor="start" fill="#1565c0" font-weight="bold">EXAMPLE – check the maker&#x27;s documentation</text>
+<text x="913.0" y="834.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Spindle housing – drawing example with GD&amp;T</text>
+<text x="913.0" y="858.0" font-size="11" text-anchor="start" fill="#000">VC-HMC-SPN-0102-A / -0103-A · serial SPH-YYWW-nnnnn</text>
+<text x="1382.0" y="858.0" font-size="11" text-anchor="end" fill="#000">Guide 18 · spindle manufacturing</text>
+<text x="913.0" y="880.0" font-size="11" text-anchor="start" fill="#000">Values = twin example values · not to scale · 2026-11</text>
+</svg>

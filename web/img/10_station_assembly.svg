@@ -1,0 +1,249 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Arial, Helvetica, sans-serif">
+<title>Typical station – pallet transfer station item 1, side view with machine elements (example)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="1000" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold">Typical station: pallet transfer station (item 1) – frame, guides, drive, sensors, end stops (side view, schematic)</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#666666">Chains UP (transfer height 1104 mm), AGV docked on the right. Broken view: 480–780 mm not shown. Numbers = shopping list positions §37.</text>
+<line x1="40.0" y1="900.0" x2="968.0" y2="900.0" stroke="#000" stroke-width="2"/>
+<line x1="40.0" y1="900.0" x2="31.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="60.0" y1="900.0" x2="51.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="80.0" y1="900.0" x2="71.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="100.0" y1="900.0" x2="91.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="120.0" y1="900.0" x2="111.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="140.0" y1="900.0" x2="131.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="160.0" y1="900.0" x2="151.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="180.0" y1="900.0" x2="171.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="200.0" y1="900.0" x2="191.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="220.0" y1="900.0" x2="211.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="240.0" y1="900.0" x2="231.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="260.0" y1="900.0" x2="251.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="280.0" y1="900.0" x2="271.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="300.0" y1="900.0" x2="291.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="320.0" y1="900.0" x2="311.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="340.0" y1="900.0" x2="331.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="360.0" y1="900.0" x2="351.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="380.0" y1="900.0" x2="371.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="400.0" y1="900.0" x2="391.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="420.0" y1="900.0" x2="411.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="440.0" y1="900.0" x2="431.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="460.0" y1="900.0" x2="451.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="480.0" y1="900.0" x2="471.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="500.0" y1="900.0" x2="491.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="520.0" y1="900.0" x2="511.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="540.0" y1="900.0" x2="531.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="560.0" y1="900.0" x2="551.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="580.0" y1="900.0" x2="571.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="600.0" y1="900.0" x2="591.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="620.0" y1="900.0" x2="611.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="640.0" y1="900.0" x2="631.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="660.0" y1="900.0" x2="651.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="680.0" y1="900.0" x2="671.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="700.0" y1="900.0" x2="691.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="720.0" y1="900.0" x2="711.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="740.0" y1="900.0" x2="731.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="760.0" y1="900.0" x2="751.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="780.0" y1="900.0" x2="771.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="800.0" y1="900.0" x2="791.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="820.0" y1="900.0" x2="811.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="840.0" y1="900.0" x2="831.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="860.0" y1="900.0" x2="851.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="880.0" y1="900.0" x2="871.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="900.0" y1="900.0" x2="891.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="920.0" y1="900.0" x2="911.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="940.0" y1="900.0" x2="931.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<line x1="960.0" y1="900.0" x2="951.0" y2="911.0" stroke="#000" stroke-width="0.6"/>
+<text x="40.0" y="560.0" font-size="11" text-anchor="start" fill="#666666">≈ ≈ broken view: 480 … 780 mm not shown ≈ ≈</text>
+<rect x="268.0" y="386.0" width="56.0" height="72.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<rect x="268.0" y="516.0" width="56.0" height="372.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<path d="M264.0,458.0 l16.0,-5 l14.0,10 l14.0,-10 l16.0,5" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M264.0,516.0 l16.0,-5 l14.0,10 l14.0,-10 l16.0,5" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="256.0" y="888.0" width="80.0" height="12.0" rx="0" fill="#000" stroke="#000" stroke-width="1"/>
+<line x1="268.0" y1="900.0" x2="268.0" y2="926.0" stroke="#000" stroke-width="2.4"/>
+<line x1="324.0" y1="900.0" x2="324.0" y2="926.0" stroke="#000" stroke-width="2.4"/>
+<rect x="452.0" y="386.0" width="56.0" height="72.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<rect x="452.0" y="516.0" width="56.0" height="372.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<path d="M448.0,458.0 l16.0,-5 l14.0,10 l14.0,-10 l16.0,5" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M448.0,516.0 l16.0,-5 l14.0,10 l14.0,-10 l16.0,5" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="440.0" y="888.0" width="80.0" height="12.0" rx="0" fill="#000" stroke="#000" stroke-width="1"/>
+<line x1="452.0" y1="900.0" x2="452.0" y2="926.0" stroke="#000" stroke-width="2.4"/>
+<line x1="508.0" y1="900.0" x2="508.0" y2="926.0" stroke="#000" stroke-width="2.4"/>
+<rect x="120.0" y="346.0" width="448.0" height="40.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1.4"/>
+<rect x="172.0" y="266.0" width="56.0" height="80.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<rect x="176.0" y="242.0" width="48.0" height="24.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.6"/>
+<path d="M186.0,242.0 L194.0,251.0 L206.0,251.0 L214.0,242.0" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="492.0" y="266.0" width="56.0" height="80.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<rect x="496.0" y="242.0" width="48.0" height="24.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.6"/>
+<path d="M506.0,242.0 L514.0,251.0 L526.0,251.0 L534.0,242.0" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="144.0" y="210.0" width="432.0" height="24.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<circle cx="144.0" cy="233.2" r="34.5" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<circle cx="144.0" cy="233.2" r="3.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<circle cx="576.0" cy="233.2" r="34.5" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<circle cx="576.0" cy="233.2" r="3.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<line x1="144.0" y1="198.8" x2="576.0" y2="198.8" stroke="#c62828" stroke-width="3.5"/>
+<rect x="254.0" y="219.6" width="20.0" height="126.4" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<rect x="246.0" y="314.0" width="36.0" height="32.0" rx="0" fill="#000" stroke="#000" stroke-width="1"/>
+<rect x="446.0" y="219.6" width="20.0" height="126.4" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<rect x="438.0" y="314.0" width="36.0" height="32.0" rx="0" fill="#000" stroke="#000" stroke-width="1"/>
+<rect x="320.0" y="278.0" width="80.0" height="68.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.6"/>
+<rect x="349.0" y="219.6" width="22.0" height="58.4" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<rect x="114.0" y="386.0" width="92.0" height="56.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.6"/>
+<rect x="206.0" y="394.0" width="22.0" height="40.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<circle cx="200.0" cy="414.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<line x1="188.0" y1="414.0" x2="114.0" y2="233.2" stroke="#000" stroke-width="1.2" stroke-dasharray="5 3"/>
+<line x1="212.0" y1="414.0" x2="174.0" y2="233.2" stroke="#000" stroke-width="1.2" stroke-dasharray="5 3"/>
+<rect x="100.0" y="174.8" width="24.0" height="183.2" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.6"/>
+<rect x="124.0" y="154.0" width="10.0" height="36.0" rx="0" fill="#000" stroke="#000" stroke-width="1"/>
+<rect x="86.0" y="358.0" width="52.0" height="36.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<rect x="160.0" y="142.8" width="400.0" height="56.0" rx="0" fill="#f3f3f3" stroke="#000" stroke-width="2"/>
+<text x="360.0" y="176.8" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">pallet 510 kg</text>
+<rect x="192.0" y="198.8" width="16.0" height="35.2" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<rect x="512.0" y="198.8" width="16.0" height="35.2" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<rect x="113.0" y="133.0" width="14.0" height="10.0" rx="0" fill="#c62828" stroke="#c62828" stroke-width="1"/>
+<text x="131.0" y="142.0" font-size="11" text-anchor="start" fill="#c62828">B23</text>
+<rect x="193.0" y="253.0" width="14.0" height="10.0" rx="0" fill="#c62828" stroke="#c62828" stroke-width="1"/>
+<text x="189.0" y="262.0" font-size="11" text-anchor="end" fill="#c62828">B24 air</text>
+<rect x="401.0" y="209.0" width="14.0" height="10.0" rx="0" fill="#c62828" stroke="#c62828" stroke-width="1"/>
+<text x="419.0" y="218.0" font-size="11" text-anchor="start" fill="#c62828">B21</text>
+<rect x="77.0" y="317.0" width="14.0" height="10.0" rx="0" fill="#c62828" stroke="#c62828" stroke-width="1"/>
+<text x="73.0" y="326.0" font-size="11" text-anchor="end" fill="#c62828">B22</text>
+<rect x="568.0" y="166.8" width="96.0" height="291.2" rx="0" fill="none" stroke="#000" stroke-width="1.2" stroke-dasharray="6 3"/>
+<rect x="568.0" y="516.0" width="96.0" height="372.0" rx="0" fill="none" stroke="#000" stroke-width="1.2" stroke-dasharray="6 3"/>
+<path d="M564.0,458.0 l26.0,-5 l24.0,10 l24.0,-10 l26.0,5" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M564.0,516.0 l26.0,-5 l24.0,10 l24.0,-10 l26.0,5" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="568.0" y="142.8" width="120.0" height="24.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<path d="M666.0,162.0 L666.0,190.0 L676.0,210.0 L686.0,190.0 L686.0,162.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<rect x="580.0" y="596.0" width="40.0" height="304.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<rect x="620.0" y="640.0" width="10.0" height="40.0" rx="0" fill="#000" stroke="#000" stroke-width="1"/>
+<rect x="630.0" y="652.0" width="22.0" height="16.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<path d="M960.0,636.0 L628.0,636.0 L628.0,896.0 L960.0,896.0" fill="#ffffff" stroke="#000" stroke-width="1.6"/>
+<circle cx="704.0" cy="874.0" r="24.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<rect x="636.0" y="206.8" width="324.0" height="40.0" rx="0" fill="#f3f3f3" stroke="#000" stroke-width="1.4"/>
+<line x1="636.0" y1="198.8" x2="960.0" y2="198.8" stroke="#c62828" stroke-width="3.5"/>
+<rect x="662.0" y="206.8" width="28.0" height="18.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<line x1="720.0" y1="234.0" x2="720.0" y2="458.0" stroke="#000" stroke-width="1.2" stroke-dasharray="8 4"/>
+<line x1="720.0" y1="516.0" x2="720.0" y2="636.0" stroke="#000" stroke-width="1.2" stroke-dasharray="8 4"/>
+<line x1="880.0" y1="234.0" x2="880.0" y2="458.0" stroke="#000" stroke-width="1.2" stroke-dasharray="8 4"/>
+<line x1="880.0" y1="516.0" x2="880.0" y2="636.0" stroke="#000" stroke-width="1.2" stroke-dasharray="8 4"/>
+<path d="M960.0,196.8 l10,12 l-14,14 l10,12" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M960.0,738.0 l10,12 l-14,14 l10,12" fill="none" stroke="#000" stroke-width="1"/>
+<text x="808.0" y="740.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">AGV with lifting floating deck</text>
+<text x="808.0" y="756.0" font-size="11" text-anchor="middle" fill="#666666">(AGV supplier, cut)</text>
+<line x1="40.0" y1="166.8" x2="76.0" y2="166.8" stroke="#666666" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="40.0" y="163.8" font-size="11" text-anchor="start" fill="#666666">1144</text>
+<line x1="40.0" y1="198.8" x2="76.0" y2="198.8" stroke="#666666" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="40.0" y="195.8" font-size="11" text-anchor="start" fill="#666666">1104</text>
+<line x1="40.0" y1="242.0" x2="76.0" y2="242.0" stroke="#666666" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="40.0" y="239.0" font-size="11" text-anchor="start" fill="#666666">1050</text>
+<line x1="40.0" y1="346.0" x2="76.0" y2="346.0" stroke="#666666" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="40.0" y="343.0" font-size="11" text-anchor="start" fill="#666666">920</text>
+<line x1="112.0" y1="92.0" x2="112.0" y2="202.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="112.0" cy="92.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="112.0" y="96.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">9</text>
+<line x1="172.0" y1="92.0" x2="154.0" y2="223.2" stroke="#000" stroke-width="0.8"/>
+<circle cx="172.0" cy="92.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="172.0" y="96.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">4</text>
+<line x1="232.0" y1="92.0" x2="200.0" y2="254.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="232.0" cy="92.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="232.0" y="96.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">2</text>
+<line x1="292.0" y1="92.0" x2="264.0" y2="154.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="292.0" cy="92.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="292.0" y="96.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">10</text>
+<line x1="420.0" y1="92.0" x2="408.0" y2="198.8" stroke="#000" stroke-width="0.8"/>
+<circle cx="420.0" cy="92.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="420.0" y="96.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">3</text>
+<line x1="640.0" y1="92.0" x2="676.0" y2="186.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="640.0" cy="92.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="640.0" y="96.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">12</text>
+<line x1="760.0" y1="92.0" x2="840.0" y2="202.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="760.0" cy="92.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="760.0" y="96.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">14</text>
+<line x1="470.0" y1="440.0" x2="456.0" y2="290.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="470.0" cy="440.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="470.0" y="444.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">5</text>
+<line x1="380.0" y1="440.0" x2="360.0" y2="314.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="380.0" cy="440.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="380.0" y="444.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">6</text>
+<line x1="250.0" y1="440.0" x2="200.0" y2="258.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="250.0" cy="440.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="250.0" y="444.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">11</text>
+<line x1="60.0" y1="410.0" x2="172.0" y2="322.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="60.0" cy="410.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="60.0" y="414.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">8</text>
+<line x1="60.0" y1="470.0" x2="160.0" y2="418.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="60.0" cy="470.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="60.0" y="474.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">7</text>
+<line x1="200.0" y1="640.0" x2="296.0" y2="660.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="200.0" cy="640.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="200.0" y="644.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">1</text>
+<line x1="520.0" y1="560.0" x2="600.0" y2="700.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="520.0" cy="560.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="520.0" y="564.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">13</text>
+<line x1="560.0" y1="945.0" x2="508.0" y2="920.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="560.0" cy="945.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="560.0" y="949.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">15</text>
+<line x1="200.0" y1="945.0" x2="262.0" y2="892.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="200.0" cy="945.0" r="12.0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="200.0" y="949.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">16</text>
+<text x="1010.0" y="118.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Positions (see §37 shopping list)</text>
+<circle cx="1020.0" cy="144.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="148.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">1</text>
+<text x="1038.0" y="148.0" font-size="12" text-anchor="start" fill="#000">station table S355 + legs (weldment)</text>
+<circle cx="1020.0" cy="171.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="175.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">2</text>
+<text x="1038.0" y="175.0" font-size="12" text-anchor="start" fill="#000">locating receivers 16MnCr5 (4)</text>
+<circle cx="1020.0" cy="198.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="202.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">3</text>
+<text x="1038.0" y="202.0" font-size="12" text-anchor="start" fill="#000">lift-transfer frame + 2 × 10B-1 chains</text>
+<circle cx="1020.0" cy="225.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="229.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">4</text>
+<text x="1038.0" y="229.0" font-size="12" text-anchor="start" fill="#000">sprockets z17 + shaft 42CrMo4 + UCF205</text>
+<circle cx="1020.0" cy="252.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="256.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">5</text>
+<text x="1038.0" y="256.0" font-size="12" text-anchor="start" fill="#000">guide columns Ø25 + ball bushings (4)</text>
+<circle cx="1020.0" cy="279.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="283.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">6</text>
+<text x="1038.0" y="283.0" font-size="12" text-anchor="start" fill="#000">lift cylinder Ø50/28 × 64 (hydraulic)</text>
+<circle cx="1020.0" cy="306.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="310.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">7</text>
+<text x="1038.0" y="310.0" font-size="12" text-anchor="start" fill="#000">gear motor 0.25 kW, 44 rpm, brake</text>
+<circle cx="1020.0" cy="333.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="337.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">8</text>
+<text x="1038.0" y="337.0" font-size="12" text-anchor="start" fill="#000">drive chain 08B / torque limiter</text>
+<circle cx="1020.0" cy="360.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="364.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">9</text>
+<text x="1038.0" y="364.0" font-size="12" text-anchor="start" fill="#000">retractable stop + damper ≥ 36 J (§30)</text>
+<circle cx="1020.0" cy="387.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="391.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">10</text>
+<text x="1038.0" y="391.0" font-size="12" text-anchor="start" fill="#000">pallet 500 × 500, studs into receivers</text>
+<circle cx="1020.0" cy="414.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="418.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">11</text>
+<text x="1038.0" y="418.0" font-size="12" text-anchor="start" fill="#000">sensors B21–B24 (inductive, air seat check)</text>
+<circle cx="1020.0" cy="441.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="445.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">12</text>
+<text x="1038.0" y="445.0" font-size="12" text-anchor="start" fill="#000">docking bracket 120×120×8 + cone pin (z ±410)</text>
+<circle cx="1020.0" cy="468.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="472.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">13</text>
+<text x="1038.0" y="472.0" font-size="12" text-anchor="start" fill="#000">buffer post + 2 shock absorbers M25</text>
+<circle cx="1020.0" cy="495.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="499.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">14</text>
+<text x="1038.0" y="499.0" font-size="12" text-anchor="start" fill="#000">AGV + floating deck (AGV supplier)</text>
+<circle cx="1020.0" cy="522.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="526.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">15</text>
+<text x="1038.0" y="526.0" font-size="12" text-anchor="start" fill="#000">anchors M16 bonded + grout</text>
+<circle cx="1020.0" cy="549.0" r="11.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1020.0" y="553.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">16</text>
+<text x="1038.0" y="553.0" font-size="12" text-anchor="start" fill="#000">base plates, levelling screws</text>
+<text x="1010.0" y="590.0" font-size="11" text-anchor="start" fill="#c62828">Red = chain top line and sensors.</text>
+<text x="1010.0" y="608.0" font-size="11" text-anchor="start" fill="#666666">Dashed post = docking bracket beside the AGV.</text>
+<text x="1010.0" y="626.0" font-size="11" text-anchor="start" fill="#666666">Light curtain, guards, E84 not drawn.</text>
+<text x="1010.0" y="644.0" font-size="11" text-anchor="start" fill="#666666">Heights: 1144 stop faces · 1104 transfer (chain top)</text>
+<text x="1010.0" y="662.0" font-size="11" text-anchor="start" fill="#666666">1050 receiver faces · 920 frame top · 1134 stop up</text>
+<rect x="954.0" y="912.0" width="430.0" height="74.0" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<line x1="954.0" y1="938.0" x2="1384.0" y2="938.0" stroke="#000" stroke-width="0.8"/>
+<line x1="954.0" y1="962.0" x2="1384.0" y2="962.0" stroke="#000" stroke-width="0.8"/>
+<line x1="1094.0" y1="912.0" x2="1094.0" y2="938.0" stroke="#000" stroke-width="0.8"/>
+<text x="962.0" y="930.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">VC-MEC-TRF-0907</text>
+<text x="1102.0" y="930.0" font-size="12" text-anchor="start" fill="#000">Transfer station – element map</text>
+<text x="962.0" y="955.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="962.0" y="979.0" font-size="11" text-anchor="start" fill="#666666">values from guide 10 Part B · guide 10 · 2026-11-12</text>
+</svg>

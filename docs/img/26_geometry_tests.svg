@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1040" width="1200" height="1040" font-family="Arial, Helvetica, sans-serif">
+<title>ISO 230 geometric test set-ups</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="dot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" markerUnits="userSpaceOnUse"><circle cx="5" cy="5" r="4" fill="#000"/></marker>
+<pattern id="conc" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#f2f2f2"/><circle cx="3" cy="4" r="1" fill="#888"/><circle cx="10" cy="9" r="1.3" fill="#888"/><path d="M6,11 l2,-2 l1,2 z" fill="none" stroke="#888" stroke-width="0.7"/></pattern>
+<pattern id="soil" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="12" height="12" fill="#fff"/><line x1="0" y1="0" x2="0" y2="12" stroke="#888" stroke-width="1"/></pattern>
+<pattern id="gravel" width="16" height="12" patternUnits="userSpaceOnUse"><rect width="16" height="12" fill="#fafafa"/><circle cx="4" cy="4" r="2.2" fill="none" stroke="#777" stroke-width="0.8"/><circle cx="12" cy="9" r="2.6" fill="none" stroke="#777" stroke-width="0.8"/></pattern>
+<pattern id="grout" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+<pattern id="steel" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect width="6" height="6" fill="#fff"/><line x1="0" y1="0" x2="0" y2="6" stroke="#444" stroke-width="0.8"/></pattern>
+<pattern id="filler" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#fff6d8"/><circle cx="4" cy="4" r="1.2" fill="#b08a00"/></pattern>
+<pattern id="iso" width="10" height="6" patternUnits="userSpaceOnUse"><rect width="10" height="6" fill="#fff"/><path d="M0,3 q2.5,-3 5,0 t5,0" fill="none" stroke="#666" stroke-width="0.8"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="1040" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="1028" fill="none" stroke="#000" stroke-width="1.5"/>
+<rect x="16.0" y="16.0" width="376.0" height="438.0" rx="0" stroke="#9a9a9a" stroke-width="1" fill="none"/>
+<rect x="406.0" y="16.0" width="376.0" height="438.0" rx="0" stroke="#9a9a9a" stroke-width="1" fill="none"/>
+<rect x="796.0" y="16.0" width="376.0" height="438.0" rx="0" stroke="#9a9a9a" stroke-width="1" fill="none"/>
+<rect x="16.0" y="476.0" width="376.0" height="438.0" rx="0" stroke="#9a9a9a" stroke-width="1" fill="none"/>
+<rect x="406.0" y="476.0" width="376.0" height="438.0" rx="0" stroke="#9a9a9a" stroke-width="1" fill="none"/>
+<rect x="796.0" y="476.0" width="376.0" height="438.0" rx="0" stroke="#9a9a9a" stroke-width="1" fill="none"/>
+<text x="28.0" y="40.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">(a) G1/G2 straightness of X</text>
+<text x="28.0" y="57.0" font-size="11.5" text-anchor="start" fill="#555">straight edge on the pallet, indicator on the spindle</text>
+<rect x="42.0" y="262.0" width="320.0" height="40.0" rx="0" stroke="#000" stroke-width="1.2" fill="#f0f0f0"/>
+<text x="202.0" y="288.0" font-size="11.5" text-anchor="middle" fill="#555">pallet 500 × 500</text>
+<rect x="62.0" y="234.0" width="280.0" height="28.0" rx="0" stroke="#000" stroke-width="1.2" fill="url(#steel)"/>
+<text x="194.0" y="226.0" font-size="11.5" text-anchor="start" fill="#000">straight edge 500</text>
+<rect x="132.0" y="82.0" width="80.0" height="70.0" rx="0" stroke="#000" stroke-width="1.3" fill="#e8e8e8"/>
+<text x="172.0" y="120.0" font-size="11.5" text-anchor="middle" fill="#000">spindle</text>
+<line x1="172.0" y1="152.0" x2="172.0" y2="197.0" stroke="#000" stroke-width="3"/>
+<circle cx="172.0" cy="208.0" r="10.0" stroke="#000" stroke-width="1.4" fill="#fff"/>
+<line x1="172.0" y1="218.0" x2="172.0" y2="234.0" stroke="#000" stroke-width="1.4"/>
+<line x1="232.0" y1="117.0" x2="312.0" y2="117.0" stroke="#1f6fd1" stroke-width="1.8" marker-end="url(#ea)"/>
+<text x="316.0" y="121.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">X travel</text>
+<line x1="42.0" y1="372.0" x2="362.0" y2="372.0" stroke="#9a9a9a" stroke-width="1.0"/>
+<path d="M42.0,372.0 L106.0,353.6 L170.0,343.2 L234.0,344.8 L298.0,354.4 L362.0,372.0" stroke="#1f6fd1" stroke-width="2" fill="none"/>
+<circle cx="42.0" cy="372.0" r="3.0" stroke="#1f6fd1" stroke-width="1.0" fill="#1f6fd1"/>
+<circle cx="106.0" cy="353.6" r="3.0" stroke="#1f6fd1" stroke-width="1.0" fill="#1f6fd1"/>
+<circle cx="170.0" cy="343.2" r="3.0" stroke="#1f6fd1" stroke-width="1.0" fill="#1f6fd1"/>
+<circle cx="234.0" cy="344.8" r="3.0" stroke="#1f6fd1" stroke-width="1.0" fill="#1f6fd1"/>
+<circle cx="298.0" cy="354.4" r="3.0" stroke="#1f6fd1" stroke-width="1.0" fill="#1f6fd1"/>
+<circle cx="362.0" cy="372.0" r="3.0" stroke="#1f6fd1" stroke-width="1.0" fill="#1f6fd1"/>
+<text x="42.0" y="392.0" font-size="11.5" text-anchor="start" fill="#000">readings every 50–100 mm; end-point line removed</text>
+<text x="42.0" y="408.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">straightness = max − min deviation (e.g. 0.006 / 500)</text>
+<text x="42.0" y="424.0" font-size="11.5" text-anchor="start" fill="#000">reversal: turn the edge over → removes its own error</text>
+<text x="418.0" y="40.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">(b) G6 squareness X–Y</text>
+<text x="418.0" y="57.0" font-size="11.5" text-anchor="start" fill="#555">granite square on the pallet, indicator moved along Y</text>
+<rect x="442.0" y="342.0" width="300.0" height="30.0" rx="0" stroke="#000" stroke-width="1.2" fill="#f0f0f0"/>
+<path d="M512,342 L512,112 L552,112 L552,302 L682,302 L682,342 Z" stroke="#000" stroke-width="1.4" fill="url(#conc)"/>
+<text x="612.0" y="324.0" font-size="11.5" text-anchor="middle" fill="#000">granite square 00</text>
+<circle cx="561.0" cy="182.0" r="9.0" stroke="#000" stroke-width="1.4" fill="#fff"/>
+<line x1="570.0" y1="182.0" x2="642.0" y2="182.0" stroke="#000" stroke-width="3"/>
+<rect x="642.0" y="152.0" width="60.0" height="60.0" rx="0" stroke="#000" stroke-width="1.2" fill="#e8e8e8"/>
+<text x="672.0" y="186.0" font-size="11" text-anchor="middle" fill="#000">spindle</text>
+<line x1="722.0" y1="262.0" x2="722.0" y2="142.0" stroke="#1f6fd1" stroke-width="1.8" marker-end="url(#ea)"/>
+<text x="728.0" y="202.0" font-size="12" text-anchor="start" fill="#1f6fd1" font-weight="bold">Y</text>
+<text x="422.0" y="397.0" font-size="11.5" text-anchor="start" fill="#000">1) indicator reads along the square face: m₁</text>
+<text x="422.0" y="413.0" font-size="11.5" text-anchor="start" fill="#000">2) turn the square 180° (other side): m₂</text>
+<text x="422.0" y="429.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">machine = (m₁ + m₂)/2, square = (m₁ − m₂)/2</text>
+<text x="422.0" y="445.0" font-size="11.5" text-anchor="start" fill="#000">e.g. +6 and −2 µm/400 → machine 2 µm/400 = 5 µm/m</text>
+<text x="808.0" y="40.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">(c) G12/G13/G15 spindle run-out</text>
+<text x="808.0" y="57.0" font-size="11.5" text-anchor="start" fill="#555">test mandrel in the taper, indicators at nose + 300 mm</text>
+<rect x="842.0" y="162.0" width="70.0" height="100.0" rx="0" stroke="#000" stroke-width="1.4" fill="#e8e8e8"/>
+<text x="877.0" y="282.0" font-size="11.5" text-anchor="middle" fill="#000">spindle (Z horizontal)</text>
+<path d="M912,194 L937,198 L937,226 L912,230 Z" stroke="#000" stroke-width="1.2" fill="#cfcfcf"/>
+<rect x="937.0" y="198.0" width="220.0" height="28.0" rx="0" stroke="#000" stroke-width="1.3" fill="#dcdcdc"/>
+<line x1="912.0" y1="212.0" x2="1172.0" y2="212.0" stroke="#555" stroke-width="0.8" stroke-dasharray="12 3 2 3"/>
+<line x1="952.0" y1="198.0" x2="952.0" y2="157.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="952.0" cy="148.0" r="9.0" stroke="#000" stroke-width="1.4" fill="#fff"/>
+<text x="952.0" y="130.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">a: nose</text>
+<line x1="1147.0" y1="198.0" x2="1147.0" y2="157.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="1147.0" cy="148.0" r="9.0" stroke="#000" stroke-width="1.4" fill="#fff"/>
+<text x="1147.0" y="130.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">b: 300 mm</text>
+<line x1="952.0" y1="226.0" x2="952.0" y2="256.0" stroke="#000" stroke-width="0.7"/>
+<line x1="1147.0" y1="226.0" x2="1147.0" y2="256.0" stroke="#000" stroke-width="0.7"/>
+<line x1="952.0" y1="252.0" x2="1147.0" y2="252.0" stroke="#000" stroke-width="0.9" marker-start="url(#sk)" marker-end="url(#ek)"/>
+<text x="1049.5" y="248.0" font-size="11" text-anchor="middle" fill="#000">300</text>
+<text x="812.0" y="342.0" font-size="11.5" text-anchor="start" fill="#000">turn the spindle slowly by hand, read max − min</text>
+<text x="812.0" y="358.0" font-size="11.5" text-anchor="start" fill="#000">test bar at 0°, 90°, 180°, 270° in the taper → average</text>
+<text x="812.0" y="374.0" font-size="11.5" text-anchor="start" fill="#000">(removes the bar's own run-out)</text>
+<text x="812.0" y="396.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">example tol.: a ≤ 0.005, b ≤ 0.012 mm</text>
+<text x="812.0" y="412.0" font-size="11.5" text-anchor="start" fill="#000">G15: move Z 300 mm, indicator on the bar →</text>
+<text x="812.0" y="428.0" font-size="11.5" text-anchor="start" fill="#000">parallelism spindle axis – Z (≤ 0.015/300)</text>
+<text x="28.0" y="500.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">(d) ISO 230-2 laser interferometer</text>
+<text x="28.0" y="517.0" font-size="11.5" text-anchor="start" fill="#555">positioning accuracy + repeatability of each axis</text>
+<rect x="36.0" y="652.0" width="70.0" height="40.0" rx="0" stroke="#000" stroke-width="1.3" fill="#e8e8e8"/>
+<text x="71.0" y="676.0" font-size="11.5" text-anchor="middle" fill="#000">laser</text>
+<line x1="71.0" y1="692.0" x2="57.0" y2="752.0" stroke="#000" stroke-width="1.2"/>
+<line x1="71.0" y1="692.0" x2="85.0" y2="752.0" stroke="#000" stroke-width="1.2"/>
+<rect x="152.0" y="660.0" width="30.0" height="24.0" rx="0" stroke="#000" stroke-width="1.2" fill="#cfcfcf"/>
+<text x="167.0" y="652.0" font-size="11" text-anchor="middle" fill="#000">interferometer</text>
+<text x="167.0" y="704.0" font-size="11" text-anchor="middle" fill="#555">(on the table)</text>
+<path d="M312,658 L334,672 L312,686 Z" stroke="#000" stroke-width="1.2" fill="#cfcfcf"/>
+<text x="322.0" y="650.0" font-size="11" text-anchor="middle" fill="#000">retroreflector</text>
+<text x="322.0" y="702.0" font-size="11" text-anchor="middle" fill="#555">(on the spindle)</text>
+<line x1="106.0" y1="668.0" x2="312.0" y2="668.0" stroke="#1f6fd1" stroke-width="1.4"/>
+<line x1="106.0" y1="676.0" x2="312.0" y2="676.0" stroke="#1f6fd1" stroke-width="1.4"/>
+<line x1="212.0" y1="724.0" x2="292.0" y2="724.0" stroke="#000" stroke-width="1.4" marker-start="url(#sk)" marker-end="url(#ek)"/>
+<text x="252.0" y="740.0" font-size="11" text-anchor="middle" fill="#000">axis travel 800</text>
+<rect x="42.0" y="764.0" width="64.0" height="20.0" rx="3" stroke="#000" stroke-width="1" fill="#fff"/>
+<text x="74.0" y="778.0" font-size="11" text-anchor="middle" fill="#000">air T</text>
+<rect x="122.0" y="764.0" width="64.0" height="20.0" rx="3" stroke="#000" stroke-width="1" fill="#fff"/>
+<text x="154.0" y="778.0" font-size="11" text-anchor="middle" fill="#000">air p</text>
+<rect x="202.0" y="764.0" width="64.0" height="20.0" rx="3" stroke="#000" stroke-width="1" fill="#fff"/>
+<text x="234.0" y="778.0" font-size="11" text-anchor="middle" fill="#000">RH</text>
+<rect x="282.0" y="764.0" width="64.0" height="20.0" rx="3" stroke="#000" stroke-width="1" fill="#fff"/>
+<text x="314.0" y="778.0" font-size="11" text-anchor="middle" fill="#000">material T</text>
+<text x="32.0" y="817.0" font-size="11.5" text-anchor="start" fill="#000">≥ 5 targets/m (here 9), 5 runs ↑︎ and ↓︎</text>
+<text x="32.0" y="833.0" font-size="11.5" text-anchor="start" fill="#000">cosine error = L·θ²/2: 1 mm over 1 m → 0.5 µm</text>
+<text x="32.0" y="849.0" font-size="11.5" text-anchor="start" fill="#000">air: 1 K → 0.93 ppm; 10 hPa → 2.7 ppm (Edlén)</text>
+<text x="32.0" y="865.0" font-size="11.5" text-anchor="start" fill="#000">steel scale: 11.5 µm/(m·K) → 0.8 m, 1.1 K: 10 µm</text>
+<text x="32.0" y="885.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">result: A, B, E, M, R (§E4)</text>
+<text x="418.0" y="500.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">(e) ISO 230-4 ballbar circular test</text>
+<text x="418.0" y="517.0" font-size="11.5" text-anchor="start" fill="#555">R 150 mm, F 1000 mm/min, CW + CCW, after warm-up</text>
+<circle cx="552.0" cy="687.0" r="110.0" stroke="#9a9a9a" stroke-width="1" fill="none" stroke-dasharray="5 3"/>
+<path d="M663.0,687.0 L663.2,685.1 L663.4,683.1 L663.6,681.2 L663.7,679.2 L663.8,677.2 L663.8,675.2 L663.9,673.3 L663.8,671.3 L663.8,669.3 L663.7,667.3 L663.5,665.3 L663.4,663.3 L663.1,661.3 L662.9,659.4 L662.6,657.4 L662.3,655.4 L661.9,653.4 L661.5,651.4 L661.0,649.5 L660.5,647.5 L660.0,645.5 L659.4,643.6 L658.8,641.7 L658.2,639.7 L657.5,637.8 L656.7,635.9 L655.9,634.0 L655.1,632.2 L654.3,630.3 L653.4,628.5 L652.4,626.6 L651.5,624.8 L650.5,623.1 L649.4,621.3 L648.3,619.6 L647.2,617.8 L646.0,616.1 L644.8,614.5 L643.6,612.8 L642.3,611.2 L641.0,609.6 L639.7,608.1 L638.3,606.5 L636.9,605.0 L635.4,603.6 L634.0,602.1 L632.5,600.7 L630.9,599.3 L629.4,598.0 L627.8,596.7 L626.2,595.4 L624.5,594.2 L622.9,593.0 L621.2,591.8 L619.4,590.7 L617.7,589.6 L615.9,588.5 L614.2,587.5 L612.4,586.6 L610.5,585.6 L608.7,584.7 L606.8,583.9 L605.0,583.1 L603.1,582.3 L601.2,581.5 L599.3,580.8 L597.3,580.2 L595.4,579.6 L593.5,579.0 L591.5,578.5 L589.5,578.0 L587.6,577.5 L585.6,577.1 L583.6,576.7 L581.6,576.4 L579.6,576.1 L577.7,575.9 L575.7,575.6 L573.7,575.5 L571.7,575.3 L569.7,575.2 L567.7,575.2 L565.7,575.1 L563.8,575.2 L561.8,575.2 L559.8,575.3 L557.8,575.4 L555.9,575.6 L553.9,575.8 L552.0,573.0 L550.0,573.3 L548.2,578.6 L546.3,578.9 L544.5,579.2 L542.6,579.6 L540.8,580.0 L538.9,580.5 L537.1,581.0 L535.3,581.5 L533.5,582.0 L531.7,582.6 L529.9,583.2 L528.2,583.8 L526.4,584.4 L524.7,585.1 L523.0,585.8 L521.3,586.5 L519.6,587.2 L517.9,588.0 L516.3,588.8 L514.6,589.6 L513.0,590.4 L511.4,591.3 L509.8,592.2 L508.2,593.1 L506.6,594.0 L505.1,594.9 L503.6,595.9 L502.0,596.9 L500.5,597.9 L499.0,598.9 L497.6,599.9 L496.1,600.9 L494.7,602.0 L493.3,603.1 L491.8,604.2 L490.5,605.3 L489.1,606.5 L487.7,607.6 L486.4,608.8 L485.0,610.0 L483.7,611.2 L482.4,612.4 L481.1,613.6 L479.9,614.9 L478.6,616.1 L477.4,617.4 L476.2,618.7 L475.0,620.0 L473.8,621.4 L472.6,622.7 L471.5,624.1 L470.3,625.5 L469.2,626.8 L468.1,628.3 L467.0,629.7 L465.9,631.1 L464.9,632.6 L463.9,634.0 L462.9,635.5 L461.9,637.0 L460.9,638.6 L459.9,640.1 L459.0,641.6 L458.1,643.2 L457.2,644.8 L456.3,646.4 L455.4,648.0 L454.6,649.6 L453.8,651.3 L453.0,652.9 L452.2,654.6 L451.5,656.3 L450.8,658.0 L450.1,659.7 L449.4,661.4 L448.8,663.2 L448.2,664.9 L447.6,666.7 L447.0,668.5 L446.5,670.3 L446.0,672.1 L445.5,673.9 L445.0,675.8 L444.6,677.6 L444.2,679.5 L443.9,681.3 L443.6,683.2 L443.3,685.1 L441.0,687.0 L440.8,688.9 L440.6,690.9 L440.4,692.8 L440.3,694.8 L440.2,696.8 L440.2,698.8 L440.1,700.7 L440.2,702.7 L440.2,704.7 L440.3,706.7 L440.5,708.7 L440.6,710.7 L440.9,712.7 L441.1,714.6 L441.4,716.6 L441.7,718.6 L442.1,720.6 L442.5,722.6 L443.0,724.5 L443.5,726.5 L444.0,728.5 L444.6,730.4 L445.2,732.3 L445.8,734.3 L446.5,736.2 L447.3,738.1 L448.1,740.0 L448.9,741.8 L449.7,743.7 L450.6,745.5 L451.6,747.4 L452.5,749.2 L453.5,750.9 L454.6,752.7 L455.7,754.4 L456.8,756.2 L458.0,757.9 L459.2,759.5 L460.4,761.2 L461.7,762.8 L463.0,764.4 L464.3,765.9 L465.7,767.5 L467.1,769.0 L468.6,770.4 L470.0,771.9 L471.5,773.3 L473.1,774.7 L474.6,776.0 L476.2,777.3 L477.8,778.6 L479.5,779.8 L481.1,781.0 L482.8,782.2 L484.6,783.3 L486.3,784.4 L488.1,785.5 L489.8,786.5 L491.6,787.4 L493.5,788.4 L495.3,789.3 L497.2,790.1 L499.0,790.9 L500.9,791.7 L502.8,792.5 L504.7,793.2 L506.7,793.8 L508.6,794.4 L510.5,795.0 L512.5,795.5 L514.5,796.0 L516.4,796.5 L518.4,796.9 L520.4,797.3 L522.4,797.6 L524.4,797.9 L526.3,798.1 L528.3,798.4 L530.3,798.5 L532.3,798.7 L534.3,798.8 L536.3,798.8 L538.3,798.9 L540.2,798.8 L542.2,798.8 L544.2,798.7 L546.2,798.6 L548.1,798.4 L550.1,798.2 L552.0,801.0 L554.0,800.7 L555.8,795.4 L557.7,795.1 L559.5,794.8 L561.4,794.4 L563.2,794.0 L565.1,793.5 L566.9,793.0 L568.7,792.5 L570.5,792.0 L572.3,791.4 L574.1,790.8 L575.8,790.2 L577.6,789.6 L579.3,788.9 L581.0,788.2 L582.7,787.5 L584.4,786.8 L586.1,786.0 L587.7,785.2 L589.4,784.4 L591.0,783.6 L592.6,782.7 L594.2,781.8 L595.8,780.9 L597.4,780.0 L598.9,779.1 L600.4,778.1 L602.0,777.1 L603.5,776.1 L605.0,775.1 L606.4,774.1 L607.9,773.1 L609.3,772.0 L610.7,770.9 L612.2,769.8 L613.5,768.7 L614.9,767.5 L616.3,766.4 L617.6,765.2 L619.0,764.0 L620.3,762.8 L621.6,761.6 L622.9,760.4 L624.1,759.1 L625.4,757.9 L626.6,756.6 L627.8,755.3 L629.0,754.0 L630.2,752.6 L631.4,751.3 L632.5,749.9 L633.7,748.5 L634.8,747.2 L635.9,745.7 L637.0,744.3 L638.1,742.9 L639.1,741.4 L640.1,740.0 L641.1,738.5 L642.1,737.0 L643.1,735.4 L644.1,733.9 L645.0,732.4 L645.9,730.8 L646.8,729.2 L647.7,727.6 L648.6,726.0 L649.4,724.4 L650.2,722.7 L651.0,721.1 L651.8,719.4 L652.5,717.7 L653.2,716.0 L653.9,714.3 L654.6,712.6 L655.2,710.8 L655.8,709.1 L656.4,707.3 L657.0,705.5 L657.5,703.7 L658.0,701.9 L658.5,700.1 L659.0,698.2 L659.4,696.4 L659.8,694.5 L660.1,692.7 L660.4,690.8 L660.7,688.9 L663.0,687.0 Z" stroke="#1f6fd1" stroke-width="1.8" fill="none"/>
+<circle cx="552.0" cy="687.0" r="5.0" stroke="#000" stroke-width="1.0" fill="#000"/>
+<line x1="552.0" y1="687.0" x2="655.4" y2="649.4" stroke="#000" stroke-width="2.5"/>
+<text x="592.0" y="685.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">R 150</text>
+<line x1="432.0" y1="567.0" x2="672.0" y2="807.0" stroke="#555" stroke-width="0.6" stroke-dasharray="3 3"/>
+<text x="682.0" y="592.0" font-size="11.5" text-anchor="start" fill="#1f6fd1">oval at 45°</text>
+<text x="682.0" y="607.0" font-size="11.5" text-anchor="start" fill="#1f6fd1">= squareness</text>
+<text x="682.0" y="782.0" font-size="11.5" text-anchor="start" fill="#000">spikes at the</text>
+<text x="682.0" y="797.0" font-size="11.5" text-anchor="start" fill="#000">quadrants =</text>
+<text x="682.0" y="812.0" font-size="11.5" text-anchor="start" fill="#000">reversal/backlash</text>
+<text x="422.0" y="837.0" font-size="11.5" text-anchor="start" fill="#000">plot magnified (e.g. 5 µm/div); sensor 0.1 µm</text>
+<text x="422.0" y="853.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">circularity = max − min radius (example 9 µm ≤ 12)</text>
+<text x="422.0" y="869.0" font-size="11.5" text-anchor="start" fill="#000">same R, F, plane, program every time → trend file</text>
+<text x="422.0" y="885.0" font-size="11.5" text-anchor="start" fill="#000">diagnosis table: §E6</text>
+<text x="808.0" y="500.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">(f) the 6 errors of one linear axis (X)</text>
+<text x="808.0" y="517.0" font-size="11.5" text-anchor="start" fill="#555">3 axes × 6 + 3 squareness = 21 geometric errors</text>
+<path d="M902,652 L1042,652 L1082,617 L942,617 Z" stroke="#000" stroke-width="1.3" fill="#f0f0f0"/>
+<rect x="902.0" y="652.0" width="140.0" height="50.0" rx="0" stroke="#000" stroke-width="1.3" fill="#e4e4e4"/>
+<path d="M1042,652 L1082,617 L1082,667 L1042,702 Z" stroke="#000" stroke-width="1.3" fill="#d8d8d8"/>
+<line x1="822.0" y1="737.0" x2="1142.0" y2="737.0" stroke="#000" stroke-width="2.5"/>
+<line x1="822.0" y1="747.0" x2="1142.0" y2="747.0" stroke="#000" stroke-width="2.5"/>
+<text x="822.0" y="764.0" font-size="11" text-anchor="start" fill="#555">guideway X</text>
+<line x1="992.0" y1="660.0" x2="1102.0" y2="660.0" stroke="#1f6fd1" stroke-width="1.8" marker-end="url(#ea)"/>
+<text x="1096.0" y="682.0" font-size="11" text-anchor="middle" fill="#1f6fd1" font-weight="bold">E_XX positioning</text>
+<line x1="992.0" y1="660.0" x2="992.0" y2="565.0" stroke="#000" stroke-width="1.4" marker-end="url(#ek)"/>
+<text x="996.0" y="562.0" font-size="11" text-anchor="start" fill="#000">E_YX straightness (Y)</text>
+<line x1="992.0" y1="660.0" x2="932.0" y2="710.0" stroke="#000" stroke-width="1.4" marker-end="url(#ek)"/>
+<text x="928.0" y="724.0" font-size="11" text-anchor="end" fill="#000">E_ZX straightness (Z)</text>
+<path d="M1040,640 A12,6 0 1 1 1064,640" stroke="#555" stroke-width="1.3" fill="none"/>
+<text x="1066.0" y="614.0" font-size="11" text-anchor="start" fill="#000">E_AX roll (about X)</text>
+<path d="M955,600 A12,6 0 1 1 979,600" stroke="#555" stroke-width="1.3" fill="none"/>
+<text x="953.0" y="594.0" font-size="11" text-anchor="end" fill="#000">E_BX pitch</text>
+<path d="M910,630 A12,6 0 1 1 934,630" stroke="#555" stroke-width="1.3" fill="none"/>
+<text x="908.0" y="626.0" font-size="11" text-anchor="end" fill="#000">E_CX yaw</text>
+<text x="812.0" y="827.0" font-size="11.5" text-anchor="start" fill="#000">measure: E_XX laser; E_YX/E_ZX straight edge or</text>
+<text x="812.0" y="843.0" font-size="11.5" text-anchor="start" fill="#000">laser straightness; E_AX electronic level (2 heads);</text>
+<text x="812.0" y="859.0" font-size="11.5" text-anchor="start" fill="#000">E_BX level or laser angular; E_CX laser angular</text>
+<text x="812.0" y="879.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">Abbe: pitch 20 µrad × offset 300 mm = 6 µm</text>
+<rect x="588.0" y="972.0" width="600.0" height="56.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<line x1="588.0" y1="998.0" x2="1188.0" y2="998.0" stroke="#000" stroke-width="0.8"/>
+<line x1="924.0" y1="998.0" x2="924.0" y2="1028.0" stroke="#000" stroke-width="0.8"/>
+<text x="596.0" y="990.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">ISO 230 geometric test set-ups (sketches)</text>
+<text x="596.0" y="1017.0" font-size="12" text-anchor="start" fill="#1f6fd1" font-weight="bold">EXAMPLE – check the maker's installation manual</text>
+<text x="932.0" y="1010.0" font-size="11.5" text-anchor="start" fill="#000">Dwg 26-07 · guide 26 §B5, §E3–E6</text>
+<text x="932.0" y="1023.0" font-size="11" text-anchor="start" fill="#000">HMC 500, tolerances = app examples</text>
+</svg>

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 900" width="1240" height="900" font-family="Arial, Helvetica, sans-serif">
+<title>Digital model, digital shadow, digital twin and maturity levels</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1240" height="900" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">01 – Digital model, digital shadow, digital twin · maturity levels · ISO 23247 entities</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" fill="#444">Difference = direction and automation of the data flow (after Kritzinger et al., 2018). Solid = automatic, dashed = manual.</text>
+<rect x="30.0" y="70.0" width="360.0" height="270.0" rx="0" fill="#f7f7f7" stroke="#888" stroke-width="0.8"/>
+<text x="210.0" y="94.0" font-size="14" text-anchor="middle" font-weight="bold" fill="#111">DIGITAL MODEL</text>
+<rect x="70.0" y="112.0" width="280.0" height="50.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="210.0" y="133.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Digital object</text>
+<text x="210.0" y="149.2" font-size="12" text-anchor="middle" fill="#111">model in the computer</text>
+<rect x="70.0" y="232.0" width="280.0" height="50.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="210.0" y="253.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Physical object</text>
+<text x="210.0" y="269.2" font-size="12" text-anchor="middle" fill="#111">real machine / factory</text>
+<line x1="150.0" y1="230.0" x2="150.0" y2="165.0" stroke="#111" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ak)"/>
+<text x="142.0" y="202.0" font-size="11" text-anchor="end" fill="#111">data: manual</text>
+<line x1="270.0" y1="165.0" x2="270.0" y2="230.0" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ar)"/>
+<text x="278.0" y="202.0" font-size="11" text-anchor="start" fill="#c0392b">action: manual</text>
+<text x="210.0" y="306.0" font-size="12" text-anchor="middle" fill="#111">Layout, capacity sheet,</text>
+<text x="210.0" y="322.0" font-size="12" text-anchor="middle" fill="#111">offline simulation study</text>
+<rect x="440.0" y="70.0" width="360.0" height="270.0" rx="0" fill="#f7f7f7" stroke="#888" stroke-width="0.8"/>
+<text x="620.0" y="94.0" font-size="14" text-anchor="middle" font-weight="bold" fill="#111">DIGITAL SHADOW</text>
+<rect x="480.0" y="112.0" width="280.0" height="50.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="620.0" y="133.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Digital object</text>
+<text x="620.0" y="149.2" font-size="12" text-anchor="middle" fill="#111">model in the computer</text>
+<rect x="480.0" y="232.0" width="280.0" height="50.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="620.0" y="253.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Physical object</text>
+<text x="620.0" y="269.2" font-size="12" text-anchor="middle" fill="#111">real machine / factory</text>
+<line x1="560.0" y1="230.0" x2="560.0" y2="165.0" stroke="#111" stroke-width="2" marker-end="url(#ak)"/>
+<text x="552.0" y="202.0" font-size="11" text-anchor="end" fill="#111">data: automatic</text>
+<line x1="680.0" y1="165.0" x2="680.0" y2="230.0" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ar)"/>
+<text x="688.0" y="202.0" font-size="11" text-anchor="start" fill="#c0392b">action: manual</text>
+<text x="620.0" y="306.0" font-size="12" text-anchor="middle" fill="#111">Live monitoring, OEE,</text>
+<text x="620.0" y="322.0" font-size="12" text-anchor="middle" fill="#111">historian, alarms</text>
+<rect x="850.0" y="70.0" width="360.0" height="270.0" rx="0" fill="#f7f7f7" stroke="#888" stroke-width="0.8"/>
+<text x="1030.0" y="94.0" font-size="14" text-anchor="middle" font-weight="bold" fill="#111">DIGITAL TWIN</text>
+<rect x="890.0" y="112.0" width="280.0" height="50.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="1030.0" y="133.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Digital object</text>
+<text x="1030.0" y="149.2" font-size="12" text-anchor="middle" fill="#111">model in the computer</text>
+<rect x="890.0" y="232.0" width="280.0" height="50.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="1030.0" y="253.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Physical object</text>
+<text x="1030.0" y="269.2" font-size="12" text-anchor="middle" fill="#111">real machine / factory</text>
+<line x1="970.0" y1="230.0" x2="970.0" y2="165.0" stroke="#111" stroke-width="2" marker-end="url(#ak)"/>
+<text x="962.0" y="202.0" font-size="11" text-anchor="end" fill="#111">data: automatic</text>
+<line x1="1090.0" y1="165.0" x2="1090.0" y2="230.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<text x="1098.0" y="202.0" font-size="11" text-anchor="start" fill="#c0392b">action: automatic</text>
+<text x="1030.0" y="306.0" font-size="12" text-anchor="middle" fill="#111">Twin decides or proposes</text>
+<text x="1030.0" y="322.0" font-size="12" text-anchor="middle" fill="#111">and the plant follows</text>
+<text x="30.0" y="378.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">Maturity levels (practical scale used in this guide – not a standard)</text>
+<rect x="30.0" y="396.0" width="740.0" height="40.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="40.0" y="421.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">L0</text>
+<text x="80.0" y="413.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Static model</text>
+<text x="80.0" y="429.0" font-size="11" text-anchor="start" fill="#111">CAD layout, spreadsheet capacity (4.2 by hand)</text>
+<text x="750.0" y="421.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">done</text>
+<rect x="70.0" y="442.0" width="700.0" height="40.0" rx="0" fill="#f4f4f4" stroke="#c0392b" stroke-width="2"/>
+<text x="80.0" y="467.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">L1</text>
+<text x="120.0" y="459.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Simulation model</text>
+<text x="120.0" y="475.0" font-size="11" text-anchor="start" fill="#111">time-step simulation, what-if with CRN (4.14)</text>
+<text x="750.0" y="467.0" font-size="11" text-anchor="end" font-weight="bold" fill="#c0392b">done – this twin</text>
+<rect x="110.0" y="488.0" width="660.0" height="40.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="120.0" y="513.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">L2</text>
+<text x="160.0" y="505.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Digital shadow</text>
+<text x="160.0" y="521.0" font-size="11" text-anchor="start" fill="#111">live data via /api/ingest, OFFLINE detection (5.3)</text>
+<text x="750.0" y="513.0" font-size="11" text-anchor="end" font-weight="bold" fill="#c0392b">ready – needs gateways</text>
+<rect x="150.0" y="534.0" width="620.0" height="40.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="160.0" y="559.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">L3</text>
+<text x="200.0" y="551.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Diagnostic / predictive</text>
+<text x="200.0" y="567.0" font-size="11" text-anchor="start" fill="#111">health index, tool RUL, vibration trend (4.10)</text>
+<text x="750.0" y="559.0" font-size="11" text-anchor="end" font-weight="bold" fill="#c0392b">teaching version</text>
+<rect x="190.0" y="580.0" width="580.0" height="40.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="200.0" y="605.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">L4</text>
+<text x="240.0" y="597.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Prescriptive</text>
+<text x="240.0" y="613.0" font-size="11" text-anchor="start" fill="#111">forecast from live state, proposes actions (35)</text>
+<text x="750.0" y="605.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">roadmap</text>
+<rect x="230.0" y="626.0" width="540.0" height="40.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="240.0" y="651.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">L5</text>
+<text x="280.0" y="643.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Autonomous</text>
+<text x="280.0" y="659.0" font-size="11" text-anchor="start" fill="#111">closes the loop via MES / PLC with approval</text>
+<text x="750.0" y="651.0" font-size="11" text-anchor="end" font-weight="bold" fill="#111">not planned (safety)</text>
+<text x="30.0" y="690.0" font-size="12" text-anchor="start" fill="#444">▲ higher level = more automation and more value, but also more data, validation and governance effort.</text>
+<text x="820.0" y="378.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">ISO 23247-2 reference model (simplified)</text>
+<rect x="820.0" y="396.0" width="390.0" height="64.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="830.0" y="414.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">User entity</text>
+<text x="830.0" y="430.0" font-size="11" text-anchor="start" fill="#111">browsers, MES/ERP users, planners</text>
+<text x="830.0" y="448.0" font-size="11" text-anchor="start" fill="#c0392b">this project: web/app.js · index.html</text>
+<line x1="1015.0" y1="477.0" x2="1015.0" y2="461.0" stroke="#111" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="820.0" y="478.0" width="390.0" height="104.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="830.0" y="496.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Digital twin entity (core)</text>
+<text x="830.0" y="512.0" font-size="11" text-anchor="start" fill="#111">operation &amp; management · application &amp;</text>
+<text x="830.0" y="528.0" font-size="11" text-anchor="start" fill="#111">service · resource access &amp; interchange</text>
+<text x="830.0" y="548.0" font-size="11" text-anchor="start" fill="#c0392b">this project: engine.py · model.py · analytics.py</text>
+<text x="830.0" y="564.0" font-size="11" text-anchor="start" fill="#c0392b">and historian.py · server.py API</text>
+<line x1="1015.0" y1="599.0" x2="1015.0" y2="583.0" stroke="#111" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="820.0" y="600.0" width="390.0" height="64.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="830.0" y="618.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Device communication entity</text>
+<text x="830.0" y="634.0" font-size="11" text-anchor="start" fill="#111">data collection + device control</text>
+<text x="830.0" y="652.0" font-size="11" text-anchor="start" fill="#c0392b">this project: gateways · /api/ingest</text>
+<line x1="1015.0" y1="681.0" x2="1015.0" y2="665.0" stroke="#111" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="820.0" y="682.0" width="390.0" height="64.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="830.0" y="700.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Observable manufacturing elements</text>
+<text x="830.0" y="716.0" font-size="11" text-anchor="start" fill="#111">equipment, material, personnel, process</text>
+<text x="830.0" y="734.0" font-size="11" text-anchor="start" fill="#c0392b">this project: HMC-01 … PACK-01, AGVs, AS/RS</text>
+<rect x="1220.0" y="396.0" width="12.0" height="368.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.2"/>
+<text x="1215.0" y="780.0" font-size="11" text-anchor="end" fill="#111">cross-system entity: security, data</text>
+<text x="1215.0" y="794.0" font-size="11" text-anchor="end" fill="#111">assurance, interoperability (all levels)</text>
+<text x="30.0" y="730.0" font-size="12" text-anchor="start" fill="#111">ISO 23247 parts: 1 overview and principles · 2 reference architecture · 3 digital representation of manufacturing elements ·</text>
+<text x="30.0" y="746.0" font-size="12" text-anchor="start" fill="#111">4 information exchange (check the current edition). Guide 13 shows where the twin sits in the whole digital factory stack.</text>
+<text x="30.0" y="780.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Where this project is today:</text>
+<text x="30.0" y="798.0" font-size="12" text-anchor="start" fill="#111">• Planning phase: all 16 stations simulated → L1 (digital model with simulation).</text>
+<text x="30.0" y="816.0" font-size="12" text-anchor="start" fill="#111">• A machine with "external": true + gateway → that machine is a digital shadow (L2).</text>
+<text x="30.0" y="834.0" font-size="12" text-anchor="start" fill="#111">• Health index / RUL / alarms exist as teaching models → partial L3.</text>
+<text x="30.0" y="852.0" font-size="12" text-anchor="start" fill="#111">• L4 needs: start the what-if from the live state, validated model (26), governance (33).</text>
+<rect x="798.0" y="814.0" width="430.0" height="74.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<line x1="798.0" y1="840.0" x2="1228.0" y2="840.0" stroke="#111" stroke-width="1.2"/>
+<line x1="1048.0" y1="840.0" x2="1048.0" y2="888.0" stroke="#111" stroke-width="1.2"/>
+<text x="806.0" y="832.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – check the maker's documentation</text>
+<text x="806.0" y="858.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Drawing 01-002</text>
+<text x="806.0" y="876.0" font-size="11" text-anchor="start" fill="#111">Guide 01 – Digital twin core</text>
+<text x="1056.0" y="858.0" font-size="11" text-anchor="start" fill="#111">Values: config/factory.json</text>
+<text x="1056.0" y="876.0" font-size="11" text-anchor="start" fill="#111">Rev A · 2026-11-12</text>
+</svg>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>Drive train of one joint (J2) – motor, brake, encoder, RV reducer, bearing, arm</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="eg" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#555"/></marker>
+<marker id="sg" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#555"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchB" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="818" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="24" y="30" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Schematic section through the J2 joint (motor coaxial with the reducer input – simplified)</text>
+<rect x="470" y="90" width="36" height="174" rx="0" stroke="#000" stroke-width="1.2" fill="url(#hatchB)"/>
+<rect x="470" y="336" width="36" height="174" rx="0" stroke="#000" stroke-width="1.2" fill="url(#hatchB)"/>
+<rect x="52" y="258" width="58" height="84" rx="3" stroke="#000" stroke-width="1.3" fill="#dcdcdc"/>
+<line x1="70" y1="270" x2="70" y2="330" stroke="#555" stroke-width="0.8"/>
+<line x1="78" y1="270" x2="78" y2="330" stroke="#555" stroke-width="0.8"/>
+<line x1="86" y1="270" x2="86" y2="330" stroke="#555" stroke-width="0.8"/>
+<line x1="94" y1="270" x2="94" y2="330" stroke="#555" stroke-width="0.8"/>
+<line x1="102" y1="270" x2="102" y2="330" stroke="#555" stroke-width="0.8"/>
+<rect x="110" y="238" width="64" height="124" rx="0" stroke="#000" stroke-width="1.3" fill="#fff"/>
+<rect x="122" y="246" width="10" height="108" rx="0" stroke="#000" stroke-width="1" fill="url(#hatch)"/>
+<rect x="140" y="246" width="14" height="108" rx="0" stroke="#000" stroke-width="1" fill="#dcdcdc"/>
+<path d="M156,265 l4,4 l4,-8 l4,8 l4,-8 l4,4" stroke="#000" stroke-width="1" fill="none"/>
+<path d="M156,335 l4,4 l4,-8 l4,8 l4,-8 l4,4" stroke="#000" stroke-width="1" fill="none"/>
+<rect x="174" y="218" width="236" height="164" rx="4" stroke="#000" stroke-width="1.4" fill="#fff"/>
+<rect x="174" y="218" width="236" height="14" rx="0" stroke="#000" stroke-width="1" fill="url(#hatch)"/>
+<rect x="174" y="368" width="236" height="14" rx="0" stroke="#000" stroke-width="1" fill="url(#hatch)"/>
+<rect x="200" y="234" width="180" height="30" rx="0" stroke="#000" stroke-width="1" fill="url(#hatchB)"/>
+<rect x="200" y="336" width="180" height="30" rx="0" stroke="#000" stroke-width="1" fill="url(#hatchB)"/>
+<rect x="205" y="266" width="170" height="18" rx="0" stroke="#000" stroke-width="1" fill="#dcdcdc"/>
+<rect x="205" y="316" width="170" height="18" rx="0" stroke="#000" stroke-width="1" fill="#dcdcdc"/>
+<rect x="410" y="204" width="60" height="192" rx="0" stroke="#000" stroke-width="1.3" fill="url(#hatch)"/>
+<rect x="410" y="288" width="60" height="24" rx="0" stroke="none" stroke-width="0" fill="#fff"/>
+<rect x="60" y="291" width="470" height="18" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<line x1="30" y1="300" x2="860" y2="300" stroke="#555" stroke-width="0.8" stroke-dasharray="14 3 2 3"/>
+<rect x="506" y="125" width="240" height="32" rx="0" stroke="#000" stroke-width="1.3" fill="url(#hatchB)"/>
+<rect x="506" y="443" width="240" height="32" rx="0" stroke="#000" stroke-width="1.3" fill="url(#hatchB)"/>
+<circle cx="600" cy="163" r="4" stroke="#000" stroke-width="0.9" fill="#fff"/>
+<circle cx="609" cy="163" r="4" stroke="#000" stroke-width="0.9" fill="#fff"/>
+<circle cx="618" cy="163" r="4" stroke="#000" stroke-width="0.9" fill="#fff"/>
+<circle cx="627" cy="163" r="4" stroke="#000" stroke-width="0.9" fill="#fff"/>
+<circle cx="636" cy="163" r="4" stroke="#000" stroke-width="0.9" fill="#fff"/>
+<circle cx="645" cy="163" r="4" stroke="#000" stroke-width="0.9" fill="#fff"/>
+<circle cx="600" cy="437" r="4" stroke="#000" stroke-width="0.9" fill="#fff"/>
+<circle cx="609" cy="437" r="4" stroke="#000" stroke-width="0.9" fill="#fff"/>
+<circle cx="618" cy="437" r="4" stroke="#000" stroke-width="0.9" fill="#fff"/>
+<circle cx="627" cy="437" r="4" stroke="#000" stroke-width="0.9" fill="#fff"/>
+<circle cx="636" cy="437" r="4" stroke="#000" stroke-width="0.9" fill="#fff"/>
+<circle cx="645" cy="437" r="4" stroke="#000" stroke-width="0.9" fill="#fff"/>
+<rect x="515" y="276" width="30" height="48" rx="0" stroke="#000" stroke-width="1.2" fill="#dcdcdc"/>
+<rect x="515" y="180" width="30" height="70" rx="0" stroke="#000" stroke-width="1.2" fill="#dcdcdc"/>
+<rect x="515" y="350" width="30" height="70" rx="0" stroke="#000" stroke-width="1.2" fill="#dcdcdc"/>
+<rect x="545" y="207" width="170" height="16" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<rect x="596" y="197" width="22" height="28" rx="0" stroke="#000" stroke-width="1" fill="#fff"/>
+<rect x="624" y="205" width="22" height="28" rx="0" stroke="#000" stroke-width="1" fill="#fff"/>
+<rect x="545" y="377" width="170" height="16" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<rect x="596" y="375" width="22" height="28" rx="0" stroke="#000" stroke-width="1" fill="#fff"/>
+<rect x="624" y="367" width="22" height="28" rx="0" stroke="#000" stroke-width="1" fill="#fff"/>
+<rect x="596" y="165" width="22" height="270" rx="0" stroke="#000" stroke-width="1.2" fill="url(#hatch)"/>
+<rect x="624" y="165" width="22" height="270" rx="0" stroke="#000" stroke-width="1.2" fill="url(#hatchB)"/>
+<rect x="596" y="270" width="50" height="60" rx="0" stroke="none" stroke-width="0" fill="#fff"/>
+<rect x="560" y="170" width="30" height="260" rx="0" stroke="#1f6fd1" stroke-width="1.2" fill="url(#hatchA)"/>
+<rect x="652" y="170" width="64" height="260" rx="0" stroke="#1f6fd1" stroke-width="1.2" fill="url(#hatchA)"/>
+<rect x="560" y="270" width="30" height="60" rx="0" stroke="none" stroke-width="0" fill="#fff"/>
+<rect x="652" y="270" width="64" height="60" rx="0" stroke="none" stroke-width="0" fill="#fff"/>
+<rect x="545" y="207" width="170" height="16" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<rect x="545" y="377" width="170" height="16" rx="0" stroke="#000" stroke-width="1.1" fill="#fff"/>
+<rect x="555" y="139" width="22" height="18" rx="0" stroke="#000" stroke-width="1" fill="#fff"/>
+<circle cx="566" cy="148" r="6" stroke="#000" stroke-width="1.1" fill="#dcdcdc"/>
+<line x1="557" y1="155" x2="575" y2="141" stroke="#000" stroke-width="0.7"/>
+<rect x="555" y="443" width="22" height="18" rx="0" stroke="#000" stroke-width="1" fill="#fff"/>
+<circle cx="566" cy="452" r="6" stroke="#000" stroke-width="1.1" fill="#dcdcdc"/>
+<line x1="557" y1="445" x2="575" y2="459" stroke="#000" stroke-width="0.7"/>
+<rect x="679" y="139" width="22" height="18" rx="0" stroke="#000" stroke-width="1" fill="#fff"/>
+<circle cx="690" cy="148" r="6" stroke="#000" stroke-width="1.1" fill="#dcdcdc"/>
+<line x1="681" y1="155" x2="699" y2="141" stroke="#000" stroke-width="0.7"/>
+<rect x="679" y="443" width="22" height="18" rx="0" stroke="#000" stroke-width="1" fill="#fff"/>
+<circle cx="690" cy="452" r="6" stroke="#000" stroke-width="1.1" fill="#dcdcdc"/>
+<line x1="681" y1="445" x2="699" y2="459" stroke="#000" stroke-width="0.7"/>
+<rect x="716" y="150" width="40" height="300" rx="0" stroke="#1f6fd1" stroke-width="1.3" fill="url(#hatchA)"/>
+<rect x="756" y="100" width="44" height="400" rx="0" stroke="#1f6fd1" stroke-width="1.4" fill="url(#hatchA)"/>
+<line x1="726" y1="180" x2="790" y2="180" stroke="#000" stroke-width="1.6"/>
+<line x1="726" y1="420" x2="790" y2="420" stroke="#000" stroke-width="1.6"/>
+<path d="M60,64 L700,64" stroke="#1f6fd1" stroke-width="2.2" fill="none" marker-end="url(#ea)"/>
+<text x="380" y="56" font-size="12" text-anchor="middle" fill="#1f6fd1" font-weight="bold">power flow: motor (fast, small torque) → reducer → arm (slow, high torque)</text>
+<line x1="80" y1="258" x2="60" y2="100" stroke="#555" stroke-width="0.8"/>
+<circle cx="80" cy="258" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="64" y="96.8" font-size="11" text-anchor="start" fill="#000">① absolute encoder</text>
+<text x="64" y="111.7" font-size="11" text-anchor="start" fill="#000">20–24 bit, EnDat / BiSS</text>
+<line x1="140" y1="362" x2="80" y2="560" stroke="#555" stroke-width="0.8"/>
+<circle cx="140" cy="362" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="84" y="556.9" font-size="11" text-anchor="start" fill="#000">② holding brake 24 V DC</text>
+<text x="84" y="571.7" font-size="11" text-anchor="start" fill="#000">spring-applied</text>
+<line x1="290" y1="382" x2="250" y2="560" stroke="#555" stroke-width="0.8"/>
+<circle cx="290" cy="382" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="254" y="556.9" font-size="11" text-anchor="start" fill="#000">③ AC servo motor (PMSM)</text>
+<text x="254" y="571.7" font-size="11" text-anchor="start" fill="#000">2 kW, 3000 rpm, 6.37 N·m</text>
+<line x1="440" y1="396" x2="430" y2="600" stroke="#555" stroke-width="0.8"/>
+<circle cx="440" cy="396" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="434" y="596.9" font-size="11" text-anchor="start" fill="#000">④ adapter flange</text>
+<text x="434" y="611.7" font-size="11" text-anchor="start" fill="#000">+ shaft seal</text>
+<line x1="530" y1="320" x2="520" y2="650" stroke="#555" stroke-width="0.8"/>
+<circle cx="530" cy="320" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="524" y="648" font-size="11" text-anchor="start" fill="#000">⑤ input pinion Z1 = 12</text>
+<line x1="530" y1="180" x2="520" y2="100" stroke="#555" stroke-width="0.8"/>
+<circle cx="530" cy="180" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="524" y="98" font-size="11" text-anchor="start" fill="#000">⑥ spur gear Z2 = 36 on 3 crankshafts</text>
+<line x1="607" y1="420" x2="640" y2="560" stroke="#555" stroke-width="0.8"/>
+<circle cx="607" cy="420" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="644" y="558" font-size="11" text-anchor="start" fill="#000">⑦ 2 cycloid discs, 39 lobes</text>
+<line x1="620" y1="470" x2="640" y2="600" stroke="#555" stroke-width="0.8"/>
+<circle cx="620" cy="470" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="644" y="598" font-size="11" text-anchor="start" fill="#000">⑧ case + Z4 = 40 pins (fixed)</text>
+<line x1="690" y1="452" x2="660" y2="650" stroke="#555" stroke-width="0.8"/>
+<circle cx="690" cy="452" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="664" y="648" font-size="11" text-anchor="start" fill="#000">⑨ main bearings (angular contact)</text>
+<line x1="736" y1="160" x2="712" y2="86" stroke="#555" stroke-width="0.8"/>
+<circle cx="736" cy="160" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="716" y="84" font-size="11" text-anchor="start" fill="#000">⑩ output flange → arm</text>
+<line x1="778" y1="490" x2="806" y2="528" stroke="#555" stroke-width="0.8"/>
+<circle cx="778" cy="490" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="810" y="526" font-size="11" text-anchor="start" fill="#000">⑪ lower arm</text>
+<line x1="488" y1="110" x2="430" y2="100" stroke="#555" stroke-width="0.8"/>
+<circle cx="488" cy="110" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="426" y="98" font-size="11" text-anchor="end" fill="#000">⑫ column (fixed)</text>
+<text x="24" y="682" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Signal and power chain (example J2, joint speed 20 rpm, net torque 413 N·m):</text>
+<rect x="24" y="694" width="112" height="40" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="80" y="710" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">servo drive</text>
+<text x="80" y="726" font-size="11" text-anchor="middle" fill="#000">current I</text>
+<line x1="136" y1="714" x2="158" y2="714" stroke="#000" stroke-width="1.3" marker-end="url(#ek)"/>
+<rect x="158" y="694" width="112" height="40" rx="4" stroke="#1f6fd1" stroke-width="1.2" fill="#fff"/>
+<text x="214" y="710" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">motor</text>
+<text x="214" y="726" font-size="11" text-anchor="middle" fill="#000">2420 rpm · 4.0 N·m</text>
+<line x1="270" y1="714" x2="292" y2="714" stroke="#000" stroke-width="1.3" marker-end="url(#ek)"/>
+<rect x="292" y="694" width="112" height="40" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="348" y="710" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">1st stage</text>
+<text x="348" y="726" font-size="11" text-anchor="middle" fill="#000">Z2/Z1 = 3</text>
+<line x1="404" y1="714" x2="426" y2="714" stroke="#000" stroke-width="1.3" marker-end="url(#ek)"/>
+<rect x="426" y="694" width="112" height="40" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="482" y="710" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">2nd stage</text>
+<text x="482" y="726" font-size="11" text-anchor="middle" fill="#000">×40 → i = 121</text>
+<line x1="538" y1="714" x2="560" y2="714" stroke="#000" stroke-width="1.3" marker-end="url(#ek)"/>
+<rect x="560" y="694" width="112" height="40" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="616" y="710" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">bearing</text>
+<text x="616" y="726" font-size="11" text-anchor="middle" fill="#000">tilt moment</text>
+<line x1="672" y1="714" x2="694" y2="714" stroke="#000" stroke-width="1.3" marker-end="url(#ek)"/>
+<rect x="694" y="694" width="112" height="40" rx="4" stroke="#1f6fd1" stroke-width="1.2" fill="#fff"/>
+<text x="750" y="710" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">lower arm</text>
+<text x="750" y="726" font-size="11" text-anchor="middle" fill="#000">20 rpm · 413 N·m</text>
+<path d="M80,734 L80,752 L190,752" stroke="#1f6fd1" stroke-width="1.1" fill="none" stroke-dasharray="4 3"/>
+<path d="M190,752 L190,734" stroke="#1f6fd1" stroke-width="1.1" fill="none" stroke-dasharray="4 3" marker-end="url(#ea)"/>
+<text x="196" y="756" font-size="11" text-anchor="start" fill="#1f6fd1">encoder feedback (position, speed)</text>
+<rect x="880" y="90" width="306" height="92" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="888" y="106.5" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Ratio – RV reducer, case fixed</text>
+<text x="888" y="122.6" font-size="11.5" text-anchor="start" fill="#000">i = 1 + (Z2 / Z1) · Z4</text>
+<text x="888" y="138.1" font-size="11.5" text-anchor="start" fill="#000">  = 1 + (36 / 12) · 40 = 121</text>
+<text x="888" y="153.7" font-size="11.5" text-anchor="start" fill="#000">n_m = i · n_joint = 121 × 20 = 2420 rpm</text>
+<rect x="880" y="192" width="306" height="92" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="888" y="208.5" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Torque at the motor</text>
+<text x="888" y="224.6" font-size="11.5" text-anchor="start" fill="#000">τ_m = τ_joint / (i · η)</text>
+<text x="888" y="240.1" font-size="11.5" text-anchor="start" fill="#000">  = 413 / (121 × 0.85) = 4.0 N·m</text>
+<text x="888" y="255.7" font-size="11.5" text-anchor="start" fill="#000">peak torque, RMS torque, speed → guide 22 §17</text>
+<rect x="880" y="294" width="306" height="108" rx="4" stroke="#1f6fd1" stroke-width="1.2" fill="#fff"/>
+<text x="888" y="310.5" font-size="12.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">Stiffness → tool deflection (4.1.6)</text>
+<text x="888" y="326.6" font-size="11.5" text-anchor="start" fill="#000">k = 196 N·m/arcmin = 673 800 N·m/rad</text>
+<text x="888" y="342.1" font-size="11.5" text-anchor="start" fill="#000">θ = T / k = 413 / 673 800 = 2.1 arcmin</text>
+<text x="888" y="357.7" font-size="11.5" text-anchor="start" fill="#000">δ = θ · r = 6.13·10⁻⁴ × 1200 = 0.74 mm</text>
+<text x="888" y="373.2" font-size="11.5" text-anchor="start" fill="#000">repeatable → good RP, but absolute error</text>
+<rect x="880" y="412" width="306" height="124" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="888" y="428.5" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">RV size 80 class data (4.1.5)</text>
+<text x="888" y="444.6" font-size="11.5" text-anchor="start" fill="#000">T0 = 784 N·m at 15 rpm, life K = 6000 h</text>
+<text x="888" y="460.1" font-size="11.5" text-anchor="start" fill="#000">accel. torque 1960 N·m (2.5 × T0)</text>
+<text x="888" y="475.7" font-size="11.5" text-anchor="start" fill="#000">momentary max 3920 N·m (5 × T0) – E-stop</text>
+<text x="888" y="491.2" font-size="11.5" text-anchor="start" fill="#000">lost motion ≤ 1 arcmin · ratios 57 … 153</text>
+<text x="888" y="506.7" font-size="11.5" text-anchor="start" fill="#000">e.g. Nabtesco RV-80N (check datasheet)</text>
+<rect x="880" y="546" width="306" height="108" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="888" y="562.5" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Bearing tilt (4.2, J1 example)</text>
+<text x="888" y="578.6" font-size="11.5" text-anchor="start" fill="#000">M = 1143 N·m, K_m = 1500 N·m/arcmin</text>
+<text x="888" y="594.1" font-size="11.5" text-anchor="start" fill="#000">θ = 0.76 arcmin → δ = 0.42 mm at 1.9 m</text>
+<text x="888" y="609.6" font-size="11.5" text-anchor="start" fill="#000">own axes: crossed roller bearing</text>
+<text x="888" y="625.2" font-size="11.5" text-anchor="start" fill="#000">THK RU / RB, IKO CRBH (check)</text>
+<rect x="540" y="764" width="648" height="54" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="540" y1="790" x2="1188" y2="790" stroke="#000" stroke-width="0.8"/>
+<line x1="910" y1="790" x2="910" y2="818" stroke="#000" stroke-width="0.8"/>
+<text x="548" y="782" font-size="14" font-weight="bold">Drive train of one joint (J2) – motor, brake, encoder, RV reducer, bearing, arm</text>
+<text x="548" y="809" font-size="12" font-weight="bold" fill="#1f6fd1">EXAMPLE – check the maker's documentation</text>
+<text x="918" y="802" font-size="11.5">Dwg 21-02 · guide 21 §4 · schematic section</text>
+<text x="918" y="814" font-size="11">RV-80 class reducer, 2 kW servo – example values</text>
+</svg>

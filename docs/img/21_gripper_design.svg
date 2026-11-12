@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>2-finger gripper with V-jaws – forces, friction, form fit (compressor housing)</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="eg" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#555"/></marker>
+<marker id="sg" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#555"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchB" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="818" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="24" y="30" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Front view – tool pointing down, part axis vertical (pick from the conveyor)</text>
+<rect x="184.9" y="72" width="130.2" height="20" rx="0" stroke="#000" stroke-width="1.3" fill="#dcdcdc"/>
+<rect x="160.8" y="92" width="178.5" height="14.7" rx="0" stroke="#000" stroke-width="1.3" fill="url(#hatch)"/>
+<rect x="132.4" y="106.7" width="235.2" height="75.6" rx="4" stroke="#000" stroke-width="1.4" fill="#f7f7f7"/>
+<text x="250" y="136.1" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">pneumatic 2-jaw parallel gripper</text>
+<text x="250" y="152.9" font-size="11" text-anchor="middle" fill="#000">piston Ø63 · 0.5 MPa · spring-assisted</text>
+<circle cx="147.1" cy="121.4" r="4.5" stroke="#000" stroke-width="1" fill="#fff"/>
+<circle cx="352.9" cy="121.4" r="4.5" stroke="#000" stroke-width="1" fill="#fff"/>
+<line x1="250" y1="58" x2="250" y2="391.2" stroke="#555" stroke-width="0.8" stroke-dasharray="14 3 2 3"/>
+<rect x="166" y="197" width="168" height="18.9" rx="0" stroke="#000" stroke-width="1.4" fill="#dfe9f8"/>
+<rect x="176.5" y="215.9" width="147" height="149.1" rx="0" stroke="#000" stroke-width="1.5" fill="#eef3fb"/>
+<text x="260" y="314.6" font-size="12" text-anchor="start" fill="#000" font-weight="bold">part</text>
+<text x="260" y="329.3" font-size="11" text-anchor="start" fill="#000">10 kg</text>
+<rect x="111.4" y="182.3" width="75.6" height="12.6" rx="0" stroke="#000" stroke-width="1.1" fill="#dcdcdc"/>
+<path d="M111.4,194.9 L159.7,194.9 L159.7,219.1 L176.5,219.1 L176.5,354.5 L111.4,354.5 Z" stroke="#000" stroke-width="1.5" fill="#f7f7f7"/>
+<path d="M103.4,194.9 L103.4,354.5" stroke="#555" stroke-width="1" fill="4 3"/>
+<line x1="56.4" y1="281" x2="108.4" y2="281" stroke="#1f6fd1" stroke-width="2.6" marker-end="url(#ea)"/>
+<text x="81.4" y="273" font-size="13" text-anchor="middle" fill="#1f6fd1" font-weight="bold">F_G</text>
+<line x1="183.5" y1="335.6" x2="183.5" y2="297.8" stroke="#1f6fd1" stroke-width="1.6" marker-end="url(#ea)"/>
+<text x="183.5" y="291.8" font-size="12" text-anchor="middle" fill="#1f6fd1" font-weight="bold">μ·N</text>
+<rect x="313" y="182.3" width="75.6" height="12.6" rx="0" stroke="#000" stroke-width="1.1" fill="#dcdcdc"/>
+<path d="M388.6,194.9 L340.3,194.9 L340.3,219.1 L323.5,219.1 L323.5,354.5 L388.6,354.5 Z" stroke="#000" stroke-width="1.5" fill="#f7f7f7"/>
+<path d="M396.6,194.9 L396.6,354.5" stroke="#555" stroke-width="1" fill="4 3"/>
+<line x1="443.6" y1="281" x2="391.6" y2="281" stroke="#1f6fd1" stroke-width="2.6" marker-end="url(#ea)"/>
+<text x="418.6" y="273" font-size="13" text-anchor="middle" fill="#1f6fd1" font-weight="bold">F_G</text>
+<line x1="316.5" y1="335.6" x2="316.5" y2="297.8" stroke="#1f6fd1" stroke-width="1.6" marker-end="url(#ea)"/>
+<text x="316.5" y="291.8" font-size="12" text-anchor="middle" fill="#1f6fd1" font-weight="bold">μ·N</text>
+<text x="400.6" y="356.5" font-size="11" text-anchor="start" fill="#555">open position (dashed)</text>
+<line x1="250" y1="281" x2="250" y2="359.8" stroke="#1f6fd1" stroke-width="2.6" marker-end="url(#ea)"/>
+<circle cx="250" cy="281" r="5" stroke="#1f6fd1" stroke-width="1.2" fill="#fff"/>
+<text x="250" y="409.5" font-size="12" text-anchor="middle" fill="#1f6fd1" font-weight="bold">m·(g + a) = 10 × 19.81 = 198 N</text>
+<line x1="89.5" y1="92" x2="87.5" y2="92" stroke="#555" stroke-width="0.7"/>
+<line x1="89.5" y1="281" x2="87.5" y2="281" stroke="#555" stroke-width="0.7"/>
+<line x1="92.5" y1="92" x2="92.5" y2="281" stroke="#000" stroke-width="0.9" marker-end="url(#ek)" marker-start="url(#sk)"/>
+<text x="96.5" y="186.5" font-size="12" text-anchor="middle" fill="#000" transform="rotate(90 96.5 186.5)">TCP 180</text>
+<line x1="88.3" y1="92" x2="182.8" y2="92" stroke="#555" stroke-width="0.6"/>
+<line x1="88.3" y1="281" x2="107.2" y2="281" stroke="#555" stroke-width="0.6"/>
+<line x1="176.5" y1="378.5" x2="176.5" y2="380.5" stroke="#555" stroke-width="0.7"/>
+<line x1="323.5" y1="378.5" x2="323.5" y2="380.5" stroke="#555" stroke-width="0.7"/>
+<line x1="176.5" y1="375.5" x2="323.5" y2="375.5" stroke="#000" stroke-width="0.9" marker-end="url(#ek)" marker-start="url(#sk)"/>
+<text x="250" y="389.5" font-size="12" text-anchor="middle" fill="#000">Ø140</text>
+<line x1="66.2" y1="239" x2="82" y2="239" stroke="#000" stroke-width="2.2"/>
+<text x="71.5" y="233" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">A</text>
+<line x1="433.8" y1="239" x2="418" y2="239" stroke="#000" stroke-width="2.2"/>
+<text x="428.5" y="233" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">A</text>
+<line x1="315.1" y1="82" x2="520" y2="60" stroke="#555" stroke-width="0.8"/>
+<circle cx="315.1" cy="82" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="524" y="58" font-size="11" text-anchor="start" fill="#000">robot flange ISO 9409-1 (J6)</text>
+<line x1="339.2" y1="99.3" x2="520" y2="92" stroke="#555" stroke-width="0.8"/>
+<circle cx="339.2" cy="99.3" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="524" y="90" font-size="11" text-anchor="start" fill="#000">adapter plate (dowel pin + centring)</text>
+<line x1="352.9" y1="121.4" x2="520" y2="124" stroke="#555" stroke-width="0.8"/>
+<circle cx="352.9" cy="121.4" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="524" y="122" font-size="11" text-anchor="start" fill="#000">air ports A / B, magnetic jaw sensors</text>
+<line x1="334" y1="206.4" x2="520" y2="158" stroke="#1f6fd1" stroke-width="0.8"/>
+<circle cx="334" cy="206.4" r="2" stroke="#1f6fd1" stroke-width="0.5" fill="#1f6fd1"/>
+<text x="524" y="154.8" font-size="11" text-anchor="start" fill="#1f6fd1">flange collar of the part rests on the</text>
+<text x="524" y="169.7" font-size="11" text-anchor="start" fill="#1f6fd1">finger step = FORM FIT (best, 13.2)</text>
+<line x1="145" y1="344" x2="60" y2="470" stroke="#555" stroke-width="0.8"/>
+<circle cx="145" cy="344" r="2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="64" y="468" font-size="11" text-anchor="start" fill="#000">finger: hardened steel + V-insert (steel or POM), see section A–A</text>
+<text x="660" y="196" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Section A–A (V-jaws)</text>
+<circle cx="660" cy="300" r="66.5" stroke="#000" stroke-width="1.5" fill="#eef3fb"/>
+<path d="M524,230 L636,230 L566,300 L636,370 L524,370 Z" stroke="#000" stroke-width="1.4" fill="url(#hatch)"/>
+<line x1="583" y1="223" x2="611" y2="251" stroke="#000" stroke-width="1.5" marker-end="url(#ek)"/>
+<text x="577" y="221" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">N</text>
+<line x1="583" y1="377" x2="611" y2="349" stroke="#000" stroke-width="1.5" marker-end="url(#ek)"/>
+<text x="577" y="387" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">N</text>
+<line x1="466" y1="300" x2="522" y2="300" stroke="#1f6fd1" stroke-width="2.4" marker-end="url(#ea)"/>
+<text x="494" y="292" font-size="12" text-anchor="middle" fill="#1f6fd1" font-weight="bold">F_G</text>
+<path d="M796,230 L684,230 L754,300 L684,370 L796,370 Z" stroke="#000" stroke-width="1.4" fill="url(#hatch)"/>
+<line x1="737" y1="223" x2="709" y2="251" stroke="#000" stroke-width="1.5" marker-end="url(#ek)"/>
+<text x="743" y="221" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">N</text>
+<line x1="737" y1="377" x2="709" y2="349" stroke="#000" stroke-width="1.5" marker-end="url(#ek)"/>
+<text x="743" y="387" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">N</text>
+<line x1="854" y1="300" x2="798" y2="300" stroke="#1f6fd1" stroke-width="2.4" marker-end="url(#ea)"/>
+<text x="826" y="292" font-size="12" text-anchor="middle" fill="#1f6fd1" font-weight="bold">F_G</text>
+<path d="M586.9547981021892,279 A30,30 0 0 1 586.9547981021892,321" stroke="#1f6fd1" stroke-width="1.3" fill="none"/>
+<text x="602" y="305" font-size="13" text-anchor="start" fill="#1f6fd1" font-weight="bold">α</text>
+<text x="540" y="420" font-size="11.5" text-anchor="start" fill="#000">each jaw touches on 2 lines:</text>
+<text x="540" y="435.5" font-size="11.5" text-anchor="start" fill="#000">N = F_G / (2 · sin(α/2))</text>
+<text x="540" y="451.1" font-size="11.5" text-anchor="start" fill="#000">friction per jaw = 2 · μ · N = μ · F_G / sin(α/2)</text>
+<text x="540" y="466.6" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">μ' = μ / sin(α/2) = 0.1 / 0.707 = 0.141</text>
+<text x="24" y="530" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Gripper parts – catalogue examples (buy list 24.4, check datasheets)</text>
+<rect x="24" y="538" width="524" height="20" rx="0" stroke="#000" stroke-width="0.9" fill="#dcdcdc"/>
+<text x="28" y="552" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Pos</text>
+<text x="62" y="552" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Part</text>
+<text x="292" y="552" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Example maker – model</text>
+<rect x="24" y="558" width="524" height="20" rx="0" stroke="#000" stroke-width="0.5" fill="#fff"/>
+<text x="28" y="572" font-size="11" text-anchor="start" fill="#000">1</text>
+<text x="62" y="572" font-size="11" text-anchor="start" fill="#000">Gripper 2-jaw (or 3-jaw)</text>
+<text x="292" y="572" font-size="11" text-anchor="start" fill="#000">SCHUNK PGN-plus-P · Zimmer GPP5000</text>
+<rect x="24" y="578" width="524" height="20" rx="0" stroke="#000" stroke-width="0.5" fill="#f7f7f7"/>
+<text x="28" y="592" font-size="11" text-anchor="start" fill="#000">2</text>
+<text x="62" y="592" font-size="11" text-anchor="start" fill="#000">Fingers + V-inserts, 2 sets</text>
+<text x="292" y="592" font-size="11" text-anchor="start" fill="#000">in-house (hardened steel, POM)</text>
+<rect x="24" y="598" width="524" height="20" rx="0" stroke="#000" stroke-width="0.5" fill="#fff"/>
+<text x="28" y="612" font-size="11" text-anchor="start" fill="#000">3</text>
+<text x="62" y="612" font-size="11" text-anchor="start" fill="#000">Adapter plate ISO 9409-1</text>
+<text x="292" y="612" font-size="11" text-anchor="start" fill="#000">in-house</text>
+<rect x="24" y="618" width="524" height="20" rx="0" stroke="#000" stroke-width="0.5" fill="#f7f7f7"/>
+<text x="28" y="632" font-size="11" text-anchor="start" fill="#000">4</text>
+<text x="62" y="632" font-size="11" text-anchor="start" fill="#000">Jaw / part sensors</text>
+<text x="292" y="632" font-size="11" text-anchor="start" fill="#000">SCHUNK MMS · ifm · Balluff</text>
+<rect x="24" y="638" width="524" height="20" rx="0" stroke="#000" stroke-width="0.5" fill="#fff"/>
+<text x="28" y="652" font-size="11" text-anchor="start" fill="#000">5</text>
+<text x="62" y="652" font-size="11" text-anchor="start" fill="#000">Valve terminal, pressure retention</text>
+<text x="292" y="652" font-size="11" text-anchor="start" fill="#000">Festo VTUG / MPA-L · SMC SY</text>
+<rect x="24" y="658" width="524" height="20" rx="0" stroke="#000" stroke-width="0.5" fill="#f7f7f7"/>
+<text x="28" y="672" font-size="11" text-anchor="start" fill="#000">6</text>
+<text x="62" y="672" font-size="11" text-anchor="start" fill="#000">Compliance unit (optional)</text>
+<text x="292" y="672" font-size="11" text-anchor="start" fill="#000">SCHUNK AGE · ATI</text>
+<rect x="24" y="678" width="524" height="20" rx="0" stroke="#000" stroke-width="0.5" fill="#fff"/>
+<text x="28" y="692" font-size="11" text-anchor="start" fill="#000">7</text>
+<text x="62" y="692" font-size="11" text-anchor="start" fill="#000">Collision sensor (optional)</text>
+<text x="292" y="692" font-size="11" text-anchor="start" fill="#000">ATI · SCHUNK OPR</text>
+<line x1="58" y1="538" x2="58" y2="698" stroke="#000" stroke-width="0.5"/>
+<line x1="288" y1="538" x2="288" y2="698" stroke="#000" stroke-width="0.5"/>
+<rect x="24" y="538" width="524" height="160" rx="0" stroke="#000" stroke-width="1.1" fill="none"/>
+<rect x="870" y="60" width="316" height="108" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="878" y="76.5" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Friction grip (13.2)</text>
+<text x="878" y="92.6" font-size="11.5" text-anchor="start" fill="#000">2 · μ · F_G ≥ m · (g + a) · S</text>
+<text x="878" y="108.1" font-size="11.5" text-anchor="start" fill="#000">F_G = m (g + a) S / (2 μ)</text>
+<text x="878" y="123.6" font-size="11.5" text-anchor="start" fill="#000">10 × (9.81 + 10) × 2 / (2 × 0.1)</text>
+<text x="878" y="139.2" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">= 1981 N per jaw (flat jaws, wet)</text>
+<rect x="870" y="178" width="316" height="74" rx="4" stroke="#1f6fd1" stroke-width="1.2" fill="#fff"/>
+<text x="878" y="194.5" font-size="12.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">With V-jaws, α = 90°</text>
+<text x="878" y="210.6" font-size="11.5" text-anchor="start" fill="#000">μ' = 0.1 / 0.707 = 0.141</text>
+<text x="878" y="226.1" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">F_G = 1401 N per jaw</text>
+<rect x="870" y="262" width="316" height="92" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="878" y="278.5" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Pneumatic jaw force</text>
+<text x="878" y="294.6" font-size="11.5" text-anchor="start" fill="#000">F = p · A · η = 0.5·10⁶ × π × 0.0315² × 0.9</text>
+<text x="878" y="310.1" font-size="11.5" text-anchor="start" fill="#000">= 1403 N (Ø63) · Ø50 → 884 · Ø40 → 565 N</text>
+<text x="878" y="325.7" font-size="11.5" text-anchor="start" fill="#000">≥ 1401 N → Ø63 class gripper</text>
+<rect x="870" y="364" width="316" height="92" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="878" y="380.5" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Assumptions</text>
+<text x="878" y="396.6" font-size="11.5" text-anchor="start" fill="#000">a = 10 m/s² (E-stop can be 10 – 30)</text>
+<text x="878" y="412.1" font-size="11.5" text-anchor="start" fill="#000">S ≥ 2, μ = 0.1 (machined, coolant)</text>
+<text x="878" y="427.7" font-size="11.5" text-anchor="start" fill="#000">load 3 + 10 = 13 kg → load diagram</text>
+<text x="878" y="443.2" font-size="11.5" text-anchor="start" fill="#000">TCP 180 → J5 inertia check (8.4)</text>
+<rect x="870" y="466" width="316" height="158" rx="4" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="878" y="482.5" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Check in the datasheet</text>
+<text x="878" y="498.6" font-size="11.5" text-anchor="start" fill="#000">force at YOUR finger length (curve)</text>
+<text x="878" y="514.1" font-size="11.5" text-anchor="start" fill="#000">force per jaw or sum of both jaws?</text>
+<text x="878" y="529.6" font-size="11.5" text-anchor="start" fill="#000">allowed jaw moments Mx / My / Mz</text>
+<text x="878" y="545.2" font-size="11.5" text-anchor="start" fill="#000">stroke ≥ part tolerance + 2 – 5 mm / jaw</text>
+<text x="878" y="560.7" font-size="11.5" text-anchor="start" fill="#000">air loss: spring / check valve keeps</text>
+<text x="878" y="576.2" font-size="11.5" text-anchor="start" fill="#000">the part (ISO/TR 20218-1)</text>
+<text x="878" y="591.8" font-size="11.5" text-anchor="start" fill="#000">gripper mass, IP class for coolant</text>
+<rect x="540" y="764" width="648" height="54" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="540" y1="790" x2="1188" y2="790" stroke="#000" stroke-width="0.8"/>
+<line x1="910" y1="790" x2="910" y2="818" stroke="#000" stroke-width="0.8"/>
+<text x="548" y="782" font-size="14" font-weight="bold">2-finger gripper with V-jaws – forces, friction, form fit (compressor housing)</text>
+<text x="548" y="809" font-size="12" font-weight="bold" fill="#1f6fd1">EXAMPLE – check the maker's documentation</text>
+<text x="918" y="802" font-size="11.5">Dwg 21-05 · guide 21 §13.2–13.7 · ≈ 1 : 1</text>
+<text x="918" y="814" font-size="11">part Ø140 × 160, 10 kg – example values</text>
+</svg>

@@ -46,7 +46,7 @@ function apcCtx() {
   const ta = P.trot * P.acc / 100, om = Math.PI / (P.trot - ta);
   return { a: P.a, b: P.b, mp: P.mp, mw: P.mw, r: P.r, s: P.s, cap: P.cap, pitch: P.pitch, dm: P.dm,
     trot: P.trot, tlift: P.tlift, tpos: P.tpos, tunc: P.tunc, tcl: P.tcl, tseat: P.tseat, tdoor: P.tdoor,
-    dpos: R.dpos ?? P.r * P.backlash / 60 * Math.PI / 180, al: R.al ?? om / ta, def: R.def ?? 0.1, backlash: P.backlash };
+    dpos: R.dpos ?? P.r * P.backlash / 60 * Math.PI / 180, al: R.al ?? om / ta, om, def: R.def ?? 0.1, backlash: P.backlash };
 }
 
 /* ------------------------------------------------------------------ calculation */
@@ -62,7 +62,8 @@ function calc(M, A, mount) {
     ["Pallet on the fork rails", M.eRail], [mount === "base" ? "Station ↔ APC axis (dowelled)" : "Station ↔ APC axis (floor frame)", R.eMount], ["Thermal growth", R.eTh]];
   const sum = (c) => c.reduce((s, r) => s + r[1], 0), rss = (c) => Math.sqrt(c.reduce((s, r) => s + r[1] * r[1], 0));
   R.wcM = sum(R.chM); R.rsM = rss(R.chM); R.wcS = sum(R.chS); R.rsS = rss(R.chS);
-  R.at = A.al * A.r / 1000; R.aFr = M.muR * G; R.slipSF = R.aFr / R.at;
+  R.at = A.al * A.r / 1000; R.ac = A.om * A.om * A.r / 1000;                 // tangential α·r and centripetal ω²·r at the end of acceleration
+  R.ares = Math.hypot(R.at, R.ac); R.aFr = M.muR * G; R.slipSF = R.aFr / R.ares;   // friction must hold the RESULTANT (guide 09 §9.4, guide 10 §9.6)
   R.studLift = A.s - 5 - LS;
   R.Rc = Math.hypot(A.r + A.a / 2 + M.ovh, A.b / 2 + M.ovh); R.agvClr = A.r + M.xagv - R.Rc;
   R.Fst = R.mpl * 0.05 * 0.05 / (2 * 0.003) + 0.1 * R.mpl * G;            // pallet into the retractable stop + chain sliding
@@ -246,7 +247,7 @@ if (box4) {
     add("Receivers catch the finished pallet", R.wcS <= M.rlead * 0.5, R.wcS <= M.rlead, `worst ${f(R.wcS, 2)} mm ≤ ±${M.rlead} mm`);
     add("Same height station / machine", M.hdiff <= 0.1, M.hdiff <= 0.3, `±${M.hdiff} mm (aim ±0.1)`);
     add("Studs leave the receivers when lifted", R.studLift >= 5, R.studLift >= 2, `${R.studLift} mm free (stroke ${A.s} − 5 − stud ${LS})`);
-    add("Pallet does not slide on the fork rails", R.slipSF >= 1.5, R.slipSF >= 1.1, `friction ${f(R.aFr, 2)} m/s² vs arm ${f(R.at, 2)} m/s² → ×${f(R.slipSF, 1)}${R.slipSF < 1.5 ? " – add locating blocks" : ""}`);
+    add("Pallet does not slide on the fork rails", R.slipSF >= 1.5, R.slipSF >= 1.1, `friction ${f(R.aFr, 2)} m/s² vs resultant ${f(R.ares, 2)} m/s² (α·r + ω²·r) → ×${f(R.slipSF, 2)}${R.slipSF < 1.5 ? " – add locating blocks" : ""}`);
     add("AGV outside the sweep circle", R.agvClr >= 30, R.agvClr >= 10, R.agvClr < 10 ? `parts reach ${f(-R.agvClr, 0)} mm into the AGV bumper → AGV must stop further away (+${f(30 - R.agvClr, 0)} mm) or leave before every change` : `${f(R.agvClr, 0)} mm between the parts and the AGV bumper`);
     if (mount === "base") add("Bolted joint holds the stop force", R.jUse <= 0.5, R.jUse <= 1, `${f(R.Fjoint / 1000, 2)} kN of ${f(R.Fcap / 1000, 0)} kN friction grip (${f(R.jUse * 100, 0)} %)`);
     else add("Floor frame stays aligned", R.eMount <= A.cap * 0.4, R.eMount <= A.cap * 0.6, `±${f(R.eMount, 2)} mm after ${M.years} year(s) – re-align more often or dowel to the APC base`);
@@ -318,7 +319,7 @@ if (box4) {
       blk("1 · Accuracy chain station → machine", [R.chM.map((r) => f(r[1], 3)).join(" + ") + ` = <b>${f(R.wcM, 2)} mm</b> worst`, `RSS = √(Σ e²) = ${f(R.rsM, 2)} mm   (catch ±${A.cap} mm)`],
         "Worst case = all errors in the same direction at the same time. RSS is the realistic value. Design with the worst case."),
       blk("2 · Arm angle error", [`e = r · backlash = ${A.r} · ${A.backlash}/60 · π/180 = <b>${f(A.dpos, 2)} mm</b>`], "This is often the biggest part – a smaller backlash or a mechanical index (taper pin) at 0° / 180° reduces it."),
-      blk("3 · Pallet on the rails during rotation", [`a = α · r = ${f(A.al, 2)} · ${f(A.r / 1000, 2)} = ${f(R.at, 2)} m/s²`, `friction holds μ · g = ${M.muR} · 9.81 = ${f(R.aFr, 2)} m/s² → ×${f(R.slipSF, 1)}`]),
+      blk("3 · Pallet on the rails during rotation", [`a_t = α · r = ${f(A.al, 2)} · ${f(A.r / 1000, 2)} = ${f(R.at, 2)} m/s²`, `a_c = ω² · r = ${f(A.om, 2)}² · ${f(A.r / 1000, 2)} = ${f(R.ac, 2)} m/s²`, `a_res = √(a_t² + a_c²) = ${f(R.ares, 2)} m/s²`, `friction holds μ · g = ${M.muR} · 9.81 = ${f(R.aFr, 2)} m/s² → ×${f(R.slipSF, 2)}`]),
       blk("4 · Thermal growth", [`Δ = α · r · ΔT = 11.5e-6 · ${A.r} · ${M.dT} = <b>${f(R.eTh, 3)} mm</b>`]),
       blk("5 · Clearances", [`stud free  = stroke − 5 − stud = ${A.s} − 5 − ${LS} = ${R.studLift} mm`, `sweep radius = √((r + a/2 + ovh)² + (b/2 + ovh)²) = ${f(R.Rc, 0)} mm`, `AGV bumper at r + ${M.xagv} = ${A.r + M.xagv} mm → clearance ${f(R.agvClr, 0)} mm`]),
       blk("6 · Bolted joint (A)", [`stop force F = m·v²/(2·s) + μ·m·g = ${f(R.Fst, 0)} N, ×1.5 = ${f(R.Fjoint, 0)} N`, `friction grip = n · μ · Fv = ${M.nb} · ${M.muJ} · ${M.Fv} kN = ${f(R.Fcap / 1000, 0)} kN`], "The dowels locate, the friction of the preloaded bolts carries the force – dowels must not carry load."),

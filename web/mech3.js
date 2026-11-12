@@ -214,7 +214,7 @@ function create3D(host) {
   const fill = new THREE.DirectionalLight(0xffffff, 0.5); fill.position.set(-3000, 2000, -2500); scene.add(fill);
   const root = new THREE.Group(); scene.add(root);
   const cs = getComputedStyle(document.documentElement);
-  scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed");
+  scene.background = new THREE.Color((cs.getPropertyValue("--surface-2") || "#f2f1ed").trim() || "#f2f1ed"); if (window.dtTheme) window.dtTheme.scene(scene);
   let O = {}, labels = [], selBox = null, onPick = null, chainTex = [];
   const mat = (color, o = {}) => new THREE.MeshStandardMaterial({ color, metalness: o.m ?? 0.35, roughness: o.r ?? 0.55, transparent: !!o.op, opacity: o.op ?? 1, side: o.ds ? THREE.DoubleSide : THREE.FrontSide, depthWrite: !o.op });
   const C = { frame: mat(0x3c6e9e), rack: mat(0xe07a1f, { m: 0.3, r: 0.5 }), rackU: mat(0x2f5f8f), crane: mat(0xf2c200, { m: 0.25, r: 0.5 }), dark: mat(0x3a4048), black: mat(0x23262a),
@@ -257,7 +257,7 @@ function create3D(host) {
     while (root.children.length) { const o = root.children.pop(); o.traverse((c) => { if (c.geometry) c.geometry.dispose(); if (c.material && c.material.map) c.material.map.dispose(); }); }
     labels = []; chainTex = []; O = { R, M }; if (selBox) { scene.remove(selBox); selBox = null; }
     const xEnd = -(BAY + NB * BAY + 600);
-    const fl = new THREE.Mesh(new THREE.PlaneGeometry(16000, 18000), C.floor); fl.rotation.x = -Math.PI / 2; fl.position.set(-1500, 0, 0); root.add(fl);
+    const fl = new THREE.Mesh(new THREE.PlaneGeometry(16000, 18000), C.floor); fl.rotation.x = -Math.PI / 2; fl.position.set(-1500, 0, 0); root.add(fl); if (window.dtTheme) window.dtTheme.floor(C.floor);
     // ---- racks both sides
     const rD = M.cl + 100, top = R.Hc + (LV - 1) * LVH + M.ch + 300;
     for (const sz of [1, -1]) {

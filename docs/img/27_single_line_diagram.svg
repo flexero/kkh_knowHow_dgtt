@@ -1,0 +1,294 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 990" width="1400" height="990" font-family="Arial, Helvetica, sans-serif">
+<title>Single-line diagram – supply of machining line ML1</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker></defs>
+<rect x="0" y="0" width="1400" height="990" fill="#ffffff"/>
+<rect x="12.0" y="12.0" width="1376.0" height="966.0" rx="0" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="828.0" y="894.0" width="560.0" height="84.0" rx="0" stroke="#000" stroke-width="1.5" fill="#ffffff"/>
+<line x1="828.0" y1="924.0" x2="1388.0" y2="924.0" stroke="#000" stroke-width="1"/>
+<line x1="1208.0" y1="924.0" x2="1208.0" y2="978.0" stroke="#000" stroke-width="1"/>
+<text x="838.0" y="915.0" font-size="14" text-anchor="start" font-weight="bold" fill="#1565c0">EXAMPLE – real design by a qualified electrician</text>
+<text x="838.0" y="944.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Single-line diagram – supply of machining line ML1</text>
+<text x="838.0" y="964.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">IEC 60617 symbols · 20 kV → T1 → MDB → SD-ML1</text>
+<text x="1218.0" y="944.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Doc 27 · Fig. 27-1</text>
+<text x="1218.0" y="964.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">2026-11 · not for construction</text>
+<text x="24.0" y="970.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">Values from docs/27 and web/instelec_calc.js (example data, crankcase machining line ML1).</text>
+<text x="40.0" y="46.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000">Single-line diagram (SLD) – example ratings, Ik values per IEC 60909 (c_max 1.05 / c_min 0.95)</text>
+<text x="250.0" y="78.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">20 kV utility network, S″k = 500 MVA (example – ask the utility)</text>
+<text x="250.0" y="93.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">Z_Q = 1.1·U²/S″k = 0.352 mΩ (seen from 400 V)</text>
+<line x1="170.0" y1="70.0" x2="230.0" y2="70.0" stroke="#000" stroke-width="3"/>
+<line x1="230.0" y1="70.0" x2="230.0" y2="108.0" stroke="#000" stroke-width="1.5"/>
+<rect x="180.0" y="108.0" width="100.0" height="92.0" rx="0" stroke="#666666" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+<text x="172.0" y="122.0" font-size="11" text-anchor="end" font-weight="normal" fill="#666666">RMU</text>
+<line x1="230.0" y1="112.0" x2="230.0" y2="124.0" stroke="#000" stroke-width="1.5"/>
+<line x1="224.0" y1="124.0" x2="236.0" y2="124.0" stroke="#000" stroke-width="1.5"/>
+<circle cx="230.0" cy="124.0" r="3" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="230.0" y1="140.0" x2="217.0" y2="126.0" stroke="#000" stroke-width="1.5"/>
+<line x1="230.0" y1="140.0" x2="230.0" y2="152.0" stroke="#000" stroke-width="1.5"/>
+<rect x="225.0" y="160.0" width="10.0" height="26.0" rx="0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="230.0" y1="154.0" x2="230.0" y2="192.0" stroke="#000" stroke-width="1.5"/>
+<line x1="230.0" y1="192.0" x2="230.0" y2="214.0" stroke="#000" stroke-width="1.5"/>
+<text x="290.0" y="135.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">switch-fuse 24 kV (load-break switch + HV fuses)</text>
+<text x="290.0" y="150.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">HV fuse size from the transformer maker table</text>
+<text x="290.0" y="165.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">I_n,HV = 1000 kVA / (√3·20 kV) = 28.9 A</text>
+<circle cx="230.0" cy="234.0" r="20" stroke="#000" stroke-width="1.5" fill="none"/>
+<circle cx="230.0" cy="260.0" r="20" stroke="#000" stroke-width="1.5" fill="none"/>
+<text x="290.0" y="230.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">-T1  1000 kVA  20 / 0.4 kV  Dyn11</text>
+<text x="290.0" y="246.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">u_k 6 % · P_k 10.5 kW · I_n 1443 A (example)</text>
+<text x="290.0" y="261.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">Z_T 9.6 mΩ · R_T 1.68 mΩ · X_T 9.452 mΩ</text>
+<text x="204.0" y="232.0" font-size="11" text-anchor="end" font-weight="normal" fill="#000">D</text>
+<text x="204.0" y="262.0" font-size="11" text-anchor="end" font-weight="normal" fill="#000">yn</text>
+<line x1="230.0" y1="280.0" x2="230.0" y2="300.0" stroke="#000" stroke-width="1.5"/>
+<polyline points="210.0,268.0 160.0,268.0 160.0,300.0" stroke="#1565c0" stroke-width="1.5" fill="none"/>
+<line x1="160.0" y1="300.0" x2="160.0" y2="310.0" stroke="#1565c0" stroke-width="1.5"/>
+<line x1="148.0" y1="310.0" x2="172.0" y2="310.0" stroke="#1565c0" stroke-width="2"/>
+<line x1="152.0" y1="315.0" x2="168.0" y2="315.0" stroke="#1565c0" stroke-width="2"/>
+<line x1="156.0" y1="320.0" x2="164.0" y2="320.0" stroke="#1565c0" stroke-width="2"/>
+<text x="150.0" y="340.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#1565c0">MET: N–PE link</text>
+<text x="150.0" y="354.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#1565c0">only here (TN-S)</text>
+<line x1="230.0" y1="300.0" x2="230.0" y2="312.0" stroke="#000" stroke-width="1.5"/>
+<line x1="225.0" y1="307.0" x2="235.0" y2="317.0" stroke="#000" stroke-width="1.5"/>
+<line x1="225.0" y1="317.0" x2="235.0" y2="307.0" stroke="#000" stroke-width="1.5"/>
+<line x1="230.0" y1="340.0" x2="217.0" y2="314.0" stroke="#000" stroke-width="1.5"/>
+<line x1="230.0" y1="340.0" x2="230.0" y2="352.0" stroke="#000" stroke-width="1.5"/>
+<text x="254.0" y="318.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">-Q0  ACB 1600 A, LSIG trip unit</text>
+<text x="254.0" y="333.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">I_r 1440 A · I_sd 4·I_r, t_sd 0.3 s · I_g 0.3·I_n</text>
+<text x="254.0" y="348.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">I_cu ≥ 36 kA (Ik3 24.4 kA, ip 55.1 kA)</text>
+<line x1="230.0" y1="352.0" x2="230.0" y2="400.0" stroke="#000" stroke-width="1.5"/>
+<circle cx="264.0" cy="378.0" r="14" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="264.0" y="382.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">PQ</text>
+<line x1="230.0" y1="378.0" x2="250.0" y2="378.0" stroke="#000" stroke-width="1"/>
+<text x="284.0" y="382.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">power meter class 0.5S (CT 1600/5)</text>
+<line x1="60.0" y1="400.0" x2="1340.0" y2="400.0" stroke="#000" stroke-width="5"/>
+<text x="1340.0" y="372.0" font-size="13" text-anchor="end" font-weight="bold" fill="#000">MDB 400/230 V TN-S, busbar 1600 A</text>
+<text x="1340.0" y="390.0" font-size="11" text-anchor="end" font-weight="normal" fill="#1565c0">Ik3 = 24.37 kA (25.3 kA with K_T) · ip = 55.1 kA → I_cw 36 kA / 1 s</text>
+<line x1="100.0" y1="400.0" x2="100.0" y2="420.0" stroke="#000" stroke-width="1.5"/>
+<rect x="95.0" y="426.0" width="10.0" height="22.0" rx="0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="100.0" y1="420.0" x2="100.0" y2="454.0" stroke="#000" stroke-width="1.5"/>
+<rect x="91.0" y="462.0" width="18.0" height="30.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="100.0" y1="466.0" x2="100.0" y2="487.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="100.0" y1="454.0" x2="100.0" y2="462.0" stroke="#000" stroke-width="1.5"/>
+<line x1="100.0" y1="492.0" x2="100.0" y2="500.0" stroke="#000" stroke-width="1.5"/>
+<line x1="100.0" y1="500.0" x2="100.0" y2="510.0" stroke="#000" stroke-width="1.5"/>
+<line x1="88.0" y1="510.0" x2="112.0" y2="510.0" stroke="#000" stroke-width="2"/>
+<line x1="92.0" y1="515.0" x2="108.0" y2="515.0" stroke="#000" stroke-width="2"/>
+<line x1="96.0" y1="520.0" x2="104.0" y2="520.0" stroke="#000" stroke-width="2"/>
+<text x="114.0" y="540.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">SPD type 1+2</text>
+<text x="114.0" y="554.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">I_imp 12.5 kA/pole</text>
+<text x="114.0" y="568.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">U_p ≤ 1.5 kV</text>
+<line x1="380.0" y1="400.0" x2="380.0" y2="414.0" stroke="#000" stroke-width="1.5"/>
+<line x1="380.0" y1="414.0" x2="380.0" y2="426.0" stroke="#000" stroke-width="1.5"/>
+<line x1="375.0" y1="421.0" x2="385.0" y2="431.0" stroke="#000" stroke-width="1.5"/>
+<line x1="375.0" y1="431.0" x2="385.0" y2="421.0" stroke="#000" stroke-width="1.5"/>
+<line x1="380.0" y1="452.0" x2="367.0" y2="428.0" stroke="#000" stroke-width="1.5"/>
+<line x1="380.0" y1="452.0" x2="380.0" y2="464.0" stroke="#000" stroke-width="1.5"/>
+<text x="400.0" y="434.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">-Q1  MCCB 200 A, LSI</text>
+<text x="400.0" y="449.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">I_r 200 A · I_sd 2 kA, t_sd 0.1 s</text>
+<line x1="380.0" y1="464.0" x2="380.0" y2="620.0" stroke="#000" stroke-width="1.5"/>
+<text x="390.0" y="494.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">W1  4×95+50 Cu XLPE</text>
+<text x="390.0" y="509.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">60 m · I_z 234.6 A (f 0.787)</text>
+<text x="390.0" y="524.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">I_b 184.5 A · ΔU 1.235 %</text>
+<text x="390.0" y="539.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">(option: busbar trunking 250 A)</text>
+<line x1="380.0" y1="572.0" x2="380.0" y2="584.0" stroke="#000" stroke-width="1.5"/>
+<line x1="374.0" y1="584.0" x2="386.0" y2="584.0" stroke="#000" stroke-width="1.5"/>
+<circle cx="380.0" cy="584.0" r="3" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="380.0" y1="606.0" x2="367.0" y2="586.0" stroke="#000" stroke-width="1.5"/>
+<line x1="380.0" y1="606.0" x2="380.0" y2="618.0" stroke="#000" stroke-width="1.5"/>
+<text x="400.0" y="598.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">-Q10 main switch-disconnector 250 A</text>
+<line x1="690.0" y1="400.0" x2="690.0" y2="414.0" stroke="#000" stroke-width="1.5"/>
+<line x1="690.0" y1="414.0" x2="690.0" y2="426.0" stroke="#000" stroke-width="1.5"/>
+<line x1="685.0" y1="421.0" x2="695.0" y2="431.0" stroke="#000" stroke-width="1.5"/>
+<line x1="685.0" y1="431.0" x2="695.0" y2="421.0" stroke="#000" stroke-width="1.5"/>
+<line x1="690.0" y1="452.0" x2="677.0" y2="428.0" stroke="#000" stroke-width="1.5"/>
+<line x1="690.0" y1="452.0" x2="690.0" y2="464.0" stroke="#000" stroke-width="1.5"/>
+<text x="708.0" y="434.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-Q2 MCB C50</text>
+<line x1="690.0" y1="464.0" x2="690.0" y2="548.0" stroke="#000" stroke-width="1.5"/>
+<text x="698.0" y="494.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">5G10, 35 m</text>
+<text x="698.0" y="509.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">ΔU 1.47 %</text>
+<text x="698.0" y="524.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Ik1 1324 A</text>
+<circle cx="690.0" cy="566.0" r="18" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="690.0" y="567.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#000">M</text>
+<text x="690.0" y="579.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">3~</text>
+<text x="690.0" y="602.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">COMP-1 22 kW VSD</text>
+<line x1="880.0" y1="400.0" x2="880.0" y2="414.0" stroke="#000" stroke-width="1.5"/>
+<line x1="880.0" y1="414.0" x2="880.0" y2="426.0" stroke="#000" stroke-width="1.5"/>
+<line x1="875.0" y1="421.0" x2="885.0" y2="431.0" stroke="#000" stroke-width="1.5"/>
+<line x1="875.0" y1="431.0" x2="885.0" y2="421.0" stroke="#000" stroke-width="1.5"/>
+<line x1="880.0" y1="452.0" x2="867.0" y2="428.0" stroke="#000" stroke-width="1.5"/>
+<line x1="880.0" y1="452.0" x2="880.0" y2="464.0" stroke="#000" stroke-width="1.5"/>
+<line x1="880.0" y1="464.0" x2="880.0" y2="500.0" stroke="#000" stroke-width="1.5"/>
+<rect x="818.0" y="500.0" width="124.0" height="44.0" rx="0" stroke="#666666" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+<text x="880.0" y="518.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">-Q3… other areas</text>
+<text x="880.0" y="533.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">assembly · test · paint</text>
+<line x1="1080.0" y1="400.0" x2="1080.0" y2="414.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1080.0" y1="414.0" x2="1080.0" y2="426.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1075.0" y1="421.0" x2="1085.0" y2="431.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1075.0" y1="431.0" x2="1085.0" y2="421.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1080.0" y1="452.0" x2="1067.0" y2="428.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1080.0" y1="452.0" x2="1080.0" y2="464.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1080.0" y1="464.0" x2="1080.0" y2="480.0" stroke="#000" stroke-width="1.5"/>
+<path d="M1080,480 a6,6 0 0 1 0,12 a6,6 0 0 1 0,12 a6,6 0 0 1 0,12" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="1080.0" y1="516.0" x2="1080.0" y2="520.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1080.0" y1="520.0" x2="1080.0" y2="530.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1068.0" y1="530.0" x2="1092.0" y2="530.0" stroke="#000" stroke-width="2.5"/>
+<line x1="1068.0" y1="537.0" x2="1092.0" y2="537.0" stroke="#000" stroke-width="2.5"/>
+<line x1="1080.0" y1="537.0" x2="1080.0" y2="547.0" stroke="#000" stroke-width="1.5"/>
+<text x="1102.0" y="470.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-Q4 PFC detuned p = 7 %</text>
+<text x="1102.0" y="485.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">4 × 50 kvar (example)</text>
+<text x="1102.0" y="500.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">f_r = 189 Hz, U_C = 430 V</text>
+<text x="1102.0" y="515.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">→ capacitors 440/480 V</text>
+<line x1="1080.0" y1="547.0" x2="1080.0" y2="556.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1080.0" y1="556.0" x2="1080.0" y2="566.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1068.0" y1="566.0" x2="1092.0" y2="566.0" stroke="#000" stroke-width="2"/>
+<line x1="1072.0" y1="571.0" x2="1088.0" y2="571.0" stroke="#000" stroke-width="2"/>
+<line x1="1076.0" y1="576.0" x2="1084.0" y2="576.0" stroke="#000" stroke-width="2"/>
+<line x1="380.0" y1="618.0" x2="380.0" y2="660.0" stroke="#000" stroke-width="1.5"/>
+<line x1="140.0" y1="660.0" x2="1340.0" y2="660.0" stroke="#000" stroke-width="4"/>
+<text x="398.0" y="650.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">SD-ML1  400/230 V TN-S · Ik3 = 12.28 kA (ip 18.8 kA) · Ik1 = 4.39 kA</text>
+<text x="1340.0" y="650.0" font-size="11" text-anchor="end" font-weight="normal" fill="#1565c0">breakers I_cu ≥ 15 kA (choose 25 kA)</text>
+<line x1="1300.0" y1="660.0" x2="1300.0" y2="676.0" stroke="#000" stroke-width="1.5"/>
+<rect x="1291.0" y="684.0" width="18.0" height="30.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="1300.0" y1="688.0" x2="1300.0" y2="709.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="1300.0" y1="676.0" x2="1300.0" y2="684.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1300.0" y1="714.0" x2="1300.0" y2="722.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1300.0" y1="722.0" x2="1300.0" y2="732.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1288.0" y1="732.0" x2="1312.0" y2="732.0" stroke="#000" stroke-width="2"/>
+<line x1="1292.0" y1="737.0" x2="1308.0" y2="737.0" stroke="#000" stroke-width="2"/>
+<line x1="1296.0" y1="742.0" x2="1304.0" y2="742.0" stroke="#000" stroke-width="2"/>
+<text x="1300.0" y="762.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">SPD type 2</text>
+<text x="1300.0" y="776.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">I_n 20 kA</text>
+<line x1="200.0" y1="660.0" x2="200.0" y2="672.0" stroke="#000" stroke-width="1.5"/>
+<line x1="200.0" y1="672.0" x2="200.0" y2="684.0" stroke="#000" stroke-width="1.5"/>
+<line x1="195.0" y1="679.0" x2="205.0" y2="689.0" stroke="#000" stroke-width="1.5"/>
+<line x1="195.0" y1="689.0" x2="205.0" y2="679.0" stroke="#000" stroke-width="1.5"/>
+<line x1="200.0" y1="706.0" x2="187.0" y2="686.0" stroke="#000" stroke-width="1.5"/>
+<line x1="200.0" y1="706.0" x2="200.0" y2="718.0" stroke="#000" stroke-width="1.5"/>
+<circle cx="226.0" cy="732.0" r="14" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="226.0" y="736.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">kWh</text>
+<line x1="200.0" y1="732.0" x2="212.0" y2="732.0" stroke="#000" stroke-width="1"/>
+<line x1="200.0" y1="718.0" x2="200.0" y2="810.0" stroke="#000" stroke-width="1.5"/>
+<text x="206.0" y="762.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">MCCB 80 A</text>
+<text x="206.0" y="776.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">5G25 · 25 m</text>
+<text x="206.0" y="790.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">ΔU 1.86 %</text>
+<text x="206.0" y="804.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">Ik1 2302 A</text>
+<circle cx="200.0" cy="827.0" r="17" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="200.0" y="828.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#000">M</text>
+<text x="200.0" y="840.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">3~</text>
+<text x="200.0" y="860.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">HMC-01</text>
+<text x="200.0" y="874.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">45 kVA</text>
+<line x1="352.0" y1="660.0" x2="352.0" y2="672.0" stroke="#000" stroke-width="1.5"/>
+<line x1="352.0" y1="672.0" x2="352.0" y2="684.0" stroke="#000" stroke-width="1.5"/>
+<line x1="347.0" y1="679.0" x2="357.0" y2="689.0" stroke="#000" stroke-width="1.5"/>
+<line x1="347.0" y1="689.0" x2="357.0" y2="679.0" stroke="#000" stroke-width="1.5"/>
+<line x1="352.0" y1="706.0" x2="339.0" y2="686.0" stroke="#000" stroke-width="1.5"/>
+<line x1="352.0" y1="706.0" x2="352.0" y2="718.0" stroke="#000" stroke-width="1.5"/>
+<circle cx="378.0" cy="732.0" r="14" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="378.0" y="736.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">kWh</text>
+<line x1="352.0" y1="732.0" x2="364.0" y2="732.0" stroke="#000" stroke-width="1"/>
+<line x1="352.0" y1="718.0" x2="352.0" y2="810.0" stroke="#000" stroke-width="1.5"/>
+<text x="358.0" y="762.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">MCCB 80 A</text>
+<text x="358.0" y="776.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">5G25 · 20 m</text>
+<text x="358.0" y="790.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">ΔU 1.73 %</text>
+<text x="358.0" y="804.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">Ik1 2547 A</text>
+<circle cx="352.0" cy="827.0" r="17" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="352.0" y="828.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#000">M</text>
+<text x="352.0" y="840.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">3~</text>
+<text x="352.0" y="860.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">HMC-02</text>
+<text x="352.0" y="874.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">45 kVA</text>
+<line x1="504.0" y1="660.0" x2="504.0" y2="672.0" stroke="#000" stroke-width="1.5"/>
+<line x1="504.0" y1="672.0" x2="504.0" y2="684.0" stroke="#000" stroke-width="1.5"/>
+<line x1="499.0" y1="679.0" x2="509.0" y2="689.0" stroke="#000" stroke-width="1.5"/>
+<line x1="499.0" y1="689.0" x2="509.0" y2="679.0" stroke="#000" stroke-width="1.5"/>
+<line x1="504.0" y1="706.0" x2="491.0" y2="686.0" stroke="#000" stroke-width="1.5"/>
+<line x1="504.0" y1="706.0" x2="504.0" y2="718.0" stroke="#000" stroke-width="1.5"/>
+<circle cx="530.0" cy="732.0" r="14" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="530.0" y="736.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">kWh</text>
+<line x1="504.0" y1="732.0" x2="516.0" y2="732.0" stroke="#000" stroke-width="1"/>
+<line x1="504.0" y1="718.0" x2="504.0" y2="810.0" stroke="#000" stroke-width="1.5"/>
+<text x="510.0" y="762.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">MCCB 80 A</text>
+<text x="510.0" y="776.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">5G25 · 15 m</text>
+<text x="510.0" y="790.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">ΔU 1.61 %</text>
+<text x="510.0" y="804.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">Ik1 2849 A</text>
+<circle cx="504.0" cy="827.0" r="17" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="504.0" y="828.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#000">M</text>
+<text x="504.0" y="840.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">3~</text>
+<text x="504.0" y="860.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">HMC-03</text>
+<text x="504.0" y="874.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">45 kVA</text>
+<line x1="656.0" y1="660.0" x2="656.0" y2="672.0" stroke="#000" stroke-width="1.5"/>
+<line x1="656.0" y1="672.0" x2="656.0" y2="684.0" stroke="#000" stroke-width="1.5"/>
+<line x1="651.0" y1="679.0" x2="661.0" y2="689.0" stroke="#000" stroke-width="1.5"/>
+<line x1="651.0" y1="689.0" x2="661.0" y2="679.0" stroke="#000" stroke-width="1.5"/>
+<line x1="656.0" y1="706.0" x2="643.0" y2="686.0" stroke="#000" stroke-width="1.5"/>
+<line x1="656.0" y1="706.0" x2="656.0" y2="718.0" stroke="#000" stroke-width="1.5"/>
+<circle cx="682.0" cy="732.0" r="14" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="682.0" y="736.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">kWh</text>
+<line x1="656.0" y1="732.0" x2="668.0" y2="732.0" stroke="#000" stroke-width="1"/>
+<line x1="656.0" y1="718.0" x2="656.0" y2="810.0" stroke="#000" stroke-width="1.5"/>
+<text x="662.0" y="762.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">MCB C50</text>
+<text x="662.0" y="776.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">5G10 · 22 m</text>
+<text x="662.0" y="790.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">ΔU 2.13 %</text>
+<text x="662.0" y="804.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">Ik1 1458 A</text>
+<circle cx="656.0" cy="827.0" r="17" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="656.0" y="828.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#000">M</text>
+<text x="656.0" y="840.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">3~</text>
+<text x="656.0" y="860.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">VMC-01</text>
+<text x="656.0" y="874.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">30 kVA</text>
+<line x1="808.0" y1="660.0" x2="808.0" y2="672.0" stroke="#000" stroke-width="1.5"/>
+<line x1="808.0" y1="672.0" x2="808.0" y2="684.0" stroke="#000" stroke-width="1.5"/>
+<line x1="803.0" y1="679.0" x2="813.0" y2="689.0" stroke="#000" stroke-width="1.5"/>
+<line x1="803.0" y1="689.0" x2="813.0" y2="679.0" stroke="#000" stroke-width="1.5"/>
+<line x1="808.0" y1="706.0" x2="795.0" y2="686.0" stroke="#000" stroke-width="1.5"/>
+<line x1="808.0" y1="706.0" x2="808.0" y2="718.0" stroke="#000" stroke-width="1.5"/>
+<circle cx="834.0" cy="732.0" r="14" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="834.0" y="736.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">kWh</text>
+<line x1="808.0" y1="732.0" x2="820.0" y2="732.0" stroke="#000" stroke-width="1"/>
+<line x1="808.0" y1="718.0" x2="808.0" y2="810.0" stroke="#000" stroke-width="1.5"/>
+<text x="814.0" y="762.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">MCB C50</text>
+<text x="814.0" y="776.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">5G10 · 20 m</text>
+<text x="814.0" y="790.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">ΔU 2.08 %</text>
+<text x="814.0" y="804.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">Ik1 1554 A</text>
+<circle cx="808.0" cy="827.0" r="17" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="808.0" y="828.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#000">M</text>
+<text x="808.0" y="840.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">3~</text>
+<text x="808.0" y="860.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">WASH-01</text>
+<text x="808.0" y="874.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">30 kVA</text>
+<line x1="960.0" y1="660.0" x2="960.0" y2="672.0" stroke="#000" stroke-width="1.5"/>
+<line x1="960.0" y1="672.0" x2="960.0" y2="684.0" stroke="#000" stroke-width="1.5"/>
+<line x1="955.0" y1="679.0" x2="965.0" y2="689.0" stroke="#000" stroke-width="1.5"/>
+<line x1="955.0" y1="689.0" x2="965.0" y2="679.0" stroke="#000" stroke-width="1.5"/>
+<line x1="960.0" y1="706.0" x2="947.0" y2="686.0" stroke="#000" stroke-width="1.5"/>
+<line x1="960.0" y1="706.0" x2="960.0" y2="718.0" stroke="#000" stroke-width="1.5"/>
+<circle cx="986.0" cy="732.0" r="14" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="986.0" y="736.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">kWh</text>
+<line x1="960.0" y1="732.0" x2="972.0" y2="732.0" stroke="#000" stroke-width="1"/>
+<line x1="960.0" y1="718.0" x2="960.0" y2="810.0" stroke="#000" stroke-width="1.5"/>
+<text x="966.0" y="762.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">MCB C16</text>
+<text x="966.0" y="776.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">5G2.5 · 28 m</text>
+<text x="966.0" y="790.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">ΔU 2.81 %</text>
+<text x="966.0" y="804.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">Ik1 381 A</text>
+<circle cx="960.0" cy="827.0" r="17" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="960.0" y="828.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#000">M</text>
+<text x="960.0" y="840.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">3~</text>
+<text x="960.0" y="860.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">ROB-C1</text>
+<text x="960.0" y="874.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">10 kVA</text>
+<line x1="1112.0" y1="660.0" x2="1112.0" y2="672.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1112.0" y1="672.0" x2="1112.0" y2="684.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1107.0" y1="679.0" x2="1117.0" y2="689.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1107.0" y1="689.0" x2="1117.0" y2="679.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1112.0" y1="706.0" x2="1099.0" y2="686.0" stroke="#000" stroke-width="1.5"/>
+<line x1="1112.0" y1="706.0" x2="1112.0" y2="718.0" stroke="#000" stroke-width="1.5"/>
+<circle cx="1138.0" cy="732.0" r="14" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="1138.0" y="736.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">kWh</text>
+<line x1="1112.0" y1="732.0" x2="1124.0" y2="732.0" stroke="#000" stroke-width="1"/>
+<line x1="1112.0" y1="718.0" x2="1112.0" y2="810.0" stroke="#000" stroke-width="1.5"/>
+<text x="1118.0" y="762.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">MCB C16</text>
+<text x="1118.0" y="776.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">5G2.5 · 18 m</text>
+<text x="1118.0" y="790.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">ΔU 1.96 %</text>
+<text x="1118.0" y="804.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">Ik1 567 A</text>
+<circle cx="1112.0" cy="827.0" r="17" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="1112.0" y="828.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#000">M</text>
+<text x="1112.0" y="840.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">3~</text>
+<text x="1112.0" y="860.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">PPS-1</text>
+<text x="1112.0" y="874.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">8 kVA</text>
+<text x="40.0" y="900.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">Legend:  ⊗-blade = circuit breaker · bar-blade = disconnector · circles = transformer · two plates = capacitor · arrow box = SPD · ΔU = total from MDB (limit 4 %).</text>
+<text x="40.0" y="916.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">Ik1 = minimum earth-fault current at the machine (hot cables, c_min) – must be ≥ I_a (MCCB 1.2·I_m = 960 A, MCB C 10·I_n).</text>
+</svg>

@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Arial, Helvetica, sans-serif">
+<title>Hydraulic power unit layout – section and top view (example)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="1000" fill="#ffffff"/>
+<text x="30.0" y="36.0" font-size="16" text-anchor="start" fill="#000" font-weight="bold">Hydraulic power unit (HPU) – layout drawing: section A–A and top view (example option A: ≈ 62 L oil, 3 kW, 14 cm³/rev)</text>
+<text x="30.0" y="56.0" font-size="12" text-anchor="start" fill="#555">Dimensions in mm (example). Rules of thumb on the right. The supplier makes the final drawing.</text>
+<text x="40.0" y="110.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Section A–A (side view)</text>
+<polyline points="190.0,370.0 190.0,700.0 790.0,712.0 790.0,370.0" stroke="#000" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+<line x1="180.0" y1="370.0" x2="800.0" y2="370.0" stroke="#000" stroke-width="3"/>
+<rect x="192.0" y="440.0" width="596.0" height="266.0" rx="0" stroke="#eef3fb" stroke-width="0" fill="#eef3fb"/>
+<polyline points="190.0,370.0 190.0,700.0 790.0,712.0 790.0,370.0" stroke="#000" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+<line x1="190.0" y1="440.0" x2="790.0" y2="440.0" stroke="#000" stroke-width="1.2" stroke-dasharray="8,4"/>
+<text x="196.0" y="434.0" font-size="11" text-anchor="start" fill="#000">max level</text>
+<line x1="190.0" y1="500.0" x2="790.0" y2="500.0" stroke="#000" stroke-width="1.2" stroke-dasharray="3,3"/>
+<text x="196.0" y="494.0" font-size="11" text-anchor="start" fill="#000">min level</text>
+<rect x="517.0" y="480.0" width="6.0" height="225.0" rx="0" stroke="#000" stroke-width="1.2" fill="#999"/>
+<text x="520.0" y="474.0" font-size="11" text-anchor="middle" fill="#000">baffle (2/3 height)</text>
+<text x="530.0" y="670.0" font-size="11" text-anchor="start" fill="#555">← oil path →</text>
+<rect x="605.0" y="180.0" width="110.0" height="150.0" rx="0" stroke="#000" stroke-width="1.8" fill="#f2f2f2"/>
+<text x="660.0" y="250.0" font-size="22" text-anchor="middle" fill="#000" font-weight="bold">M</text>
+<text x="660.0" y="270.0" font-size="11" text-anchor="middle" fill="#000">0M1 3 kW</text>
+<text x="660.0" y="284.0" font-size="11" text-anchor="middle" fill="#000">IEC 100L, V1</text>
+<rect x="620.0" y="330.0" width="80.0" height="40.0" rx="0" stroke="#000" stroke-width="1.5" fill="none"/>
+<text x="706.0" y="354.0" font-size="11" text-anchor="start" fill="#000">bell housing + coupling</text>
+<rect x="638.0" y="372.0" width="44.0" height="70.0" rx="0" stroke="#000" stroke-width="1.5" fill="#ddd"/>
+<text x="688.0" y="400.0" font-size="11" text-anchor="start" fill="#000">0P1 pump</text>
+<text x="688.0" y="414.0" font-size="11" text-anchor="start" fill="#000">14 cm³/rev</text>
+<text x="688.0" y="428.0" font-size="11" text-anchor="start" fill="#000">submerged</text>
+<line x1="660.0" y1="442.0" x2="660.0" y2="640.0" stroke="#000" stroke-width="3"/>
+<polyline points="648.0,640.0 672.0,652.0" stroke="#000" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<text x="676.0" y="630.0" font-size="11" text-anchor="start" fill="#000">suction ≥ 50 mm above bottom,</text>
+<text x="676.0" y="644.0" font-size="11" text-anchor="start" fill="#000">45° cut, ≥ 100 mm below min level</text>
+<rect x="230.0" y="260.0" width="60.0" height="110.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<polygon points="260.0,297.0 278.0,315.0 260.0,333.0 242.0,315.0" stroke="#000" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+<line x1="242.0" y1="315.0" x2="278.0" y2="315.0" stroke="#000" stroke-width="1.2" stroke-dasharray="4,3"/>
+<text x="224.0" y="278.0" font-size="11" text-anchor="end" fill="#000">0Z3 return</text>
+<text x="224.0" y="292.0" font-size="11" text-anchor="end" fill="#000">filter</text>
+<text x="224.0" y="306.0" font-size="11" text-anchor="end" fill="#000">(tank top)</text>
+<line x1="260.0" y1="370.0" x2="260.0" y2="590.0" stroke="#000" stroke-width="3"/>
+<polyline points="248.0,590.0 272.0,602.0" stroke="#000" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<text x="278.0" y="580.0" font-size="11" text-anchor="start" fill="#000">return ≥ 2–3 d below min level,</text>
+<text x="278.0" y="594.0" font-size="11" text-anchor="start" fill="#000">45° cut toward the wall</text>
+<rect x="320.0" y="324.0" width="40.0" height="46.0" rx="0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="340.0" y="316.0" font-size="11" text-anchor="middle" fill="#000">0Z4 breather</text>
+<text x="340.0" y="302.0" font-size="11" text-anchor="middle" fill="#000">3 µm, filler</text>
+<line x1="340.0" y1="370.0" x2="340.0" y2="410.0" stroke="#000" stroke-width="1.2" stroke-dasharray="3,2"/>
+<rect x="164.0" y="430.0" width="18.0" height="120.0" rx="0" stroke="#000" stroke-width="1.3" fill="none"/>
+<line x1="173.0" y1="436.0" x2="173.0" y2="544.0" stroke="#555" stroke-width="1"/>
+<text x="156.0" y="450.0" font-size="11" text-anchor="end" fill="#000">0S3 level +</text>
+<text x="156.0" y="464.0" font-size="11" text-anchor="end" fill="#000">temp gauge</text>
+<text x="156.0" y="478.0" font-size="11" text-anchor="end" fill="#000">+ switch</text>
+<text x="156.0" y="492.0" font-size="11" text-anchor="end" fill="#000">(min level,</text>
+<text x="156.0" y="506.0" font-size="11" text-anchor="end" fill="#000">60 °C)</text>
+<rect x="776.0" y="708.0" width="14.0" height="14.0" rx="0" stroke="#000" stroke-width="1.3" fill="#000"/>
+<text x="796.0" y="724.0" font-size="11" text-anchor="start" fill="#000">drain plug (lowest point)</text>
+<text x="210.0" y="730.0" font-size="11" text-anchor="start" fill="#000">bottom sloped 2–3° to the drain · clean-out cover on both chambers · feet 100–150 mm (air under the tank)</text>
+<rect x="410.0" y="300.0" width="120.0" height="70.0" rx="0" stroke="#000" stroke-width="1.6" fill="#fff"/>
+<text x="470.0" y="322.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">manifold</text>
+<text x="470.0" y="336.0" font-size="11" text-anchor="middle" fill="#000">0V1 relief, 0V2 check,</text>
+<text x="470.0" y="350.0" font-size="11" text-anchor="middle" fill="#000">1V1 NG6 stack</text>
+<circle cx="510.0" cy="278.0" r="12.0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="502.8" y1="285.2" x2="517.2" y2="270.8" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<line x1="510.0" y1="290.0" x2="510.0" y2="300.0" stroke="#000" stroke-width="1.2"/>
+<text x="526.0" y="274.0" font-size="11" text-anchor="start" fill="#000">0S1 gauge</text>
+<polyline points="638.0,400.0 600.0,400.0 600.0,360.0 530.0,360.0" stroke="#c62828" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+<text x="594.0" y="420.0" font-size="11" text-anchor="end" fill="#c62828">pressure line</text>
+<rect x="820.0" y="250.0" width="120.0" height="150.0" rx="0" stroke="#000" stroke-width="1.6" fill="#fff"/>
+<line x1="828.0" y1="258.0" x2="828.0" y2="392.0" stroke="#555" stroke-width="0.8"/>
+<line x1="841.0" y1="258.0" x2="841.0" y2="392.0" stroke="#555" stroke-width="0.8"/>
+<line x1="854.0" y1="258.0" x2="854.0" y2="392.0" stroke="#555" stroke-width="0.8"/>
+<line x1="867.0" y1="258.0" x2="867.0" y2="392.0" stroke="#555" stroke-width="0.8"/>
+<line x1="880.0" y1="258.0" x2="880.0" y2="392.0" stroke="#555" stroke-width="0.8"/>
+<line x1="893.0" y1="258.0" x2="893.0" y2="392.0" stroke="#555" stroke-width="0.8"/>
+<line x1="906.0" y1="258.0" x2="906.0" y2="392.0" stroke="#555" stroke-width="0.8"/>
+<line x1="919.0" y1="258.0" x2="919.0" y2="392.0" stroke="#555" stroke-width="0.8"/>
+<line x1="932.0" y1="258.0" x2="932.0" y2="392.0" stroke="#555" stroke-width="0.8"/>
+<circle cx="880.0" cy="325.0" r="40.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<text x="886.0" y="238.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">0E1 cooler</text>
+<text x="880.0" y="416.0" font-size="11" text-anchor="middle" fill="#000">only if heat &gt;</text>
+<text x="880.0" y="430.0" font-size="11" text-anchor="middle" fill="#000">tank cooling;</text>
+<text x="880.0" y="444.0" font-size="11" text-anchor="middle" fill="#000">thermostat +</text>
+<text x="880.0" y="458.0" font-size="11" text-anchor="middle" fill="#000">bypass check</text>
+<text x="880.0" y="472.0" font-size="11" text-anchor="middle" fill="#000">0.3 MPa</text>
+<polyline points="880.0,250.0 880.0,155.0 260.0,155.0 260.0,260.0" stroke="#000" stroke-width="1.8" fill="none" marker-end="url(#ar)" stroke-linejoin="round"/>
+<text x="270.0" y="148.0" font-size="11" text-anchor="start" fill="#000">return line from the machine → 0E1 cooler → 0Z3 return filter → tank</text>
+<line x1="190.0" y1="760.0" x2="790.0" y2="760.0" stroke="#000" stroke-width="1" marker-end="url(#ar)"/>
+<line x1="790.0" y1="760.0" x2="190.0" y2="760.0" stroke="#000" stroke-width="1" marker-end="url(#ar)"/>
+<text x="490.0" y="754.0" font-size="11" text-anchor="middle" fill="#000">600</text>
+<line x1="820.0" y1="370.0" x2="820.0" y2="700.0" stroke="#000" stroke-width="1" marker-end="url(#ar)"/>
+<line x1="820.0" y1="700.0" x2="820.0" y2="370.0" stroke="#000" stroke-width="1" marker-end="url(#ar)"/>
+<text x="826.0" y="535.0" font-size="11" text-anchor="start" fill="#000">330</text>
+<text x="190.0" y="792.0" font-size="11" text-anchor="start" fill="#000">Tank 600 × 400 × 330 = 79 L gross; oil at max level ≈ 600 × 400 × 260 = 62 L (option A: 3–5 × 18.7 L/min).</text>
+<text x="700.0" y="790.0" font-size="11" text-anchor="start" fill="#000"></text>
+<rect x="950.0" y="90.0" width="430.0" height="560.0" rx="0" stroke="#000" stroke-width="1.2" fill="#f7f7f7"/>
+<text x="962.0" y="114.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Design rules for the tank and the HPU (example values)</text>
+<text x="962.0" y="140.0" font-size="11" text-anchor="start" fill="#000">Oil volume 3–5 × pump flow per minute (industrial);</text>
+<text x="962.0" y="163.0" font-size="11" text-anchor="start" fill="#000">  with accumulator / small pump: oil swing + 20–30 % reserve.</text>
+<text x="962.0" y="186.0" font-size="11" text-anchor="start" fill="#000">Air release: dwell time of the oil ≥ 3–5 min in the tank.</text>
+<text x="962.0" y="209.0" font-size="11" text-anchor="start" fill="#000">Baffle 2/3 of the oil height between return and suction.</text>
+<text x="962.0" y="232.0" font-size="11" text-anchor="start" fill="#000">Suction velocity 0.6–1.2 m/s; pump inlet ≥ −0.02 MPa</text>
+<text x="962.0" y="255.0" font-size="11" text-anchor="start" fill="#000">  (gear) – check the pump datasheet. Submerged pump = quiet.</text>
+<text x="962.0" y="278.0" font-size="11" text-anchor="start" fill="#000">Return pipe below min level (no foam), 45° cut to the wall.</text>
+<text x="962.0" y="301.0" font-size="11" text-anchor="start" fill="#000">Return filter on the lid: change the element without draining.</text>
+<text x="962.0" y="324.0" font-size="11" text-anchor="start" fill="#000">Breather 3 µm (β ≥ 200), with desiccant in humid shops.</text>
+<text x="962.0" y="347.0" font-size="11" text-anchor="start" fill="#000">Level + temperature: sight gauge + switch (min level,</text>
+<text x="962.0" y="370.0" font-size="11" text-anchor="start" fill="#000">  alarm 60 °C, stop 70 °C – example).</text>
+<text x="962.0" y="393.0" font-size="11" text-anchor="start" fill="#000">Drain at the lowest point, bottom sloped, clean-out covers.</text>
+<text x="962.0" y="416.0" font-size="11" text-anchor="start" fill="#000">Free surface for cooling: k ≈ 10–15 W/m²K (still air).</text>
+<text x="962.0" y="439.0" font-size="11" text-anchor="start" fill="#000">Motor–pump: bell housing + elastic coupling, alignment</text>
+<text x="962.0" y="462.0" font-size="11" text-anchor="start" fill="#000">  by spigot; anti-vibration mounts; hoses to the machine.</text>
+<text x="962.0" y="485.0" font-size="11" text-anchor="start" fill="#000">Lid: oil-tight, sloped, drip tray under the whole unit</text>
+<text x="962.0" y="508.0" font-size="11" text-anchor="start" fill="#000">  (110 % of the oil volume where the site rules ask).</text>
+<text x="962.0" y="531.0" font-size="11" text-anchor="start" fill="#000">Test points (M16×2) at pump, after filter, at each consumer.</text>
+<text x="962.0" y="554.0" font-size="11" text-anchor="start" fill="#000">Electric: motor IE3 (EU 2019/1781), 24 V DC solenoids,</text>
+<text x="962.0" y="577.0" font-size="11" text-anchor="start" fill="#000">  level/temperature/filter switches to the PLC.</text>
+<text x="962.0" y="600.0" font-size="11" text-anchor="start" fill="#000">Paint inside: oil-resistant primer or bare pickled steel.</text>
+<text x="962.0" y="623.0" font-size="11" text-anchor="start" fill="#000">Nameplate: fluid, volume, p max, relief setting, circuit no.</text>
+<text x="40.0" y="810.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Top view (not to scale)</text>
+<rect x="190.0" y="820.0" width="600.0" height="150.0" rx="0" stroke="#000" stroke-width="2" fill="none"/>
+<line x1="520.0" y1="820.0" x2="520.0" y2="970.0" stroke="#999" stroke-width="1.5"/>
+<text x="526.0" y="838.0" font-size="11" text-anchor="start" fill="#000">baffle</text>
+<circle cx="260.0" cy="870.0" r="26.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="260.0" y="912.0" font-size="11" text-anchor="middle" fill="#000">0Z3</text>
+<circle cx="340.0" cy="870.0" r="16.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="340.0" y="904.0" font-size="11" text-anchor="middle" fill="#000">0Z4</text>
+<rect x="410.0" y="845.0" width="120.0" height="60.0" rx="0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="470.0" y="880.0" font-size="11" text-anchor="middle" fill="#000">manifold</text>
+<circle cx="660.0" cy="890.0" r="50.0" stroke="#000" stroke-width="1.6" fill="none"/>
+<text x="660.0" y="895.0" font-size="11" text-anchor="middle" fill="#000">0M1</text>
+<rect x="220.0" y="925.0" width="120.0" height="35.0" rx="0" stroke="#000" stroke-width="1" fill="none" stroke-dasharray="5,3"/>
+<text x="280.0" y="947.0" font-size="11" text-anchor="middle" fill="#000">clean-out 1</text>
+<rect x="535.0" y="925.0" width="110.0" height="35.0" rx="0" stroke="#000" stroke-width="1" fill="none" stroke-dasharray="5,3"/>
+<text x="590.0" y="947.0" font-size="11" text-anchor="middle" fill="#000">clean-out 2</text>
+<line x1="790.0" y1="895.0" x2="830.0" y2="895.0" stroke="#000" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="834.0" y="899.0" font-size="11" text-anchor="start" fill="#000">A–A</text>
+<line x1="150.0" y1="895.0" x2="190.0" y2="895.0" stroke="#000" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="120.0" y="899.0" font-size="11" text-anchor="start" fill="#000">A–A</text>
+<rect x="950.0" y="894.0" width="430.0" height="86.0" rx="0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="950.0" y1="924.0" x2="1380.0" y2="924.0" stroke="#000" stroke-width="1"/>
+<text x="960.0" y="915.0" font-size="14" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the supplier's catalogue</text>
+<text x="960.0" y="944.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">25_hpu_layout – power unit layout</text>
+<text x="960.0" y="962.0" font-size="11" text-anchor="start" fill="#000">Guide 25 §13 · rev A</text>
+<text x="1370.0" y="974.0" font-size="11" text-anchor="end" fill="#555">values = example · ISO 1219 style</text>
+</svg>

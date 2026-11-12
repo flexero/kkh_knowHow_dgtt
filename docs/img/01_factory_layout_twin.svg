@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 860" width="1240" height="860" font-family="Arial, Helvetica, sans-serif">
+<title>Factory layout of the twin from config/factory.json</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1240" height="860" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">01 – Factory layout of the twin – plan view drawn from the pos values in config/factory.json (hall 96 m × 50 m)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" fill="#444">Origin (0, 0) = hall centre. +x to the right (hall length), +z towards the bottom of this page (hall width). Machine boxes 3.6 m × 2.8 m (symbolic size).</text>
+<rect x="68.0" y="122.5" width="1104.0" height="575.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="2.5"/>
+<rect x="91.0" y="157.0" width="115.0" height="368.0" rx="0" fill="#f2f2f2" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+<rect x="229.0" y="127.1" width="299.0" height="172.5" rx="0" fill="#f2f2f2" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+<rect x="229.0" y="312.2" width="299.0" height="97.8" rx="0" fill="#f2f2f2" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+<rect x="229.0" y="427.2" width="299.0" height="103.5" rx="0" fill="#f2f2f2" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+<rect x="574.0" y="283.5" width="218.5" height="161.0" rx="0" fill="#f2f2f2" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+<rect x="804.0" y="260.5" width="103.5" height="195.5" rx="0" fill="#f2f2f2" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+<rect x="919.0" y="306.5" width="126.5" height="115.0" rx="0" fill="#f2f2f2" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+<rect x="999.5" y="277.8" width="161.0" height="408.2" rx="0" fill="#f2f2f2" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+<rect x="861.5" y="571.0" width="126.5" height="80.5" rx="0" fill="#f2f2f2" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+<rect x="620.0" y="571.0" width="218.5" height="103.5" rx="0" fill="#f2f2f2" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+<rect x="401.5" y="571.0" width="184.0" height="40.2" rx="0" fill="#f2f2f2" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+<text x="148.5" y="147.2" font-size="11" text-anchor="middle" font-weight="bold" fill="#555">RAW MATERIAL AS/RS</text>
+<text x="378.5" y="147.2" font-size="11" text-anchor="middle" font-weight="bold" fill="#555">CRANKCASE CELL (FMS)</text>
+<text x="378.5" y="328.9" font-size="11" text-anchor="middle" font-weight="bold" fill="#555">CYLINDER MACHINING</text>
+<text x="378.5" y="445.1" font-size="11" text-anchor="middle" font-weight="bold" fill="#555">CRANKSHAFT MACHINING</text>
+<text x="683.2" y="301.3" font-size="11" text-anchor="middle" font-weight="bold" fill="#555">PUMP ASSEMBLY</text>
+<text x="855.8" y="278.3" font-size="11" text-anchor="middle" font-weight="bold" fill="#555">PERFORMANCE TEST</text>
+<text x="982.2" y="324.3" font-size="11" text-anchor="middle" font-weight="bold" fill="#555">PAINT</text>
+<text x="1080.0" y="295.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#555">FINAL ASSEMBLY</text>
+<text x="924.8" y="588.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#555">PACKING</text>
+<text x="729.2" y="588.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#555">FINISHED GOODS AS/RS</text>
+<text x="309.5" y="593.4" font-size="11" text-anchor="middle" font-weight="bold" fill="#555">AGV PARK + CHARGING</text>
+<line x1="206.0" y1="551.5" x2="1160.5" y2="551.5" stroke="#c0392b" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="217.5" y="545.5" font-size="11" text-anchor="start" font-weight="bold" fill="#c0392b">AGV main aisle z = 12.3 m · 2 AGVs · 1.2 m/s</text>
+<rect x="417.5" y="582.4" width="14.0" height="14.0" rx="0" fill="#c0392b" stroke="#111" stroke-width="0.8"/>
+<rect x="445.1" y="582.4" width="14.0" height="14.0" rx="0" fill="#c0392b" stroke="#111" stroke-width="0.8"/>
+<rect x="475.0" y="582.4" width="14.0" height="14.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1"/>
+<rect x="502.6" y="582.4" width="14.0" height="14.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1"/>
+<rect x="530.2" y="582.4" width="14.0" height="14.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1"/>
+<rect x="557.8" y="582.4" width="14.0" height="14.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1"/>
+<rect x="111.7" y="168.5" width="73.6" height="322.0" rx="0" fill="#e6e6e6" stroke="#111" stroke-width="1.4"/>
+<text x="148.5" y="329.5" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">ASRS-RAW</text>
+<text x="148.5" y="344.5" font-size="11" text-anchor="middle" fill="#111">7 levels</text>
+<text x="148.5" y="359.5" font-size="11" text-anchor="middle" fill="#111">crane 50 s</text>
+<circle cx="148.5" cy="520.4" r="5" fill="#c0392b" stroke="#111" stroke-width="1.2"/>
+<rect x="637.2" y="599.8" width="184.0" height="46.0" rx="0" fill="#e6e6e6" stroke="#111" stroke-width="1.4"/>
+<text x="729.2" y="626.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">ASRS-FG</text>
+<text x="729.2" y="660.8" font-size="11" text-anchor="middle" fill="#111">5 levels · crane 60 s · 110 slots</text>
+<circle cx="610.8" cy="622.8" r="5" fill="#c0392b" stroke="#111" stroke-width="1.2"/>
+<rect x="263.5" y="161.6" width="27.6" height="92.0" rx="0" fill="#e6e6e6" stroke="#111" stroke-width="1.2"/>
+<text x="258.9" y="202.6" font-size="11" text-anchor="end" font-weight="bold" fill="#111">PPS-1</text>
+<text x="258.9" y="217.6" font-size="11" text-anchor="end" fill="#111">10 pallets</text>
+<rect x="258.9" y="255.9" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="279.6" y="301.1" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">LOAD-CC · 89 s</text>
+<rect x="331.4" y="150.1" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="376.8" y="165.2" font-size="11" text-anchor="start" font-weight="bold" fill="#111">HMC-01</text>
+<text x="376.8" y="179.2" font-size="11" text-anchor="start" fill="#111">344 s</text>
+<rect x="331.4" y="205.3" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="376.8" y="220.4" font-size="11" text-anchor="start" font-weight="bold" fill="#111">HMC-02</text>
+<text x="376.8" y="234.4" font-size="11" text-anchor="start" fill="#111">344 s</text>
+<rect x="331.4" y="260.5" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="376.8" y="275.6" font-size="11" text-anchor="start" font-weight="bold" fill="#111">HMC-03</text>
+<text x="376.8" y="289.6" font-size="11" text-anchor="start" fill="#111">344 s</text>
+<rect x="438.3" y="209.9" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="459.0" y="255.1" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">WASH-01 · 148 s</text>
+<rect x="283.1" y="347.9" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="303.8" y="393.1" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">VMC-01 · 100 s</text>
+<rect x="438.3" y="347.9" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="459.0" y="393.1" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">HONE-01 · 90 s</text>
+<rect x="288.8" y="462.9" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="309.5" y="508.1" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">LATHE-01 · 169 s</text>
+<rect x="438.3" y="462.9" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="459.0" y="508.1" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">GRIND-01 · 189 s</text>
+<rect x="622.3" y="347.9" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="643.0" y="393.1" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">ASSY-01 · 199 s</text>
+<rect x="725.8" y="347.9" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="746.5" y="393.1" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">ROBOT-01 · 110 s</text>
+<rect x="835.0" y="296.1" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="880.5" y="311.2" font-size="11" text-anchor="start" font-weight="bold" fill="#111">TEST-01</text>
+<text x="880.5" y="325.2" font-size="11" text-anchor="start" fill="#111">354 s</text>
+<rect x="835.0" y="393.9" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="880.5" y="409.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">TEST-02</text>
+<text x="880.5" y="423.0" font-size="11" text-anchor="start" fill="#111">354 s</text>
+<rect x="955.8" y="347.9" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="976.5" y="393.1" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">PAINT-01 · 159 s</text>
+<rect x="1047.8" y="491.6" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="1043.8" y="506.8" font-size="11" text-anchor="end" font-weight="bold" fill="#111">FINAL-01</text>
+<text x="1043.8" y="520.8" font-size="11" text-anchor="end" fill="#111">209 s</text>
+<rect x="915.5" y="595.1" width="41.4" height="32.2" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.6"/>
+<text x="936.2" y="640.4" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">PACK-01 · 118 s</text>
+<circle cx="256.6" cy="272.0" r="5" fill="#ffffff" stroke="#c0392b" stroke-width="1.6"/>
+<circle cx="256.6" cy="364.0" r="5" fill="#ffffff" stroke="#c0392b" stroke-width="1.6"/>
+<circle cx="256.6" cy="479.0" r="5" fill="#ffffff" stroke="#c0392b" stroke-width="1.6"/>
+<circle cx="1131.8" cy="657.2" r="5" fill="#ffffff" stroke="#c0392b" stroke-width="1.6"/>
+<circle cx="1131.8" cy="594.0" r="5" fill="#ffffff" stroke="#c0392b" stroke-width="1.6"/>
+<circle cx="1131.8" cy="530.8" r="5" fill="#ffffff" stroke="#c0392b" stroke-width="1.6"/>
+<circle cx="1131.8" cy="433.0" r="5" fill="#ffffff" stroke="#c0392b" stroke-width="1.6"/>
+<circle cx="1131.8" cy="369.8" r="5" fill="#ffffff" stroke="#c0392b" stroke-width="1.6"/>
+<circle cx="1131.8" cy="306.5" r="5" fill="#ffffff" stroke="#c0392b" stroke-width="1.6"/>
+<circle cx="902.9" cy="611.2" r="5" fill="#ffffff" stroke="#c0392b" stroke-width="1.6"/>
+<text x="1122.8" y="268.5" font-size="11" text-anchor="end" fill="#111">tank + motor stores</text>
+<line x1="68.0" y1="723.5" x2="183.0" y2="723.5" stroke="#111" stroke-width="2"/>
+<text x="125.5" y="739.5" font-size="11" text-anchor="middle" fill="#111">10 m</text>
+<line x1="620.0" y1="402.0" x2="620.0" y2="418.0" stroke="#111" stroke-width="1"/>
+<line x1="612.0" y1="410.0" x2="628.0" y2="410.0" stroke="#111" stroke-width="1"/>
+<text x="626.0" y="426.0" font-size="11" text-anchor="start" fill="#111">(0, 0)</text>
+<line x1="275.0" y1="723.5" x2="344.0" y2="723.5" stroke="#111" stroke-width="1.5" marker-end="url(#ak)"/>
+<text x="349.8" y="727.5" font-size="11" text-anchor="start" fill="#111">+x</text>
+<line x1="275.0" y1="723.5" x2="275.0" y2="737.5" stroke="#111" stroke-width="1.5" marker-end="url(#ak)"/>
+<text x="280.8" y="749.5" font-size="11" text-anchor="start" fill="#111">+z</text>
+<rect x="413.0" y="716.5" width="14.0" height="14.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.2"/>
+<text x="433.0" y="727.5" font-size="11" text-anchor="start" fill="#111">station · mix-average cycle</text>
+<circle cx="643.0" cy="723.5" r="5" fill="#fff" stroke="#c0392b" stroke-width="1.2"/>
+<text x="653.0" y="727.5" font-size="11" text-anchor="start" fill="#111">buffer / store with pos</text>
+<circle cx="643.0" cy="741.5" r="5" fill="#c0392b" stroke="#111" stroke-width="1.2"/>
+<text x="653.0" y="745.5" font-size="11" text-anchor="start" fill="#111">AS/RS pick-up point (io)</text>
+<rect x="413.0" y="734.5" width="14.0" height="14.0" rx="0" fill="#c0392b" stroke="#111" stroke-width="1.2"/>
+<text x="433.0" y="745.5" font-size="11" text-anchor="start" fill="#111">charger (park = open square)</text>
+<rect x="798.0" y="774.0" width="430.0" height="74.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<line x1="798.0" y1="800.0" x2="1228.0" y2="800.0" stroke="#111" stroke-width="1.2"/>
+<line x1="1048.0" y1="800.0" x2="1048.0" y2="848.0" stroke="#111" stroke-width="1.2"/>
+<text x="806.0" y="792.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – check the maker's documentation</text>
+<text x="806.0" y="818.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Drawing 01-007</text>
+<text x="806.0" y="836.0" font-size="11" text-anchor="start" fill="#111">Guide 01 – Digital twin core</text>
+<text x="1056.0" y="818.0" font-size="11" text-anchor="start" fill="#111">Values: config/factory.json</text>
+<text x="1056.0" y="836.0" font-size="11" text-anchor="start" fill="#111">Rev A · 2026-11-12</text>
+</svg>

@@ -60,6 +60,20 @@ HTTP API
                                 {"action": "buy_so", "id": "SO-0001"}
                                 {"action": "receive_now", "id": "PO-0003"}   (training shortcut)
                                 {"action": "so_auto", "id": "SO-0001", "auto": true}
+  Spindle assembly LIVE station ASSY-SP1 (twin/spstation.py, guide docs/20_spindle_station_live_twin.md)
+  GET  /api/spst                full station state (unit, steps + checks, devices, run-in, alarms, KPIs)
+  GET  /api/spst/stream         the same state every 1 s (Server-Sent Events)
+  GET  /api/spst/units          all spindles, newest first
+  GET  /api/spst/unit?sn=SPU-2646-00001   full record: results, signatures, NCRs, events, device log
+  GET  /api/spst/spc?id=nut.runout_after  SPC of one numeric check (mean, sigma, Cpk)
+  GET  /api/spst/runin?sn=...[&run=1]     run-in samples (1 per 5 s process time)
+  GET  /api/spst/export.csv     all results as CSV
+  POST /api/spst                {"action": "login", "user": "Anna", "role": "operator|inspector|admin"} | logout
+                                new_unit {wo?, shaft_sn?} | start_step | record {id, v} | confirm
+                                ncr {id, decision: rework|scrap|concession, text} | hold {reason} | release
+                                sim {on?, auto?, speed?, faults?} | runin {cmd: start|stop|ack} | ack {id}
+                                device {id, proto: sim|http|modbus|mqtt, addr?, enabled?}
+  POST /api/spst/ingest         {"device": "TQ-01", "values": {"torque_nm": 125.3}} (or a list) - gateways
 """
 
 from __future__ import annotations
@@ -69,6 +83,7 @@ import json
 import mimetypes
 import os
 import sys
+import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
@@ -76,9 +91,11 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ROOT)
 
 from twin.engine import TwinEngine  # noqa: E402
+from twin.spstation import SpindleStation  # noqa: E402
 
 WEB = os.path.join(ROOT, "web")
 ENGINE: TwinEngine | None = None
+SPST: SpindleStation | None = None
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -153,6 +170,8 @@ class Handler(BaseHTTPRequestHandler):
                     return self._json(200, ENGINE.order_view(so))
                 except ValueError as e:
                     return self._json(404, {"error": str(e)})
+            if p.startswith("/api/spst"):
+                return self._spst_get(p, parse_qs(url.query))
             if p == "/api/export.csv":
                 return self._send(200, ENGINE.historian.export_csv(), "text/csv; charset=utf-8",
                                   {"Content-Disposition": "attachment; filename=twin_history.csv"})
@@ -161,6 +180,48 @@ class Handler(BaseHTTPRequestHandler):
             self._json(404, {"error": f"not found: {e}"})
         except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
             pass
+
+    def _spst_get(self, p, q):
+        arg = lambda k, d="": q.get(k, [d])[0]  # noqa: E731
+        if p == "/api/spst":
+            return self._send(200, SPST.state_json())
+        if p == "/api/spst/stream":
+            return self._spst_stream()
+        if p == "/api/spst/units":
+            return self._json(200, SPST.units())
+        if p == "/api/spst/unit":
+            try:
+                return self._json(200, SPST.unit_record(arg("sn")))
+            except KeyError:
+                return self._json(404, {"error": f"unit {arg('sn')} not found"})
+        if p == "/api/spst/spc":
+            try:
+                return self._json(200, SPST.spc(arg("id")))
+            except KeyError:
+                return self._json(404, {"error": f"check {arg('id')} not found"})
+            except ValueError as e:
+                return self._json(400, {"error": str(e)})
+        if p == "/api/spst/runin":
+            run = arg("run")
+            return self._json(200, SPST.runin_samples(arg("sn"), int(run) if run.isdigit() else None))
+        if p == "/api/spst/export.csv":
+            return self._send(200, SPST.export_csv(), "text/csv; charset=utf-8",
+                              {"Content-Disposition": "attachment; filename=spst_results.csv"})
+        return self._json(404, {"error": "not found"})
+
+    def _spst_stream(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "text/event-stream")
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("Connection", "keep-alive")
+        self.end_headers()
+        try:
+            while True:
+                self.wfile.write(("data: " + SPST.state_json() + "\n\n").encode("utf-8"))
+                self.wfile.flush()
+                time.sleep(1.0)
+        except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError, OSError):
+            return
 
     def _static(self, p):
         if p == "/":
@@ -208,6 +269,10 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json(200, {"ok": True, "message": ENGINE.scada_action(body)})
             if p == "/api/plc":
                 return self._json(200, {"ok": True, "message": ENGINE.plc_action(body)})
+            if p == "/api/spst":
+                return self._json(200, {"ok": True, "message": SPST.action(body)})
+            if p == "/api/spst/ingest":
+                return self._json(200, {"ok": True, "message": SPST.ingest(body)})
             self._json(404, {"error": "not found"})
         except (ValueError, KeyError, TypeError) as e:
             self._json(400, {"ok": False, "error": str(e)})
@@ -224,7 +289,7 @@ class Server(ThreadingHTTPServer):
 
 
 def main():
-    global ENGINE
+    global ENGINE, SPST
     ap = argparse.ArgumentParser(description="Smart factory digital twin")
     ap.add_argument("--port", type=int, default=8080)
     ap.add_argument("--host", default="127.0.0.1",
@@ -245,6 +310,8 @@ def main():
         sys.exit(1)
     ENGINE = TwinEngine(args.config, args.db)
     ENGINE.start()
+    SPST = SpindleStation(os.path.join(os.path.dirname(os.path.abspath(args.db)), "spstation.db"))
+    SPST.start()
     httpd.daemon_threads = True
     print(f"Digital Twin running:  http://localhost:{args.port}   (Ctrl+C to stop)")
     try:
@@ -252,6 +319,7 @@ def main():
     except KeyboardInterrupt:
         print("stopping...")
         ENGINE.stop()
+        SPST.stop()
 
 
 if __name__ == "__main__":

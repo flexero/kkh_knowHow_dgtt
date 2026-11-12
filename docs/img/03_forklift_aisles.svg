@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 940" width="1600" height="940" font-family="Arial, Helvetica, sans-serif">
+<title>Working aisle widths per truck type – counterbalance, reach truck, very narrow aisle turret truck, pedestrian stacker – with VDI 2198 formula</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1600" height="940" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="18" text-anchor="start" fill="#000" font-weight="bold">Working aisle width Ast per truck type – Euro pallet 1 200 × 800 stored with the 800 side to the aisle (plan views, typical datasheet values)</text>
+<text x="24.0" y="52.0" font-size="12" text-anchor="start" fill="#444">Ast = aisle between the load faces needed to turn 90° and put the pallet in the rack. Values are typical examples from maker datasheets (VDI 2198 sheet) – the datasheet of the truck you buy decides.</text>
+<text x="40.0" y="120.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">A  Counterbalance 3-wheel, 1.6 t</text>
+<text x="40.0" y="138.0" font-size="11" text-anchor="start" fill="#444">typical Ast 3.5 – 3.9 m (4-wheel ≈ 3.9 – 4.2 m)</text>
+<rect x="40.0" y="150.0" width="55.0" height="260.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="40.0" y="155.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="40.0" y="197.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="40.0" y="240.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="40.0" y="282.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="40.0" y="325.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="40.0" y="367.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="285.0" y="150.0" width="55.0" height="260.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="285.0" y="155.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="285.0" y="197.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="285.0" y="240.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="285.0" y="282.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="285.0" y="325.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="285.0" y="367.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="100.0" y="252.5" width="120.0" height="55.0" rx="0" fill="#fff" stroke="#c62828" stroke-width="2"/>
+<rect x="220.0" y="260.0" width="60.0" height="40.0" rx="0" fill="#f3c7c7" stroke="#000" stroke-width="1.2"/>
+<text x="160.0" y="284.0" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">truck</text>
+<text x="250.0" y="284.0" font-size="11" text-anchor="middle" fill="#000">pallet</text>
+<circle cx="112.5" cy="280.0" r="6.0" fill="none" stroke="#000" stroke-width="0.8"/>
+<line x1="95.0" y1="410.0" x2="95.0" y2="442.0" stroke="#000" stroke-width="0.6"/>
+<line x1="285.0" y1="410.0" x2="285.0" y2="442.0" stroke="#000" stroke-width="0.6"/>
+<line x1="95.0" y1="436.0" x2="285.0" y2="436.0" stroke="#000" stroke-width="0.9" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="190.0" y="432.0" font-size="12" text-anchor="middle" fill="#000">Ast = 3 800</text>
+<text x="190.0" y="462.0" font-size="11" text-anchor="middle" fill="#000">bay depth: 2 × 1 200 + Ast = 6.20 m</text>
+<text x="190.0" y="478.0" font-size="11" text-anchor="middle" fill="#000">m² of floor per 2 rack rows: 6.20 × length</text>
+<text x="400.0" y="120.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">B  Reach truck, 1.4–2.0 t</text>
+<text x="400.0" y="138.0" font-size="11" text-anchor="start" fill="#444">typical Ast 2.7 – 2.9 m</text>
+<rect x="400.0" y="150.0" width="55.0" height="260.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="400.0" y="155.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="400.0" y="197.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="400.0" y="240.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="400.0" y="282.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="400.0" y="325.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="400.0" y="367.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="595.0" y="150.0" width="55.0" height="260.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="595.0" y="155.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="595.0" y="197.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="595.0" y="240.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="595.0" y="282.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="595.0" y="325.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="595.0" y="367.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="460.0" y="248.8" width="70.0" height="62.5" rx="0" fill="#fff" stroke="#c62828" stroke-width="2"/>
+<rect x="530.0" y="260.0" width="60.0" height="40.0" rx="0" fill="#f3c7c7" stroke="#000" stroke-width="1.2"/>
+<text x="495.0" y="284.0" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">reach truck</text>
+<text x="560.0" y="284.0" font-size="11" text-anchor="middle" fill="#000">pallet</text>
+<circle cx="472.5" cy="280.0" r="6.0" fill="none" stroke="#000" stroke-width="0.8"/>
+<line x1="455.0" y1="410.0" x2="455.0" y2="442.0" stroke="#000" stroke-width="0.6"/>
+<line x1="595.0" y1="410.0" x2="595.0" y2="442.0" stroke="#000" stroke-width="0.6"/>
+<line x1="455.0" y1="436.0" x2="595.0" y2="436.0" stroke="#000" stroke-width="0.9" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="525.0" y="432.0" font-size="12" text-anchor="middle" fill="#000">Ast = 2 800</text>
+<text x="525.0" y="462.0" font-size="11" text-anchor="middle" fill="#000">bay depth: 2 × 1 200 + Ast = 5.20 m</text>
+<text x="525.0" y="478.0" font-size="11" text-anchor="middle" fill="#000">m² of floor per 2 rack rows: 5.20 × length</text>
+<text x="710.0" y="120.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">C  VNA turret (man-up), guided</text>
+<text x="710.0" y="138.0" font-size="11" text-anchor="start" fill="#444">typical Ast 1.6 – 1.9 m + transfer aisle</text>
+<rect x="710.0" y="150.0" width="55.0" height="260.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="710.0" y="155.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="710.0" y="197.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="710.0" y="240.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="710.0" y="282.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="710.0" y="325.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="710.0" y="367.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="852.5" y="150.0" width="55.0" height="260.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="852.5" y="155.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="852.5" y="197.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="852.5" y="240.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="852.5" y="282.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="852.5" y="325.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="852.5" y="367.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="774.0" y="200.0" width="69.5" height="150.0" rx="0" fill="#fff" stroke="#c62828" stroke-width="2"/>
+<text x="808.8" y="250.0" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">turret</text>
+<text x="808.8" y="264.0" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">truck</text>
+<rect x="808.8" y="297.5" width="60.0" height="40.0" rx="0" fill="#f3c7c7" stroke="#000" stroke-width="1.2"/>
+<text x="838.8" y="320.0" font-size="11" text-anchor="middle" fill="#000">pallet</text>
+<line x1="769.0" y1="150.0" x2="769.0" y2="410.0" stroke="#000" stroke-width="2.2"/>
+<line x1="848.5" y1="150.0" x2="848.5" y2="410.0" stroke="#000" stroke-width="2.2"/>
+<text x="808.8" y="402.0" font-size="11" text-anchor="middle" fill="#000">guide rails</text>
+<line x1="765.0" y1="410.0" x2="765.0" y2="442.0" stroke="#000" stroke-width="0.6"/>
+<line x1="852.5" y1="410.0" x2="852.5" y2="442.0" stroke="#000" stroke-width="0.6"/>
+<line x1="765.0" y1="436.0" x2="852.5" y2="436.0" stroke="#000" stroke-width="0.9" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="808.8" y="432.0" font-size="12" text-anchor="middle" fill="#000">Ast = 1 750</text>
+<text x="808.8" y="462.0" font-size="11" text-anchor="middle" fill="#000">bay depth: 2 × 1 200 + Ast = 4.15 m</text>
+<text x="808.8" y="478.0" font-size="11" text-anchor="middle" fill="#000">m² of floor per 2 rack rows: 4.15 × length</text>
+<text x="967.5" y="120.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">D  Pedestrian stacker</text>
+<text x="967.5" y="138.0" font-size="11" text-anchor="start" fill="#444">typical Ast 2.2 – 2.6 m</text>
+<rect x="967.5" y="150.0" width="55.0" height="260.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="967.5" y="155.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="967.5" y="197.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="967.5" y="240.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="967.5" y="282.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="967.5" y="325.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="967.5" y="367.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="1142.5" y="150.0" width="55.0" height="260.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="1142.5" y="155.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="1142.5" y="197.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="1142.5" y="240.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="1142.5" y="282.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="1142.5" y="325.0" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="1142.5" y="367.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
+<rect x="1027.5" y="258.8" width="50.0" height="42.5" rx="0" fill="#fff" stroke="#c62828" stroke-width="2"/>
+<rect x="1077.5" y="260.0" width="60.0" height="40.0" rx="0" fill="#f3c7c7" stroke="#000" stroke-width="1.2"/>
+<text x="1052.5" y="284.0" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">stacker</text>
+<text x="1107.5" y="284.0" font-size="11" text-anchor="middle" fill="#000">pallet</text>
+<line x1="1027.5" y1="280.0" x2="1023.5" y2="280.0" stroke="#000" stroke-width="2"/>
+<circle cx="1040.0" cy="280.0" r="6.0" fill="none" stroke="#000" stroke-width="0.8"/>
+<line x1="1022.5" y1="410.0" x2="1022.5" y2="442.0" stroke="#000" stroke-width="0.6"/>
+<line x1="1142.5" y1="410.0" x2="1142.5" y2="442.0" stroke="#000" stroke-width="0.6"/>
+<line x1="1022.5" y1="436.0" x2="1142.5" y2="436.0" stroke="#000" stroke-width="0.9" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="1082.5" y="432.0" font-size="12" text-anchor="middle" fill="#000">Ast = 2 400</text>
+<text x="1082.5" y="462.0" font-size="11" text-anchor="middle" fill="#000">bay depth: 2 × 1 200 + Ast = 4.80 m</text>
+<text x="1082.5" y="478.0" font-size="11" text-anchor="middle" fill="#000">m² of floor per 2 rack rows: 4.80 × length</text>
+<rect x="24.0" y="560.0" width="760.0" height="300.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="36.0" y="584.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="36.0" y="606.0" font-size="12" text-anchor="start" fill="#000">Counterbalance, pallet carried lengthwise (VDI 2198 datasheet formula):</text>
+<text x="36.0" y="628.0" font-size="12" text-anchor="start" fill="#000">   Ast = Wa + √((l6 + x)² + (b12/2)²) + a</text>
+<text x="36.0" y="650.0" font-size="12" text-anchor="start" fill="#000">   Wa = turning radius, x = load axle centre to fork face, l6 = load length,</text>
+<text x="36.0" y="672.0" font-size="12" text-anchor="start" fill="#000">   b12 = load width, a = safety clearance 2 × 100 mm = 200 mm</text>
+<text x="36.0" y="694.0" font-size="12" text-anchor="start" fill="#000">Example 1.6 t truck (example values): Wa = 1 950, x = 400 mm</text>
+<text x="36.0" y="716.0" font-size="12" text-anchor="start" fill="#000">   Ast = 1.95 + √((1.2 + 0.4)² + 0.4²) + 0.2 = 1.95 + 1.649 + 0.2 = 3.80 m</text>
+<text x="36.0" y="738.0" font-size="12" text-anchor="start" fill="#000">   pallet crosswise (l6 = 0.8, b12 = 1.2): 1.95 + 1.342 + 0.2 = 3.49 m</text>
+<text x="36.0" y="760.0" font-size="12" text-anchor="start" fill="#000">Floor use per pallet place (5 levels, bay 2 places of 0.8 m + gaps 0.95 m each):</text>
+<text x="36.0" y="782.0" font-size="12" text-anchor="start" fill="#000">   A: (1.2 + 3.80/2) × 0.95 / 5 = 0.59 m²   C: (1.2 + 1.75/2) × 0.95 / 5 = 0.39 m²</text>
+<text x="36.0" y="804.0" font-size="12" text-anchor="start" fill="#000">   → VNA stores about 50 % more pallets on the same floor, but needs a guided floor</text>
+<text x="36.0" y="826.0" font-size="12" text-anchor="start" fill="#000">      (flatness class per EN 15620), transfer aisles and a man-up rescue plan.</text>
+<text x="36.0" y="584.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Aisle width formula and floor use</text>
+<rect x="820.0" y="560.0" width="760.0" height="300.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="832.0" y="584.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Capacity at the load centre (lever rule – use the truck's capacity plate)</text>
+<rect x="880.0" y="680.0" width="170.0" height="70.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<circle cx="910.0" cy="760.0" r="18.0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<circle cx="1030.0" cy="760.0" r="18.0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="1050.0" y1="610.0" x2="1050.0" y2="764.0" stroke="#000" stroke-width="3"/>
+<line x1="1050.0" y1="764.0" x2="1210.0" y2="764.0" stroke="#000" stroke-width="3"/>
+<rect x="1055.0" y="704.0" width="150.0" height="58.0" rx="0" fill="#f3c7c7" stroke="#000" stroke-width="1.2"/>
+<circle cx="1130.0" cy="733.0" r="4.0" fill="#c62828" stroke="#c62828" stroke-width="1"/>
+<line x1="1030.0" y1="792.0" x2="1030.0" y2="808.0" stroke="#000" stroke-width="0.8"/>
+<line x1="1050.0" y1="780.0" x2="1050.0" y2="808.0" stroke="#000" stroke-width="0.8"/>
+<line x1="1130.0" y1="740.0" x2="1130.0" y2="808.0" stroke="#000" stroke-width="0.8"/>
+<line x1="1030.0" y1="804.0" x2="1050.0" y2="804.0" stroke="#000" stroke-width="0.9" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="1040.0" y="800.0" font-size="11" text-anchor="middle" fill="#000"></text>
+<text x="1000.0" y="822.0" font-size="11" text-anchor="start" fill="#000">a = 400 (front axle → fork face)</text>
+<line x1="1050.0" y1="790.0" x2="1130.0" y2="790.0" stroke="#000" stroke-width="0.9" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="1090.0" y="786.0" font-size="11" text-anchor="middle" fill="#000">c = 500</text>
+<line x1="1130.0" y1="730.0" x2="1130.0" y2="766.0" stroke="#c62828" stroke-width="2" marker-end="url(#ar)"/>
+<text x="1138.0" y="700.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">Q</text>
+<text x="1240.0" y="620.0" font-size="12" text-anchor="start" fill="#000">Tipping about the front axle:</text>
+<text x="1240.0" y="642.0" font-size="12" text-anchor="start" fill="#000">Q · (c + a) = constant</text>
+<text x="1240.0" y="664.0" font-size="12" text-anchor="start" fill="#000">Q' = Q · (c + a) / (c' + a)</text>
+<text x="1240.0" y="686.0" font-size="12" text-anchor="start" fill="#000">Q = 1 600 kg at c = 500 mm:</text>
+<text x="1240.0" y="708.0" font-size="12" text-anchor="start" fill="#000">  c' = 600 mm → Q' = 1 440 kg</text>
+<text x="1240.0" y="730.0" font-size="12" text-anchor="start" fill="#000">  c' = 700 mm → Q' = 1 309 kg</text>
+<text x="1240.0" y="752.0" font-size="12" text-anchor="start" fill="#000">(packed VC30 crate with high</text>
+<text x="1240.0" y="774.0" font-size="12" text-anchor="start" fill="#000"> centre of mass: check c and</text>
+<text x="1240.0" y="796.0" font-size="12" text-anchor="start" fill="#000"> residual capacity at height)</text>
+<rect x="1116.0" y="852.0" width="470.0" height="74.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="1116.0" y1="876.0" x2="1586.0" y2="876.0" stroke="#000" stroke-width="1"/>
+<line x1="1116.0" y1="901.0" x2="1586.0" y2="901.0" stroke="#000" stroke-width="1"/>
+<line x1="1416.0" y1="876.0" x2="1416.0" y2="926.0" stroke="#000" stroke-width="1"/>
+<text x="1124.0" y="869.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – planning sketch</text>
+<text x="1124.0" y="893.0" font-size="11" text-anchor="start" fill="#000">Forklift aisle widths + capacity</text>
+<text x="1424.0" y="893.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">VC-LOG-DOC-0307</text>
+<text x="1124.0" y="918.0" font-size="11" text-anchor="start" fill="#000">Guide 03 – Material handling · Part B · 2026-11-12</text>
+<text x="1424.0" y="918.0" font-size="11" text-anchor="start" fill="#000">plans 50 px per m</text>
+</svg>

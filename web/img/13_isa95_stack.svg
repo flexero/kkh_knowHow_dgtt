@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 820" width="1240" height="820" font-family="Arial, Helvetica, sans-serif">
+<title>ISA-95 levels and IEC 62443 zones</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666"/></marker></defs>
+<rect x="0" y="0" width="1240" height="820" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">13 – Digital factory stack: ISA-95 / IEC 62264 levels, systems, time frames, protocols and IEC 62443 zones</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Left: functional levels with the systems of this project. Right: security zones and conduits (firewalls) – one zone per cell, DMZ between IT and OT.</text>
+<rect x="30.0" y="80.0" width="690.0" height="108.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.4" />
+<text x="42.0" y="104.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">Level 4</text>
+<text x="130.0" y="104.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Business planning + logistics</text>
+<text x="42.0" y="130.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">ERP: sales orders, MRP, purchasing, cost, finance</text>
+<text x="42.0" y="154.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">time frame: months – days</text>
+<text x="42.0" y="174.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">typical protocols up: REST / B2MML / EDI</text>
+<rect x="30.0" y="196.0" width="690.0" height="108.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4" />
+<text x="42.0" y="220.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">Level 3</text>
+<text x="130.0" y="220.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Manufacturing operations</text>
+<text x="42.0" y="246.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">MES: work orders, dispatch, traceability, SPC, OEE, maintenance; twin</text>
+<text x="42.0" y="270.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">time frame: days – minutes</text>
+<text x="42.0" y="290.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">typical protocols up: OPC UA, MQTT, SQL</text>
+<rect x="30.0" y="312.0" width="690.0" height="108.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.4" />
+<text x="42.0" y="336.0" font-size="14" text-anchor="start" font-weight="bold" fill="#c0392b">Level 2</text>
+<text x="130.0" y="336.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Supervisory control</text>
+<text x="42.0" y="362.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">SCADA / HMI, historian, alarm server, AGV fleet manager</text>
+<text x="42.0" y="386.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">time frame: minutes – seconds</text>
+<text x="42.0" y="406.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">typical protocols up: OPC UA, VDA 5050</text>
+<rect x="30.0" y="428.0" width="690.0" height="108.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4" />
+<text x="42.0" y="452.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">Level 1</text>
+<text x="130.0" y="452.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Basic control</text>
+<text x="42.0" y="478.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">PLC, safety PLC, CNC, robot controller, test-bench DAQ</text>
+<text x="42.0" y="502.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">time frame: ms – s</text>
+<text x="42.0" y="522.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">typical protocols up: PROFINET, EtherCAT, PROFIsafe</text>
+<rect x="30.0" y="544.0" width="690.0" height="108.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.4" />
+<text x="42.0" y="568.0" font-size="14" text-anchor="start" font-weight="bold" fill="#111">Level 0</text>
+<text x="130.0" y="568.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Physical process</text>
+<text x="42.0" y="594.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">sensors, actuators, drives, the machine itself</text>
+<text x="42.0" y="618.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">time frame: real time</text>
+<text x="42.0" y="638.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">typical protocols up: IO-Link, 4–20 mA, 24 V I/O</text>
+<line x1="630.0" y1="198.0" x2="630.0" y2="178.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="670.0" y1="178.0" x2="670.0" y2="198.0" stroke="#222" stroke-width="1.5" marker-end="url(#ak)"/>
+<line x1="630.0" y1="314.0" x2="630.0" y2="294.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="670.0" y1="294.0" x2="670.0" y2="314.0" stroke="#222" stroke-width="1.5" marker-end="url(#ak)"/>
+<line x1="630.0" y1="430.0" x2="630.0" y2="410.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="670.0" y1="410.0" x2="670.0" y2="430.0" stroke="#222" stroke-width="1.5" marker-end="url(#ak)"/>
+<line x1="630.0" y1="546.0" x2="630.0" y2="526.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="670.0" y1="526.0" x2="670.0" y2="546.0" stroke="#222" stroke-width="1.5" marker-end="url(#ak)"/>
+<text x="650.0" y="674.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">data ↑︎ / orders ↓︎</text>
+<rect x="760.0" y="80.0" width="450.0" height="90.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4" />
+<text x="772.0" y="102.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">ENTERPRISE ZONE (IT)</text>
+<text x="772.0" y="124.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">ERP, e-mail, office</text>
+<rect x="760.0" y="200.0" width="450.0" height="80.0" rx="0" fill="#f4f4f4" stroke="#111" stroke-width="1.4" stroke-dasharray="6,3" />
+<text x="772.0" y="222.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">DMZ</text>
+<text x="772.0" y="244.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">historian replica, patch server, remote-access jump host</text>
+<rect x="760.0" y="310.0" width="450.0" height="90.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4" />
+<text x="772.0" y="332.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">MES / SITE OPERATIONS ZONE (L3)</text>
+<text x="772.0" y="354.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">MES, twin server, SCADA server, engineering station</text>
+<rect x="760.0" y="430.0" width="450.0" height="240.0" rx="0" fill="#ffffff" stroke="#111" stroke-width="1.4" />
+<text x="772.0" y="452.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">CELL ZONES (L2–L0)</text>
+<rect x="780.0" y="462.0" width="300.0" height="38.0" rx="0" fill="#f7f7f7" stroke="#555" stroke-width="1" />
+<text x="790.0" y="486.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Z-CC crankcase FMS</text>
+<rect x="1090.0" y="471.0" width="22.0" height="20.0" rx="0" fill="#c0392b" stroke="#c0392b" stroke-width="1" />
+<rect x="780.0" y="508.0" width="300.0" height="38.0" rx="0" fill="#f7f7f7" stroke="#555" stroke-width="1" />
+<text x="790.0" y="532.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Z-CYL / Z-CS part lines</text>
+<rect x="1090.0" y="517.0" width="22.0" height="20.0" rx="0" fill="#c0392b" stroke="#c0392b" stroke-width="1" />
+<rect x="780.0" y="554.0" width="300.0" height="38.0" rx="0" fill="#f7f7f7" stroke="#555" stroke-width="1" />
+<text x="790.0" y="578.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Z-ASSY assembly + robot</text>
+<rect x="1090.0" y="563.0" width="22.0" height="20.0" rx="0" fill="#c0392b" stroke="#c0392b" stroke-width="1" />
+<rect x="780.0" y="600.0" width="300.0" height="38.0" rx="0" fill="#f7f7f7" stroke="#555" stroke-width="1" />
+<text x="790.0" y="624.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Z-TEST test benches + paint</text>
+<rect x="1090.0" y="609.0" width="22.0" height="20.0" rx="0" fill="#c0392b" stroke="#c0392b" stroke-width="1" />
+<text x="1120.0" y="470.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">cell firewall /</text>
+<text x="1120.0" y="486.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">conduit</text>
+<text x="1120.0" y="616.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">safety bus</text>
+<text x="1120.0" y="632.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">stays in cell</text>
+<rect x="960.0" y="175.0" width="50.0" height="20.0" rx="0" fill="#c0392b" stroke="#c0392b" stroke-width="1" />
+<text x="1018.0" y="189.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">firewall = conduit</text>
+<rect x="960.0" y="285.0" width="50.0" height="20.0" rx="0" fill="#c0392b" stroke="#c0392b" stroke-width="1" />
+<text x="1018.0" y="299.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">firewall = conduit</text>
+<rect x="960.0" y="405.0" width="50.0" height="20.0" rx="0" fill="#c0392b" stroke="#c0392b" stroke-width="1" />
+<text x="1018.0" y="419.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">firewall = conduit</text>
+<text x="30.0" y="712.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">Target security level (example): SL 2 for cells, SL 2–3 for MES / DMZ – the IEC 62443-3-2 risk assessment decides.</text>
+<text x="30.0" y="694.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">ISA-95 = IEC 62264. Level 3 ↔ 4 objects: orders, BOM, routings, material, production performance.</text>
+<rect x="800.0" y="748.0" width="430.0" height="62.0" rx="0" fill="#ffffff" stroke="#222" stroke-width="1.5" />
+<line x1="800.0" y1="770.0" x2="1230.0" y2="770.0" stroke="#222" stroke-width="1"/>
+<line x1="1100.0" y1="770.0" x2="1100.0" y2="810.0" stroke="#222" stroke-width="1"/>
+<text x="808.0" y="764.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – planning sketch</text>
+<text x="1222.0" y="764.0" font-size="11" text-anchor="end" font-weight="normal" fill="#444">Guide 13 – real factory roadmap</text>
+<text x="808.0" y="788.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">ISA-95 stack + security zones</text>
+<text x="808.0" y="803.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">see guides 04, 06, 07, 20</text>
+<text x="1108.0" y="788.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">DWG 13-04</text>
+<text x="1108.0" y="803.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">not to scale for build</text>
+</svg>

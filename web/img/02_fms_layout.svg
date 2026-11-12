@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 700" width="1240" height="700" font-family="Arial, Helvetica, sans-serif">
+<title>FMS cell layout – 3 HMCs + linear pallet storage</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><pattern id="hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#222" stroke-width="1"/></pattern><pattern id="hatchr" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#c0392b" stroke-width="1.2"/></pattern></defs>
+<rect x="0" y="0" width="1240" height="700" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">02 – FMS crankcase cell: 3 HMCs + linear pallet storage PPS-1 + load station + rail vehicle (plan view)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Positions from config/factory.json (x, z in metres, hall coordinates). Footprints are assumed example sizes – take real ones from the supplier layout.</text>
+<line x1="30.0" y1="80.0" x2="30.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="86.0" y1="80.0" x2="86.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="86.0" y="570.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666">x -36</text>
+<line x1="142.0" y1="80.0" x2="142.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="198.0" y1="80.0" x2="198.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="198.0" y="570.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666">x -32</text>
+<line x1="254.0" y1="80.0" x2="254.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="310.0" y1="80.0" x2="310.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="310.0" y="570.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666">x -28</text>
+<line x1="366.0" y1="80.0" x2="366.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="422.0" y1="80.0" x2="422.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="422.0" y="570.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666">x -24</text>
+<line x1="478.0" y1="80.0" x2="478.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="534.0" y1="80.0" x2="534.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="534.0" y="570.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666">x -20</text>
+<line x1="590.0" y1="80.0" x2="590.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="646.0" y1="80.0" x2="646.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="646.0" y="570.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666">x -16</text>
+<line x1="702.0" y1="80.0" x2="702.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="758.0" y1="80.0" x2="758.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="758.0" y="570.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666">x -12</text>
+<line x1="814.0" y1="80.0" x2="814.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="870.0" y1="80.0" x2="870.0" y2="556.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="870.0" y="570.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666">x -8</text>
+<line x1="30.0" y1="94.0" x2="898.0" y2="94.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="30.0" y1="122.0" x2="898.0" y2="122.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="896.0" y="126.0" font-size="11" text-anchor="end" font-weight="normal" fill="#666">z -24</text>
+<line x1="30.0" y1="150.0" x2="898.0" y2="150.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="30.0" y1="178.0" x2="898.0" y2="178.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="896.0" y="182.0" font-size="11" text-anchor="end" font-weight="normal" fill="#666">z -22</text>
+<line x1="30.0" y1="206.0" x2="898.0" y2="206.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="30.0" y1="234.0" x2="898.0" y2="234.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="896.0" y="238.0" font-size="11" text-anchor="end" font-weight="normal" fill="#666">z -20</text>
+<line x1="30.0" y1="262.0" x2="898.0" y2="262.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="30.0" y1="290.0" x2="898.0" y2="290.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="896.0" y="294.0" font-size="11" text-anchor="end" font-weight="normal" fill="#666">z -18</text>
+<line x1="30.0" y1="318.0" x2="898.0" y2="318.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="30.0" y1="346.0" x2="898.0" y2="346.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="896.0" y="350.0" font-size="11" text-anchor="end" font-weight="normal" fill="#666">z -16</text>
+<line x1="30.0" y1="374.0" x2="898.0" y2="374.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="30.0" y1="402.0" x2="898.0" y2="402.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="896.0" y="406.0" font-size="11" text-anchor="end" font-weight="normal" fill="#666">z -14</text>
+<line x1="30.0" y1="430.0" x2="898.0" y2="430.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="30.0" y1="458.0" x2="898.0" y2="458.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="896.0" y="462.0" font-size="11" text-anchor="end" font-weight="normal" fill="#666">z -12</text>
+<line x1="30.0" y1="486.0" x2="898.0" y2="486.0" stroke="#eeeeee" stroke-width="1"/>
+<line x1="30.0" y1="514.0" x2="898.0" y2="514.0" stroke="#eeeeee" stroke-width="1"/>
+<text x="896.0" y="518.0" font-size="11" text-anchor="end" font-weight="normal" fill="#666">z -10</text>
+<line x1="30.0" y1="542.0" x2="898.0" y2="542.0" stroke="#eeeeee" stroke-width="1"/>
+<rect x="142.0" y="105.2" width="728.0" height="420.0" rx="0" fill="none" stroke="#222" stroke-width="1.4" stroke-dasharray="8 4"/>
+<text x="864.0" y="517.2" font-size="11" text-anchor="end" font-weight="bold" fill="#111">Zone CRANKCASE CELL (FMS) x −34…−8, z −24.6…−9.6</text>
+<rect x="226.0" y="144.4" width="128.8" height="280.0" rx="0" fill="none" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="3 3"/>
+<rect x="237.2" y="189.2" width="44.8" height="224.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.4"/>
+<rect x="240.0" y="192.0" width="39.2" height="22.4" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="259.6" y="206.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">R01</text>
+<rect x="240.0" y="220.0" width="39.2" height="22.4" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="259.6" y="234.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">R02</text>
+<rect x="240.0" y="248.0" width="39.2" height="22.4" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="259.6" y="262.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">R03</text>
+<rect x="240.0" y="276.0" width="39.2" height="22.4" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="259.6" y="290.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">R04</text>
+<rect x="240.0" y="304.0" width="39.2" height="22.4" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="259.6" y="318.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">R05</text>
+<rect x="240.0" y="332.0" width="39.2" height="22.4" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="259.6" y="346.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">R06</text>
+<rect x="240.0" y="360.0" width="39.2" height="22.4" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="259.6" y="374.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">R07</text>
+<rect x="240.0" y="388.0" width="39.2" height="22.4" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="259.6" y="402.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">R08</text>
+<text x="147.6" y="206.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">PPS-1 linear</text>
+<text x="147.6" y="221.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">pallet storage</text>
+<text x="147.6" y="236.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">8.0 m × 2 levels</text>
+<text x="147.6" y="251.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">= 16 places</text>
+<text x="147.6" y="266.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">(pitch 1.0 m,</text>
+<text x="147.6" y="281.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">assumed)</text>
+<line x1="311.4" y1="161.2" x2="311.4" y2="502.8" stroke="#222" stroke-width="2"/>
+<line x1="325.4" y1="161.2" x2="325.4" y2="502.8" stroke="#222" stroke-width="2"/>
+<rect x="296.0" y="278.8" width="44.8" height="44.8" rx="0" fill="#fff" stroke="#c0392b" stroke-width="2.2"/>
+<text x="318.4" y="298.4" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">RGV</text>
+<text x="318.4" y="312.4" font-size="11" text-anchor="middle" font-weight="normal" fill="#c0392b">fork</text>
+<line x1="344.8" y1="301.2" x2="380.8" y2="301.2" stroke="#c0392b" stroke-width="1.4" marker-end="url(#ar)"/>
+<rect x="394.0" y="150.0" width="112.0" height="100.8" rx="0" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<text x="455.6" y="189.2" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">HMC-01</text>
+<text x="455.6" y="206.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">z = -21.2</text>
+<text x="455.6" y="222.8" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">VC10 + VC20 tools</text>
+<rect x="357.6" y="183.6" width="36.4" height="33.6" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="375.8" y="204.6" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">APC</text>
+<rect x="506.0" y="189.2" width="44.8" height="22.4" rx="0" fill="url(#hatch)" stroke="#222" stroke-width="1"/>
+<text x="510.0" y="185.2" font-size="11" text-anchor="start" font-weight="normal" fill="#111">chip conveyor</text>
+<rect x="394.0" y="284.4" width="112.0" height="100.8" rx="0" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<text x="455.6" y="323.6" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">HMC-02</text>
+<text x="455.6" y="340.4" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">z = -16.4</text>
+<text x="455.6" y="357.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">VC20 + VC30 tools</text>
+<rect x="357.6" y="318.0" width="36.4" height="33.6" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="375.8" y="339.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">APC</text>
+<rect x="506.0" y="323.6" width="44.8" height="22.4" rx="0" fill="url(#hatch)" stroke="#222" stroke-width="1"/>
+<rect x="394.0" y="418.8" width="112.0" height="100.8" rx="0" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<text x="455.6" y="458.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">HMC-03</text>
+<text x="455.6" y="474.8" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">z = -11.6</text>
+<text x="455.6" y="491.6" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">VC10 + VC30 tools</text>
+<rect x="357.6" y="452.4" width="36.4" height="33.6" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="375.8" y="473.4" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">APC</text>
+<rect x="506.0" y="458.0" width="44.8" height="22.4" rx="0" fill="url(#hatch)" stroke="#222" stroke-width="1"/>
+<rect x="234.4" y="435.6" width="61.6" height="44.8" rx="0" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<text x="265.2" y="455.2" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">LOAD-CC</text>
+<text x="265.2" y="470.6" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">(−29.6, −12)</text>
+<rect x="158.8" y="438.4" width="47.6" height="39.2" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.2"/>
+<text x="182.6" y="462.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">B_CC0</text>
+<text x="182.6" y="433.4" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">castings 4/model</text>
+<line x1="298.0" y1="435.6" x2="298.0" y2="480.4" stroke="#c0392b" stroke-width="3"/>
+<text x="296.0" y="493.4" font-size="11" text-anchor="end" font-weight="normal" fill="#c0392b">light curtain</text>
+<rect x="660.0" y="318.0" width="84.0" height="56.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<text x="702.0" y="343.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">WASH-01</text>
+<text x="702.0" y="360.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">(-14,-16)</text>
+<path d="M550.8,469.2 L618.0,469.2 L618.0,357.2 L660.0,357.2" fill="none" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<text x="623.6" y="441.2" font-size="11" text-anchor="start" font-weight="normal" fill="#111">machined crankcase</text>
+<text x="623.6" y="455.2" font-size="11" text-anchor="start" font-weight="normal" fill="#111">to washer (twin: direct;</text>
+<text x="623.6" y="469.2" font-size="11" text-anchor="start" font-weight="normal" fill="#111">real: unload at LOAD-CC)</text>
+<line x1="41.2" y1="458.0" x2="156.8" y2="458.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<text x="41.2" y="450.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">AGV from</text>
+<text x="41.2" y="474.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">raw AS/RS</text>
+<text x="41.2" y="488.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">(4 per trip)</text>
+<line x1="550.8" y1="200.4" x2="550.8" y2="334.8" stroke="#222" stroke-width="1" marker-end="url(#ak)"/>
+<line x1="550.8" y1="334.8" x2="550.8" y2="200.4" stroke="#222" stroke-width="1" marker-end="url(#ak)"/>
+<text x="555.8" y="267.6" font-size="11" text-anchor="start" font-weight="normal" fill="#111">4.8 m pitch</text>
+<text x="293.2" y="133.2" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">rail x = −27.7, z −22.6…−10.4 = 12.2 m; red dashed = safety fence</text>
+<rect x="900.0" y="75.0" width="320.0" height="480.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="910.0" y="95.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">Cell data (config + assumptions)</text>
+<text x="910.0" y="114.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">HMC-01..03: pallet change 15 s</text>
+<text x="910.0" y="133.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">tool magazine: 2 model sets, 600 s exchange</text>
+<text x="910.0" y="152.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">cycle VC10 / VC20 / VC30: 270 / 345 / 450 s</text>
+<text x="910.0" y="171.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">pallet pool PAL-CC: 10 pallets (twin)</text>
+<text x="910.0" y="190.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">B_PAL loaded places: 8</text>
+<text x="910.0" y="209.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">PPS-1: 8.0 m, 2 levels (16 places assumed)</text>
+<text x="910.0" y="228.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111"></text>
+<text x="910.0" y="247.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Rail vehicle (RGV) – example values</text>
+<text x="910.0" y="266.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">v = 1.5 m/s, a = 0.5 m/s², fork 20 s</text>
+<text x="910.0" y="285.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">longest travel 12.2 m: 11.1 s</text>
+<text x="910.0" y="304.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">mean move (empty + loaded + 2 forks): 51 s</text>
+<text x="910.0" y="323.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">17.2 pallets/h × 2 moves: 49 % busy</text>
+<text x="910.0" y="342.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">17.2 pallets/h × 4 moves: 98 % busy (!)</text>
+<text x="910.0" y="361.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">→ prefer direct moves LOAD → APC</text>
+<text x="910.0" y="380.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111"></text>
+<text x="910.0" y="399.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Pallet count (section 18)</text>
+<text x="910.0" y="418.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">twin 10 pallets: 12 min cover</text>
+<text x="910.0" y="437.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">30 min break cover: 21 pallets</text>
+<text x="910.0" y="456.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">places: 3 tables + 3 APC + 16 rack</text>
+<text x="910.0" y="475.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">+ 1 load station = 23 places</text>
+<text x="910.0" y="494.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111"></text>
+<text x="910.0" y="513.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Washer, AGV aisle, chip/coolant</text>
+<text x="910.0" y="532.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">plant outside the fence</text>
+<rect x="790.0" y="630.0" width="440.0" height="60.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="790.0" y1="650.0" x2="1230.0" y2="650.0" stroke="#222" stroke-width="1"/>
+<line x1="1100.0" y1="650.0" x2="1100.0" y2="690.0" stroke="#222" stroke-width="1"/>
+<text x="798.0" y="645.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – planning sketch</text>
+<text x="1222.0" y="645.0" font-size="11" text-anchor="end" font-weight="normal" fill="#444">Guide 02 – FMS and order flow</text>
+<text x="798.0" y="668.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">FMS cell layout (plan view)</text>
+<text x="798.0" y="683.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">3 HMC + linear pallet storage + RGV + load station</text>
+<text x="1108.0" y="668.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">DWG 02-01</text>
+<text x="1108.0" y="683.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">not to scale for build</text>
+</svg>

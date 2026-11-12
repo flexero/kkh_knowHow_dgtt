@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Arial, Helvetica, sans-serif">
+<title>Spindle run-in and test station layout</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker><pattern id="hat" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="0.6"/></pattern><pattern id="hat2" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="0.6"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="1000" fill="#fff"/>
+<text x="20.0" y="30.0" font-size="15" text-anchor="start" fill="#000" font-weight="bold">Spindle run-in + final-test station (RUN-01, assembly steps 19–20) – plan view, example layout</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" fill="#000">area ≈ 5.0 m × 3.4 m; positions and sizes are examples – adapt to the hall, the spindle size and the risk assessment</text>
+<rect x="50.0" y="80.0" width="1000.0" height="680.0" rx="0" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="8 4"/>
+<line x1="50.0" y1="784.0" x2="1050.0" y2="784.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<line x1="1050.0" y1="784.0" x2="50.0" y2="784.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<text x="550.0" y="779.0" font-size="12" text-anchor="middle" fill="#000">5.0 m</text>
+<line x1="1066.0" y1="80.0" x2="1066.0" y2="760.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<line x1="1066.0" y1="760.0" x2="1066.0" y2="80.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<text x="1072.0" y="420.0" font-size="12" text-anchor="start" fill="#000">3.4 m</text>
+<rect x="310.0" y="120.0" width="460.0" height="370.0" rx="0" fill="none" stroke="#000" stroke-width="3"/>
+<text x="318.0" y="138.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">guard enclosure – steel + polycarbonate window</text>
+<text x="318.0" y="153.0" font-size="11" text-anchor="start" fill="#000">burst-rated (ISO 16090-1 / risk assessment)</text>
+<line x1="400.0" y1="490.0" x2="640.0" y2="490.0" stroke="#fff" stroke-width="5"/>
+<line x1="400.0" y1="498.0" x2="640.0" y2="498.0" stroke="#000" stroke-width="2" stroke-dasharray="6 3"/>
+<text x="520.0" y="516.0" font-size="11" text-anchor="middle" fill="#000">sliding door 1.2 m, guard-locking switch S1 (unlock only at n = 0)</text>
+<rect x="388.0" y="484.0" width="12.0" height="12.0" rx="0" fill="#1565c0" stroke="#1565c0" stroke-width="1.2"/>
+<rect x="360.0" y="190.0" width="360.0" height="230.0" rx="4" fill="#f0f0f0" stroke="#000" stroke-width="1.2"/>
+<text x="540.0" y="309.2" font-size="12" text-anchor="middle" fill="#000" font-weight="bold"></text>
+<text x="366.0" y="412.0" font-size="11" text-anchor="start" fill="#000">test bench (cast iron / granite, levelled, on isolators)</text>
+<rect x="470.0" y="270.0" width="110.0" height="46.0" rx="0" fill="#bdbdbd" stroke="#000" stroke-width="1.6"/>
+<rect x="480.0" y="262.0" width="26.0" height="62.0" rx="0" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="542.0" y="262.0" width="26.0" height="62.0" rx="0" fill="none" stroke="#000" stroke-width="1"/>
+<text x="525.0" y="346.0" font-size="11" text-anchor="middle" fill="#000">spindle on cradle J12</text>
+<rect x="410.0" y="286.0" width="60.0" height="14.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="440.0" y="280.0" font-size="11" text-anchor="middle" fill="#000">mandrel</text>
+<rect x="400.0" y="234.0" width="20.0" height="118.0" rx="0" fill="none" stroke="#1565c0" stroke-width="1.4"/>
+<text x="394.0" y="228.0" font-size="11" text-anchor="middle" fill="#1565c0">sensor frame J11</text>
+<circle cx="474.0" cy="246.0" r="10.0" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="474.0" y="250.0" font-size="11" text-anchor="middle" fill="#1565c0" font-weight="bold">1</text>
+<circle cx="580.0" cy="246.0" r="10.0" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="580.0" y="250.0" font-size="11" text-anchor="middle" fill="#1565c0" font-weight="bold">2</text>
+<circle cx="410.0" cy="293.0" r="10.0" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="410.0" y="297.0" font-size="11" text-anchor="middle" fill="#1565c0" font-weight="bold">3</text>
+<circle cx="378.0" cy="293.0" r="10.0" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="378.0" y="297.0" font-size="11" text-anchor="middle" fill="#1565c0" font-weight="bold">4</text>
+<circle cx="525.0" cy="293.0" r="10.0" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="525.0" y="297.0" font-size="11" text-anchor="middle" fill="#1565c0" font-weight="bold">5</text>
+<circle cx="594.0" cy="293.0" r="10.0" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="594.0" y="297.0" font-size="11" text-anchor="middle" fill="#1565c0" font-weight="bold">6</text>
+<circle cx="560.0" cy="450.0" r="10.0" fill="#fff" stroke="#1565c0" stroke-width="1.8"/>
+<text x="560.0" y="454.0" font-size="11" text-anchor="middle" fill="#1565c0" font-weight="bold">7</text>
+<rect x="74.0" y="120.0" width="170.0" height="150.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="159.0" y="184.2" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Chiller</text>
+<text x="159.0" y="199.2" font-size="12" text-anchor="middle" fill="#000">≥ 2.5 kW @ 20 °C</text>
+<text x="159.0" y="214.2" font-size="12" text-anchor="middle" fill="#000">±0.5 K, 4–8 l/min</text>
+<rect x="74.0" y="310.0" width="170.0" height="110.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="159.0" y="361.7" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Oil-air + sealing</text>
+<text x="159.0" y="376.7" font-size="12" text-anchor="middle" fill="#000">air panel (FRL)</text>
+<rect x="74.0" y="460.0" width="170.0" height="100.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="159.0" y="506.7" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Hydraulic unclamp</text>
+<text x="159.0" y="521.7" font-size="12" text-anchor="middle" fill="#000">unit 0–10 MPa</text>
+<rect x="74.0" y="600.0" width="170.0" height="120.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.4" stroke-dasharray="5 3"/>
+<text x="159.0" y="649.2" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Compressed air</text>
+<text x="159.0" y="664.2" font-size="12" text-anchor="middle" fill="#000">6 bar, dry, oil-free</text>
+<text x="159.0" y="679.2" font-size="12" text-anchor="middle" fill="#000">(hall supply)</text>
+<rect x="820.0" y="120.0" width="210.0" height="160.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="925.0" y="189.2" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Drive cabinet</text>
+<text x="925.0" y="204.2" font-size="12" text-anchor="middle" fill="#000">SINAMICS S120,</text>
+<text x="925.0" y="219.2" font-size="12" text-anchor="middle" fill="#000">S7-1500F, safety, PSU</text>
+<rect x="820.0" y="320.0" width="210.0" height="120.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="925.0" y="369.2" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">DAQ rack</text>
+<text x="925.0" y="384.2" font-size="12" text-anchor="middle" fill="#000">cDAQ / QuantumX</text>
+<text x="925.0" y="399.2" font-size="12" text-anchor="middle" fill="#000">+ edge PC</text>
+<rect x="800.0" y="540.0" width="230.0" height="150.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="915.0" y="604.2" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Operator desk</text>
+<text x="915.0" y="619.2" font-size="12" text-anchor="middle" fill="#000">station PC (twin)</text>
+<text x="915.0" y="634.2" font-size="12" text-anchor="middle" fill="#000">terminal, printer</text>
+<circle cx="1006.0" cy="554.0" r="9.0" fill="#1565c0" stroke="#000" stroke-width="1.2"/>
+<text x="992.0" y="558.0" font-size="11" text-anchor="end" fill="#000">E-stop</text>
+<circle cx="774.0" cy="490.0" r="9.0" fill="#1565c0" stroke="#000" stroke-width="1.2"/>
+<text x="788.0" y="512.0" font-size="11" text-anchor="start" fill="#000">E-stop at door</text>
+<polyline points="244.0,170.0 510.0,170.0 510.0,262.0" fill="none" stroke="#1565c0" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="244.0,220.0 340.0,220.0 340.0,180.0 534.0,180.0 534.0,262.0" fill="none" stroke="#1565c0" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 3"/>
+<text x="250.0" y="162.0" font-size="11" text-anchor="start" fill="#1565c0">water in →</text>
+<text x="250.0" y="238.0" font-size="11" text-anchor="start" fill="#1565c0">← water out</text>
+<polyline points="244.0,364.0 600.0,364.0 600.0,300.0 580.0,300.0" fill="none" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="248.0" y="382.0" font-size="11" text-anchor="start" fill="#000">seal air /</text>
+<text x="248.0" y="395.8" font-size="11" text-anchor="start" fill="#000">oil-air</text>
+<polyline points="244.0,510.0 290.0,510.0 290.0,400.0 610.0,400.0 610.0,280.0 580.0,280.0" fill="none" stroke="#000" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3 3"/>
+<text x="248.0" y="530.0" font-size="11" text-anchor="start" fill="#000">unclamp oil</text>
+<polyline points="820.0,200.0 786.0,200.0 786.0,450.0 630.0,450.0 630.0,320.0" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 3 2 3"/>
+<polyline points="820.0,380.0 786.0,380.0" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 3 2 3"/>
+<polyline points="920.0,440.0 920.0,540.0" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round" stroke-dasharray="10 3 2 3"/>
+<text x="636.0" y="466.0" font-size="11" text-anchor="start" fill="#000">cable tray (power</text>
+<text x="636.0" y="480.0" font-size="11" text-anchor="start" fill="#000">apart from signals)</text>
+<rect x="50.0" y="800.0" width="860.0" height="190.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="60.0" y="820.0" font-size="11" text-anchor="start" fill="#000">Sensor positions (numbers in the plan – example):</text>
+<text x="60.0" y="840.0" font-size="11" text-anchor="start" fill="#000">1, 2  IEPE accelerometers 100 mV/g on the housing at the front / rear bearing plane, radial, stud-mounted on a spot face</text>
+<text x="60.0" y="860.0" font-size="11" text-anchor="start" fill="#000">3  PRB-01 capacitive probes X + Y at the mandrel near the nose and at 300 mm   ·   4  PRB-01 Z probe on the mandrel end (growth)</text>
+<text x="60.0" y="880.0" font-size="11" text-anchor="start" fill="#000">5  T1 front bearings, T2 rear bearings, T3 stator (Pt100/KTY in the spindle); T4/T5 water in/out at the spindle (Pt100 4-wire, class A)</text>
+<text x="60.0" y="900.0" font-size="11" text-anchor="start" fill="#000">6  drive encoder at the tail (speed for control and safe speed monitoring)   ·   7  microphone M1, 1 m from the spindle surface</text>
+<text x="60.0" y="920.0" font-size="11" text-anchor="start" fill="#000">Line instruments (see P&amp;ID): FT-101 flow, PT-101 pressure, FI-301 sealing-air flow, PT-401 = PRS-01 unclamp pressure</text>
+<text x="60.0" y="940.0" font-size="11" text-anchor="start" fill="#000">S1 door guard locking: unlock only at safe standstill (e.g. SSM &lt; 10 rpm); 2 E-stops (PL d example – the risk assessment decides)</text>
+<text x="60.0" y="960.0" font-size="11" text-anchor="start" fill="#000">Noise and vibration: bench on isolators, chiller and hydraulic unit placed outside the guard (heat + noise sources)</text>
+<rect x="950.0" y="928.0" width="440.0" height="62.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="950.0" y1="950.0" x2="1390.0" y2="950.0" stroke="#000" stroke-width="0.8"/>
+<text x="958.0" y="944.0" font-size="12" text-anchor="start" fill="#1565c0" font-weight="bold">EXAMPLE – check the maker&#x27;s documentation</text>
+<text x="958.0" y="966.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">20_test_station_layout – station plan view</text>
+<text x="958.0" y="982.0" font-size="11" text-anchor="start" fill="#000">Guide 20 – spindle station live twin · values: examples from the guide / app</text>
+</svg>

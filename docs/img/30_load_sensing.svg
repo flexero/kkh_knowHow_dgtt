@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" width="1100" height="760" font-family="Arial, Helvetica, sans-serif" font-size="12">
+<title>Load-sensing system</title>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b5ea8"/></marker>
+</defs>
+<rect x="0" y="0" width="1100" height="760" fill="#fff"/>
+<g fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+<text x="30" y="30" font-size="16" text-anchor="start" fill="#000" stroke="none" font-weight="bold">Load-sensing system: LS variable pump, pre-compensated valve sections, shuttle chain, bleed orifice</text>
+<circle cx="130" cy="580" r="18"/>
+<path d="M123,574 L137,574 L130,563 z" fill="#000"/>
+<line x1="108" y1="602" x2="152" y2="558" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<text x="150" y="652" font-size="11" text-anchor="start" fill="#000" stroke="none">0P1 variable pump (LS + cut-off)</text>
+<polyline points="130,598 130,640" stroke="#000" stroke-width="1.6"/>
+<polyline points="118,640 118,650 142,650 142,640" stroke="#000" stroke-width="1.6"/>
+<circle cx="210" cy="580" r="16"/>
+<text x="210" y="585" font-size="14" text-anchor="middle" fill="#000" stroke="none" font-weight="bold">M</text>
+<text x="210" y="612" font-size="12" text-anchor="middle" fill="#000" stroke="none" font-weight="bold">0M1</text>
+<polyline points="148,577 194,577" stroke="#000" stroke-width="1.3"/>
+<polyline points="148,583 194,583" stroke="#000" stroke-width="1.3"/>
+<rect x="30" y="540" width="64" height="60" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<text x="62" y="560" font-size="11" text-anchor="middle" fill="#000" stroke="none">LS Δp</text>
+<text x="62" y="574" font-size="11" text-anchor="middle" fill="#0b5ea8" stroke="none">2 MPa</text>
+<text x="62" y="590" font-size="11" text-anchor="middle" fill="#000" stroke="none">cut-off 21</text>
+<polyline points="94,570 112,570" stroke="#000" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polyline points="130,562 130,470 700,470" stroke="#000" stroke-width="1.6"/>
+<circle cx="130" cy="510" r="3.2" fill="#000" stroke="none"/>
+<polyline points="130,510 106,510" stroke="#000" stroke-width="1.6"/>
+<circle cx="96" cy="510" r="10" fill="#fff" stroke="#0b5ea8" stroke-width="1.6"/>
+<line x1="90" y1="516" x2="102" y2="504" stroke="#0b5ea8" stroke-width="1.4" marker-end="url(#aa)"/>
+<text x="82" y="514" font-size="12" text-anchor="end" fill="#0b5ea8" stroke="none" font-weight="bold">G1</text>
+<circle cx="250" cy="470" r="3.2" fill="#000" stroke="none"/>
+<polyline points="250,470 250,492" stroke="#000" stroke-width="1.6"/>
+<rect x="232" y="492" width="36" height="36" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<polyline points="250,480 250,492" stroke="#000" stroke-width="1.6"/>
+<polyline points="250,528 250,540" stroke="#000" stroke-width="1.6"/>
+<line x1="257" y1="497" x2="257" y2="523" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<polyline points="268,510 272,510" stroke="#000" stroke-width="1.6"/>
+<polyline points="272,510 275.0,516 278.0,504 281.0,516 284.0,504 287.0,516 290,510" stroke="#000" stroke-width="1.3"/>
+<line x1="270" y1="521" x2="292" y2="499" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<polyline points="250,486 224,486 224,504 232,504" stroke="#000" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polyline points="250,528 250,545" stroke="#000" stroke-width="1.6"/>
+<polyline points="238,545 238,555 262,555 262,545" stroke="#000" stroke-width="1.6"/>
+<text x="276" y="548" font-size="11" text-anchor="start" fill="#000" stroke="none">0V1 22 MPa</text>
+<text x="420" y="462" font-size="11" text-anchor="start" fill="#000" stroke="none" font-style="italic">P gallery</text>
+<text x="420" y="522" font-size="11" text-anchor="start" fill="#000" stroke="none" font-style="italic">T gallery</text>
+<rect x="300" y="300" width="40" height="40" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<rect x="340" y="300" width="40" height="40" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<rect x="380" y="300" width="40" height="40" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<line x1="312" y1="338" x2="312" y2="303" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="328" y1="303" x2="328" y2="338" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="392" y1="338" x2="407" y2="304" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="393" y1="304" x2="408" y2="337" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<polyline points="352,300 352,309" stroke="#000" stroke-width="1.6"/>
+<polyline points="347,309 357,309" stroke="#000" stroke-width="1.6"/>
+<polyline points="368,300 368,309" stroke="#000" stroke-width="1.6"/>
+<polyline points="363,309 373,309" stroke="#000" stroke-width="1.6"/>
+<polyline points="352,340 352,331" stroke="#000" stroke-width="1.6"/>
+<polyline points="347,331 357,331" stroke="#000" stroke-width="1.6"/>
+<polyline points="368,340 368,331" stroke="#000" stroke-width="1.6"/>
+<polyline points="363,331 373,331" stroke="#000" stroke-width="1.6"/>
+<polyline points="300,320 296,320" stroke="#000" stroke-width="1.6"/>
+<polyline points="276,320 279.3333333333333,326 282.6666666666667,314 286.0,326 289.3333333333333,314 292.6666666666667,326 296,320" stroke="#000" stroke-width="1.3"/>
+<rect x="262" y="308" width="14" height="24" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<polyline points="262,332 276,308" stroke="#000" stroke-width="1.3"/>
+<polyline points="420,320 424,320" stroke="#000" stroke-width="1.6"/>
+<polyline points="424,320 427.3333333333333,326 430.6666666666667,314 434.0,326 437.3333333333333,314 440.6666666666667,326 444,320" stroke="#000" stroke-width="1.3"/>
+<rect x="444" y="308" width="14" height="24" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<polyline points="444,332 458,308" stroke="#000" stroke-width="1.3"/>
+<text x="269" y="352" font-size="11" text-anchor="middle" fill="#000" stroke="none">Y1</text>
+<text x="451" y="352" font-size="11" text-anchor="middle" fill="#000" stroke="none">Y2</text>
+<text x="349" y="353" font-size="11" text-anchor="end" fill="#000" stroke="none">P</text>
+<text x="371" y="353" font-size="11" text-anchor="start" fill="#000" stroke="none">T</text>
+<text x="349" y="296" font-size="11" text-anchor="end" fill="#000" stroke="none">A</text>
+<text x="371" y="296" font-size="11" text-anchor="start" fill="#000" stroke="none">B</text>
+<text x="460" y="296" font-size="12" text-anchor="start" fill="#000" stroke="none" font-weight="bold">1V1 proportional, closed centre</text>
+<polyline points="352,470 352,440" stroke="#000" stroke-width="1.6"/>
+<rect x="337" y="384" width="30" height="44" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<line x1="352" y1="423" x2="352" y2="389" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<polyline points="352,428 352,440" stroke="#000" stroke-width="1.6"/>
+<polyline points="352,384 352,372" stroke="#000" stroke-width="1.6"/>
+<polyline points="367,406 371,406" stroke="#000" stroke-width="1.6"/>
+<polyline points="371,406 373.6666666666667,411 376.3333333333333,401 379.0,411 381.6666666666667,401 384.3333333333333,411 387,406" stroke="#000" stroke-width="1.3"/>
+<polyline points="352,378 326,378 326,414 337,414" stroke="#000" stroke-width="1.1" stroke-dasharray="6 4"/>
+<text x="394" y="402" font-size="12" text-anchor="start" fill="#000" stroke="none" font-weight="bold">1V2 pre-compensator</text>
+<text x="394" y="418" font-size="11" text-anchor="start" fill="#0b5ea8" stroke="none">Δp over spool = 2 MPa</text>
+<polyline points="352,372 352,340" stroke="#000" stroke-width="1.6"/>
+<circle cx="352" cy="470" r="3.2" fill="#000" stroke="none"/>
+<polyline points="368,340 368,500" stroke="#000" stroke-width="1.6"/>
+<circle cx="368" cy="500" r="3.2" fill="#000" stroke="none"/>
+<rect x="290" y="130" width="170" height="40" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<rect x="349.5" y="144.0" width="170.5" height="12" fill="#fff" stroke="#000" stroke-width="1.6" rx="0"/>
+<polyline points="349.5,130 349.5,170" stroke="#000" stroke-width="4"/>
+<text x="375.0" y="122" font-size="12" text-anchor="middle" fill="#000" stroke="none" font-weight="bold">1A1</text>
+<text x="375" y="196" font-size="11" text-anchor="middle" fill="#000" stroke="none">1A1: 6.4 MPa, 18.7 L/min</text>
+<polyline points="352,300 352,250 304,250 304,170" stroke="#000" stroke-width="1.6"/>
+<polyline points="368,300 368,240 446,240 446,170" stroke="#000" stroke-width="1.6"/>
+<rect x="640" y="300" width="40" height="40" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<rect x="680" y="300" width="40" height="40" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<rect x="720" y="300" width="40" height="40" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<line x1="652" y1="338" x2="652" y2="303" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="668" y1="303" x2="668" y2="338" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="732" y1="338" x2="747" y2="304" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="733" y1="304" x2="748" y2="337" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<polyline points="692,300 692,309" stroke="#000" stroke-width="1.6"/>
+<polyline points="687,309 697,309" stroke="#000" stroke-width="1.6"/>
+<polyline points="708,300 708,309" stroke="#000" stroke-width="1.6"/>
+<polyline points="703,309 713,309" stroke="#000" stroke-width="1.6"/>
+<polyline points="692,340 692,331" stroke="#000" stroke-width="1.6"/>
+<polyline points="687,331 697,331" stroke="#000" stroke-width="1.6"/>
+<polyline points="708,340 708,331" stroke="#000" stroke-width="1.6"/>
+<polyline points="703,331 713,331" stroke="#000" stroke-width="1.6"/>
+<polyline points="640,320 636,320" stroke="#000" stroke-width="1.6"/>
+<polyline points="616,320 619.3333333333334,326 622.6666666666666,314 626.0,326 629.3333333333334,314 632.6666666666666,326 636,320" stroke="#000" stroke-width="1.3"/>
+<rect x="602" y="308" width="14" height="24" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<polyline points="602,332 616,308" stroke="#000" stroke-width="1.3"/>
+<polyline points="760,320 764,320" stroke="#000" stroke-width="1.6"/>
+<polyline points="764,320 767.3333333333334,326 770.6666666666666,314 774.0,326 777.3333333333334,314 780.6666666666666,326 784,320" stroke="#000" stroke-width="1.3"/>
+<rect x="784" y="308" width="14" height="24" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<polyline points="784,332 798,308" stroke="#000" stroke-width="1.3"/>
+<text x="609" y="352" font-size="11" text-anchor="middle" fill="#000" stroke="none">Y1</text>
+<text x="791" y="352" font-size="11" text-anchor="middle" fill="#000" stroke="none">Y2</text>
+<text x="689" y="353" font-size="11" text-anchor="end" fill="#000" stroke="none">P</text>
+<text x="711" y="353" font-size="11" text-anchor="start" fill="#000" stroke="none">T</text>
+<text x="689" y="296" font-size="11" text-anchor="end" fill="#000" stroke="none">A</text>
+<text x="711" y="296" font-size="11" text-anchor="start" fill="#000" stroke="none">B</text>
+<text x="800" y="296" font-size="12" text-anchor="start" fill="#000" stroke="none" font-weight="bold">2V1 proportional, closed centre</text>
+<polyline points="692,470 692,440" stroke="#000" stroke-width="1.6"/>
+<rect x="677" y="384" width="30" height="44" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<line x1="692" y1="423" x2="692" y2="389" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/>
+<polyline points="692,428 692,440" stroke="#000" stroke-width="1.6"/>
+<polyline points="692,384 692,372" stroke="#000" stroke-width="1.6"/>
+<polyline points="707,406 711,406" stroke="#000" stroke-width="1.6"/>
+<polyline points="711,406 713.6666666666666,411 716.3333333333334,401 719.0,411 721.6666666666666,401 724.3333333333334,411 727,406" stroke="#000" stroke-width="1.3"/>
+<polyline points="692,378 666,378 666,414 677,414" stroke="#000" stroke-width="1.1" stroke-dasharray="6 4"/>
+<text x="734" y="402" font-size="12" text-anchor="start" fill="#000" stroke="none" font-weight="bold">2V2 pre-compensator</text>
+<text x="734" y="418" font-size="11" text-anchor="start" fill="#0b5ea8" stroke="none">Δp over spool = 2 MPa</text>
+<polyline points="692,372 692,340" stroke="#000" stroke-width="1.6"/>
+<circle cx="692" cy="470" r="3.2" fill="#000" stroke="none"/>
+<polyline points="708,340 708,500" stroke="#000" stroke-width="1.6"/>
+<circle cx="708" cy="500" r="3.2" fill="#000" stroke="none"/>
+<rect x="630" y="130" width="170" height="40" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<rect x="689.5" y="144.0" width="170.5" height="12" fill="#fff" stroke="#000" stroke-width="1.6" rx="0"/>
+<polyline points="689.5,130 689.5,170" stroke="#000" stroke-width="4"/>
+<text x="715.0" y="122" font-size="12" text-anchor="middle" fill="#000" stroke="none" font-weight="bold">2A1</text>
+<text x="715" y="196" font-size="11" text-anchor="middle" fill="#000" stroke="none">2A1: 3.0 MPa, 10 L/min</text>
+<polyline points="692,300 692,250 644,250 644,170" stroke="#000" stroke-width="1.6"/>
+<polyline points="708,300 708,240 786,240 786,170" stroke="#000" stroke-width="1.6"/>
+<polyline points="686,500 330,500 330,520" stroke="#000" stroke-width="1.6"/>
+<polyline points="318,520 318,530 342,530 342,520" stroke="#000" stroke-width="1.6"/>
+<circle cx="304" cy="215" r="3.2" fill="#000" stroke="none"/>
+<polyline points="304,215 270,215 270,90 544,90" stroke="#000" stroke-width="1.3" stroke-dasharray="6 4"/>
+<circle cx="644" cy="215" r="3.2" fill="#000" stroke="none"/>
+<polyline points="644,215 610,215 610,90 576,90" stroke="#000" stroke-width="1.3" stroke-dasharray="6 4"/>
+<rect x="544" y="80" width="32" height="20" fill="none" stroke="#000" stroke-width="1.6" rx="0"/>
+<circle cx="560" cy="90" r="5"/>
+<text x="560" y="74" font-size="12" text-anchor="middle" fill="#000" stroke="none" font-weight="bold">0V3 shuttle</text>
+<polyline points="560,80 560,60 60,60 60,540" stroke="#000" stroke-width="1.3" stroke-dasharray="6 4"/>
+<text x="300" y="54" font-size="11" text-anchor="start" fill="#0b5ea8" stroke="none">LS line = highest load pressure 6.4 MPa</text>
+<circle cx="60" cy="420" r="3.2" fill="#000" stroke="none"/>
+<polyline points="60,420 40,420 40,436" stroke="#000" stroke-width="1.1" stroke-dasharray="6 4"/>
+<path d="M33,438 Q40,450 33,462 M47,438 Q40,450 47,462"/>
+<polyline points="40,462 40,476" stroke="#000" stroke-width="1.6"/>
+<polyline points="28,476 28,486 52,486 52,476" stroke="#000" stroke-width="1.6"/>
+<text x="68" y="456" font-size="11" text-anchor="start" fill="#0b5ea8" stroke="none">Ø0.8</text>
+<text x="68" y="442" font-size="11" text-anchor="start" fill="#000" stroke="none">bleed</text>
+<circle cx="60" cy="300" r="3.2" fill="#000" stroke="none"/>
+<polyline points="60,300 80,300" stroke="#000" stroke-width="1.1" stroke-dasharray="6 4"/>
+<circle cx="90" cy="300" r="10" fill="#fff" stroke="#0b5ea8" stroke-width="1.6"/>
+<line x1="84" y1="306" x2="96" y2="294" stroke="#0b5ea8" stroke-width="1.4" marker-end="url(#aa)"/>
+<text x="104" y="304" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none" font-weight="bold">G5 LS</text>
+<rect x="720" y="470" width="340" height="136" fill="none" stroke="#000" stroke-width="1.0" rx="0"/>
+<text x="728" y="487" font-size="12" text-anchor="start" fill="#000" stroke="none" font-weight="bold">Numbers (example)</text>
+<text x="728" y="506" font-size="11" text-anchor="start" fill="#0b5ea8" stroke="none">p_P = p_LS,max + Δp = 6.4 + 2 = 8.4 MPa</text>
+<text x="728" y="522" font-size="11" text-anchor="start" fill="#0b5ea8" stroke="none">Q_i = Cd·A_i·√(2Δp/ρ) – independent of load</text>
+<text x="728" y="538" font-size="11" text-anchor="start" fill="#0b5ea8" stroke="none">P = 84 bar · 28.7 L/min / 600 = 4.02 kW</text>
+<text x="728" y="554" font-size="11" text-anchor="start" fill="#0b5ea8" stroke="none">useful 2.50 kW (η 62 %); loss margin 0.96</text>
+<text x="728" y="570" font-size="11" text-anchor="start" fill="#0b5ea8" stroke="none">+ 2V2 drops 3.4 MPa · 10 L/min = 0.57 kW</text>
+<text x="728" y="586" font-size="11" text-anchor="start" fill="#0b5ea8" stroke="none">fixed pump + relief 10 MPa: 4.78 kW</text>
+<text x="728" y="602" font-size="11" text-anchor="start" fill="#0b5ea8" stroke="none">standby 2 MPa · 1 L/min = 0.03 kW</text>
+<rect x="700" y="650" width="380" height="96" fill="none" stroke="#000" stroke-width="1.4" rx="0"/>
+<polyline points="700,676 1080,676" stroke="#000" stroke-width="1.0"/>
+<polyline points="700,700 1080,700" stroke="#000" stroke-width="1.0"/>
+<polyline points="700,722 1080,722" stroke="#000" stroke-width="1.0"/>
+<text x="708" y="668" font-size="13" text-anchor="start" fill="#000" stroke="none" font-weight="bold">30_load_sensing</text>
+<text x="708" y="692" font-size="11" text-anchor="start" fill="#000" stroke="none">two actuators at the same time, LS margin 2 MPa</text>
+<text x="708" y="715" font-size="11" text-anchor="start" fill="#000" stroke="none">Guide 30 – hydraulic circuits and sizing · digital twin</text>
+<text x="708" y="739" font-size="12" text-anchor="start" fill="#0b5ea8" stroke="none" font-weight="bold">EXAMPLE – check the supplier's catalogue</text>
+</g>
+</svg>

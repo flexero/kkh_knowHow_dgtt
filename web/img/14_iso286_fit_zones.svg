@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" font-family="Arial, Helvetica, sans-serif">
+<title>ISO 286 tolerance zones H7/g6, H7/k6, H7/p6 at diameter 50 mm</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#000" stroke-width="1"/></pattern></defs>
+<rect x="0" y="0" width="1200" height="900" fill="#ffffff"/>
+<text x="30.0" y="36.0" font-size="16" text-anchor="start" fill="#000" font-weight="bold">ISO 286 – tolerance zones of three common fits at nominal Ø 50 mm (size range over 30 up to 50 mm), hole-basis system</text>
+<text x="30.0" y="58.0" font-size="12" text-anchor="start" fill="#555">Values in µm from ISO 286-2. Zero line = nominal size 50.000 mm. Hole H7 is the same in all three fits – only the shaft changes the fit.</text>
+<line x1="80.0" y1="605.0" x2="80.0" y2="105.0" stroke="#000" stroke-width="1.2"/>
+<line x1="74.0" y1="580.0" x2="80.0" y2="580.0" stroke="#000" stroke-width="1.2"/>
+<text x="70.0" y="584.0" font-size="11" text-anchor="end" fill="#000">−40</text>
+<line x1="74.0" y1="530.0" x2="80.0" y2="530.0" stroke="#000" stroke-width="1.2"/>
+<text x="70.0" y="534.0" font-size="11" text-anchor="end" fill="#000">−30</text>
+<line x1="74.0" y1="480.0" x2="80.0" y2="480.0" stroke="#000" stroke-width="1.2"/>
+<text x="70.0" y="484.0" font-size="11" text-anchor="end" fill="#000">−20</text>
+<line x1="74.0" y1="430.0" x2="80.0" y2="430.0" stroke="#000" stroke-width="1.2"/>
+<text x="70.0" y="434.0" font-size="11" text-anchor="end" fill="#000">−10</text>
+<line x1="74.0" y1="380.0" x2="80.0" y2="380.0" stroke="#000" stroke-width="1.2"/>
+<text x="70.0" y="384.0" font-size="11" text-anchor="end" fill="#000">0</text>
+<line x1="74.0" y1="330.0" x2="80.0" y2="330.0" stroke="#000" stroke-width="1.2"/>
+<text x="70.0" y="334.0" font-size="11" text-anchor="end" fill="#000">+10</text>
+<line x1="74.0" y1="280.0" x2="80.0" y2="280.0" stroke="#000" stroke-width="1.2"/>
+<text x="70.0" y="284.0" font-size="11" text-anchor="end" fill="#000">+20</text>
+<line x1="74.0" y1="230.0" x2="80.0" y2="230.0" stroke="#000" stroke-width="1.2"/>
+<text x="70.0" y="234.0" font-size="11" text-anchor="end" fill="#000">+30</text>
+<line x1="74.0" y1="180.0" x2="80.0" y2="180.0" stroke="#000" stroke-width="1.2"/>
+<text x="70.0" y="184.0" font-size="11" text-anchor="end" fill="#000">+40</text>
+<line x1="74.0" y1="130.0" x2="80.0" y2="130.0" stroke="#000" stroke-width="1.2"/>
+<text x="70.0" y="134.0" font-size="11" text-anchor="end" fill="#000">+50</text>
+<text x="30.0" y="92.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">deviation [µm]</text>
+<line x1="80.0" y1="380.0" x2="1170.0" y2="380.0" stroke="#000" stroke-width="1.6"/>
+<text x="1170.0" y="374.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">zero line = Ø 50.000</text>
+<text x="260.0" y="90.0" font-size="15" text-anchor="middle" fill="#000" font-weight="bold">Ø 50 H7/g6</text>
+<text x="260.0" y="108.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold">clearance fit</text>
+<rect x="150.0" y="255.0" width="90.0" height="125.0" stroke="#000" stroke-width="1.5" fill="url(#hat)"/>
+<text x="195.0" y="247.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">hole H7</text>
+<text x="144.0" y="259.0" font-size="11" text-anchor="end" fill="#000">+25</text>
+<text x="144.0" y="377.0" font-size="11" text-anchor="end" fill="#000">0</text>
+<rect x="280.0" y="425.0" width="90.0" height="80.0" stroke="#c62828" stroke-width="1.5" fill="#c62828" fill-opacity="0.35"/>
+<text x="325.0" y="523.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold">shaft g6</text>
+<text x="376.0" y="429.0" font-size="11" text-anchor="start" fill="#000">−9</text>
+<text x="376.0" y="509.0" font-size="11" text-anchor="start" fill="#000">−25</text>
+<text x="260.0" y="633.0" font-size="12" text-anchor="middle" fill="#000">max clearance = +25 − (−25) = +50 µm</text>
+<text x="260.0" y="651.0" font-size="12" text-anchor="middle" fill="#000">min clearance = 0 − (−9) = +9 µm</text>
+<text x="260.0" y="669.0" font-size="11" text-anchor="middle" fill="#555">(negative = interference)</text>
+<text x="260.0" y="691.0" font-size="11" text-anchor="middle" fill="#000">hole 50.000 … 50.025 / shaft 49.975 … 49.991</text>
+<text x="260.0" y="709.0" font-size="11" text-anchor="middle" fill="#555">by hand, slides: guide pins, sliding gears</text>
+<line x1="445.0" y1="80.0" x2="445.0" y2="715.0" stroke="#999" stroke-width="0.8" stroke-dasharray="4,4"/>
+<text x="600.0" y="90.0" font-size="15" text-anchor="middle" fill="#000" font-weight="bold">Ø 50 H7/k6</text>
+<text x="600.0" y="108.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold">transition fit</text>
+<rect x="490.0" y="255.0" width="90.0" height="125.0" stroke="#000" stroke-width="1.5" fill="url(#hat)"/>
+<text x="535.0" y="247.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">hole H7</text>
+<text x="484.0" y="259.0" font-size="11" text-anchor="end" fill="#000">+25</text>
+<text x="484.0" y="377.0" font-size="11" text-anchor="end" fill="#000">0</text>
+<rect x="620.0" y="290.0" width="90.0" height="80.0" stroke="#c62828" stroke-width="1.5" fill="#c62828" fill-opacity="0.35"/>
+<text x="665.0" y="282.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold">shaft k6</text>
+<text x="716.0" y="294.0" font-size="11" text-anchor="start" fill="#000">+18</text>
+<text x="716.0" y="374.0" font-size="11" text-anchor="start" fill="#000">+2</text>
+<text x="600.0" y="633.0" font-size="12" text-anchor="middle" fill="#000">max clearance = +25 − (+2) = +23 µm</text>
+<text x="600.0" y="651.0" font-size="12" text-anchor="middle" fill="#000">min clearance = 0 − (+18) = −18 µm</text>
+<text x="600.0" y="669.0" font-size="11" text-anchor="middle" fill="#555">(negative = interference)</text>
+<text x="600.0" y="691.0" font-size="11" text-anchor="middle" fill="#000">hole 50.000 … 50.025 / shaft 50.002 … 50.018</text>
+<text x="600.0" y="709.0" font-size="11" text-anchor="middle" fill="#555">light press: bearing inner ring, coupling hub</text>
+<line x1="785.0" y1="80.0" x2="785.0" y2="715.0" stroke="#999" stroke-width="0.8" stroke-dasharray="4,4"/>
+<text x="940.0" y="90.0" font-size="15" text-anchor="middle" fill="#000" font-weight="bold">Ø 50 H7/p6</text>
+<text x="940.0" y="108.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold">interference fit</text>
+<rect x="830.0" y="255.0" width="90.0" height="125.0" stroke="#000" stroke-width="1.5" fill="url(#hat)"/>
+<text x="875.0" y="247.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">hole H7</text>
+<text x="824.0" y="259.0" font-size="11" text-anchor="end" fill="#000">+25</text>
+<text x="824.0" y="377.0" font-size="11" text-anchor="end" fill="#000">0</text>
+<rect x="960.0" y="170.0" width="90.0" height="80.0" stroke="#c62828" stroke-width="1.5" fill="#c62828" fill-opacity="0.35"/>
+<text x="1005.0" y="162.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold">shaft p6</text>
+<text x="1056.0" y="174.0" font-size="11" text-anchor="start" fill="#000">+42</text>
+<text x="1056.0" y="254.0" font-size="11" text-anchor="start" fill="#000">+26</text>
+<text x="940.0" y="633.0" font-size="12" text-anchor="middle" fill="#000">max clearance = +25 − (+26) = −1 µm</text>
+<text x="940.0" y="651.0" font-size="12" text-anchor="middle" fill="#000">min clearance = 0 − (+42) = −42 µm</text>
+<text x="940.0" y="669.0" font-size="11" text-anchor="middle" fill="#555">(negative = interference)</text>
+<text x="940.0" y="691.0" font-size="11" text-anchor="middle" fill="#000">hole 50.000 … 50.025 / shaft 50.026 … 50.042</text>
+<text x="940.0" y="709.0" font-size="11" text-anchor="middle" fill="#555">press: bronze bush in steel housing</text>
+<text x="30.0" y="745.0" font-size="11" text-anchor="start" fill="#000">Fit types: clearance = shaft always smaller than hole; transition = small clearance or small interference; interference = shaft always bigger. Assembly of p6: press or shrink (see §5.4).</text>
+<text x="30.0" y="761.0" font-size="11" text-anchor="start" fill="#000">IT7 (30–50) = 25 µm, IT6 = 16 µm. Fundamental deviations: g = −9, k = +2, p = +26 µm (ISO 286-1).</text>
+<rect x="760.0" y="804.0" width="420.0" height="82.0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="760.0" y1="834.0" x2="1180.0" y2="834.0" stroke="#000" stroke-width="1"/>
+<text x="770.0" y="825.0" font-size="14" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the current standard</text>
+<text x="770.0" y="854.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">14_iso286_fit_zones – fits at Ø 50</text>
+<text x="770.0" y="872.0" font-size="11" text-anchor="start" fill="#000">Guide 14 §5 · ISO 286-1/-2 · rev A</text>
+<text x="1170.0" y="880.0" font-size="11" text-anchor="end" fill="#555">values from guide 14 · rev A</text>
+</svg>

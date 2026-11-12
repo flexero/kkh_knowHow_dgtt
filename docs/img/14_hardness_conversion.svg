@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1120" width="1200" height="1120" font-family="Arial, Helvetica, sans-serif">
+<title>Hardness conversion chart HRC HV HBW tensile strength</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#000" stroke-width="1"/></pattern></defs>
+<rect x="0" y="0" width="1200" height="1120" fill="#ffffff"/>
+<text x="30.0" y="36.0" font-size="16" text-anchor="start" fill="#000" font-weight="bold">Hardness conversion – read across: HV ↔ HRC ↔ HBW ↔ approximate tensile strength Rm (unalloyed and low-alloy steels)</text>
+<text x="30.0" y="58.0" font-size="12" text-anchor="start" fill="#555">Values of table §4.8 (ISO 18265 / ASTM E140 style). Approximate (± 5 – 10 %). For acceptance test with the scale written on the drawing.</text>
+<line x1="130.0" y1="950.0" x2="130.0" y2="110.0" stroke="#000" stroke-width="2"/>
+<text x="130.0" y="96.0" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Vickers HV</text>
+<line x1="340.0" y1="950.0" x2="340.0" y2="110.0" stroke="#000" stroke-width="2"/>
+<text x="340.0" y="96.0" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Rockwell HRC</text>
+<line x1="550.0" y1="950.0" x2="550.0" y2="110.0" stroke="#000" stroke-width="2"/>
+<text x="550.0" y="96.0" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Brinell HBW</text>
+<line x1="760.0" y1="950.0" x2="760.0" y2="110.0" stroke="#000" stroke-width="2"/>
+<text x="760.0" y="96.0" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Rm ≈ [MPa]</text>
+<line x1="130.0" y1="950.0" x2="118.0" y2="950.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="954.0" font-size="12" text-anchor="end" fill="#000">150</text>
+<line x1="130.0" y1="938.8" x2="124.0" y2="938.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="927.6" x2="124.0" y2="927.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="916.4" x2="124.0" y2="916.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="905.2" x2="124.0" y2="905.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="894.0" x2="118.0" y2="894.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="898.0" font-size="12" text-anchor="end" fill="#000">200</text>
+<line x1="130.0" y1="882.8" x2="124.0" y2="882.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="871.6" x2="124.0" y2="871.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="860.4" x2="124.0" y2="860.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="849.2" x2="124.0" y2="849.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="838.0" x2="118.0" y2="838.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="842.0" font-size="12" text-anchor="end" fill="#000">250</text>
+<line x1="130.0" y1="826.8" x2="124.0" y2="826.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="815.6" x2="124.0" y2="815.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="804.4" x2="124.0" y2="804.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="793.2" x2="124.0" y2="793.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="782.0" x2="118.0" y2="782.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="786.0" font-size="12" text-anchor="end" fill="#000">300</text>
+<line x1="130.0" y1="770.8" x2="124.0" y2="770.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="759.6" x2="124.0" y2="759.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="748.4" x2="124.0" y2="748.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="737.2" x2="124.0" y2="737.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="726.0" x2="118.0" y2="726.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="730.0" font-size="12" text-anchor="end" fill="#000">350</text>
+<line x1="130.0" y1="714.8" x2="124.0" y2="714.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="703.6" x2="124.0" y2="703.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="692.4" x2="124.0" y2="692.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="681.2" x2="124.0" y2="681.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="670.0" x2="118.0" y2="670.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="674.0" font-size="12" text-anchor="end" fill="#000">400</text>
+<line x1="130.0" y1="658.8" x2="124.0" y2="658.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="647.6" x2="124.0" y2="647.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="636.4" x2="124.0" y2="636.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="625.2" x2="124.0" y2="625.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="614.0" x2="118.0" y2="614.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="618.0" font-size="12" text-anchor="end" fill="#000">450</text>
+<line x1="130.0" y1="602.8" x2="124.0" y2="602.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="591.6" x2="124.0" y2="591.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="580.4" x2="124.0" y2="580.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="569.2" x2="124.0" y2="569.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="558.0" x2="118.0" y2="558.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="562.0" font-size="12" text-anchor="end" fill="#000">500</text>
+<line x1="130.0" y1="546.8" x2="124.0" y2="546.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="535.6" x2="124.0" y2="535.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="524.4" x2="124.0" y2="524.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="513.2" x2="124.0" y2="513.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="502.0" x2="118.0" y2="502.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="506.0" font-size="12" text-anchor="end" fill="#000">550</text>
+<line x1="130.0" y1="490.8" x2="124.0" y2="490.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="479.6" x2="124.0" y2="479.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="468.4" x2="124.0" y2="468.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="457.2" x2="124.0" y2="457.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="446.0" x2="118.0" y2="446.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="450.0" font-size="12" text-anchor="end" fill="#000">600</text>
+<line x1="130.0" y1="434.8" x2="124.0" y2="434.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="423.6" x2="124.0" y2="423.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="412.4" x2="124.0" y2="412.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="401.2" x2="124.0" y2="401.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="390.0" x2="118.0" y2="390.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="394.0" font-size="12" text-anchor="end" fill="#000">650</text>
+<line x1="130.0" y1="378.8" x2="124.0" y2="378.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="367.6" x2="124.0" y2="367.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="356.4" x2="124.0" y2="356.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="345.2" x2="124.0" y2="345.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="334.0" x2="118.0" y2="334.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="338.0" font-size="12" text-anchor="end" fill="#000">700</text>
+<line x1="130.0" y1="322.8" x2="124.0" y2="322.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="311.6" x2="124.0" y2="311.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="300.4" x2="124.0" y2="300.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="289.2" x2="124.0" y2="289.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="278.0" x2="118.0" y2="278.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="282.0" font-size="12" text-anchor="end" fill="#000">750</text>
+<line x1="130.0" y1="266.8" x2="124.0" y2="266.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="255.6" x2="124.0" y2="255.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="244.4" x2="124.0" y2="244.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="233.2" x2="124.0" y2="233.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="222.0" x2="118.0" y2="222.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="226.0" font-size="12" text-anchor="end" fill="#000">800</text>
+<line x1="130.0" y1="210.8" x2="124.0" y2="210.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="199.6" x2="124.0" y2="199.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="188.4" x2="124.0" y2="188.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="177.2" x2="124.0" y2="177.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="166.0" x2="118.0" y2="166.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="170.0" font-size="12" text-anchor="end" fill="#000">850</text>
+<line x1="130.0" y1="154.8" x2="124.0" y2="154.8" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="143.6" x2="124.0" y2="143.6" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="132.4" x2="124.0" y2="132.4" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="121.2" x2="124.0" y2="121.2" stroke="#000" stroke-width="1"/>
+<line x1="130.0" y1="110.0" x2="118.0" y2="110.0" stroke="#000" stroke-width="1"/>
+<text x="112.0" y="114.0" font-size="12" text-anchor="end" fill="#000">900</text>
+<line x1="550.0" y1="938.8" x2="562.0" y2="938.8" stroke="#000" stroke-width="1"/>
+<text x="568.0" y="942.8" font-size="12" text-anchor="start" fill="#000">152</text>
+<line x1="760.0" y1="938.8" x2="772.0" y2="938.8" stroke="#000" stroke-width="1"/>
+<text x="778.0" y="942.8" font-size="12" text-anchor="start" fill="#000">510</text>
+<line x1="550.0" y1="894.0" x2="562.0" y2="894.0" stroke="#000" stroke-width="1"/>
+<text x="568.0" y="898.0" font-size="12" text-anchor="start" fill="#000">190</text>
+<line x1="760.0" y1="894.0" x2="772.0" y2="894.0" stroke="#000" stroke-width="1"/>
+<text x="778.0" y="898.0" font-size="12" text-anchor="start" fill="#000">640</text>
+<line x1="550.0" y1="871.6" x2="556.0" y2="871.6" stroke="#000" stroke-width="1"/>
+<line x1="760.0" y1="871.6" x2="766.0" y2="871.6" stroke="#000" stroke-width="1"/>
+<line x1="340.0" y1="851.4" x2="352.0" y2="851.4" stroke="#000" stroke-width="1"/>
+<text x="358.0" y="855.4" font-size="12" text-anchor="start" fill="#000">20</text>
+<line x1="550.0" y1="851.4" x2="562.0" y2="851.4" stroke="#000" stroke-width="1"/>
+<text x="568.0" y="855.4" font-size="12" text-anchor="start" fill="#000">226</text>
+<line x1="760.0" y1="851.4" x2="772.0" y2="851.4" stroke="#000" stroke-width="1"/>
+<text x="778.0" y="855.4" font-size="12" text-anchor="start" fill="#000">770</text>
+<line x1="340.0" y1="840.2" x2="346.0" y2="840.2" stroke="#000" stroke-width="1"/>
+<line x1="550.0" y1="840.2" x2="556.0" y2="840.2" stroke="#000" stroke-width="1"/>
+<line x1="760.0" y1="840.2" x2="766.0" y2="840.2" stroke="#000" stroke-width="1"/>
+<line x1="340.0" y1="820.1" x2="352.0" y2="820.1" stroke="#000" stroke-width="1"/>
+<text x="358.0" y="824.1" font-size="12" text-anchor="start" fill="#000">25</text>
+<line x1="550.0" y1="820.1" x2="562.0" y2="820.1" stroke="#000" stroke-width="1"/>
+<text x="568.0" y="824.1" font-size="12" text-anchor="start" fill="#000">253</text>
+<line x1="760.0" y1="820.1" x2="772.0" y2="820.1" stroke="#000" stroke-width="1"/>
+<text x="778.0" y="824.1" font-size="12" text-anchor="start" fill="#000">860</text>
+<line x1="340.0" y1="797.7" x2="346.0" y2="797.7" stroke="#000" stroke-width="1"/>
+<line x1="550.0" y1="797.7" x2="556.0" y2="797.7" stroke="#000" stroke-width="1"/>
+<line x1="760.0" y1="797.7" x2="766.0" y2="797.7" stroke="#000" stroke-width="1"/>
+<line x1="340.0" y1="779.8" x2="352.0" y2="779.8" stroke="#000" stroke-width="1"/>
+<text x="358.0" y="783.8" font-size="12" text-anchor="start" fill="#000">30</text>
+<line x1="550.0" y1="779.8" x2="562.0" y2="779.8" stroke="#000" stroke-width="1"/>
+<text x="568.0" y="783.8" font-size="12" text-anchor="start" fill="#000">286</text>
+<line x1="760.0" y1="779.8" x2="772.0" y2="779.8" stroke="#000" stroke-width="1"/>
+<text x="778.0" y="783.8" font-size="12" text-anchor="start" fill="#000">970</text>
+<line x1="340.0" y1="761.8" x2="346.0" y2="761.8" stroke="#000" stroke-width="1"/>
+<line x1="550.0" y1="761.8" x2="556.0" y2="761.8" stroke="#000" stroke-width="1"/>
+<line x1="760.0" y1="761.8" x2="766.0" y2="761.8" stroke="#000" stroke-width="1"/>
+<line x1="340.0" y1="731.6" x2="352.0" y2="731.6" stroke="#000" stroke-width="1"/>
+<text x="358.0" y="735.6" font-size="12" text-anchor="start" fill="#000">35</text>
+<line x1="550.0" y1="731.6" x2="562.0" y2="731.6" stroke="#000" stroke-width="1"/>
+<text x="568.0" y="735.6" font-size="12" text-anchor="start" fill="#000">327</text>
+<line x1="760.0" y1="731.6" x2="772.0" y2="731.6" stroke="#000" stroke-width="1"/>
+<text x="778.0" y="735.6" font-size="12" text-anchor="start" fill="#000">1110</text>
+<line x1="340.0" y1="701.4" x2="346.0" y2="701.4" stroke="#000" stroke-width="1"/>
+<line x1="550.0" y1="701.4" x2="556.0" y2="701.4" stroke="#000" stroke-width="1"/>
+<line x1="760.0" y1="701.4" x2="766.0" y2="701.4" stroke="#000" stroke-width="1"/>
+<line x1="340.0" y1="679.0" x2="352.0" y2="679.0" stroke="#000" stroke-width="1"/>
+<text x="358.0" y="683.0" font-size="12" text-anchor="start" fill="#000">40</text>
+<line x1="550.0" y1="679.0" x2="562.0" y2="679.0" stroke="#000" stroke-width="1"/>
+<text x="568.0" y="683.0" font-size="12" text-anchor="start" fill="#000">371</text>
+<line x1="760.0" y1="679.0" x2="772.0" y2="679.0" stroke="#000" stroke-width="1"/>
+<text x="778.0" y="683.0" font-size="12" text-anchor="start" fill="#000">1260</text>
+<line x1="340.0" y1="656.6" x2="346.0" y2="656.6" stroke="#000" stroke-width="1"/>
+<line x1="550.0" y1="656.6" x2="556.0" y2="656.6" stroke="#000" stroke-width="1"/>
+<line x1="760.0" y1="656.6" x2="766.0" y2="656.6" stroke="#000" stroke-width="1"/>
+<line x1="340.0" y1="618.5" x2="352.0" y2="618.5" stroke="#000" stroke-width="1"/>
+<text x="358.0" y="622.5" font-size="12" text-anchor="start" fill="#000">45</text>
+<line x1="550.0" y1="618.5" x2="562.0" y2="618.5" stroke="#000" stroke-width="1"/>
+<text x="568.0" y="622.5" font-size="12" text-anchor="start" fill="#000">421</text>
+<line x1="760.0" y1="618.5" x2="772.0" y2="618.5" stroke="#000" stroke-width="1"/>
+<text x="778.0" y="622.5" font-size="12" text-anchor="start" fill="#000">1440</text>
+<line x1="340.0" y1="575.9" x2="346.0" y2="575.9" stroke="#000" stroke-width="1"/>
+<line x1="550.0" y1="575.9" x2="556.0" y2="575.9" stroke="#000" stroke-width="1"/>
+<line x1="760.0" y1="575.9" x2="766.0" y2="575.9" stroke="#000" stroke-width="1"/>
+<line x1="340.0" y1="543.4" x2="352.0" y2="543.4" stroke="#000" stroke-width="1"/>
+<text x="358.0" y="547.4" font-size="12" text-anchor="start" fill="#000">50</text>
+<line x1="550.0" y1="543.4" x2="562.0" y2="543.4" stroke="#000" stroke-width="1"/>
+<text x="568.0" y="547.4" font-size="12" text-anchor="start" fill="#000">481</text>
+<line x1="760.0" y1="543.4" x2="772.0" y2="543.4" stroke="#000" stroke-width="1"/>
+<text x="778.0" y="547.4" font-size="12" text-anchor="start" fill="#000">1660</text>
+<line x1="340.0" y1="508.7" x2="346.0" y2="508.7" stroke="#000" stroke-width="1"/>
+<line x1="760.0" y1="508.7" x2="766.0" y2="508.7" stroke="#000" stroke-width="1"/>
+<line x1="340.0" y1="451.6" x2="352.0" y2="451.6" stroke="#000" stroke-width="1"/>
+<text x="358.0" y="455.6" font-size="12" text-anchor="start" fill="#000">55</text>
+<line x1="760.0" y1="451.6" x2="772.0" y2="451.6" stroke="#000" stroke-width="1"/>
+<text x="778.0" y="455.6" font-size="12" text-anchor="start" fill="#000">1920</text>
+<line x1="340.0" y1="386.6" x2="352.0" y2="386.6" stroke="#000" stroke-width="1"/>
+<text x="358.0" y="390.6" font-size="12" text-anchor="start" fill="#000">58</text>
+<line x1="340.0" y1="337.4" x2="352.0" y2="337.4" stroke="#000" stroke-width="1"/>
+<text x="358.0" y="341.4" font-size="12" text-anchor="start" fill="#000">60</text>
+<line x1="340.0" y1="282.5" x2="352.0" y2="282.5" stroke="#000" stroke-width="1"/>
+<text x="358.0" y="286.5" font-size="12" text-anchor="start" fill="#000">62</text>
+<line x1="340.0" y1="222.0" x2="352.0" y2="222.0" stroke="#000" stroke-width="1"/>
+<text x="358.0" y="226.0" font-size="12" text-anchor="start" fill="#000">64</text>
+<line x1="340.0" y1="149.2" x2="352.0" y2="149.2" stroke="#000" stroke-width="1"/>
+<text x="358.0" y="153.2" font-size="12" text-anchor="start" fill="#000">66</text>
+<text x="352.0" y="894.0" font-size="11" text-anchor="start" fill="#555">HRC below 20:</text>
+<text x="352.0" y="908.0" font-size="11" text-anchor="start" fill="#555">not valid (use HRB/HBW)</text>
+<text x="562.0" y="423.6" font-size="11" text-anchor="start" fill="#555">HBW above ≈ 450–480:</text>
+<text x="562.0" y="437.6" font-size="11" text-anchor="start" fill="#555">not used (ball limit)</text>
+<text x="772.0" y="378.8" font-size="11" text-anchor="start" fill="#555">Rm above ≈ 1900:</text>
+<text x="772.0" y="392.8" font-size="11" text-anchor="start" fill="#555">no estimate</text>
+<line x1="100.0" y1="761.8" x2="830.0" y2="761.8" stroke="#c62828" stroke-width="1.6" stroke-dasharray="8,4"/>
+<text x="836.0" y="765.8" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">42CrMo4+QT ≈ 300 HB:</text>
+<text x="836.0" y="781.8" font-size="11" text-anchor="start" fill="#c62828">318 HV = 32 HRC = 301 HBW ≈ 1020 MPa</text>
+<line x1="100.0" y1="337.4" x2="830.0" y2="337.4" stroke="#c62828" stroke-width="1.6" stroke-dasharray="8,4"/>
+<text x="836.0" y="341.4" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">case hardened surface 60 HRC:</text>
+<text x="836.0" y="357.4" font-size="11" text-anchor="start" fill="#c62828">= 697 HV</text>
+<line x1="100.0" y1="938.8" x2="830.0" y2="938.8" stroke="#c62828" stroke-width="1.6" stroke-dasharray="8,4"/>
+<text x="836.0" y="942.8" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">soft steel ≈ 160 HV:</text>
+<text x="836.0" y="958.8" font-size="11" text-anchor="start" fill="#c62828">= 152 HBW ≈ 510 MPa</text>
+<line x1="100.0" y1="502.0" x2="830.0" y2="502.0" stroke="#c62828" stroke-width="1" stroke-dasharray="2,3"/>
+<text x="836.0" y="506.0" font-size="11" text-anchor="start" fill="#c62828">550 HV = limit for case depth CHD (ISO 18203)</text>
+<text x="836.0" y="121.2" font-size="12" text-anchor="start" fill="#000" font-weight="bold">How to use: put a ruler horizontally across</text>
+<text x="836.0" y="138.2" font-size="12" text-anchor="start" fill="#000">the four scales at your known value.</text>
+<text x="836.0" y="155.2" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="836.0" y="172.2" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Rules of thumb (steel, 200–500 HV):</text>
+<text x="836.0" y="189.2" font-size="12" text-anchor="start" fill="#000">• HBW ≈ 0.95 × HV (up to ≈ 450)</text>
+<text x="836.0" y="206.2" font-size="12" text-anchor="start" fill="#000">• Rm ≈ 3.2 – 3.3 × HV [MPa]</text>
+<text x="836.0" y="223.2" font-size="12" text-anchor="start" fill="#000">• Rm ≈ 3.4 × HBW [MPa]</text>
+<text x="836.0" y="240.2" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="836.0" y="257.2" font-size="12" text-anchor="start" fill="#000">Not valid for: cast iron, aluminium, bronze,</text>
+<text x="836.0" y="274.2" font-size="12" text-anchor="start" fill="#000">cold-worked or case-hardened material</text>
+<text x="836.0" y="291.2" font-size="12" text-anchor="start" fill="#000">(surface ≠ core). Use the scale and load of</text>
+<text x="836.0" y="308.2" font-size="12" text-anchor="start" fill="#000">the drawing (HRC, HV10, HBW 10/3000).</text>
+<rect x="760.0" y="1024.0" width="420.0" height="82.0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="760.0" y1="1054.0" x2="1180.0" y2="1054.0" stroke="#000" stroke-width="1"/>
+<text x="770.0" y="1045.0" font-size="14" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the current standard</text>
+<text x="770.0" y="1074.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">14_hardness_conversion – HRC/HV/HBW/Rm</text>
+<text x="770.0" y="1092.0" font-size="11" text-anchor="start" fill="#000">Guide 14 §4.8 · ISO 18265 style · approximate</text>
+<text x="1170.0" y="1100.0" font-size="11" text-anchor="end" fill="#555">values from guide 14 · rev A</text>
+</svg>

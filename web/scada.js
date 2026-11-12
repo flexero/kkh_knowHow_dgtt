@@ -180,7 +180,7 @@
   function renderTrend() {
     const m = S.machines.find((x) => x.id === sel);
     const host = $("scTrend");
-    $("scTrendT").textContent = m ? `${m.id} vibration, last ${trendPts.length} samples (every 10 s)` : "";
+    $("scTrendT").textContent = m ? `${m.id} vibration, last ${trendPts.length} samples${trendPts.length > 1 ? ` (every ${Math.round(trendPts[trendPts.length - 1][0] - trendPts[trendPts.length - 2][0])} s of twin time)` : ""}` : "";
     if (!m || trendPts.length < 2) { host.innerHTML = `<p class="muted small">Collecting data…</p>`; return; }
     const W = 520, H = 170, p = { l: 36, r: 8, t: 8, b: 18 };
     const xs = trendPts.map((q) => q[0]), ys = trendPts.map((q) => q[2]);

@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 990" width="1400" height="990" font-family="Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="1400" height="990" fill="#ffffff"/>
+<rect x="12.0" y="12.0" width="1376.0" height="966.0" rx="0" stroke="#000" fill="none" stroke-width="2"/>
+<rect x="40.0" y="34.0" width="1348.0" height="864.0" rx="0" stroke="#000" fill="none" stroke-width="1"/>
+<text x="124.2" y="28.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">1</text>
+<line x1="208.5" y1="12.0" x2="208.5" y2="34.0" stroke="#000" stroke-width="1"/>
+<text x="292.8" y="28.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">2</text>
+<line x1="377.0" y1="12.0" x2="377.0" y2="34.0" stroke="#000" stroke-width="1"/>
+<text x="461.2" y="28.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">3</text>
+<line x1="545.5" y1="12.0" x2="545.5" y2="34.0" stroke="#000" stroke-width="1"/>
+<text x="629.8" y="28.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">4</text>
+<line x1="714.0" y1="12.0" x2="714.0" y2="34.0" stroke="#000" stroke-width="1"/>
+<text x="798.2" y="28.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">5</text>
+<line x1="882.5" y1="12.0" x2="882.5" y2="34.0" stroke="#000" stroke-width="1"/>
+<text x="966.8" y="28.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">6</text>
+<line x1="1051.0" y1="12.0" x2="1051.0" y2="34.0" stroke="#000" stroke-width="1"/>
+<text x="1135.2" y="28.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">7</text>
+<line x1="1219.5" y1="12.0" x2="1219.5" y2="34.0" stroke="#000" stroke-width="1"/>
+<text x="1303.8" y="28.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">8</text>
+<text x="26.0" y="110.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">A</text>
+<line x1="12.0" y1="178.0" x2="40.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<text x="26.0" y="254.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">B</text>
+<line x1="12.0" y1="322.0" x2="40.0" y2="322.0" stroke="#000" stroke-width="1"/>
+<text x="26.0" y="398.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">C</text>
+<line x1="12.0" y1="466.0" x2="40.0" y2="466.0" stroke="#000" stroke-width="1"/>
+<text x="26.0" y="542.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">D</text>
+<line x1="12.0" y1="610.0" x2="40.0" y2="610.0" stroke="#000" stroke-width="1"/>
+<text x="26.0" y="686.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">E</text>
+<line x1="12.0" y1="754.0" x2="40.0" y2="754.0" stroke="#000" stroke-width="1"/>
+<text x="26.0" y="830.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#000">F</text>
+<rect x="40.0" y="898.0" width="270.0" height="80.0" rx="0" stroke="#000" fill="none" stroke-width="1"/>
+<text x="46.0" y="913.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#555">Project</text>
+<text x="46.0" y="938.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" fill="#000">Compressor factory – robot cell R1</text>
+<text x="46.0" y="960.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#555">cabinet =R1+CC1 · controller =R1+A1</text>
+<rect x="310.0" y="898.0" width="340.0" height="80.0" rx="0" stroke="#000" fill="none" stroke-width="1"/>
+<text x="316.0" y="913.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#555">Page title</text>
+<text x="316.0" y="938.0" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#000">Safety circuits – classic safety relay (variant)</text>
+<text x="316.0" y="960.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#555">docs/24 – guide drawing</text>
+<rect x="650.0" y="898.0" width="210.0" height="80.0" rx="0" stroke="#000" fill="none" stroke-width="1"/>
+<text x="656.0" y="913.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#555">Drawn to</text>
+<text x="656.0" y="938.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" fill="#000">IEC 60617 · IEC 81346</text>
+<text x="656.0" y="960.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#555">IEC 61082 · IEC 60204-1</text>
+<rect x="860.0" y="898.0" width="300.0" height="80.0" rx="0" stroke="#000" fill="none" stroke-width="1"/>
+<text x="866.0" y="913.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#555">Status</text>
+<text x="866.0" y="938.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" font-weight="bold" fill="#b00000">EXAMPLE – not for manufacture</text>
+<text x="866.0" y="960.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#555">real design by a qualified designer</text>
+<rect x="1160.0" y="898.0" width="100.0" height="80.0" rx="0" stroke="#000" fill="none" stroke-width="1"/>
+<text x="1166.0" y="913.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#555">Plant / location</text>
+<text x="1166.0" y="938.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" fill="#000">=R1+CC1</text>
+<text x="1166.0" y="960.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#555">rev. A</text>
+<rect x="1260.0" y="898.0" width="128.0" height="80.0" rx="0" stroke="#000" fill="none" stroke-width="1"/>
+<text x="1266.0" y="913.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#555">Page</text>
+<text x="1266.0" y="938.0" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#000">9 / 9</text>
+<polyline points="60.0,80.0 1300.0,80.0" stroke="#00008B" stroke-width="2.6" fill="none"/>
+<text x="1305.0" y="84.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#000">+24 V /3</text>
+<polyline points="60.0,800.0 1300.0,800.0" stroke="#00008B" stroke-width="2.4" fill="none"/>
+<polyline points="60.0,800.0 1300.0,800.0" stroke="#ffffff" stroke-width="1.0" fill="none" stroke-dasharray="5,5"/>
+<text x="1305.0" y="804.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#000">0 V</text>
+<rect x="480.0" y="200.0" width="300.0" height="380.0" rx="0" stroke="#000" fill="#f7f7f7" stroke-width="1.6"/>
+<text x="484.0" y="195.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#000">-K10 safety relay</text>
+<text x="490.0" y="540.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">e.g. e-stop + gate, 3 NO safety contacts</text>
+<text x="514.0" y="215.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">A1</text>
+<text x="574.0" y="215.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">S11</text>
+<text x="634.0" y="215.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">S21</text>
+<text x="904.0" y="215.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">13</text>
+<text x="964.0" y="215.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">23</text>
+<text x="1024.0" y="215.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">41</text>
+<text x="514.0" y="572.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">A2</text>
+<text x="574.0" y="572.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">S12</text>
+<text x="634.0" y="572.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">S22</text>
+<text x="694.0" y="572.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">S33</text>
+<text x="754.0" y="572.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">S34</text>
+<text x="904.0" y="572.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">14</text>
+<text x="964.0" y="572.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">24</text>
+<text x="1024.0" y="572.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">42</text>
+<circle cx="510.0" cy="80.0" r="3.2" stroke="#000" fill="#000" stroke-width="1.6"/>
+<polyline points="510.0,80.0 510.0,200.0" stroke="#00008B" stroke-width="2.0" fill="none"/>
+<polyline points="510.0,580.0 510.0,800.0" stroke="#00008B" stroke-width="2.4" fill="none"/>
+<polyline points="510.0,580.0 510.0,800.0" stroke="#ffffff" stroke-width="1.0" fill="none" stroke-dasharray="5,5"/>
+<circle cx="510.0" cy="800.0" r="3.2" stroke="#000" fill="#000" stroke-width="1.6"/>
+<polyline points="570.0,200.0 570.0,130.0 160.0,130.0 160.0,160.0" stroke="#00008B" stroke-width="2.0" fill="none"/>
+<polyline points="630.0,200.0 630.0,145.0 260.0,145.0 260.0,160.0" stroke="#00008B" stroke-width="2.0" fill="none"/>
+<line x1="160.0" y1="160.0" x2="160.0" y2="172.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="160.0" y1="188.0" x2="160.0" y2="200.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="160.0" y1="188.0" x2="171.0" y2="170.0" stroke="#000" stroke-width="1.8"/>
+<line x1="160.0" y1="172.0" x2="171.0" y2="172.0" stroke="#000" stroke-width="1.8"/>
+<text x="164.0" y="169.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">11</text>
+<text x="164.0" y="199.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">12</text>
+<line x1="260.0" y1="160.0" x2="260.0" y2="172.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="260.0" y1="188.0" x2="260.0" y2="200.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="260.0" y1="188.0" x2="271.0" y2="170.0" stroke="#000" stroke-width="1.8"/>
+<line x1="260.0" y1="172.0" x2="271.0" y2="172.0" stroke="#000" stroke-width="1.8"/>
+<text x="264.0" y="169.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">21</text>
+<text x="264.0" y="199.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">22</text>
+<line x1="172.0" y1="180.0" x2="258.0" y2="180.0" stroke="#000" stroke-width="1.2" stroke-dasharray="5,4"/>
+<path d="M130,168 A12,12 0 0 0 130,192" stroke="#000" fill="none" stroke-width="1.8"/>
+<line x1="130.0" y1="180.0" x2="140.0" y2="180.0" stroke="#000" stroke-width="1.5"/>
+<circle cx="149.0" cy="180.0" r="6" stroke="#000" fill="none" stroke-width="1.6"/>
+<text x="149.0" y="184.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="middle" fill="#000">⊖</text>
+<text x="114.0" y="184.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="bold" fill="#000">-S1</text>
+<line x1="160.0" y1="204.0" x2="160.0" y2="216.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="160.0" y1="232.0" x2="160.0" y2="244.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="160.0" y1="232.0" x2="171.0" y2="214.0" stroke="#000" stroke-width="1.8"/>
+<line x1="160.0" y1="216.0" x2="171.0" y2="216.0" stroke="#000" stroke-width="1.8"/>
+<text x="164.0" y="213.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">11</text>
+<text x="164.0" y="243.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">12</text>
+<line x1="260.0" y1="204.0" x2="260.0" y2="216.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="260.0" y1="232.0" x2="260.0" y2="244.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="260.0" y1="232.0" x2="271.0" y2="214.0" stroke="#000" stroke-width="1.8"/>
+<line x1="260.0" y1="216.0" x2="271.0" y2="216.0" stroke="#000" stroke-width="1.8"/>
+<text x="264.0" y="213.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">21</text>
+<text x="264.0" y="243.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">22</text>
+<line x1="172.0" y1="224.0" x2="258.0" y2="224.0" stroke="#000" stroke-width="1.2" stroke-dasharray="5,4"/>
+<path d="M130,212 A12,12 0 0 0 130,236" stroke="#000" fill="none" stroke-width="1.8"/>
+<line x1="130.0" y1="224.0" x2="140.0" y2="224.0" stroke="#000" stroke-width="1.5"/>
+<circle cx="149.0" cy="224.0" r="6" stroke="#000" fill="none" stroke-width="1.6"/>
+<text x="149.0" y="228.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="middle" fill="#000">⊖</text>
+<text x="114.0" y="228.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="bold" fill="#000">-S2</text>
+<line x1="160.0" y1="248.0" x2="160.0" y2="260.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="160.0" y1="276.0" x2="160.0" y2="288.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="160.0" y1="276.0" x2="171.0" y2="258.0" stroke="#000" stroke-width="1.8"/>
+<line x1="160.0" y1="260.0" x2="171.0" y2="260.0" stroke="#000" stroke-width="1.8"/>
+<text x="164.0" y="257.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">11</text>
+<text x="164.0" y="287.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">12</text>
+<line x1="260.0" y1="248.0" x2="260.0" y2="260.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="260.0" y1="276.0" x2="260.0" y2="288.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="260.0" y1="276.0" x2="271.0" y2="258.0" stroke="#000" stroke-width="1.8"/>
+<line x1="260.0" y1="260.0" x2="271.0" y2="260.0" stroke="#000" stroke-width="1.8"/>
+<text x="264.0" y="257.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">21</text>
+<text x="264.0" y="287.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">22</text>
+<line x1="172.0" y1="268.0" x2="258.0" y2="268.0" stroke="#000" stroke-width="1.2" stroke-dasharray="5,4"/>
+<path d="M130,256 A12,12 0 0 0 130,280" stroke="#000" fill="none" stroke-width="1.8"/>
+<line x1="130.0" y1="268.0" x2="140.0" y2="268.0" stroke="#000" stroke-width="1.5"/>
+<circle cx="149.0" cy="268.0" r="6" stroke="#000" fill="none" stroke-width="1.6"/>
+<text x="149.0" y="272.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="middle" fill="#000">⊖</text>
+<text x="114.0" y="272.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="bold" fill="#000">-S3</text>
+<polyline points="160.0,292.0 160.0,620.0 570.0,620.0 570.0,580.0" stroke="#00008B" stroke-width="2.0" fill="none"/>
+<polyline points="260.0,292.0 260.0,640.0 630.0,640.0 630.0,580.0" stroke="#00008B" stroke-width="2.0" fill="none"/>
+<text x="290.0" y="330.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">channel 1: S11 → e-stops → S12</text>
+<text x="290.0" y="345.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">channel 2: S21 → e-stops → S22</text>
+<text x="290.0" y="360.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">(different pulses →</text>
+<text x="290.0" y="375.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">cross-fault detection)</text>
+<polyline points="690.0,580.0 690.0,660.0 780.0,660.0 780.0,670.0" stroke="#00008B" stroke-width="2.0" fill="none"/>
+<line x1="780.0" y1="670.0" x2="780.0" y2="682.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="780.0" y1="698.0" x2="780.0" y2="710.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="780.0" y1="698.0" x2="769.0" y2="682.0" stroke="#000" stroke-width="1.8"/>
+<rect x="732.0" y="682.0" width="18.0" height="16.0" rx="0" stroke="#000" fill="#2a5bd7" stroke-width="1.6"/>
+<line x1="750.0" y1="690.0" x2="772.0" y2="690.0" stroke="#000" stroke-width="1.2" stroke-dasharray="5,4"/>
+<text x="726.0" y="696.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="bold" fill="#000">-S6</text>
+<polyline points="780.0,710.0 780.0,730.0 830.0,730.0 830.0,655.0 860.0,655.0 860.0,670.0" stroke="#00008B" stroke-width="2.0" fill="none"/>
+<line x1="860.0" y1="670.0" x2="860.0" y2="682.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="860.0" y1="698.0" x2="860.0" y2="710.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="860.0" y1="698.0" x2="871.0" y2="680.0" stroke="#000" stroke-width="1.8"/>
+<line x1="860.0" y1="682.0" x2="871.0" y2="682.0" stroke="#000" stroke-width="1.8"/>
+<text x="864.0" y="679.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">21</text>
+<text x="864.0" y="709.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">22</text>
+<text x="844.0" y="694.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="bold" fill="#000">-K1</text>
+<polyline points="860.0,710.0 860.0,730.0 910.0,730.0 910.0,655.0 940.0,655.0 940.0,670.0" stroke="#00008B" stroke-width="2.0" fill="none"/>
+<line x1="940.0" y1="670.0" x2="940.0" y2="682.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="940.0" y1="698.0" x2="940.0" y2="710.0" stroke="#00008B" stroke-width="1.6"/>
+<line x1="940.0" y1="698.0" x2="951.0" y2="680.0" stroke="#000" stroke-width="1.8"/>
+<line x1="940.0" y1="682.0" x2="951.0" y2="682.0" stroke="#000" stroke-width="1.8"/>
+<text x="944.0" y="679.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">21</text>
+<text x="944.0" y="709.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">22</text>
+<text x="924.0" y="694.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="bold" fill="#000">-K2</text>
+<polyline points="940.0,710.0 940.0,750.0 1060.0,750.0 1060.0,625.0 750.0,625.0 750.0,580.0" stroke="#00008B" stroke-width="2.0" fill="none"/>
+<text x="700.0" y="772.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" font-weight="bold" fill="#000">S33–S34: monitored reset + feedback loop</text>
+<circle cx="900.0" cy="80.0" r="3.2" stroke="#000" fill="#000" stroke-width="1.6"/>
+<polyline points="900.0,80.0 900.0,200.0" stroke="#00008B" stroke-width="2.0" fill="none"/>
+<line x1="900.0" y1="200.0" x2="900.0" y2="340.0" stroke="#000" stroke-width="1.6"/>
+<line x1="900.0" y1="340.0" x2="900.0" y2="352.0" stroke="#000000" stroke-width="1.6"/>
+<line x1="900.0" y1="368.0" x2="900.0" y2="380.0" stroke="#000000" stroke-width="1.6"/>
+<line x1="900.0" y1="368.0" x2="889.0" y2="352.0" stroke="#000" stroke-width="1.8"/>
+<line x1="900.0" y1="380.0" x2="900.0" y2="580.0" stroke="#000" stroke-width="1.6"/>
+<circle cx="960.0" cy="80.0" r="3.2" stroke="#000" fill="#000" stroke-width="1.6"/>
+<polyline points="960.0,80.0 960.0,200.0" stroke="#00008B" stroke-width="2.0" fill="none"/>
+<line x1="960.0" y1="200.0" x2="960.0" y2="340.0" stroke="#000" stroke-width="1.6"/>
+<line x1="960.0" y1="340.0" x2="960.0" y2="352.0" stroke="#000000" stroke-width="1.6"/>
+<line x1="960.0" y1="368.0" x2="960.0" y2="380.0" stroke="#000000" stroke-width="1.6"/>
+<line x1="960.0" y1="368.0" x2="949.0" y2="352.0" stroke="#000" stroke-width="1.8"/>
+<line x1="960.0" y1="380.0" x2="960.0" y2="580.0" stroke="#000" stroke-width="1.6"/>
+<line x1="1020.0" y1="200.0" x2="1020.0" y2="340.0" stroke="#000" stroke-width="1.6"/>
+<line x1="1020.0" y1="340.0" x2="1020.0" y2="352.0" stroke="#000000" stroke-width="1.6"/>
+<line x1="1020.0" y1="368.0" x2="1020.0" y2="380.0" stroke="#000000" stroke-width="1.6"/>
+<line x1="1020.0" y1="368.0" x2="1031.0" y2="350.0" stroke="#000" stroke-width="1.8"/>
+<line x1="1020.0" y1="352.0" x2="1031.0" y2="352.0" stroke="#000" stroke-width="1.8"/>
+<line x1="1020.0" y1="380.0" x2="1020.0" y2="580.0" stroke="#000" stroke-width="1.6"/>
+<line x1="905.0" y1="360.0" x2="1032.0" y2="360.0" stroke="#000" stroke-width="1.2" stroke-dasharray="5,4"/>
+<text x="915.0" y="330.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">force-guided</text>
+<text x="1036.0" y="400.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">41-42 status</text>
+<text x="1036.0" y="414.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">→ PLC (not safe)</text>
+<polyline points="900.0,580.0 900.0,600.0 1150.0,600.0 1150.0,610.0" stroke="#00008B" stroke-width="2.0" fill="none"/>
+<polyline points="960.0,580.0 960.0,590.0 1230.0,590.0 1230.0,610.0" stroke="#00008B" stroke-width="2.0" fill="none"/>
+<line x1="1150.0" y1="610.0" x2="1150.0" y2="620.0" stroke="#000" stroke-width="1.6"/>
+<rect x="1134.0" y="620.0" width="32.0" height="18.0" rx="0" stroke="#000" fill="none" stroke-width="1.8"/>
+<line x1="1150.0" y1="638.0" x2="1150.0" y2="650.0" stroke="#000" stroke-width="1.6"/>
+<rect x="1134.0" y="620.0" width="5.0" height="18.0" rx="0" stroke="#000" fill="#000" stroke-width="1.6"/>
+<text x="1170.0" y="625.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">A1</text>
+<text x="1170.0" y="643.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">A2</text>
+<text x="1128.0" y="633.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="bold" fill="#000">-K1</text>
+<polyline points="1150.0,650.0 1150.0,800.0" stroke="#00008B" stroke-width="2.4" fill="none"/>
+<polyline points="1150.0,650.0 1150.0,800.0" stroke="#ffffff" stroke-width="1.0" fill="none" stroke-dasharray="5,5"/>
+<circle cx="1150.0" cy="800.0" r="3.2" stroke="#000" fill="#000" stroke-width="1.6"/>
+<text x="1156.0" y="680.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#b00000">1–6 /1.3</text>
+<line x1="1230.0" y1="610.0" x2="1230.0" y2="620.0" stroke="#000" stroke-width="1.6"/>
+<rect x="1214.0" y="620.0" width="32.0" height="18.0" rx="0" stroke="#000" fill="none" stroke-width="1.8"/>
+<line x1="1230.0" y1="638.0" x2="1230.0" y2="650.0" stroke="#000" stroke-width="1.6"/>
+<rect x="1214.0" y="620.0" width="5.0" height="18.0" rx="0" stroke="#000" fill="#000" stroke-width="1.6"/>
+<text x="1250.0" y="625.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">A1</text>
+<text x="1250.0" y="643.0" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" fill="#444">A2</text>
+<text x="1208.0" y="633.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="bold" fill="#000">-K2</text>
+<polyline points="1230.0,650.0 1230.0,800.0" stroke="#00008B" stroke-width="2.4" fill="none"/>
+<polyline points="1230.0,650.0 1230.0,800.0" stroke="#ffffff" stroke-width="1.0" fill="none" stroke-dasharray="5,5"/>
+<circle cx="1230.0" cy="800.0" r="3.2" stroke="#000" fill="#000" stroke-width="1.6"/>
+<text x="1236.0" y="680.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#b00000">1–6 /1.4</text>
+<rect x="520.0" y="260.0" width="140.0" height="110.0" rx="0" stroke="#000" fill="#fff" stroke-width="1.6"/>
+<text x="590.0" y="277.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#000">logic</text>
+<text x="590.0" y="292.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#000">2 channels</text>
+<text x="590.0" y="307.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#000">cross-fault test</text>
+<text x="590.0" y="322.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#000">monitored reset</text>
+<text x="80.0" y="845.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">Reset accepted only if -K1 and -K2 are released (mirror contacts closed); start on the falling edge of -S6.</text>
+<text x="80.0" y="866.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" fill="#000">Several e-stops in series on one relay → fault masking possible (ISO/TR 24119) → typically max. PL d. Safety PLC: one input pair per button.</text>
+</svg>

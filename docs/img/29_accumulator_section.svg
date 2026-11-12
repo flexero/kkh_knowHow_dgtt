@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 960" width="1400" height="960" font-family="Arial, Helvetica, sans-serif">
+<title>Bladder accumulator section and accumulator safety block (example)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="960" fill="#ffffff"/>
+<text x="30.0" y="36.0" font-size="18" text-anchor="start" fill="#000" font-weight="bold">Bladder accumulator (section) + accumulator safety and shut-off block (EN ISO 4413, PED 2014/68/EU)</text>
+<text x="30.0" y="58.0" font-size="12" text-anchor="start" fill="#555">Nitrogen in the bladder is the spring; oil is stored outside the bladder. An accumulator stays charged when the pump stops – the safety block makes it safe.</text>
+<rect x="30.0" y="74.0" width="560.0" height="680.0" rx="0" stroke="#bbb" stroke-width="0.8" fill="none"/>
+<rect x="610.0" y="74.0" width="760.0" height="680.0" rx="0" stroke="#bbb" stroke-width="0.8" fill="none"/>
+<text x="44.0" y="100.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">1  Bladder accumulator – section (state 1: oil inside)</text>
+<rect x="123.0" y="170.0" width="214.0" height="390.0" rx="107" stroke="#000" stroke-width="2.2" fill="#bbb"/>
+<rect x="135.0" y="182.0" width="190.0" height="366.0" rx="95" stroke="#000" stroke-width="1.2" fill="#f6d5d5"/>
+<path d="M150,260 Q150,192 230,192 Q310,192 310,260 L302,360 Q230,405 158,360 Z" stroke="#c62828" stroke-width="2" fill="#ffffff" stroke-linejoin="round"/>
+<text x="230.0" y="290.0" font-size="14" text-anchor="middle" fill="#c62828" font-weight="bold">N₂ gas</text>
+<text x="230.0" y="310.0" font-size="12" text-anchor="middle" fill="#c62828">(nitrogen only!)</text>
+<text x="230.0" y="470.0" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">oil</text>
+<rect x="214.0" y="140.0" width="32.0" height="34.0" rx="0" stroke="#000" stroke-width="1.6" fill="#999"/>
+<rect x="222.0" y="122.0" width="16.0" height="18.0" rx="0" stroke="#000" stroke-width="1.4" fill="#ddd"/>
+<rect x="196.0" y="546.0" width="68.0" height="50.0" rx="0" stroke="#000" stroke-width="1.8" fill="#999"/>
+<rect x="216.0" y="596.0" width="28.0" height="26.0" rx="0" stroke="#000" stroke-width="1.6" fill="#bbb"/>
+<polygon points="204.0,540.0 256.0,540.0 242.0,556.0 218.0,556.0" stroke="#000" stroke-width="1.6" fill="#666" stroke-linejoin="round"/>
+<polyline points="230.0,556.0 222.0,561.7 238.0,567.3 222.0,573.0 238.0,578.7 222.0,584.3 230.0,590.0" stroke="#000" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+<line x1="230.0" y1="650.0" x2="230.0" y2="624.0" stroke="#000" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<line x1="380.0" y1="120.0" x2="230.0" y2="130.0" stroke="#000" stroke-width="0.9"/>
+<circle cx="230.0" cy="130.0" r="2.2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="384.0" y="124.0" font-size="12" text-anchor="start" fill="#000">gas valve (charge with N₂, test p0)</text>
+<line x1="380.0" y1="200.0" x2="337.0" y2="270.0" stroke="#000" stroke-width="0.9"/>
+<circle cx="337.0" cy="270.0" r="2.2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="384.0" y="204.0" font-size="12" text-anchor="start" fill="#000">steel shell (PED vessel)</text>
+<line x1="380.0" y1="240.0" x2="306.0" y2="320.0" stroke="#000" stroke-width="0.9"/>
+<circle cx="306.0" cy="320.0" r="2.2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="384.0" y="244.0" font-size="12" text-anchor="start" fill="#000">bladder (NBR for HLP)</text>
+<line x1="380.0" y1="600.0" x2="250.0" y2="548.0" stroke="#000" stroke-width="0.9"/>
+<circle cx="250.0" cy="548.0" r="2.2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="384.0" y="604.0" font-size="12" text-anchor="start" fill="#000">anti-extrusion poppet</text>
+<line x1="380.0" y1="625.0" x2="244.0" y2="610.0" stroke="#000" stroke-width="0.9"/>
+<circle cx="244.0" cy="610.0" r="2.2" stroke="#000" stroke-width="0.5" fill="#000"/>
+<text x="384.0" y="629.0" font-size="12" text-anchor="start" fill="#000">oil port (to safety block)</text>
+<text x="380.0" y="320.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">States (absolute pressure!):</text>
+<rect x="390.0" y="340.0" width="40.0" height="120.0" rx="18" stroke="#000" stroke-width="1.6" fill="#f6d5d5"/>
+<rect x="395.0" y="345.0" width="30.0" height="110.0" rx="14" stroke="#c62828" stroke-width="1.4" fill="#fff"/>
+<text x="410.0" y="478.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">0</text>
+<rect x="452.0" y="340.0" width="40.0" height="120.0" rx="18" stroke="#000" stroke-width="1.6" fill="#f6d5d5"/>
+<rect x="457.0" y="345.0" width="30.0" height="79.2" rx="14" stroke="#c62828" stroke-width="1.4" fill="#fff"/>
+<text x="472.0" y="478.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">1</text>
+<rect x="514.0" y="340.0" width="40.0" height="120.0" rx="18" stroke="#000" stroke-width="1.6" fill="#f6d5d5"/>
+<rect x="519.0" y="345.0" width="30.0" height="60.5" rx="14" stroke="#c62828" stroke-width="1.4" fill="#fff"/>
+<text x="534.0" y="478.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">2</text>
+<text x="380.0" y="500.0" font-size="12" text-anchor="start" fill="#000">0 = no oil, p0</text>
+<text x="380.0" y="515.6" font-size="12" text-anchor="start" fill="#000">1 = gas V1 at p1</text>
+<text x="380.0" y="531.2" font-size="12" text-anchor="start" fill="#000">2 = gas V2 at p2</text>
+<text x="380.0" y="546.8" font-size="12" text-anchor="start" fill="#000">useful oil ΔV = V1 − V2</text>
+<text x="44.0" y="690.0" font-size="12" text-anchor="start" fill="#000">Rules: p0 ≈ 0.9 · p1 (energy storage) · p2 / p0 ≤ 4 (bladder) · use n = 1.4 for cycles &lt; 1 min.</text>
+<text x="44.0" y="708.0" font-size="12" text-anchor="start" fill="#000">Example: Hydac SB330 (check size list), Parker / Olaer EHV, Rexroth HAB.</text>
+<text x="624.0" y="100.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">2  Safety and shut-off block (ISO 1219 symbols)</text>
+<rect x="760.0" y="180.0" width="460.0" height="350.0" rx="0" stroke="#000" stroke-width="1.2" fill="none" stroke-dasharray="10,4"/>
+<text x="770.0" y="200.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">0V3 safety block (e.g. Hydac SAF10 – check; DN 10 ≈ 60 L/min)</text>
+<line x1="670.0" y1="300.0" x2="1170.0" y2="300.0" stroke="#000" stroke-width="2"/>
+<text x="660.0" y="290.0" font-size="12" text-anchor="start" fill="#000">P (from pump</text>
+<text x="660.0" y="322.0" font-size="12" text-anchor="start" fill="#000">via check 0V2)</text>
+<rect x="792.0" y="282.0" width="36.0" height="36.0" rx="0" stroke="#000" stroke-width="1.6" fill="#fff"/>
+<line x1="792.0" y1="300.0" x2="828.0" y2="300.0" stroke="#000" stroke-width="1.5"/>
+<line x1="810.0" y1="282.0" x2="810.0" y2="266.0" stroke="#000" stroke-width="1.6"/>
+<line x1="798.0" y1="266.0" x2="822.0" y2="266.0" stroke="#000" stroke-width="1.6"/>
+<text x="810.0" y="336.0" font-size="11" text-anchor="middle" fill="#000">shut-off</text>
+<text x="810.0" y="350.0" font-size="11" text-anchor="middle" fill="#000">ball valve</text>
+<line x1="1170.0" y1="300.0" x2="1170.0" y2="240.0" stroke="#000" stroke-width="2"/>
+<rect x="1205.0" y="132.0" width="30.0" height="56.0" rx="15.0" stroke="#000" stroke-width="1.8" fill="none"/>
+<line x1="1205.0" y1="156.0" x2="1235.0" y2="156.0" stroke="#000" stroke-width="1.4"/>
+<polygon points="1220.0,138.0 1224.4,146.0 1215.6,146.0" stroke="#000" stroke-width="1" fill="#000" stroke-linejoin="round"/>
+<line x1="1220.0" y1="188.0" x2="1220.0" y2="202.0" stroke="#000" stroke-width="1.6"/>
+<line x1="1170.0" y1="240.0" x2="1220.0" y2="240.0" stroke="#000" stroke-width="2"/>
+<line x1="1220.0" y1="240.0" x2="1220.0" y2="188.0" stroke="#000" stroke-width="2"/>
+<text x="1242.0" y="150.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">0Z5 bladder</text>
+<text x="1242.0" y="166.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">accumulator</text>
+<text x="1242.0" y="184.0" font-size="12" text-anchor="start" fill="#000">e.g. 5 L / 2.5 L</text>
+<line x1="900.0" y1="300.0" x2="900.0" y2="330.0" stroke="#000" stroke-width="1.6"/>
+<circle cx="900.0" cy="300.0" r="3.5" stroke="#000" stroke-width="1.6" fill="#000"/>
+<rect x="880.0" y="350.0" width="40.0" height="40.0" rx="0" stroke="#000" stroke-width="1.6" fill="none"/>
+<line x1="894.0" y1="386.0" x2="894.0" y2="356.0" stroke="#000" stroke-width="1.4" marker-end="url(#ar)"/>
+<line x1="900.0" y1="390.0" x2="900.0" y2="406.0" stroke="#000" stroke-width="1.6"/>
+<line x1="900.0" y1="350.0" x2="900.0" y2="334.0" stroke="#000" stroke-width="1.6"/>
+<polyline points="920.0,370.0 922.8,376.0 925.5,364.0 928.2,376.0 931.0,364.0 933.8,376.0 936.5,364.0 939.2,376.0 942.0,370.0" stroke="#000" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+<line x1="946.0" y1="382.0" x2="926.0" y2="358.0" stroke="#000" stroke-width="1.1" marker-end="url(#ar)"/>
+<polyline points="900.0,400.0 868.0,400.0 868.0,370.0 880.0,370.0" stroke="#000" stroke-width="1.1" fill="none" stroke-linejoin="round" stroke-dasharray="4,3"/>
+<polygon points="880.0,370.0 873.0,373.9 873.0,366.1" stroke="#000" stroke-width="1" fill="#000" stroke-linejoin="round"/>
+<rect x="934.0" y="376.0" width="14.0" height="10.0" rx="0" stroke="#c62828" stroke-width="1.2" fill="#c62828"/>
+<line x1="900.0" y1="406.0" x2="900.0" y2="464.0" stroke="#000" stroke-width="1.6"/>
+<text x="900.0" y="504.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">safety relief</text>
+<text x="900.0" y="518.0" font-size="11" text-anchor="middle" fill="#000">(sealed, type-tested)</text>
+<line x1="1020.0" y1="300.0" x2="1020.0" y2="330.0" stroke="#000" stroke-width="1.6"/>
+<circle cx="1020.0" cy="300.0" r="3.5" stroke="#000" stroke-width="1.6" fill="#000"/>
+<line x1="1020.0" y1="348.0" x2="1020.0" y2="360.0" stroke="#000" stroke-width="1.6"/>
+<line x1="1020.0" y1="400.0" x2="1020.0" y2="412.0" stroke="#000" stroke-width="1.6"/>
+<path d="M1012,360.0 Q1022,380 1012,400.0" stroke="#000" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+<path d="M1028,360.0 Q1018,380 1028,400.0" stroke="#000" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+<line x1="1004.0" y1="394.0" x2="1036.0" y2="366.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<line x1="1020.0" y1="330.0" x2="1020.0" y2="348.0" stroke="#000" stroke-width="1.6"/>
+<line x1="1020.0" y1="412.0" x2="1020.0" y2="464.0" stroke="#000" stroke-width="1.6"/>
+<text x="1020.0" y="504.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">manual discharge</text>
+<text x="1020.0" y="518.0" font-size="11" text-anchor="middle" fill="#000">(needle valve)</text>
+<line x1="1140.0" y1="300.0" x2="1140.0" y2="330.0" stroke="#000" stroke-width="1.6"/>
+<circle cx="1140.0" cy="300.0" r="3.5" stroke="#000" stroke-width="1.6" fill="#000"/>
+<line x1="1140.0" y1="330.0" x2="1140.0" y2="354.0" stroke="#000" stroke-width="1.6"/>
+<rect x="1123.0" y="354.0" width="34.0" height="34.0" rx="0" stroke="#000" stroke-width="1.6" fill="none"/>
+<rect x="1157.0" y="354.0" width="34.0" height="34.0" rx="0" stroke="#000" stroke-width="1.6" fill="none"/>
+<line x1="1140.0" y1="357.0" x2="1140.0" y2="385.0" stroke="#000" stroke-width="1.4"/>
+<line x1="1174.0" y1="354.0" x2="1174.0" y2="363.0" stroke="#000" stroke-width="1.4"/>
+<line x1="1169.0" y1="363.0" x2="1179.0" y2="363.0" stroke="#000" stroke-width="1.4"/>
+<line x1="1174.0" y1="388.0" x2="1174.0" y2="397.0" stroke="#000" stroke-width="1.4"/>
+<line x1="1169.0" y1="397.0" x2="1179.0" y2="397.0" stroke="#000" stroke-width="1.4"/>
+<polyline points="1123.0,371.0 1119.7,366.0 1116.3,376.0 1113.0,366.0 1109.7,376.0 1106.3,366.0 1103.0,371.0" stroke="#000" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+<rect x="1191.0" y="362.0" width="16.0" height="18.0" rx="0" stroke="#000" stroke-width="1.4" fill="none"/>
+<line x1="1191.0" y1="380.0" x2="1207.0" y2="362.0" stroke="#000" stroke-width="1.2"/>
+<line x1="1140.0" y1="388.0" x2="1140.0" y2="464.0" stroke="#000" stroke-width="1.6"/>
+<text x="1140.0" y="504.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">solenoid discharge</text>
+<text x="1140.0" y="518.0" font-size="11" text-anchor="middle" fill="#000">2/2 NO (open = off)</text>
+<line x1="900.0" y1="464.0" x2="1140.0" y2="464.0" stroke="#000" stroke-width="1.6"/>
+<text x="960.0" y="484.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">T (to tank)</text>
+<line x1="860.0" y1="300.0" x2="860.0" y2="260.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="860.0" cy="300.0" r="3.5" stroke="#000" stroke-width="1.6" fill="#000"/>
+<circle cx="860.0" cy="242.0" r="16.0" stroke="#000" stroke-width="1.6" fill="none"/>
+<line x1="848.0" y1="254.0" x2="870.0" y2="232.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<line x1="860.0" y1="258.0" x2="860.0" y2="270.0" stroke="#000" stroke-width="1.6"/>
+<text x="834.0" y="230.0" font-size="11" text-anchor="end" fill="#000">gauge</text>
+<text x="624.0" y="580.0" font-size="12" text-anchor="start" fill="#000">EN ISO 4413: accumulators must discharge automatically (solenoid valve NO) or be isolated safely</text>
+<text x="624.0" y="599.0" font-size="12" text-anchor="start" fill="#000">when the machine is switched off; warning label on the machine; gauge must show 0 before work.</text>
+<text x="624.0" y="618.0" font-size="12" text-anchor="start" fill="#000">Relief setting ≤ PS (max allowable pressure) of the vessel. The relief is a PED safety accessory.</text>
+<text x="624.0" y="637.0" font-size="12" text-anchor="start" fill="#000">PED category by PS · V (N₂ = group 2): ≤ 50 bar·L SEP · 50–200 I · 200–1000 II · 1000–3000 III · &gt; 3000 IV.</text>
+<text x="624.0" y="656.0" font-size="12" text-anchor="start" fill="#000">Example: 5 L × 330 bar = 1 650 bar·L → category III · 2.5 L × 330 bar = 825 bar·L → category II.</text>
+<text x="30.0" y="790.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Sizing (guide 29 §12.4, guide-25 job): V0 = ΔV / [ (p0/p1)^(1/n) − (p0/p2)^(1/n) ], absolute pressures</text>
+<text x="30.0" y="810.0" font-size="12" text-anchor="start" fill="#000">ΔV 0.62 L, p0 7.1, p1 7.9, p2 10.1 MPa abs, n 1.4:  0.62 / (0.927 − 0.777) = 4.2 L → 5 L bladder   (isothermal n = 1 would give 3.2 L – too small).</text>
+<text x="30.0" y="828.0" font-size="12" text-anchor="start" fill="#000">A 5 L bladder then gives ΔV = 5 · 0.149 = 0.75 L usable oil (fast cycles).</text>
+<rect x="940.0" y="854.0" width="440.0" height="86.0" rx="0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="940.0" y1="884.0" x2="1380.0" y2="884.0" stroke="#000" stroke-width="1"/>
+<text x="950.0" y="875.0" font-size="14" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the supplier's catalogue</text>
+<text x="950.0" y="904.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">29_accumulator_section – bladder + safety block</text>
+<text x="950.0" y="922.0" font-size="11" text-anchor="start" fill="#000">Guide 29 §12.1, 12.4, 12.5 · rev A</text>
+<text x="1370.0" y="934.0" font-size="11" text-anchor="end" fill="#555">values = example · ISO 1219 style</text>
+</svg>

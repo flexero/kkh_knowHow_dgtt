@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b62c4"/></marker></defs>
+<rect x="0" y="0" width="1400" height="1000" fill="#ffffff"/>
+<rect x="10" y="10" width="1380" height="980" fill="none" stroke="#000" stroke-width="2"/>
+<text x="30" y="42" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" fill="#000" font-weight="bold">PackML state model – ISA-TR88.00.02 (OMAC) – one model for every machine in the line</text>
+<text x="30" y="64" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" fill="#000">Blue = wait states (wait for a command). White = acting states (end with SC = state complete). Bold = Execute (producing; SC when the order quantity is done).</text>
+<rect x="130" y="100" width="1110" height="440" rx="8" stroke="#000" stroke-width="1.2" fill="none" stroke-dasharray="8 5"/>
+<text x="1230" y="122" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Stop command valid in this box → Stopping</text>
+<rect x="110" y="85" width="1150" height="625" rx="10" stroke="#0b62c4" stroke-width="1.2" fill="none" stroke-dasharray="3 4"/>
+<text x="1250" y="700" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" fill="#0b62c4" font-weight="bold">Abort command (or E-stop) valid in this blue box → Aborting</text>
+<rect x="520" y="130" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="595.0" y="157.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Unholding</text>
+<rect x="700" y="130" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#e3eefb"/>
+<text x="775.0" y="157.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Held</text>
+<rect x="880" y="130" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="955.0" y="157.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Holding</text>
+<rect x="160" y="300" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="235.0" y="327.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Resetting</text>
+<rect x="340" y="300" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#e3eefb"/>
+<text x="415.0" y="327.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Idle</text>
+<rect x="520" y="300" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="595.0" y="327.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Starting</text>
+<rect x="700" y="300" width="150" height="46" rx="6" stroke="#000" stroke-width="2.6" fill="#fff"/>
+<text x="775.0" y="327.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Execute</text>
+<rect x="880" y="300" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="955.0" y="327.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Completing</text>
+<rect x="1060" y="300" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#e3eefb"/>
+<text x="1135.0" y="327.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Complete</text>
+<rect x="520" y="470" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="595.0" y="497.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Unsuspending</text>
+<rect x="700" y="470" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#e3eefb"/>
+<text x="775.0" y="497.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Suspended</text>
+<rect x="880" y="470" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="955.0" y="497.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Suspending</text>
+<rect x="160" y="650" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#e3eefb"/>
+<text x="235.0" y="677.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Stopped</text>
+<rect x="520" y="650" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="595.0" y="677.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Stopping</text>
+<rect x="160" y="790" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="235.0" y="817.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Clearing</text>
+<rect x="340" y="790" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#e3eefb"/>
+<text x="415.0" y="817.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Aborted</text>
+<rect x="520" y="790" width="150" height="46" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<text x="595.0" y="817.9" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">Aborting</text>
+<path d="M 310 323 L 340 323" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="325" y="316" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#0b62c4" font-weight="bold">SC</text>
+<path d="M 490 323 L 520 323" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="505" y="290" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#0b62c4" font-weight="bold">Start</text>
+<path d="M 670 323 L 700 323" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="685" y="316" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#0b62c4" font-weight="bold">SC</text>
+<path d="M 850 323 L 880 323" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="865" y="316" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#0b62c4" font-weight="bold">SC</text>
+<path d="M 1030 323 L 1060 323" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="1045" y="316" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#0b62c4" font-weight="bold">SC</text>
+<path d="M 1135 346 L 1135 410 L 235 410 L 235 346" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="690" y="404" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#0b62c4" font-weight="bold">Reset</text>
+<path d="M 775 300 L 775 270 L 955 270 L 955 176" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="960" y="260" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#0b62c4" font-weight="bold">Hold</text>
+<path d="M 880 153 L 850 153" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="865" y="146" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#0b62c4" font-weight="bold">SC</text>
+<path d="M 700 153 L 670 153" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="685" y="122" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#0b62c4" font-weight="bold">Unhold</text>
+<path d="M 595 176 L 595 270 L 740 270 L 740 300" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="600" y="260" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#0b62c4" font-weight="bold">SC</text>
+<path d="M 775 346 L 775 380 L 955 380 L 955 470" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="960" y="440" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#0b62c4" font-weight="bold">Suspend</text>
+<path d="M 880 493 L 850 493" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="865" y="486" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#0b62c4" font-weight="bold">SC</text>
+<path d="M 700 493 L 670 493" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="685" y="530" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#0b62c4" font-weight="bold">Unsuspend</text>
+<path d="M 595 470 L 595 380 L 740 380 L 740 346" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="600" y="440" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#0b62c4" font-weight="bold">SC</text>
+<path d="M 520 673 L 310 673" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="415" y="666" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#0b62c4" font-weight="bold">SC</text>
+<path d="M 200 650 L 200 346" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="205" y="560" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#0b62c4" font-weight="bold">Reset</text>
+<path d="M 595 540 L 595 650" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="602" y="600" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#0b62c4" font-weight="bold">Stop</text>
+<path d="M 595 710 L 595 790" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="602" y="760" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#0b62c4" font-weight="bold">Abort</text>
+<path d="M 520 813 L 490 813" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="505" y="806" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#0b62c4" font-weight="bold">SC</text>
+<path d="M 340 813 L 310 813" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="325" y="846" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" fill="#0b62c4" font-weight="bold">Clear</text>
+<path d="M 235 790 L 235 696" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<text x="240" y="750" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#0b62c4" font-weight="bold">SC</text>
+<rect x="990" y="730" width="380" height="160" rx="0" stroke="#000" stroke-width="1" fill="#fff"/>
+<text x="1000" y="752" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Twin state → PackML state (proposal)</text>
+<text x="1000" y="774" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">RUNNING</text>
+<text x="1160" y="774" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">→ Execute</text>
+<text x="1000" y="793" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">STARVED / BLOCKED</text>
+<text x="1160" y="793" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">→ Suspended</text>
+<text x="1000" y="812" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">SETUP (changeover)</text>
+<text x="1160" y="812" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">→ Held / Idle in mode Changeover</text>
+<text x="1000" y="831" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">DOWN (fault)</text>
+<text x="1160" y="831" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">→ Aborted (or Held)</text>
+<text x="1000" y="850" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">STOPPED</text>
+<text x="1160" y="850" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">→ Stopped</text>
+<text x="1000" y="869" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">MAINTENANCE</text>
+<text x="1160" y="869" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">→ Stopped, mode Maintenance</text>
+<text x="30" y="868" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">Modes (unit modes): Production, Maintenance, Manual (+ user modes, e.g. Changeover, Clean).</text>
+<text x="30" y="886" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">Each mode allows a subset of the states. PackTags: Command (CntrlCmd, UnitMode),</text>
+<text x="30" y="904" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#000">Status (StateCurrent, MachSpeed), Admin (alarms, counters) – OPC UA companion spec OPC 30050.</text>
+<rect x="830" y="912" width="560" height="78" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="830" y1="942" x2="1390" y2="942" stroke="#000" stroke-width="1"/>
+<line x1="1230" y1="942" x2="1230" y2="990" stroke="#000" stroke-width="1"/>
+<text x="838" y="933" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" fill="#000">PackML state model (ISA-TR88.00.02)</text>
+<text x="838" y="962" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000">17 states, commands, state-complete (SC); twin state mapping</text>
+<text x="838" y="980" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#0b62c4">EXAMPLE – check the maker's documentation</text>
+<text x="1238" y="962" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000">Guide 05 – PLC control</text>
+<text x="1238" y="980" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#000">05_packml_states</text>
+</svg>

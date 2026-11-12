@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<title>EtherCAT – processing on the fly and distributed clocks</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b62c4"/></marker><pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#e3eefb"/><line x1="0" y1="0" x2="0" y2="8" stroke="#0b62c4" stroke-width="2"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="900" fill="#ffffff"/>
+<text x="20.0" y="32.0" font-size="17" text-anchor="start" font-weight="bold" fill="#000">EtherCAT – one frame passes all slaves (processing on the fly), working counter, distributed clocks</text>
+<rect x="20.0" y="80.0" width="170.0" height="150.0" rx="4" fill="#e3eefb" stroke="#000" stroke-width="2"/>
+<text x="32.0" y="104.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">EtherCAT master</text>
+<text x="32.0" y="123.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">(IPC / PLC,</text>
+<text x="32.0" y="142.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">TwinCAT, CODESYS)</text>
+<text x="32.0" y="161.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">1 standard Ethernet</text>
+<text x="32.0" y="180.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">port</text>
+<rect x="260.0" y="80.0" width="170.0" height="150.0" rx="4" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="345.0" y="100.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#000">slave 1</text>
+<rect x="280.0" y="112.0" width="130.0" height="40.0" rx="0" fill="#e3eefb" stroke="#000" stroke-width="1.2"/>
+<text x="345.0" y="130.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">ESC: read outputs,</text>
+<text x="345.0" y="145.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">insert inputs, WKC+1</text>
+<rect x="280.0" y="175.0" width="130.0" height="26.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1"/>
+<text x="345.0" y="192.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">return path (forward)</text>
+<text x="345.0" y="222.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">DC clock (64 bit ns)</text>
+<rect x="470.0" y="80.0" width="170.0" height="150.0" rx="4" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="555.0" y="100.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#000">slave 2</text>
+<rect x="490.0" y="112.0" width="130.0" height="40.0" rx="0" fill="#e3eefb" stroke="#000" stroke-width="1.2"/>
+<text x="555.0" y="130.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">ESC: read outputs,</text>
+<text x="555.0" y="145.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">insert inputs, WKC+1</text>
+<rect x="490.0" y="175.0" width="130.0" height="26.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1"/>
+<text x="555.0" y="192.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">return path (forward)</text>
+<text x="555.0" y="222.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">DC clock (64 bit ns)</text>
+<rect x="680.0" y="80.0" width="170.0" height="150.0" rx="4" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="765.0" y="100.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#000">slave 3</text>
+<rect x="700.0" y="112.0" width="130.0" height="40.0" rx="0" fill="#e3eefb" stroke="#000" stroke-width="1.2"/>
+<text x="765.0" y="130.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">ESC: read outputs,</text>
+<text x="765.0" y="145.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">insert inputs, WKC+1</text>
+<rect x="700.0" y="175.0" width="130.0" height="26.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1"/>
+<text x="765.0" y="192.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">return path (forward)</text>
+<text x="765.0" y="222.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">DC clock (64 bit ns)</text>
+<text x="950.0" y="160.0" font-size="30" text-anchor="middle" font-weight="normal" fill="#000">…</text>
+<rect x="1130.0" y="80.0" width="170.0" height="150.0" rx="4" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1215.0" y="100.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#000">slave 20 (last)</text>
+<rect x="1150.0" y="112.0" width="130.0" height="40.0" rx="0" fill="#e3eefb" stroke="#000" stroke-width="1.2"/>
+<text x="1215.0" y="130.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">ESC: read outputs,</text>
+<text x="1215.0" y="145.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">insert inputs, WKC+1</text>
+<rect x="1150.0" y="175.0" width="130.0" height="26.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1"/>
+<text x="1215.0" y="192.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">return path (forward)</text>
+<text x="1215.0" y="222.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">DC clock (64 bit ns)</text>
+<line x1="190.0" y1="132.0" x2="280.0" y2="132.0" stroke="#0b62c4" stroke-width="2.5" marker-end="url(#ara)"/>
+<line x1="280.0" y1="188.0" x2="190.0" y2="188.0" stroke="#000" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="410.0" y1="132.0" x2="490.0" y2="132.0" stroke="#0b62c4" stroke-width="2.5" marker-end="url(#ara)"/>
+<line x1="490.0" y1="188.0" x2="410.0" y2="188.0" stroke="#000" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="620.0" y1="132.0" x2="700.0" y2="132.0" stroke="#0b62c4" stroke-width="2.5" marker-end="url(#ara)"/>
+<line x1="700.0" y1="188.0" x2="620.0" y2="188.0" stroke="#000" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="830.0" y1="132.0" x2="920.0" y2="132.0" stroke="#0b62c4" stroke-width="2.5" marker-end="url(#ara)"/>
+<line x1="920.0" y1="188.0" x2="830.0" y2="188.0" stroke="#000" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="980.0" y1="132.0" x2="1150.0" y2="132.0" stroke="#0b62c4" stroke-width="2.5" marker-end="url(#ara)"/>
+<line x1="1150.0" y1="188.0" x2="980.0" y2="188.0" stroke="#000" stroke-width="2" marker-end="url(#ar)"/>
+<path d="M1280,132 C1330,132 1330,188 1280,188" stroke="#000" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<text x="1295.0" y="250.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">last slave closes the loop</text>
+<text x="560.0" y="70.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#0b62c4">frame out: each slave reads/writes ITS bytes while the frame passes (≈ 1 µs per slave)</text>
+<text x="560.0" y="268.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">frame back to the master through the return path</text>
+<text x="20.0" y="300.0" font-size="14" text-anchor="start" font-weight="bold" fill="#000">Frame (one logical datagram LRW for all 20 slaves, 300 bytes process data):</text>
+<rect x="20.0" y="314.0" width="160.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="100.0" y="334.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Ethernet header</text>
+<text x="100.0" y="352.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">14 B</text>
+<rect x="180.0" y="314.0" width="110.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="235.0" y="334.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">EtherCAT hdr</text>
+<text x="235.0" y="352.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">2 B</text>
+<rect x="290.0" y="314.0" width="150.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="365.0" y="334.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">datagram header</text>
+<text x="365.0" y="352.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">10 B</text>
+<rect x="440.0" y="314.0" width="460.0" height="48.0" rx="0" fill="#e3eefb" stroke="#000" stroke-width="1.5"/>
+<text x="670.0" y="334.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">data: slave 1 | slave 2 | … | slave 20</text>
+<text x="670.0" y="352.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">300 B</text>
+<rect x="900.0" y="314.0" width="70.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="935.0" y="334.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">WKC</text>
+<text x="935.0" y="352.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">2 B</text>
+<rect x="970.0" y="314.0" width="60.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="1000.0" y="334.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">FCS</text>
+<text x="1000.0" y="352.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">4 B</text>
+<text x="1040.0" y="334.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">EtherType 0x88A4</text>
+<text x="1040.0" y="352.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">not routable</text>
+<text x="20.0" y="388.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">frame = 14 + 2 + 10 + 300 + 2 + 4 = 332 B → 352 B on the wire → 352 × 8 / 100 Mbit/s = 28.2 µs</text>
+<text x="20.0" y="407.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">one datagram per slave instead (12 B overhead each): 14 + 2 + 20 × 12 + 300 + 4 = 560 B → 46.4 µs (guide 23, 18.3)</text>
+<text x="20.0" y="426.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">WKC (working counter): every slave that processed the datagram adds 1 (LRW: +1 read, +2 write → +3) – master compares with the expected value</text>
+<rect x="20.0" y="470.0" width="640.0" height="160.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="30.0" y="492.0" font-size="14" text-anchor="start" font-weight="bold" fill="#000">Minimum cycle time (22.2)</text>
+<text x="30.0" y="518.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">t_cycle ≥ t_frame + n × t_fwd + 2 × L × 5 ns/m  (+ master jitter reserve)</text>
+<text x="30.0" y="538.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">= 28.2 µs + 20 × 1.0 µs + 2 × 50 m × 0.005 µs/m = 48.7 µs</text>
+<text x="30.0" y="558.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">per-slave datagrams: 46.4 + 20 + 0.5 = 66.9 µs</text>
+<text x="30.0" y="578.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">→ 250 µs cycle: large reserve; master OS jitter is usually the limit</text>
+<text x="30.0" y="598.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">t_fwd ≈ 1 µs per slave (in + back) – check the ESC datasheet</text>
+<rect x="690.0" y="470.0" width="690.0" height="300.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="700.0" y="492.0" font-size="14" text-anchor="start" font-weight="bold" fill="#000">Distributed clocks (DC)</text>
+<text x="700.0" y="516.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">1  start-up: broadcast latches the arrival time at every port of every slave</text>
+<text x="700.0" y="535.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">2  master calculates the propagation delay to each slave (t_d1, t_d2 …)</text>
+<text x="700.0" y="554.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">3  offsets written → all slave clocks = reference clock (first DC slave)</text>
+<text x="700.0" y="573.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">4  cyclic: reference time sent again → drift compensated</text>
+<text x="700.0" y="624.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">reference (slave 1)</text>
+<line x1="820.0" y1="620.0" x2="1350.0" y2="620.0" stroke="#000" stroke-width="1"/>
+<line x1="860.0" y1="606.0" x2="860.0" y2="626.0" stroke="#0b62c4" stroke-width="3"/>
+<line x1="1060.0" y1="606.0" x2="1060.0" y2="626.0" stroke="#0b62c4" stroke-width="3"/>
+<line x1="1260.0" y1="606.0" x2="1260.0" y2="626.0" stroke="#0b62c4" stroke-width="3"/>
+<text x="700.0" y="664.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">slave 2  (t_d ≈ 0.5 µs)</text>
+<line x1="820.0" y1="660.0" x2="1350.0" y2="660.0" stroke="#000" stroke-width="1"/>
+<line x1="860.0" y1="646.0" x2="860.0" y2="666.0" stroke="#0b62c4" stroke-width="3"/>
+<line x1="1060.0" y1="646.0" x2="1060.0" y2="666.0" stroke="#0b62c4" stroke-width="3"/>
+<line x1="1260.0" y1="646.0" x2="1260.0" y2="666.0" stroke="#0b62c4" stroke-width="3"/>
+<text x="700.0" y="704.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">slave 20 (t_d ≈ 10 µs)</text>
+<line x1="820.0" y1="700.0" x2="1350.0" y2="700.0" stroke="#000" stroke-width="1"/>
+<line x1="860.0" y1="686.0" x2="860.0" y2="706.0" stroke="#0b62c4" stroke-width="3"/>
+<line x1="1060.0" y1="686.0" x2="1060.0" y2="706.0" stroke="#0b62c4" stroke-width="3"/>
+<line x1="1260.0" y1="686.0" x2="1260.0" y2="706.0" stroke="#0b62c4" stroke-width="3"/>
+<text x="860.0" y="732.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#0b62c4">SYNC0</text>
+<text x="1060.0" y="732.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#0b62c4">SYNC0 (+ 250 µs)</text>
+<text x="1260.0" y="732.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#0b62c4">SYNC0 (+ 500 µs)</text>
+<text x="700.0" y="754.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">all slaves sample inputs / set outputs on the same SYNC0 pulse → jitter well below 1 µs</text>
+<text x="20.0" y="660.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Other facts (check ETG documents / datasheets): ESI device file (XML) · states INIT → PRE-OP → SAFE-OP → OP ·</text>
+<text x="20.0" y="679.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">mailbox: CoE (CiA 402 drives), FoE (files), EoE (Ethernet tunnel), SoE · safety: FSoE · up to 65 535 slaves addressable</text>
+<rect x="938.0" y="810.0" width="450.0" height="78.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="938.0" y1="836.0" x2="1388.0" y2="836.0" stroke="#000" stroke-width="1"/>
+<text x="946.0" y="828.0" font-size="13" text-anchor="start" font-weight="bold" fill="#0b62c4">EXAMPLE – check the maker's documentation</text>
+<text x="946.0" y="854.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">EtherCAT on-the-fly processing and distributed clocks</text>
+<text x="946.0" y="872.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">VC compressor factory – guide 07 · 07_ethercat_frame.svg · 2026-11</text>
+</svg>

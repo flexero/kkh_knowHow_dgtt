@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100" font-family="Arial, Helvetica, sans-serif">
+<title>AGV U300 electrical overview schematic – power, 24 V, safety, CAN (example)</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1600" height="1100" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="18" text-anchor="start" fill="#000" font-weight="bold">AGV U300 – electrical overview: 48 V power, precharge, branches, 24 V, safety (STO) and CAN</text>
+<text x="24.0" y="52.0" font-size="12" text-anchor="start" fill="#444">Values from guide 11 §4.2, §11.7, §11.9, §14.9 (corrected: FC1 40 A, 10 mm², chopper 58 V, BMS node 20). Overview only – not a wiring diagram.</text>
+<rect x="40.0" y="100.0" width="160.0" height="180.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="1.4" />
+<text x="120.0" y="118.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">G1 battery</text>
+<text x="120.0" y="132.0" font-size="11" text-anchor="middle" fill="#000">16s LiFePO4</text>
+<text x="120.0" y="146.0" font-size="11" text-anchor="middle" fill="#000">51.2 V nominal</text>
+<text x="120.0" y="160.0" font-size="11" text-anchor="middle" fill="#000">58.4 V max / 40 V min</text>
+<text x="120.0" y="174.0" font-size="11" text-anchor="middle" fill="#000">60 Ah = 3.07 kWh</text>
+<text x="120.0" y="188.0" font-size="11" text-anchor="middle" fill="#000">BMS: cell V/T, I,</text>
+<text x="120.0" y="202.0" font-size="11" text-anchor="middle" fill="#000">balancing, SOC</text>
+<text x="120.0" y="216.0" font-size="11" text-anchor="middle" fill="#000">CAN node 20</text>
+<text x="206.0" y="146.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">+</text>
+<text x="206.0" y="262.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">−</text>
+<line x1="200.0" y1="150.0" x2="240.0" y2="150.0" stroke="#000" stroke-width="2.4" />
+<rect x="240.0" y="143.0" width="40.0" height="14.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<line x1="240.0" y1="150.0" x2="280.0" y2="150.0" stroke="#000" stroke-width="1" />
+<text x="260.0" y="138.0" font-size="11" text-anchor="middle" fill="#000">FC1 40 A DC ≥80 V</text>
+<line x1="280.0" y1="150.0" x2="320.0" y2="150.0" stroke="#000" stroke-width="2.4" />
+<line x1="320.0" y1="150.0" x2="334.0" y2="150.0" stroke="#000" stroke-width="2" />
+<line x1="334.0" y1="150.0" x2="360.0" y2="138.0" stroke="#000" stroke-width="2" />
+<line x1="360.0" y1="150.0" x2="374.0" y2="150.0" stroke="#000" stroke-width="2" />
+<text x="347.0" y="174.0" font-size="11" text-anchor="middle" fill="#000">QB1 main switch</text>
+<line x1="374.0" y1="150.0" x2="420.0" y2="150.0" stroke="#000" stroke-width="2.4" />
+<circle cx="420.0" cy="150.0" r="3.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<line x1="450.0" y1="150.0" x2="464.0" y2="150.0" stroke="#000" stroke-width="2" />
+<line x1="464.0" y1="150.0" x2="490.0" y2="138.0" stroke="#000" stroke-width="2" />
+<line x1="490.0" y1="150.0" x2="504.0" y2="150.0" stroke="#000" stroke-width="2" />
+<text x="477.0" y="174.0" font-size="11" text-anchor="middle" fill="#000">QA1 contactor</text>
+<line x1="420.0" y1="150.0" x2="450.0" y2="150.0" stroke="#000" stroke-width="2.4" />
+<line x1="504.0" y1="150.0" x2="640.0" y2="150.0" stroke="#000" stroke-width="2.4" />
+<line x1="420.0" y1="150.0" x2="420.0" y2="215.0" stroke="#000" stroke-width="1.4" />
+<line x1="420.0" y1="215.0" x2="450.0" y2="215.0" stroke="#000" stroke-width="1.4" />
+<rect x="450.0" y="208.0" width="50.0" height="14.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<text x="475.0" y="202.0" font-size="11" text-anchor="middle" fill="#000">R1 47 Ω ≥50 W</text>
+<line x1="500.0" y1="215.0" x2="520.0" y2="215.0" stroke="#000" stroke-width="1.4" />
+<line x1="520.0" y1="215.0" x2="534.0" y2="215.0" stroke="#000" stroke-width="2" />
+<line x1="534.0" y1="215.0" x2="560.0" y2="203.0" stroke="#000" stroke-width="2" />
+<line x1="560.0" y1="215.0" x2="574.0" y2="215.0" stroke="#000" stroke-width="2" />
+<text x="547.0" y="239.0" font-size="11" text-anchor="middle" fill="#000">QA2 precharge</text>
+<line x1="574.0" y1="215.0" x2="610.0" y2="215.0" stroke="#000" stroke-width="1.4" />
+<line x1="610.0" y1="215.0" x2="610.0" y2="150.0" stroke="#000" stroke-width="1.4" />
+<circle cx="610.0" cy="150.0" r="3.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<text x="475.0" y="280.0" font-size="11" text-anchor="middle" fill="#000">τ = R·C = 47 Ω · 3000 µF = 0.14 s → 90 % in 0.32 s,</text>
+<text x="475.0" y="294.0" font-size="11" text-anchor="middle" fill="#000">then QA1 closes; time-out 2 s</text>
+<line x1="640.0" y1="150.0" x2="680.0" y2="150.0" stroke="#000" stroke-width="2.4" />
+<line x1="680.0" y1="150.0" x2="680.0" y2="320.0" stroke="#000" stroke-width="2.4" />
+<line x1="680.0" y1="320.0" x2="1570.0" y2="320.0" stroke="#000" stroke-width="5" />
+<text x="1570.0" y="310.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">DC bus +48 V (10 mm² from the battery)</text>
+<line x1="680.0" y1="340.0" x2="1570.0" y2="340.0" stroke="#000" stroke-width="1.4" stroke-dasharray="10 4" />
+<text x="690.0" y="356.0" font-size="11" text-anchor="start" fill="#000">0 V</text>
+<line x1="200.0" y1="260.0" x2="230.0" y2="260.0" stroke="#000" stroke-width="2.4" />
+<line x1="230.0" y1="260.0" x2="230.0" y2="340.0" stroke="#000" stroke-width="2.4" />
+<line x1="230.0" y1="340.0" x2="680.0" y2="340.0" stroke="#000" stroke-width="1.4" stroke-dasharray="10 4" />
+<circle cx="760.0" cy="320.0" r="3.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<line x1="760.0" y1="320.0" x2="760.0" y2="370.0" stroke="#000" stroke-width="1.8" />
+<rect x="753.0" y="370.0" width="14.0" height="34.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<line x1="760.0" y1="370.0" x2="760.0" y2="404.0" stroke="#000" stroke-width="1" />
+<text x="772.0" y="391.0" font-size="11" text-anchor="start" fill="#000">FC2 20 A</text>
+<line x1="760.0" y1="404.0" x2="760.0" y2="420.0" stroke="#000" stroke-width="1.8" />
+<rect x="690.0" y="420.0" width="140.0" height="76.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<text x="760.0" y="438.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">A1 servo drive</text>
+<text x="760.0" y="452.0" font-size="11" text-anchor="middle" fill="#000">left, node 1</text>
+<text x="760.0" y="466.0" font-size="11" text-anchor="middle" fill="#000">48 V 10/30 A</text>
+<text x="760.0" y="480.0" font-size="11" text-anchor="middle" fill="#000">STO SIL 2</text>
+<line x1="760.0" y1="496.0" x2="760.0" y2="530.0" stroke="#000" stroke-width="1.8" />
+<circle cx="760.0" cy="556.0" r="26.0" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="760.0" y="552.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">M</text>
+<text x="760.0" y="566.0" font-size="11" text-anchor="middle" fill="#000">3~ BLDC</text>
+<text x="792.0" y="540.0" font-size="11" text-anchor="start" fill="#000">M1 200 W</text>
+<text x="792.0" y="554.0" font-size="11" text-anchor="start" fill="#000">+ encoder</text>
+<text x="792.0" y="568.0" font-size="11" text-anchor="start" fill="#000">+ brake 24 V</text>
+<circle cx="940.0" cy="320.0" r="3.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<line x1="940.0" y1="320.0" x2="940.0" y2="370.0" stroke="#000" stroke-width="1.8" />
+<rect x="933.0" y="370.0" width="14.0" height="34.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<line x1="940.0" y1="370.0" x2="940.0" y2="404.0" stroke="#000" stroke-width="1" />
+<text x="952.0" y="391.0" font-size="11" text-anchor="start" fill="#000">FC3 20 A</text>
+<line x1="940.0" y1="404.0" x2="940.0" y2="420.0" stroke="#000" stroke-width="1.8" />
+<rect x="870.0" y="420.0" width="140.0" height="76.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<text x="940.0" y="438.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">A2 servo drive</text>
+<text x="940.0" y="452.0" font-size="11" text-anchor="middle" fill="#000">right, node 2</text>
+<text x="940.0" y="466.0" font-size="11" text-anchor="middle" fill="#000">48 V 10/30 A</text>
+<text x="940.0" y="480.0" font-size="11" text-anchor="middle" fill="#000">STO SIL 2</text>
+<line x1="940.0" y1="496.0" x2="940.0" y2="530.0" stroke="#000" stroke-width="1.8" />
+<circle cx="940.0" cy="556.0" r="26.0" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="940.0" y="552.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">M</text>
+<text x="940.0" y="566.0" font-size="11" text-anchor="middle" fill="#000">3~ BLDC</text>
+<text x="972.0" y="540.0" font-size="11" text-anchor="start" fill="#000">M2 200 W</text>
+<text x="972.0" y="554.0" font-size="11" text-anchor="start" fill="#000">+ encoder</text>
+<text x="972.0" y="568.0" font-size="11" text-anchor="start" fill="#000">+ brake 24 V</text>
+<circle cx="1120.0" cy="320.0" r="3.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<line x1="1120.0" y1="320.0" x2="1120.0" y2="370.0" stroke="#000" stroke-width="1.8" />
+<rect x="1113.0" y="370.0" width="14.0" height="34.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<line x1="1120.0" y1="370.0" x2="1120.0" y2="404.0" stroke="#000" stroke-width="1" />
+<text x="1132.0" y="391.0" font-size="11" text-anchor="start" fill="#000">FC4 16 A</text>
+<line x1="1120.0" y1="404.0" x2="1120.0" y2="420.0" stroke="#000" stroke-width="1.8" />
+<rect x="1050.0" y="420.0" width="140.0" height="76.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<text x="1120.0" y="438.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">A3 lift drive</text>
+<text x="1120.0" y="452.0" font-size="11" text-anchor="middle" fill="#000">node 3</text>
+<text x="1120.0" y="466.0" font-size="11" text-anchor="middle" fill="#000">worm motor</text>
+<text x="1120.0" y="480.0" font-size="11" text-anchor="middle" fill="#000">STO</text>
+<line x1="1120.0" y1="496.0" x2="1120.0" y2="530.0" stroke="#000" stroke-width="1.8" />
+<circle cx="1120.0" cy="556.0" r="26.0" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="1120.0" y="552.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">M</text>
+<text x="1120.0" y="566.0" font-size="11" text-anchor="middle" fill="#000">3~ BLDC</text>
+<text x="1152.0" y="540.0" font-size="11" text-anchor="start" fill="#000">M3 200 W</text>
+<text x="1152.0" y="554.0" font-size="11" text-anchor="start" fill="#000">+ encoder</text>
+<text x="1152.0" y="568.0" font-size="11" text-anchor="start" fill="#000">+ brake 24 V</text>
+<circle cx="1290.0" cy="320.0" r="3.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<line x1="1290.0" y1="320.0" x2="1290.0" y2="370.0" stroke="#000" stroke-width="1.8" />
+<rect x="1283.0" y="370.0" width="14.0" height="34.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<line x1="1290.0" y1="370.0" x2="1290.0" y2="404.0" stroke="#000" stroke-width="1" />
+<text x="1302.0" y="391.0" font-size="11" text-anchor="start" fill="#000">in drive / 16 A</text>
+<line x1="1290.0" y1="404.0" x2="1290.0" y2="420.0" stroke="#000" stroke-width="1.8" />
+<rect x="1220.0" y="420.0" width="140.0" height="76.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<text x="1290.0" y="438.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">A4 brake</text>
+<text x="1290.0" y="452.0" font-size="11" text-anchor="middle" fill="#000">chopper</text>
+<text x="1290.0" y="466.0" font-size="11" text-anchor="middle" fill="#000">ON at 58 V</text>
+<text x="1290.0" y="480.0" font-size="11" text-anchor="middle" fill="#000">R2 6.8 Ω ≥100 W</text>
+<circle cx="1460.0" cy="320.0" r="3.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<line x1="1460.0" y1="320.0" x2="1460.0" y2="370.0" stroke="#000" stroke-width="1.8" />
+<rect x="1453.0" y="370.0" width="14.0" height="34.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<line x1="1460.0" y1="370.0" x2="1460.0" y2="404.0" stroke="#000" stroke-width="1" />
+<text x="1472.0" y="391.0" font-size="11" text-anchor="start" fill="#000">FC5 10 A</text>
+<line x1="1460.0" y1="404.0" x2="1460.0" y2="420.0" stroke="#000" stroke-width="1.8" />
+<rect x="1390.0" y="420.0" width="140.0" height="76.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<text x="1460.0" y="438.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">TB1 DC/DC</text>
+<text x="1460.0" y="452.0" font-size="11" text-anchor="middle" fill="#000">48 → 24 V</text>
+<text x="1460.0" y="466.0" font-size="11" text-anchor="middle" fill="#000">≥ 13 A</text>
+<text x="1460.0" y="480.0" font-size="11" text-anchor="middle" fill="#000">isolated</text>
+<line x1="1460.0" y1="496.0" x2="1460.0" y2="620.0" stroke="#000" stroke-width="1.8" />
+<line x1="700.0" y1="620.0" x2="1570.0" y2="620.0" stroke="#000" stroke-width="3" />
+<text x="1570.0" y="612.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">24 V bus (PELV, 0 V to chassis at one point)</text>
+<text x="1135.0" y="640.0" font-size="11" text-anchor="middle" fill="#000">branches 2–4 A: KF1 safety ctrl · KF2 nav PC 4 A · BG1/BG2 2 A each · W1 Wi-Fi · brakes 4 A · sensors · lights</text>
+<text x="40.0" y="395.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Charging path</text>
+<rect x="40.0" y="410.0" width="100.0" height="40.0" rx="0" fill="#c62828" stroke="#c62828" stroke-width="1" />
+<text x="90.0" y="435.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">XD10</text>
+<text x="40.0" y="468.0" font-size="11" text-anchor="start" fill="#000">floor contacts 27 A,</text>
+<text x="40.0" y="482.0" font-size="11" text-anchor="start" fill="#000">dead until docked + handshake</text>
+<line x1="140.0" y1="430.0" x2="170.0" y2="430.0" stroke="#000" stroke-width="2.4" />
+<rect x="170.0" y="423.0" width="40.0" height="14.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<line x1="170.0" y1="430.0" x2="210.0" y2="430.0" stroke="#000" stroke-width="1" />
+<text x="190.0" y="418.0" font-size="11" text-anchor="middle" fill="#000">FC6 40 A</text>
+<line x1="210.0" y1="430.0" x2="260.0" y2="430.0" stroke="#000" stroke-width="2.4" />
+<line x1="260.0" y1="430.0" x2="274.0" y2="430.0" stroke="#000" stroke-width="2" />
+<line x1="274.0" y1="430.0" x2="300.0" y2="418.0" stroke="#000" stroke-width="2" />
+<line x1="300.0" y1="430.0" x2="314.0" y2="430.0" stroke="#000" stroke-width="2" />
+<text x="287.0" y="454.0" font-size="11" text-anchor="middle" fill="#000">QA3 charge contactor</text>
+<line x1="314.0" y1="430.0" x2="340.0" y2="430.0" stroke="#000" stroke-width="2.4" />
+<line x1="340.0" y1="430.0" x2="340.0" y2="380.0" stroke="#000" stroke-width="2.4" />
+<line x1="340.0" y1="380.0" x2="215.0" y2="380.0" stroke="#000" stroke-width="2.4" />
+<line x1="215.0" y1="380.0" x2="215.0" y2="150.0" stroke="#000" stroke-width="2.4" />
+<circle cx="215.0" cy="150.0" r="3.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<text x="350.0" y="400.0" font-size="11" text-anchor="start" fill="#000">enters on the battery side of FC1</text>
+<text x="350.0" y="414.0" font-size="11" text-anchor="start" fill="#000">(BMS can open charge path; QA3 only</text>
+<text x="350.0" y="428.0" font-size="11" text-anchor="start" fill="#000">closed while the AGV stands on XD10)</text>
+<rect x="700.0" y="720.0" width="260.0" height="150.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<text x="830.0" y="738.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">KF1 safety controller PL e</text>
+<text x="830.0" y="752.0" font-size="11" text-anchor="middle" fill="#000">inputs: SF1/SF2 2 NC, SF3 mode,</text>
+<text x="830.0" y="766.0" font-size="11" text-anchor="middle" fill="#000">X5 enabling, BG1/BG2 OSSD,</text>
+<text x="830.0" y="780.0" font-size="11" text-anchor="middle" fill="#000">2 encoders (safe speed, SLS)</text>
+<text x="830.0" y="794.0" font-size="11" text-anchor="middle" fill="#000">outputs: STO A1–A3,</text>
+<text x="830.0" y="808.0" font-size="11" text-anchor="middle" fill="#000">SBC brakes, QA1 coil,</text>
+<text x="830.0" y="822.0" font-size="11" text-anchor="middle" fill="#000">field set to BG1/BG2</text>
+<text x="830.0" y="836.0" font-size="11" text-anchor="middle" fill="#000">Category 3, PL d (SISTEMA)</text>
+<rect x="1100.0" y="720.0" width="230.0" height="120.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<text x="1215.0" y="738.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">KF2 navigation PC</text>
+<text x="1215.0" y="752.0" font-size="11" text-anchor="middle" fill="#000">map, localisation, path,</text>
+<text x="1215.0" y="766.0" font-size="11" text-anchor="middle" fill="#000">VDA 5050 client (MQTT),</text>
+<text x="1215.0" y="780.0" font-size="11" text-anchor="middle" fill="#000">kinematics, lift, charging,</text>
+<text x="1215.0" y="794.0" font-size="11" text-anchor="middle" fill="#000">CAN master node 10</text>
+<text x="1215.0" y="808.0" font-size="11" text-anchor="middle" fill="#000">SYNC 10 ms</text>
+<rect x="1380.0" y="720.0" width="180.0" height="80.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<text x="1470.0" y="738.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">W1 Wi-Fi client</text>
+<text x="1470.0" y="752.0" font-size="11" text-anchor="middle" fill="#000">5 GHz, roaming</text>
+<text x="1470.0" y="766.0" font-size="11" text-anchor="middle" fill="#000">VLAN 60 → fleet mgr</text>
+<line x1="1330.0" y1="760.0" x2="1380.0" y2="760.0" stroke="#000" stroke-width="1.4" />
+<text x="1355.0" y="754.0" font-size="11" text-anchor="middle" fill="#000">Eth</text>
+<rect x="420.0" y="720.0" width="200.0" height="70.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<text x="520.0" y="738.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">SF1 / SF2 E-stops</text>
+<text x="520.0" y="752.0" font-size="11" text-anchor="middle" fill="#000">2 NC, IEC 60947-5-5</text>
+<text x="520.0" y="766.0" font-size="11" text-anchor="middle" fill="#000">SF3 mode key, X5 pendant</text>
+<rect x="420.0" y="830.0" width="200.0" height="90.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<text x="520.0" y="848.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">BG1 / BG2 scanners</text>
+<text x="520.0" y="862.0" font-size="11" text-anchor="middle" fill="#000">Type 3, PL d, 275°</text>
+<text x="520.0" y="876.0" font-size="11" text-anchor="middle" fill="#000">OSSD 2 ch → KF1</text>
+<text x="520.0" y="890.0" font-size="11" text-anchor="middle" fill="#000">data (Ethernet) → KF2</text>
+<line x1="620.0" y1="745.0" x2="700.0" y2="745.0" stroke="#c62828" stroke-width="1.8" />
+<line x1="620.0" y1="765.0" x2="700.0" y2="765.0" stroke="#c62828" stroke-width="1.8" />
+<line x1="620.0" y1="860.0" x2="700.0" y2="860.0" stroke="#c62828" stroke-width="1.8" />
+<line x1="620.0" y1="880.0" x2="700.0" y2="880.0" stroke="#c62828" stroke-width="1.8" />
+<line x1="620.0" y1="900.0" x2="680.0" y2="900.0" stroke="#000" stroke-width="1" stroke-dasharray="4 3" />
+<line x1="680.0" y1="900.0" x2="680.0" y2="1000.0" stroke="#000" stroke-width="1" stroke-dasharray="4 3" />
+<line x1="680.0" y1="1000.0" x2="1215.0" y2="1000.0" stroke="#000" stroke-width="1" stroke-dasharray="4 3" />
+<line x1="1215.0" y1="1000.0" x2="1215.0" y2="840.0" stroke="#000" stroke-width="1" stroke-dasharray="4 3" />
+<text x="950.0" y="994.0" font-size="11" text-anchor="middle" fill="#000">scanner measurement data (Ethernet) → navigation</text>
+<line x1="704.0" y1="720.0" x2="704.0" y2="496.0" stroke="#c62828" stroke-width="1.6" />
+<line x1="714.0" y1="720.0" x2="714.0" y2="496.0" stroke="#c62828" stroke-width="1.6" />
+<line x1="884.0" y1="720.0" x2="884.0" y2="496.0" stroke="#c62828" stroke-width="1.6" />
+<line x1="894.0" y1="720.0" x2="894.0" y2="496.0" stroke="#c62828" stroke-width="1.6" />
+<line x1="1064.0" y1="712.0" x2="1064.0" y2="496.0" stroke="#c62828" stroke-width="1.6" />
+<line x1="1074.0" y1="712.0" x2="1074.0" y2="496.0" stroke="#c62828" stroke-width="1.6" />
+<line x1="940.0" y1="712.0" x2="1074.0" y2="712.0" stroke="#c62828" stroke-width="1.6" />
+<line x1="940.0" y1="712.0" x2="940.0" y2="720.0" stroke="#c62828" stroke-width="1.6" />
+<text x="716.0" y="706.0" font-size="11" text-anchor="start" fill="#c62828" font-weight="bold">STO1 + STO2 (2 channels) to A1, A2, A3</text>
+<line x1="960.0" y1="800.0" x2="1000.0" y2="800.0" stroke="#c62828" stroke-width="1.6" />
+<line x1="1000.0" y1="800.0" x2="1000.0" y2="690.0" stroke="#c62828" stroke-width="1.6" />
+<line x1="1000.0" y1="690.0" x2="650.0" y2="690.0" stroke="#c62828" stroke-width="1.6" />
+<line x1="650.0" y1="690.0" x2="650.0" y2="110.0" stroke="#c62828" stroke-width="1.6" />
+<line x1="650.0" y1="110.0" x2="477.0" y2="110.0" stroke="#c62828" stroke-width="1.6" />
+<line x1="477.0" y1="110.0" x2="477.0" y2="140.0" stroke="#c62828" stroke-width="1.6" />
+<text x="655.0" y="104.0" font-size="11" text-anchor="start" fill="#c62828">QA1 coil (E-stop chain / BMS)</text>
+<line x1="760.0" y1="582.0" x2="760.0" y2="600.0" stroke="#000" stroke-width="1" />
+<line x1="940.0" y1="582.0" x2="940.0" y2="600.0" stroke="#000" stroke-width="1" />
+<text x="1225.0" y="592.0" font-size="11" text-anchor="start" fill="#000">encoders M1/M2 → drives + KF1</text>
+<line x1="1215.0" y1="720.0" x2="1215.0" y2="680.0" stroke="#000" stroke-width="1.6" stroke-dasharray="8 3" />
+<line x1="1215.0" y1="680.0" x2="1570.0" y2="680.0" stroke="#000" stroke-width="1.6" stroke-dasharray="8 3" />
+<line x1="830.0" y1="660.0" x2="1570.0" y2="660.0" stroke="#000" stroke-width="1.6" stroke-dasharray="8 3" />
+<line x1="830.0" y1="660.0" x2="830.0" y2="496.0" stroke="#000" stroke-width="1.2" stroke-dasharray="8 3" />
+<line x1="1010.0" y1="660.0" x2="1010.0" y2="496.0" stroke="#000" stroke-width="1.2" stroke-dasharray="8 3" />
+<line x1="1190.0" y1="660.0" x2="1190.0" y2="496.0" stroke="#000" stroke-width="1.2" stroke-dasharray="8 3" />
+<line x1="1570.0" y1="660.0" x2="1570.0" y2="680.0" stroke="#000" stroke-width="1.6" stroke-dasharray="8 3" />
+<line x1="830.0" y1="660.0" x2="830.0" y2="640.0" stroke="#000" stroke-width="0" />
+<text x="1400.0" y="675.0" font-size="11" text-anchor="middle" fill="#000">CAN 500 kbit/s line, 120 Ω at both ends (60 Ω check)</text>
+<line x1="140.0" y1="660.0" x2="830.0" y2="660.0" stroke="#000" stroke-width="1.6" stroke-dasharray="8 3" />
+<line x1="140.0" y1="660.0" x2="140.0" y2="280.0" stroke="#000" stroke-width="1.6" stroke-dasharray="8 3" />
+<text x="146.0" y="656.0" font-size="11" text-anchor="start" fill="#000">CAN to BMS (node 20) – or a separate bus if not CANopen</text>
+<text x="40.0" y="720.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Legend</text>
+<line x1="40.0" y1="738.0" x2="80.0" y2="738.0" stroke="#000" stroke-width="2.4" />
+<text x="88.0" y="742.0" font-size="11" text-anchor="start" fill="#000">48 V power</text>
+<line x1="40.0" y1="758.0" x2="80.0" y2="758.0" stroke="#c62828" stroke-width="1.8" />
+<text x="88.0" y="762.0" font-size="11" text-anchor="start" fill="#000">safety, 2-channel, wired</text>
+<line x1="40.0" y1="778.0" x2="80.0" y2="778.0" stroke="#000" stroke-width="1.6" stroke-dasharray="8 3" />
+<text x="88.0" y="782.0" font-size="11" text-anchor="start" fill="#000">bus / data (CAN, Ethernet)</text>
+<text x="40.0" y="820.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Rules (guide 4.2.5, 10.11, 11.7):</text>
+<text x="40.0" y="835.0" font-size="11" text-anchor="start" fill="#000">• fuse ≤ 150 mm from the battery +</text>
+<text x="40.0" y="850.0" font-size="11" text-anchor="start" fill="#000">• all switching devices DC-rated ≥ 80 V</text>
+<text x="40.0" y="865.0" font-size="11" text-anchor="start" fill="#000">• I_B ≤ I_n ≤ I_Z on every branch</text>
+<text x="40.0" y="880.0" font-size="11" text-anchor="start" fill="#000">• I_k ≈ 2 kA → breaking capacity</text>
+<text x="40.0" y="895.0" font-size="11" text-anchor="start" fill="#000">• safety stop = KF1 → STO, never CAN</text>
+<text x="40.0" y="910.0" font-size="11" text-anchor="start" fill="#000">• chopper 58 V &gt; charge end 56 V</text>
+<text x="40.0" y="925.0" font-size="11" text-anchor="start" fill="#000">• 0 V return: each branch back to</text>
+<text x="40.0" y="940.0" font-size="11" text-anchor="start" fill="#000">  battery −; 48 V floating or bonded</text>
+<text x="40.0" y="955.0" font-size="11" text-anchor="start" fill="#000">  as the drive manual requires</text>
+<rect x="1116.0" y="1012.0" width="470.0" height="74.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<line x1="1116.0" y1="1036.0" x2="1586.0" y2="1036.0" stroke="#000" stroke-width="1" />
+<line x1="1116.0" y1="1061.0" x2="1586.0" y2="1061.0" stroke="#000" stroke-width="1" />
+<line x1="1416.0" y1="1036.0" x2="1416.0" y2="1086.0" stroke="#000" stroke-width="1" />
+<text x="1124.0" y="1029.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="1124.0" y="1053.0" font-size="11" text-anchor="start" fill="#000">Electrical overview U300 (schematic)</text>
+<text x="1424.0" y="1053.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">VC-AGV-DOC-1105</text>
+<text x="1124.0" y="1078.0" font-size="11" text-anchor="start" fill="#000">Guide 11 – AGV build · Part B · 2026-11-12</text>
+<text x="1424.0" y="1078.0" font-size="11" text-anchor="start" fill="#000">not to scale</text>
+</svg>

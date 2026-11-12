@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1140" width="1200" height="1140" font-family="Arial, Helvetica, sans-serif">
+<title>Engineering unit conversion sheet</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#000" stroke-width="1"/></pattern></defs>
+<rect x="0" y="0" width="1200" height="1140" fill="#ffffff"/>
+<text x="30.0" y="36.0" font-size="16" text-anchor="start" fill="#000" font-weight="bold">Unit conversion sheet – the conversions used most in machine design, hydraulics, pneumatics and drives</text>
+<text x="30.0" y="58.0" font-size="12" text-anchor="start" fill="#555">Factors computed from the exact definitions (ISO 80000, g = 9.80665 m/s², 1 in = 25.4 mm, 1 lb = 0.45359237 kg, 1 kcal = 4.1868 kJ). Rounded to 5 digits.</text>
+<rect x="30.0" y="80.0" width="370.0" height="200.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<rect x="30.0" y="80.0" width="370.0" height="26.0" stroke="#c62828" stroke-width="1.2" fill="#c62828" fill-opacity="0.15"/>
+<text x="40.0" y="98.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Pressure</text>
+<text x="40.0" y="130.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1 bar = 100 000 Pa = 0.1 MPa = 14.504 psi</text>
+<text x="40.0" y="155.0" font-size="12" text-anchor="start" fill="#000">1 MPa = 1 N/mm² = 10 bar = 145.04 psi</text>
+<text x="40.0" y="180.0" font-size="12" text-anchor="start" fill="#000">1 psi = 0.068948 bar = 6.8948 kPa</text>
+<text x="40.0" y="205.0" font-size="12" text-anchor="start" fill="#000">1 kgf/cm² (at) = 0.98067 bar = 14.223 psi</text>
+<text x="40.0" y="230.0" font-size="12" text-anchor="start" fill="#000">1 atm = 1.01325 bar;  1 Torr = 1.3332 mbar</text>
+<text x="40.0" y="255.0" font-size="12" text-anchor="start" fill="#000">absolute = gauge + 1.013 bar (sea level)</text>
+<rect x="420.0" y="80.0" width="370.0" height="200.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<rect x="420.0" y="80.0" width="370.0" height="26.0" stroke="#c62828" stroke-width="1.2" fill="#c62828" fill-opacity="0.15"/>
+<text x="430.0" y="98.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Force and mass</text>
+<text x="430.0" y="130.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1 kgf = 9.80665 N  (1 kN ≈ 102 kg weight)</text>
+<text x="430.0" y="155.0" font-size="12" text-anchor="start" fill="#000">1 lbf = 4.4482 N;  1 lb = 0.45359 kg</text>
+<text x="430.0" y="180.0" font-size="12" text-anchor="start" fill="#000">1 N = 0.10197 kgf = 0.22481 lbf</text>
+<text x="430.0" y="205.0" font-size="12" text-anchor="start" fill="#000">weight F = m · g;  1 t → 9.81 kN</text>
+<text x="430.0" y="230.0" font-size="12" text-anchor="start" fill="#000">1 short ton = 907.18 kg</text>
+<text x="430.0" y="255.0" font-size="12" text-anchor="start" fill="#000">pressure × area: 1 bar on 1 cm² = 10 N</text>
+<rect x="810.0" y="80.0" width="370.0" height="200.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<rect x="810.0" y="80.0" width="370.0" height="26.0" stroke="#c62828" stroke-width="1.2" fill="#c62828" fill-opacity="0.15"/>
+<text x="820.0" y="98.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Torque</text>
+<text x="820.0" y="130.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1 N·m = 0.10197 kgf·m = 0.73756 lbf·ft</text>
+<text x="820.0" y="155.0" font-size="12" text-anchor="start" fill="#000">1 N·m = 8.8507 lbf·in = 141.61 ozf·in</text>
+<text x="820.0" y="180.0" font-size="12" text-anchor="start" fill="#000">1 lbf·ft = 1.3558 N·m;  1 lbf·in = 0.11298 N·m</text>
+<text x="820.0" y="205.0" font-size="12" text-anchor="start" fill="#000">1 kgf·m = 9.8067 N·m</text>
+<text x="820.0" y="230.0" font-size="12" text-anchor="start" fill="#000">T [N·m] = 9550 · P [kW] / n [min⁻¹]</text>
+<text x="820.0" y="255.0" font-size="12" text-anchor="start" fill="#000">e.g. 7.5 kW, 1460 min⁻¹ → 49.1 N·m</text>
+<rect x="30.0" y="292.0" width="370.0" height="200.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<rect x="30.0" y="292.0" width="370.0" height="26.0" stroke="#c62828" stroke-width="1.2" fill="#c62828" fill-opacity="0.15"/>
+<text x="40.0" y="310.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Power</text>
+<text x="40.0" y="342.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1 kW = 1.3596 PS = 1.3410 hp</text>
+<text x="40.0" y="367.0" font-size="12" text-anchor="start" fill="#000">1 kW = 859.85 kcal/h = 3412.1 BTU/h</text>
+<text x="40.0" y="392.0" font-size="12" text-anchor="start" fill="#000">1 hp = 0.74570 kW;  1 PS = 0.73550 kW</text>
+<text x="40.0" y="417.0" font-size="12" text-anchor="start" fill="#000">P = T · ω = 2π · n · T / 60</text>
+<text x="40.0" y="442.0" font-size="12" text-anchor="start" fill="#000">hydraulic P [kW] = p [bar] · Q [l/min] / 600</text>
+<text x="40.0" y="467.0" font-size="12" text-anchor="start" fill="#000">1 ton of refrigeration = 3.5169 kW</text>
+<rect x="420.0" y="292.0" width="370.0" height="200.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<rect x="420.0" y="292.0" width="370.0" height="26.0" stroke="#c62828" stroke-width="1.2" fill="#c62828" fill-opacity="0.15"/>
+<text x="430.0" y="310.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Energy and heat</text>
+<text x="430.0" y="342.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1 kWh = 3.6 MJ = 859.85 kcal = 3412.1 BTU</text>
+<text x="430.0" y="367.0" font-size="12" text-anchor="start" fill="#000">1 kcal = 4.1868 kJ;  1 BTU = 1.0551 kJ</text>
+<text x="430.0" y="392.0" font-size="12" text-anchor="start" fill="#000">1 J = 1 N·m = 1 W·s</text>
+<text x="430.0" y="417.0" font-size="12" text-anchor="start" fill="#000">heat Q = m · c · ΔT</text>
+<text x="430.0" y="442.0" font-size="12" text-anchor="start" fill="#000">water: 1 l, 1 K → 4.18 kJ</text>
+<text x="430.0" y="467.0" font-size="12" text-anchor="start" fill="#000">1 kgf·m = 9.8067 J</text>
+<rect x="810.0" y="292.0" width="370.0" height="200.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<rect x="810.0" y="292.0" width="370.0" height="26.0" stroke="#c62828" stroke-width="1.2" fill="#c62828" fill-opacity="0.15"/>
+<text x="820.0" y="310.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Flow – liquids</text>
+<text x="820.0" y="342.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1 l/min = 0.06 m³/h = 0.26417 US gpm</text>
+<text x="820.0" y="367.0" font-size="12" text-anchor="start" fill="#000">1 m³/h = 16.667 l/min</text>
+<text x="820.0" y="392.0" font-size="12" text-anchor="start" fill="#000">1 US gpm = 3.7854 l/min;  1 UK gpm = 4.5461</text>
+<text x="820.0" y="417.0" font-size="12" text-anchor="start" fill="#000">Q [l/min] = A [cm²] · v [m/min] / 10</text>
+<text x="820.0" y="442.0" font-size="12" text-anchor="start" fill="#000">pipe: d [mm] = 4.61 · √(Q [l/min] / v [m/s])</text>
+<text x="820.0" y="467.0" font-size="12" text-anchor="start" fill="#000">pump: Q = V [cm³] · n [min⁻¹] · η_v / 1000</text>
+<rect x="30.0" y="504.0" width="370.0" height="200.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<rect x="30.0" y="504.0" width="370.0" height="26.0" stroke="#c62828" stroke-width="1.2" fill="#c62828" fill-opacity="0.15"/>
+<text x="40.0" y="522.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Flow – compressed air (normal volume)</text>
+<text x="40.0" y="554.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1 m³/min = 35.315 cfm;  1 cfm = 28.317 l/min</text>
+<text x="40.0" y="579.0" font-size="12" text-anchor="start" fill="#000">V_N = V · (p_abs / 1.01325) · (273.15 / T [K])</text>
+<text x="40.0" y="604.0" font-size="12" text-anchor="start" fill="#000">DIN 1343 normal state: 0 °C, 1.01325 bar</text>
+<text x="40.0" y="629.0" font-size="12" text-anchor="start" fill="#000">1 m³ at 7 bar(g), 20 °C = 7.37 Nm³</text>
+<text x="40.0" y="654.0" font-size="12" text-anchor="start" fill="#000">FAD / ANR (20 °C, 1 bar) × 0.9196 = Nm³</text>
+<text x="40.0" y="679.0" font-size="12" text-anchor="start" fill="#000">always state the reference: Nl, FAD, ANR</text>
+<rect x="420.0" y="504.0" width="370.0" height="200.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<rect x="420.0" y="504.0" width="370.0" height="26.0" stroke="#c62828" stroke-width="1.2" fill="#c62828" fill-opacity="0.15"/>
+<text x="430.0" y="522.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Viscosity</text>
+<text x="430.0" y="554.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">ν [mm²/s = cSt] = η [mPa·s = cP] / ρ [g/cm³]</text>
+<text x="430.0" y="579.0" font-size="12" text-anchor="start" fill="#000">1 St = 100 cSt;  1 P = 100 cP = 0.1 Pa·s</text>
+<text x="430.0" y="604.0" font-size="12" text-anchor="start" fill="#000">HLP 46 at 40 °C: ν = 46 mm²/s</text>
+<text x="430.0" y="629.0" font-size="12" text-anchor="start" fill="#000">ρ = 0.857 → η = 39.4 mPa·s</text>
+<text x="430.0" y="654.0" font-size="12" text-anchor="start" fill="#000">water 20 °C: ν = 1.004 mm²/s</text>
+<text x="430.0" y="679.0" font-size="12" text-anchor="start" fill="#000">air 20 °C: ν = 15.1 mm²/s</text>
+<rect x="810.0" y="504.0" width="370.0" height="200.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<rect x="810.0" y="504.0" width="370.0" height="26.0" stroke="#c62828" stroke-width="1.2" fill="#c62828" fill-opacity="0.15"/>
+<text x="820.0" y="522.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Temperature</text>
+<text x="820.0" y="554.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">°C = (°F − 32) / 1.8;  °F = 1.8 · °C + 32</text>
+<text x="820.0" y="579.0" font-size="12" text-anchor="start" fill="#000">K = °C + 273.15</text>
+<text x="820.0" y="604.0" font-size="12" text-anchor="start" fill="#000">temperature difference: 1 K = 1 °C = 1.8 °F</text>
+<text x="820.0" y="629.0" font-size="12" text-anchor="start" fill="#000">68 °F = 20 °C (reference for length, ISO 1)</text>
+<text x="820.0" y="654.0" font-size="12" text-anchor="start" fill="#000">−40 °C = −40 °F</text>
+<text x="820.0" y="679.0" font-size="12" text-anchor="start" fill="#000">100 °F = 37.8 °C</text>
+<rect x="30.0" y="716.0" width="370.0" height="200.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<rect x="30.0" y="716.0" width="370.0" height="26.0" stroke="#c62828" stroke-width="1.2" fill="#c62828" fill-opacity="0.15"/>
+<text x="40.0" y="734.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Angle and slope</text>
+<text x="40.0" y="766.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1° = 60′ = 3600″ = 17.453 mrad</text>
+<text x="40.0" y="791.0" font-size="12" text-anchor="start" fill="#000">1″ = 4.8481 µrad = 4.8481 µm per m</text>
+<text x="40.0" y="816.0" font-size="12" text-anchor="start" fill="#000">1 mm/m = 206.26″ = 3.438′</text>
+<text x="40.0" y="841.0" font-size="12" text-anchor="start" fill="#000">1 mrad = 0.057296° = 1 µm/mm</text>
+<text x="40.0" y="866.0" font-size="12" text-anchor="start" fill="#000">1 rev = 360° = 2π rad</text>
+<text x="40.0" y="891.0" font-size="12" text-anchor="start" fill="#000">level 0.02 mm/m = 4.1″</text>
+<rect x="420.0" y="716.0" width="370.0" height="200.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<rect x="420.0" y="716.0" width="370.0" height="26.0" stroke="#c62828" stroke-width="1.2" fill="#c62828" fill-opacity="0.15"/>
+<text x="430.0" y="734.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Length, area, volume</text>
+<text x="430.0" y="766.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1 in = 25.4 mm;  1 ft = 304.8 mm</text>
+<text x="430.0" y="791.0" font-size="12" text-anchor="start" fill="#000">1 thou (mil) = 25.4 µm</text>
+<text x="430.0" y="816.0" font-size="12" text-anchor="start" fill="#000">1 in² = 645.16 mm²;  1 ft² = 0.092903 m²</text>
+<text x="430.0" y="841.0" font-size="12" text-anchor="start" fill="#000">1 ft³ = 28.317 l;  1 US gal = 3.7854 l</text>
+<text x="430.0" y="866.0" font-size="12" text-anchor="start" fill="#000">1 mile = 1.6093 km</text>
+<text x="430.0" y="891.0" font-size="12" text-anchor="start" fill="#000">1 µm = 0.001 mm = 39.37 µin</text>
+<rect x="810.0" y="716.0" width="370.0" height="200.0" stroke="#000" stroke-width="1.2" fill="none"/>
+<rect x="810.0" y="716.0" width="370.0" height="26.0" stroke="#c62828" stroke-width="1.2" fill="#c62828" fill-opacity="0.15"/>
+<text x="820.0" y="734.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Rotation, speed, inertia</text>
+<text x="820.0" y="766.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">ω [rad/s] = 2π · n [min⁻¹] / 60</text>
+<text x="820.0" y="791.0" font-size="12" text-anchor="start" fill="#000">v [m/s] = π · d [mm] · n / 60 000</text>
+<text x="820.0" y="816.0" font-size="12" text-anchor="start" fill="#000">1 m/s = 3.6 km/h = 196.85 ft/min</text>
+<text x="820.0" y="841.0" font-size="12" text-anchor="start" fill="#000">J [kg·m²] = GD² [kg·m²] / 4</text>
+<text x="820.0" y="866.0" font-size="12" text-anchor="start" fill="#000">1 lb·ft² = 0.042140 kg·m²</text>
+<text x="820.0" y="891.0" font-size="12" text-anchor="start" fill="#000">1 kgf·m·s² = 9.8067 kg·m²</text>
+<text x="30.0" y="942.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">SI prefixes:</text>
+<text x="130.0" y="942.0" font-size="13" text-anchor="start" fill="#000">T 10¹² · G 10⁹ · M 10⁶ · k 10³ · h 10² · da 10 · d 10⁻¹ · c 10⁻² · m 10⁻³ · µ 10⁻⁶ · n 10⁻⁹ · p 10⁻¹²</text>
+<text x="30.0" y="964.0" font-size="11" text-anchor="start" fill="#555">Write units with a space: 50 mm, 6.3 µm, 12 kN·m. Use mm on drawings, N and MPa in calculations; bar for hydraulics/pneumatics (1 bar = 0.1 MPa).</text>
+<rect x="760.0" y="1044.0" width="420.0" height="82.0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="760.0" y1="1074.0" x2="1180.0" y2="1074.0" stroke="#000" stroke-width="1"/>
+<text x="770.0" y="1065.0" font-size="14" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the current standard</text>
+<text x="770.0" y="1094.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">14_unit_conversion – conversion sheet</text>
+<text x="770.0" y="1112.0" font-size="11" text-anchor="start" fill="#000">Guide 14 §17 · ISO 80000 / SI brochure</text>
+<text x="1170.0" y="1120.0" font-size="11" text-anchor="end" fill="#555">values from guide 14 · rev A</text>
+</svg>

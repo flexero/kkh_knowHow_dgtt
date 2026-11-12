@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 900" width="1300" height="900" font-family="Arial, Helvetica, sans-serif">
+<title>Release rules CONWIP kanban DBR</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><pattern id="hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#222" stroke-width="1"/></pattern><pattern id="hatchr" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#c0392b" stroke-width="1.2"/></pattern></defs>
+<rect x="0" y="0" width="1300" height="900" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">02 – Release (order-start) rules: CONWIP, kanban and drum-buffer-rope (DBR) – card / signal loops, with our line values</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Boxes = process steps, triangles = WIP, accent loops = information (cards / signals). Push (MRP) has no loop: work starts because a plan says so.</text>
+<text x="20.0" y="90.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">(1) CONWIP – constant WIP for the whole line</text>
+<rect x="150.0" y="130.0" width="110.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="205.0" y="150.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">LOAD-CC</text>
+<text x="205.0" y="166.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">89 s</text>
+<line x1="260.0" y1="153.0" x2="300.0" y2="153.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<path d="M315.0,144.1 L326.0,163.9 L304.0,163.9 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="315.0" y="162.3" font-size="11" text-anchor="middle" font-weight="bold" fill="#111"></text>
+<rect x="330.0" y="130.0" width="110.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="385.0" y="150.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">HMC ×3</text>
+<text x="385.0" y="166.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">343.5 s</text>
+<line x1="440.0" y1="153.0" x2="480.0" y2="153.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<path d="M495.0,144.1 L506.0,163.9 L484.0,163.9 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="495.0" y="162.3" font-size="11" text-anchor="middle" font-weight="bold" fill="#111"></text>
+<rect x="510.0" y="130.0" width="110.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="565.0" y="150.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">ASSY</text>
+<text x="565.0" y="166.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">199 s</text>
+<line x1="620.0" y1="153.0" x2="660.0" y2="153.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<path d="M675.0,144.1 L686.0,163.9 L664.0,163.9 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="675.0" y="162.3" font-size="11" text-anchor="middle" font-weight="bold" fill="#111"></text>
+<rect x="690.0" y="130.0" width="110.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="745.0" y="150.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">TEST ×2</text>
+<text x="745.0" y="166.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">354 s</text>
+<line x1="800.0" y1="153.0" x2="840.0" y2="153.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<path d="M855.0,144.1 L866.0,163.9 L844.0,163.9 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="855.0" y="162.3" font-size="11" text-anchor="middle" font-weight="bold" fill="#111"></text>
+<rect x="870.0" y="130.0" width="110.0" height="46.0" rx="0" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="925.0" y="150.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">FINAL</text>
+<text x="925.0" y="166.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">209 s ← rb</text>
+<text x="60.0" y="158.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">orders</text>
+<line x1="80.0" y1="153.0" x2="150.0" y2="153.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<line x1="980.0" y1="153.0" x2="1040.0" y2="153.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<text x="1045.0" y="157.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">FG</text>
+<path d="M925,130 L925,110 L205,110 L205,128" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#ar)"/>
+<text x="565.0" y="104.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#c0392b">card returns when a unit leaves the line → a new unit may start  (w cards = WIP cap, e.g. w = 40)</text>
+<text x="1110.0" y="135.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">WIP cap w; Little:</text>
+<text x="1110.0" y="152.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">lead time = w ÷ TH</text>
+<text x="1110.0" y="169.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">w = 40 → 2.75 h</text>
+<text x="20.0" y="240.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">(2) Kanban – one loop per supermarket (pull from the customer step)</text>
+<rect x="150.0" y="280.0" width="110.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="205.0" y="300.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">VMC → HONE</text>
+<text x="205.0" y="316.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">100.5 / 89.5 s</text>
+<rect x="380.0" y="270.0" width="120.0" height="66.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.4"/>
+<text x="440.0" y="292.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">supermarket</text>
+<text x="440.0" y="308.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">B_CYL 12 / model</text>
+<text x="440.0" y="324.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">trigger 6</text>
+<rect x="560.0" y="280.0" width="110.0" height="46.0" rx="0" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="615.0" y="300.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">ASSY-01</text>
+<text x="615.0" y="316.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">kit check</text>
+<line x1="260.0" y1="303.0" x2="380.0" y2="303.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<line x1="500.0" y1="303.0" x2="560.0" y2="303.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<path d="M440,336 L440,360 L205,360 L205,328" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#ar)"/>
+<text x="322.0" y="375.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#c0392b">withdrawal → production kanban (signal at trigger)</text>
+<rect x="760.0" y="280.0" width="110.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="815.0" y="300.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">LATHE → GRIND</text>
+<text x="815.0" y="316.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">169 / 189 s</text>
+<rect x="990.0" y="270.0" width="120.0" height="66.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.4"/>
+<text x="1050.0" y="292.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">supermarket</text>
+<text x="1050.0" y="308.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">B_CS 8 / model</text>
+<text x="1050.0" y="324.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">trigger 4</text>
+<line x1="870.0" y1="303.0" x2="990.0" y2="303.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<line x1="1110.0" y1="303.0" x2="1160.0" y2="303.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<text x="1165.0" y="307.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">to ASSY</text>
+<path d="M1050,336 L1050,360 L815,360 L815,328" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#ar)"/>
+<text x="932.0" y="375.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#c0392b">N = D × T × (1 + α) ÷ container</text>
+<text x="20.0" y="415.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">(3) Drum–buffer–rope – release at the pace of the bottleneck (drum = FINAL-01)</text>
+<rect x="150.0" y="455.0" width="110.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="205.0" y="475.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">LOAD-CC</text>
+<text x="205.0" y="491.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">release point</text>
+<rect x="330.0" y="455.0" width="110.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="385.0" y="475.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">HMC / WASH</text>
+<text x="385.0" y="491.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">non-drum</text>
+<rect x="510.0" y="455.0" width="130.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="575.0" y="475.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">ASSY…PAINT</text>
+<text x="575.0" y="491.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">non-drum</text>
+<rect x="670.0" y="453.0" width="70.0" height="50.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="705.0" y="475.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">time</text>
+<text x="705.0" y="491.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">buffer</text>
+<rect x="750.0" y="455.0" width="110.0" height="46.0" rx="0" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="805.0" y="475.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">FINAL-01</text>
+<text x="805.0" y="491.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">drum 209 s</text>
+<line x1="260.0" y1="478.0" x2="330.0" y2="478.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<line x1="440.0" y1="478.0" x2="510.0" y2="478.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<line x1="640.0" y1="478.0" x2="670.0" y2="478.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<line x1="740.0" y1="478.0" x2="750.0" y2="478.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<line x1="860.0" y1="478.0" x2="920.0" y2="478.0" stroke="#222" stroke-width="1.4" marker-end="url(#ak)"/>
+<text x="925.0" y="482.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">FG</text>
+<path d="M805,501 L805,535 L205,535 L205,503" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#ar)"/>
+<text x="460.0" y="550.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#c0392b">rope: release = drum schedule − (23.6 min upstream flow + 60 min buffer) = 1.39 h ahead → ≈ 24 units</text>
+<text x="980.0" y="465.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">protect only the drum;</text>
+<text x="980.0" y="481.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">other steps have spare</text>
+<text x="980.0" y="497.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">capacity (guide 13 §5.4)</text>
+<text x="20.0" y="590.0" font-size="13" text-anchor="start" font-weight="bold" fill="#111">(4) Throughput vs WIP of our line (Hopp &amp; Spearman benchmarks): rb = 17.2 units/h, T0 = 1 744 s = 0.484 h, W0 = rb × T0 = 8.3 units</text>
+<line x1="90.0" y1="800.0" x2="730.0" y2="800.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="84.0" y="804.0" font-size="11" text-anchor="end" font-weight="normal" fill="#555">0</text>
+<line x1="90.0" y1="768.3" x2="730.0" y2="768.3" stroke="#e6e6e6" stroke-width="1"/>
+<text x="84.0" y="772.3" font-size="11" text-anchor="end" font-weight="normal" fill="#555">3</text>
+<line x1="90.0" y1="736.7" x2="730.0" y2="736.7" stroke="#e6e6e6" stroke-width="1"/>
+<text x="84.0" y="740.7" font-size="11" text-anchor="end" font-weight="normal" fill="#555">6</text>
+<line x1="90.0" y1="705.0" x2="730.0" y2="705.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="84.0" y="709.0" font-size="11" text-anchor="end" font-weight="normal" fill="#555">9</text>
+<line x1="90.0" y1="673.3" x2="730.0" y2="673.3" stroke="#e6e6e6" stroke-width="1"/>
+<text x="84.0" y="677.3" font-size="11" text-anchor="end" font-weight="normal" fill="#555">12</text>
+<line x1="90.0" y1="641.7" x2="730.0" y2="641.7" stroke="#e6e6e6" stroke-width="1"/>
+<text x="84.0" y="645.7" font-size="11" text-anchor="end" font-weight="normal" fill="#555">15</text>
+<line x1="90.0" y1="610.0" x2="730.0" y2="610.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="84.0" y="614.0" font-size="11" text-anchor="end" font-weight="normal" fill="#555">18</text>
+<text x="90.0" y="815.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">0</text>
+<text x="154.0" y="815.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">10</text>
+<text x="218.0" y="815.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">20</text>
+<text x="282.0" y="815.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">30</text>
+<text x="346.0" y="815.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">40</text>
+<text x="410.0" y="815.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">50</text>
+<text x="474.0" y="815.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">60</text>
+<text x="538.0" y="815.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">70</text>
+<text x="602.0" y="815.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">80</text>
+<text x="666.0" y="815.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">90</text>
+<text x="730.0" y="815.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">100</text>
+<rect x="90.0" y="610.0" width="640.0" height="190.0" rx="0" fill="none" stroke="#222" stroke-width="1.2"/>
+<text x="410.0" y="832.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">WIP w in the line [units]</text>
+<text x="40.0" y="705.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111" transform="rotate(-90 40.0 705.0)">TH [units/h]</text>
+<path d="M93.2,789.1 L96.4,778.2 L99.6,767.3 L102.8,756.4 L106.0,745.5 L109.2,734.6 L112.4,723.7 L115.6,712.8 L118.8,701.9 L122.0,691.1 L125.2,680.2 L128.4,669.3 L131.6,658.4 L134.8,647.5 L138.0,636.6 L141.2,625.7 L144.4,618.2 L147.6,618.2 L150.8,618.2 L154.0,618.2 L157.2,618.2 L160.4,618.2 L163.6,618.2 L166.8,618.2 L170.0,618.2 L173.2,618.2 L176.4,618.2 L179.6,618.2 L182.8,618.2 L186.0,618.2 L189.2,618.2 L192.4,618.2 L195.6,618.2 L198.8,618.2 L202.0,618.2 L205.2,618.2 L208.4,618.2 L211.6,618.2 L214.8,618.2 L218.0,618.2 L221.2,618.2 L224.4,618.2 L227.6,618.2 L230.8,618.2 L234.0,618.2 L237.2,618.2 L240.4,618.2 L243.6,618.2 L246.8,618.2 L250.0,618.2 L253.2,618.2 L256.4,618.2 L259.6,618.2 L262.8,618.2 L266.0,618.2 L269.2,618.2 L272.4,618.2 L275.6,618.2 L278.8,618.2 L282.0,618.2 L285.2,618.2 L288.4,618.2 L291.6,618.2 L294.8,618.2 L298.0,618.2 L301.2,618.2 L304.4,618.2 L307.6,618.2 L310.8,618.2 L314.0,618.2 L317.2,618.2 L320.4,618.2 L323.6,618.2 L326.8,618.2 L330.0,618.2 L333.2,618.2 L336.4,618.2 L339.6,618.2 L342.8,618.2 L346.0,618.2 L349.2,618.2 L352.4,618.2 L355.6,618.2 L358.8,618.2 L362.0,618.2 L365.2,618.2 L368.4,618.2 L371.6,618.2 L374.8,618.2 L378.0,618.2 L381.2,618.2 L384.4,618.2 L387.6,618.2 L390.8,618.2 L394.0,618.2 L397.2,618.2 L400.4,618.2 L403.6,618.2 L406.8,618.2 L410.0,618.2 L413.2,618.2 L416.4,618.2 L419.6,618.2 L422.8,618.2 L426.0,618.2 L429.2,618.2 L432.4,618.2 L435.6,618.2 L438.8,618.2 L442.0,618.2 L445.2,618.2 L448.4,618.2 L451.6,618.2 L454.8,618.2 L458.0,618.2 L461.2,618.2 L464.4,618.2 L467.6,618.2 L470.8,618.2 L474.0,618.2 L477.2,618.2 L480.4,618.2 L483.6,618.2 L486.8,618.2 L490.0,618.2 L493.2,618.2 L496.4,618.2 L499.6,618.2 L502.8,618.2 L506.0,618.2 L509.2,618.2 L512.4,618.2 L515.6,618.2 L518.8,618.2 L522.0,618.2 L525.2,618.2 L528.4,618.2 L531.6,618.2 L534.8,618.2 L538.0,618.2 L541.2,618.2 L544.4,618.2 L547.6,618.2 L550.8,618.2 L554.0,618.2 L557.2,618.2 L560.4,618.2 L563.6,618.2 L566.8,618.2 L570.0,618.2 L573.2,618.2 L576.4,618.2 L579.6,618.2 L582.8,618.2 L586.0,618.2 L589.2,618.2 L592.4,618.2 L595.6,618.2 L598.8,618.2 L602.0,618.2 L605.2,618.2 L608.4,618.2 L611.6,618.2 L614.8,618.2 L618.0,618.2 L621.2,618.2 L624.4,618.2 L627.6,618.2 L630.8,618.2 L634.0,618.2 L637.2,618.2 L640.4,618.2 L643.6,618.2 L646.8,618.2 L650.0,618.2 L653.2,618.2 L656.4,618.2 L659.6,618.2 L662.8,618.2 L666.0,618.2 L669.2,618.2 L672.4,618.2 L675.6,618.2 L678.8,618.2 L682.0,618.2 L685.2,618.2 L688.4,618.2 L691.6,618.2 L694.8,618.2 L698.0,618.2 L701.2,618.2 L704.4,618.2 L707.6,618.2 L710.8,618.2 L714.0,618.2 L717.2,618.2 L720.4,618.2 L723.6,618.2 L726.8,618.2 L730.0,618.2" fill="none" stroke="#222" stroke-width="2"/>
+<path d="M96.4,778.2 L99.6,769.2 L102.8,761.1 L106.0,753.8 L109.2,747.3 L112.4,741.3 L115.6,735.9 L118.8,730.9 L122.0,726.4 L125.2,722.1 L128.4,718.3 L131.6,714.6 L134.8,711.3 L138.0,708.1 L141.2,705.2 L144.4,702.5 L147.6,699.9 L150.8,697.5 L154.0,695.2 L157.2,693.0 L160.4,691.0 L163.6,689.0 L166.8,687.2 L170.0,685.5 L173.2,683.8 L176.4,682.2 L179.6,680.7 L182.8,679.3 L186.0,677.9 L189.2,676.6 L192.4,675.4 L195.6,674.2 L198.8,673.0 L202.0,671.9 L205.2,670.9 L208.4,669.9 L211.6,668.9 L214.8,667.9 L218.0,667.0 L221.2,666.1 L224.4,665.3 L227.6,664.5 L230.8,663.7 L234.0,662.9 L237.2,662.2 L240.4,661.5 L243.6,660.8 L246.8,660.1 L250.0,659.5 L253.2,658.8 L256.4,658.2 L259.6,657.6 L262.8,657.1 L266.0,656.5 L269.2,656.0 L272.4,655.4 L275.6,654.9 L278.8,654.4 L282.0,653.9 L285.2,653.5 L288.4,653.0 L291.6,652.6 L294.8,652.1 L298.0,651.7 L301.2,651.3 L304.4,650.9 L307.6,650.5 L310.8,650.1 L314.0,649.7 L317.2,649.3 L320.4,649.0 L323.6,648.6 L326.8,648.3 L330.0,648.0 L333.2,647.6 L336.4,647.3 L339.6,647.0 L342.8,646.7 L346.0,646.4 L349.2,646.1 L352.4,645.8 L355.6,645.5 L358.8,645.2 L362.0,645.0 L365.2,644.7 L368.4,644.4 L371.6,644.2 L374.8,643.9 L378.0,643.7 L381.2,643.5 L384.4,643.2 L387.6,643.0 L390.8,642.8 L394.0,642.5 L397.2,642.3 L400.4,642.1 L403.6,641.9 L406.8,641.7 L410.0,641.5 L413.2,641.3 L416.4,641.1 L419.6,640.9 L422.8,640.7 L426.0,640.5 L429.2,640.3 L432.4,640.1 L435.6,640.0 L438.8,639.8 L442.0,639.6 L445.2,639.4 L448.4,639.3 L451.6,639.1 L454.8,638.9 L458.0,638.8 L461.2,638.6 L464.4,638.5 L467.6,638.3 L470.8,638.2 L474.0,638.0 L477.2,637.9 L480.4,637.7 L483.6,637.6 L486.8,637.4 L490.0,637.3 L493.2,637.2 L496.4,637.0 L499.6,636.9 L502.8,636.8 L506.0,636.6 L509.2,636.5 L512.4,636.4 L515.6,636.3 L518.8,636.1 L522.0,636.0 L525.2,635.9 L528.4,635.8 L531.6,635.7 L534.8,635.6 L538.0,635.4 L541.2,635.3 L544.4,635.2 L547.6,635.1 L550.8,635.0 L554.0,634.9 L557.2,634.8 L560.4,634.7 L563.6,634.6 L566.8,634.5 L570.0,634.4 L573.2,634.3 L576.4,634.2 L579.6,634.1 L582.8,634.0 L586.0,633.9 L589.2,633.8 L592.4,633.7 L595.6,633.6 L598.8,633.6 L602.0,633.5 L605.2,633.4 L608.4,633.3 L611.6,633.2 L614.8,633.1 L618.0,633.0 L621.2,633.0 L624.4,632.9 L627.6,632.8 L630.8,632.7 L634.0,632.6 L637.2,632.6 L640.4,632.5 L643.6,632.4 L646.8,632.3 L650.0,632.3 L653.2,632.2 L656.4,632.1 L659.6,632.0 L662.8,632.0 L666.0,631.9 L669.2,631.8 L672.4,631.8 L675.6,631.7 L678.8,631.6 L682.0,631.6 L685.2,631.5 L688.4,631.4 L691.6,631.4 L694.8,631.3 L698.0,631.2 L701.2,631.2 L704.4,631.1 L707.6,631.0 L710.8,631.0 L714.0,630.9 L717.2,630.9 L720.4,630.8 L723.6,630.7 L726.8,630.7 L730.0,630.6" fill="none" stroke="#c0392b" stroke-width="2.2"/>
+<path d="M93.2,778.2 L96.4,778.2 L99.6,778.2 L102.8,778.2 L106.0,778.2 L109.2,778.2 L112.4,778.2 L115.6,778.2 L118.8,778.2 L122.0,778.2 L125.2,778.2 L128.4,778.2 L131.6,778.2 L134.8,778.2 L138.0,778.2 L141.2,778.2 L144.4,778.2 L147.6,778.2 L150.8,778.2 L154.0,778.2 L157.2,778.2 L160.4,778.2 L163.6,778.2 L166.8,778.2 L170.0,778.2 L173.2,778.2 L176.4,778.2 L179.6,778.2 L182.8,778.2 L186.0,778.2 L189.2,778.2 L192.4,778.2 L195.6,778.2 L198.8,778.2 L202.0,778.2 L205.2,778.2 L208.4,778.2 L211.6,778.2 L214.8,778.2 L218.0,778.2 L221.2,778.2 L224.4,778.2 L227.6,778.2 L230.8,778.2 L234.0,778.2 L237.2,778.2 L240.4,778.2 L243.6,778.2 L246.8,778.2 L250.0,778.2 L253.2,778.2 L256.4,778.2 L259.6,778.2 L262.8,778.2 L266.0,778.2 L269.2,778.2 L272.4,778.2 L275.6,778.2 L278.8,778.2 L282.0,778.2 L285.2,778.2 L288.4,778.2 L291.6,778.2 L294.8,778.2 L298.0,778.2 L301.2,778.2 L304.4,778.2 L307.6,778.2 L310.8,778.2 L314.0,778.2 L317.2,778.2 L320.4,778.2 L323.6,778.2 L326.8,778.2 L330.0,778.2 L333.2,778.2 L336.4,778.2 L339.6,778.2 L342.8,778.2 L346.0,778.2 L349.2,778.2 L352.4,778.2 L355.6,778.2 L358.8,778.2 L362.0,778.2 L365.2,778.2 L368.4,778.2 L371.6,778.2 L374.8,778.2 L378.0,778.2 L381.2,778.2 L384.4,778.2 L387.6,778.2 L390.8,778.2 L394.0,778.2 L397.2,778.2 L400.4,778.2 L403.6,778.2 L406.8,778.2 L410.0,778.2 L413.2,778.2 L416.4,778.2 L419.6,778.2 L422.8,778.2 L426.0,778.2 L429.2,778.2 L432.4,778.2 L435.6,778.2 L438.8,778.2 L442.0,778.2 L445.2,778.2 L448.4,778.2 L451.6,778.2 L454.8,778.2 L458.0,778.2 L461.2,778.2 L464.4,778.2 L467.6,778.2 L470.8,778.2 L474.0,778.2 L477.2,778.2 L480.4,778.2 L483.6,778.2 L486.8,778.2 L490.0,778.2 L493.2,778.2 L496.4,778.2 L499.6,778.2 L502.8,778.2 L506.0,778.2 L509.2,778.2 L512.4,778.2 L515.6,778.2 L518.8,778.2 L522.0,778.2 L525.2,778.2 L528.4,778.2 L531.6,778.2 L534.8,778.2 L538.0,778.2 L541.2,778.2 L544.4,778.2 L547.6,778.2 L550.8,778.2 L554.0,778.2 L557.2,778.2 L560.4,778.2 L563.6,778.2 L566.8,778.2 L570.0,778.2 L573.2,778.2 L576.4,778.2 L579.6,778.2 L582.8,778.2 L586.0,778.2 L589.2,778.2 L592.4,778.2 L595.6,778.2 L598.8,778.2 L602.0,778.2 L605.2,778.2 L608.4,778.2 L611.6,778.2 L614.8,778.2 L618.0,778.2 L621.2,778.2 L624.4,778.2 L627.6,778.2 L630.8,778.2 L634.0,778.2 L637.2,778.2 L640.4,778.2 L643.6,778.2 L646.8,778.2 L650.0,778.2 L653.2,778.2 L656.4,778.2 L659.6,778.2 L662.8,778.2 L666.0,778.2 L669.2,778.2 L672.4,778.2 L675.6,778.2 L678.8,778.2 L682.0,778.2 L685.2,778.2 L688.4,778.2 L691.6,778.2 L694.8,778.2 L698.0,778.2 L701.2,778.2 L704.4,778.2 L707.6,778.2 L710.8,778.2 L714.0,778.2 L717.2,778.2 L720.4,778.2 L723.6,778.2 L726.8,778.2 L730.0,778.2" fill="none" stroke="#222" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="173.2" y="633.2" font-size="11" text-anchor="start" font-weight="normal" fill="#111">best case: min(w ÷ T0, rb)</text>
+<text x="218.0" y="692.3" font-size="11" text-anchor="start" font-weight="normal" fill="#c0392b">practical worst case: TH = w ÷ (W0 + w − 1) × rb</text>
+<text x="474.0" y="772.2" font-size="11" text-anchor="start" font-weight="normal" fill="#111">worst case: 1 ÷ T0 = 2.1 units/h</text>
+<circle cx="346.0" cy="648.0" r="5" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="354.0" y="664.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">twin 24 h run: w ≈ 40, TH 14.4/h (PWC 14.55)</text>
+<line x1="143.4" y1="610.0" x2="143.4" y2="800.0" stroke="#222" stroke-width="1" stroke-dasharray="2 3"/>
+<text x="147.4" y="760.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">W0 = 8.3</text>
+<text x="770.0" y="620.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">w</text>
+<text x="865.0" y="620.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">TH PWC</text>
+<text x="960.0" y="620.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">lead time</text>
+<text x="1055.0" y="620.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">% of rb</text>
+<text x="770.0" y="638.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">10</text>
+<text x="865.0" y="638.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">9.93</text>
+<text x="960.0" y="638.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">1.01 h</text>
+<text x="1055.0" y="638.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">57.7 %</text>
+<text x="770.0" y="656.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">20</text>
+<text x="865.0" y="656.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">12.60</text>
+<text x="960.0" y="656.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">1.59 h</text>
+<text x="1055.0" y="656.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">73.1 %</text>
+<text x="770.0" y="674.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">40</text>
+<text x="865.0" y="674.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">14.55</text>
+<text x="960.0" y="674.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">2.75 h</text>
+<text x="1055.0" y="674.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">84.5 %</text>
+<text x="770.0" y="692.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">80</text>
+<text x="865.0" y="692.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">15.78</text>
+<text x="960.0" y="692.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">5.07 h</text>
+<text x="1055.0" y="692.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">91.6 %</text>
+<text x="770.0" y="710.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">140</text>
+<text x="865.0" y="710.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">16.37</text>
+<text x="960.0" y="710.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">8.55 h</text>
+<text x="1055.0" y="710.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">95.0 %</text>
+<text x="770.0" y="736.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">lead time CT = T0 + (w − 1) ÷ rb  (PWC)</text>
+<text x="770.0" y="754.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">more WIP → little more output, much longer lead time</text>
+<rect x="850.0" y="830.0" width="440.0" height="60.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="850.0" y1="850.0" x2="1290.0" y2="850.0" stroke="#222" stroke-width="1"/>
+<line x1="1160.0" y1="850.0" x2="1160.0" y2="890.0" stroke="#222" stroke-width="1"/>
+<text x="858.0" y="845.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – planning sketch</text>
+<text x="1282.0" y="845.0" font-size="11" text-anchor="end" font-weight="normal" fill="#444">Guide 02 – FMS and order flow</text>
+<text x="858.0" y="868.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Release rules – CONWIP / kanban / DBR</text>
+<text x="858.0" y="883.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">card loops + throughput–WIP benchmark</text>
+<text x="1168.0" y="868.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">DWG 02-08</text>
+<text x="1168.0" y="883.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">not to scale for build</text>
+</svg>

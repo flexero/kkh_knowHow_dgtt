@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 900" width="1500" height="900" font-family="Arial, Helvetica, sans-serif">
+<title>AGV drive kinematics – differential, tricycle, mecanum (example values)</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1500" height="900" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="18" text-anchor="start" fill="#000" font-weight="bold">Drive kinematics – what the navigation PC must calculate every cycle (10 ms)</text>
+<text x="24.0" y="52.0" font-size="12" text-anchor="start" fill="#444">Top views, driving direction ▲ (x forward, y to the left, ω positive = turn left). Example numbers from guide 11 §19 – verified with Python.</text>
+<rect x="20.0" y="70.0" width="470.0" height="500.0" rx="0" fill="none" stroke="#000" stroke-width="1.2" />
+<text x="30.0" y="92.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">1 · Differential drive (items 1 and 3)</text>
+<rect x="110.0" y="190.0" width="120.0" height="220.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.6" />
+<path d="M134.0,278.0 L118.0,278.0 L118.0,322.0 L134.0,322.0 Z" fill="#000" stroke="#000" stroke-width="1" />
+<path d="M222.0,278.0 L206.0,278.0 L206.0,322.0 L222.0,322.0 Z" fill="#000" stroke="#000" stroke-width="1" />
+<circle cx="130.0" cy="215.0" r="7.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<circle cx="130.0" cy="385.0" r="7.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<circle cx="210.0" cy="215.0" r="7.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<circle cx="210.0" cy="385.0" r="7.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<circle cx="80.0" cy="300.0" r="4.0" fill="#c62828" stroke="#c62828" stroke-width="1.2"/>
+<text x="76.0" y="318.0" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">ICR</text>
+<line x1="80.0" y1="300.0" x2="170.0" y2="300.0" stroke="#c62828" stroke-width="1" stroke-dasharray="5 3" />
+<text x="76.0" y="334.0" font-size="11" text-anchor="middle" fill="#c62828">R = v/ω = 1.0 m</text>
+<text x="76.0" y="348.0" font-size="11" text-anchor="middle" fill="#c62828">(not to scale)</text>
+<line x1="214.0" y1="300.0" x2="214.0" y2="212.2" stroke="#c62828" stroke-width="2" marker-end="url(#ar)" />
+<line x1="126.0" y1="300.0" x2="126.0" y2="243.8" stroke="#c62828" stroke-width="2" marker-end="url(#ar)" />
+<text x="236.0" y="240.0" font-size="11" text-anchor="start" fill="#c62828">v_R 0.732</text>
+<text x="104.0" y="260.0" font-size="11" text-anchor="end" fill="#c62828">v_L 0.468</text>
+<line x1="126.0" y1="428.0" x2="214.0" y2="428.0" stroke="#000" stroke-width="0.9" marker-end="url(#ak)" marker-start="url(#ak)" />
+<text x="170.0" y="424.0" font-size="11" text-anchor="middle" fill="#000">b = 0.44 m</text>
+<path d="M140.0,170.0 A 40 40 0 0 0 200.0,170.0" fill="none" stroke="#000" stroke-width="1.2" marker-start="url(#ak)"/>
+<text x="170.0" y="150.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">ω</text>
+<text x="280.0" y="130.0" font-size="12" text-anchor="start" fill="#000">v = (v_R + v_L) / 2</text>
+<text x="280.0" y="150.0" font-size="12" text-anchor="start" fill="#000">ω = (v_R − v_L) / b</text>
+<text x="280.0" y="170.0" font-size="12" text-anchor="start" fill="#000">v_R = v + ω·b/2 ,  v_L = v − ω·b/2</text>
+<text x="280.0" y="190.0" font-size="12" text-anchor="start" fill="#000">R = v / ω</text>
+<text x="34.0" y="470.0" font-size="12" text-anchor="start" fill="#000">Example: v 0.6 m/s on R 1.0 m → ω 0.6 rad/s</text>
+<text x="34.0" y="486.0" font-size="12" text-anchor="start" fill="#000">v_R 0.732 · v_L 0.468 m/s</text>
+<text x="34.0" y="502.0" font-size="12" text-anchor="start" fill="#000">= 1864 / 1192 rpm at the motor (2546 rpm per m/s)</text>
+<text x="34.0" y="518.0" font-size="12" text-anchor="start" fill="#000">Turn on the spot: v = 0, v_R = −v_L = ω·b/2</text>
+<text x="34.0" y="534.0" font-size="12" text-anchor="start" fill="#000">+ simple, cheap, robust, good odometry</text>
+<text x="34.0" y="550.0" font-size="12" text-anchor="start" fill="#000">− cannot move sideways; 2 castors or 4</text>
+<rect x="510.0" y="70.0" width="470.0" height="500.0" rx="0" fill="none" stroke="#000" stroke-width="1.2" />
+<text x="520.0" y="92.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">2 · Tricycle (steer-drive unit in front)</text>
+<rect x="680.0" y="230.0" width="120.0" height="210.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.6" />
+<path d="M698.0,378.0 L682.0,378.0 L682.0,422.0 L698.0,422.0 Z" fill="#000" stroke="#000" stroke-width="1" />
+<path d="M798.0,378.0 L782.0,378.0 L782.0,422.0 L798.0,422.0 Z" fill="#000" stroke="#000" stroke-width="1" />
+<path d="M757.9,254.9 L744.1,246.9 L722.1,285.1 L735.9,293.1 Z" fill="#000" stroke="#000" stroke-width="1" />
+<line x1="740.0" y1="270.0" x2="740.0" y2="400.0" stroke="#000" stroke-width="0.8" stroke-dasharray="4 3" />
+<line x1="820.0" y1="270.0" x2="820.0" y2="400.0" stroke="#000" stroke-width="0.9" marker-end="url(#ak)" marker-start="url(#ak)" />
+<text x="826.0" y="335.0" font-size="11" text-anchor="middle" fill="#000" transform="rotate(90 826.0 335.0)">L = 0.9 m</text>
+<circle cx="514.8" cy="400.0" r="4.0" fill="#c62828" stroke="#c62828" stroke-width="1.2"/>
+<text x="514.8" y="418.0" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">ICR</text>
+<line x1="514.8" y1="400.0" x2="800.0" y2="400.0" stroke="#c62828" stroke-width="1" stroke-dasharray="5 3" />
+<line x1="514.8" y1="400.0" x2="740.0" y2="270.0" stroke="#c62828" stroke-width="1" stroke-dasharray="5 3" />
+<text x="544.8" y="434.0" font-size="11" text-anchor="start" fill="#c62828">R = L / tan δ = 1.559 m (not to scale)</text>
+<line x1="740.0" y1="270.0" x2="775.0" y2="209.4" stroke="#c62828" stroke-width="2" marker-end="url(#ar)" />
+<text x="780.0" y="208.0" font-size="11" text-anchor="start" fill="#c62828">v_s 0.6</text>
+<path d="M740.0,230.0 A 40 40 0 0 1 760.0,235.4" fill="none" stroke="#000" stroke-width="1" />
+<text x="726.0" y="224.0" font-size="11" text-anchor="end" fill="#000">δ 30°</text>
+<line x1="740.0" y1="400.0" x2="740.0" y2="348.0" stroke="#c62828" stroke-width="2" marker-end="url(#ar)" />
+<text x="746.0" y="360.0" font-size="11" text-anchor="start" fill="#c62828">v 0.520</text>
+<text x="524.0" y="130.0" font-size="12" text-anchor="start" fill="#000">ω = v_s · sin δ / L</text>
+<text x="524.0" y="150.0" font-size="12" text-anchor="start" fill="#000">v (rear axle) = v_s · cos δ</text>
+<text x="524.0" y="170.0" font-size="12" text-anchor="start" fill="#000">R = L / tan δ</text>
+<text x="524.0" y="456.0" font-size="12" text-anchor="start" fill="#000">Example: v_s 0.6 m/s, δ 30°, L 0.9 m</text>
+<text x="524.0" y="472.0" font-size="12" text-anchor="start" fill="#000">→ v 0.520 m/s · ω 0.333 rad/s · R 1.559 m</text>
+<text x="524.0" y="488.0" font-size="12" text-anchor="start" fill="#000">δ = 85° → R 0.079 m (almost on the spot,</text>
+<text x="524.0" y="504.0" font-size="12" text-anchor="start" fill="#000">turns about the rear axle centre)</text>
+<text x="524.0" y="520.0" font-size="12" text-anchor="start" fill="#000">+ one drive, forklift / tugger standard</text>
+<text x="524.0" y="536.0" font-size="12" text-anchor="start" fill="#000">− large swept area, no sideways move</text>
+<rect x="1000.0" y="70.0" width="480.0" height="500.0" rx="0" fill="none" stroke="#000" stroke-width="1.2" />
+<text x="1010.0" y="92.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">3 · Mecanum (omnidirectional, e.g. KMP 1500)</text>
+<rect x="1040.0" y="180.0" width="180.0" height="240.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.6" />
+<rect x="1061.0" y="198.0" width="18.0" height="44.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<line x1="1062.0" y1="211.0" x2="1078.0" y2="201.0" stroke="#000" stroke-width="1" />
+<line x1="1062.0" y1="221.0" x2="1078.0" y2="211.0" stroke="#000" stroke-width="1" />
+<line x1="1062.0" y1="231.0" x2="1078.0" y2="221.0" stroke="#000" stroke-width="1" />
+<line x1="1062.0" y1="241.0" x2="1078.0" y2="231.0" stroke="#000" stroke-width="1" />
+<text x="1054.0" y="224.0" font-size="11" text-anchor="end" fill="#000" font-weight="bold">1 FL</text>
+<rect x="1181.0" y="198.0" width="18.0" height="44.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<line x1="1182.0" y1="201.0" x2="1198.0" y2="211.0" stroke="#000" stroke-width="1" />
+<line x1="1182.0" y1="211.0" x2="1198.0" y2="221.0" stroke="#000" stroke-width="1" />
+<line x1="1182.0" y1="221.0" x2="1198.0" y2="231.0" stroke="#000" stroke-width="1" />
+<line x1="1182.0" y1="231.0" x2="1198.0" y2="241.0" stroke="#000" stroke-width="1" />
+<text x="1206.0" y="224.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">2 FR</text>
+<rect x="1061.0" y="358.0" width="18.0" height="44.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<line x1="1062.0" y1="361.0" x2="1078.0" y2="371.0" stroke="#000" stroke-width="1" />
+<line x1="1062.0" y1="371.0" x2="1078.0" y2="381.0" stroke="#000" stroke-width="1" />
+<line x1="1062.0" y1="381.0" x2="1078.0" y2="391.0" stroke="#000" stroke-width="1" />
+<line x1="1062.0" y1="391.0" x2="1078.0" y2="401.0" stroke="#000" stroke-width="1" />
+<text x="1054.0" y="384.0" font-size="11" text-anchor="end" fill="#000" font-weight="bold">3 RL</text>
+<rect x="1181.0" y="358.0" width="18.0" height="44.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<line x1="1182.0" y1="371.0" x2="1198.0" y2="361.0" stroke="#000" stroke-width="1" />
+<line x1="1182.0" y1="381.0" x2="1198.0" y2="371.0" stroke="#000" stroke-width="1" />
+<line x1="1182.0" y1="391.0" x2="1198.0" y2="381.0" stroke="#000" stroke-width="1" />
+<line x1="1182.0" y1="401.0" x2="1198.0" y2="391.0" stroke="#000" stroke-width="1" />
+<text x="1206.0" y="384.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">4 RR</text>
+<line x1="1070.0" y1="432.0" x2="1190.0" y2="432.0" stroke="#000" stroke-width="0.9" marker-end="url(#ak)" marker-start="url(#ak)" />
+<text x="1130.0" y="428.0" font-size="11" text-anchor="middle" fill="#000">2·l_y = 0.6</text>
+<line x1="1020.0" y1="220.0" x2="1020.0" y2="380.0" stroke="#000" stroke-width="0.9" marker-end="url(#ak)" marker-start="url(#ak)" />
+<text x="1014.0" y="300.0" font-size="11" text-anchor="middle" fill="#000" transform="rotate(-90 1014.0 300.0)">2·l_x = 0.8</text>
+<line x1="1130.0" y1="300.0" x2="1130.0" y2="250.0" stroke="#c62828" stroke-width="2" marker-end="url(#ar)" />
+<text x="1134.0" y="248.0" font-size="11" text-anchor="start" fill="#c62828">v_x</text>
+<line x1="1130.0" y1="300.0" x2="1080.0" y2="300.0" stroke="#c62828" stroke-width="2" marker-end="url(#ar)" />
+<text x="1078.0" y="294.0" font-size="11" text-anchor="end" fill="#c62828">v_y</text>
+<text x="1270.0" y="140.0" font-size="12" text-anchor="start" fill="#000">ω1 = (v_x − v_y − k·ω) / r</text>
+<text x="1270.0" y="160.0" font-size="12" text-anchor="start" fill="#000">ω2 = (v_x + v_y + k·ω) / r</text>
+<text x="1270.0" y="180.0" font-size="12" text-anchor="start" fill="#000">ω3 = (v_x + v_y − k·ω) / r</text>
+<text x="1270.0" y="200.0" font-size="12" text-anchor="start" fill="#000">ω4 = (v_x − v_y + k·ω) / r</text>
+<text x="1270.0" y="220.0" font-size="12" text-anchor="start" fill="#000">k = l_x + l_y = 0.7 m, r = 0.1 m</text>
+<text x="1270.0" y="260.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Example (rad/s, rpm at wheel):</text>
+<text x="1270.0" y="282.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">move</text>
+<text x="1356.0" y="282.0" font-size="11" text-anchor="end" fill="#000" font-weight="bold">ω1</text>
+<text x="1392.0" y="282.0" font-size="11" text-anchor="end" fill="#000" font-weight="bold">ω2</text>
+<text x="1428.0" y="282.0" font-size="11" text-anchor="end" fill="#000" font-weight="bold">ω3</text>
+<text x="1464.0" y="282.0" font-size="11" text-anchor="end" fill="#000" font-weight="bold">ω4</text>
+<text x="1270.0" y="300.0" font-size="11" text-anchor="start" fill="#000">v_x 0.5</text>
+<text x="1356.0" y="300.0" font-size="11" text-anchor="end" fill="#000">5.0</text>
+<text x="1392.0" y="300.0" font-size="11" text-anchor="end" fill="#000">5.0</text>
+<text x="1428.0" y="300.0" font-size="11" text-anchor="end" fill="#000">5.0</text>
+<text x="1464.0" y="300.0" font-size="11" text-anchor="end" fill="#000">5.0</text>
+<text x="1270.0" y="318.0" font-size="11" text-anchor="start" fill="#000">v_y 0.3</text>
+<text x="1356.0" y="318.0" font-size="11" text-anchor="end" fill="#000">−3.0</text>
+<text x="1392.0" y="318.0" font-size="11" text-anchor="end" fill="#000">3.0</text>
+<text x="1428.0" y="318.0" font-size="11" text-anchor="end" fill="#000">3.0</text>
+<text x="1464.0" y="318.0" font-size="11" text-anchor="end" fill="#000">−3.0</text>
+<text x="1270.0" y="336.0" font-size="11" text-anchor="start" fill="#000">ω 0.5</text>
+<text x="1356.0" y="336.0" font-size="11" text-anchor="end" fill="#000">−3.5</text>
+<text x="1392.0" y="336.0" font-size="11" text-anchor="end" fill="#000">3.5</text>
+<text x="1428.0" y="336.0" font-size="11" text-anchor="end" fill="#000">−3.5</text>
+<text x="1464.0" y="336.0" font-size="11" text-anchor="end" fill="#000">3.5</text>
+<text x="1270.0" y="360.0" font-size="11" text-anchor="start" fill="#000">5.0 rad/s = 47.7 rpm</text>
+<text x="1014.0" y="470.0" font-size="12" text-anchor="start" fill="#000">+ moves sideways and diagonal, turns on the spot,</text>
+<text x="1014.0" y="486.0" font-size="12" text-anchor="start" fill="#000">  very small aisles, exact docking without manoeuvre</text>
+<text x="1014.0" y="502.0" font-size="12" text-anchor="start" fill="#000">− rollers need a clean, flat, hard floor; low efficiency</text>
+<text x="1014.0" y="518.0" font-size="12" text-anchor="start" fill="#000">  sideways; slip → worse odometry; joints/steps hurt;</text>
+<text x="1014.0" y="534.0" font-size="12" text-anchor="start" fill="#000">  expensive wheels, roller wear (foundry dust!)</text>
+<text x="24.0" y="590.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">Choosing the drive concept (rule of thumb)</text>
+<text x="24.0" y="616.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Concept</text>
+<text x="210.0" y="616.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Degrees of freedom</text>
+<text x="330.0" y="616.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Turn on the spot</text>
+<text x="470.0" y="616.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Floor needs</text>
+<text x="640.0" y="616.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Odometry / accuracy</text>
+<text x="820.0" y="616.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Typical payload</text>
+<text x="1000.0" y="616.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Typical use</text>
+<line x1="24.0" y1="622.0" x2="1480.0" y2="622.0" stroke="#000" stroke-width="1" />
+<text x="24.0" y="642.0" font-size="12" text-anchor="start" fill="#000">Differential + castors</text>
+<text x="210.0" y="642.0" font-size="12" text-anchor="start" fill="#000">2 (v, ω)</text>
+<text x="330.0" y="642.0" font-size="12" text-anchor="start" fill="#000">yes</text>
+<text x="470.0" y="642.0" font-size="12" text-anchor="start" fill="#000">normal industrial</text>
+<text x="640.0" y="642.0" font-size="12" text-anchor="start" fill="#000">good (no wheel slip)</text>
+<text x="820.0" y="642.0" font-size="12" text-anchor="start" fill="#000">50 – 1500 kg</text>
+<text x="1000.0" y="642.0" font-size="12" text-anchor="start" fill="#000">latent / underride, AMR, items 1 + 3</text>
+<text x="24.0" y="664.0" font-size="12" text-anchor="start" fill="#000">Tricycle (steer-drive)</text>
+<text x="210.0" y="664.0" font-size="12" text-anchor="start" fill="#000">2 (v, δ)</text>
+<text x="330.0" y="664.0" font-size="12" text-anchor="start" fill="#000">no (R ≥ 0.08 m)</text>
+<text x="470.0" y="664.0" font-size="12" text-anchor="start" fill="#000">normal</text>
+<text x="640.0" y="664.0" font-size="12" text-anchor="start" fill="#000">good</text>
+<text x="820.0" y="664.0" font-size="12" text-anchor="start" fill="#000">500 – 3000 kg</text>
+<text x="1000.0" y="664.0" font-size="12" text-anchor="start" fill="#000">tugger, forklift AGV, pallet truck</text>
+<text x="24.0" y="686.0" font-size="12" text-anchor="start" fill="#000">Dual steer-drive</text>
+<text x="210.0" y="686.0" font-size="12" text-anchor="start" fill="#000">3 (v_x, v_y, ω)</text>
+<text x="330.0" y="686.0" font-size="12" text-anchor="start" fill="#000">yes</text>
+<text x="470.0" y="686.0" font-size="12" text-anchor="start" fill="#000">normal</text>
+<text x="640.0" y="686.0" font-size="12" text-anchor="start" fill="#000">good</text>
+<text x="820.0" y="686.0" font-size="12" text-anchor="start" fill="#000">1 – 10 t</text>
+<text x="1000.0" y="686.0" font-size="12" text-anchor="start" fill="#000">heavy carriers, assembly-line AGVs</text>
+<text x="24.0" y="708.0" font-size="12" text-anchor="start" fill="#000">Mecanum</text>
+<text x="210.0" y="708.0" font-size="12" text-anchor="start" fill="#000">3 (v_x, v_y, ω)</text>
+<text x="330.0" y="708.0" font-size="12" text-anchor="start" fill="#000">yes</text>
+<text x="470.0" y="708.0" font-size="12" text-anchor="start" fill="#000">flat, clean, hard</text>
+<text x="640.0" y="708.0" font-size="12" text-anchor="start" fill="#000">medium (roller slip)</text>
+<text x="820.0" y="708.0" font-size="12" text-anchor="start" fill="#000">0.5 – 20 t</text>
+<text x="1000.0" y="708.0" font-size="12" text-anchor="start" fill="#000">omni platforms, KMP-type carriers</text>
+<text x="24.0" y="730.0" font-size="12" text-anchor="start" fill="#000">Omni 3-wheel (120°)</text>
+<text x="210.0" y="730.0" font-size="12" text-anchor="start" fill="#000">3</text>
+<text x="330.0" y="730.0" font-size="12" text-anchor="start" fill="#000">yes</text>
+<text x="470.0" y="730.0" font-size="12" text-anchor="start" fill="#000">very flat, clean</text>
+<text x="640.0" y="730.0" font-size="12" text-anchor="start" fill="#000">medium</text>
+<text x="820.0" y="730.0" font-size="12" text-anchor="start" fill="#000">&lt; 200 kg</text>
+<text x="1000.0" y="730.0" font-size="12" text-anchor="start" fill="#000">small robots, labs (not for 1 t)</text>
+<text x="24.0" y="762.0" font-size="12" text-anchor="start" fill="#000">Dual steer-drive: each unit i at (x_i, y_i):  v_ix = v_x − ω·y_i,  v_iy = v_y + ω·x_i,  steering angle = atan2(v_iy, v_ix),  wheel speed = √(v_ix² + v_iy²).</text>
+<text x="24.0" y="782.0" font-size="12" text-anchor="start" fill="#000">Example: units at x = ±0.6 m, v_x 0.5, v_y 0.2 m/s, ω 0.3 rad/s → front unit 0.628 m/s at 37.2°, rear unit 0.500 m/s at 2.3°.</text>
+<text x="24.0" y="802.0" font-size="12" text-anchor="start" fill="#000">Omni 3-wheel (wheels at 90°/210°/330°, R 0.25 m):  v_i = −sin θ_i · v_x + cos θ_i · v_y + R · ω  → v_x 0.4 m/s gives −0.4 / +0.2 / +0.2 m/s.</text>
+<rect x="1016.0" y="812.0" width="470.0" height="74.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4" />
+<line x1="1016.0" y1="836.0" x2="1486.0" y2="836.0" stroke="#000" stroke-width="1" />
+<line x1="1016.0" y1="861.0" x2="1486.0" y2="861.0" stroke="#000" stroke-width="1" />
+<line x1="1316.0" y1="836.0" x2="1316.0" y2="886.0" stroke="#000" stroke-width="1" />
+<text x="1024.0" y="829.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="1024.0" y="853.0" font-size="11" text-anchor="start" fill="#000">Drive kinematics – formulas + examples</text>
+<text x="1324.0" y="853.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">VC-AGV-DOC-1102</text>
+<text x="1024.0" y="878.0" font-size="11" text-anchor="start" fill="#000">Guide 11 – AGV build · Part B · 2026-11-12</text>
+<text x="1324.0" y="878.0" font-size="11" text-anchor="start" fill="#000">not to scale</text>
+</svg>

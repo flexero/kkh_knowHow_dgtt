@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<title>Rotary table B – half section</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1200" height="800" fill="#ffffff"/>
+<rect x="6" y="6" width="1188" height="788" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="30.0" y="36.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold" >Rotary table B-axis – section with duplex worm drive (example geometry of the twin, web/hmc.js)</text>
+<rect x="440.0" y="610.0" width="420.0" height="30.0" fill="#e6e6e6" stroke="#000" stroke-width="1.1"/>
+<rect x="20.0" y="610.0" width="420.0" height="30.0" fill="#e6e6e6" stroke="#000" stroke-width="1.1"/>
+<rect x="812.0" y="340.0" width="48.0" height="300.0" fill="#e6e6e6" stroke="#000" stroke-width="1.1"/>
+<rect x="20.0" y="340.0" width="48.0" height="300.0" fill="#e6e6e6" stroke="#000" stroke-width="1.1"/>
+<rect x="620.0" y="433.6" width="192.0" height="24.0" fill="#e6e6e6" stroke="#000" stroke-width="1.1"/>
+<rect x="68.0" y="433.6" width="192.0" height="24.0" fill="#e6e6e6" stroke="#000" stroke-width="1.1"/>
+<rect x="620.0" y="364.0" width="26.4" height="69.6" fill="#e6e6e6" stroke="#000" stroke-width="1.1"/>
+<rect x="233.6" y="364.0" width="26.4" height="69.6" fill="#e6e6e6" stroke="#000" stroke-width="1.1"/>
+<rect x="788.0" y="361.6" width="24.0" height="72.0" fill="#e6e6e6" stroke="#000" stroke-width="1.1"/>
+<rect x="68.0" y="361.6" width="24.0" height="72.0" fill="#e6e6e6" stroke="#000" stroke-width="1.1"/>
+<rect x="560.0" y="310.0" width="84.0" height="54.0" fill="#cfcfcf" stroke="#000" stroke-width="1.1"/>
+<rect x="236.0" y="310.0" width="84.0" height="54.0" fill="#cfcfcf" stroke="#000" stroke-width="1.1"/>
+<rect x="440.0" y="226.0" width="348.0" height="84.0" fill="#f4f4f4" stroke="#000" stroke-width="1.1"/>
+<rect x="92.0" y="226.0" width="348.0" height="84.0" fill="#f4f4f4" stroke="#000" stroke-width="1.1"/>
+<rect x="536.0" y="310.0" width="24.0" height="162.0" fill="#f4f4f4" stroke="#000" stroke-width="1.1"/>
+<rect x="320.0" y="310.0" width="24.0" height="162.0" fill="#f4f4f4" stroke="#000" stroke-width="1.1"/>
+<rect x="536.0" y="472.0" width="84.0" height="48.0" fill="#c0392b" fill-opacity="0.55" stroke="#000" stroke-width="1.1"/>
+<rect x="260.0" y="472.0" width="84.0" height="48.0" fill="#c0392b" fill-opacity="0.55" stroke="#000" stroke-width="1.1"/>
+<rect x="620.0" y="474.4" width="40.8" height="43.2" fill="#c0392b" fill-opacity="0.55" stroke="#000" stroke-width="1.1"/>
+<rect x="219.2" y="474.4" width="40.8" height="43.2" fill="#c0392b" fill-opacity="0.55" stroke="#000" stroke-width="1.1"/>
+<rect x="728.0" y="340.0" width="78.0" height="21.6" fill="#bdbdbd" stroke="#000" stroke-width="1.1"/>
+<rect x="74.0" y="340.0" width="78.0" height="21.6" fill="#bdbdbd" stroke="#000" stroke-width="1.1"/>
+<rect x="723.2" y="325.6" width="76.8" height="9.6" fill="#bdbdbd" stroke="#000" stroke-width="1.1"/>
+<rect x="80.0" y="325.6" width="76.8" height="9.6" fill="#bdbdbd" stroke="#000" stroke-width="1.1"/>
+<rect x="776.0" y="310.0" width="12.0" height="15.6" fill="#bdbdbd" stroke="#000" stroke-width="1.1"/>
+<rect x="92.0" y="310.0" width="12.0" height="15.6" fill="#bdbdbd" stroke="#000" stroke-width="1.1"/>
+<rect x="560.0" y="394.0" width="9.6" height="24.0" fill="#ffffff" stroke="#000" stroke-width="1.1"/>
+<rect x="310.4" y="394.0" width="9.6" height="24.0" fill="#ffffff" stroke="#000" stroke-width="1.1"/>
+<rect x="574.4" y="395.2" width="27.6" height="21.6" fill="#ffffff" stroke="#000" stroke-width="1.1"/>
+<rect x="278.0" y="395.2" width="27.6" height="21.6" fill="#ffffff" stroke="#000" stroke-width="1.1"/>
+<rect x="593.6" y="416.8" width="26.4" height="16.8" fill="#ffffff" stroke="#000" stroke-width="1.1"/>
+<rect x="260.0" y="416.8" width="26.4" height="16.8" fill="#ffffff" stroke="#000" stroke-width="1.1"/>
+<rect x="440.0" y="508.0" width="54.0" height="102.0" fill="#d9d9d9" stroke="#000" stroke-width="1.1"/>
+<rect x="386.0" y="508.0" width="54.0" height="102.0" fill="#d9d9d9" stroke="#000" stroke-width="1.1"/>
+<rect x="440.0" y="310.0" width="33.6" height="198.0" fill="#d9d9d9" stroke="#000" stroke-width="1.1"/>
+<rect x="406.4" y="310.0" width="33.6" height="198.0" fill="#d9d9d9" stroke="#000" stroke-width="1.1"/>
+<rect x="802.4" y="328.0" width="57.6" height="12.0" fill="#888" stroke="#000" stroke-width="1.1"/>
+<rect x="20.0" y="328.0" width="57.6" height="12.0" fill="#888" stroke="#000" stroke-width="1.1"/>
+<rect x="650.0" y="226.0" width="60.0" height="48.0" fill="#ffffff" stroke="#000" stroke-width="1.1"/>
+<rect x="170.0" y="226.0" width="60.0" height="48.0" fill="#ffffff" stroke="#000" stroke-width="1.1"/>
+<rect x="440.0" y="142.0" width="300.0" height="84.0" fill="#eeeeee" stroke="#000" stroke-width="1.1"/>
+<rect x="140.0" y="142.0" width="300.0" height="84.0" fill="#eeeeee" stroke="#000" stroke-width="1.1"/>
+<rect x="671.6" y="226.0" width="16.8" height="27.6" fill="#eeeeee" stroke="#000" stroke-width="1.1"/>
+<rect x="191.6" y="226.0" width="16.8" height="27.6" fill="#eeeeee" stroke="#000" stroke-width="1.1"/>
+<circle cx="686.0" cy="496.0" r="34.8" fill="#fff" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="686.0" cy="496.0" r="30.0" fill="none" stroke="#c0392b" stroke-width="1" stroke-dasharray="5 3"/>
+<circle cx="686.0" cy="496.0" r="14.4" fill="url(#hat)" stroke="#000"/>
+<line x1="641.0" y1="496.0" x2="731.0" y2="496.0" stroke="#000" stroke-width="0.7" stroke-dasharray="8 3 2 3"/>
+<line x1="686.0" y1="451.0" x2="686.0" y2="541.0" stroke="#000" stroke-width="0.7" stroke-dasharray="8 3 2 3"/>
+<line x1="440.0" y1="652.0" x2="440.0" y2="124.0" stroke="#000" stroke-width="0.9" stroke-dasharray="14 4 3 4"/>
+<text x="446.0" y="132.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" >B-axis</text>
+<line x1="584.0" y1="160.0" x2="890.0" y2="95.0" stroke="#000" stroke-width="0.8" />
+<circle cx="584.0" cy="160.0" r="2.2" fill="#000"/>
+<text x="894.0" y="99.0" font-size="12" text-anchor="start" fill="#000" >Pallet 500 × 500 (110 kg) + load 400 kg</text>
+<line x1="680.0" y1="250.0" x2="890.0" y2="139.0" stroke="#000" stroke-width="0.8" />
+<circle cx="680.0" cy="250.0" r="2.2" fill="#000"/>
+<text x="894.0" y="143.0" font-size="12" text-anchor="start" fill="#000" >Zero-point module (4), spring clamps, oil opens</text>
+<line x1="740.0" y1="268.0" x2="890.0" y2="183.0" stroke="#000" stroke-width="0.8" />
+<circle cx="740.0" cy="268.0" r="2.2" fill="#000"/>
+<text x="894.0" y="187.0" font-size="12" text-anchor="start" fill="#000" >Table top Ø580 + hub sleeve (ground in own bearing)</text>
+<line x1="632.0" y1="325.6" x2="890.0" y2="227.0" stroke="#000" stroke-width="0.8" />
+<circle cx="632.0" cy="325.6" r="2.2" fill="#000"/>
+<text x="894.0" y="231.0" font-size="12" text-anchor="start" fill="#000" >Axial-radial roller bearing (YRT type), M_k ≤ 25 kN·m</text>
+<line x1="836.0" y1="334.0" x2="890.0" y2="271.0" stroke="#000" stroke-width="0.8" />
+<circle cx="836.0" cy="334.0" r="2.2" fill="#000"/>
+<text x="894.0" y="275.0" font-size="12" text-anchor="start" fill="#000" >Labyrinth + seal, sealing air</text>
+<line x1="764.0" y1="350.8" x2="890.0" y2="315.0" stroke="#000" stroke-width="0.8" />
+<circle cx="764.0" cy="350.8" r="2.2" fill="#000"/>
+<text x="894.0" y="319.0" font-size="12" text-anchor="start" fill="#000" >Hydraulic clamp ring + disc, 3 000 N·m at 5 MPa</text>
+<line x1="596.0" y1="406.0" x2="890.0" y2="359.0" stroke="#000" stroke-width="0.8" />
+<circle cx="596.0" cy="406.0" r="2.2" fill="#000"/>
+<text x="894.0" y="363.0" font-size="12" text-anchor="start" fill="#000" >Angle encoder: scale ring + 2 opposite heads, ±2.5″</text>
+<line x1="836.0" y1="448.0" x2="890.0" y2="403.0" stroke="#000" stroke-width="0.8" />
+<circle cx="836.0" cy="448.0" r="2.2" fill="#000"/>
+<text x="894.0" y="407.0" font-size="12" text-anchor="start" fill="#000" >Housing EN-GJL-300</text>
+<line x1="710.0" y1="478.0" x2="890.0" y2="447.0" stroke="#000" stroke-width="0.8" />
+<circle cx="710.0" cy="478.0" r="2.2" fill="#000"/>
+<text x="894.0" y="451.0" font-size="12" text-anchor="start" fill="#000" >Duplex worm d1 50, m 4, z1 1 (axis ⟂ drawing)</text>
+<line x1="644.0" y1="508.0" x2="890.0" y2="491.0" stroke="#000" stroke-width="0.8" />
+<circle cx="644.0" cy="508.0" r="2.2" fill="#000"/>
+<text x="894.0" y="495.0" font-size="12" text-anchor="start" fill="#000" >Worm wheel: bronze rim on steel hub, z2 90, d2 360</text>
+<line x1="464.0" y1="568.0" x2="890.0" y2="535.0" stroke="#000" stroke-width="0.8" />
+<circle cx="464.0" cy="568.0" r="2.2" fill="#000"/>
+<text x="894.0" y="539.0" font-size="12" text-anchor="start" fill="#000" >Rotary union (hydraulics + air)</text>
+<line x1="92.0" y1="100.0" x2="788.0" y2="100.0" stroke="#000" stroke-width="1" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="440.0" y="95.0" font-size="12" text-anchor="middle" fill="#000" >table Ø580</text>
+<line x1="92.0" y1="222.0" x2="92.0" y2="104.0" stroke="#000" stroke-width="0.7" />
+<line x1="788.0" y1="222.0" x2="788.0" y2="104.0" stroke="#000" stroke-width="0.7" />
+<line x1="440.0" y1="496.0" x2="686.0" y2="496.0" stroke="#000" stroke-width="1" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="563.0" y="491.0" font-size="12" text-anchor="middle" fill="#000" ></text>
+<text x="563.0" y="490.0" font-size="12" text-anchor="middle" fill="#c0392b" font-weight="bold" >a = 205</text>
+<line x1="224.0" y1="568.0" x2="656.0" y2="568.0" stroke="#000" stroke-width="1" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="440.0" y="563.0" font-size="12" text-anchor="middle" fill="#000" >wheel pitch Ø d2 = 360</text>
+<line x1="224.0" y1="520.0" x2="224.0" y2="572.0" stroke="#000" stroke-width="0.7" />
+<line x1="656.0" y1="520.0" x2="656.0" y2="572.0" stroke="#000" stroke-width="0.7" />
+<line x1="224.0" y1="520.0" x2="224.0" y2="568.0" stroke="#000" stroke-width="0.6" />
+<rect x="30.0" y="662.0" width="760.0" height="112.0" fill="#fff" stroke="#000" stroke-width="1.2" />
+<text x="42.0" y="684.0" font-size="12" text-anchor="start" fill="#000" >Ratio 1:90 · γ = 4.57° > ρ' = 1.83° → NOT self-locking → clamp + motor brake needed (4.3)</text>
+<text x="42.0" y="703.0" font-size="12" text-anchor="start" fill="#000" >Duplex worm: Δp = 0.2 mm, backlash 0.050 → 0.008 mm by axial shift 2.64 mm (4.8)</text>
+<text x="42.0" y="722.0" font-size="12" text-anchor="start" fill="#000" >Accuracy with 2-head encoder ±2.7″ = 0.003 mm at the pallet edge; without ±18″ (4.9)</text>
+<text x="42.0" y="741.0" font-size="12" text-anchor="start" fill="#000" >Worm servo: 0.4 kW for indexing only; 2.0–3.0 kW for 4-axis cutting while turning (M6.1)</text>
+<text x="42.0" y="760.0" font-size="12" text-anchor="start" fill="#000" >Coloured: worm + wheel (the mesh).  Section is schematic – sizes in mm from the twin</text>
+<g><rect x="830" y="704" width="358" height="84" fill="#fff" stroke="#000" stroke-width="1.2"/><line x1="830" y1="732" x2="1188" y2="732" stroke="#000"/><line x1="830" y1="760" x2="1188" y2="760" stroke="#000"/><text x="838" y="723" font-size="14" font-weight="bold">Rotary table B – section</text><text x="838" y="751" font-size="12">Guide 12, Part 4 · 12_rotary_table_section.svg</text><text x="838" y="779" font-size="12" font-weight="bold" fill="#c0392b">EXAMPLE – check the maker's documentation</text></g>
+</svg>

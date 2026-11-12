@@ -73,7 +73,7 @@ document.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () 
   history.replaceState(null, "", "#" + b.dataset.tab);
   showTab(b.dataset.tab);
 }));
-const TABS = ["live", "fms", "order", "mes", "erp", "scada", "cnc", "hmc", "apc", "mech", "agv", "comm", "whatif", "learn"];
+const TABS = ["live", "fms", "order", "mes", "erp", "scada", "cnc", "hmc", "asm", "apc", "mech", "agv", "robot", "inst", "hyd", "comm", "whatif", "learn"];
 window.addEventListener("load", () => { if (TABS.includes(location.hash.slice(1))) showTab(location.hash.slice(1)); });
 
 /* ------------------------------------------------------- 3D / 2D switch */
@@ -426,6 +426,7 @@ function draw(c, ev) {
 }
 window.addEventListener("resize", drawCharts);
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawCharts);
+window.addEventListener("themechange", drawCharts);
 
 /* ------------------------------------------------------- alarms / events */
 function renderAlarms() {

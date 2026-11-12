@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" width="1240" height="760" font-family="Arial, Helvetica, sans-serif">
+<title>Pallet count chart</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><pattern id="hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#222" stroke-width="1"/></pattern><pattern id="hatchr" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#c0392b" stroke-width="1.2"/></pattern></defs>
+<rect x="0" y="0" width="1240" height="760" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">02 – How many fixture pallets? Pallets needed vs unattended time the cell must bridge (3 HMCs, mix 358.5 s per part incl. pallet change)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">N = 3 in the machines + 1 at the load station + 1 returning + waiting loaded pallets  ⌈ c × T ÷ (q × t) ⌉   (q = parts per pallet, t = 358.5 s, c = 3 HMCs)</text>
+<line x1="110.0" y1="610.0" x2="870.0" y2="610.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="102.0" y="614.0" font-size="11" text-anchor="end" font-weight="normal" fill="#555">0</text>
+<line x1="110.0" y1="535.7" x2="870.0" y2="535.7" stroke="#e6e6e6" stroke-width="1"/>
+<text x="102.0" y="539.7" font-size="11" text-anchor="end" font-weight="normal" fill="#555">10</text>
+<line x1="110.0" y1="461.4" x2="870.0" y2="461.4" stroke="#e6e6e6" stroke-width="1"/>
+<text x="102.0" y="465.4" font-size="11" text-anchor="end" font-weight="normal" fill="#555">20</text>
+<line x1="110.0" y1="387.1" x2="870.0" y2="387.1" stroke="#e6e6e6" stroke-width="1"/>
+<text x="102.0" y="391.1" font-size="11" text-anchor="end" font-weight="normal" fill="#555">30</text>
+<line x1="110.0" y1="312.9" x2="870.0" y2="312.9" stroke="#e6e6e6" stroke-width="1"/>
+<text x="102.0" y="316.9" font-size="11" text-anchor="end" font-weight="normal" fill="#555">40</text>
+<line x1="110.0" y1="238.6" x2="870.0" y2="238.6" stroke="#e6e6e6" stroke-width="1"/>
+<text x="102.0" y="242.6" font-size="11" text-anchor="end" font-weight="normal" fill="#555">50</text>
+<line x1="110.0" y1="164.3" x2="870.0" y2="164.3" stroke="#e6e6e6" stroke-width="1"/>
+<text x="102.0" y="168.3" font-size="11" text-anchor="end" font-weight="normal" fill="#555">60</text>
+<line x1="110.0" y1="90.0" x2="870.0" y2="90.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="102.0" y="94.0" font-size="11" text-anchor="end" font-weight="normal" fill="#555">70</text>
+<line x1="110.0" y1="90.0" x2="110.0" y2="610.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="110.0" y="628.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">0</text>
+<line x1="205.0" y1="90.0" x2="205.0" y2="610.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="205.0" y="628.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">15</text>
+<line x1="300.0" y1="90.0" x2="300.0" y2="610.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="300.0" y="628.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">30</text>
+<line x1="395.0" y1="90.0" x2="395.0" y2="610.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="395.0" y="628.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">45</text>
+<line x1="490.0" y1="90.0" x2="490.0" y2="610.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="490.0" y="628.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">60</text>
+<line x1="585.0" y1="90.0" x2="585.0" y2="610.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="585.0" y="628.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">75</text>
+<line x1="680.0" y1="90.0" x2="680.0" y2="610.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="680.0" y="628.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">90</text>
+<line x1="775.0" y1="90.0" x2="775.0" y2="610.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="775.0" y="628.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">105</text>
+<line x1="870.0" y1="90.0" x2="870.0" y2="610.0" stroke="#e6e6e6" stroke-width="1"/>
+<text x="870.0" y="628.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">120</text>
+<rect x="110.0" y="90.0" width="760.0" height="520.0" rx="0" fill="none" stroke="#222" stroke-width="1.2"/>
+<text x="490.0" y="650.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#111">unattended time T to bridge [min] (load station not staffed: break, shift change, night)</text>
+<text x="40.0" y="350.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#111" transform="rotate(-90 40.0 350.0)">pallets in the system N</text>
+<path d="M110.0,572.9 L110.6,572.9 L110.6,565.4 L122.7,565.4 L122.7,558.0 L135.3,558.0 L135.3,550.6 L148.0,550.6 L148.0,543.1 L160.7,543.1 L160.7,535.7 L173.3,535.7 L173.3,528.3 L186.0,528.3 L186.0,520.9 L198.7,520.9 L198.7,513.4 L211.3,513.4 L211.3,506.0 L224.0,506.0 L224.0,498.6 L236.7,498.6 L236.7,491.1 L249.3,491.1 L249.3,483.7 L262.0,483.7 L262.0,476.3 L274.0,476.3 L274.0,468.9 L286.7,468.9 L286.7,461.4 L299.4,461.4 L299.4,454.0 L312.0,454.0 L312.0,446.6 L324.7,446.6 L324.7,439.1 L337.4,439.1 L337.4,431.7 L350.0,431.7 L350.0,424.3 L362.7,424.3 L362.7,416.9 L375.4,416.9 L375.4,409.4 L388.0,409.4 L388.0,402.0 L400.7,402.0 L400.7,394.6 L413.4,394.6 L413.4,387.1 L425.4,387.1 L425.4,379.7 L438.1,379.7 L438.1,372.3 L450.7,372.3 L450.7,364.9 L463.4,364.9 L463.4,357.4 L476.1,357.4 L476.1,350.0 L488.7,350.0 L488.7,342.6 L501.4,342.6 L501.4,335.1 L514.1,335.1 L514.1,327.7 L526.7,327.7 L526.7,320.3 L539.4,320.3 L539.4,312.9 L552.1,312.9 L552.1,305.4 L564.7,305.4 L564.7,298.0 L576.8,298.0 L576.8,290.6 L589.4,290.6 L589.4,283.1 L602.1,283.1 L602.1,275.7 L614.8,275.7 L614.8,268.3 L627.4,268.3 L627.4,260.9 L640.1,260.9 L640.1,253.4 L652.8,253.4 L652.8,246.0 L665.4,246.0 L665.4,238.6 L678.1,238.6 L678.1,231.1 L690.8,231.1 L690.8,223.7 L703.4,223.7 L703.4,216.3 L716.1,216.3 L716.1,208.9 L728.1,208.9 L728.1,201.4 L740.8,201.4 L740.8,194.0 L753.5,194.0 L753.5,186.6 L766.1,186.6 L766.1,179.1 L778.8,179.1 L778.8,171.7 L791.5,171.7 L791.5,164.3 L804.1,164.3 L804.1,156.9 L816.8,156.9 L816.8,149.4 L829.5,149.4 L829.5,142.0 L842.1,142.0 L842.1,134.6 L854.8,134.6 L854.8,127.1 L867.5,127.1 L867.5,119.7 L870.0,119.7" fill="none" stroke="#222" stroke-width="2.2"/>
+<text x="515.3" y="315.7" font-size="11" text-anchor="end" font-weight="bold" fill="#111">q = 1 part per pallet: 36 at 60 min</text>
+<path d="M110.0,572.9 L110.6,572.9 L110.6,565.4 L135.3,565.4 L135.3,558.0 L160.7,558.0 L160.7,550.6 L186.0,550.6 L186.0,543.1 L211.3,543.1 L211.3,535.7 L236.7,535.7 L236.7,528.3 L262.0,528.3 L262.0,520.9 L286.7,520.9 L286.7,513.4 L312.0,513.4 L312.0,506.0 L337.4,506.0 L337.4,498.6 L362.7,498.6 L362.7,491.1 L388.0,491.1 L388.0,483.7 L413.4,483.7 L413.4,476.3 L438.1,476.3 L438.1,468.9 L463.4,468.9 L463.4,461.4 L488.7,461.4 L488.7,454.0 L514.1,454.0 L514.1,446.6 L539.4,446.6 L539.4,439.1 L564.7,439.1 L564.7,431.7 L589.4,431.7 L589.4,424.3 L614.8,424.3 L614.8,416.9 L640.1,416.9 L640.1,409.4 L665.4,409.4 L665.4,402.0 L690.8,402.0 L690.8,394.6 L716.1,394.6 L716.1,387.1 L740.8,387.1 L740.8,379.7 L766.1,379.7 L766.1,372.3 L791.5,372.3 L791.5,364.9 L816.8,364.9 L816.8,357.4 L842.1,357.4 L842.1,350.0 L867.5,350.0 L867.5,342.6 L870.0,342.6" fill="none" stroke="#222" stroke-width="1.6" stroke-dasharray="7 4"/>
+<text x="857.3" y="342.0" font-size="11" text-anchor="end" font-weight="bold" fill="#222">q = 2 parts per pallet (2-part fixture): 36 at 120 min</text>
+<path d="M110.0,572.9 L110.6,572.9 L110.6,565.4 L160.7,565.4 L160.7,558.0 L211.3,558.0 L211.3,550.6 L262.0,550.6 L262.0,543.1 L312.0,543.1 L312.0,535.7 L362.7,535.7 L362.7,528.3 L413.4,528.3 L413.4,520.9 L463.4,520.9 L463.4,513.4 L514.1,513.4 L514.1,506.0 L564.7,506.0 L564.7,498.6 L614.8,498.6 L614.8,491.1 L665.4,491.1 L665.4,483.7 L716.1,483.7 L716.1,476.3 L766.1,476.3 L766.1,468.9 L816.8,468.9 L816.8,461.4 L867.5,461.4 L867.5,454.0 L870.0,454.0" fill="none" stroke="#c0392b" stroke-width="2.2"/>
+<text x="857.3" y="520.9" font-size="11" text-anchor="end" font-weight="bold" fill="#c0392b">q = 4 parts per pallet (tombstone): 21 at 120 min</text>
+<line x1="110.0" y1="439.1" x2="870.0" y2="439.1" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="864.0" y="433.1" font-size="11" text-anchor="end" font-weight="normal" fill="#c0392b">23 places: 3 tables + 3 APC + 16 rack + 1 LS</text>
+<circle cx="186.0" cy="535.7" r="6" fill="#fff" stroke="#222" stroke-width="2"/>
+<line x1="186.0" y1="541.7" x2="249.3" y2="583.7" stroke="#222" stroke-width="1"/>
+<text x="249.3" y="587.7" font-size="11" text-anchor="start" font-weight="normal" fill="#111">twin: 10 pallets (no return place) → ≈ 12 min cover</text>
+<circle cx="300.0" cy="454.0" r="6" fill="#c0392b" stroke="#222" stroke-width="1.5"/>
+<text x="287.3" y="409.4" font-size="11" text-anchor="end" font-weight="bold" fill="#111">30-min break: 21 pallets (q = 1)</text>
+<line x1="287.3" y1="412.4" x2="300.0" y2="448.0" stroke="#222" stroke-width="1"/>
+<circle cx="490.0" cy="454.0" r="6" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="496.3" y="483.7" font-size="11" text-anchor="start" font-weight="normal" fill="#111">60 min with q = 2: 21 pallets</text>
+<rect x="890.0" y="80.0" width="330.0" height="400.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="900.0" y="100.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">Worked values (q = 1)</text>
+<text x="900.0" y="122.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">T [min]</text>
+<text x="1000.0" y="122.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">waiting</text>
+<text x="1100.0" y="122.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">N total</text>
+<text x="900.0" y="140.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">12</text>
+<text x="1000.0" y="140.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">7</text>
+<text x="1100.0" y="140.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">12</text>
+<text x="900.0" y="158.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">15</text>
+<text x="1000.0" y="158.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">8</text>
+<text x="1100.0" y="158.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">13</text>
+<text x="900.0" y="176.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">30</text>
+<text x="1000.0" y="176.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">16</text>
+<text x="1100.0" y="176.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">21</text>
+<text x="900.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">60</text>
+<text x="1000.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">31</text>
+<text x="1100.0" y="194.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">36</text>
+<text x="900.0" y="212.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">120</text>
+<text x="1000.0" y="212.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">61</text>
+<text x="1100.0" y="212.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">66</text>
+<text x="900.0" y="244.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Example T = 30 min:</text>
+<text x="900.0" y="261.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">waiting = ⌈3 × 1 800 ÷ (1 × 358.5)⌉ = ⌈15.06⌉ = 16</text>
+<text x="900.0" y="278.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">N = 5 + 16 = 21 pallets</text>
+<text x="900.0" y="295.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111"></text>
+<text x="900.0" y="312.0" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Little's law check (minimum to run):</text>
+<text x="900.0" y="329.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">N ≥ λ × W = 30.1/h × 447.5 s = 3.7</text>
+<text x="900.0" y="346.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">(all 3 HMCs busy, no waiting)</text>
+<text x="900.0" y="363.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111"></text>
+<text x="900.0" y="380.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Lights-out 8 h: 241 waiting pallets (q = 1)</text>
+<text x="900.0" y="397.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">or 61 (q = 4) + 5 fixed → long cycles or</text>
+<text x="900.0" y="414.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">multi-part fixtures, or a staffed</text>
+<text x="900.0" y="431.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">load station on every shift.</text>
+<rect x="790.0" y="690.0" width="440.0" height="60.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="790.0" y1="710.0" x2="1230.0" y2="710.0" stroke="#222" stroke-width="1"/>
+<line x1="1100.0" y1="710.0" x2="1100.0" y2="750.0" stroke="#222" stroke-width="1"/>
+<text x="798.0" y="705.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – planning sketch</text>
+<text x="1222.0" y="705.0" font-size="11" text-anchor="end" font-weight="normal" fill="#444">Guide 02 – FMS and order flow</text>
+<text x="798.0" y="728.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Pallet count chart</text>
+<text x="798.0" y="743.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">N vs unattended time, q = 1 / 2 / 4 parts per pallet</text>
+<text x="1108.0" y="728.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">DWG 02-06</text>
+<text x="1108.0" y="743.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">not to scale for build</text>
+</svg>

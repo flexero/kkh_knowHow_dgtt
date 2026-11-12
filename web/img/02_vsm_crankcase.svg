@@ -1,0 +1,269 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1660 980" width="1660" height="980" font-family="Arial, Helvetica, sans-serif">
+<title>Value stream map crankcase path</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><pattern id="hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#222" stroke-width="1"/></pattern><pattern id="hatchr" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#c0392b" stroke-width="1.2"/></pattern></defs>
+<rect x="0" y="0" width="1660" height="980" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">02 – Value stream map (current state, example): crankcase → compressor path, mix 30 / 50 / 20 %, VC20 cycle times</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Process data from config/factory.json; WIP in triangles = typical buffer fill (assumed – read the real fill in the Live factory tab). Waiting time = WIP × takt 270 s (300 units/day, 3 × 7.5 h).</text>
+<rect x="20.0" y="80.0" width="170.0" height="80.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="105.0" y="104.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Foundry A / Forge B</text>
+<text x="105.0" y="122.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">castings, forgings</text>
+<text x="105.0" y="138.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">lead 16 h / 20 h, lot 120</text>
+<rect x="620.0" y="80.0" width="420.0" height="80.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="830.0" y="104.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Production control: ERP (MRP every 1 h) + MES</text>
+<text x="830.0" y="122.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">work orders per model, release EDD, priority MTO 3 / MTS 5</text>
+<text x="830.0" y="138.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">pallets (10) and kanban cards limit WIP</text>
+<rect x="1460.0" y="80.0" width="180.0" height="80.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="1550.0" y="104.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Customers</text>
+<text x="1550.0" y="122.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">300 units/day</text>
+<text x="1550.0" y="138.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">takt 270 s</text>
+<line x1="620.0" y1="120.0" x2="190.0" y2="120.0" stroke="#222" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#ak)"/>
+<text x="405.0" y="114.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">purchase orders (hourly MRP)</text>
+<line x1="1460.0" y1="120.0" x2="1040.0" y2="120.0" stroke="#222" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#ak)"/>
+<text x="1290.0" y="114.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">sales orders (EDI / portal)</text>
+<path d="M760,160 L760,200 L173.0,200 L173.0,298" fill="none" stroke="#222" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#ak)"/>
+<text x="179.0" y="215.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">release (work order + pallet free)</text>
+<path d="M105,160 L105,260" fill="none" stroke="#222" stroke-width="2.5" marker-end="url(#ak)"/>
+<text x="98.0" y="250.0" font-size="11" text-anchor="end" font-weight="normal" fill="#111">truck, lot 120</text>
+<path d="M43.0,305.8 L58.0,332.8 L28.0,332.8 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="43.0" y="330.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">I</text>
+<text x="43.0" y="358.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">720</text>
+<text x="43.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">castings</text>
+<text x="43.0" y="388.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">raw AS/RS</text>
+<path d="M95.0,305.8 L110.0,332.8 L80.0,332.8 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="95.0" y="330.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">I</text>
+<text x="95.0" y="358.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">6</text>
+<text x="95.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">B_CC0</text>
+<rect x="124.0" y="300.0" width="98.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="173.0" y="320.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">LOAD-CC</text>
+<text x="173.0" y="336.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">1 machine</text>
+<rect x="124.0" y="350.0" width="98.0" height="72.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="129.0" y="366.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/T 90 s</text>
+<text x="129.0" y="382.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/O 0 s</text>
+<text x="129.0" y="398.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">uptime 99.96 %</text>
+<text x="129.0" y="414.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">eff. 90 s/unit</text>
+<path d="M251.0,305.8 L266.0,332.8 L236.0,332.8 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="251.0" y="330.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">I</text>
+<text x="251.0" y="358.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">5</text>
+<text x="251.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">B_PAL</text>
+<rect x="280.0" y="300.0" width="98.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="329.0" y="320.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">HMC ×3</text>
+<text x="329.0" y="336.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">3 machines</text>
+<rect x="280.0" y="350.0" width="98.0" height="72.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="285.0" y="366.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/T 345 s</text>
+<text x="285.0" y="382.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/O 600 s</text>
+<text x="285.0" y="398.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">uptime 98.90 %</text>
+<text x="285.0" y="414.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">eff. 115 s/unit</text>
+<path d="M407.0,305.8 L422.0,332.8 L392.0,332.8 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="407.0" y="330.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">I</text>
+<text x="407.0" y="358.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">2</text>
+<text x="407.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">B_CC1</text>
+<rect x="436.0" y="300.0" width="98.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="485.0" y="320.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">WASH-01</text>
+<text x="485.0" y="336.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">1 machine</text>
+<rect x="436.0" y="350.0" width="98.0" height="72.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="441.0" y="366.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/T 150 s</text>
+<text x="441.0" y="382.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/O 0 s</text>
+<text x="441.0" y="398.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">uptime 99.79 %</text>
+<text x="441.0" y="414.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">eff. 150 s/unit</text>
+<path d="M563.0,305.8 L578.0,332.8 L548.0,332.8 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="563.0" y="330.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">I</text>
+<text x="563.0" y="358.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">5</text>
+<text x="563.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">B_CC</text>
+<rect x="592.0" y="300.0" width="98.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="641.0" y="320.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">ASSY-01</text>
+<text x="641.0" y="336.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">1 machine</text>
+<rect x="592.0" y="350.0" width="98.0" height="72.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="597.0" y="366.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/T 200 s</text>
+<text x="597.0" y="382.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/O 60 s</text>
+<text x="597.0" y="398.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">uptime 99.89 %</text>
+<text x="597.0" y="414.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">eff. 200 s/unit</text>
+<path d="M719.0,305.8 L734.0,332.8 L704.0,332.8 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="719.0" y="330.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">I</text>
+<text x="719.0" y="358.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">2</text>
+<text x="719.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">B_P1</text>
+<rect x="748.0" y="300.0" width="98.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="797.0" y="320.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">ROBOT-01</text>
+<text x="797.0" y="336.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">1 machine</text>
+<rect x="748.0" y="350.0" width="98.0" height="72.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="753.0" y="366.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/T 110 s</text>
+<text x="753.0" y="382.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/O 30 s</text>
+<text x="753.0" y="398.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">uptime 99.76 %</text>
+<text x="753.0" y="414.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">eff. 110 s/unit</text>
+<path d="M875.0,305.8 L890.0,332.8 L860.0,332.8 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="875.0" y="330.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">I</text>
+<text x="875.0" y="358.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">2</text>
+<text x="875.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">B_P2</text>
+<rect x="904.0" y="300.0" width="98.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="953.0" y="320.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">TEST ×2</text>
+<text x="953.0" y="336.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">2 machines</text>
+<rect x="904.0" y="350.0" width="98.0" height="72.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="909.0" y="366.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/T 360 s</text>
+<text x="909.0" y="382.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/O 120 s</text>
+<text x="909.0" y="398.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">uptime 99.82 %</text>
+<text x="909.0" y="414.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">eff. 180 s/unit</text>
+<path d="M1031.0,305.8 L1046.0,332.8 L1016.0,332.8 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="1031.0" y="330.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">I</text>
+<text x="1031.0" y="358.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">3</text>
+<text x="1031.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">B_P3</text>
+<rect x="1060.0" y="300.0" width="98.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="1109.0" y="320.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">PAINT-01</text>
+<text x="1109.0" y="336.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">1 machine</text>
+<rect x="1060.0" y="350.0" width="98.0" height="72.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="1065.0" y="366.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/T 160 s</text>
+<text x="1065.0" y="382.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/O 0 s</text>
+<text x="1065.0" y="398.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">uptime 99.59 %</text>
+<text x="1065.0" y="414.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">eff. 160 s/unit</text>
+<path d="M1187.0,305.8 L1202.0,332.8 L1172.0,332.8 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="1187.0" y="330.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">I</text>
+<text x="1187.0" y="358.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">3</text>
+<text x="1187.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">B_P4</text>
+<rect x="1216.0" y="300.0" width="98.0" height="46.0" rx="0" fill="#fff" stroke="#c0392b" stroke-width="2.2"/>
+<text x="1265.0" y="320.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#c0392b">FINAL-01</text>
+<text x="1265.0" y="336.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">1 machine</text>
+<rect x="1216.0" y="350.0" width="98.0" height="72.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="1221.0" y="366.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/T 210 s</text>
+<text x="1221.0" y="382.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/O 150 s</text>
+<text x="1221.0" y="398.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">uptime 99.89 %</text>
+<text x="1221.0" y="414.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">eff. 210 s/unit</text>
+<path d="M1343.0,305.8 L1358.0,332.8 L1328.0,332.8 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="1343.0" y="330.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">I</text>
+<text x="1343.0" y="358.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">2</text>
+<text x="1343.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">B_C1</text>
+<rect x="1372.0" y="300.0" width="98.0" height="46.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="1421.0" y="320.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">PACK-01</text>
+<text x="1421.0" y="336.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">1 machine</text>
+<rect x="1372.0" y="350.0" width="98.0" height="72.0" rx="0" fill="#fff" stroke="#222" stroke-width="1"/>
+<text x="1377.0" y="366.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/T 120 s</text>
+<text x="1377.0" y="382.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">C/O 60 s</text>
+<text x="1377.0" y="398.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">uptime 99.88 %</text>
+<text x="1377.0" y="414.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">eff. 120 s/unit</text>
+<path d="M1499.0,305.8 L1514.0,332.8 L1484.0,332.8 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="1499.0" y="330.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">I</text>
+<text x="1499.0" y="358.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">1</text>
+<text x="1499.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">B_PK</text>
+<path d="M1551.0,305.8 L1566.0,332.8 L1536.0,332.8 Z" fill="#fff" stroke="#222" stroke-width="1.4"/>
+<text x="1551.0" y="330.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">I</text>
+<text x="1551.0" y="358.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">45</text>
+<text x="1551.0" y="373.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">FG</text>
+<text x="1551.0" y="388.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">AS/RS</text>
+<line x1="119.0" y1="324.0" x2="123.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="223.0" y1="324.0" x2="227.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="275.0" y1="324.0" x2="279.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="379.0" y1="324.0" x2="383.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="431.0" y1="324.0" x2="435.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="535.0" y1="324.0" x2="539.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="587.0" y1="324.0" x2="591.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="691.0" y1="324.0" x2="695.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="743.0" y1="324.0" x2="747.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="847.0" y1="324.0" x2="851.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="899.0" y1="324.0" x2="903.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="1003.0" y1="324.0" x2="1007.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="1055.0" y1="324.0" x2="1059.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="1159.0" y1="324.0" x2="1163.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="1211.0" y1="324.0" x2="1215.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="1315.0" y1="324.0" x2="1319.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="1367.0" y1="324.0" x2="1371.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<line x1="1471.0" y1="324.0" x2="1475.0" y2="324.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<path d="M1551.0,288 L1551.0,200 L1550,200 L1550,162" fill="none" stroke="#222" stroke-width="2.5" marker-end="url(#ak)"/>
+<text x="1557.0" y="190.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">2 trucks/day</text>
+<rect x="222.0" y="480.0" width="160.0" height="42.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.3"/>
+<text x="302.0" y="498.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">VMC → HONE</text>
+<text x="302.0" y="514.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">100 / 90 s, C/O 180 / 120</text>
+<rect x="422.0" y="474.0" width="110.0" height="54.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.3"/>
+<text x="477.0" y="492.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">supermarket</text>
+<text x="477.0" y="508.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">cyl. 12 / model</text>
+<text x="477.0" y="522.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">36 places</text>
+<line x1="382.0" y1="501.0" x2="422.0" y2="501.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<path d="M532,501 L622,501 L622,424" fill="none" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<rect x="222.0" y="560.0" width="160.0" height="42.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.3"/>
+<text x="302.0" y="578.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">LATHE → GRIND</text>
+<text x="302.0" y="594.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">170 / 190 s, C/O 240 / 180</text>
+<rect x="422.0" y="554.0" width="110.0" height="54.0" rx="0" fill="#f2f2f2" stroke="#222" stroke-width="1.3"/>
+<text x="477.0" y="572.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">supermarket</text>
+<text x="477.0" y="588.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">cs. 8 / model</text>
+<text x="477.0" y="602.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">24 places</text>
+<line x1="382.0" y1="581.0" x2="422.0" y2="581.0" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<path d="M532,581 L662,581 L662,424" fill="none" stroke="#222" stroke-width="1.2" marker-end="url(#ak)"/>
+<path d="M477,474 L477,454 L302,454 L302,478" fill="none" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="5 3" marker-end="url(#ar)"/>
+<text x="392.0" y="450.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#c0392b">kanban</text>
+<text x="672.0" y="520.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">kits: 1 crankcase +</text>
+<text x="672.0" y="535.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">2 cylinders + 1 crankshaft</text>
+<text x="20.0" y="660.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Lead time ladder (upper = waiting, lower = process time per unit):</text>
+<line x1="16.0" y1="680.0" x2="70.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<text x="43.0" y="674.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">54.0 h</text>
+<line x1="68.0" y1="680.0" x2="122.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<text x="95.0" y="674.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">27.0 min</text>
+<line x1="120.0" y1="724.0" x2="226.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<text x="173.0" y="740.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">90 s</text>
+<line x1="120.0" y1="680.0" x2="120.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<line x1="224.0" y1="680.0" x2="278.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<text x="251.0" y="674.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">22.5 min</text>
+<line x1="224.0" y1="724.0" x2="224.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<line x1="276.0" y1="724.0" x2="382.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<text x="329.0" y="740.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">360 s</text>
+<line x1="276.0" y1="680.0" x2="276.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<line x1="380.0" y1="680.0" x2="434.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<text x="407.0" y="674.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">9.0 min</text>
+<line x1="380.0" y1="724.0" x2="380.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<line x1="432.0" y1="724.0" x2="538.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<text x="485.0" y="740.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">150 s</text>
+<line x1="432.0" y1="680.0" x2="432.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<line x1="536.0" y1="680.0" x2="590.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<text x="563.0" y="674.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">22.5 min</text>
+<line x1="536.0" y1="724.0" x2="536.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<line x1="588.0" y1="724.0" x2="694.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<text x="641.0" y="740.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">200 s</text>
+<line x1="588.0" y1="680.0" x2="588.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<line x1="692.0" y1="680.0" x2="746.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<text x="719.0" y="674.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">9.0 min</text>
+<line x1="692.0" y1="724.0" x2="692.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<line x1="744.0" y1="724.0" x2="850.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<text x="797.0" y="740.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">110 s</text>
+<line x1="744.0" y1="680.0" x2="744.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<line x1="848.0" y1="680.0" x2="902.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<text x="875.0" y="674.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">9.0 min</text>
+<line x1="848.0" y1="724.0" x2="848.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<line x1="900.0" y1="724.0" x2="1006.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<text x="953.0" y="740.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">360 s</text>
+<line x1="900.0" y1="680.0" x2="900.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<line x1="1004.0" y1="680.0" x2="1058.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<text x="1031.0" y="674.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">13.5 min</text>
+<line x1="1004.0" y1="724.0" x2="1004.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<line x1="1056.0" y1="724.0" x2="1162.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<text x="1109.0" y="740.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">160 s</text>
+<line x1="1056.0" y1="680.0" x2="1056.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<line x1="1160.0" y1="680.0" x2="1214.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<text x="1187.0" y="674.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">13.5 min</text>
+<line x1="1160.0" y1="724.0" x2="1160.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<line x1="1212.0" y1="724.0" x2="1318.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<text x="1265.0" y="740.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">210 s</text>
+<line x1="1212.0" y1="680.0" x2="1212.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<line x1="1316.0" y1="680.0" x2="1370.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<text x="1343.0" y="674.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">9.0 min</text>
+<line x1="1316.0" y1="724.0" x2="1316.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<line x1="1368.0" y1="724.0" x2="1474.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<text x="1421.0" y="740.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">120 s</text>
+<line x1="1368.0" y1="680.0" x2="1368.0" y2="724.0" stroke="#222" stroke-width="2"/>
+<line x1="1472.0" y1="680.0" x2="1526.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<text x="1499.0" y="674.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#111">4.5 min</text>
+<line x1="1472.0" y1="724.0" x2="1472.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<line x1="1524.0" y1="680.0" x2="1578.0" y2="680.0" stroke="#222" stroke-width="2"/>
+<text x="1551.0" y="674.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">3.4 h</text>
+<rect x="1200.0" y="760.0" width="440.0" height="96.0" rx="0" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="1210.0" y="780.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Lead time = 59.7 h waiting + 1760 s process = 60.2 h</text>
+<text x="1210.0" y="800.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Process time ratio = 1760 ÷ 216680 s = 0.81 %</text>
+<text x="1210.0" y="816.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Value-add only (HMC 345 + ASSY 200 + ROBOT 110 + FINAL 210 = 865 s)</text>
+<text x="1210.0" y="832.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">value-add ratio = 865 ÷ 216680 = 0.40 %</text>
+<text x="1210.0" y="848.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c0392b">raw castings (54 h) are 90 % of the lead time</text>
+<text x="20.0" y="780.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Total WIP in triangles: 720 castings + 6 + 25 line buffers + 45 FG = 796 units → × 270 s = 59.7 h.  In machines ≈ 12 units (counted as process time).</text>
+<text x="20.0" y="798.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">Future-state ideas: smaller casting lots (more deliveries), FG by heijunka (10.2), CONWIP for the line (section 20), SMED on HMC tool-set exchange (600 s).</text>
+<rect x="1210.0" y="910.0" width="440.0" height="60.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="1210.0" y1="930.0" x2="1650.0" y2="930.0" stroke="#222" stroke-width="1"/>
+<line x1="1520.0" y1="930.0" x2="1520.0" y2="970.0" stroke="#222" stroke-width="1"/>
+<text x="1218.0" y="925.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – planning sketch</text>
+<text x="1642.0" y="925.0" font-size="11" text-anchor="end" font-weight="normal" fill="#444">Guide 02 – FMS and order flow</text>
+<text x="1218.0" y="948.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Value stream map – crankcase path</text>
+<text x="1218.0" y="963.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">current state, takt 270 s, WIP from typical buffer fill</text>
+<text x="1528.0" y="948.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">DWG 02-04</text>
+<text x="1528.0" y="963.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">not to scale for build</text>
+</svg>

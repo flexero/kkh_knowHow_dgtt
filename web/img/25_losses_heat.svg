@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Arial, Helvetica, sans-serif">
+<title>Efficiency chain and losses – power flow of the example job</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="1000" fill="#ffffff"/>
+<text x="30.0" y="36.0" font-size="16" text-anchor="start" fill="#000" font-weight="bold">Efficiency chain – power flow while the cylinder extends (option A, 20 kN at 0.1 m/s) and energy per 60 s cycle of four supply types</text>
+<text x="30.0" y="56.0" font-size="12" text-anchor="start" fill="#555">Band width ∝ power. Every loss becomes heat in the oil (or in the motor / air). Example efficiencies – take real ones from the datasheets.</text>
+<path d="M90,130 L330,130 L330,357.52 L240,357.52 L210,357.52 L210,389.36 L90,389.36 Z" stroke="#000" stroke-width="0.8" fill="#dfe6ef"/>
+<path d="M210,357.52 L210,389.36 C210,439.36 230,450 230,470 L261.92,470 C261.92,450 271.92,367.52 271.92,357.52 Z" stroke="#000" stroke-width="0.8" fill="#f6d5d5"/>
+<text x="246.0" y="490.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold">0.40 kW</text>
+<text x="246.0" y="506.0" font-size="11" text-anchor="middle" fill="#000">electric motor IE3 η 0.877</text>
+<path d="M330,130 L570,130 L570,323.36 L480,323.36 L450,323.36 L450,357.52 L330,357.52 Z" stroke="#000" stroke-width="0.8" fill="#dfe6ef"/>
+<path d="M450,323.36 L450,357.52 C450,407.52 470,450 470,470 L504.15999999999997,470 C504.15999999999997,450 514.16,333.36 514.16,323.36 Z" stroke="#000" stroke-width="0.8" fill="#f6d5d5"/>
+<text x="487.1" y="490.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold">0.43 kW</text>
+<text x="487.1" y="506.0" font-size="11" text-anchor="middle" fill="#000">pump η 0.85 (η_v 0.93 × η_hm 0.914)</text>
+<path d="M570,130 L810,130 L810,298.4 L720,298.4 L690,298.4 L690,323.36 L570,323.36 Z" stroke="#000" stroke-width="0.8" fill="#dfe6ef"/>
+<path d="M690,298.4 L690,323.36 C690,373.36 710,450 710,470 L734.96,470 C734.96,450 744.96,308.4 744.96,298.4 Z" stroke="#000" stroke-width="0.8" fill="#f6d5d5"/>
+<text x="722.5" y="490.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold">0.31 kW</text>
+<text x="722.5" y="506.0" font-size="11" text-anchor="middle" fill="#000">valves + lines Δp 1.0 MPa</text>
+<path d="M810,130 L1050,130 L1050,290.0 L960,290.0 L930,290.0 L930,298.4 L810,298.4 Z" stroke="#000" stroke-width="0.8" fill="#dfe6ef"/>
+<path d="M930,290.0 L930,298.4 C930,348.4 950,450 950,470 L958.4,470 C958.4,450 968.4,300.0 968.4,290.0 Z" stroke="#000" stroke-width="0.8" fill="#f6d5d5"/>
+<text x="954.2" y="490.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold">0.10 kW</text>
+<text x="954.2" y="506.0" font-size="11" text-anchor="middle" fill="#000">seal friction η_cyl 0.95</text>
+<rect x="1050.0" y="130.0" width="120.0" height="160.0" rx="0" stroke="#000" stroke-width="0.8" fill="#b9d0b0"/>
+<text x="94.0" y="118.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">electric input</text>
+<text x="94.0" y="148.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">3.24 kW</text>
+<text x="334.0" y="118.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">motor shaft</text>
+<text x="334.0" y="148.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">2.84 kW</text>
+<text x="574.0" y="118.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">pump outlet (hydraulic)</text>
+<text x="574.0" y="148.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">2.42 kW</text>
+<text x="814.0" y="118.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">cylinder inlet</text>
+<text x="814.0" y="148.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">2.10 kW</text>
+<text x="1054.0" y="118.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">useful F·v</text>
+<text x="1054.0" y="148.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">2.00 kW</text>
+<text x="1056.0" y="170.0" font-size="11" text-anchor="start" fill="#000">F·v = 20 kN</text>
+<text x="1056.0" y="184.0" font-size="11" text-anchor="start" fill="#000">× 0.1 m/s</text>
+<text x="1110.0" y="312.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">overall η = 2.00 / 3.24 = 0.62</text>
+<rect x="40.0" y="530.0" width="1340.0" height="60.0" rx="0" stroke="#000" stroke-width="1" fill="#f7f7f7"/>
+<text x="52.0" y="552.0" font-size="11" text-anchor="start" fill="#000">Chain: η_total = η_motor · η_pump · η_valves+lines · η_cyl = 0.877 × 0.85 × (6.75/7.75 = 0.871) × 0.95 = 0.617.  Heat while extending = 3.24 − 2.00 = 1.24 kW</text>
+<text x="52.0" y="566.0" font-size="11" text-anchor="start" fill="#000">(0.40 kW stays in the motor and goes to the air; 0.84 kW goes into the oil). In the pause the useful power is zero: every watt the pump still takes becomes heat.</text>
+<text x="40.0" y="620.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Energy per 60 s cycle (electric, η_total 0.85 basis as in the app; servo pump = estimate)</text>
+<text x="320.0" y="662.0" font-size="12" text-anchor="end" fill="#000">fixed pump + unloading (A)</text>
+<rect x="330.0" y="646.0" width="126.0" height="26.0" rx="0" stroke="#000" stroke-width="0.8" fill="#b9d0b0"/>
+<rect x="456.0" y="646.0" width="330.0" height="26.0" rx="0" stroke="#000" stroke-width="0.8" fill="#f6d5d5"/>
+<text x="794.0" y="664.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">15.2 kJ (loss 11.0 kJ)</text>
+<text x="320.0" y="708.0" font-size="12" text-anchor="end" fill="#000">variable pump, compensator</text>
+<rect x="330.0" y="692.0" width="126.0" height="26.0" rx="0" stroke="#000" stroke-width="0.8" fill="#b9d0b0"/>
+<rect x="456.0" y="692.0" width="594.0" height="26.0" rx="0" stroke="#000" stroke-width="0.8" fill="#f6d5d5"/>
+<text x="1058.0" y="710.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">24.0 kJ (loss 19.8 kJ)</text>
+<text x="320.0" y="754.0" font-size="12" text-anchor="end" fill="#000">small pump + accumulator (C)</text>
+<rect x="330.0" y="738.0" width="126.0" height="26.0" rx="0" stroke="#000" stroke-width="0.8" fill="#b9d0b0"/>
+<rect x="456.0" y="738.0" width="246.0" height="26.0" rx="0" stroke="#000" stroke-width="0.8" fill="#f6d5d5"/>
+<text x="710.0" y="756.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">12.4 kJ (loss 8.2 kJ)</text>
+<text x="320.0" y="800.0" font-size="12" text-anchor="end" fill="#000">servo pump / variable speed (est.)</text>
+<rect x="330.0" y="784.0" width="126.0" height="26.0" rx="0" stroke="#000" stroke-width="0.8" fill="#b9d0b0"/>
+<rect x="456.0" y="784.0" width="150.0" height="26.0" rx="0" stroke="#000" stroke-width="0.8" fill="#f6d5d5"/>
+<text x="614.0" y="802.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">9.2 kJ (loss 5.0 kJ)</text>
+<text x="330.0" y="842.0" font-size="11" text-anchor="start" fill="#555">green = useful work 4.2 kJ (20 kN × 0.2 m + 1 kN × 0.2 m) · red = heat</text>
+<rect x="950.0" y="894.0" width="430.0" height="86.0" rx="0" stroke="#000" stroke-width="1.5" fill="none"/>
+<line x1="950.0" y1="924.0" x2="1380.0" y2="924.0" stroke="#000" stroke-width="1"/>
+<text x="960.0" y="915.0" font-size="14" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the supplier's catalogue</text>
+<text x="960.0" y="944.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">25_losses_heat – efficiency chain + energy</text>
+<text x="960.0" y="962.0" font-size="11" text-anchor="start" fill="#000">Guide 25 §5 · rev A</text>
+<text x="1370.0" y="974.0" font-size="11" text-anchor="end" fill="#555">values = example · ISO 1219 style</text>
+</svg>

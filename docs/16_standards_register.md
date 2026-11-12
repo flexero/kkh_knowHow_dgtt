@@ -206,11 +206,21 @@ guides, added here because it is important for this factory.
 | ISO 6983-1 | Automation systems and integration – Numerical control of machines – Program format and definitions of address words – Part 1: Data format for positioning, line motion and contouring control systems | G-code basics | NC programs (guide 08); real controllers add their own cycles – use the control manual | 07, 08 | ISO / national |
 | ISO 1328-1 | Cylindrical gears – ISO system of flank tolerance classification – Part 1: Definitions and allowable values of deviations relevant to flanks of gear teeth | spur/helical gear accuracy | APC ring gear and pinion (guide 09) | new (09) | ISO / national |
 | ISO 6336 (series) | Calculation of load capacity of spur and helical gears | gear strength | APC ring gear / pinion calculation | new (09) | ISO / national |
+| ISO 12164-1 / -2 | Hollow taper interface with flange contact surface (HSK) – Part 1: shanks, Part 2: receivers – verify titles + edition | HSK taper geometry | spindle nose HSK-A63 receiver: taper, face, drive keys (guides 18, 19) | new (18, 19) | ISO / national |
+| ISO 1947 | System of cone tolerances for conical workpieces (AT classes) – verify | taper tolerance classes | HSK taper grinding + taper gauge (guide 18) | new (18) | ISO / national |
+| ISO 492 | Rolling bearings – Radial bearings – Geometrical product specifications (GPS) and tolerance values | bearing tolerance classes (P4 etc.) | spindle bearings P4 or better (guides 18, 19) | new (18, 19) | ISO / national |
+| ISO 21940-21 | Mechanical vibration – Rotor balancing – Part 21: Description and evaluation of balancing machines – verify | balancing machine capability | balancing of the spindle shaft / rotor unit (guides 18, 19) | new (18, 19) | ISO / national |
+| ISO 230-7 | Test code for machine tools – Part 7: Geometric accuracy of axes of rotation | spindle error motion | spindle final test (guide 19) | new (19) | ISO / national |
+| DIN EN 16983 / DIN EN 16984 | Disc springs – quality requirements / calculation – verify titles | disc springs | drawbar spring pack (guides 18, 19) | new (18, 19) | DIN Media |
 
 ### 4.8 Materials and testing
 
 | Standard | Title | Covers | Requirements for this project | Guide | Get it |
 |---|---|---|---|---|---|
+| EN 10085 | Nitriding steels – Technical delivery conditions | nitriding steel grades (31CrMoV9) | spindle shaft material (guide 18) | new (18) | CEN / national |
+| EN ISO 683-3 / -17 | Heat-treatable steels – Part 3: case-hardening steels; Part 17: ball and roller bearing steels | 18CrNiMo7-6, 100Cr6 | alternative shaft steel, spacers (guide 18) | new (18) | ISO / national |
+| ISO 6506-1 | Metallic materials – Brinell hardness test – Part 1: Test method | Brinell hardness | QT bar + stress relief check (guide 18) | new (18) | ISO / national |
+| ISO 14644-1 | Cleanrooms and associated controlled environments – Part 1: Classification of air cleanliness by particle concentration | clean-room class | spindle assembly room (guide 19) | new (19) | ISO / national |
 | EN 10083-1 / -2 / -3 | Steels for quenching and tempering – Part 1: General technical delivery conditions; Part 2: Non alloy steels; Part 3: Alloy steels | C45 (1.0503), 42CrMo4 (1.7225) | hubs, ledges, shafts (guides 09, 12) | 09, 12 (materials) | national body |
 | EN 10084 | Case hardening steels – Technical delivery conditions | 16MnCr5 (1.7131), 20MnCr5 (1.7147), 18CrNiMo7-6 (1.6587) | worm, locating receivers, pinion (case hardened 58–62 HRC) | 09, 12 (materials) | national body |
 | EN 10025-2 | Hot rolled products of structural steels – Part 2: Technical delivery conditions for non-alloy structural steels | S235, S355J2 (1.0577) | welded frames, APC arm, AGV chassis | 09, 10, 11 (materials) | national body |

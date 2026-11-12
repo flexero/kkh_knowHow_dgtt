@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1040" width="1400" height="1040" font-family="Arial, Helvetica, sans-serif">
+<title>Commissioning sequence flow chart</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="1040" fill="#ffffff"/>
+<text x="40.0" y="46.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000">Commissioning sequence of one HMC – from mechanical completion to ramp-up (with the app&#x27;s example limits)</text>
+<rect x="40.0" y="90.0" width="290.0" height="168.0" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="40.0" y="90.0" width="290.0" height="28.0" rx="6" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="50.0" y="109.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">1  Mechanical completion</text>
+<text x="52.0" y="140.0" font-size="12" text-anchor="start" fill="#000">placed, rough level ≤ 0.04 mm/m</text>
+<text x="52.0" y="159.0" font-size="12" text-anchor="start" fill="#000">anchors loose, grout not yet</text>
+<text x="52.0" y="178.0" font-size="12" text-anchor="start" fill="#000">utilities connected, not live</text>
+<text x="52.0" y="197.0" font-size="12" text-anchor="start" fill="#000">punch list A-items closed</text>
+<rect x="370.0" y="90.0" width="290.0" height="168.0" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="370.0" y="90.0" width="290.0" height="28.0" rx="6" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="380.0" y="109.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">2  Pre-commissioning (dead)</text>
+<text x="382.0" y="140.0" font-size="12" text-anchor="start" fill="#000">transport locks removed + counted</text>
+<text x="382.0" y="159.0" font-size="12" text-anchor="start" fill="#000">oil levels: way lube, hydraulic,</text>
+<text x="382.0" y="178.0" font-size="12" text-anchor="start" fill="#000">  chiller, gearbox; correct types</text>
+<text x="382.0" y="197.0" font-size="12" text-anchor="start" fill="#000">PE continuity, insulation test (doc 27)</text>
+<text x="382.0" y="216.0" font-size="12" text-anchor="start" fill="#000">air: 0.5–0.6 MPa, dew point</text>
+<rect x="700.0" y="90.0" width="290.0" height="168.0" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="700.0" y="90.0" width="290.0" height="28.0" rx="6" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="710.0" y="109.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">3  First power-on</text>
+<text x="712.0" y="140.0" font-size="12" text-anchor="start" fill="#000">e-stop pressed → main switch ON</text>
+<text x="712.0" y="159.0" font-size="12" text-anchor="start" fill="#000">3×400 V ± 10 %, 24 V ± 5 %</text>
+<text x="712.0" y="178.0" font-size="12" text-anchor="start" fill="#000">phase sequence → pump direction</text>
+<text x="712.0" y="197.0" font-size="12" text-anchor="start" fill="#000">CNC boots, read alarm list</text>
+<text x="712.0" y="216.0" font-size="12" text-anchor="start" fill="#000">battery / absolute encoder</text>
+<rect x="1030.0" y="90.0" width="290.0" height="168.0" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="1030.0" y="90.0" width="290.0" height="28.0" rx="6" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="1040.0" y="109.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">4  Cold commissioning</text>
+<text x="1042.0" y="140.0" font-size="12" text-anchor="start" fill="#000">reference all axes, soft limits</text>
+<text x="1042.0" y="159.0" font-size="12" text-anchor="start" fill="#000">axis run-in 10 → 25 → 50 % rapid</text>
+<text x="1042.0" y="178.0" font-size="12" text-anchor="start" fill="#000">lube reaches every point</text>
+<text x="1042.0" y="197.0" font-size="12" text-anchor="start" fill="#000">ATC / APC empty cycles</text>
+<text x="1042.0" y="216.0" font-size="12" text-anchor="start" fill="#000">safety functions tested + recorded</text>
+<rect x="1030.0" y="400.0" width="290.0" height="168.0" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="1030.0" y="400.0" width="290.0" height="28.0" rx="6" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="1040.0" y="419.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">5  Hot commissioning</text>
+<text x="1042.0" y="450.0" font-size="12" text-anchor="start" fill="#000">spindle run-in 500 → 6 000 rpm,</text>
+<text x="1042.0" y="469.0" font-size="12" text-anchor="start" fill="#000">  100 min, ΔT ≤ 25 K (model 21.9 K)</text>
+<text x="1042.0" y="488.0" font-size="12" text-anchor="start" fill="#000">coolant flood + TSC 70 bar, leaks</text>
+<text x="1042.0" y="507.0" font-size="12" text-anchor="start" fill="#000">mist extraction on, chips flow</text>
+<text x="1042.0" y="526.0" font-size="12" text-anchor="start" fill="#000">parameter + PLC backup (2 copies)</text>
+<rect x="700.0" y="400.0" width="290.0" height="168.0" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="700.0" y="400.0" width="290.0" height="28.0" rx="6" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="710.0" y="419.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">6  Final level + geometry</text>
+<text x="712.0" y="450.0" font-size="12" text-anchor="start" fill="#000">warm machine, final levelling</text>
+<text x="712.0" y="469.0" font-size="12" text-anchor="start" fill="#000">ISO 10791-1 selected tests (doc 26)</text>
+<text x="712.0" y="488.0" font-size="12" text-anchor="start" fill="#000">laser / ballbar if agreed</text>
+<text x="712.0" y="507.0" font-size="12" text-anchor="start" fill="#000">grout anchors, re-check level</text>
+<rect x="370.0" y="400.0" width="290.0" height="168.0" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="370.0" y="400.0" width="290.0" height="28.0" rx="6" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="380.0" y="419.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">7  Test cuts</text>
+<text x="382.0" y="450.0" font-size="12" text-anchor="start" fill="#000">real crankcase, real fixture</text>
+<text x="382.0" y="469.0" font-size="12" text-anchor="start" fill="#000">first article on the CMM</text>
+<text x="382.0" y="488.0" font-size="12" text-anchor="start" fill="#000">offsets, tool life, program opt.</text>
+<text x="382.0" y="507.0" font-size="12" text-anchor="start" fill="#000">MSA of gauges: %GRR ≤ 10 %</text>
+<rect x="40.0" y="400.0" width="290.0" height="168.0" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="40.0" y="400.0" width="290.0" height="28.0" rx="6" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="50.0" y="419.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">8  SAT run-off</text>
+<text x="52.0" y="450.0" font-size="12" text-anchor="start" fill="#000">50 parts: Cm 2.42 / Cmk 2.24 ≥ 1.67</text>
+<text x="52.0" y="469.0" font-size="12" text-anchor="start" fill="#000">10 cycles: 356.6 s ≤ 360 s</text>
+<text x="52.0" y="488.0" font-size="12" text-anchor="start" fill="#000">8–24 h run, availability ≥ 95 %</text>
+<text x="52.0" y="507.0" font-size="12" text-anchor="start" fill="#000">training in parallel (3 d)</text>
+<rect x="40.0" y="760.0" width="290.0" height="168.0" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="40.0" y="760.0" width="290.0" height="28.0" rx="6" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="50.0" y="779.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">9  Line run-off (3 d)</text>
+<text x="52.0" y="810.0" font-size="12" text-anchor="start" fill="#000">3 HMC + washer + robot + MES</text>
+<text x="52.0" y="829.0" font-size="12" text-anchor="start" fill="#000">line cycle, pallets, OEE data</text>
+<text x="52.0" y="848.0" font-size="12" text-anchor="start" fill="#000">alarms → MES, part counter</text>
+<rect x="370.0" y="760.0" width="290.0" height="168.0" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="370.0" y="760.0" width="290.0" height="28.0" rx="6" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="380.0" y="779.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">10  Handover (1 d)</text>
+<text x="382.0" y="810.0" font-size="12" text-anchor="start" fill="#000">documents, CE / DoC, backups</text>
+<text x="382.0" y="829.0" font-size="12" text-anchor="start" fill="#000">final acceptance certificate</text>
+<text x="382.0" y="848.0" font-size="12" text-anchor="start" fill="#000">warranty start written down</text>
+<rect x="700.0" y="760.0" width="290.0" height="168.0" rx="6" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<rect x="700.0" y="760.0" width="290.0" height="28.0" rx="6" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="710.0" y="779.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">11  Ramp-up (30 d)</text>
+<text x="712.0" y="810.0" font-size="12" text-anchor="start" fill="#000">OEE 50 % → 85 % (example curve)</text>
+<text x="712.0" y="829.0" font-size="12" text-anchor="start" fill="#000">daily OEE review, top losses</text>
+<text x="712.0" y="848.0" font-size="12" text-anchor="start" fill="#000">re-level after 1–3 months</text>
+<line x1="330.0" y1="174.0" x2="370.0" y2="174.0" stroke="#000" stroke-width="1.8" marker-end="url(#ar)"/>
+<line x1="660.0" y1="174.0" x2="700.0" y2="174.0" stroke="#000" stroke-width="1.8" marker-end="url(#ar)"/>
+<line x1="990.0" y1="174.0" x2="1030.0" y2="174.0" stroke="#000" stroke-width="1.8" marker-end="url(#ar)"/>
+<line x1="1030.0" y1="484.0" x2="990.0" y2="484.0" stroke="#000" stroke-width="1.8" marker-end="url(#ar)"/>
+<line x1="700.0" y1="484.0" x2="660.0" y2="484.0" stroke="#000" stroke-width="1.8" marker-end="url(#ar)"/>
+<line x1="370.0" y1="484.0" x2="330.0" y2="484.0" stroke="#000" stroke-width="1.8" marker-end="url(#ar)"/>
+<line x1="330.0" y1="844.0" x2="370.0" y2="844.0" stroke="#000" stroke-width="1.8" marker-end="url(#ar)"/>
+<line x1="660.0" y1="844.0" x2="700.0" y2="844.0" stroke="#000" stroke-width="1.8" marker-end="url(#ar)"/>
+<line x1="1175.0" y1="258.0" x2="1175.0" y2="290.0" stroke="#000" stroke-width="1.8"/>
+<polygon points="1175.0,290.0 1245.0,330.0 1175.0,370.0 1105.0,330.0" stroke="#c62828" stroke-width="2" fill="#fff"/>
+<text x="1175.0" y="326.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">all axes, lube,</text>
+<text x="1175.0" y="340.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">safety OK?</text>
+<line x1="1175.0" y1="370.0" x2="1175.0" y2="400.0" stroke="#000" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="1183.0" y="388.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">yes</text>
+<line x1="1105.0" y1="330.0" x2="1070.0" y2="330.0" stroke="#c62828" stroke-width="1.8"/>
+<text x="1060.0" y="334.0" font-size="12" text-anchor="end" fill="#c62828">no → fix, repeat step 4</text>
+<line x1="1070.0" y1="330.0" x2="1070.0" y2="258.0" stroke="#c62828" stroke-width="1.8" marker-end="url(#aa)"/>
+<line x1="185.0" y1="568.0" x2="185.0" y2="620.0" stroke="#000" stroke-width="1.8"/>
+<polygon points="185.0,620.0 255.0,660.0 185.0,700.0 115.0,660.0" stroke="#c62828" stroke-width="2" fill="#fff"/>
+<text x="185.0" y="656.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">SAT criteria</text>
+<text x="185.0" y="670.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">met?</text>
+<line x1="185.0" y1="700.0" x2="185.0" y2="760.0" stroke="#000" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="193.0" y="718.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">yes</text>
+<line x1="255.0" y1="660.0" x2="300.0" y2="660.0" stroke="#c62828" stroke-width="1.8"/>
+<line x1="300.0" y1="660.0" x2="300.0" y2="568.0" stroke="#c62828" stroke-width="1.8" marker-end="url(#aa)"/>
+<text x="312.0" y="664.0" font-size="12" text-anchor="start" fill="#c62828">no → find the cause (warm-up, clamping, gauge),</text>
+<text x="312.0" y="680.0" font-size="12" text-anchor="start" fill="#c62828">fix, repeat the run (new 50 parts)</text>
+<text x="1030.0" y="770.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Rules for every step</text>
+<text x="1030.0" y="792.0" font-size="12" text-anchor="start" fill="#000">• one step at a time, maker&#x27;s engineer present</text>
+<text x="1030.0" y="810.0" font-size="12" text-anchor="start" fill="#000">• record values (voltages, temperatures, tests)</text>
+<text x="1030.0" y="828.0" font-size="12" text-anchor="start" fill="#000">• open-point list: A = stop, B = before HO,</text>
+<text x="1030.0" y="846.0" font-size="12" text-anchor="start" fill="#000">  C = after HO with date</text>
+<text x="1030.0" y="864.0" font-size="12" text-anchor="start" fill="#000">• never bypass an interlock to &#x27;save time&#x27;</text>
+<text x="1030.0" y="882.0" font-size="12" text-anchor="start" fill="#000">• both sides sign the commissioning report</text>
+<rect x="12.0" y="12.0" width="1376.0" height="1016.0" rx="0" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="828.0" y="944.0" width="560.0" height="84.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="828.0" y1="974.0" x2="1388.0" y2="974.0" stroke="#000" stroke-width="1.2"/>
+<line x1="1208.0" y1="974.0" x2="1208.0" y2="1028.0" stroke="#000" stroke-width="1.2"/>
+<text x="838.0" y="965.0" font-size="14" text-anchor="start" font-weight="bold" fill="#c62828">EXAMPLE – check the maker&#x27;s installation manual</text>
+<text x="838.0" y="994.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Commissioning sequence – flow chart</text>
+<text x="838.0" y="1014.0" font-size="11" text-anchor="start" fill="#555">pre → cold → hot → geometry → test cut → SAT → line → HO → ramp</text>
+<text x="1218.0" y="994.0" font-size="12" text-anchor="start" fill="#000">Doc 28 · Fig. 28-7</text>
+<text x="1218.0" y="1014.0" font-size="11" text-anchor="start" fill="#555">2026-11 · not for construction</text>
+<text x="24.0" y="1018.0" font-size="11" text-anchor="start" fill="#555">Values from docs/28 and web/instseq_calc.js (example data, crankcase line HMC-01/02/03).</text>
+</svg>

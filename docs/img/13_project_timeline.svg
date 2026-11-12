@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 720" width="1240" height="720" font-family="Arial, Helvetica, sans-serif">
+<title>Project timeline – stage gates to SOP</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666"/></marker></defs>
+<rect x="0" y="0" width="1240" height="720" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#111">13 – Project timeline from concept to start of production (SOP) with stage gates G0 – G8 (example, months)</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#444">Bars = phases P0 – P8 of §2. Diamonds = stage gates (go / no-go decision). Critical path: long-lead machines + building → installation → SAT.</text>
+<line x1="290.0" y1="90.0" x2="290.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="290.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M0</text>
+<line x1="344.0" y1="90.0" x2="344.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="344.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M2</text>
+<line x1="398.0" y1="90.0" x2="398.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="398.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M4</text>
+<line x1="452.0" y1="90.0" x2="452.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="452.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M6</text>
+<line x1="506.0" y1="90.0" x2="506.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="506.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M8</text>
+<line x1="560.0" y1="90.0" x2="560.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="560.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M10</text>
+<line x1="614.0" y1="90.0" x2="614.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="614.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M12</text>
+<line x1="668.0" y1="90.0" x2="668.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="668.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M14</text>
+<line x1="722.0" y1="90.0" x2="722.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="722.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M16</text>
+<line x1="776.0" y1="90.0" x2="776.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="776.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M18</text>
+<line x1="830.0" y1="90.0" x2="830.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="830.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M20</text>
+<line x1="884.0" y1="90.0" x2="884.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="884.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M22</text>
+<line x1="938.0" y1="90.0" x2="938.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="938.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M24</text>
+<line x1="992.0" y1="90.0" x2="992.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="992.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M26</text>
+<line x1="1046.0" y1="90.0" x2="1046.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="1046.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M28</text>
+<line x1="1100.0" y1="90.0" x2="1100.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="1100.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M30</text>
+<line x1="1154.0" y1="90.0" x2="1154.0" y2="570.0" stroke="#e3e3e3" stroke-width="1"/>
+<text x="1154.0" y="84.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#555">M32</text>
+<text x="20.0" y="120.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">P0 Concept</text>
+<rect x="290.0" y="106.0" width="81.0" height="20.0" rx="3" fill="#9a9a9a" stroke="none" stroke-width="1" />
+<text x="377.0" y="120.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">3 mo</text>
+<text x="20.0" y="152.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">P1 Basic engineering</text>
+<rect x="371.0" y="138.0" width="108.0" height="20.0" rx="3" fill="#9a9a9a" stroke="none" stroke-width="1" />
+<text x="485.0" y="152.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">4 mo</text>
+<text x="20.0" y="184.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">P2 Detailed engineering</text>
+<rect x="479.0" y="170.0" width="135.0" height="20.0" rx="3" fill="#9a9a9a" stroke="none" stroke-width="1" />
+<text x="620.0" y="184.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">5 mo</text>
+<text x="20.0" y="216.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Building: permit + construction</text>
+<rect x="479.0" y="202.0" width="324.0" height="20.0" rx="3" fill="#c0392b" stroke="none" stroke-width="1" />
+<text x="809.0" y="216.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">12 mo</text>
+<text x="20.0" y="248.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">P3 Order long-lead: AS/RS, HMC, grinder</text>
+<rect x="533.0" y="234.0" width="297.0" height="20.0" rx="3" fill="#c0392b" stroke="none" stroke-width="1" />
+<text x="836.0" y="248.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">11 mo</text>
+<text x="20.0" y="280.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">P3 Order other machines + IT</text>
+<rect x="587.0" y="266.0" width="216.0" height="20.0" rx="3" fill="#9a9a9a" stroke="none" stroke-width="1" />
+<text x="809.0" y="280.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">8 mo</text>
+<text x="20.0" y="312.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">P4 FAT at suppliers</text>
+<rect x="722.0" y="298.0" width="108.0" height="20.0" rx="3" fill="#9a9a9a" stroke="none" stroke-width="1" />
+<text x="836.0" y="312.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">4 mo</text>
+<text x="20.0" y="344.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">P5 Installation</text>
+<rect x="803.0" y="330.0" width="81.0" height="20.0" rx="3" fill="#c0392b" stroke="none" stroke-width="1" />
+<text x="890.0" y="344.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">3 mo</text>
+<text x="20.0" y="376.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">P6 Commissioning + SAT</text>
+<rect x="857.0" y="362.0" width="81.0" height="20.0" rx="3" fill="#c0392b" stroke="none" stroke-width="1" />
+<text x="944.0" y="376.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">3 mo</text>
+<text x="20.0" y="408.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">MES / ERP master data + tests</text>
+<rect x="614.0" y="394.0" width="324.0" height="20.0" rx="3" fill="#9a9a9a" stroke="none" stroke-width="1" />
+<text x="944.0" y="408.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">12 mo</text>
+<text x="20.0" y="440.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">Hiring + training</text>
+<rect x="695.0" y="426.0" width="270.0" height="20.0" rx="3" fill="#9a9a9a" stroke="none" stroke-width="1" />
+<text x="971.0" y="440.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">10 mo</text>
+<text x="20.0" y="472.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">P7 Ramp-up (to 95 % rate)</text>
+<rect x="938.0" y="458.0" width="162.0" height="20.0" rx="3" fill="#c0392b" stroke="none" stroke-width="1" />
+<text x="1106.0" y="472.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">6 mo</text>
+<text x="20.0" y="504.0" font-size="12" text-anchor="start" font-weight="normal" fill="#111">P8 Operation</text>
+<rect x="1100.0" y="490.0" width="54.0" height="20.0" rx="3" fill="#9a9a9a" stroke="none" stroke-width="1" />
+<text x="1160.0" y="504.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">2 mo</text>
+<line x1="290.0" y1="546.0" x2="1154.0" y2="546.0" stroke="#111" stroke-width="1.5"/>
+<polygon points="290.0,535.0 301.0,546.0 290.0,557.0 279.0,546.0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<text x="290.0" y="574.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">G0</text>
+<text x="290.0" y="588.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">project start</text>
+<polygon points="371.0,535.0 382.0,546.0 371.0,557.0 360.0,546.0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<text x="371.0" y="574.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">G1</text>
+<text x="371.0" y="588.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">concept frozen</text>
+<polygon points="479.0,535.0 490.0,546.0 479.0,557.0 468.0,546.0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<text x="479.0" y="574.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">G2</text>
+<text x="479.0" y="588.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">budget ±15 %</text>
+<polygon points="614.0,535.0 625.0,546.0 614.0,557.0 603.0,546.0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<text x="614.0" y="574.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">G3</text>
+<text x="614.0" y="588.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">all orders</text>
+<polygon points="830.0,535.0 841.0,546.0 830.0,557.0 819.0,546.0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<text x="830.0" y="574.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">G4</text>
+<text x="830.0" y="588.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">FAT passed</text>
+<polygon points="884.0,535.0 895.0,546.0 884.0,557.0 873.0,546.0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<text x="884.0" y="574.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">G5</text>
+<text x="884.0" y="588.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">installed</text>
+<polygon points="938.0,535.0 949.0,546.0 938.0,557.0 927.0,546.0" fill="#c0392b" stroke="#111" stroke-width="1.5"/>
+<text x="938.0" y="574.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">G6</text>
+<text x="938.0" y="588.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">SOP</text>
+<polygon points="1100.0,535.0 1111.0,546.0 1100.0,557.0 1089.0,546.0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<text x="1100.0" y="574.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">G7</text>
+<text x="1100.0" y="588.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">rate</text>
+<polygon points="1154.0,535.0 1165.0,546.0 1154.0,557.0 1143.0,546.0" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+<text x="1154.0" y="574.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">G8</text>
+<text x="1154.0" y="588.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#444">close</text>
+<text x="20.0" y="550.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Stage gates</text>
+<line x1="938.0" y1="94.0" x2="938.0" y2="534.0" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,3"/>
+<text x="942.0" y="102.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">SOP (month 24)</text>
+<rect x="20.0" y="604.0" width="16.0" height="12.0" rx="0" fill="#c0392b" stroke="#222" stroke-width="1" />
+<text x="42.0" y="615.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">on critical path</text>
+<rect x="170.0" y="604.0" width="16.0" height="12.0" rx="0" fill="#9a9a9a" stroke="#222" stroke-width="1" />
+<text x="192.0" y="615.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">has float</text>
+<rect x="800.0" y="648.0" width="430.0" height="62.0" rx="0" fill="#ffffff" stroke="#222" stroke-width="1.5" />
+<line x1="800.0" y1="670.0" x2="1230.0" y2="670.0" stroke="#222" stroke-width="1"/>
+<line x1="1100.0" y1="670.0" x2="1100.0" y2="710.0" stroke="#222" stroke-width="1"/>
+<text x="808.0" y="664.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">EXAMPLE – planning sketch</text>
+<text x="1222.0" y="664.0" font-size="11" text-anchor="end" font-weight="normal" fill="#444">Guide 13 – real factory roadmap</text>
+<text x="808.0" y="688.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Project timeline</text>
+<text x="808.0" y="703.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">durations = examples, from supplier lead times</text>
+<text x="1108.0" y="688.0" font-size="11" text-anchor="start" font-weight="normal" fill="#111">DWG 13-05</text>
+<text x="1108.0" y="703.0" font-size="11" text-anchor="start" font-weight="normal" fill="#444">not to scale for build</text>
+</svg>

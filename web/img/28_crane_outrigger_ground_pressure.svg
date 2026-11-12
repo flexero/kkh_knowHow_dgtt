@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 990" width="1400" height="990" font-family="Arial, Helvetica, sans-serif">
+<title>Mobile crane outrigger ground pressure</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="990" fill="#ffffff"/>
+<text x="40.0" y="46.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000">Mobile crane set-up for unloading the HMC 500 – outrigger load, mat size and ground pressure (EXAMPLE crane 60 t total mass)</text>
+<text x="40.0" y="88.0" font-size="14" text-anchor="start" font-weight="bold" fill="#000">1  Elevation (schematic)</text>
+<line x1="40.0" y1="560.0" x2="840.0" y2="560.0" stroke="#000" stroke-width="1.5"/>
+<line x1="40.0" y1="560.0" x2="30.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="58.0" y1="560.0" x2="48.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="76.0" y1="560.0" x2="66.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="94.0" y1="560.0" x2="84.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="112.0" y1="560.0" x2="102.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="130.0" y1="560.0" x2="120.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="148.0" y1="560.0" x2="138.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="166.0" y1="560.0" x2="156.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="184.0" y1="560.0" x2="174.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="202.0" y1="560.0" x2="192.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="220.0" y1="560.0" x2="210.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="238.0" y1="560.0" x2="228.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="256.0" y1="560.0" x2="246.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="274.0" y1="560.0" x2="264.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="292.0" y1="560.0" x2="282.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="310.0" y1="560.0" x2="300.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="328.0" y1="560.0" x2="318.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="346.0" y1="560.0" x2="336.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="364.0" y1="560.0" x2="354.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="382.0" y1="560.0" x2="372.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="400.0" y1="560.0" x2="390.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="418.0" y1="560.0" x2="408.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="436.0" y1="560.0" x2="426.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="454.0" y1="560.0" x2="444.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="472.0" y1="560.0" x2="462.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="490.0" y1="560.0" x2="480.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="508.0" y1="560.0" x2="498.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="526.0" y1="560.0" x2="516.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="544.0" y1="560.0" x2="534.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="562.0" y1="560.0" x2="552.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="580.0" y1="560.0" x2="570.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="598.0" y1="560.0" x2="588.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="616.0" y1="560.0" x2="606.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="634.0" y1="560.0" x2="624.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="652.0" y1="560.0" x2="642.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="670.0" y1="560.0" x2="660.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="688.0" y1="560.0" x2="678.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="706.0" y1="560.0" x2="696.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="724.0" y1="560.0" x2="714.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="742.0" y1="560.0" x2="732.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="760.0" y1="560.0" x2="750.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="778.0" y1="560.0" x2="768.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="796.0" y1="560.0" x2="786.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="814.0" y1="560.0" x2="804.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="832.0" y1="560.0" x2="822.0" y2="570.0" stroke="#777777" stroke-width="0.8"/>
+<rect x="170.0" y="410.0" width="350.0" height="70.0" rx="0" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<rect x="520.0" y="370.0" width="70.0" height="110.0" rx="0" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="555.0" y="420.0" font-size="11" text-anchor="middle" fill="#000">cab</text>
+<circle cx="210.0" cy="498.0" r="22.0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<circle cx="280.0" cy="498.0" r="22.0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<circle cx="400.0" cy="498.0" r="22.0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<circle cx="470.0" cy="498.0" r="22.0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<circle cx="550.0" cy="498.0" r="22.0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="130.0" y1="450.0" x2="170.0" y2="450.0" stroke="#000" stroke-width="4"/>
+<line x1="130.0" y1="450.0" x2="130.0" y2="538.0" stroke="#000" stroke-width="4"/>
+<rect x="108.0" y="538.0" width="44.0" height="10.0" rx="0" stroke="#000" stroke-width="1" fill="#555"/>
+<rect x="85.0" y="548.0" width="90.0" height="12.0" rx="0" stroke="#000" stroke-width="1.2" fill="#c8c8c8"/>
+<line x1="590.0" y1="450.0" x2="520.0" y2="450.0" stroke="#000" stroke-width="4"/>
+<line x1="590.0" y1="450.0" x2="590.0" y2="538.0" stroke="#000" stroke-width="4"/>
+<rect x="568.0" y="538.0" width="44.0" height="10.0" rx="0" stroke="#000" stroke-width="1" fill="#555"/>
+<rect x="545.0" y="548.0" width="90.0" height="12.0" rx="0" stroke="#000" stroke-width="1.2" fill="#c8c8c8"/>
+<rect x="300.0" y="360.0" width="150.0" height="50.0" rx="0" stroke="#000" stroke-width="1.5" fill="#dddddd"/>
+<rect x="250.0" y="365.0" width="50.0" height="45.0" rx="0" stroke="#000" stroke-width="1.2" fill="#999"/>
+<text x="275.0" y="355.0" font-size="11" text-anchor="middle" fill="#000">counterweight</text>
+<line x1="420.0" y1="370.0" x2="710.0" y2="140.0" stroke="#000" stroke-width="7"/>
+<line x1="420.0" y1="370.0" x2="710.0" y2="140.0" stroke="#fff" stroke-width="3"/>
+<line x1="710.0" y1="140.0" x2="710.0" y2="330.0" stroke="#000" stroke-width="1.2"/>
+<rect x="701.0" y="330.0" width="18.0" height="22.0" rx="0" stroke="#000" stroke-width="1" fill="#555"/>
+<line x1="710.0" y1="352.0" x2="640.0" y2="400.0" stroke="#c62828" stroke-width="2"/>
+<line x1="710.0" y1="352.0" x2="780.0" y2="400.0" stroke="#c62828" stroke-width="2"/>
+<rect x="625.0" y="400.0" width="170.0" height="110.0" rx="0" stroke="#000" stroke-width="1.5" fill="#f2f2f2"/>
+<text x="710.0" y="452.0" font-size="12" text-anchor="middle" fill="#000">HMC 500</text>
+<text x="710.0" y="478.0" font-size="11" text-anchor="middle" fill="#000">12 000 kg</text>
+<rect x="620.0" y="510.0" width="180.0" height="30.0" rx="0" stroke="#000" stroke-width="1.2" fill="#ffffff"/>
+<text x="710.0" y="530.0" font-size="11" text-anchor="middle" fill="#000">truck bed</text>
+<line x1="640.0" y1="540.0" x2="640.0" y2="560.0" stroke="#000" stroke-width="1"/>
+<line x1="780.0" y1="540.0" x2="780.0" y2="560.0" stroke="#000" stroke-width="1"/>
+<line x1="375.0" y1="640.0" x2="710.0" y2="640.0" stroke="#000" stroke-width="1.2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<line x1="375.0" y1="560.0" x2="375.0" y2="646.0" stroke="#777777" stroke-width="0.8"/>
+<line x1="710.0" y1="560.0" x2="710.0" y2="646.0" stroke="#777777" stroke-width="0.8"/>
+<text x="542.5" y="636.0" font-size="11" text-anchor="middle" fill="#000">working radius R (slew centre → hook), e.g. 8 m</text>
+<text x="60.0" y="120.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">hook load 12 120 kg (machine + 120 kg gear)</text>
+<text x="60.0" y="138.0" font-size="11" text-anchor="start" fill="#000">crane load-chart value at radius R (with the real counterweight,</text>
+<text x="60.0" y="154.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">outrigger base and slew zone) ≥ 1.25 × 12.12 = 15.15 t</text>
+<path d="M85,560 L45,600 L215,600 L175,560" stroke="#c62828" stroke-width="1.2" fill="none" stroke-dasharray="5 4"/>
+<text x="50.0" y="620.0" font-size="11" text-anchor="start" fill="#c62828">load spreads ~45° (concrete/gravel) – check the layer below</text>
+<text x="90.0" y="530.0" font-size="11" text-anchor="end" fill="#000">mat</text>
+<text x="590.0" y="588.0" font-size="11" text-anchor="middle" fill="#000">float on mat</text>
+<text x="40.0" y="650.0" font-size="14" text-anchor="start" font-weight="bold" fill="#000">2  Plan of the outrigger base (schematic)</text>
+<rect x="120.0" y="690.0" width="300.0" height="200.0" rx="0" stroke="#000" stroke-width="1" fill="none" stroke-dasharray="6 4"/>
+<rect x="98.0" y="668.0" width="44.0" height="44.0" rx="0" stroke="#000" stroke-width="1.5" fill="#c8c8c8"/>
+<text x="90.0" y="694.0" font-size="12" text-anchor="end" fill="#000">F3</text>
+<rect x="398.0" y="668.0" width="44.0" height="44.0" rx="0" stroke="#c62828" stroke-width="1.5" fill="#f3c9c9"/>
+<text x="450.0" y="694.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">F1 (max)</text>
+<rect x="98.0" y="868.0" width="44.0" height="44.0" rx="0" stroke="#000" stroke-width="1.5" fill="#c8c8c8"/>
+<text x="90.0" y="894.0" font-size="12" text-anchor="end" fill="#000">F4</text>
+<rect x="398.0" y="868.0" width="44.0" height="44.0" rx="0" stroke="#c62828" stroke-width="1.5" fill="#f3c9c9"/>
+<text x="450.0" y="894.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">F2</text>
+<rect x="180.0" y="760.0" width="180.0" height="60.0" rx="0" stroke="#000" stroke-width="1" fill="#eeeeee"/>
+<text x="240.0" y="794.0" font-size="11" text-anchor="middle" fill="#000">carrier</text>
+<line x1="360.0" y1="772.0" x2="570.0" y2="730.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="576.0" y="730.0" font-size="11" text-anchor="start" fill="#000">load side</text>
+<text x="50.0" y="940.0" font-size="11" text-anchor="start" fill="#000">The outriggers on the load side carry most. Slewing over a corner = worst case.</text>
+<text x="880.0" y="88.0" font-size="14" text-anchor="start" font-weight="bold" fill="#000">3  Ground pressure – worked example</text>
+<text x="880.0" y="114.0" font-size="12" text-anchor="start" fill="#000">Crane total mass incl. counterweight (example): 60 t</text>
+<text x="880.0" y="133.0" font-size="12" text-anchor="start" fill="#000">Hook load: 12.12 t</text>
+<text x="880.0" y="152.0" font-size="12" text-anchor="start" fill="#000">Rule of thumb (crane hire firms, e.g. CPA guidance):</text>
+<text x="880.0" y="171.0" font-size="12" text-anchor="start" fill="#000">  F_max ≈ 0.75 × (crane + load) = 0.75 × 72.12</text>
+<text x="880.0" y="190.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">  F_max = 54.09 t = 530.6 kN on one float</text>
+<text x="880.0" y="209.0" font-size="12" text-anchor="start" fill="#000">Better: the crane maker&#x27;s outrigger calculator</text>
+<text x="880.0" y="228.0" font-size="12" text-anchor="start" fill="#000">(e.g. Liebherr LICCON planner, maker apps).</text>
+<text x="880.0" y="247.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="880.0" y="266.0" font-size="12" text-anchor="start" fill="#000">Ground pressure  q = F / A_mat</text>
+<text x="880.0" y="285.0" font-size="12" text-anchor="start" fill="#c62828">  mat 1.2 × 1.2 m (1.44 m²): q = 368.5 kPa  ✗</text>
+<text x="880.0" y="304.0" font-size="12" text-anchor="start" fill="#c62828">  mat 1.5 × 1.5 m (2.25 m²): q = 235.8 kPa  ✗</text>
+<text x="880.0" y="323.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">  mat 1.7 × 1.7 m (2.89 m²): q = 183.6 kPa  ✓</text>
+<text x="880.0" y="342.0" font-size="12" text-anchor="start" fill="#000">Allowed (example, compacted gravel): 200 kPa</text>
+<text x="880.0" y="361.0" font-size="12" text-anchor="start" fill="#000">  A_req = 530.6 / 200 = 2.65 m²</text>
+<text x="880.0" y="380.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="880.0" y="399.0" font-size="12" text-anchor="start" fill="#000">Mat must be stiff enough to spread the load</text>
+<text x="880.0" y="418.0" font-size="12" text-anchor="start" fill="#000">(steel / hardwood / composite crane mats).</text>
+<text x="880.0" y="437.0" font-size="12" text-anchor="start" fill="#000">Over cellars, drains, trenches: forbidden or</text>
+<text x="880.0" y="456.0" font-size="12" text-anchor="start" fill="#000">design check by a structural engineer.</text>
+<text x="880.0" y="520.0" font-size="14" text-anchor="start" font-weight="bold" fill="#000">4  Typical allowable ground pressure (guide values)</text>
+<rect x="874.0" y="531.0" width="460.0" height="20.0" rx="0" stroke="none" stroke-width="0" fill="#e8e8e8"/>
+<text x="880.0" y="546.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Ground</text>
+<text x="1140.0" y="546.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">kPa (guide)</text>
+<text x="880.0" y="566.0" font-size="12" text-anchor="start" fill="#000">soft clay, made ground</text>
+<text x="1140.0" y="566.0" font-size="12" text-anchor="start" fill="#000">≤ 75 – test!</text>
+<text x="880.0" y="586.0" font-size="12" text-anchor="start" fill="#000">firm clay</text>
+<text x="1140.0" y="586.0" font-size="12" text-anchor="start" fill="#000">≈ 75–150</text>
+<text x="880.0" y="606.0" font-size="12" text-anchor="start" fill="#000">stiff clay / dense sand</text>
+<text x="1140.0" y="606.0" font-size="12" text-anchor="start" fill="#000">≈ 150–300</text>
+<text x="880.0" y="626.0" font-size="12" text-anchor="start" fill="#000">compacted crushed gravel</text>
+<text x="1140.0" y="626.0" font-size="12" text-anchor="start" fill="#000">≈ 200–400</text>
+<text x="880.0" y="646.0" font-size="12" text-anchor="start" fill="#000">asphalt on good base</text>
+<text x="1140.0" y="646.0" font-size="12" text-anchor="start" fill="#000">≈ 200 – check</text>
+<text x="880.0" y="666.0" font-size="12" text-anchor="start" fill="#000">rock</text>
+<text x="1140.0" y="666.0" font-size="12" text-anchor="start" fill="#000">&gt; 1 000</text>
+<text x="880.0" y="686.0" font-size="12" text-anchor="start" fill="#000">concrete slab</text>
+<text x="1140.0" y="686.0" font-size="12" text-anchor="start" fill="#000">punching check (doc 26)</text>
+<text x="880.0" y="720.0" font-size="11" text-anchor="start" fill="#555">Values vary a lot – a geotechnical engineer or a plate-load</text>
+<text x="880.0" y="736.0" font-size="11" text-anchor="start" fill="#555">test decides. Rain softens the ground: check on the day.</text>
+<rect x="12.0" y="12.0" width="1376.0" height="966.0" rx="0" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="828.0" y="894.0" width="560.0" height="84.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="828.0" y1="924.0" x2="1388.0" y2="924.0" stroke="#000" stroke-width="1.2"/>
+<line x1="1208.0" y1="924.0" x2="1208.0" y2="978.0" stroke="#000" stroke-width="1.2"/>
+<text x="838.0" y="915.0" font-size="14" text-anchor="start" font-weight="bold" fill="#c62828">EXAMPLE – check the maker&#x27;s installation manual</text>
+<text x="838.0" y="944.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Crane outrigger ground pressure</text>
+<text x="838.0" y="964.0" font-size="11" text-anchor="start" fill="#555">F ≈ 0.75 (60 + 12.12) t = 530.6 kN · mat 1.7 m → 183.6 kPa</text>
+<text x="1218.0" y="944.0" font-size="12" text-anchor="start" fill="#000">Doc 28 · Fig. 28-4</text>
+<text x="1218.0" y="964.0" font-size="11" text-anchor="start" fill="#555">2026-11 · not for construction</text>
+<text x="24.0" y="968.0" font-size="11" text-anchor="start" fill="#555">Values from docs/28 and web/instseq_calc.js (example data, crankcase line HMC-01/02/03).</text>
+</svg>

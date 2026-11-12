@@ -26,6 +26,33 @@ The pallet data (size, masses, module pitch, APC radius, stroke, oil pressure, t
 - 15 – Data you still need
 - 16 – Glossary (all items)
 
+**Part B – Machine element design reference for the station builder (added 2026-11-12, 8 SVG drawings `docs/img/10_*`)**
+
+- 17 – Gap list: what Part B adds, how to use it
+- 18 – Design method for machine elements: load cases, safety factors, static and fatigue strength, Haigh / Goodman, notch, size and surface factors, worked shaft example (DIN 743 simplified) – drawing 10_shaft_fatigue
+- 19 – Shaft–hub connections: keys, splines, interference fits, clamping elements (taper locking), set screws
+- 20 – Rolling bearings: types, ISO 281 life, equivalent load, static safety, arrangements, lubrication, mounting
+- 21 – Linear guides, guide columns and ball screws (short; details guide 12 Part 4)
+- 22 – Gears and gear motors: involute basics, ISO 6336 simplified, worm gears, service factor, inertia factor – drawing 10_gear_belt_drive
+- 23 – Belts and chains: toothed belt, V-belt, roller chain – forces, pretension, shaft load
+- 24 – Couplings and torque limiters: types, misalignment, selection
+- 25 – Brakes and clutches: braking torque, stopping time, pallet slip, energy per stop
+- 26 – Springs: helical compression spring design (EN 13906-1), disc and gas springs
+- 27 – Bolted and welded structures: joint diagram, bolt fatigue, weld throat, FAT classes – drawing 10_bolted_welded_joint
+- 28 – Locating and indexing elements: dowels, cones, index plungers, zero-point
+- 29 – Positioning accuracy chains: worst case, RSS, Monte Carlo, worked stack-up – drawing 10_tolerance_stackup
+- 30 – Dampers and end stops: E1, E2, E3, effective mass, shock absorber sizing – drawing 10_shock_absorber
+- 31 – Pneumatics basics: cylinder force, air consumption, valve flow, circuit, leaks – drawing 10_pneumatic_cylinder
+- 32 – Material selection: property table, indices, cost – drawing 10_material_chart
+- 33 – Surface treatments
+- 34 – Design for manufacturing and assembly (DFM / DFA) rules
+- 35 – A typical station from top to bottom: design sequence and element map – drawing 10_station_assembly
+- 36 – Buy list – catalogue examples (14 tables)
+- 37 – Consolidated shopping list – pallet transfer station (item 1)
+- 38 – Formula sheet (Part B)
+- 39 – Drawings of this guide (index)
+- 40 – Glossary – Part B terms
+
 Each item has: 1 Purpose · 2 Where in the twin · 3 Concepts · 4 Calculations · 5 Manufacturing, installation, commissioning, tests · 6 Checklists · 7 Mistakes / lessons · 8 Limits.
 
 ---
@@ -306,7 +333,7 @@ Note: the page's interface sheet text says "±0.5 (closed loop with the height s
 | Gear motor + brake + inverter | BUY | 0.25 kW, 44 rpm, 28 N·m, encoder, helical-bevel IE3 | Drives the shaft with a short 08B chain; ramp 0.67 s, creep 0.05 m/s at the end. |
 | Guide columns + bushings (4) | BUY | Ø25 h6 hardened, flanged ball bushings | Press-fit; parallel ≤ 0.05 mm over the stroke. |
 | Lift cylinder | BUY | ISO 6020-2 compact, Ø50/28 × 64, cushioning | + 4/3 valve + throttle on the APC manifold. |
-| Retractable stop | BUY | heavy-duty conveyor stop with damper, 1.44 kN (for creep speed; ≥ 10 J damper if creep can fail, §9.5), stroke 104 mm (up top 1134, down 1030 mm), PU 90 Sh A, 2 sensors | PLC: APC rotation only with the stop DOWN. |
+| Retractable stop | BUY | heavy-duty conveyor stop with damper, 1.44 kN (for creep speed; if creep can fail: damper ≥ 36 J per stroke with 25 mm stroke or ≥ 22 J with 10 mm stroke, because the running chains keep pushing – corrected in §9.5 / §30), stroke 104 mm (up top 1134, down 1030 mm), PU 90 Sh A, 2 sensors | PLC: APC rotation only with the stop DOWN. |
 | Buffer post + front plate | MAKE | S355 tube 60×60 + plate 15 mm; front face at x = 315 mm; posts z = ±280 mm, own anchors | Machine pin bore + absorber threads after welding; align to the station axis ±0.5 mm. |
 | Docking bracket (2) | MAKE | S355 post 60×60 (**too soft – use 120×120×8 or tie to the station frame, §9.3**) + arm 80×30; posts at z = ±410 mm; stop faces at 1144 mm | Machine stop faces + pin bores **with the station chains UP**: faces at chain top + 40 ±0.1 mm, pins ±0.05 mm to the station axis. Then dowel. Load 300 N each. |
 | Cone docking pin (2) | MAKE | 16MnCr5 58–62 HRC, ground g6, Ø25, cone 15°, lead-in ±16 mm, cone length 60 mm; 1 round (z = +350), 1 diamond (z = −350) | Polish cone Ra 0.4, light grease, replaceable. |
@@ -849,6 +876,8 @@ The cone is a wedge: with the deck pushing up with at most F_v = 600 N, the larg
 
 The stop force 1.44 kN is for creep speed 0.05 m/s. The commissioning test "creep speed disabled" means the pallet arrives at the conveyor speed 0.2 m/s: E = ½·510·0.2² = **10.2 J**. On a 3 mm PU pad that is F = 2E/s = 6.8 kN; with a 10 mm hydraulic damper F ≈ E/(0.85·s) = 1.2 kN. → Specify the stop **with damper, ≥ 10 J per stroke (with margin, e.g. 15 J)**, or do not run that test.
 
+**Correction (review 2026-11-12):** the 10.2 J above is only the kinetic energy. While the damper strokes, the chains keep running under the stopped pallet and push it with the sliding friction μs·W = 0.15·5003 = 750 N (the page uses the same 750 N in its stop force). This adds E2 = F·s: with a 25 mm damper E2 = 18.8 J → E3 = 29.0 J → specify **≥ 36 J per stroke** (×1.25); with a 10 mm damper E2 = 7.5 J → E3 = 17.7 J → **≥ 22 J**, peak force ≈ 2.1 kN. Also switch the chain motor off with B23 "pallet at stop" at once. Full sizing method in §30.
+
 ## 9.6 Other clarifications
 
 | Place | Clarification |
@@ -858,6 +887,9 @@ The stop force 1.44 kN is for creep speed 0.05 m/s. The commissioning test "cree
 | Item 1, ball transfer units | the counter surface must be hardened or follow the BTU catalogue (Hertz pressure 2370 N/mm², §10.4) |
 | Item 1/3, light curtains, ISO 13855 | new edition about 2024 – check formula and C values in your edition (doc 09 §9.5) |
 | All items, CE | EU Machinery Regulation (EU) 2023/1230 applies from 20 January 2027 |
+| Item 4, `web/mech4.js` – **fixed 2026-11-12** | the page now uses the resultant √((α·r)² + (ω²·r)²) = 1.93 m/s² and shows **× 0.76** with a red check "add locating blocks" (older versions showed × 1.3). The true factor with the centripetal part is **× 0.76** (§9.1). Read the page value as "not OK – locating blocks required". Code fix proposed to the lead: a_res = √((α·r)² + (ω²·r)²) |
+| §9.1 rounding | "ω = 1.80 rad/s" and "1.795²" are the same value (1.795 rounded to 1.80); a_c = 1.795²·0.48 = 1.55 m/s² |
+| Item 1, retractable stop energy | 10.2 J was kinetic energy only; with the chains pushing during the damper stroke the stop needs ≥ 36 J (25 mm) or ≥ 22 J (10 mm) – see the correction in §9.5 and §30 |
 
 ---
 
@@ -914,7 +946,7 @@ E = ½·m·v²; absorber force ≈ E/(η·s), η ≈ 0.85; elastomer pad F ≈ 2
 |---|---|---|
 | AGV fault at 0.3 m/s, 1160 kg | 52 J | 2 absorbers M25 (60 J), 1.23 kN each |
 | Pallet at stop, creep 0.05 m/s | 0.64 J | 963 N incl. friction |
-| Pallet at stop, creep failed 0.2 m/s | 10.2 J | damper ≥ 10 J (§9.5) |
+| Pallet at stop, creep failed 0.2 m/s | 10.2 J kinetic + 18.8 J chain push (25 mm stroke) | damper ≥ 36 J (§9.5 correction, §30) |
 | Forklift lowering crate 0.3 m/s, 203 kg | 9.1 J | 6.1 kN on 3 mm PU (item 2) |
 
 ## 10.8 Vibration – why the deck needs a lock pin
@@ -1218,7 +1250,7 @@ Manufacturing route: saw bar R-BAR (16MnCr5) → turn with 0.3 mm grinding allow
 | 3 | Pull-stud diameter and fits, zero-point face height | module supplier / machine builder | receiver bores, H0 |
 | 4 | APC base bolting face, dowel position and material | APC/machine builder | item 4 bracket |
 | 5 | Largest fixture and part envelope | fixture design | sweep circle vs AGV, brackets |
-| 6 | Chain, sprocket, absorber, retractable-stop data (energy per stroke ≥ 10 J) | catalogues | item 1 parts |
+| 6 | Chain, sprocket, absorber, retractable-stop data (energy per stroke ≥ 36 J with 25 mm stroke incl. chain push, §30; effective-mass range) | catalogues | item 1 parts |
 | 7 | Crane stop time near the P&D, P&D accuracy, rated load | AS/RS supplier | ISO 13855, conveyor layout |
 | 8 | Crate drawing and tolerances of the real crates in circulation | crate maker | V-guides, contour check |
 | 9 | Floor survey (flatness, joints, concrete class/thickness) | civil engineer | anchors, AGV lane |
@@ -1278,3 +1310,1188 @@ Manufacturing route: saw bar R-BAR (16MnCr5) → turn with 0.3 mm grinding allow
 | g6, H7, d9, k6 | ISO 286 fit symbols (capital = hole, small = shaft) |
 | ETA | European Technical Assessment of an anchor |
 | SEMI E84 | the standard behind the E84 parallel I/O handshake |
+
+
+---
+
+# Part B – Machine element design reference for the station builder (added 2026-11-12)
+
+Part A (items 1–4, chapters 0–16) explains the **interfaces**. Part B is the **machine-element textbook** behind them: how you size a shaft, a key, a bearing, a chain, a coupling, a brake, a spring, a bolt, a weld, a damper or a pneumatic cylinder for a station in this factory – with formulas, real design values, worked examples with the numbers of the twin, catalogue examples and drawings.
+
+> All numbers are **examples**. Every new number was recalculated with a Python (stdlib) script. Values marked "typical" or "see datasheet" must be taken from the maker's catalogue of the part you really buy.
+
+Where another guide already has the full theory, Part B gives the short version and links to it:
+
+| Topic | Full treatment in |
+|---|---|
+| Material tables, heat treatment, ISO 286 fits, roughness, bolt torques, weld rules, key tables, bearing life table, spring and friction tables | guide 14 (§3–§13) |
+| Bolted joints VDI 2230 in depth, interference fits (Lamé), press force, bearing mounting, DFA | guide 17 Part B (§17–§20) |
+| Bearing life ISO 281 in depth, n·dm, lubrication, friction torque | guide 20 Part B (§20–§22) |
+| Disc springs DIN EN 16983, shrink fit of rotors, bearing preload | guide 19 Part B (§20, §23, §24) |
+| Linear guides, ball screws, servo sizing, worm gears | guide 12 Part 4 (M3–M6) and Parts 1–3 |
+| Zero-point clamping, rotation drive, cam laws, slewing bearing, positioning budget | guide 09 Part B (§18–§22) |
+| Hydraulic cylinders, valves, circuits | guides 25, 29, 30 |
+| AGV drive, wheels, docking budget | guide 11 Part B |
+
+---
+
+## 17. Gap list – what a machine designer still needed (and where Part B fills it)
+
+Review of chapters 0–16 against what a designer of station mechanics must calculate and specify:
+
+| # | Needed for real design | State in Part A | Now in |
+|---|---|---|---|
+| 1 | Load assumptions, load cases (normal, start, stall, crash, test), application factor K_A | single load cases only | §18.1–18.3 |
+| 2 | Static and fatigue strength method, Haigh / Goodman, notch factors Kt / Kf, size and surface factors | "fatigue no issue" statements only | §18.4–18.6 |
+| 3 | Shaft design (sprocket shaft of item 1) including the stall torque | material + fit only | §18.7 |
+| 4 | Keys, splines, interference fits, clamping elements with torque formula | "keyway or clamping bush" | §19 |
+| 5 | Bearings: life, static safety, arrangement, lubrication | "UCF bearings" | §20 |
+| 6 | Linear guides / guide columns life | "flanged ball bushings" | §21 (+ guide 12) |
+| 7 | Gears (involute, module, strength), worm self-locking, gear motor service factor | not covered | §22 |
+| 8 | Belts and chains: pretension, shaft load, chain at stall | chain pull only | §23 |
+| 9 | Couplings, torque limiters, misalignment | not covered | §24 |
+| 10 | Brakes and clutches: torque, stopping, pallet slip | not covered | §25 |
+| 11 | Springs: centring springs of the floating deck | spring rate only | §26 |
+| 12 | Bolted joint diagram, bolt fatigue, weld fatigue (FAT) | friction grip + static weld only | §27 |
+| 13 | Locating and indexing elements (index plungers, cones, zero-point) | cone pins only | §28 |
+| 14 | Tolerance stack-up method with worked example, Monte Carlo | worst case / RSS tables | §29 |
+| 15 | Shock absorber sizing with propelling force and effective mass | kinetic energy only (**error found, §9.5**) | §30 |
+| 16 | Pneumatic cylinder force, air consumption, valve size, leak cost | not covered | §31 |
+| 17 | Material selection with properties and cost | material names only | §32 |
+| 18 | Surface treatments | "paint C3" only | §33 |
+| 19 | DFM / DFA rules | scattered | §34 |
+| 20 | Typical station element map, buy lists with makers, shopping list | BOM without makers | §35–§37 |
+
+---
+
+## 18. Design method for machine elements
+
+### 18.1 The design loop (do it for every load-carrying part)
+
+1. **Function and interfaces** – what must the part do, what touches it (draw the neighbours).
+2. **Load cases** – list every situation, not only normal running (§18.2).
+3. **Free-body diagram** – forces, moments, reactions (like the shaft in §18.7).
+4. **Stresses** at the critical sections – where the moment is high AND there is a notch.
+5. **Strength check** – static (yield, rare peak loads) and fatigue (many cycles).
+6. **Stiffness check** – deflection, slope, twist (§10.5: a locator is only as good as its support).
+7. **Wear, contact, temperature, corrosion** – Hertz (§10.4), p·v value, lubrication.
+8. **Manufacture and assembly** – can it be made, measured and mounted (§34)?
+9. **Document** – drawing, calculation sheet with the load-case table, inspection plan.
+
+### 18.2 Load cases and the application factor K_A
+
+The nominal load is rarely the design load. Multiply it by the **application factor K_A** (also called service factor) for the shocks of the driver and the driven machine, and check rare **peak cases** separately as static cases.
+
+| Driver (rows) / driven machine (columns) | uniform (light conveyor) | moderate shocks (chain transfer with stops) | heavy shocks (crusher, press) |
+|---|---|---|---|
+| electric motor on inverter, soft start | 1.0 | 1.25 | 1.75 |
+| electric motor, direct on line | 1.1 | 1.35 | 1.85 |
+| hydraulic / pneumatic actuator | 1.25 | 1.5 | 2.0 |
+
+(Orientation values in the style of the ISO 6336-1 / DIN 3990 tables. Gear, coupling and chain makers publish their own tables – use the table of the part you buy.)
+
+Load-case table for the item 1 chain drive (example):
+
+| Case | What happens | Torque on the sprocket shaft | Check |
+|---|---|---|---|
+| L1 normal transfer | pallet accelerates 0.3 m/s², runs at 0.2 m/s | T = 28.3 N·m | fatigue (millions of revolutions) |
+| L2 start with K_A | inverter start, moderate shocks | 1.25 · 28.3 = 35.4 N·m | fatigue, gear service factor |
+| L3 jam / stall | pallet blocked, motor gives its breakdown torque | 2.5 · 54.3 = **136 N·m** (§18.7) | static (yield), key, chain |
+| L4 inverter current limit 150 % | jam with the torque limit active | 1.5 · 54.3 = 81 N·m | static |
+| L5 overrun | stop hit at 0.2 m/s (creep failed) | stop force 1.36 kN (§30) | static, bolts of the stop |
+| L6 test load | commissioning with 1.25 × pallet mass | 1.25 · L1 | static |
+
+54.3 N·m = rated output torque of a 0.25 kW gear motor at 44 rpm: M = 9550·P/n = 9550·0.25/44.
+Rule: **the part must survive the largest force the drive can produce** – or you limit that force with an inverter torque limit, a slip clutch (§24) or a shear pin. Here the stall case L3 decides the key (§19), not the normal load.
+
+### 18.3 Safety factors (orientation)
+
+| Check | Minimum safety S | Against |
+|---|---|---|
+| static, ductile steel, loads well known | 1.5 – 2.0 | yield Re / Rp0.2 |
+| static, rare peak (stall, crash) with a known maximum | 1.2 – 1.5 | yield |
+| fatigue, steel shafts (DIN 743) | 1.2 (DIN 743 minimum) – 2.0 (normal design) | component fatigue strength |
+| welded details, fatigue | partial factor γ_Mf = 1.15 – 1.35 (EN 1993-1-9) | FAT class |
+| brittle cast iron (GJL) | 2.5 – 4 | Rm |
+| buckling | 3 – 5 | Euler load |
+| lifting parts | per EN 13155 / product standard | – |
+
+More: guide 14 §1.2.
+
+### 18.4 Static strength
+
+- Bending σ_b = M/W with W = π·d³/32 (solid round). Torsion τ_t = T/W_p with W_p = π·d³/16. Tension σ = F/A. Shear τ = F/A (mean) or 4F/(3A) (maximum, round).
+- **Equivalent stress (von Mises):** σ_v = √(σ² + 3·τ²). Static safety S = Re / σ_v.
+- For ductile steel the **notch is ignored** in a static check (the material yields locally and spreads the load). For cast iron and hardened parts it is not ignored.
+
+### 18.5 Fatigue strength – the basics
+
+A part that is loaded again and again breaks at a much lower stress than Rm. Each stress cycle has two parts:
+- **amplitude σa** = (σmax − σmin)/2 (the changing part),
+- **mean σm** = (σmax + σmin)/2 (the constant part).
+
+A rotating shaft with a constant bending moment sees **fully reversed bending** (σm = 0, σa = M/W): every revolution is one cycle. A constant torque gives **τm only**.
+
+**S–N curve (Wöhler curve):** steel has a knee at about N ≈ 10⁶ – 10⁷ cycles; below its fatigue limit σ_W the part lives "for ever". Aluminium and welded joints have no real fatigue limit.
+
+Fatigue limits of a polished test bar (DIN 743-3 rule of thumb for steel):
+
+| Load | Fatigue limit | 42CrMo4+QT (Rm = 1000 MPa) |
+|---|---|---|
+| rotating bending σ_bW | 0.5 · Rm | 500 MPa |
+| tension–compression σ_zdW | 0.4 · Rm | 400 MPa |
+| torsion τ_tW | 0.3 · Rm | 300 MPa |
+
+**The real part is weaker than the test bar.** DIN 743 reduces the fatigue limit with a total factor K:
+
+**K_σ = (β_σ / K₂(d) + 1/K_F,σ − 1) · 1/K_V**  and  **σ_WK = σ_bW / K_σ** (component fatigue limit)
+
+| Factor | Meaning | How to get it |
+|---|---|---|
+| Kt (α_σ) | theoretical stress concentration of the notch (shoulder, groove, hole) | charts (Peterson, DIN 743-2, FKM guideline): shoulder D/d = 1.25, r/d = 0.05 → bending ≈ 1.9, torsion ≈ 1.45 |
+| q, Kf (β_σ) | notch sensitivity; real fatigue notch factor Kf = 1 + q·(Kt − 1) | Peterson q = 1/(1 + a/r), a = 0.0254·(2070/Rm)^1.8 mm; high-strength steel is MORE notch sensitive |
+| K₂(d) | size factor (bigger parts are weaker in fatigue) | K₂ = 1 − 0.2·lg(d/7.5)/lg 20 for 7.5 ≤ d < 150 mm |
+| K_F | surface roughness factor | K_F,σ = 1 − 0.22·lg(Rz)·(lg(Rm/20) − 1); K_F,τ = 0.575·K_F,σ + 0.425 |
+| K_V | surface hardening factor (rolling, nitriding, induction hardening) | 1.0 (none) … 1.1–1.5 (nitrided / rolled), table in DIN 743-2 |
+| keyway (feather key) | fatigue notch factor given directly | DIN 743-2: β_σ ≈ 3.0·(Rm/1000)^0.38 at the key end – much worse than a shoulder |
+
+Typical notch values (orientation – read the chart for your geometry):
+
+| Notch | Kt bending | Kt torsion |
+|---|---|---|
+| shoulder D/d = 1.25, r/d = 0.05 | 1.9 | 1.45 |
+| shoulder D/d = 1.25, r/d = 0.1 | 1.6 | 1.3 |
+| circlip groove | 2.5 – 4 | 2 – 3 |
+| transverse hole d_h/d = 0.1 | 2.2 | 1.8 |
+| keyway end (form A) | Kf ≈ 2.5 – 3 | Kf ≈ 1.8 |
+| press-fit hub edge | Kf ≈ 2 – 2.5 | Kf ≈ 1.5 |
+
+### 18.6 Mean stress – Haigh diagram and Goodman line
+
+With a mean stress the allowed amplitude falls. The **Haigh diagram** plots σa against σm:
+- **Goodman line** (simple, safe for steel): σa/σ_WK + σm/Rm = 1/S.
+- **Yield line (Langer):** σa + σm = Re – the part must not yield in the first cycle.
+- DIN 743 uses the mean-stress sensitivity ψ = σ_WK/(2·Rm − σ_WK): σ_ADK = σ_WK − ψ·σ_mv (case "mean stress constant"). It gives a little more than Goodman.
+- With bending + torsion use the equivalent mean stress σ_mv = √(σm² + 3·τm²).
+
+![Sprocket shaft – loads, moment diagram, notch factors and Haigh / Goodman diagram](img/10_shaft_fatigue.svg)
+
+### 18.7 Worked example – sprocket shaft of the transfer station (item 1)
+
+**Geometry (example design):** bearings A and B (UCF 205, Ø25) 400 mm apart; sprockets S1 and S2 (10B, z17) 60 mm inside each bearing (chain strands at z = ±140 mm); drive sprocket D (08B, z19, d₀ = 12.7/sin(180°/19) = **77.2 mm**) overhung 50 mm outside B. Shoulder Ø25 → Ø20 with fillet r = 1 mm, 25 mm from D. Material 42CrMo4+QT from bar Ø30 → Rm = 1000 MPa, Re = 750 MPa (guide 14 §3.2). Surface fine turned, Rz 6.3.
+
+**Loads (L1, normal):** T = 28.3 N·m (page value). Strand pull per sprocket 393 N (654/2 × 1.2 uneven). Drive chain pull F_D = T/(d₀/2) = 28.3/0.0386 = **733 N**. All forces drawn in one plane and in the same direction (worst case).
+
+| Step | Formula | Result |
+|---|---|---|
+| reaction B | R_B = (393·60 + 393·340 + 733·450)/400 | **1217 N** |
+| reaction A | R_A = 393 + 393 + 733 − 1217 | 301 N |
+| moment at S1 | R_A·60 | 18.1 N·m |
+| moment at S2 | R_A·340 − 393·280 | −7.6 N·m |
+| moment at B | 733·50 | −36.6 N·m (Ø25 seat) |
+| moment at the shoulder | 733·25 | **18.3 N·m** (Ø20) |
+| W, W_p (d = 20) | π·20³/32, π·20³/16 | 785 mm³, 1571 mm³ |
+| amplitude (rotating bending) | σa = 18 320/785 | **23.3 MPa** |
+| mean torsion | τm = 28 300/1571 | **18.0 MPa** → σ_mv = √3·18.0 = 31.2 MPa |
+| notch | Kt = 1.9 / 1.45; a = 0.094 mm, q = 1/(1 + 0.094/1) = 0.91 | Kf = 1.82 / 1.41 |
+| size, surface | K₂(20) = 0.93; K_F,σ = 0.88 | |
+| total factor | K_σ = 1.82/0.93 + 1/0.88 − 1 | **2.09** |
+| component fatigue limit | σ_WK = 500/2.09 | **239 MPa** |
+| fatigue safety (Goodman) | S = 1/(23.3/239 + 31.2/1000) | **7.8** (DIN 743 ψ method: 10.1) |
+| stall L3 | T = 136 N·m, all forces × 4.8: σ = 112 MPa, τ = 86 MPa, σ_v = √(112² + 3·86²) | **187 MPa → S_static = 750/187 = 4.0** |
+
+Also check section B (Ø25, M = 36.6 N·m): σa = 36 630/1534 = 23.9 MPa – similar. Insert bearings are locked with **set screws** that mark the shaft (a local notch) – fine at these low stresses; for higher loads use an eccentric collar or an adapter sleeve.
+
+**Smallest possible diameter** (same factors, L1 loads): d = 13 mm gives S = 2.2, d = 12 mm gives S = 1.7. So the Ø20 / Ø25 shaft has a large reserve – it is **sized by the bearing bore, the key (§19) and the stiffness**, which is normal for slow conveyor shafts.
+
+**Stiffness:** twist between D and the far sprocket (T over 310 mm, Ø25, G = 81 000 MPa): φ = T·L/(G·I_p) = 0.16° → 0.12 mm at the sprocket pitch radius; between the two sprockets (T/2 over 280 mm) 0.07° → only **0.06 mm** difference between the two chain strands – the pallet does not twist (§1.5 "one shaft drives both strands").
+
+Lessons: (1) find the section where **moment and notch** meet; (2) the stall case decides the keys, the fatigue case decides fast-running shafts; (3) a fillet r = 1 mm instead of a sharp corner (r = 0.2 mm) roughly halves the notch effect.
+
+---
+
+## 19. Shaft–hub connections
+
+### 19.1 Which connection for which job
+
+| Connection | Torque capacity | Position accuracy, runout | Mount / dismount | Use in the stations |
+|---|---|---|---|---|
+| parallel key DIN 6885 | medium; notch in the shaft | play in rotation (hub can rock) | easy | sprockets, pulleys, gear motor output |
+| splined shaft ISO 14 / DIN 5480 | high, axial sliding possible | good (DIN 5480 centres on the flanks) | easy | sliding hubs, couplings |
+| interference fit (H7/s6, H7/u6) | high, no keyway – but fretting at the hub edge | very good | press or heat, hard to remove | gears, bushes, rotor sleeves (guide 19 §23) |
+| clamping element (taper locking) | high, phase free | good (0.02–0.05 mm runout with good elements) | easy, any angle | **two sprockets that must be in tooth phase**, cams, pulleys |
+| set screw | low, marks the shaft | poor | easy | insert bearings, light collars only |
+| polygon P3G / P4C | high | very good | easy | high-end machine tools |
+
+### 19.2 Parallel key – check on the sprocket seat (item 1)
+
+Key 6 × 6 for Ø20 (DIN 6885, t₁ = 3.5 mm), length 20 mm, form A → l_eff = l − b = 14 mm. Surface pressure on the weaker (hub) side, guide 14 §11.2:
+
+**p = 2·T / (d·(h − t₁)·l_eff)**
+
+| Case | Torque | p | Allowed (steel hub) | Result |
+|---|---|---|---|---|
+| L1 normal | 28.3 N·m | 2·28 300/(20·2.5·14) = **81 MPa** | 100 – 150 MPa | OK |
+| L4 inverter limit 150 % | 81.4 N·m | 233 MPa | ≈ 0.9·Re of the hub (C45+N ≈ 275 MPa) | plastic marks |
+| L3 stall | 136 N·m | **388 MPa** | – | key and keyway deform |
+
+→ Two choices: **limit the torque** (inverter torque limit ≈ 1.2 × needed, plus a slip clutch, §24) or use a **clamping element** (§19.4). For the 150 % case at p ≤ 120 MPa the key would need l_eff = 27 mm (l = 36 mm) – longer than the hub.
+
+### 19.3 Interference fit (press fit or shrink fit)
+
+Contact pressure for a solid shaft in a steel hub (same E), outer hub diameter D_h:
+
+**p = (E·δ_eff / (2·d))·(1 − (d/D_h)²)**, transmissible torque **T = μ·p·π·d²·L/2**
+
+δ_eff = δ − smoothing loss; DIN 7190 loss ≈ 0.8·(Rz_shaft + Rz_hub). μ ≈ 0.12 (oiled, pressed) … 0.15–0.2 (shrunk, dry, degreased). Full theory, press force and heating temperature: guide 17 §18, guide 19 §23.
+
+Worked example – sprocket hub on Ø20, hub Ø40 × 25, **H7/s6** (hole 0/+21 µm, shaft +35/+48 µm → δ = 14 … 48 µm), Rz 3.2 + 6.3 → loss 7.6 µm:
+
+| | δ_eff | p | T (μ = 0.12) |
+|---|---|---|---|
+| minimum fit | 6.4 µm | 25 MPa | **47 N·m** (> 1.5 · 28.3 = 42 N·m) |
+| maximum fit | 40.4 µm | 159 MPa | 300 N·m; hub stress σ_t = p·(1 + Q²)/(1 − Q²) = 265 MPa (Q = d/D_h = 0.5) → check against hub yield |
+
+Always design with the **minimum** fit for the torque and the **maximum** fit for the hub stress.
+
+### 19.4 Clamping elements (taper locking: Ringfeder, Tollok, KTR CLAMPEX type)
+
+Screws pull two conical rings together; the cones press radially on the shaft and the hub.
+
+| Step | Formula | Example (generic element on Ø20) |
+|---|---|---|
+| axial screw force | F_ax = n·F_V | 6 × M5 12.9 with F_V ≈ 10 kN → 60 kN |
+| radial force (cone half-angle α, cone friction ρ = atan μ_k) | F_N = F_ax / tan(α + ρ) | α = 14°, μ_k = 0.12 (ρ = 6.8°): 60/tan 20.8° = **158 kN** |
+| torque | T = μ·F_N·d/2 | 0.12·158 000·0.010 = **189 N·m** |
+| axial force capacity | F_a = μ·F_N | 19 kN |
+| pressure on the shaft (width L = 20 mm) | p = F_N/(π·d·L) | 125 MPa → check shaft and hub (Lamé) |
+| combined load | √(T² + (F_a·d/2)²) ≤ T_catalogue | – |
+
+The catalogue gives T, F_a, p_shaft, p_hub and the screw torque for the exact element – **use the catalogue values**; the formula only explains them. Rules: shaft h8 / hub H8 are typical (see datasheet); clean, lightly oiled faces – never MoS₂ or grease unless the maker says so; tighten in several rounds crosswise; re-check the torque after the first run. Ideal for the 2 transfer sprockets: set the tooth phase in any angle, then clamp (no keyway notch, no phase error from key play).
+
+### 19.5 Rules
+
+- End keyways ≥ 0.5·d away from shoulders and bearing seats; use a sled-runner (form B) end where fatigue matters.
+- Two keys at 180° carry only about 1.5 × one key (factor 0.75 each) – better change to a clamping element.
+- Set screws only on a flat and with thread locker; never for sprockets that transmit torque.
+- Fretting corrosion (red dust) at the hub edge = micro-slip → tighter fit or a clamping element.
+
+---
+
+## 20. Rolling bearings for station shafts
+
+### 20.1 Bearing types – what to choose
+
+| Type | Loads | Speed | Misalignment | Typical use here |
+|---|---|---|---|---|
+| deep groove ball bearing (e.g. 6205) | radial + medium axial | high | small (a few angular minutes) | rollers, idlers, small gear shafts |
+| insert (Y) bearing in a housing (UCF 205 / SKF FY 25 TF) | radial + light axial | medium | housing seat self-aligning (initial alignment only) | **conveyor and sprocket shafts** – sealed, easy mounting |
+| angular contact ball bearing (72.., pairs) | radial + high axial one way | high | very small | spindles, ball screw supports |
+| tapered roller bearing (302.., pairs) | high radial + axial | medium | very small | wheel hubs, heavy pivots |
+| spherical roller bearing (222..) | very high radial | medium | ≈ 1.5–2° | heavy rollers with shaft deflection |
+| needle / track roller (cam follower) | radial, compact | medium | small | guide rollers, cam followers |
+| crossed roller / slewing bearing | moment + radial + axial | low | none | APC arm (guide 09 §21), rotary tables |
+| plain bush (bronze, PTFE composite) | radial, p·v limited | low | small | pivots, lift levers |
+
+### 20.2 Life and static safety (ISO 281 – formulas in guide 14 §11.1, in depth in guide 20 §20)
+
+- **L₁₀ = (C/P)^p** in 10⁶ revolutions, p = 3 (ball), 10/3 (roller); **L₁₀h = 10⁶·L₁₀/(60·n)**.
+- Equivalent load **P = X·F_r + Y·F_a** (X, Y from the catalogue).
+- Modified life L_nm = a₁·a_ISO·L₁₀ (a_ISO from the viscosity ratio κ and the contamination – in foundry dust a_ISO can fall below 0.5).
+- Static safety **s₀ = C₀/P₀** ≥ 1 (smooth), ≥ 1.5–2 (shocks), ≥ 2–4 (precision).
+
+Worked example – bearing B of the sprocket shaft (§18.7): R_B = 1217 N, n = 44 rpm, insert bearing type YAR 205-2F (SKF catalogue: C = 14 kN, C₀ = 7.8 kN – check your datasheet).
+
+| | Formula | Result |
+|---|---|---|
+| L₁₀ | (14 000/1217)³ | 1523·10⁶ revolutions |
+| L₁₀h | 10⁶·1523/(60·44) | **≈ 577 000 h** (needed 20 000 – 30 000 h) |
+| stall P₀ | 1217·4.8 | 5840 N |
+| s₀ | 7800/5840 | **1.34** ≥ 1 ✓ (rare peak) |
+
+→ Life is never the problem at 44 rpm. The **static load at stall, the sealing against chips and coolant, and the shaft size** decide. A bearing that is "too big for life" is normal for slow conveyors.
+
+### 20.3 Arrangements
+
+| Arrangement | How | When |
+|---|---|---|
+| locating / non-locating | one bearing fixes the shaft axially, the other can slide (loose outer ring or NU roller bearing) | long shafts, temperature differences |
+| adjusted (X or O, tapered / angular contact) | two bearings set against each other with play or preload | stiff, precise shafts, gear shafts |
+| floating | both bearings with a small axial play | short shafts, simple conveyors |
+| two insert bearings, both locked | both rings fixed with set screws or collars | short shafts with small temperature differences – **item 1 sprocket shaft**: 400 mm × 11.5·10⁻⁶ × 10 K = 0.046 mm, taken by the internal clearance |
+
+O-arrangement (back-to-back) gives high tilting stiffness (spindles, guide 19 §19); X-arrangement (face-to-face) tolerates misalignment better.
+
+### 20.4 Fits, lubrication, mounting (short)
+
+- Rotating inner ring, fixed load direction: inner ring **tight** (k5/m5 on solid shafts), outer ring loose (H7/J7). Insert bearings: shaft h7–h9 per maker (the set screw or collar fixes the ring).
+- Grease: lithium-complex or polyurea, NLGI 2, fill 30–50 % of the free space; relubrication interval from the maker's diagram (slow conveyors: 6–12 months; dusty: more often and purge with fresh grease). n·dm limits and oil lubrication: guide 20 §21.
+- Mount by pressing **only on the ring with the tight fit**, never through the rolling elements. Heat to ≤ 110 °C with an induction heater. Guide 17 §19.
+- Seals: in foundry or chip areas use bearings with contact seals (-2RS / -2F) plus a flinger or labyrinth; stainless housings near coolant.
+
+---
+
+## 21. Linear guides, guide columns and ball screws (short – details in guide 12 Part 4 M3/M4)
+
+| Element | Load capacity | Accuracy | Friction | Use |
+|---|---|---|---|---|
+| round column + linear ball bushing (Ø25) | low – medium, no moments on one bushing | ±0.01–0.03 mm | μ ≈ 0.002–0.004 | **station lift frame (4 columns)** |
+| round column + plain bush (bronze, PTFE composite) | medium, shock resistant | play 0.02–0.1 mm | μ ≈ 0.05–0.2 | dirty areas, slow strokes |
+| profile rail ball guide (size 25) | high, all directions + moments | ±0.005–0.01 mm | μ ≈ 0.002–0.005 | axes, transfer slides |
+| profile rail roller guide | very high, stiff | high | low | machine tools |
+| cam-roller guide on flat bars | medium | ±0.1 mm | low | long, simple travels |
+| ball screw | high axial | ±0.005–0.05 mm per 300 mm | η ≈ 0.9 | servo axes |
+| trapezoidal screw | medium, can be self-locking | play | η ≈ 0.3–0.4 | manual adjusters |
+
+**Life formula (ball elements):** L = (C/P)³ · 50 km (makers that state C for 100 km: C₁₀₀ ≈ C₅₀/1.26), with the catalogue factors for hardness, temperature and shocks.
+
+Example – lift-frame columns: assume P = 300 N per bushing (transfer reaction 654 N plus a moment share, example) and a bushing with C = 1.5 kN (example – see datasheet): L = (1500/300)³ · 50 km = **6250 km**; one lift cycle = 2 × 64 mm → 4.9·10⁷ cycles; at 5.2 lift cycles per hour this is far beyond the machine life. → choose the bushing by **shaft diameter, sealing and stiffness**, not by life. Mount the 4 columns parallel ≤ 0.05 mm (otherwise the bushings fight, §1.5); use closed bushings on 2 columns and give the other 2 some radial freedom (exact constraint idea, §10.2).
+
+Ball screws (critical speed, buckling, DN value, life iteration, support bearings): guide 12 M4.
+
+---
+
+## 22. Gears and gear motors
+
+### 22.1 Involute spur gear – the geometry you need
+
+![Spur gear geometry and belt drive forces](img/10_gear_belt_drive.svg)
+
+| Quantity | Formula | Example m = 2, z₁ = 17, z₂ = 34, α = 20° |
+|---|---|---|
+| module m (ISO 54 series: 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10) | m = d/z = p/π | 2 mm |
+| pitch diameter | d = m·z | d₁ = 34, d₂ = 68 mm |
+| circular pitch | p = π·m | 6.28 mm |
+| tip / root diameter (x = 0) | d_a = d + 2m, d_f = d − 2.5m | 38 / 29 mm (pinion) |
+| base diameter | d_b = d·cos α | 31.95 mm |
+| centre distance | a = m·(z₁ + z₂)/2 | 51 mm |
+| ratio | i = z₂/z₁ | 2 |
+| transverse contact ratio | ε_α = [√(r_a1² − r_b1²) + √(r_a2² − r_b2²) − a·sin α] / (π·m·cos α) | **1.60** (≥ 1.2 needed; 1.4–1.8 normal) |
+| fewest teeth without undercut | z_min = 2/sin²α | 17.1 → z = 17 is at the limit; use profile shift x > 0 or z ≥ 18 |
+| helical gear (β = 15–25°) | axial force F_a = F_t·tan β | at 15°: 446 N for F_t = 1663 N – the bearings must take it |
+
+The **involute** is the curve a point of a tight string draws when it unwinds from the base circle. Its big advantage: the ratio stays exact even if the centre distance changes a little (only the backlash changes). The contact point always moves on the **line of action**, tangent to both base circles, at the pressure angle α = 20° (ISO 53).
+
+### 22.2 Strength – ISO 6336 simplified
+
+Tangential force F_t = 2·T₁/d₁. Two failure modes:
+
+- **Tooth root bending (breakage):** σ_F = F_t/(b·m) · Y_FS · Y_ε · K_A · K_V · K_Fβ · K_Fα, with Y_FS ≈ 4.4 for z = 17, x = 0 (combined form + stress-correction factor, chart ISO 6336-3), Y_ε = 0.25 + 0.75/ε_α. Allowed σ_FP = σ_Flim·Y_ST/S_F,min (Y_ST = 2, S_F,min ≈ 1.4).
+- **Flank pitting (contact):** σ_H = Z_E·Z_H·Z_ε·√(F_t/(b·d₁) · (u + 1)/u · K_A·K_V·K_Hβ·K_Hα), with Z_E = 189.8 √MPa (steel/steel), Z_H = 2.495 (α = 20°, x = 0, spur), Z_ε = √((4 − ε_α)/3), u = z₂/z₁. Allowed σ_HP = σ_Hlim/S_H,min (S_H,min ≈ 1.0–1.2).
+
+Worked example – a gear pair instead of the 08B drive chain: T₁ = 28.3 N·m, b = 20 mm (b/d₁ = 0.59), K_A = 1.25, K_V = 1.05, K_β = K_α = 1 (assumed):
+
+| | Formula | Result |
+|---|---|---|
+| F_t | 2·28 300/34 | **1663 N** |
+| σ_F | 1663/(20·2)·4.4·0.72·1.25·1.05 | **173 MPa** |
+| σ_H | 189.8·2.495·0.895·√(1663/(20·34)·1.5·1.3125) | **930 MPa** |
+
+| Material (ISO 6336-5, orientation) | σ_Flim | σ_Hlim | S_F | S_H | Verdict |
+|---|---|---|---|---|---|
+| 42CrMo4 through-hardened (QT) | ≈ 300 MPa | ≈ 700 MPa | 3.5 | **0.75 ✕** | flanks pit |
+| 16MnCr5 / 20MnCr5 case-hardened | ≈ 430 MPa | ≈ 1500 MPa | 5.0 | **1.61 ✓** | OK |
+
+Stall (L3, × 4.8 torque): σ_F = 829 MPa < static limit ≈ 2.5·430 = 1075 MPa (life factor Y_NT ≈ 2.5 for case-hardened steel at very few cycles) and σ_H = 2037 MPa < 1.6·1500 = 2400 MPa (Z_NT ≈ 1.6) – the case-hardened pair survives a stall; the QT pair would not.
+**Lesson: small, slow, highly loaded gears are decided by the contact stress → case-harden and grind, or make them wider / bigger.** Gear quality: ISO 1328 grade 6–8 for conveyor drives, 4–5 for indexing tables.
+
+### 22.3 Worm gears – efficiency and self-locking
+
+Efficiency (worm driving): **η = tan γ / tan(γ + ρ′)**; back-driving (wheel driving): **η′ = tan(γ − ρ′) / tan γ**; ρ′ = atan μ (with the normal pressure angle: μ′ = μ/cos α_n).
+
+| Example | Value |
+|---|---|
+| 1-start worm, diameter factor q = 10 → lead angle γ = atan(1/10) | 5.71° |
+| running friction μ = 0.05 (ρ′ = 2.86°) | η = **0.66**, back-driving η′ = **0.50** → NOT self-locking while running |
+| static friction μ = 0.10 (ρ′ = 5.71°) | η′ = 0 → exactly at the limit |
+
+**Rule: never trust a worm gear to hold a load (vibration releases it). A lift or a vertical axis needs a brake or a check valve.** Duplex worm drive, contact pattern, materials: guide 12 Parts 1–3, guide 17 §21.
+
+### 22.4 Selecting a gear motor (item 1 chain drive)
+
+| Step | Formula / rule | Example |
+|---|---|---|
+| output speed | n₂ = v·60/(π·d₀) | 44 rpm |
+| output torque needed | T = F·d₀/2 | 28.3 N·m |
+| power | P = F·v/η | 164 W → motor 0.25 kW (×1.3 reserve) |
+| ratio | i = n_motor/n₂ | 1400/44 ≈ 32 → n₂ = 43.8 rpm |
+| rated output torque | M_a = 9550·P_motor/n₂ | 54 N·m (the motor CAN deliver it – size the gear unit for it) |
+| mass acceleration factor | f_a = J_ext,reduced/J_motor; J_ext = m·(v/ω_motor)² = 511·(0.2/146.6)² | 9.5·10⁻⁴ kg·m² / ≈ 8·10⁻⁴ (motor, typical – see datasheet) = **1.19** → load class II (moderate shocks) |
+| service factor | f_B from the maker's chart (hours/day, starts/h, load class) | e.g. f_B ≈ 1.2 (16 h, class II, few starts – read your maker's chart) → gear unit rating ≥ 1.2·54 = 65 N·m |
+| overhung load on the output shaft | F_R = M/(d₀/2)·f_Z, f_Z ≈ 1.25 for a chain sprocket z 14–20 (SEW-style factor) | 28.3/0.0386·1.25 = 917 N ≤ catalogue F_Ra (at the shaft centre) |
+| type | helical-bevel (right angle, η ≈ 0.95), helical, worm (cheap, η 0.5–0.8) | helical-bevel, IE3, brake, encoder (§1.5) |
+
+---
+
+## 23. Belts and chains
+
+### 23.1 Forces in a belt drive
+
+- **Toothed (synchronous) belt:** F_t = 2·T/d_w. Static pretension per strand F₀ ≈ 0.5–0.7·F_t (maker's method). Tight side F₁ = F₀ + F_t/2, slack side F₂ = F₀ − F_t/2 (must stay > 0). Shaft load F_w ≈ F₁ + F₂ = 2·F₀ (180° wrap).
+- **V-belt (friction):** Euler–Eytelwein **F₁/F₂ = e^(μ′·β)** (β = wrap angle in rad, μ′ = effective friction of the V-groove ≈ 0.5). F₂ = F_t/(e^(μ′β) − 1).
+- **Pretension check on site:** span frequency f = (1/(2·L_span))·√(F₀/m′) (m′ = belt mass per metre). Example: F₀ = 555 N, m′ = 0.12 kg/m (example), L_span = 0.3 m → **113 Hz** – measure with a sonic tension meter.
+
+Worked example – replace the 08B drive chain by a toothed belt HTD 8M, z = 24 both pulleys (d_w = 24·8/π = 61.1 mm), T = 28.3 N·m, n = 44 rpm:
+
+| | Toothed belt HTD 8M | V-belt (comparison) | Roller chain 08B (as built) |
+|---|---|---|---|
+| F_t | 2·28 300/61.1 = 925 N | 925 N | 733 N (d₀ 77.2 mm) |
+| strand forces | F₁ = 555 + 463 = 1018 N, F₂ = 92 N | F₁ = 1168 N, F₂ = 243 N | slack side ≈ 0 |
+| shaft load | **1110 N** | **1410 N** (+27 %) | ≈ 733 N |
+| speed | v = π·d_w·n = 0.14 m/s → static / low-speed rating | can slip, loses phase | 0.18 m/s; polygon effect 1 − cos(180°/19) = 1.4 % |
+| strength | width from the maker's table (allowed tooth shear / tension per mm) | – | breaking 17.8 kN: static safety 24 (normal), **5.1 at stall** |
+| maintenance | no lubrication, no elongation, needs exact alignment (< 0.25°) | re-tension | lubricate, elongation check (replace at 2–3 %) |
+
+### 23.2 Roller chain rules (ISO 606, DIN ISO 10823)
+
+- At low speed (< 0.6 m/s) select by **static safety** on the breaking force: ≥ 7–10 with the service factor (item 1: 38 for 10B, §1.4). At higher speed use the power-rating diagram of the maker.
+- Sprockets z ≥ 17 for transfers (polygon effect, §10.12), hardened teeth, wrap ≥ 120°, centre distance 30–50 pitches, even number of links (no cranked link).
+- Sag 1–2 % of the free span; tensioner on the slack side; lubricate (conveyor chain oil) or use lube-free chains (sintered bushes) in dusty areas.
+- **Replace at 2 % elongation** (measure over 10+ links); always replace the sprockets with the chain when the teeth are hooked.
+- Guards per EN ISO 13857 at every sprocket and the return strand (item 3, §3.5).
+
+---
+
+## 24. Couplings and torque limiters
+
+### 24.1 Types (misalignment values are typical – take the exact values for the size from the datasheet)
+
+| Type | Torsional | Radial misalignment | Angular | Axial | Backlash | Use |
+|---|---|---|---|---|---|---|
+| rigid (flange, sleeve) | very stiff | none | none | none | 0 | aligned shafts in one housing |
+| jaw coupling with elastomer spider (e.g. ROTEX) | elastic, damps shocks | ≈ 0.1–0.4 mm | ≈ 0.5–1° | ≈ 1–2 mm | 0 (preloaded spider) or small | **gear motor ↔ shaft**, pumps |
+| metal bellows | stiff | ≈ 0.1–0.3 mm | ≈ 1–2° | ≈ 0.5–1 mm | 0 | servo axes, encoders |
+| disc pack (single / double) | stiff | double only: ≈ 0.5–1 mm | ≈ 0.5–1° per pack | ≈ 1–2 mm | 0 | high torque, high temperature |
+| gear coupling | stiff | via angle | ≈ 1–1.5° per hub | large | small | heavy industry |
+| Oldham | medium | large (1–2 mm) | small | small | small (wear) | simple, cheap |
+| chain coupling | medium | ≈ 0.5 mm | ≈ 1° | ≈ 1 mm | yes | slow conveyors |
+
+Misalignment creates **restoring forces** on the bearings – align to about 25–50 % of the catalogue limit (laser or dial gauge, guide 26) and the coupling and bearings live long.
+
+### 24.2 Selection (jaw-coupling method, KTR / Mayr style)
+
+- **T_KN ≥ T_N · S_t** (nominal torque × temperature factor; S_t ≈ 1.0 up to 30 °C, higher for hot motors – see the maker).
+- **T_K,max ≥ T_S · S_A · S_Z · S_t** (peak torque × shock factor S_A ≈ 1.4 light / 1.8 medium / 2.5 heavy × start factor S_Z = 1.0 up to about 120 starts per hour).
+
+| Item 1 drive (if the gear motor is coupled directly) | Result |
+|---|---|
+| T_N = 28.3 N·m | T_KN ≥ 28.3 N·m |
+| without a torque limiter: T_S = stall 136 N·m | T_K,max ≥ 136·1.4 = **190 N·m** → big coupling |
+| with a slip hub set to 42 N·m (§24.3) | T_K,max ≥ 42·1.4 = **59 N·m** → small coupling |
+
+### 24.3 Torque limiters and safety clutches
+
+| Type | How | After overload |
+|---|---|---|
+| friction slip hub (e.g. ROBA-slip hub) | spring-loaded friction linings | slips while the overload lasts – heat |
+| ball-detent safety clutch (EAS, R+W SK, KTR SYNTEX) | balls in detents, disengages | stops transmitting, sensor signal, re-engages in a defined angle |
+| shear pin | pin breaks | replace the pin |
+| inverter torque limit | electronic | fastest, but no protection against mechanical blocking at a standstill |
+
+Setting: **T_slip ≈ 1.2–1.5 × the largest operating torque** (here 1.2 × L2 35.4 = 42.4 N·m = 1.5 × 28.3). Slip power P = T·ω = 42.4 · 4.61 rad/s = 195 W → 98 J if the sensor stops the motor within 0.5 s – fine for a slip hub. Add a **slip / speed monitor** (proximity switch on the sprocket) so the PLC stops the drive.
+
+---
+
+## 25. Brakes and clutches
+
+### 25.1 Basics
+
+- Spring-applied, electromagnetically released brake (fail-safe, "power off = brake on") – standard on gear motors and servo motors. Permanent-magnet brakes: zero backlash, servo motors.
+- Braking time: **t = J_total·ω / (M_B + M_L)** (load torque M_L helps when it acts against the motion); deceleration a = v/t; stopping distance s = v·t₁ + v·t/2 (t₁ = brake engagement time, 10–50 ms).
+- Energy per stop **W = ½·J_total·ω²·M_B/(M_B + M_L)** → compare with the catalogue "max. friction work per stop" and per hour (heat, lining wear).
+- Vertical axes: holding torque ≥ 1.5–2 × the static load torque, brake test function in the safety PLC (guide 23).
+
+### 25.2 Worked example – brake motor on the item 1 transfer chain
+
+Motor 0.25 kW, 1400 rpm (ω = 146.6 rad/s), J_motor ≈ 8·10⁻⁴ kg·m² (typical), load reduced to the motor J_L = 9.5·10⁻⁴ kg·m² (§22.4), brake 2.5 N·m (example), running resistance 510·0.1·9.81 = 500 N → M_L = 500·0.2/146.6 = 0.68 N·m:
+
+| | Formula | Result |
+|---|---|---|
+| J_total | 8·10⁻⁴ + 9.5·10⁻⁴ | 1.75·10⁻³ kg·m² |
+| braking time | 1.75·10⁻³·146.6/(2.5 + 0.68) | **0.081 s** |
+| chain deceleration | 0.2/0.081 | **2.48 m/s²** |
+| friction can transmit | μ_s·g = 0.15·9.81 | 1.47 m/s² → **the pallet slides on the chains** |
+| pallet stopping distance | v²/(2·1.47) = 13.6 mm vs chain 8.1 mm | relative slip ≈ 5.5 mm |
+| energy per stop | ½·1.75·10⁻³·146.6²·2.5/3.18 | 14.8 J |
+| brake torque for no slip (a ≤ 0.98 m/s², safety 1.5) | J·ω/t − M_L with t = 0.2/0.98 | ≤ 0.58 N·m – smaller than the load friction alone |
+
+→ **Stop the transfer with the inverter ramp (SS1, ≈ 0.3 m/s²) and use the brake only to hold.** In an emergency stop the pallet slides about 5 mm on the chains – acceptable here (no collision, the receivers catch ±3 mm only after the chains lower, the retractable stop is ahead). Write this into the risk assessment.
+
+### 25.3 Clutches (short)
+
+Electromagnetic single-face clutch: M = μ·F_N·r_m·z (z = friction faces). Used to couple / uncouple a drive without stopping the motor (rare in these stations; indexing tables use servo motors instead). Selection by torque, switching work per operation and per hour, and engagement time – maker's catalogue.
+
+---
+
+## 26. Springs
+
+### 26.1 Helical compression spring (EN 13906-1)
+
+| Quantity | Formula |
+|---|---|
+| spring rate | c = G·d⁴ / (8·D³·n) (d wire, D mean coil diameter, n active coils, G = 81 500 MPa spring steel EN 10270-1) |
+| shear stress (corrected) | τ_k = k·8·F·D / (π·d³), k ≈ (w + 0.5)/(w − 0.75), spring index w = D/d (good: 4–12) |
+| solid length (ground ends) | L_c ≈ n_t·d, n_t = n + 2 |
+| sum of minimum gaps | S_a = (0.0015·D²/d + 0.1·d)·n |
+| free length | L₀ ≥ L_c + s_max + S_a |
+| buckling | safe without guide if L₀/D < 2.6 (ends hinged) … 5.2 (both ends on parallel plates) – else guide on a mandrel or in a sleeve |
+| allowed stress (static) | τ ≤ 0.5·Rm (at the working force), ≤ 0.56·Rm at the solid length; fatigue: Goodman diagram of EN 13906-1 for the wire grade |
+
+### 26.2 Worked example – centring spring of the floating deck (item 1, k = 10 N/mm)
+
+Wire d = 4 mm (EN 10270-1 grade DH, Rm ≈ 1700 MPa for d = 4 – check the wire certificate), D = 32 mm, n = 8 (same as the example in guide 14 §12.1).
+
+| | Formula | Result |
+|---|---|---|
+| rate | 81 500·4⁴/(8·32³·8) | **9.95 N/mm** ✓ |
+| preload 10 mm + float 20 mm → s_max = 30 mm | F = 9.95·30 | 298.5 N |
+| index, factor | w = 8, k = 8.5/7.25 | 1.172 |
+| stress at s_max | 1.172·8·298.5·32/(π·64) | **446 MPa** ≤ 0.5·1700 = 850 ✓ |
+| solid length | (8 + 2)·4 | 40 mm |
+| gaps | (0.0015·32²/4 + 0.4)·8 | 6.3 mm |
+| free length | 40 + 30 + 6.3 | 76.3 → **L₀ = 77 mm** |
+| at solid length (s = 37 mm) | F = 368 N, τ = 549 MPa | ≤ 0.56·1700 = 952 ✓ – the spring can go solid without damage |
+| buckling | L₀/D = 77/32 = 2.4 | < 2.6 ✓ even with hinged ends |
+| fatigue | τ between 148 (preload) and 446 MPa, ≈ 2·10⁵ dockings in 10 years | finite-life range – check in the EN 13906-1 diagram (usually OK; shot-peened wire gives more margin) |
+
+Remember §1.4: springs alone leave ±6.5 mm (friction) – the conical lock pin does the final centring.
+
+### 26.3 Other springs
+
+| Spring | Use | Key point |
+|---|---|---|
+| disc springs (DIN EN 16983 / 16979) | high force, small stroke: drawbar packs, zero-point modules, clamps | stacking in series (more stroke) / parallel (more force), hysteresis – guide 19 §24 |
+| gas springs | counterbalance of covers, hatches | force rises ≈ 0.35 %/K with temperature, progression F₂/F₁ ≈ 1.2–1.5; mount rod down |
+| extension springs | return of levers | hooks are the weak point – avoid where safety depends on them |
+| elastomer springs / buffers | end stops, damping | non-linear, heat build-up, temperature dependent (§30) |
+| wave springs | small axial preload (bearings) | short installed height |
+
+---
+
+## 27. Bolted and welded structures
+
+![Bolted joint diagram (VDI 2230 idea), fillet weld throat and FAT fatigue curves](img/10_bolted_welded_joint.svg)
+
+### 27.1 The bolted joint diagram (VDI 2230 idea – full method in guide 17 §20)
+
+A preloaded bolt is a stiff **spring in tension** (bolt) clamping a stiffer **spring in compression** (the plates). An axial working load F_A only partly reaches the bolt:
+
+| Quantity | Formula |
+|---|---|
+| bolt stiffness (simplified) | c_S ≈ E·A_s/(l_k + 0.8·d) |
+| plate stiffness (simplified pressure cylinder) | c_P ≈ E·A_ers/l_k, A_ers = π/4·((d_w + l_k/10)² − d_h²) for a large plate |
+| load factor | Φ_n = n·c_S/(c_S + c_P), n = load-introduction factor 0.3–0.7 (0.5 typical) |
+| extra bolt force | F_SA = Φ_n·F_A |
+| plate relief | F_PA = (1 − Φ_n)·F_A |
+| embedding loss | F_Z = f_Z·c_S·c_P/(c_S + c_P), f_Z ≈ 8–15 µm for 2–3 interfaces with Rz < 10 |
+| residual clamp force | F_KR = F_V,min − F_Z − F_PA ≥ needed clamp (friction, sealing, no opening) |
+| bolt fatigue | σ_a = F_SA/(2·A_s) ≤ σ_ASV/S; rolled before heat treatment: σ_ASV ≈ 0.85·(150/d + 45) MPa |
+
+Worked example – adapter bracket M16 10.9 on the APC base (item 4, mounting A), grip l_k = 50 mm, d_w = 24, d_h = 17.5, A_s = 157 mm², F_V,min = 76 kN (§9.6), assumed axial load 0 ↔ 10 kN per bolt (e.g. a tilting load – example):
+
+| | Result |
+|---|---|
+| c_S = 210 000·157/(50 + 12.8) | 525 kN/mm |
+| A_ers = π/4·((24 + 5)² − 17.5²) = 420 mm² → c_P | 1764 kN/mm |
+| Φ_n = 0.5·525/2289 | **0.115** |
+| F_SA / F_PA | **1.15 kN** / 8.85 kN |
+| F_Z (f_Z = 11 µm) | 4.45 kN |
+| F_KR = 76 − 4.45 − 8.85 | **62.7 kN** |
+| σ_a = 1147/(2·157) | 3.7 MPa vs σ_ASV = 46 MPa → **S_D = 12.6** |
+| joint opens only at F_A ≈ (76 − 4.45)/(1 − 0.115) | ≈ 81 kN |
+
+**Lessons:** a well-preloaded bolt hardly feels the working load (only 11 % here) – that is why preload and a long, thin (elastic) bolt protect against fatigue. Loss of preload (no torque control, soft washers, paint under the head) is the main cause of bolt failures. Thread locking: guide 17 §22. Torques: guide 14 §8.3.
+
+### 27.2 Fillet welds – static check
+
+Throat **a** = height of the largest isosceles triangle in the weld; leg z = a·√2 ≈ 1.41·a. Rules: a ≥ 3 mm, a ≤ 0.7·t_min, effective length ≥ 6·a and ≥ 30 mm.
+Simplified method (EN 1993-1-8, guide 14 §9.2): τ_w = F_d/Σ(a·l) ≤ f_vw,d (S355: 241 MPa) with factored loads F_d = 1.35–1.5·F.
+Weld under bending (ring weld around a tube): σ_w = M/W_w, W_w of the throat ring.
+
+Example (from §14.7): docking post 120 × 120 on its base plate, a = 5 all round, W_w ≈ 100 300 mm³, wedge-limit moment 1576 N·m → σ_w = **15.7 MPa**; ×1.5 = 23.6 MPa ≪ 241 MPa ✓.
+
+### 27.3 Weld fatigue – FAT classes (IIW recommendations / EN 1993-1-9)
+
+For welded steel the fatigue strength depends on the **detail**, not on the steel grade (S235 and S355 are the same). Each detail has a FAT class = allowed **stress range** Δσ at 2·10⁶ cycles (95 % survival):
+
+| Detail (orientation – look up the exact detail in IIW / EN 1993-1-9 tables) | FAT (MPa) |
+|---|---|
+| plain rolled plate, machined edges | 160 |
+| butt weld ground flush, NDT | 112 |
+| butt weld as welded, transverse | 80 – 90 |
+| non-load-carrying fillet weld (attachment), toe failure | 71 – 80 |
+| cruciform load-carrying fillet weld, toe failure | 63 – 71 |
+| load-carrying fillet weld, **root failure, stress on the throat** | **36** – 45 |
+| fillet weld in shear on the throat | 80 (m = 5) |
+
+Life: **N = 2·10⁶·(FAT/(γ_Mf·Δσ))^m**, m = 3 for normal stresses (m = 5 below the constant-amplitude limit at 5·10⁶ cycles; constant-amplitude fatigue limit ≈ 0.74·FAT).
+
+| Worked example | Δσ | Cycles | Result |
+|---|---|---|---|
+| docking post weld, each docking 195 N at 1144 mm (M = 223 N·m): 223 000/100 300 | 2.2 MPa | 2·2.6 exchanges/h × 40 000 h = 2.1·10⁵ | Δσ_R at 2.1·10⁵ for FAT 71 = 151 MPa, /1.35 = 112 MPa → S ≈ 50 ✓ |
+| bracket with 2 fillet welds a4 × 120, load 0 ↔ 10 kN, root (FAT 36) | 10 000/(2·4·120) = 10.4 MPa | – | N = 2·10⁶·(36/(1.35·10.4))³ = **3.4·10⁷** cycles; 10.4 MPa < 0.74·36 = 26.5 MPa → below the fatigue limit for constant amplitude ✓ |
+
+**Rules:** put welds into low-stress zones; never end a weld at a corner or a notch (wrap around); avoid load-carrying fillet welds across the main stress (use full-penetration welds there); stress relieve weldments that are machined afterwards (dimensional stability, not fatigue); grind weld toes or use TIG dressing to raise FAT where needed.
+
+### 27.4 Frame design rules (station tables, brackets, posts)
+
+- **Stiffness first:** rectangular tubes resist bending AND torsion; open sections (U, I) are weak in torsion – close them or add diagonals.
+- Deflection limits (orientation): locating parts ≤ 0.05 mm at the locating force (§10.5); conveyor frames L/1000; covers L/300.
+- Weld in a jig, crosswise; stress relieve 580–620 °C; machine all functional faces in **one setup** (§1.5).
+- Use bolted + doweled connections where parts must be exchanged or aligned on site (item 4).
+- Aluminium profiles (40/45 series) for guards, light frames, sensor brackets – not for locating parts that carry the pallet (creep of the T-nut joints, low E).
+
+---
+
+## 28. Locating and indexing elements
+
+| Element | Typical repeatability | Catch range | Holding force / stiffness | Use in this factory |
+|---|---|---|---|---|
+| dowel pin in reamed holes (ISO 8734, m6/H7) | ±0.005–0.01 mm | 0 (needs alignment) | does not carry load (bolts do) | brackets, item 4 station on APC base |
+| cone (taper) pin in bush | ±0.002–0.02 mm | large (lead-in) | high in the cone direction | docking pins (item 1), zero-point |
+| diamond (relieved) pin | ±0.01–0.02 mm in one direction | = round pin | – | 2nd locator against over-determination (§10.3) |
+| index plunger (spring-loaded pin) | ±0.02–0.05 mm (with clearance) | small (chamfer) | low – medium (pin shear) | manual turntables, carts, fixtures |
+| ball / spring plunger | ±0.05–0.1 mm | small | low (detent) | soft detents, positions for operators |
+| V-block, V-guide | ±0.01 mm (machined) … ±5 mm (crate guides) | large | depends on weight | crates (item 2), shafts |
+| zero-point clamping module | ±0.002–0.005 mm | ±1 mm (taper) | very high (clamping 10–40 kN per module) | machine pallets (guide 09 §18) |
+| kinematic coupling (3 balls in 3 V-grooves) | < 0.001 mm | small | medium | gauges, metrology fixtures |
+
+Index plunger check (example: lock a manual cart or turntable against 1.5 kN): pin Ø12, single shear τ = F/A = 1500/113 = **13 MPa**; with 8 mm lever to the plunger body σ_b = 32·F·l/(π·d³) = **71 MPa** – OK for a hardened pin; the plunger **thread and body** are usually the weak point → check the catalogue lateral load, or use a separate fixed locking pin and the plunger only to engage it.
+Fork-rail locating blocks (§9.1): design load 510·1.93·1.5 = **1.48 kN** per block set.
+
+Rules: one round + one diamond / slot locator, the rest with clearance (§10.2); hardened locators (≥ 55 HRC) against hardened or bronze counter parts; chamfers or lead-ins ≥ the incoming error; keep locators clean (air blow, §4.5).
+
+---
+
+## 29. Positioning accuracy chains – worst case, RSS, Monte Carlo
+
+![Tolerance stack-up – pull stud position over the receiver when the pallet stops](img/10_tolerance_stackup.svg)
+
+### 29.1 Method
+
+1. Define the **closing dimension** (the result you care about: a gap, an offset, a clearance).
+2. Draw the **chain**: every dimension from the closing element round the loop back to it (each part appears once).
+3. Give each contributor its nominal value, tolerance ±t and – if known – its distribution (normal for machined dimensions, uniform for "anywhere in the play").
+4. Combine:
+   - **Worst case:** T_WC = Σ|t_i| – for catch ranges, collisions, safety, small quantities.
+   - **RSS (statistical):** T_RSS = √Σt_i² – if the contributors are independent, centred and each ±t = 3σ. Probability of exceeding: 0.27 %.
+   - **Bender / inflated RSS:** 1.5·T_RSS – a safer statistical value when distributions are not known.
+   - **Monte Carlo:** random samples of each contributor (any distribution) – best when there are non-linear or one-sided effects.
+5. Look at the **biggest contributors** (share of Σt²) – tighten those, not the small ones.
+6. Remove **mean shifts** by design (e.g. offset the stop by the mean pad compression).
+
+### 29.2 Worked example – where is the stud when the pallet stops? (item 1, transfer direction x)
+
+The pallet arrives at creep speed and stops at the retractable stop; the stud must land inside the receiver lead-in (catch ±3 mm, §11.1):
+
+| Contributor | ± mm | Share of Σt² |
+|---|---|---|
+| e1 stop bracket bores on the table (machined in one setup) | 0.10 | 1.4 % |
+| e2 stop rod play in the up position | 0.30 | 12.6 % |
+| e3 PU pad compression 0.5–2.0 mm (mean 1.25 compensated by design) | 0.75 | **78.6 %** |
+| e4 pallet ledge end ↔ stud axis (pallet drawing) | 0.10 | 1.4 % |
+| e5 pallet edge burr / wear | 0.20 | 5.6 % |
+| e6 receiver position on the table | 0.02 | 0.1 % |
+| e7 thermal, pallet 500 mm, 15 K (500·11.5·10⁻⁶·15 = 0.086 → ±0.05) | 0.05 | 0.3 % |
+| **Worst case** | **1.52** | |
+| **RSS** | **0.85** | |
+| RSS × 1.5 | 1.27 | |
+| Monte Carlo, all uniform, 99.73 % (200 000 samples) | 1.15 | |
+
+Result: worst case 1.52 mm ≤ catch 3 mm ✓; normal model σ = 0.28 mm → Cpk = 3/(3·0.28) = 3.5. **Without** the pad compensation the mean shift of 1.25 mm adds directly: 2.77 mm worst case – only 0.23 mm margin. A hard stop face behind a short damper would remove e3: worst case ≈ 0.8 mm.
+
+### 29.3 Rules
+
+- Use worst case for anything that can crash or must always catch; RSS only for many (≥ 4) independent contributors.
+- Check both **directions** and the **angle** errors (lever arm × angle), and temperature.
+- A chain with one dominant contributor gives RSS ≈ worst case – no statistical gain.
+- Write the chain on the drawing or in the calculation file; re-check it when a supplier changes a part.
+- More examples: §1.4 (height and lateral chains), §4.4 (station → machine), guide 09 §22, guide 11 §27.
+
+---
+
+## 30. Dampers and end stops
+
+![Shock absorber sizing – energy vs speed, force vs stroke](img/10_shock_absorber.svg)
+
+### 30.1 Energy, effective mass and force
+
+| Quantity | Formula |
+|---|---|
+| kinetic energy | E₁ = ½·m·v² |
+| propelling (drive) energy during the stroke | E₂ = F_D·s (F_D = force that keeps pushing: chain friction, cylinder force, gravity m·g·sin α) |
+| energy per stroke | E₃ = E₁ + E₂ |
+| energy per hour (heat) | E₄ = E₃·c (c = cycles per hour) |
+| effective mass | m_e = 2·E₃/v² (must lie inside the absorber's m_e range) |
+| peak force, hydraulic absorber | F ≈ E₃/(η·s), η ≈ 0.85 (flat curve) |
+| peak force, elastomer / spring | F ≈ 2·E₃/s (triangle) |
+| deceleration | a = (F − F_D)/m |
+
+### 30.2 Choosing the type
+
+| Type | Force curve | Energy per size | Typical use |
+|---|---|---|---|
+| PU / rubber buffer | rising (triangle), high peak, rebound | low | fixed end stops, low speed, behind absorbers |
+| spring buffer | linear, full rebound | low | rarely – rebound is unwanted |
+| hydraulic shock absorber, self-compensating | nearly flat, no rebound | high | **conveyor stops, AGV buffers, linear axes** |
+| hydraulic, adjustable | flat after setting | high | when m and v change a lot |
+| gas spring damper / rotary damper | – | – | covers, doors |
+
+### 30.3 Worked example – retractable stop of item 1 (corrects §9.5)
+
+Pallet 510 kg; the chains keep running under the stopped pallet and push with the sliding friction F_D = μ_s·W = 0.15·5003 = **750 N** (same value as the page's stop force).
+
+| Case | E₁ | E₂ = 750 N × s | E₃ | m_e | Choose |
+|---|---|---|---|---|---|
+| creep 0.05 m/s, damper 25 mm | 0.64 J | 18.8 J | 19.4 J | 15 500 kg | – |
+| creep failed 0.2 m/s, damper 25 mm | 10.2 J | 18.8 J | **29.0 J** | **1450 kg** | ≥ 1.25·29 = **36 J/stroke**, F ≈ 29/(0.85·0.025) = **1.36 kN** |
+| creep failed 0.2 m/s, damper 10 mm | 10.2 J | 7.5 J | 17.7 J | 885 kg | ≥ 22 J/stroke, F ≈ 2.1 kN |
+| only PU pad 3 mm (no damper), 0.2 m/s | 10.2 J | – | – | – | F ≈ 2·10.2/0.003 = **6.8 kN** ✕ |
+
+Further checks: pallet deceleration (1363 − 750)/510 = 1.2 m/s² → tipping safety (250/259)/(1.2/9.81) = 7.9 ✓; energy per hour with one hit per exchange 29 J × 2.6 = 76 J/h – far below any catalogue limit; the bracket and its bolts carry 1.36 kN × 1.5. The **PU pad behind the absorber is the fixed end stop** (never let the absorber bottom out). Switch the chain motor off with B23 immediately – that reduces E₂.
+
+The AGV buffer (§1.4): E₁ = ½·1160·0.3² = 52 J (no drive force because the AGV brakes) → 2 absorbers ≥ 33 J each (×1.25) → M25 class 60 J, 1.23 kN each.
+
+### 30.4 Mounting rules
+
+- Absorber axis in the direction of motion (side load ≤ the catalogue angle, typically ≤ 2–3°; use a side-load adapter otherwise).
+- Fixed stop collar ≈ 1 mm before the end of the stroke; lock nut; thread in a machined plate.
+- Temperature: E₄ heats the oil – check with the maker above 30 °C ambient.
+- Replace at the first oil leak or when the rod does not return.
+
+---
+
+## 31. Pneumatics basics (station actuators)
+
+![Pneumatic cylinder ISO 15552 – forces, air consumption and a basic circuit](img/10_pneumatic_cylinder.svg)
+
+### 31.1 Formulas
+
+| Quantity | Formula |
+|---|---|
+| extend force | F = p·A₁·η, A₁ = π·D²/4, η ≈ 0.85–0.95 (seal friction) |
+| retract force | F = p·A₂·η, A₂ = π·(D² − d²)/4 |
+| free air per double stroke | Q = (A₁ + A₂)·s·(p + 1.013)/1.013 (p gauge in bar) |
+| air flow for a speed v | Q = A₁·v·(p + 1.013)/1.013 |
+| kinetic energy to cushion | E = ½·m·v² ≤ catalogue cushion energy |
+| standard sizes | ISO 15552 profile cylinders Ø32–Ø125; ISO 21287 compact Ø20–Ø100; ISO 6432 round Ø8–Ø25 |
+
+### 31.2 Worked example – a Ø50/20 × 100 cylinder at 6 bar (e.g. lifting the retractable stop)
+
+| | Formula | Result |
+|---|---|---|
+| A₁ / A₂ | π·50²/4, A₁ − π·20²/4 | 1963 / 1649 mm² |
+| extend force | 0.6·1963·0.9 | **1060 N** (theoretical 1178 N) |
+| retract force | 0.6·1649·0.9 | **891 N** |
+| compression ratio | (6 + 1.013)/1.013 | 6.92 |
+| free air per cycle | (1963 + 1649)·100·6.92 | 2.50 L + 2 tubes 6/4 × 2 m 0.35 L = **2.85 L** |
+| consumption | 5.2 cycles/h | 15 L/h – negligible |
+| flow for a 0.5 s stroke | 1963·200 mm/s·6.92 | 2.7 L/s = **163 Nl/min** → valve with ≥ ≈ 350 Nl/min standard flow |
+| lock-pin cylinder Ø32 (deck lock, §1.3) | 0.6·804·0.9 | 434 N |
+
+Design rule: use ≤ 50–70 % of the cylinder force for a moving load (speed reserve); for holding / clamping up to ≈ 85 %.
+
+Forces at 6 bar, η = 0.9: Ø32 434 N · Ø40 679 N · Ø50 1060 N · Ø63 1683 N · Ø80 2714 N · Ø100 4241 N.
+
+### 31.3 Leaks cost more than the cylinders
+
+A 1 mm hole at 6 bar loses ≈ 42–72 Nl/min (depends on the hole shape). At about 0.11 kWh per m³ of free air this is ≈ **2 400–4 200 kWh per year** (≈ 490–830 € at 0.20 €/kWh) if the air is on all year. Leak survey with an ultrasonic detector every 6 months; switch the station air off with a soft-start / dump valve when the station is idle.
+
+### 31.4 Circuit and components (basic station)
+
+FRL unit (filter 5 µm, regulator, lubricator only if the whole system was lubricated from the start) → soft-start / dump valve (safety function, guide 24) → valve terminal (5/2 single solenoid with spring = defined rest position; 5/3 closed centre for holding) → one-way flow controls **meter-out** at the cylinder → cylinder with end-position sensors and adjustable cushions. Air quality: ISO 8573-1 class [7:4:4] or better for normal actuators (guide 14 §13.5). Pipe sizes: 6/4 tubes up to Ø32, 8/6 up to Ø63, 10/8 above (orientation).
+Safety: a pneumatic cylinder stores energy – after the dump valve the cylinder may still move (trapped air, gravity). Use spring-return or locking cylinders where a movement after power-off is dangerous.
+
+---
+
+## 32. Material selection for station parts
+
+![Material chart – yield strength vs density and relative cost](img/10_material_chart.svg)
+
+### 32.1 Property table (minimum values for typical sizes – full tables with size ranges in guide 14 §3)
+
+| Material | ρ (kg/dm³) | E (GPa) | Re / Rp0.2 min (MPa) | Rm (MPa) | σ_bW ≈ (MPa) | α (10⁻⁶/K) | Weldable | Cost index per kg (estimate, S235 = 1) | Typical use here |
+|---|---|---|---|---|---|---|---|---|---|
+| S235JR (t ≤ 16) | 7.85 | 210 | 235 | 360–510 | ≈ 180 | 12 | very good | 1.0 | guards, light brackets |
+| S355J2 (t ≤ 16) | 7.85 | 210 | 355 | 470–630 | ≈ 235 | 12 | very good | 1.1 | **frames, posts, brackets, base plates** |
+| C45+QT (d 16–40) | 7.85 | 210 | 430 | 650–800 | ≈ 325 | 11.5 | limited (preheat) | 1.4 | pins, simple shafts, levers |
+| 42CrMo4+QT (d 16–40) | 7.85 | 210 | 750 | 1000–1200 | ≈ 500 | 11.5 | poor – do not weld | 1.9 | **loaded shafts**, pull studs, highly loaded pins |
+| 16MnCr5 case hardened (core typical) | 7.85 | 210 | ≈ 600 (core) | 800–1100 (core) | surface 58–62 HRC | 11.5 | no | 1.8 | **cone pins, receivers, bushes**, small gears |
+| 100Cr6 hardened | 7.85 | 210 | – | – (58–64 HRC) | – | 11.5 | no | 2.2 | wear strips, rollers, gauge pins |
+| X5CrNi18-10 (1.4301) | 7.9 | 200 | 190 (bar) | 500–700 | ≈ 240 | 16 | good (TIG) | 4.0 | drip trays, coolant-zone parts |
+| EN-GJL-250 | 7.2 | 103–118 | Rp0.1 ≈ 165 | 250–350 | ≈ 110 | 10 | no | ≈ 2 (casting, varies) | machine beds, housings (damping) |
+| EN-GJS-400-15 | 7.1 | 169 | 250 | ≥ 400 | ≈ 200 | 12.5 | limited | ≈ 2.3 | tough housings, levers |
+| EN AW-6082 T6 | 2.7 | 70 | 250 | 295 | ≈ 90 (no true fatigue limit) | 23 | good (heat zone −40 %) | 3.5 | profiles, light moving parts, AGV parts |
+| EN AW-7075 T651 | 2.81 | 72 | 420–480 | 500–545 | ≈ 150 | 23 | not fusion weldable | 6.0 | gripper fingers, light highly loaded parts |
+| POM-C | 1.41 | 2.8 | ≈ 65 (tensile) | – | – | ≈ 110 | – | 6.0 | precise plastic parts, slide blocks |
+| PE-UHMW | 0.94 | 0.7 | ≈ 20 | 20–40 | – | ≈ 150–200 | – | 4.0 | slide strips, crate guides |
+
+σ_bW for steels ≈ 0.5·Rm (polished bar) – the part value is lower (§18.5). Cost indices are rough raw-material prices per kg (2026) for comparison only – **ask for a quote**; machining, heat treatment and certificates often cost more than the material.
+
+### 32.2 Material indices – which material is best for the job
+
+| Job (minimum mass) | Index (larger = better) | Steel S355 | EN AW-6082 T6 | EN-GJL-250 |
+|---|---|---|---|---|
+| tie rod, given strength | Re/ρ | 45 | 93 | 23 |
+| tie rod, given stiffness | E/ρ | 26.8 | 25.9 | 15.3 |
+| beam in bending, given stiffness | √E/ρ | 1.85 | 3.10 | 1.46 |
+| plate in bending, given stiffness | ∛E/ρ | 0.76 | 1.53 | 0.67 |
+
+Meaning: for **stiffness per kg** aluminium wins only when the part can be made thicker (beams, plates: a plate of equal stiffness weighs ≈ 0.5 × the steel plate); for a given space (cross-section fixed) steel is 3 × stiffer. All steels have the same E – a stronger steel is **not** stiffer (§10.5).
+
+### 32.3 Selection rules (this project)
+
+- Accuracy parts that are welded → S355J2, stress relieved, then machined.
+- Parts with high local pressure or wear → case hardened or induction hardened steel; never soft aluminium (steel inserts, thread inserts).
+- Coolant zone → stainless or well painted / coated steel; avoid galvanic couples (aluminium touching stainless in wet areas).
+- Order load-carrying material with an EN 10204 3.1 certificate (traceability, guide 15).
+- Quick table of parts → materials: guide 14 §3.9.
+
+---
+
+## 33. Surface treatments
+
+| Treatment | Layer (typical) | Hardness | Corrosion protection | Dimension change | Use in the stations |
+|---|---|---|---|---|---|
+| paint system ISO 12944, C3 medium | ≈ 160–200 µm (primer + top) | – | good indoors | mask fits and machined faces | frames, posts (RAL 5010 / safety colours) |
+| powder coating | 60–120 µm | – | good | mask | guards, covers, profiles |
+| zinc plating + passivation (ISO 2081, ISO 19598) | 5–12 µm | – | medium (indoor) | small – use for threads with care | small steel parts, brackets |
+| zinc-nickel (ISO 19598) | 8–12 µm | – | very good | small | fasteners near coolant |
+| hot-dip galvanizing (ISO 1461) | 45–85 µm | – | very good | large, distortion | crates, outdoor frames |
+| black oxide | ≈ 1 µm | – | low (needs oil) | none | precision parts, tools |
+| manganese phosphate + oil | 5–15 µm | – | low – medium | small | running-in of gears, sliding parts |
+| nitrocarburizing (QPQ / salt bath / gas) | compound layer 10–20 µm | ≈ 600–700 HV (steel dependent) | good after post-oxidation | ≈ +5–10 µm | pins, small shafts, guide rods |
+| gas nitriding (31CrMoV9, 42CrMo4) | 0.2–0.6 mm diffusion zone | 700–850 HV (nitriding steel) | some | minimal distortion | precise wear parts (guide 18) |
+| induction hardening | 1–3 mm | 52–58 HRC (C45, 42CrMo4) | – | some distortion → grind | guide strips, shaft seats, columns |
+| case hardening (carburising) | CHD 0.5–1.5 mm | 58–62 HRC | – | distortion → grind | cone pins, receivers, gears |
+| hard chrome | 20–50 µm (ground) | 800–1000 HV | good | grind to size | piston rods, columns |
+| electroless nickel (Ni-P) | 10–25 µm, uniform | 500–600 HV (≈ 900 HV heat treated) | very good | uniform – include in the tolerance | precise parts in coolant |
+| anodising (aluminium) type II / hard (type III) | 10–25 / 25–50 µm | – / 300–500 HV | good | half grows outward | profiles, aluminium parts, slide faces (hard) |
+
+Rules: write the treatment, the layer thickness and whether the tolerance applies **before or after** coating on the drawing; hydrogen embrittlement risk for electroplated parts above ≈ 1000 MPa (bake after plating, or use zinc flake coating); mask threads, fits and electrical contact faces.
+
+---
+
+## 34. Design for manufacturing and assembly (DFM / DFA) – station parts
+
+DFA theory and the assembly-efficiency index: guide 17 §17. Rules for the station builder:
+
+| Rule | Why / value |
+|---|---|
+| Use standard parts first (catalogue pins, plungers, bushes, profiles) | cheaper, faster, known quality – make only interface parts |
+| Tolerances only where the function needs them; general tolerances ISO 2768-mK / ISO 13920-BF elsewhere | IT6 costs several times IT11; every tight tolerance must be in a tolerance chain (§29) |
+| Machine all functional faces of a weldment in **one setup** after stress relief | flatness ≤ 0.05, positions ±0.02 mm (§1.5) |
+| Inner corners: radius ≥ cutter radius + 0.5 mm; pocket depth ≤ 4 × cutter diameter | standard end mills, no special tools |
+| Tapped holes: thread depth ≥ 1.0·d (steel), 1.25·d (cast iron), 2·d (aluminium) – or thread inserts | guide 14 §8.5 |
+| Avoid deep small holes; drill depth ≤ 5–8·d with standard drills | cost, breakage |
+| Weldments: equal plate thickness steps, access for the torch, no weld across machined faces | distortion, quality |
+| Same screw size and head type per station (e.g. M8 and M12 ISO 4762 only) | fewer tools, fewer errors |
+| Parts that look symmetric but are not → make them truly symmetric or add a poka-yoke (pin, chamfer) | no wrong mounting |
+| Locate by dowels / shoulders, not by "align with the eyes"; leave adjustment only where it is needed (slots + dowel after alignment) | repeatable assembly, item 4 method |
+| Design for access: grease nipples, sensor adjustment and chain tension reachable without removing guards | maintenance time |
+| Lifting points (M12 eyebolt holes, DIN 580) on every part > 23 kg | ergonomics, guide 17 §29 |
+| Mark parts with drawing number + revision (guide 15) | traceability, spare parts |
+| Make heavy parts in two pieces if handling or machining is easier, bolted + doweled | machine size, transport |
+
+---
+
+## 35. A typical station from top to bottom – design sequence and element map
+
+![Typical station – pallet transfer station item 1, element map](img/10_station_assembly.svg)
+
+Design sequence for any new station (example: the item 1 pallet transfer station):
+
+| Step | Work | Result / where |
+|---|---|---|
+| 1 | Requirement: load, cycle, accuracy, neighbours, safety | interface sheet (§1.5) |
+| 2 | Concept: how is the load moved and located (coarse-to-fine) | concept table (§1.3) |
+| 3 | Load cases incl. stall, crash, test | §18.2 |
+| 4 | Frame: layout, stiffness, legs outside moving envelopes | §1.4, §27.4 |
+| 5 | Drive: force, speed, gear motor, chain / belt, shaft, bearings, keys | §1.4, §18–§23 |
+| 6 | Guides and lift: columns, cylinder, end stops | §21, §10.13 |
+| 7 | Locators: receivers, pins, stops, dampers | §10, §28, §30 |
+| 8 | Overload protection: torque limit, slip clutch, brake strategy | §24, §25 |
+| 9 | Accuracy chains: height, lateral, transfer direction | §1.4, §29 |
+| 10 | Sensors and interlocks | §1.5, §4.4 |
+| 11 | Safety: risk assessment, guards, light curtain, PL | §13, guide 24 |
+| 12 | Materials, treatments, drawings, BOM, buy list | §32–§37 |
+| 13 | FMEA, test plan, FAT / SAT | §1.5, guide 13 / 28 |
+
+---
+
+## 36. Buy list – catalogue examples
+
+How to read the tables: **spec** = what this guide requires; **maker + series** = examples of real catalogue series (not a recommendation – compare at least 2 makers); **key data** = catalogue values only where we are confident, otherwise "see datasheet"; **price class** per piece: € < 50 €, €€ 50–500 €, €€€ 500–5 000 €, €€€€ > 5 000 € – **estimate, ask for a quote**; **check** = what to verify before ordering.
+
+### 36.1 Rolling bearings and housed units (§20)
+
+| Spec | Maker + series | Key data | Price | Check |
+|---|---|---|---|---|
+| housed insert bearing Ø25, square flange, sealed (sprocket shaft) | SKF FY 25 TF (insert YAR 205-2F) | YAR 205-2F: C = 14 kN, C₀ = 7.8 kN (SKF catalogue) | € – €€ | locking (set screw vs eccentric collar), seals for dust, relubrication |
+| same, alternative makers | NSK UCF205, NTN UCF205, Schaeffler (INA) flanged units RCJ / PCJ 25, Timken (Fafnir) housed units | see datasheet | € – €€ | interchangeability of housings (UCF hole pattern) |
+| deep groove ball bearing 25 × 52 × 15 | SKF / Schaeffler (FAG) / NSK / NTN 6205-2RS | 6205: C = 14.8 kN, C₀ = 7.8 kN (SKF) | € | seal type, clearance C3 if hot |
+| tapered roller pair for heavy pivots | Timken, SKF, Schaeffler 302.. / 322.. series | see datasheet | € – €€ | adjustment method, preload |
+| stainless housed units near coolant | SKF Food Line, NSK Molded-Line, NTN stainless UC | see datasheet | €€ | grease, IP rating |
+| track rollers / cam followers | Schaeffler (INA) KR / NUTR, McGill, THK CF | see datasheet | € – €€ | counter-surface hardness |
+
+### 36.2 Linear guides, guide columns, ball screws (§21, full list guide 12 M16)
+
+| Spec | Maker + series | Key data | Price | Check |
+|---|---|---|---|---|
+| linear ball bushing Ø25, flanged, sealed (lift frame) | Bosch Rexroth linear bushings, Ewellix (ex SKF linear) LBCR / LBBR, NB, Misumi flanged linear bushings | see datasheet (C, C₀, seals) | € – €€ | shaft hardness ≥ 60 HRC, h6 shaft, seals |
+| hardened shaft Ø25 h6 | Bosch Rexroth, Ewellix, Misumi, HIWIN | 60 HRC typical | € – €€ | straightness, chrome option |
+| profile rail size 25 | THK HSR25, HIWIN HGH25, Bosch Rexroth ball rail size 25, Schaeffler KUVE25, NSK NH25 | see datasheet | €€ – €€€ | preload class, accuracy class, C₅₀ vs C₁₀₀ |
+| plain bush (dirty areas) | igus iglidur, GGB (DU / DX), Schaeffler ELGES | see datasheet | € | p·v value, shaft surface |
+| ball screw | link guide 12 M16 | – | – | – |
+
+### 36.3 Gear motors and gearboxes (§22)
+
+| Spec | Maker + series | Key data | Price | Check |
+|---|---|---|---|---|
+| helical-bevel gear motor 0.25 kW, ≈ 44 rpm, brake, IE3 | SEW-EURODRIVE K series (helical-bevel), NORD UNICASE helical-bevel, Bonfiglioli A series, Siemens SIMOGEAR | see datasheet | €€ – €€€ | service factor f_B ≥ 1.2, overhung load F_Ra, brake torque, IP65 |
+| helical in-line / parallel shaft | SEW R / F series, NORD SK helical, Bonfiglioli C / F series | see datasheet | €€ – €€€ | mounting position, oil quantity |
+| worm gear motor (cheap, low duty) | SEW S series, NORD SMI universal worm, Bonfiglioli VF / W | see datasheet | €€ | efficiency 0.5–0.8, NOT a brake (§22.3) |
+| large industrial gear units | Flender (FLENDER ONE, planetary), SEW X series | see datasheet | €€€€ | – |
+| low-backlash planetary for servo axes | WITTENSTEIN alpha SP+ / TP+ / NP / CP, Neugart PLE / PLN / PLFE | backlash classes from ≈ 1 arcmin (premium) to ≈ 8–15 arcmin (economy) – see datasheet | €€ – €€€ | input speed, torsional stiffness, motor adapter |
+
+### 36.4 Couplings and torque limiters (§24)
+
+| Spec | Maker + series | Key data | Price | Check |
+|---|---|---|---|---|
+| jaw coupling gear motor ↔ shaft, T_KN ≥ 28 N·m | KTR ROTEX (spider 92 / 98 Sh A), R+W EK, Mayr ROBA-ES | see datasheet | € – €€ | T_KN, T_K,max, bores + clamping hubs, misalignment |
+| bellows coupling (servo) | R+W BK, KTR TOOLFLEX, Mayr ROBA-DS (disc) | see datasheet | €€ | torsional stiffness, moment of inertia |
+| disc pack coupling (high torque) | Mayr ROBA-DS, Rexnord (Regal Rexnord) Thomas disc couplings, KTR RADEX-N | see datasheet | €€ – €€€ | misalignment per pack, spacer length |
+| elastomer tyre / Omega coupling | Rexnord Omega, Fenner (Regal) tyre couplings | see datasheet | €€ | radial split for service |
+| friction slip hub 42 N·m | Mayr ROBA-slip hub, KTR SYNTEX FC (friction) | see datasheet (setting range) | €€ | setting, wear, slip monitor |
+| ball-detent safety clutch | Mayr EAS-compact, R+W SK, KTR SYNTEX | see datasheet | €€ – €€€ | re-engagement angle, switch |
+
+### 36.5 Clamping elements (§19.4)
+
+| Spec | Maker + series | Key data | Price | Check |
+|---|---|---|---|---|
+| taper locking element Ø20–Ø40 (sprockets in phase) | Ringfeder RfN 7012 / 7013 / 7015, Tollok TLK series, KTR CLAMPEX (KTR 100 … 250 types), Fenner B-LOC | T, F_a, p_shaft, p_hub, screw torque – see datasheet | € – €€ | hub wall thickness (p_hub vs hub yield), centring (self-centring type?), shaft/hub tolerance |
+| shrink disc (hollow shaft gear motors) | Ringfeder RfN 4071, Stüwe, Tollok | see datasheet | €€ | torque, hollow-shaft tolerance |
+
+### 36.6 Belts, chains, sprockets (§23)
+
+| Spec | Maker + series | Key data | Price | Check |
+|---|---|---|---|---|
+| roller chain 10B-1 / 08B-1 ISO 606 | iwis (e.g. MEGALIFE lube-free), Renold Synergy / Syno, Tsubaki, Rexnord | 10B-1 breaking force ≈ 22.2 kN, 08B-1 ≈ 17.8 kN (ISO 606 minimum) | € (per m) | breaking force of the exact chain, lube-free option for dust |
+| sprockets z17 / z19 hardened teeth | iwis, Renold, Tsubaki, Misumi, Mädler | see datasheet | € | hub type (pilot bore / taper bush), tooth hardening |
+| toothed belt HTD 8M / GT | Gates PowerGrip HTD / GT3 / Poly Chain GT Carbon, ContiTech CONTI SYNCHROBELT HTD, Optibelt OMEGA | see datasheet (power and tension tables) | € – €€ | width from the maker's program, pretension value, pulley flanges |
+| V-belts | Gates, ContiTech, Optibelt SK | see datasheet | € | tension, pulley groove |
+| chain guide strips UHMW-PE | Murtfeldt, Röchling, igus | – | € | profile for the chain size |
+| chain tensioners | Rosta (rubber tensioners), SKF, Misumi | see datasheet | € | force, range |
+
+### 36.7 Brakes and clutches (§25)
+
+| Spec | Maker + series | Key data | Price | Check |
+|---|---|---|---|---|
+| spring-applied brake on the gear motor | built-in brake of the gear motor maker (SEW BE, NORD BRE) | see datasheet | (option) | torque, release monitoring, manual release |
+| separate spring-applied brake | Mayr ROBA-stop-M, Kendrion spring-applied brakes, Warner Electric | see datasheet | €€ | friction work per stop and per hour, voltage, IP |
+| safety brake for vertical axes (with test) | Mayr ROBA-stop-silenzio / ROBA-linearstop, Kendrion | see datasheet | €€ – €€€ | certified for safety function, brake test |
+| electromagnetic clutch / clutch-brake | Warner Electric, Kendrion, Mayr ROBA-quick | see datasheet | €€ | switching work, response time |
+
+### 36.8 Springs (§26)
+
+| Spec | Maker + series | Key data | Price | Check |
+|---|---|---|---|---|
+| compression spring d 4, D 32, n 8, L₀ 77 (deck centring) | Lesjöfors stock springs, Gutekunst Federn (catalogue + online calculator), Associated Spring Raymond | rate, L₀, solid length – see datasheet | € | wire grade (EN 10270-1 DH / stainless), ends ground, shot peening |
+| disc springs | Schnorr (DIN EN 16983 / 16979), Mubea | see datasheet | € | stacking, guide clearance, coating |
+| gas springs | Stabilus, Bansbach, SUSPA | see datasheet | € – €€ | force at 20 °C, end fittings |
+| spring plungers / ball plungers | Kipp, Ganter, norelem, Misumi | see datasheet | € | end force, locking thread |
+
+### 36.9 Shock absorbers and buffers (§30)
+
+| Spec | Maker + series | Key data | Price | Check |
+|---|---|---|---|---|
+| self-compensating absorber ≥ 36 J/stroke, m_e ≥ 1450 kg, stroke 25 (retractable stop) | ACE (MC / magnum series), Enidine (ECO / OEM series), Weforma (WE series) | energy per stroke, energy per hour, m_e range – see datasheet | € – €€ | m_e range covers both creep and fault cases, side load, stop collar |
+| AGV buffer absorbers 2 × ≥ 33 J | same makers, larger thread | see datasheet | €€ | mounting thread M25 / M33, PU pad behind |
+| PU / elastomer buffers | ACE TUBUS, Enidine, Misumi urethane stoppers | see datasheet | € | energy, compression set |
+| heavy-duty stop for pallet conveyors | Bosch Rexroth stop gates VE (transfer systems), Asutec heavy-duty stoppers, Festo stopper cylinders DFST | see datasheet (permitted impact mass × speed) | €€ | impact energy incl. chain push, sensors |
+
+### 36.10 Index and locating elements (§28)
+
+| Spec | Maker + series | Key data | Price | Check |
+|---|---|---|---|---|
+| index plunger Ø8–Ø12 | Ganter GN 617 (indexing plunger), Kipp indexing plungers, Halder indexing plungers, norelem indexing plungers | see datasheet (lateral load) | € | lateral load of the body, rest position, locking |
+| locating pins, diamond pins, bushes | Halder, norelem, Kipp, Misumi, Jergens | see datasheet | € | tolerance class, hardness |
+| dowel pins ISO 8734 m6, ISO 8735 (internal thread) | Würth, Bossard, Misumi, Fabory | – | € | m6 vs h6, hardened |
+| zero-point modules, pallets | link guide 09 §28 (SCHUNK, AMF, Stark, Röhm, Erowa) | – | – | – |
+| ball transfer units (floating deck) | Alwayse, Omnitrack, Misumi | see datasheet (load per unit, counter surface) | € | counter-surface hardness (§10.4) |
+
+### 36.11 Pneumatics (§31)
+
+| Spec | Maker + series | Key data | Price | Check |
+|---|---|---|---|---|
+| ISO 15552 cylinder Ø50 × 100 with cushions and sensor slots | Festo DSBC, SMC CP96, Parker P1F, AVENTICS (Emerson) PRA | see datasheet | €€ | cushion energy, sensor type, rod end |
+| compact cylinder ISO 21287 (lock pin Ø32) | Festo ADN, SMC C55, Parker P1P, AVENTICS CCI | see datasheet | € – €€ | stroke, guided version if side load |
+| 5/2 valves / valve terminal | Festo VUVG / VTUG, SMC SY / JSY, Parker Moduflex, AVENTICS ES05 / AV03 | standard flow ≥ 350 Nl/min for Ø50 at 0.5 s | €€ – €€€ | fieldbus / IO-Link, manual override |
+| one-way flow control (meter-out) | Festo GRLA, SMC AS, Parker, AVENTICS | see datasheet | € | thread, adjustment lock |
+| FRL + soft-start / dump valve | Festo MS series (MS6-SV safety dump valve), SMC AC + VP/VG safety valves, Parker Global, AVENTICS AS series | see datasheet | €€ – €€€ | safety-rated dump valve (PL), filter 5 µm |
+| tubing PU / PA 6/4, 8/6 | Festo, SMC, Parker, Legris | – | € | colour code, bend radius |
+
+### 36.12 Standard machine parts (make less, buy more)
+
+| Spec | Maker | Key data | Price | Check |
+|---|---|---|---|---|
+| shafts, collars, pins, bushes, plates (configurable) | Misumi (configurable "economy" and standard lines), norelem, Ganter, Kipp | – | € | lead time, tolerance options |
+| levelling feet, handles, clamps, toggle clamps | Ganter, Kipp, norelem, Elesa, DESTACO (toggle) | see datasheet | € | load rating, thread |
+| hinges, latches, locks for guards | Elesa+Ganter, Kipp, Pizzato, Schmersal (safety switches) | – | € | guard-locking per ISO 14119 |
+| fasteners ISO 4762 / 4017, washers, thread inserts | Bossard, Würth, Fabory, Böllhoff (HELICOIL) | – | € | property class 8.8 / 10.9, coating |
+
+### 36.13 Aluminium profiles (guards, light frames, sensor brackets)
+
+| Spec | Maker + series | Key data | Price | Check |
+|---|---|---|---|---|
+| profile 40 × 40 / 45 × 45, T-slot | item Profile 8 40×40, Bosch Rexroth strut profiles 45×45, MiniTec Profile 45 | I_x from the catalogue (see datasheet) | € per m | system compatibility (slot 8 vs 10), connectors |
+| guard panels + doors | item, Bosch Rexroth, MiniTec, Axelent / Troax (mesh guards) | – | €€ | mesh size vs distance (ISO 13857), guard locking |
+| profile connectors, feet, hinges | same system maker | – | € | stiffness of the joint (use gussets) |
+
+### 36.14 Conveyor-specific parts
+
+| Spec | Maker + series | Key data | Price | Check |
+|---|---|---|---|---|
+| chain conveyor modules for pallets (alternative to MAKE) | Bosch Rexroth TS 5 / TS 7 transfer systems, Montech, mk Technology Group | see datasheet (load per pallet) | €€€ – €€€€ | 510 kg pallet mass is heavy for standard modules – ask |
+| inductive sensors M18 / M30, pressure switch (seat check) | ifm, SICK, Balluff, Pepperl+Fuchs, Festo / SMC pressure switches | see datasheet | € | IO-Link, switching distance, coolant resistance |
+| UHMW-PE strips and guides | Murtfeldt, Röchling, igus | – | € | profile, fixing method |
+
+---
+
+## 37. Consolidated shopping list – pallet transfer station (item 1)
+
+Positions match the element map (§35 drawing). Quantities for one station; prices are classes (estimate – ask for a quote).
+
+| Pos | Qty | Item | Spec (from this guide) | Example makers | M/B | Price | Check before ordering |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | station table weldment | S355J2 tubes 60×50×4 / 70×70×5, stress relieved, machined in one setup (§1.5, §11.1) | own workshop / local fabricator | MAKE | €€€ | flatness 0.05, pads ±0.02, legs outside the APC base |
+| 2 | 4 | locating receivers | 16MnCr5 CHD 0.8–1.2, 58–62 HRC, Ø60 k6, 15° lead-in (§11.1) | own / Halder / norelem (similar) | MAKE/BUY | € – €€ | stud diameter from the module maker |
+| 3 | 1 | lift-transfer frame | S355 C 50×40, strands at ±140 (§11.1) | own | MAKE | €€ | chain-guide seats ±0.1 |
+| 3a | ≈ 5.2 m | roller chain 10B-1 | ISO 606, breaking ≥ 22.2 kN (§1.4) | iwis, Renold, Tsubaki | BUY | € – €€ | lube-free option, attachments |
+| 3b | 4 | chain guide strips | C45 induction hardened or UHMW-PE (§11.1) | own / Murtfeldt | MAKE/BUY | € | – |
+| 4 | 4 + 1 | sprockets 10B z17 + drive sprocket 08B z19 | hardened teeth; clamping elements for phase (§19.4) | iwis, Renold, Misumi | BUY | € | bore / hub type |
+| 4a | 1 | sprocket shaft | 42CrMo4+QT, Ø25 / Ø20, r = 1 fillets (§18.7) | own | MAKE | € – €€ | runout 0.03 |
+| 4b | 2 | housed insert bearings Ø25 | FY 25 TF / UCF205 (§20.2) | SKF, NSK, NTN, Schaeffler | BUY | € – €€ | seals, locking |
+| 4c | 4 | clamping elements Ø20–25 | T ≥ 50 N·m each (generous) (§19.4) | Ringfeder, Tollok, KTR CLAMPEX | BUY | € – €€ | hub wall thickness |
+| 5 | 4 + 4 | guide columns Ø25 h6 + flanged ball bushings | sealed, parallel ≤ 0.05 (§21) | Bosch Rexroth, Ewellix, Misumi | BUY | € – €€ | column hardness, mounting |
+| 6 | 1 | lift cylinder | ISO 6020-2 compact Ø50/28 × 64, cushioning (§1.4) | Bosch Rexroth, Parker, HYDAC, Hänchen | BUY | €€ | pressure 6 MPa, ports, sensors |
+| 6a | 1 set | 4/3 valve + pilot check + throttle (circuit 4) | on the APC manifold (§12.2, guide 30) | Bosch Rexroth, HAWE, Parker | BUY | €€ | lowering speed ≤ 20 mm/s at the end |
+| 7 | 1 | helical-bevel gear motor 0.25 kW, 44 rpm, brake, encoder | f_B ≥ 1.2, F_Ra ≥ 920 N (§22.4) | SEW, NORD, Bonfiglioli, Siemens | BUY | €€ – €€€ | brake strategy §25 (ramp stop) |
+| 7a | 1 | inverter 0.37 kW with STO, torque limit | ramp 0.67 s, creep 0.05 m/s (§1.4) | SEW MOVITRAC, Danfoss, Siemens, Lenze | BUY | €€ | torque limit, STO wiring (guide 24) |
+| 8 | 1 | drive chain 08B + slip hub 42 N·m (or toothed belt HTD 8M) | §23, §24.3 | iwis / Gates + Mayr ROBA-slip hub | BUY | € – €€ | slip monitor sensor |
+| 9 | 1 | retractable heavy-duty stop + damper | ≥ 36 J/stroke (25 mm) incl. chain push, m_e range 1 450–15 500 kg (25 mm stroke), 1.36 kN, 2 sensors (§30) | Bosch Rexroth VE, Asutec, ACE / Weforma damper | BUY | €€ – €€€ | stop DOWN before APC turns (interlock) |
+| 10 | – | pallet (from the APC tab) | chamfer 5 × 30° on the bottom edges | guide 09 | – | – | – |
+| 11 | ≈ 12 | sensors B11–B24 (inductive), pressure switch (seat check), air nozzles | §1.5, §4.5 | ifm, SICK, Balluff, Festo / SMC | BUY | € each | coolant resistance, IO-Link |
+| 12 | 2 | docking brackets (post 120×120×8 + arm) + cone pins (1 round, 1 diamond) | §9.3, §14 | own | MAKE | €€ | stiffness test 200 N → ≤ 0.05 mm |
+| 13 | 1 + 2 | buffer post + shock absorbers M25 class ≥ 33 J + PU pads | §1.4, §30 | own + ACE / Enidine / Weforma | MAKE + BUY | € – €€ | thread, stop collar |
+| 14 | – | AGV floating deck with bushes, lock pin, springs | §1.5 interface sheet, §26 | AGV supplier (+ Lesjöfors / Gutekunst springs, Alwayse BTUs) | BUY | – | maximum deck lift force incl. stall (§15 #2) |
+| 15 | 6 + 8 | bonded anchors M16 (+ M12 for brackets) + grout | ETA, C25/30 (§1.5) | Hilti, Fischer, Würth | BUY | € | edge distance, torque |
+| 16 | 4 | base plates + M20 levelling screws, stainless shims | §1.5, §11.6 | own / Ganter levelling elements | MAKE/BUY | € | – |
+| 17 | 1 | protective guide rails (UHMW-PE faced) | §1.5 | own + Murtfeldt | MAKE | € – €€ | 20 mm free per side |
+| 18 | 1 | light curtain type 4 + muting sensors | ISO 13855, IEC 62046 (§1.5) | SICK, Pilz, Leuze, Keyence, Banner | BUY | €€ – €€€ | resolution, muting time-out |
+| 19 | 1 pair | E84 optical PIO | §1.3 | Hokuyo, Funken, others (see AGV supplier) | BUY | €€ | match the AGV supplier |
+| 20 | 1 | control box: safety PLC I/O, panel, cabling | §1.5, guides 05 / 24 | Siemens, Pilz, Rockwell, Beckhoff | BUY | €€€ | PL d validation |
+| 21 | 1 set | guards (aluminium profile + mesh), chain guards | ISO 13857, ISO 14120 | item, Bosch Rexroth, MiniTec, Troax | BUY | €€ | no reachable nip points |
+| 22 | 1 set | fasteners, dowels ISO 8734, thread locker | §11, guide 14 §8 | Bossard, Würth | BUY | € | 10.9 where preload matters |
+| 23 | 1 | paint system C3 + safety marking | ISO 12944, ISO 3864 (§33) | local | BUY | € | mask machined faces |
+| 24 | 1 | drip tray + chip guard (stainless) | §4.5 (item 4) | own | MAKE | € – €€ | slope ≥ 2 % |
+
+---
+
+## 38. Formula sheet (Part B)
+
+| Topic | Formula |
+|---|---|
+| stresses | σ_b = M/W, W = π·d³/32; τ_t = T/W_p, W_p = π·d³/16; σ_v = √(σ² + 3τ²) |
+| fatigue notch factor | Kf = 1 + q·(Kt − 1), q = 1/(1 + a/r), a = 0.0254·(2070/Rm)^1.8 mm |
+| DIN 743 factors | K₂ = 1 − 0.2·lg(d/7.5)/lg 20; K_F,σ = 1 − 0.22·lg Rz·(lg(Rm/20) − 1); K_σ = Kf/K₂ + 1/K_F − 1; σ_WK = σ_bW/K_σ |
+| Goodman | 1/S = σa/σ_WK + σm/Rm; σ_mv = √(σm² + 3τm²) |
+| key | p = 2T/(d·(h − t₁)·l_eff) |
+| interference fit | p = (E·δ_eff/(2d))·(1 − (d/D_h)²); T = μ·p·π·d²·L/2 |
+| clamping element | F_N = F_ax/tan(α + ρ); T = μ·F_N·d/2 |
+| bearing life | L₁₀ = (C/P)^p; L₁₀h = 10⁶·L₁₀/(60n); s₀ = C₀/P₀ |
+| linear guide life | L = (C/P)³·50 km |
+| gears | d = m·z; a = m(z₁ + z₂)/2; F_t = 2T/d₁; σ_F = F_t/(b·m)·Y_FS·Y_ε·K_A·K_V; σ_H = Z_E·Z_H·Z_ε·√(F_t/(b·d₁)·(u + 1)/u·K_A·K_V) |
+| worm | η = tan γ/tan(γ + ρ′); η′ = tan(γ − ρ′)/tan γ |
+| gear motor | M = 9550·P/n; f_a = J_ext/J_motor; J_ext = m·(v/ω)² |
+| belts | F_t = 2T/d; F₁ = F₀ + F_t/2; F₂ = F₀ − F_t/2; F₁/F₂ = e^(μ′β); f_span = (1/2L)·√(F₀/m′) |
+| couplings | T_KN ≥ T_N·S_t; T_K,max ≥ T_S·S_A·S_Z·S_t |
+| brake | t = J·ω/(M_B + M_L); W = ½Jω²·M_B/(M_B + M_L) |
+| spring | c = G·d⁴/(8D³n); τ = k·8FD/(πd³); k = (w + 0.5)/(w − 0.75); L₀ ≥ n_t·d + s + S_a |
+| bolted joint | Φ_n = n·c_S/(c_S + c_P); F_SA = Φ_n·F_A; F_KR = F_V − F_Z − (1 − Φ_n)·F_A; σ_ASV = 0.85·(150/d + 45) |
+| weld | τ_w = F/Σ(a·l); N = 2·10⁶·(FAT/(γ_Mf·Δσ))³ |
+| stack-up | T_WC = Σ|t_i|; T_RSS = √Σt_i²; Cpk = (catch − |mean|)/(3σ) |
+| damper | E₁ = ½mv²; E₂ = F_D·s; m_e = 2E₃/v²; F ≈ E₃/(0.85·s) |
+| pneumatics | F = p·A·η; Q = (A₁ + A₂)·s·(p + 1.013)/1.013 |
+| material indices | Re/ρ; E/ρ; √E/ρ; ∛E/ρ |
+
+---
+
+## 39. Drawings of this guide (index)
+
+All drawings are standalone SVG files (offline, no external fonts), also copied to `web/img/`. They are **examples – check the maker's documentation**.
+
+| File | Content | Used in |
+|---|---|---|
+| `img/10_shaft_fatigue.svg` | sprocket shaft loads, bending moment, notch detail, factor table, Haigh / Goodman diagram with the worked points | §18 |
+| `img/10_gear_belt_drive.svg` | involute spur gear pair (m = 2, z 17 / 34) with line of action; toothed belt forces vs V-belt vs chain | §22, §23 |
+| `img/10_bolted_welded_joint.svg` | bolted joint diagram M16 10.9 with embedding and working load; bracket section; fillet weld throat; FAT curves with 2 worked points | §27 |
+| `img/10_tolerance_stackup.svg` | stud position chain at the retractable stop: contributors, worst case, RSS, Monte Carlo, distribution vs catch range | §29 |
+| `img/10_shock_absorber.svg` | absorber section; energy vs impact speed (E₁, E₃); force vs stroke for hydraulic / elastomer / dashpot; sizing steps | §30 |
+| `img/10_pneumatic_cylinder.svg` | ISO 15552 cylinder Ø50/20 section; forces, air consumption, valve flow, leak cost; force vs bore; basic circuit | §31 |
+| `img/10_material_chart.svg` | yield strength vs density with Re/ρ lines; relative cost per kg and per unit strength | §32 |
+| `img/10_station_assembly.svg` | element map of the item 1 transfer station (frame, guides, drive, sensors, end stops) with shopping-list positions | §35, §37 |
+
+---
+
+## 40. Glossary – Part B terms
+
+| Term | Meaning |
+|---|---|
+| application factor K_A | multiplier on the nominal load for shocks of driver and driven machine |
+| load case | one defined situation (normal, start, stall, crash, test) with its loads |
+| stall torque | torque the motor gives when the load is blocked (≈ 2–3 × rated without a limit) |
+| amplitude / mean stress | changing part / constant part of a cyclic stress |
+| fatigue limit σ_W | stress amplitude a polished test bar survives "for ever" |
+| component fatigue limit σ_WK | fatigue limit of the real part (notch, size, surface included) |
+| Kt / Kf | theoretical stress concentration / real fatigue notch factor |
+| notch sensitivity q | how much of Kt the material really feels (0…1) |
+| Haigh diagram | plot of allowed amplitude vs mean stress |
+| Goodman line | straight line from σ_WK (σm = 0) to Rm (σa = 0) |
+| DIN 743 | German standard for the strength calculation of shafts and axles |
+| parallel key | feather key in a keyway (DIN 6885) |
+| clamping element | conical rings tightened by screws that clamp a hub on a shaft without a keyway |
+| interference fit | shaft bigger than the hole, pressed or shrunk together |
+| insert (Y) bearing | sealed ball bearing with a wide inner ring and set screws or collar, in a housing |
+| L₁₀ | life that 90 % of a bearing group reaches |
+| C / C₀ | dynamic / static load rating of a bearing |
+| involute | tooth curve made by unwinding a string from the base circle |
+| module m | tooth size: m = d/z |
+| contact ratio ε_α | average number of tooth pairs in contact |
+| pitting | small craters on gear flanks from contact fatigue |
+| service factor f_B | gear unit rating divided by the needed torque (maker's chart) |
+| mass acceleration factor f_a | external inertia / motor inertia – classifies the load (I, II, III) |
+| self-locking | the load cannot drive the gear backwards (γ < ρ′) |
+| pretension F₀ | static force in each belt strand before load |
+| Euler–Eytelwein | F₁/F₂ = e^(μβ), limit of a friction belt |
+| torque limiter / slip hub | coupling that slips or disengages above a set torque |
+| spring-applied brake | brake closed by springs, opened by a magnet (fail-safe) |
+| spring index w | D/d of a coil spring |
+| solid length | length of a spring with all coils touching |
+| joint diagram | force–deformation picture of a preloaded bolt and the clamped parts |
+| load factor Φ | share of the working load that reaches the bolt |
+| embedding | loss of preload when surface roughness flattens |
+| FAT class | stress range a welded detail survives 2·10⁶ times |
+| throat a | design thickness of a fillet weld |
+| index plunger | spring-loaded pin that drops into a hole to lock a position |
+| kinematic coupling | 3 balls in 3 V-grooves – exact 6-point location |
+| closing dimension | the result dimension of a tolerance chain |
+| Monte Carlo | random sampling of all contributors to get the result distribution |
+| effective mass m_e | the mass that would carry the total energy at the impact speed: 2E/v² |
+| propelling force | a force that keeps pushing during the damper stroke (drive, friction, gravity) |
+| self-compensating absorber | hydraulic absorber with orifices that adapt to different masses |
+| meter-out | throttling the air that leaves a cylinder (smooth speed) |
+| free air | air volume at atmospheric pressure (1.013 bar) |
+| material index | property combination (Re/ρ, √E/ρ …) that ranks materials for a job |
+| DFM / DFA | design for manufacturing / design for assembly |
+| QPQ / nitrocarburizing | salt-bath or gas surface treatment: hard, wear and corrosion resistant layer |

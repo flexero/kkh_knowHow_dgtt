@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 990" width="1400" height="990" font-family="Arial, Helvetica, sans-serif">
+<title>Cable tray segregation – cross-sections</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker></defs>
+<rect x="0" y="0" width="1400" height="990" fill="#ffffff"/>
+<rect x="12.0" y="12.0" width="1376.0" height="966.0" rx="0" stroke="#000" stroke-width="2" fill="none"/>
+<rect x="828.0" y="894.0" width="560.0" height="84.0" rx="0" stroke="#000" stroke-width="1.5" fill="#ffffff"/>
+<line x1="828.0" y1="924.0" x2="1388.0" y2="924.0" stroke="#000" stroke-width="1"/>
+<line x1="1208.0" y1="924.0" x2="1208.0" y2="978.0" stroke="#000" stroke-width="1"/>
+<text x="838.0" y="915.0" font-size="14" text-anchor="start" font-weight="bold" fill="#1565c0">EXAMPLE – real design by a qualified electrician</text>
+<text x="838.0" y="944.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Cable tray segregation – cross-sections</text>
+<text x="838.0" y="964.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">600 mm perforated tray · 12 slots of 50 mm · categories P M C S N</text>
+<text x="1218.0" y="944.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Doc 27 · Fig. 27-4</text>
+<text x="1218.0" y="964.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">2026-11 · not for construction</text>
+<text x="24.0" y="970.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666666">Values from docs/27 and web/instelec_calc.js (example data, crankcase machining line ML1).</text>
+<text x="40.0" y="46.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000">Cable tray cross-sections (HMC-01, 8 cables) – the same presets as the tray checker in item 4, card B</text>
+<text x="80.0" y="82.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">a) AS FOUND (bad) – mixed cables, no divider → 12 of 19 pairs fail</text>
+<polyline points="80.0,114.0 80.0,210.0 1040.0,210.0 1040.0,114.0" stroke="#000" stroke-width="3" fill="none"/>
+<line x1="160.0" y1="212.0" x2="160.0" y2="218.0" stroke="#666666" stroke-width="1"/>
+<line x1="240.0" y1="212.0" x2="240.0" y2="218.0" stroke="#666666" stroke-width="1"/>
+<line x1="320.0" y1="212.0" x2="320.0" y2="218.0" stroke="#666666" stroke-width="1"/>
+<line x1="400.0" y1="212.0" x2="400.0" y2="218.0" stroke="#666666" stroke-width="1"/>
+<line x1="480.0" y1="212.0" x2="480.0" y2="218.0" stroke="#666666" stroke-width="1"/>
+<line x1="560.0" y1="212.0" x2="560.0" y2="218.0" stroke="#666666" stroke-width="1"/>
+<line x1="640.0" y1="212.0" x2="640.0" y2="218.0" stroke="#666666" stroke-width="1"/>
+<line x1="720.0" y1="212.0" x2="720.0" y2="218.0" stroke="#666666" stroke-width="1"/>
+<line x1="800.0" y1="212.0" x2="800.0" y2="218.0" stroke="#666666" stroke-width="1"/>
+<line x1="880.0" y1="212.0" x2="880.0" y2="218.0" stroke="#666666" stroke-width="1"/>
+<line x1="960.0" y1="212.0" x2="960.0" y2="218.0" stroke="#666666" stroke-width="1"/>
+<circle cx="120.0" cy="183.4" r="25.6" stroke="#1565c0" stroke-width="2.2" fill="#f2f2f2"/>
+<text x="120.0" y="152.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">F (P)</text>
+<text x="120.0" y="232.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">feed 5G25</text>
+<circle cx="200.0" cy="186.6" r="22.400000000000002" stroke="#1565c0" stroke-width="2.2" fill="#f2f2f2"/>
+<text x="200.0" y="159.2" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">SP (M)</text>
+<text x="200.0" y="232.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">spindle 4G16+S</text>
+<circle cx="280.0" cy="201.8" r="7.2" stroke="#1565c0" stroke-width="2.2" fill="#ffffff"/>
+<text x="280.0" y="189.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">EX (S)</text>
+<text x="280.0" y="232.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">encoder X</text>
+<circle cx="360.0" cy="197.8" r="11.200000000000001" stroke="#1565c0" stroke-width="2.2" fill="#f2f2f2"/>
+<text x="360.0" y="181.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">MX (M)</text>
+<text x="360.0" y="232.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">servo X</text>
+<circle cx="440.0" cy="203.4" r="5.6000000000000005" stroke="#1565c0" stroke-width="2.2" fill="#ffffff"/>
+<text x="440.0" y="192.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">PN (N)</text>
+<text x="440.0" y="232.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">PROFINET</text>
+<circle cx="520.0" cy="196.2" r="12.8" stroke="#1565c0" stroke-width="2.2" fill="#ffffff"/>
+<text x="520.0" y="178.4" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">C24 (C)</text>
+<text x="520.0" y="232.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">24 V 18×0.75</text>
+<circle cx="600.0" cy="203.4" r="5.6000000000000005" stroke="#1565c0" stroke-width="2.2" fill="#ffffff"/>
+<text x="600.0" y="192.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">AI (S)</text>
+<text x="600.0" y="232.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">4–20 mA</text>
+<circle cx="680.0" cy="199.4" r="9.600000000000001" stroke="#1565c0" stroke-width="2.2" fill="#f2f2f2"/>
+<text x="680.0" y="184.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">CC (P)</text>
+<text x="680.0" y="232.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">chip conv.</text>
+<line x1="200.0" y1="250.0" x2="280.0" y2="250.0" stroke="#000" stroke-width="1" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<line x1="200.0" y1="238.0" x2="200.0" y2="254.0" stroke="#666666" stroke-width="0.8"/>
+<line x1="280.0" y1="238.0" x2="280.0" y2="254.0" stroke="#666666" stroke-width="0.8"/>
+<text x="240.0" y="265.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">SP→EX 50 mm, need 300 mm ✗</text>
+<text x="1040.0" y="82.0" font-size="12" text-anchor="end" font-weight="bold" fill="#1565c0">checker: 12 failing pairs</text>
+<text x="80.0" y="322.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">b) GOOD – with earthed metal divider (power + motor | control, network, signals)</text>
+<polyline points="80.0,354.0 80.0,450.0 1040.0,450.0 1040.0,354.0" stroke="#000" stroke-width="3" fill="none"/>
+<line x1="160.0" y1="452.0" x2="160.0" y2="458.0" stroke="#666666" stroke-width="1"/>
+<line x1="240.0" y1="452.0" x2="240.0" y2="458.0" stroke="#666666" stroke-width="1"/>
+<line x1="320.0" y1="452.0" x2="320.0" y2="458.0" stroke="#666666" stroke-width="1"/>
+<line x1="400.0" y1="452.0" x2="400.0" y2="458.0" stroke="#666666" stroke-width="1"/>
+<line x1="480.0" y1="452.0" x2="480.0" y2="458.0" stroke="#666666" stroke-width="1"/>
+<line x1="560.0" y1="452.0" x2="560.0" y2="458.0" stroke="#666666" stroke-width="1"/>
+<line x1="640.0" y1="452.0" x2="640.0" y2="458.0" stroke="#666666" stroke-width="1"/>
+<line x1="720.0" y1="452.0" x2="720.0" y2="458.0" stroke="#666666" stroke-width="1"/>
+<line x1="800.0" y1="452.0" x2="800.0" y2="458.0" stroke="#666666" stroke-width="1"/>
+<line x1="880.0" y1="452.0" x2="880.0" y2="458.0" stroke="#666666" stroke-width="1"/>
+<line x1="960.0" y1="452.0" x2="960.0" y2="458.0" stroke="#666666" stroke-width="1"/>
+<line x1="400.0" y1="450.0" x2="400.0" y2="360.0" stroke="#1565c0" stroke-width="4"/>
+<text x="406.0" y="368.0" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">earthed divider</text>
+<circle cx="120.0" cy="423.4" r="25.6" stroke="#000" stroke-width="1.5" fill="#f2f2f2"/>
+<text x="120.0" y="392.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">F (P)</text>
+<text x="120.0" y="472.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">feed 5G25</text>
+<circle cx="200.0" cy="439.4" r="9.600000000000001" stroke="#000" stroke-width="1.5" fill="#f2f2f2"/>
+<text x="200.0" y="424.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">CC (P)</text>
+<text x="200.0" y="472.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">chip conv.</text>
+<circle cx="280.0" cy="426.6" r="22.400000000000002" stroke="#000" stroke-width="1.5" fill="#f2f2f2"/>
+<text x="280.0" y="399.2" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">SP (M)</text>
+<text x="280.0" y="472.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">spindle 4G16+S</text>
+<circle cx="360.0" cy="437.8" r="11.200000000000001" stroke="#000" stroke-width="1.5" fill="#f2f2f2"/>
+<text x="360.0" y="421.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">MX (M)</text>
+<text x="360.0" y="472.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">servo X</text>
+<circle cx="520.0" cy="436.2" r="12.8" stroke="#000" stroke-width="1.5" fill="#ffffff"/>
+<text x="520.0" y="418.4" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">C24 (C)</text>
+<text x="520.0" y="472.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">24 V 18×0.75</text>
+<circle cx="680.0" cy="443.4" r="5.6000000000000005" stroke="#000" stroke-width="1.5" fill="#ffffff"/>
+<text x="680.0" y="432.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">PN (N)</text>
+<text x="680.0" y="472.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">PROFINET</text>
+<circle cx="840.0" cy="441.8" r="7.2" stroke="#000" stroke-width="1.5" fill="#ffffff"/>
+<text x="840.0" y="429.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">EX (S)</text>
+<text x="840.0" y="472.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">encoder X</text>
+<circle cx="920.0" cy="443.4" r="5.6000000000000005" stroke="#000" stroke-width="1.5" fill="#ffffff"/>
+<text x="920.0" y="432.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">AI (S)</text>
+<text x="920.0" y="472.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">4–20 mA</text>
+<line x1="280.0" y1="490.0" x2="840.0" y2="490.0" stroke="#000" stroke-width="1" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<line x1="280.0" y1="478.0" x2="280.0" y2="494.0" stroke="#666666" stroke-width="0.8"/>
+<line x1="840.0" y1="478.0" x2="840.0" y2="494.0" stroke="#666666" stroke-width="0.8"/>
+<text x="560.0" y="505.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">SP→EX 350 mm ✓ (divider)</text>
+<text x="1040.0" y="322.0" font-size="12" text-anchor="end" font-weight="bold" fill="#000">checker: 0 failing pairs</text>
+<text x="80.0" y="562.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">c) GOOD – by distance only (no divider): signals ≥ 300 mm from motor cables</text>
+<polyline points="80.0,594.0 80.0,690.0 1040.0,690.0 1040.0,594.0" stroke="#000" stroke-width="3" fill="none"/>
+<line x1="160.0" y1="692.0" x2="160.0" y2="698.0" stroke="#666666" stroke-width="1"/>
+<line x1="240.0" y1="692.0" x2="240.0" y2="698.0" stroke="#666666" stroke-width="1"/>
+<line x1="320.0" y1="692.0" x2="320.0" y2="698.0" stroke="#666666" stroke-width="1"/>
+<line x1="400.0" y1="692.0" x2="400.0" y2="698.0" stroke="#666666" stroke-width="1"/>
+<line x1="480.0" y1="692.0" x2="480.0" y2="698.0" stroke="#666666" stroke-width="1"/>
+<line x1="560.0" y1="692.0" x2="560.0" y2="698.0" stroke="#666666" stroke-width="1"/>
+<line x1="640.0" y1="692.0" x2="640.0" y2="698.0" stroke="#666666" stroke-width="1"/>
+<line x1="720.0" y1="692.0" x2="720.0" y2="698.0" stroke="#666666" stroke-width="1"/>
+<line x1="800.0" y1="692.0" x2="800.0" y2="698.0" stroke="#666666" stroke-width="1"/>
+<line x1="880.0" y1="692.0" x2="880.0" y2="698.0" stroke="#666666" stroke-width="1"/>
+<line x1="960.0" y1="692.0" x2="960.0" y2="698.0" stroke="#666666" stroke-width="1"/>
+<circle cx="120.0" cy="663.4" r="25.6" stroke="#000" stroke-width="1.5" fill="#f2f2f2"/>
+<text x="120.0" y="632.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">F (P)</text>
+<text x="120.0" y="712.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">feed 5G25</text>
+<circle cx="200.0" cy="679.4" r="9.600000000000001" stroke="#000" stroke-width="1.5" fill="#f2f2f2"/>
+<text x="200.0" y="664.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">CC (P)</text>
+<text x="200.0" y="712.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">chip conv.</text>
+<circle cx="280.0" cy="666.6" r="22.400000000000002" stroke="#000" stroke-width="1.5" fill="#f2f2f2"/>
+<text x="280.0" y="639.2" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">SP (M)</text>
+<text x="280.0" y="712.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">spindle 4G16+S</text>
+<circle cx="360.0" cy="677.8" r="11.200000000000001" stroke="#000" stroke-width="1.5" fill="#f2f2f2"/>
+<text x="360.0" y="661.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">MX (M)</text>
+<text x="360.0" y="712.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">servo X</text>
+<circle cx="680.0" cy="676.2" r="12.8" stroke="#000" stroke-width="1.5" fill="#ffffff"/>
+<text x="680.0" y="658.4" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">C24 (C)</text>
+<text x="680.0" y="712.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">24 V 18×0.75</text>
+<circle cx="840.0" cy="683.4" r="5.6000000000000005" stroke="#000" stroke-width="1.5" fill="#ffffff"/>
+<text x="840.0" y="672.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">PN (N)</text>
+<text x="840.0" y="712.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">PROFINET</text>
+<circle cx="920.0" cy="681.8" r="7.2" stroke="#000" stroke-width="1.5" fill="#ffffff"/>
+<text x="920.0" y="669.6" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">EX (S)</text>
+<text x="920.0" y="712.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">encoder X</text>
+<circle cx="1000.0" cy="683.4" r="5.6000000000000005" stroke="#000" stroke-width="1.5" fill="#ffffff"/>
+<text x="1000.0" y="672.8" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">AI (S)</text>
+<text x="1000.0" y="712.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666666">4–20 mA</text>
+<line x1="360.0" y1="730.0" x2="680.0" y2="730.0" stroke="#000" stroke-width="1" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<line x1="360.0" y1="718.0" x2="360.0" y2="734.0" stroke="#666666" stroke-width="0.8"/>
+<line x1="680.0" y1="718.0" x2="680.0" y2="734.0" stroke="#666666" stroke-width="0.8"/>
+<text x="520.0" y="745.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">MX→C24 200 mm ✓</text>
+<line x1="360.0" y1="730.0" x2="840.0" y2="730.0" stroke="#000" stroke-width="1" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<line x1="360.0" y1="718.0" x2="360.0" y2="734.0" stroke="#666666" stroke-width="0.8"/>
+<line x1="840.0" y1="718.0" x2="840.0" y2="734.0" stroke="#666666" stroke-width="0.8"/>
+<text x="600.0" y="745.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000"></text>
+<text x="1040.0" y="562.0" font-size="12" text-anchor="end" font-weight="bold" fill="#000">checker: 0 failing pairs</text>
+<line x1="360.0" y1="754.0" x2="840.0" y2="754.0" stroke="#000" stroke-width="1" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="600.0" y="768.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">MX→PN 300 mm ✓</text>
+<text x="1090.0" y="126.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Min. distance without divider (mm)</text>
+<text x="1140.0" y="148.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">P</text>
+<text x="1104.0" y="170.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">P</text>
+<text x="1140.0" y="170.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<text x="1186.0" y="170.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<text x="1232.0" y="170.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">100</text>
+<text x="1278.0" y="170.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">200</text>
+<text x="1324.0" y="170.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">200</text>
+<text x="1186.0" y="148.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">M</text>
+<text x="1104.0" y="192.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">M</text>
+<text x="1140.0" y="192.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<text x="1186.0" y="192.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<text x="1232.0" y="192.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">200</text>
+<text x="1278.0" y="192.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#1565c0">300</text>
+<text x="1324.0" y="192.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#1565c0">300</text>
+<text x="1232.0" y="148.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">C</text>
+<text x="1104.0" y="214.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">C</text>
+<text x="1140.0" y="214.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">100</text>
+<text x="1186.0" y="214.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">200</text>
+<text x="1232.0" y="214.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<text x="1278.0" y="214.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">100</text>
+<text x="1324.0" y="214.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">100</text>
+<text x="1278.0" y="148.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">S</text>
+<text x="1104.0" y="236.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">S</text>
+<text x="1140.0" y="236.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">200</text>
+<text x="1186.0" y="236.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#1565c0">300</text>
+<text x="1232.0" y="236.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">100</text>
+<text x="1278.0" y="236.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<text x="1324.0" y="236.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<text x="1324.0" y="148.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">N</text>
+<text x="1104.0" y="258.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">N</text>
+<text x="1140.0" y="258.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">200</text>
+<text x="1186.0" y="258.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#1565c0">300</text>
+<text x="1232.0" y="258.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">100</text>
+<text x="1278.0" y="258.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<text x="1324.0" y="258.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<rect x="1090.0" y="134.0" width="270.0" height="136.0" rx="0" stroke="#666666" stroke-width="1" fill="none"/>
+<text x="1090.0" y="300.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">P power 400 V · M motor (PWM)</text>
+<text x="1090.0" y="315.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">C control 24 V/230 V · S signal</text>
+<text x="1090.0" y="330.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">N network (example values from</text>
+<text x="1090.0" y="345.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">drive makers' EMC guides – the</text>
+<text x="1090.0" y="360.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">larger maker value always wins)</text>
+<text x="1090.0" y="395.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">EN 50174-2 (IT cable ↔ mains power)</text>
+<text x="1110.0" y="418.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">class</text>
+<text x="1166.0" y="418.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">none</text>
+<text x="1222.0" y="418.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">open</text>
+<text x="1278.0" y="418.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">perf.</text>
+<text x="1334.0" y="418.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">solid</text>
+<text x="1110.0" y="436.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">d</text>
+<text x="1166.0" y="436.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">10</text>
+<text x="1222.0" y="436.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">8</text>
+<text x="1278.0" y="436.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">5</text>
+<text x="1334.0" y="436.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<text x="1110.0" y="454.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">c</text>
+<text x="1166.0" y="454.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">50</text>
+<text x="1222.0" y="454.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">38</text>
+<text x="1278.0" y="454.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">25</text>
+<text x="1334.0" y="454.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<text x="1110.0" y="472.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">b</text>
+<text x="1166.0" y="472.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">100</text>
+<text x="1222.0" y="472.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">75</text>
+<text x="1278.0" y="472.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">50</text>
+<text x="1334.0" y="472.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<text x="1110.0" y="490.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">a</text>
+<text x="1166.0" y="490.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">300</text>
+<text x="1222.0" y="490.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">225</text>
+<text x="1278.0" y="490.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">150</text>
+<text x="1334.0" y="490.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<text x="1090.0" y="518.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">distance in mm by metal separator type</text>
+<text x="1090.0" y="533.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">(class from the IT cable data sheet)</text>
+<text x="1090.0" y="548.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Drive motor cables are noisier → use</text>
+<text x="1090.0" y="563.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">the drive maker values (matrix above).</text>
+<text x="80.0" y="800.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Tray levels (side view): power on top, control in the middle, signals/network at the bottom – cross at 90°</text>
+<rect x="260.0" y="818.0" width="440.0" height="8.0" rx="0" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="710.0" y="826.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">level 1: P + M (feeds, motor cables)</text>
+<rect x="260.0" y="842.0" width="440.0" height="8.0" rx="0" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="710.0" y="850.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">level 2: C (24 V control, valves)</text>
+<rect x="260.0" y="866.0" width="440.0" height="8.0" rx="0" stroke="#000" stroke-width="1.5" fill="#eeeeee"/>
+<text x="710.0" y="874.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">level 3: S + N (encoder, analog, network)</text>
+<line x1="240.0" y1="826.0" x2="240.0" y2="878.0" stroke="#000" stroke-width="1" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="232.0" y="856.0" font-size="11" text-anchor="end" font-weight="normal" fill="#000">≥ 300 mm (example)</text>
+</svg>
