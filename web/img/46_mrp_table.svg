@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="aK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker></defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">MRP table – hand example: A (parent) and B (2 per A)</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<text x="40" y="80" font-size="14" text-anchor="start" font-weight="700" fill="#000">A: on hand 20 · SS 0 · LT 1 week · lot-for-lot</text>
+<rect x="40" y="90" width="770" height="30" fill="#f0f0f0" stroke="#000" stroke-width="1"/>
+<text x="48" y="110" font-size="13" text-anchor="start" font-weight="700" fill="#000">week</text>
+<text x="315.0" y="110" font-size="13" text-anchor="middle" font-weight="700" fill="#000">0</text>
+<text x="405.0" y="110" font-size="13" text-anchor="middle" font-weight="700" fill="#000">1</text>
+<text x="495.0" y="110" font-size="13" text-anchor="middle" font-weight="700" fill="#000">2</text>
+<text x="585.0" y="110" font-size="13" text-anchor="middle" font-weight="700" fill="#000">3</text>
+<text x="675.0" y="110" font-size="13" text-anchor="middle" font-weight="700" fill="#000">4</text>
+<text x="765.0" y="110" font-size="13" text-anchor="middle" font-weight="700" fill="#000">5</text>
+<rect x="40" y="120" width="770" height="30" fill="#fff" stroke="#000" stroke-width="0.6"/>
+<text x="48" y="140" font-size="13" text-anchor="start" fill="#000">Gross requirements</text>
+<text x="315.0" y="140" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="405.0" y="140" font-size="13" text-anchor="middle" fill="#000">30</text>
+<text x="495.0" y="140" font-size="13" text-anchor="middle" fill="#000">20</text>
+<text x="585.0" y="140" font-size="13" text-anchor="middle" fill="#000">40</text>
+<text x="675.0" y="140" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="765.0" y="140" font-size="13" text-anchor="middle" fill="#000">50</text>
+<rect x="40" y="150" width="770" height="30" fill="#fff" stroke="#000" stroke-width="0.6"/>
+<text x="48" y="170" font-size="13" text-anchor="start" fill="#000">Scheduled receipts</text>
+<text x="315.0" y="170" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="405.0" y="170" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="495.0" y="170" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="585.0" y="170" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="675.0" y="170" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="765.0" y="170" font-size="13" text-anchor="middle" fill="#000"></text>
+<rect x="40" y="180" width="770" height="30" fill="#fff" stroke="#000" stroke-width="0.6"/>
+<text x="48" y="200" font-size="13" text-anchor="start" fill="#000">Projected on hand</text>
+<text x="315.0" y="200" font-size="13" text-anchor="middle" fill="#000">20</text>
+<text x="405.0" y="200" font-size="13" text-anchor="middle" fill="#000">0</text>
+<text x="495.0" y="200" font-size="13" text-anchor="middle" fill="#000">0</text>
+<text x="585.0" y="200" font-size="13" text-anchor="middle" fill="#000">0</text>
+<text x="675.0" y="200" font-size="13" text-anchor="middle" fill="#000">0</text>
+<text x="765.0" y="200" font-size="13" text-anchor="middle" fill="#000">0</text>
+<rect x="40" y="210" width="770" height="30" fill="#fff" stroke="#000" stroke-width="0.6"/>
+<text x="48" y="230" font-size="13" text-anchor="start" fill="#000">Net requirements</text>
+<text x="315.0" y="230" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="405.0" y="230" font-size="13" text-anchor="middle" fill="#000">10</text>
+<text x="495.0" y="230" font-size="13" text-anchor="middle" fill="#000">20</text>
+<text x="585.0" y="230" font-size="13" text-anchor="middle" fill="#000">40</text>
+<text x="675.0" y="230" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="765.0" y="230" font-size="13" text-anchor="middle" fill="#000">50</text>
+<rect x="40" y="240" width="770" height="30" fill="#fff" stroke="#000" stroke-width="0.6"/>
+<text x="48" y="260" font-size="13" text-anchor="start" fill="#000">Planned order receipts</text>
+<text x="315.0" y="260" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="405.0" y="260" font-size="13" text-anchor="middle" fill="#000">10</text>
+<text x="495.0" y="260" font-size="13" text-anchor="middle" fill="#000">20</text>
+<text x="585.0" y="260" font-size="13" text-anchor="middle" fill="#000">40</text>
+<text x="675.0" y="260" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="765.0" y="260" font-size="13" text-anchor="middle" fill="#000">50</text>
+<rect x="40" y="270" width="770" height="30" fill="#fff" stroke="#000" stroke-width="0.6"/>
+<text x="48" y="290" font-size="13" text-anchor="start" font-weight="700" fill="#1f6fd1">Planned order releases</text>
+<text x="315.0" y="290" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1">10</text>
+<text x="405.0" y="290" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1">20</text>
+<text x="495.0" y="290" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1">40</text>
+<text x="585.0" y="290" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1"></text>
+<text x="675.0" y="290" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1">50</text>
+<text x="765.0" y="290" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1"></text>
+<text x="40" y="390" font-size="14" text-anchor="start" font-weight="700" fill="#000">B: 2 per A · on hand 50 · SS 10 · LT 2 weeks · fixed lot 100</text>
+<rect x="40" y="400" width="770" height="30" fill="#f0f0f0" stroke="#000" stroke-width="1"/>
+<text x="48" y="420" font-size="13" text-anchor="start" font-weight="700" fill="#000">week</text>
+<text x="315.0" y="420" font-size="13" text-anchor="middle" font-weight="700" fill="#000">0</text>
+<text x="405.0" y="420" font-size="13" text-anchor="middle" font-weight="700" fill="#000">1</text>
+<text x="495.0" y="420" font-size="13" text-anchor="middle" font-weight="700" fill="#000">2</text>
+<text x="585.0" y="420" font-size="13" text-anchor="middle" font-weight="700" fill="#000">3</text>
+<text x="675.0" y="420" font-size="13" text-anchor="middle" font-weight="700" fill="#000">4</text>
+<text x="765.0" y="420" font-size="13" text-anchor="middle" font-weight="700" fill="#000">5</text>
+<rect x="40" y="430" width="770" height="30" fill="#fff" stroke="#000" stroke-width="0.6"/>
+<text x="48" y="450" font-size="13" text-anchor="start" fill="#000">Gross = 2 × releases A</text>
+<text x="315.0" y="450" font-size="13" text-anchor="middle" fill="#000">20</text>
+<text x="405.0" y="450" font-size="13" text-anchor="middle" fill="#000">40</text>
+<text x="495.0" y="450" font-size="13" text-anchor="middle" fill="#000">80</text>
+<text x="585.0" y="450" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="675.0" y="450" font-size="13" text-anchor="middle" fill="#000">100</text>
+<text x="765.0" y="450" font-size="13" text-anchor="middle" fill="#000"></text>
+<rect x="40" y="460" width="770" height="30" fill="#fff" stroke="#000" stroke-width="0.6"/>
+<text x="48" y="480" font-size="13" text-anchor="start" fill="#000">Scheduled receipts</text>
+<text x="315.0" y="480" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="405.0" y="480" font-size="13" text-anchor="middle" fill="#000">100</text>
+<text x="495.0" y="480" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="585.0" y="480" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="675.0" y="480" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="765.0" y="480" font-size="13" text-anchor="middle" fill="#000"></text>
+<rect x="40" y="490" width="770" height="30" fill="#fff" stroke="#000" stroke-width="0.6"/>
+<text x="48" y="510" font-size="13" text-anchor="start" fill="#000">Projected on hand</text>
+<text x="315.0" y="510" font-size="13" text-anchor="middle" fill="#000">30</text>
+<text x="405.0" y="510" font-size="13" text-anchor="middle" fill="#000">90</text>
+<text x="495.0" y="510" font-size="13" text-anchor="middle" fill="#000">10</text>
+<text x="585.0" y="510" font-size="13" text-anchor="middle" fill="#000">10</text>
+<text x="675.0" y="510" font-size="13" text-anchor="middle" fill="#000">10</text>
+<text x="765.0" y="510" font-size="13" text-anchor="middle" fill="#000">10</text>
+<rect x="40" y="520" width="770" height="30" fill="#fff" stroke="#000" stroke-width="0.6"/>
+<text x="48" y="540" font-size="13" text-anchor="start" fill="#000">Net requirements</text>
+<text x="315.0" y="540" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="405.0" y="540" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="495.0" y="540" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="585.0" y="540" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="675.0" y="540" font-size="13" text-anchor="middle" fill="#000">100</text>
+<text x="765.0" y="540" font-size="13" text-anchor="middle" fill="#000"></text>
+<rect x="40" y="550" width="770" height="30" fill="#fff" stroke="#000" stroke-width="0.6"/>
+<text x="48" y="570" font-size="13" text-anchor="start" fill="#000">Planned order receipts</text>
+<text x="315.0" y="570" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="405.0" y="570" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="495.0" y="570" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="585.0" y="570" font-size="13" text-anchor="middle" fill="#000"></text>
+<text x="675.0" y="570" font-size="13" text-anchor="middle" fill="#000">100</text>
+<text x="765.0" y="570" font-size="13" text-anchor="middle" fill="#000"></text>
+<rect x="40" y="580" width="770" height="30" fill="#fff" stroke="#000" stroke-width="0.6"/>
+<text x="48" y="600" font-size="13" text-anchor="start" font-weight="700" fill="#1f6fd1">Planned order releases</text>
+<text x="315.0" y="600" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1"></text>
+<text x="405.0" y="600" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1"></text>
+<text x="495.0" y="600" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1">100</text>
+<text x="585.0" y="600" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1"></text>
+<text x="675.0" y="600" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1"></text>
+<text x="765.0" y="600" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1"></text>
+<rect x="830" y="400" width="340" height="210" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="838.0" y="462.8" font-size="15" text-anchor="start" font-weight="700" fill="#1f6fd1">Week 4 of B, by hand</text>
+<text x="838.0" y="481.8" font-size="15" text-anchor="start" fill="#000">available = 10 + 0 − 100 = −90</text>
+<text x="838.0" y="500.8" font-size="15" text-anchor="start" fill="#000">net = SS − available = 10 + 90 = 100</text>
+<text x="838.0" y="519.8" font-size="15" text-anchor="start" fill="#000">lot 100 (fixed) → receipt 100</text>
+<text x="838.0" y="538.8" font-size="15" text-anchor="start" fill="#000">POH = −90 + 100 = 10</text>
+<text x="838.0" y="557.8" font-size="15" text-anchor="start" fill="#000">release = week 4 − LT 2 = week 2</text>
+<rect x="830" y="90" width="340" height="200" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="838.0" y="157.2" font-size="15" text-anchor="start" font-weight="700" fill="#000">Week 1 of A, by hand</text>
+<text x="838.0" y="176.2" font-size="15" text-anchor="start" fill="#000">available = 20 + 0 − 30 = −10</text>
+<text x="838.0" y="195.2" font-size="15" text-anchor="start" fill="#000">net = 0 − (−10) = 10 (L4L)</text>
+<text x="838.0" y="214.2" font-size="15" text-anchor="start" fill="#000">receipt 10, POH 0</text>
+<text x="838.0" y="233.2" font-size="15" text-anchor="start" fill="#000">release in week 1 − 1 = 0</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/><line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your ERP team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 7 ERP · guide 46 · 46_mrp_table.svg</text></svg>

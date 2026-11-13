@@ -1540,6 +1540,7 @@ Linear jog in the app: 250 mm/s × override; tool rotation 30 °/s × override (
 * The **robot** is "partly completed machinery" (it has a declaration of incorporation). The **robot cell** is a machine: the
   integrator (or you, if you build it) does the risk assessment, the technical file, the declaration of conformity and the CE mark.
 * EU: Machinery Directive 2006/42/EC, replaced by the **Machinery Regulation (EU) 2023/1230**, which applies from **20 January 2027**.
+* Machines placed on the market / put into service from 20 Jan 2027 – including own-built ones – follow Machinery Regulation (EU) 2023/1230; harmonised standards listed under the Directive do not automatically carry over (guide 16 §10).
 * Harmonised standards give "presumption of conformity": ISO 10218-1 (robot), ISO 10218-2 (robot application / cell), ISO 12100,
   ISO 13849-1, ISO 13855, ISO 13857, ISO 14119, ISO 14120, IEC 60204-1. New editions **ISO 10218-1:2025 and ISO 10218-2:2025**
   were published (the collaborative content of ISO/TS 15066 is now included in part 2) – check which edition is harmonised / required
@@ -1610,7 +1611,7 @@ at S = 1600 mm/s × T from the nearest hazard (example T = 0.43 s → 688 mm). I
 until the robot is stopped; ISO 14119), which is the normal solution for robot cells.
 
 Ways to reduce S: shorter robot stopping time (lower speed near the opening – safe speed zone), safe zones that keep the robot away from the opening.
-Note: ISO 13855 had a new edition in 2024 – check the current formula details.
+Note: ISO 13855 had a new edition in 2024 – check the current formula details. (The formula and examples above use the ISO 13855:2010 constants – check them against ISO 13855:2024.)
 
 ### 17.6 Safety distances against reaching – ISO 13857 (openings in the fence)
 
@@ -2205,7 +2206,7 @@ Editions as known when this was written – **check the current edition** (see a
 | ISO 4414 | Pneumatic fluid power – safety | gripper pneumatics, air dump |
 | IEC 61131 / IEC 61499 | PLC programming | cell PLC (guide 05) |
 | EU 2006/42/EC → (EU) 2023/1230 | Machinery Directive → Machinery Regulation (from 20 Jan 2027) | legal frame, CE marking |
-| ANSI/RIA R15.06 (USA), CSA Z434 (Canada) | national adoptions of ISO 10218 | for export |
+| ANSI/A3 R15.06 (USA; RIA is now part of A3 – check current edition), CSA Z434 (Canada) | national adoptions of ISO 10218 | for export |
 
 ---
 

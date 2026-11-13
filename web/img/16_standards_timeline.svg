@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Arial, Helvetica, sans-serif">
+<title>Timeline of key editions and legal dates</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="1000" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Timeline 2009 – 2028: key standard editions (left) and legal dates (right) for the factory and the VC product</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#555" xml:space="preserve">Red = Machinery Regulation (EU) 2023/1230 – applies from 20 Jan 2027. Items marked (check) are not confirmed – look them up before use.</text>
+<text x="660.0" y="92.0" font-size="13" text-anchor="end" fill="#000" font-weight="bold" xml:space="preserve">STANDARDS – new editions</text>
+<text x="740.0" y="92.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">LAW – dates of application</text>
+<line x1="700.0" y1="104.0" x2="700.0" y2="866.0" stroke="#000" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="674.0" y="114.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="128.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2009</text>
+<line x1="674.0" y1="123.0" x2="654.0" y2="123.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="127.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">ISO 1217:2009 (+A1:2016) – compressor acceptance tests</text>
+<line x1="726.0" y1="123.0" x2="746.0" y2="123.0" stroke="#000" stroke-width="1.0"/>
+<text x="752.0" y="127.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">29 Dec 2009 – Machinery Directive 2006/42/EC applies</text>
+<rect x="674.0" y="146.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="160.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2010</text>
+<line x1="674.0" y1="155.0" x2="654.0" y2="155.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="159.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">ISO 12100:2010 · ISO 4413 / ISO 4414:2010 · ISO 8573-1:2010</text>
+<rect x="674.0" y="178.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="192.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2011</text>
+<rect x="674.0" y="200.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="214.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2012</text>
+<line x1="674.0" y1="209.0" x2="654.0" y2="209.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="213.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">ISO 13849-2:2012 (validation)</text>
+<rect x="674.0" y="232.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="246.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2013</text>
+<rect x="674.0" y="254.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="268.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2014</text>
+<line x1="726.0" y1="263.0" x2="746.0" y2="263.0" stroke="#000" stroke-width="1.0"/>
+<text x="752.0" y="267.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">PED 2014/68/EU, SPVD 2014/29/EU, EMC, LVD, ATEX recasts published</text>
+<rect x="674.0" y="286.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="300.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2015</text>
+<line x1="674.0" y1="295.0" x2="654.0" y2="295.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="299.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">ISO 9001:2015 · ISO 14120:2015 · ISO 13850:2015</text>
+<rect x="674.0" y="318.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="332.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2016</text>
+<line x1="674.0" y1="327.0" x2="654.0" y2="327.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="331.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">IEC 60204-1:2016 · ISO 21940-11:2016 (replaces ISO 1940-1)</text>
+<line x1="726.0" y1="327.0" x2="746.0" y2="327.0" stroke="#000" stroke-width="1.0"/>
+<text x="752.0" y="331.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">20 Apr 2016 EMC, LVD, ATEX, SPVD apply · 19 Jul 2016 PED applies</text>
+<rect x="674.0" y="350.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="364.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2017</text>
+<line x1="674.0" y1="359.0" x2="654.0" y2="359.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="363.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">ISO 16090-1:2017 · ISO 16092-3:2017</text>
+<rect x="674.0" y="382.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="396.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2018</text>
+<rect x="674.0" y="404.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="418.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2019</text>
+<line x1="674.0" y1="413.0" x2="654.0" y2="413.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="417.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">ISO 13857:2019 · IEC 81346-2:2019</text>
+<line x1="726.0" y1="413.0" x2="746.0" y2="413.0" stroke="#000" stroke-width="1.0"/>
+<text x="752.0" y="417.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Ecodesign motors (EU) 2019/1781 adopted</text>
+<rect x="674.0" y="436.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="450.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2020</text>
+<line x1="674.0" y1="445.0" x2="654.0" y2="445.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="449.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">IEC 61439-1 / -2:2020</text>
+<rect x="674.0" y="468.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="482.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2021</text>
+<line x1="674.0" y1="477.0" x2="654.0" y2="477.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="481.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">IEC 62061:2021</text>
+<text x="648.0" y="497.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">ISO 21920 replaces ISO 1302 / 4287 / 4288</text>
+<line x1="726.0" y1="477.0" x2="746.0" y2="477.0" stroke="#000" stroke-width="1.0"/>
+<text x="752.0" y="481.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">1 Jul 2021 – IE3 for 0.75–1000 kW motors</text>
+<rect x="674.0" y="516.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="530.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2022</text>
+<line x1="674.0" y1="525.0" x2="654.0" y2="525.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="529.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">ISO 20816-3:2022 replaces ISO 10816-3</text>
+<text x="648.0" y="545.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">ISO/IEC 12113 (glTF 2.0)</text>
+<rect x="674.0" y="564.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="578.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2023</text>
+<line x1="674.0" y1="573.0" x2="654.0" y2="573.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="577.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">ISO 13849-1:2023 · ISO 3691-4:2023</text>
+<text x="648.0" y="593.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">IEC 63278-1 (Asset Administration Shell)</text>
+<line x1="726.0" y1="573.0" x2="746.0" y2="573.0" stroke="#000" stroke-width="1.0"/>
+<text x="752.0" y="577.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">1 Jul 2023 – IE4 for 75–200 kW motors</text>
+<text x="752.0" y="593.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">19 Jul 2023 – Machinery Regulation in force</text>
+<rect x="674.0" y="612.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="626.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2024</text>
+<line x1="674.0" y1="621.0" x2="654.0" y2="621.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="625.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">ISO 13855:2024 · ISO 14119:2024</text>
+<text x="648.0" y="641.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">climate amendment ISO 9001 / 14001 / 45001 / 50001</text>
+<line x1="726.0" y1="621.0" x2="746.0" y2="621.0" stroke="#000" stroke-width="1.0"/>
+<text x="752.0" y="625.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Aug 2024 AI Act · Dec 2024 Cyber Resilience Act in force</text>
+<rect x="674.0" y="660.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="674.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2025</text>
+<line x1="674.0" y1="669.0" x2="654.0" y2="669.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="673.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">ISO 10218-1 / -2:2025 (incl. ISO/TS 15066 limits)</text>
+<text x="648.0" y="689.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">IEC 61131-3 ed. 4 – IL removed (check)</text>
+<line x1="726.0" y1="669.0" x2="746.0" y2="669.0" stroke="#000" stroke-width="1.0"/>
+<text x="752.0" y="673.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">12 Sep 2025 – Data Act applies</text>
+<rect x="674.0" y="708.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="722.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2026</text>
+<line x1="674.0" y1="717.0" x2="654.0" y2="717.0" stroke="#000" stroke-width="1.0"/>
+<text x="648.0" y="721.0" font-size="12" text-anchor="end" fill="#000" xml:space="preserve">ISO 9001 / ISO 14001 revisions expected (check)</text>
+<line x1="726.0" y1="717.0" x2="746.0" y2="717.0" stroke="#000" stroke-width="1.0"/>
+<text x="752.0" y="721.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">11 Sep 2026 – CRA reporting obligations start</text>
+<text x="752.0" y="737.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">12 Nov 2026 – today (this register)</text>
+<rect x="674.0" y="756.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#c62828" stroke-width="2.0"/>
+<text x="700.0" y="770.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold" xml:space="preserve">2027</text>
+<line x1="726.0" y1="765.0" x2="746.0" y2="765.0" stroke="#c62828" stroke-width="1.0"/>
+<text x="752.0" y="769.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">20 Jan 2027 – MACHINERY REGULATION (EU) 2023/1230 APPLIES</text>
+<text x="752.0" y="785.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">2006/42/EC repealed – no transition for new machines</text>
+<text x="752.0" y="801.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">11 Dec 2027 – Cyber Resilience Act fully applies</text>
+<text x="752.0" y="817.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">2027 – battery passport for industrial batteries (check)</text>
+<rect x="674.0" y="836.0" width="52.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="850.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">2028</text>
+<text x="24.0" y="960.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Your action: every machine put into service from 20 Jan 2027 – bought or own-built –</text>
+<text x="24.0" y="978.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">needs a Regulation-based CE file. Start long projects to the Regulation now.</text>
+<rect x="930.0" y="922.0" width="450.0" height="62.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="930.0" y1="944.0" x2="1380.0" y2="944.0" stroke="#000" stroke-width="1.3"/>
+<line x1="1230.0" y1="944.0" x2="1230.0" y2="984.0" stroke="#000" stroke-width="1.3"/>
+<text x="938.0" y="938.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">EXAMPLE – check the current edition of every standard</text>
+<text x="938.0" y="960.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Timeline of editions and transition dates</text>
+<text x="938.0" y="976.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Guide 16 – standards register · 2026-11-12</text>
+<text x="1238.0" y="960.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VC-QA-DWG-1605</text>
+<text x="1238.0" y="976.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">not legal advice</text>
+</svg>

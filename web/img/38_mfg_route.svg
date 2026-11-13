@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>Manufacturing routes – which part gets which operation</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+<pattern id="grout" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#fff"/><circle cx="3" cy="3" r="1" fill="#777"/><circle cx="8" cy="7" r="0.8" fill="#777"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="818" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="24.0" y="40.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Routing matrix (example) – filled = operation in the route, number = sequence</text>
+<rect x="174.0" y="70.0" width="98.0" height="34.0" rx="0" fill="#eaf1fb" stroke="#000" stroke-width="0.8"/>
+<text x="223.0" y="91.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">cut</text>
+<rect x="272.0" y="70.0" width="98.0" height="34.0" rx="0" fill="#eaf1fb" stroke="#000" stroke-width="0.8"/>
+<text x="321.0" y="91.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">bevel</text>
+<rect x="370.0" y="70.0" width="98.0" height="34.0" rx="0" fill="#eaf1fb" stroke="#000" stroke-width="0.8"/>
+<text x="419.0" y="84.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">fit +</text>
+<text x="419.0" y="98.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">tack</text>
+<rect x="468.0" y="70.0" width="98.0" height="34.0" rx="0" fill="#eaf1fb" stroke="#000" stroke-width="0.8"/>
+<text x="517.0" y="91.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">weld</text>
+<rect x="566.0" y="70.0" width="98.0" height="34.0" rx="0" fill="#eaf1fb" stroke="#000" stroke-width="0.8"/>
+<text x="615.0" y="84.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">check +</text>
+<text x="615.0" y="98.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">straighten</text>
+<rect x="664.0" y="70.0" width="98.0" height="34.0" rx="0" fill="#eaf1fb" stroke="#000" stroke-width="0.8"/>
+<text x="713.0" y="91.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">stress relief</text>
+<rect x="762.0" y="70.0" width="98.0" height="34.0" rx="0" fill="#eaf1fb" stroke="#000" stroke-width="0.8"/>
+<text x="811.0" y="91.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">machine</text>
+<rect x="860.0" y="70.0" width="98.0" height="34.0" rx="0" fill="#eaf1fb" stroke="#000" stroke-width="0.8"/>
+<text x="909.0" y="91.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">NDT</text>
+<rect x="958.0" y="70.0" width="98.0" height="34.0" rx="0" fill="#eaf1fb" stroke="#000" stroke-width="0.8"/>
+<text x="1007.0" y="84.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">blast +</text>
+<text x="1007.0" y="98.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">paint</text>
+<rect x="1056.0" y="70.0" width="98.0" height="34.0" rx="0" fill="#eaf1fb" stroke="#000" stroke-width="0.8"/>
+<text x="1105.0" y="91.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">mark</text>
+<rect x="24.0" y="104.0" width="150.0" height="62.0" rx="0" fill="none" stroke="#000" stroke-width="0.8"/>
+<text x="32.0" y="126.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">mast</text>
+<rect x="174.0" y="104.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="188.0" y="112.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="223.0" y="129.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+<rect x="272.0" y="104.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="286.0" y="112.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="321.0" y="129.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+<line x1="258.0" y1="124.0" x2="286.0" y2="124.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="370.0" y="104.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="384.0" y="112.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="419.0" y="129.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">3</text>
+<line x1="356.0" y1="124.0" x2="384.0" y2="124.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="468.0" y="104.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="482.0" y="112.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="517.0" y="129.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">4</text>
+<line x1="454.0" y1="124.0" x2="482.0" y2="124.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="566.0" y="104.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="580.0" y="112.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="615.0" y="129.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">5</text>
+<line x1="552.0" y1="124.0" x2="580.0" y2="124.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="664.0" y="104.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="713.0" y="129.0" font-size="12" text-anchor="middle" fill="#000">–</text>
+<rect x="762.0" y="104.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="776.0" y="112.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="811.0" y="129.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">6</text>
+<line x1="650.0" y1="124.0" x2="776.0" y2="124.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="860.0" y="104.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="874.0" y="112.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="909.0" y="129.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">7</text>
+<line x1="846.0" y1="124.0" x2="874.0" y2="124.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="958.0" y="104.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="972.0" y="112.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="1007.0" y="129.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">8</text>
+<line x1="944.0" y1="124.0" x2="972.0" y2="124.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="1056.0" y="104.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="1070.0" y="112.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="1105.0" y="129.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">9</text>
+<line x1="1042.0" y1="124.0" x2="1070.0" y2="124.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="174.0" y="144.0" width="980.0" height="22.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="180.0" y="159.0" font-size="11.5" text-anchor="start" fill="#000">CNC plasma 6 mm plates; no furnace (9.3 m) – flame straightening; pads milled on long bed</text>
+<rect x="24.0" y="166.0" width="150.0" height="62.0" rx="0" fill="none" stroke="#000" stroke-width="0.8"/>
+<text x="32.0" y="188.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">bottom carriage</text>
+<rect x="174.0" y="166.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="188.0" y="174.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="223.0" y="191.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+<rect x="272.0" y="166.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="286.0" y="174.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="321.0" y="191.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+<line x1="258.0" y1="186.0" x2="286.0" y2="186.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="370.0" y="166.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="384.0" y="174.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="419.0" y="191.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">3</text>
+<line x1="356.0" y1="186.0" x2="384.0" y2="186.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="468.0" y="166.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="482.0" y="174.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="517.0" y="191.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">4</text>
+<line x1="454.0" y1="186.0" x2="482.0" y2="186.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="566.0" y="166.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="580.0" y="174.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="615.0" y="191.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">5</text>
+<line x1="552.0" y1="186.0" x2="580.0" y2="186.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="664.0" y="166.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="678.0" y="174.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="713.0" y="191.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">6</text>
+<line x1="650.0" y1="186.0" x2="678.0" y2="186.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="762.0" y="166.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="776.0" y="174.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="811.0" y="191.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">7</text>
+<line x1="748.0" y1="186.0" x2="776.0" y2="186.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="860.0" y="166.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="874.0" y="174.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="909.0" y="191.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">8</text>
+<line x1="846.0" y1="186.0" x2="874.0" y2="186.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="958.0" y="166.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="972.0" y="174.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="1007.0" y="191.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">9</text>
+<line x1="944.0" y1="186.0" x2="972.0" y2="186.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="1056.0" y="166.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="1070.0" y="174.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="1105.0" y="191.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">10</text>
+<line x1="1042.0" y1="186.0" x2="1070.0" y2="186.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="174.0" y="206.0" width="980.0" height="22.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="180.0" y="221.0" font-size="11.5" text-anchor="start" fill="#000">plasma 10–15 mm, UT butt welds, SR 580–620 °C, boring mill one set-up</text>
+<rect x="24.0" y="228.0" width="150.0" height="62.0" rx="0" fill="none" stroke="#000" stroke-width="0.8"/>
+<text x="32.0" y="250.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">wheel block</text>
+<rect x="174.0" y="228.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="188.0" y="236.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="223.0" y="253.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+<rect x="272.0" y="228.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="286.0" y="236.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="321.0" y="253.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+<line x1="258.0" y1="248.0" x2="286.0" y2="248.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="370.0" y="228.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="384.0" y="236.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="419.0" y="253.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">3</text>
+<line x1="356.0" y1="248.0" x2="384.0" y2="248.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="468.0" y="228.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="482.0" y="236.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="517.0" y="253.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">4</text>
+<line x1="454.0" y1="248.0" x2="482.0" y2="248.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="566.0" y="228.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="580.0" y="236.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="615.0" y="253.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">5</text>
+<line x1="552.0" y1="248.0" x2="580.0" y2="248.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="664.0" y="228.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="678.0" y="236.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="713.0" y="253.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">6</text>
+<line x1="650.0" y1="248.0" x2="678.0" y2="248.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="762.0" y="228.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="776.0" y="236.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="811.0" y="253.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">7</text>
+<line x1="748.0" y1="248.0" x2="776.0" y2="248.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="860.0" y="228.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="874.0" y="236.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="909.0" y="253.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">8</text>
+<line x1="846.0" y1="248.0" x2="874.0" y2="248.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="958.0" y="228.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="972.0" y="236.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="1007.0" y="253.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">9</text>
+<line x1="944.0" y1="248.0" x2="972.0" y2="248.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="1056.0" y="228.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="1070.0" y="236.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="1105.0" y="253.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">10</text>
+<line x1="1042.0" y1="248.0" x2="1070.0" y2="248.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="174.0" y="268.0" width="980.0" height="22.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="180.0" y="283.0" font-size="11.5" text-anchor="start" fill="#000">housing welded 30–40 mm, preheat 75–100 °C; bores Ø140 H7; wheel turned + hardened</text>
+<rect x="24.0" y="290.0" width="150.0" height="62.0" rx="0" fill="none" stroke="#000" stroke-width="0.8"/>
+<text x="32.0" y="312.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">lifting carriage</text>
+<rect x="174.0" y="290.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="188.0" y="298.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="223.0" y="315.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+<rect x="272.0" y="290.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="286.0" y="298.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="321.0" y="315.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+<line x1="258.0" y1="310.0" x2="286.0" y2="310.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="370.0" y="290.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="384.0" y="298.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="419.0" y="315.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">3</text>
+<line x1="356.0" y1="310.0" x2="384.0" y2="310.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="468.0" y="290.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="482.0" y="298.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="517.0" y="315.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">4</text>
+<line x1="454.0" y1="310.0" x2="482.0" y2="310.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="566.0" y="290.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="580.0" y="298.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="615.0" y="315.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">5</text>
+<line x1="552.0" y1="310.0" x2="580.0" y2="310.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="664.0" y="290.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="713.0" y="315.0" font-size="12" text-anchor="middle" fill="#000">–</text>
+<rect x="762.0" y="290.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="776.0" y="298.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="811.0" y="315.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">6</text>
+<line x1="650.0" y1="310.0" x2="776.0" y2="310.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="860.0" y="290.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="874.0" y="298.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="909.0" y="315.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">7</text>
+<line x1="846.0" y1="310.0" x2="874.0" y2="310.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="958.0" y="290.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="972.0" y="298.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="1007.0" y="315.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">8</text>
+<line x1="944.0" y1="310.0" x2="972.0" y2="310.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="1056.0" y="290.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="1070.0" y="298.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="1105.0" y="315.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">9</text>
+<line x1="1042.0" y1="310.0" x2="1070.0" y2="310.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="174.0" y="330.0" width="980.0" height="22.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="180.0" y="345.0" font-size="11.5" text-anchor="start" fill="#000">laser 6–12 mm, jig-welded; roller axle bores + rail faces machined</text>
+<rect x="24.0" y="352.0" width="150.0" height="62.0" rx="0" fill="none" stroke="#000" stroke-width="0.8"/>
+<text x="32.0" y="374.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">top carriage</text>
+<rect x="174.0" y="352.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="188.0" y="360.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="223.0" y="377.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+<rect x="272.0" y="352.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="286.0" y="360.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="321.0" y="377.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+<line x1="258.0" y1="372.0" x2="286.0" y2="372.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="370.0" y="352.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="384.0" y="360.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="419.0" y="377.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">3</text>
+<line x1="356.0" y1="372.0" x2="384.0" y2="372.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="468.0" y="352.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="482.0" y="360.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="517.0" y="377.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">4</text>
+<line x1="454.0" y1="372.0" x2="482.0" y2="372.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="566.0" y="352.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="580.0" y="360.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="615.0" y="377.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">5</text>
+<line x1="552.0" y1="372.0" x2="580.0" y2="372.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="664.0" y="352.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="713.0" y="377.0" font-size="12" text-anchor="middle" fill="#000">–</text>
+<rect x="762.0" y="352.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="776.0" y="360.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="811.0" y="377.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">6</text>
+<line x1="650.0" y1="372.0" x2="776.0" y2="372.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="860.0" y="352.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="874.0" y="360.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="909.0" y="377.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">7</text>
+<line x1="846.0" y1="372.0" x2="874.0" y2="372.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="958.0" y="352.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="972.0" y="360.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="1007.0" y="377.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">8</text>
+<line x1="944.0" y1="372.0" x2="972.0" y2="372.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="1056.0" y="352.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="1070.0" y="360.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="1105.0" y="377.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">9</text>
+<line x1="1042.0" y1="372.0" x2="1070.0" y2="372.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="174.0" y="392.0" width="980.0" height="22.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="180.0" y="407.0" font-size="11.5" text-anchor="start" fill="#000">small frame; pulley + roller bores machined</text>
+<rect x="24.0" y="414.0" width="150.0" height="62.0" rx="0" fill="none" stroke="#000" stroke-width="0.8"/>
+<text x="32.0" y="436.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">fork stages</text>
+<rect x="174.0" y="414.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="188.0" y="422.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="223.0" y="439.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+<rect x="272.0" y="414.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="321.0" y="439.0" font-size="12" text-anchor="middle" fill="#000">–</text>
+<rect x="370.0" y="414.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="384.0" y="422.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="419.0" y="439.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+<line x1="258.0" y1="434.0" x2="384.0" y2="434.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="468.0" y="414.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="482.0" y="422.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="517.0" y="439.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">3</text>
+<line x1="454.0" y1="434.0" x2="482.0" y2="434.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="566.0" y="414.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="580.0" y="422.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="615.0" y="439.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">4</text>
+<line x1="552.0" y1="434.0" x2="580.0" y2="434.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="664.0" y="414.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="713.0" y="439.0" font-size="12" text-anchor="middle" fill="#000">–</text>
+<rect x="762.0" y="414.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="776.0" y="422.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="811.0" y="439.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">5</text>
+<line x1="650.0" y1="434.0" x2="776.0" y2="434.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="860.0" y="414.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="874.0" y="422.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="909.0" y="439.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">6</text>
+<line x1="846.0" y1="434.0" x2="874.0" y2="434.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="958.0" y="414.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="972.0" y="422.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="1007.0" y="439.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">7</text>
+<line x1="944.0" y1="434.0" x2="972.0" y2="434.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="1056.0" y="414.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="1070.0" y="422.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="1105.0" y="439.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">8</text>
+<line x1="1042.0" y1="434.0" x2="1070.0" y2="434.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="174.0" y="454.0" width="980.0" height="22.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="180.0" y="469.0" font-size="11.5" text-anchor="start" fill="#000">laser-cut / profiles, few welds; slide faces + racks machined, straight ≤ 0.5</text>
+<rect x="24.0" y="476.0" width="150.0" height="62.0" rx="0" fill="none" stroke="#000" stroke-width="0.8"/>
+<text x="32.0" y="498.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">drum + shaft</text>
+<rect x="174.0" y="476.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="188.0" y="484.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="223.0" y="501.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+<rect x="272.0" y="476.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="321.0" y="501.0" font-size="12" text-anchor="middle" fill="#000">–</text>
+<rect x="370.0" y="476.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="384.0" y="484.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="419.0" y="501.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+<line x1="258.0" y1="496.0" x2="384.0" y2="496.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="468.0" y="476.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="482.0" y="484.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="517.0" y="501.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">3</text>
+<line x1="454.0" y1="496.0" x2="482.0" y2="496.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="566.0" y="476.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="580.0" y="484.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="615.0" y="501.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">4</text>
+<line x1="552.0" y1="496.0" x2="580.0" y2="496.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="664.0" y="476.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="678.0" y="484.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="713.0" y="501.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">5</text>
+<line x1="650.0" y1="496.0" x2="678.0" y2="496.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="762.0" y="476.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="776.0" y="484.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="811.0" y="501.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">6</text>
+<line x1="748.0" y1="496.0" x2="776.0" y2="496.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="860.0" y="476.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="874.0" y="484.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="909.0" y="501.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">7</text>
+<line x1="846.0" y1="496.0" x2="874.0" y2="496.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="958.0" y="476.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<rect x="972.0" y="484.0" width="70.0" height="24.0" rx="4" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="1007.0" y="501.0" font-size="12" text-anchor="middle" fill="#fff" font-weight="bold">8</text>
+<line x1="944.0" y1="496.0" x2="972.0" y2="496.0" stroke="#1f6fd1" stroke-width="1.0"/>
+<rect x="1056.0" y="476.0" width="98.0" height="40.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="1105.0" y="501.0" font-size="12" text-anchor="middle" fill="#000">–</text>
+<rect x="174.0" y="516.0" width="980.0" height="22.0" rx="0" fill="none" stroke="#000" stroke-width="0.6"/>
+<text x="180.0" y="531.0" font-size="11.5" text-anchor="start" fill="#000">tube + end discs welded, SR, turned + grooves; shaft 42CrMo4 turned + ground</text>
+<text x="24.0" y="562.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">Quality frame (example): ISO 3834-3 shop, EN 1090-2 EXC2 as practice, welders ISO 9606-1, WPS per ISO 15614-1, ISO 5817 level C (B at the mast foot + wheel blocks)</text>
+<text x="24.0" y="581.0" font-size="11.5" text-anchor="start" fill="#000">NDT: VT 100 % (ISO 17637) · MT 20 % main fillets + 100 % mast foot (ISO 17638) · UT 100 % full-pen butt welds (ISO 17640) – check EN 1090-2 Table 24 minimum</text>
+<text x="24.0" y="600.0" font-size="11.5" text-anchor="start" fill="#000">Surface: Sa 2½ (ISO 8501-1), roughness medium G (ISO 8503), C3 (ISO 12944-2), EP primer 80 µm + PUR top 80 µm = 160 µm NDFT, machined faces masked + oiled</text>
+<text x="24.0" y="619.0" font-size="11.5" text-anchor="start" fill="#000">Hold points: material certificates 3.1 (EN 10204) · fit-up · dimensional report after welding · after stress relief · after machining · NDT report · DFT report</text>
+<rect x="774.0" y="752.0" width="414.0" height="66.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="774.0" y1="774.0" x2="1188.0" y2="774.0" stroke="#000" stroke-width="0.8"/>
+<line x1="844.0" y1="752.0" x2="844.0" y2="774.0" stroke="#000" stroke-width="0.8"/>
+<text x="782.0" y="768.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">38-12</text>
+<text x="852.0" y="768.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Manufacturing routes – which part gets which operation</text>
+<text x="782.0" y="791.0" font-size="12" text-anchor="start" fill="#b00000" font-weight="bold">EXAMPLE – check the crane maker's drawings</text>
+<text x="782.0" y="809.0" font-size="11" text-anchor="start" fill="#000">Digital twin · ASRS-RAW stacker crane · guide 38 · not to scale · mm</text>
+</svg>

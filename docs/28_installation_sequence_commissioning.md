@@ -1784,13 +1784,20 @@ check the drain back to the tank, and measure the operator exposure after a few 
 ### E5.1 IP plan (example)
 One VLAN per line / zone; the firewall controls traffic between zones (IEC 62443 "zones and conduits" idea, see
 guide 07). A /24 network has 254 usable addresses.
+The binding values are in guide 15 §3.13 (master IP and host-name plan, `VC-ITS-NET-0001`); the table below is a short
+excerpt – address rule `10.<VLAN>.0.<host>`.
 
 | VLAN | Name | Subnet (example) | Devices |
 |---|---|---|---|
-| 10 | Office / ERP | 10.10.0.0/24 | PCs, ERP |
-| 20 | OT – crankcase line 1 | 10.20.1.0/24 | .1 gateway · .11 HMC-01 · .12 HMC-02 · .13 HMC-03 · .21 WASH-01 · .22 VMC-01 · .31 robot controller · .40 line PLC · .50 edge PC (MTConnect agent / OPC UA client) · .250 switch management |
-| 30 | MES / SCADA servers | 10.30.0.0/24 | MES, historian |
-| 40 | Remote service | 10.40.0.0/24 | maker's secure remote-access gateway (time-limited, logged) |
+| 10 | `ENT-OFFICE` – office / ERP | 10.10.0.0/16 | PCs, ERP |
+| 20 | `DMZ` | 10.20.0.0/24 | .100 time server · .101 B2MML / ERP gateway · .102 historian mirror · .103 patch server · .104 maker's secure remote-access gateway `vc-dmz-ra01` (time-limited, logged) |
+| 30 | `OT-L3-OPS` – MES, MQTT broker, historian | 10.30.0.0/24 | .100 MES · .101 / .102 MQTT broker · .103 historian · .104 WMS · .105 DNC server · .110 syslog · .111 network management · .112 DNS |
+| 40 | `OT-L2-SUP` – SCADA, fleet manager, twin | 10.40.0.0/24 | .100 / .101 SCADA A / B · .102 digital twin · .103 AGV fleet manager · .104 edge gateway · .110 engineering station · .120 / .121 operator clients |
+| 51 | `OT-L1-MCH-L2` – crankcase FMS cell | 10.51.0.0/24 | .1 gateway · .2 – .7 cell switches · .11 PLC-01 · .51 HMC-01 · .52 HMC-02 · .53 HMC-03 (CNC) · .100 / .101 HMI LOAD-CC / WASH-01 · .150 – .155 I/O stations, washer VFD |
+| 52 | `OT-L1-MCH-L1L3` – cylinder + crankshaft lines | 10.52.0.0/24 | .12 PLC-02 · .13 PLC-03 · .51 – .54 VMC-01, HONE-01, LATHE-01, GRIND-01 (CNC) |
+| 53 | `OT-L1-ASM-TST` – assembly, robot, test | 10.53.0.0/24 | .14 PLC-04 · .15 PLC-05 · .55 robot controller ROBOT-01 · .101 / .102 HMI TEST-01 / TEST-02 |
+| 54 | `OT-L1-LOG-ASRS` – AS/RS | 10.54.0.0/24 | .31 PLC-ASRS-RAW · .32 PLC-ASRS-FG |
+| 60 | `OT-L1-AGV-WIFI` – AGVs | 10.60.0.0/24 | .51 / .52 AGV-01 / AGV-02 · .150 / .151 chargers |
 
 Rules: fixed IPs (or DHCP reservations) for machines, a label on each machine and port, documented in the as-built
 network drawing; no direct internet access for CNCs; change default passwords; back up switch configurations.
@@ -1802,7 +1809,7 @@ network drawing; no direct internet access for CNCs; change default passwords; b
 * EMC: separate data cables from power cables (guide 27 §B.3, §D.12).
 
 ### E5.3 OPC UA connection – step by step
-1. CNC: enable the OPC UA server option (licence!), set the IP, note the **endpoint URL**, e.g. `opc.tcp://10.20.1.11:4840`.
+1. CNC: enable the OPC UA server option (licence!), set the IP, note the **endpoint URL**, e.g. `opc.tcp://10.51.0.51:4840` (HMC-01, guide 15 §3.13).
 2. Choose the **security policy** (e.g. Basic256Sha256) and mode **SignAndEncrypt**; avoid "None" in production.
 3. **Exchange certificates:** the client certificate must be trusted by the server and vice versa (trust lists).
 4. User authentication (user name / password or certificate).
@@ -2042,6 +2049,7 @@ buyer's MES are not the machine's fault).
 * **Machinery Directive 2006/42/EC** applies until **19 January 2027**; the **Machinery Regulation (EU) 2023/1230** applies
   from **20 January 2027**. The HMCs of this plan are delivered in May–June 2027 → they are placed on the market under the
   **Regulation**. Ask the maker to confirm that his declaration of conformity refers to 2023/1230.
+* Machines placed on the market / put into service from 20 Jan 2027 – including own-built ones – follow Machinery Regulation (EU) 2023/1230; harmonised standards listed under the Directive do not automatically carry over (guide 16 §10).
 * New points of the Regulation (short): instructions may be **digital** (paper on request), more attention to
   **protection against corruption / cyber attacks** of safety functions, rules for machines with self-evolving
   behaviour, updated list of high-risk machinery (Annex I).

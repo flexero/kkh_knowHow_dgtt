@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>Sensor layout on the lifting carriage + fork</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="818" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="24.0" y="32.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Plan view (from above), fork centred, crate on the fork</text>
+<rect x="175.0" y="75.0" width="450.0" height="570.0" rx="0" fill="#fff" stroke="#777" stroke-width="0.8" stroke-dasharray="6 4"/>
+<text x="178.0" y="90.0" font-size="11.5" text-anchor="start" fill="#777">aisle 1 500</text>
+<rect x="283.0" y="210.0" width="18.0" height="288.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="499.0" y="210.0" width="18.0" height="288.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="307.0" y="492.0" width="186.0" height="12.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<text x="400.0" y="520.0" font-size="11.5" text-anchor="middle" fill="#000">back plate → mast</text>
+<rect x="220.0" y="240.0" width="360.0" height="240.0" rx="0" fill="#eef3fa" stroke="#000" stroke-width="1"/>
+<text x="400.0" y="270.0" font-size="12" text-anchor="middle" fill="#000">crate 1 200 × 800</text>
+<rect x="250.0" y="418.5" width="300.0" height="33.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1.2"/>
+<rect x="250.0" y="268.5" width="300.0" height="33.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1.2"/>
+<line x1="211.0" y1="480.0" x2="211.0" y2="219.0" stroke="#1f6fd1" stroke-width="2" stroke-dasharray="8 4"/>
+<rect x="204.0" y="473.0" width="14.0" height="14.0" rx="0" fill="#1f6fd1" stroke="#000" stroke-width="1"/>
+<line x1="218.0" y1="480.0" x2="814.0" y2="66.0" stroke="#777" stroke-width="0.7"/>
+<text x="820.0" y="70.0" font-size="12" text-anchor="start" fill="#000">S5 overhang L (light barrier)</text>
+<line x1="589.0" y1="480.0" x2="589.0" y2="219.0" stroke="#1f6fd1" stroke-width="2" stroke-dasharray="8 4"/>
+<rect x="582.0" y="473.0" width="14.0" height="14.0" rx="0" fill="#1f6fd1" stroke="#000" stroke-width="1"/>
+<line x1="596.0" y1="480.0" x2="814.0" y2="96.0" stroke="#777" stroke-width="0.7"/>
+<text x="820.0" y="100.0" font-size="12" text-anchor="start" fill="#000">S6 overhang R</text>
+<rect x="273.0" y="212.0" width="14.0" height="14.0" rx="0" fill="#1f6fd1" stroke="#000" stroke-width="1"/>
+<line x1="287.0" y1="219.0" x2="814.0" y2="126.0" stroke="#777" stroke-width="0.7"/>
+<text x="820.0" y="130.0" font-size="12" text-anchor="start" fill="#000">S7 occupancy L (diffuse)</text>
+<rect x="513.0" y="212.0" width="14.0" height="14.0" rx="0" fill="#1f6fd1" stroke="#000" stroke-width="1"/>
+<line x1="527.0" y1="219.0" x2="814.0" y2="156.0" stroke="#777" stroke-width="0.7"/>
+<text x="820.0" y="160.0" font-size="12" text-anchor="start" fill="#000">S8 occupancy R</text>
+<rect x="393.0" y="254.0" width="14.0" height="14.0" rx="0" fill="#1f6fd1" stroke="#000" stroke-width="1"/>
+<line x1="407.0" y1="261.0" x2="814.0" y2="186.0" stroke="#777" stroke-width="0.7"/>
+<text x="820.0" y="190.0" font-size="12" text-anchor="start" fill="#000">S2 centre position (safe, 2 ch)</text>
+<rect x="303.0" y="353.0" width="14.0" height="14.0" rx="0" fill="#1f6fd1" stroke="#000" stroke-width="1"/>
+<line x1="317.0" y1="360.0" x2="814.0" y2="216.0" stroke="#777" stroke-width="0.7"/>
+<text x="820.0" y="220.0" font-size="12" text-anchor="start" fill="#000">S4 load on fork (2×)</text>
+<rect x="249.0" y="254.0" width="14.0" height="14.0" rx="0" fill="#1f6fd1" stroke="#000" stroke-width="1"/>
+<line x1="263.0" y1="261.0" x2="814.0" y2="246.0" stroke="#777" stroke-width="0.7"/>
+<text x="820.0" y="250.0" font-size="12" text-anchor="start" fill="#000">S3 end of stroke L</text>
+<rect x="537.0" y="254.0" width="14.0" height="14.0" rx="0" fill="#1f6fd1" stroke="#000" stroke-width="1"/>
+<line x1="551.0" y1="261.0" x2="814.0" y2="276.0" stroke="#777" stroke-width="0.7"/>
+<text x="820.0" y="280.0" font-size="12" text-anchor="start" fill="#000">S3 end of stroke R</text>
+<rect x="492.0" y="473.0" width="14.0" height="14.0" rx="0" fill="#1f6fd1" stroke="#000" stroke-width="1"/>
+<line x1="506.0" y1="480.0" x2="814.0" y2="306.0" stroke="#777" stroke-width="0.7"/>
+<text x="820.0" y="310.0" font-size="12" text-anchor="start" fill="#000">S1 fine positioning (reflex on slot flag)</text>
+<rect x="438.0" y="389.0" width="14.0" height="14.0" rx="0" fill="#1f6fd1" stroke="#000" stroke-width="1"/>
+<line x1="452.0" y1="396.0" x2="814.0" y2="336.0" stroke="#777" stroke-width="0.7"/>
+<text x="820.0" y="340.0" font-size="12" text-anchor="start" fill="#000">B1 motor encoder</text>
+<text x="24.0" y="700.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Interlocks (PLC, safety PLC for the safe ones):</text>
+<text x="24.0" y="724.0" font-size="12" text-anchor="start" fill="#000">travel + hoist only if S2 centre = 1 (2 channels, PL d typical – check EN 528 / EN ISO 13849 risk assessment)</text>
+<text x="24.0" y="746.0" font-size="12" text-anchor="start" fill="#000">fork extends only if S1 in position = 1 and (store) S7/S8 occupancy = 0;  stop if torque / current high (collision)</text>
+<text x="24.0" y="768.0" font-size="12" text-anchor="start" fill="#000">after retract: S4 load = 1, S5 + S6 overhang = 0, encoder = end switch (± 10 mm slip check), weight ≤ 330 kg (load pins)</text>
+<rect x="774" y="752" width="414" height="66" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="774" y1="774" x2="1188" y2="774" stroke="#000" stroke-width="0.8"/><line x1="844" y1="752" x2="844" y2="774" stroke="#000" stroke-width="0.8"/>
+<text x="782" y="768" font-size="12.5" fill="#000" font-weight="bold">39-08</text>
+<text x="852" y="768" font-size="12" fill="#000" font-weight="bold">Sensor layout on the lifting carriage + fork</text>
+<text x="782" y="791" font-size="12" fill="#1f6fd1" font-weight="bold">EXAMPLE – check the fork maker's documentation</text>
+<text x="782" y="809" font-size="11" fill="#000">Digital twin · ASRS-RAW telescopic fork · guide 39 · not to scale · mm</text>
+</svg>

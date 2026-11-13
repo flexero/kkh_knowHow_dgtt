@@ -288,6 +288,8 @@ cabinet and `=R1+A1` for the robot controller (title block).
 > letters (as the app does). Fix one system in the project's **drawing standard** at the start and use it everywhere –
 > including the labels in the cabinet.
 
+The project uses the two-letter IEC 81346-2:2019 codes (project edition, same as guide 15 and the E-CAD library) – see guide 15 §17.3 for the mapping from the single letters used on these teaching drawings.
+
 ### 2.5 Symbols (IEC 60617, as used in the app – card F shows them drawn)
 
 | Symbol | Meaning |
@@ -1132,7 +1134,7 @@ Each channel = **I → L → O** (input, logic, output). In the cell: e-stop con
 
 **MTTF_D** – mean time to dangerous failure of one channel (years):
 
-| Band | ISO 13849-1:2015 |
+| Band | ISO 13849-1:2023 (bands unchanged from 2015) |
 |---|---|
 | low | 3 ≤ MTTF_D < 10 years |
 | medium | 10 ≤ MTTF_D < 30 years |
@@ -1282,7 +1284,7 @@ at commissioning.
 response in the fault case: T_wc = 0.215 + 0.100 = 0.315 s → S = 1 600 · 0.315 = **504 mm** (example – use the worst case
 the safety PLC tool calculates).
 
-**ISO 13855 constants – the full set (horizontal / vertical approach, examples):**
+**ISO 13855 constants – the full set (horizontal / vertical approach, examples; values here from ISO 13855:2010 – ISO 13855:2024 is current, check):**
 
 | Protective device | Formula | Condition | Example (T = 0.215 s) |
 |---|---|---|---|

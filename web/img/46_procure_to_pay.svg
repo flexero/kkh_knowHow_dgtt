@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="aK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker></defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">Procure to pay – from the MRP proposal to the supplier payment</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<rect x="30" y="90" width="330" height="110" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="195.0" y="131.2" font-size="15" text-anchor="middle" font-weight="700" fill="#000">Planned order PL</text>
+<text x="195.0" y="150.2" font-size="15" text-anchor="middle" fill="#000">MRP: buy item</text>
+<text x="195.0" y="169.2" font-size="15" text-anchor="middle" fill="#000">release week</text>
+<line x1="360" y1="145" x2="418" y2="145" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="420" y="90" width="330" height="110" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="585.0" y="131.2" font-size="15" text-anchor="middle" font-weight="700" fill="#000">Requisition PR</text>
+<text x="585.0" y="150.2" font-size="15" text-anchor="middle" fill="#000">buyer checks</text>
+<text x="585.0" y="169.2" font-size="15" text-anchor="middle" fill="#000">supplier, qty</text>
+<line x1="750" y1="145" x2="808" y2="145" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="810" y="90" width="330" height="110" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="975.0" y="131.2" font-size="15" text-anchor="middle" font-weight="700" fill="#000">Purchase order PU</text>
+<text x="975.0" y="150.2" font-size="15" text-anchor="middle" fill="#000">price, due date</text>
+<text x="975.0" y="169.2" font-size="15" text-anchor="middle" fill="#000">terms</text>
+<path d="M 975,200 L 975,230 L 195,230 L 195,258" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="30" y="260" width="330" height="110" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="195.0" y="301.2" font-size="15" text-anchor="middle" font-weight="700" fill="#1f6fd1">Send</text>
+<text x="195.0" y="320.2" font-size="15" text-anchor="middle" fill="#000">supplier portal</text>
+<text x="195.0" y="339.2" font-size="15" text-anchor="middle" fill="#000">POST JSON (HTTP)</text>
+<line x1="360" y1="315" x2="418" y2="315" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="420" y="260" width="330" height="110" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="585.0" y="301.2" font-size="15" text-anchor="middle" font-weight="700" fill="#000">Goods receipt GR</text>
+<text x="585.0" y="320.2" font-size="15" text-anchor="middle" fill="#000">batch / heat lot</text>
+<text x="585.0" y="339.2" font-size="15" text-anchor="middle" fill="#000">→ blocked stock QI-01</text>
+<line x1="750" y1="315" x2="808" y2="315" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="810" y="260" width="330" height="110" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="975.0" y="301.2" font-size="15" text-anchor="middle" font-weight="700" fill="#1f6fd1">Inspection IL</text>
+<text x="975.0" y="320.2" font-size="15" text-anchor="middle" fill="#000">ISO 2859-1 AQL 1.0</text>
+<text x="975.0" y="339.2" font-size="15" text-anchor="middle" fill="#000">raw: 3.1 certificate</text>
+<path d="M 975,370 L 975,400 L 195,400 L 195,428" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="30" y="430" width="330" height="110" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="195.0" y="471.2" font-size="15" text-anchor="middle" font-weight="700" fill="#000">Stock free</text>
+<text x="195.0" y="490.2" font-size="15" text-anchor="middle" fill="#000">move to store</text>
+<text x="195.0" y="509.2" font-size="15" text-anchor="middle" fill="#000">MAV price update</text>
+<line x1="360" y1="485" x2="418" y2="485" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="420" y="430" width="330" height="110" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="585.0" y="471.2" font-size="15" text-anchor="middle" font-weight="700" fill="#000">Invoice check</text>
+<text x="585.0" y="490.2" font-size="15" text-anchor="middle" fill="#000">3-way match</text>
+<text x="585.0" y="509.2" font-size="15" text-anchor="middle" fill="#000">PO = GR = invoice</text>
+<line x1="750" y1="485" x2="808" y2="485" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="810" y="430" width="330" height="110" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="975.0" y="471.2" font-size="15" text-anchor="middle" font-weight="700" fill="#000">Payment</text>
+<text x="975.0" y="490.2" font-size="15" text-anchor="middle" fill="#000">terms 30 – 60 days</text>
+<text x="975.0" y="509.2" font-size="15" text-anchor="middle" fill="#000">PPV booked at GR</text>
+<rect x="30" y="600" width="700" height="140" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="38.0" y="646.8" font-size="15" text-anchor="start" font-weight="700" fill="#000">Example: 2 000 cartons BOX-FABS from S-2008 (web shop, HTTP)</text>
+<text x="38.0" y="665.8" font-size="15" text-anchor="start" fill="#000">AQL 1.0, lot 2 000 → code K → sample n = 125, accept ≤ 3, reject ≥ 4</text>
+<text x="38.0" y="684.8" font-size="15" text-anchor="start" fill="#000">PPV = (PO price − std price) × qty = (3.50 − 3.50) × 2 000 = 0 €</text>
+<text x="38.0" y="703.8" font-size="15" text-anchor="start" fill="#000">moving average: (400 m × 14.40 + 400 m × 14.10) / 800 m = 14.25 €/m</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/><line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your ERP team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 7 ERP · guide 46 · 46_procure_to_pay.svg</text></svg>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>Thread whirling principle</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="eab" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1 L10,5 L0,9 Z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatch2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="818" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="20.0" y="30.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">Hard whirling of the ball-screw thread (option W) – a fast ring with 6 inserts orbits the slowly turning hardened shaft</text>
+<text x="30.0" y="58.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">A  Front view (shaft axis into the page)</text>
+<circle cx="300.0" cy="390.0" r="174.0" fill="url(#hatch)" stroke="#000" stroke-width="1.2"/>
+<circle cx="300.0" cy="390.0" r="150.0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="300.0" y="206.0" font-size="11.5" text-anchor="middle" fill="#000" font-weight="bold">whirling ring (tool holder), 1 500 min⁻¹</text>
+<polygon points="308.0,540.0 305.0,518.0 295.0,518.0 292.0,540.0" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1"/>
+<polygon points="174.1,471.9 191.6,458.3 186.6,449.7 166.1,458.1" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1"/>
+<polygon points="166.1,321.9 186.6,330.3 191.6,321.7 174.1,308.1" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1"/>
+<polygon points="292.0,240.0 295.0,262.0 305.0,262.0 308.0,240.0" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1"/>
+<polygon points="425.9,308.1 408.4,321.7 413.4,330.3 433.9,321.9" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1"/>
+<polygon points="433.9,458.1 413.4,449.7 408.4,458.3 425.9,471.9" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1"/>
+<line x1="187.4" y1="455.0" x2="40.0" y2="610.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="187.4" cy="455.0" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<text x="44.0" y="614.0" font-size="11.5" text-anchor="start" fill="#000">6 CBN / carbide inserts with the gothic-arch form</text>
+<circle cx="300.0" cy="478.0" r="60.0" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1.6"/>
+<circle cx="300.0" cy="478.0" r="48.0" fill="none" stroke="#1f6fd1" stroke-width="1" stroke-dasharray="5,3"/>
+<text x="300.0" y="464.0" font-size="11.5" text-anchor="middle" fill="#1f6fd1" font-weight="bold">screw Ø32 (60 HRC)</text>
+<text x="300.0" y="500.0" font-size="11.5" text-anchor="middle" fill="#1f6fd1">n_w = 6 min⁻¹</text>
+<circle cx="300.0" cy="478.0" r="2.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<line x1="300.0" y1="390.0" x2="300.0" y2="418.0" stroke="#000" stroke-width="0.8" stroke-dasharray="5,3"/>
+<circle cx="300.0" cy="390.0" r="2.5" fill="#000" stroke="#000" stroke-width="1.2"/>
+<text x="308.0" y="410.0" font-size="11.5" text-anchor="start" fill="#000">eccentricity e</text>
+<path d="M495,350 A 195 195 0 0 1 480,470" fill="none" stroke="#1f6fd1" stroke-width="2" marker-end="url(#eab)"/>
+<text x="500.0" y="410.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">ring</text>
+<path d="M372,448 A 75 75 0 0 1 350,530" fill="none" stroke="#1f6fd1" stroke-width="1.6" marker-end="url(#ea)"/>
+<text x="388.0" y="498.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">work</text>
+<text x="150.0" y="408.0" font-size="11.5" text-anchor="middle" fill="#000">comma-shaped chip</text>
+<path d="M200,416 q 10 -14 22 -6 q -6 6 -22 6 Z" fill="#000" stroke="#000" stroke-width="1.2"/>
+<text x="30.0" y="650.0" font-size="11.5" text-anchor="start" fill="#000">Ring and work turn in the same direction. The ring centre is offset by e,</text>
+<text x="30.0" y="667.0" font-size="11.5" text-anchor="start" fill="#000">so each insert touches the shaft only on a short arc: one comma-shaped chip</text>
+<text x="30.0" y="684.0" font-size="11.5" text-anchor="start" fill="#000">per insert and ring turn – interrupted cut, low heat in the part, 6 inserts</text>
+<text x="30.0" y="701.0" font-size="11.5" text-anchor="start" fill="#000">share the wear.</text>
+<text x="640.0" y="58.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">B  Side view – ring tilted by the lead angle</text>
+<rect x="640.0" y="178.0" width="520.0" height="44.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<line x1="646.0" y1="222.0" x2="649.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="656.0" y1="222.0" x2="659.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="666.0" y1="222.0" x2="669.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="676.0" y1="222.0" x2="679.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="686.0" y1="222.0" x2="689.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="696.0" y1="222.0" x2="699.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="770.0" y1="222.0" x2="773.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="780.0" y1="222.0" x2="783.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="790.0" y1="222.0" x2="793.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="800.0" y1="222.0" x2="803.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="810.0" y1="222.0" x2="813.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="820.0" y1="222.0" x2="823.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="830.0" y1="222.0" x2="833.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="840.0" y1="222.0" x2="843.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="850.0" y1="222.0" x2="853.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="860.0" y1="222.0" x2="863.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="870.0" y1="222.0" x2="873.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="880.0" y1="222.0" x2="883.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="890.0" y1="222.0" x2="893.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="900.0" y1="222.0" x2="903.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="910.0" y1="222.0" x2="913.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="920.0" y1="222.0" x2="923.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="930.0" y1="222.0" x2="933.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="940.0" y1="222.0" x2="943.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="950.0" y1="222.0" x2="953.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="960.0" y1="222.0" x2="963.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="970.0" y1="222.0" x2="973.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="980.0" y1="222.0" x2="983.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="990.0" y1="222.0" x2="993.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1000.0" y1="222.0" x2="1003.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1010.0" y1="222.0" x2="1013.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1020.0" y1="222.0" x2="1023.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1030.0" y1="222.0" x2="1033.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1040.0" y1="222.0" x2="1043.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1050.0" y1="222.0" x2="1053.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1060.0" y1="222.0" x2="1063.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1070.0" y1="222.0" x2="1073.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1080.0" y1="222.0" x2="1083.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1090.0" y1="222.0" x2="1093.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1100.0" y1="222.0" x2="1103.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1110.0" y1="222.0" x2="1113.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1120.0" y1="222.0" x2="1123.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1130.0" y1="222.0" x2="1133.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<line x1="1140.0" y1="222.0" x2="1143.0" y2="178.0" stroke="#000" stroke-width="1"/>
+<text x="646.0" y="240.0" font-size="11.5" text-anchor="start" fill="#000">whirled</text>
+<text x="980.0" y="240.0" font-size="11.5" text-anchor="start" fill="#000">solid (OD ground)</text>
+<polygon points="702.2,128.7 731.7,123.5 757.8,271.3 728.3,276.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1.8"/>
+<text x="780.0" y="130.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">ring, tilted λ = 5.51°</text>
+<line x1="640.0" y1="295.0" x2="1000.0" y2="295.0" stroke="#1f6fd1" stroke-width="2" marker-end="url(#eab)"/>
+<text x="820.0" y="315.0" font-size="11.5" text-anchor="middle" fill="#1f6fd1">axial feed = Ph × n_w = 10 × 6 = 60 mm/min (one pass, full depth)</text>
+<rect x="640.0" y="340.0" width="530.0" height="22.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="0.8"/>
+<text x="645.0" y="356.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Item</text>
+<line x1="790.0" y1="340.0" x2="790.0" y2="362.0" stroke="#000" stroke-width="0.8"/>
+<text x="795.0" y="356.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Value (example)</text>
+<rect x="640.0" y="362.0" width="530.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="645.0" y="378.0" font-size="11.5" text-anchor="start" fill="#000">Ring speed</text>
+<line x1="790.0" y1="362.0" x2="790.0" y2="384.0" stroke="#000" stroke-width="0.8"/>
+<text x="795.0" y="378.0" font-size="11.5" text-anchor="start" fill="#000">1 500 min⁻¹ (vc ≈ 150 – 200 m/min on 60 HRC)</text>
+<rect x="640.0" y="384.0" width="530.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="645.0" y="400.0" font-size="11.5" text-anchor="start" fill="#000">Work speed</text>
+<line x1="790.0" y1="384.0" x2="790.0" y2="406.0" stroke="#000" stroke-width="0.8"/>
+<text x="795.0" y="400.0" font-size="11.5" text-anchor="start" fill="#000">6 min⁻¹</text>
+<rect x="640.0" y="406.0" width="530.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="645.0" y="422.0" font-size="11.5" text-anchor="start" fill="#000">Time</text>
+<line x1="790.0" y1="406.0" x2="790.0" y2="428.0" stroke="#000" stroke-width="0.8"/>
+<text x="795.0" y="422.0" font-size="11.5" text-anchor="start" fill="#000">(850 + 50) / (10 × 6) = 15 min, 1 pass</text>
+<rect x="640.0" y="428.0" width="530.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="645.0" y="444.0" font-size="11.5" text-anchor="start" fill="#000">Cooling</text>
+<line x1="790.0" y1="428.0" x2="790.0" y2="450.0" stroke="#000" stroke-width="0.8"/>
+<text x="795.0" y="444.0" font-size="11.5" text-anchor="start" fill="#000">dry or MQL – chips carry the heat away</text>
+<rect x="640.0" y="450.0" width="530.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="645.0" y="466.0" font-size="11.5" text-anchor="start" fill="#000">Result</text>
+<line x1="790.0" y1="450.0" x2="790.0" y2="472.0" stroke="#000" stroke-width="0.8"/>
+<text x="795.0" y="466.0" font-size="11.5" text-anchor="start" fill="#000">C7 directly; C5 with 2 finish grinding passes (18 min)</text>
+<rect x="640.0" y="472.0" width="530.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="645.0" y="488.0" font-size="11.5" text-anchor="start" fill="#000">Machine</text>
+<line x1="790.0" y1="472.0" x2="790.0" y2="494.0" stroke="#000" stroke-width="0.8"/>
+<text x="795.0" y="488.0" font-size="11.5" text-anchor="start" fill="#000">BS-WHL, e.g. Leistritz (check type)</text>
+<rect x="640.0" y="494.0" width="530.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="645.0" y="510.0" font-size="11.5" text-anchor="start" fill="#000">Check</text>
+<line x1="790.0" y1="494.0" x2="790.0" y2="516.0" stroke="#000" stroke-width="0.8"/>
+<text x="795.0" y="510.0" font-size="11.5" text-anchor="start" fill="#000">profile + pitch Ø over balls first + 1 in 10</text>
+<rect x="640.0" y="516.0" width="530.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="645.0" y="532.0" font-size="11.5" text-anchor="start" fill="#000">Typical mistake</text>
+<line x1="790.0" y1="516.0" x2="790.0" y2="538.0" stroke="#000" stroke-width="0.8"/>
+<text x="795.0" y="532.0" font-size="11.5" text-anchor="start" fill="#000">chipped insert not detected → form error, white layer</text>
+<rect x="640.0" y="548.0" width="530.0" height="110.0" rx="0" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="652.0" y="570.0" font-size="11.5" text-anchor="start" fill="#000">Why whirl? One whirling pass removes the full groove (≈ 3 mm deep)</text>
+<text x="652.0" y="588.0" font-size="11.5" text-anchor="start" fill="#000">in 15 min. Thread grinding from solid needs 7 passes = 33.75 min.</text>
+<text x="652.0" y="606.0" font-size="11.5" text-anchor="start" fill="#000">W route: whirl 17 + finish grind 22 min (cycles) → 8 thread grinders</text>
+<text x="652.0" y="624.0" font-size="11.5" text-anchor="start" fill="#000">become 5, plus 4 whirling machines (84 % at 120 screws / day).</text>
+<rect x="812.0" y="742.0" width="382.0" height="82.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="812.0" y1="768.0" x2="1194.0" y2="768.0" stroke="#000" stroke-width="0.8"/>
+<line x1="812.0" y1="792.0" x2="1194.0" y2="792.0" stroke="#000" stroke-width="0.8"/>
+<line x1="1002.0" y1="792.0" x2="1002.0" y2="824.0" stroke="#000" stroke-width="0.8"/>
+<text x="820.0" y="760.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Thread whirling principle</text>
+<text x="820.0" y="785.0" font-size="12" text-anchor="start" fill="#1f6fd1" font-weight="bold">EXAMPLE – check the machine maker's data</text>
+<text x="820.0" y="812.0" font-size="11.5" text-anchor="start" fill="#000">Drawing 41-06</text>
+<text x="1010.0" y="806.0" font-size="11" text-anchor="start" fill="#000">Scale: none</text>
+<text x="1010.0" y="819.0" font-size="11" text-anchor="start" fill="#000">guide 41 §13</text>
+</svg>

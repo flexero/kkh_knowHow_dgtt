@@ -1528,8 +1528,14 @@ Consolidated parts list: §22.
 | Hydraulic motor conveyor | 160 cm³/rev, 250 N·m, 60 rpm, 10.1 L/min | fixed pump | 8 cm³/rev, 3 kW | – | 40 L / 0.9 kW |
 
 The press shows why big presses use load sensing, two-pump (high-low) circuits or servo pumps: a pressure-
-compensated pump at 21 MPa wastes the difference to the real load pressure. Guide 25 §14 compares the APC preset
-with the docs/09 machine design (Ø63/36 at 7.5 MPa).
+compensated pump at 21 MPa wastes the difference to the real load pressure.
+
+**APC preset and the machine design (decided 2026-11-12: Ø50/28 at 10 MPa).** The preset and docs/09 now use the same
+cylinder Ø50/28 and the 10 MPa class. The preset is the sizing demo (15 kN, 10 MPa = top of its band → 2.5 L, 0.75 kW).
+The machine (docs/09 §20.2, §27; guide 25 §14) lifts the real mass 1 480 kg = 16.6 kN: it needs 9.40 MPa at the HPU,
+so the accumulator runs 10.0 (lowest) / 10.8 / 11.5 MPa with a 4 L accumulator, a 1.5 kW motor, relief 13 MPa, start
+interlock ≥ 10.7 MPa and alarm < 10.0 MPa (reserve only +7 %). Typing 16.6 kN into the preset would select Ø63 because of
+the flat 15 % loss allowance – the calculated losses of the real circuit are 0.51 MPa (5 %).
 
 ---
 # Part D – Buying, checking, reference

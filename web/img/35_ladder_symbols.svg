@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker></defs>
+<rect width="1200" height="830" fill="#fff"/>
+<text x="40.0" y="40.0" font-size="15" text-anchor="start" font-weight="bold" fill="#000">Ladder symbols – the same element in Delta ISPSoft and Siemens TIA Portal</text>
+<text x="1160.0" y="815.0" font-size="10" text-anchor="end" fill="#666">Example drawing – guide 35 · check every address and value with your PLC configuration</text>
+<text x="40.0" y="78.0" font-size="12.5" text-anchor="start" font-weight="bold" fill="#000">Symbol (LAD)</text>
+<text x="230.0" y="78.0" font-size="12.5" text-anchor="start" font-weight="bold" fill="#000">Delta (ISPSoft) – IL mnemonic, example</text>
+<text x="560.0" y="78.0" font-size="12.5" text-anchor="start" font-weight="bold" fill="#000">Siemens (TIA Portal LAD)</text>
+<text x="850.0" y="78.0" font-size="12.5" text-anchor="start" font-weight="bold" fill="#000">Meaning</text>
+<line x1="30.0" y1="86.0" x2="1170.0" y2="86.0" stroke="#000" stroke-width="1"/>
+<line x1="60.0" y1="115.0" x2="107.0" y2="115.0" stroke="#000" stroke-width="1.4"/>
+<line x1="123.0" y1="115.0" x2="170.0" y2="115.0" stroke="#000" stroke-width="1.4"/>
+<line x1="107.0" y1="104.0" x2="107.0" y2="126.0" stroke="#000" stroke-width="2"/>
+<line x1="123.0" y1="104.0" x2="123.0" y2="126.0" stroke="#000" stroke-width="2"/>
+<text x="230.0" y="119.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">LD X0.0 / AND / OR</text>
+<text x="560.0" y="119.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">–| |–  %I0.0</text>
+<text x="850.0" y="119.0" font-size="11.5" text-anchor="start" fill="#000">closed when the signal is 1</text>
+<line x1="30.0" y1="142.0" x2="1170.0" y2="142.0" stroke="#ccc" stroke-width="0.8"/>
+<line x1="60.0" y1="170.0" x2="107.0" y2="170.0" stroke="#000" stroke-width="1.4"/>
+<line x1="123.0" y1="170.0" x2="170.0" y2="170.0" stroke="#000" stroke-width="1.4"/>
+<line x1="107.0" y1="159.0" x2="107.0" y2="181.0" stroke="#000" stroke-width="2"/>
+<line x1="123.0" y1="159.0" x2="123.0" y2="181.0" stroke="#000" stroke-width="2"/>
+<line x1="103.0" y1="181.0" x2="127.0" y2="159.0" stroke="#000" stroke-width="1.6"/>
+<text x="230.0" y="174.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">LDI X0.1 / ANI / ORI</text>
+<text x="560.0" y="174.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">–|/|–  %I0.1</text>
+<text x="850.0" y="174.0" font-size="11.5" text-anchor="start" fill="#000">closed when the signal is 0 (NC stop button: 1 = not pressed)</text>
+<line x1="30.0" y1="197.0" x2="1170.0" y2="197.0" stroke="#ccc" stroke-width="0.8"/>
+<line x1="60.0" y1="225.0" x2="107.0" y2="225.0" stroke="#000" stroke-width="1.4"/>
+<line x1="123.0" y1="225.0" x2="170.0" y2="225.0" stroke="#000" stroke-width="1.4"/>
+<line x1="107.0" y1="214.0" x2="107.0" y2="236.0" stroke="#000" stroke-width="2"/>
+<line x1="123.0" y1="214.0" x2="123.0" y2="236.0" stroke="#000" stroke-width="2"/>
+<text x="115.0" y="229.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">P</text>
+<text x="230.0" y="229.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">LDP X0.0 / ANDP / ORP</text>
+<text x="560.0" y="229.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">–|P|–  + edge memory bit</text>
+<text x="850.0" y="229.0" font-size="11.5" text-anchor="start" fill="#000">1 for ONE scan when the signal goes 0 → 1</text>
+<line x1="30.0" y1="252.0" x2="1170.0" y2="252.0" stroke="#ccc" stroke-width="0.8"/>
+<line x1="60.0" y1="280.0" x2="107.0" y2="280.0" stroke="#000" stroke-width="1.4"/>
+<line x1="123.0" y1="280.0" x2="170.0" y2="280.0" stroke="#000" stroke-width="1.4"/>
+<line x1="107.0" y1="269.0" x2="107.0" y2="291.0" stroke="#000" stroke-width="2"/>
+<line x1="123.0" y1="269.0" x2="123.0" y2="291.0" stroke="#000" stroke-width="2"/>
+<text x="115.0" y="284.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">N</text>
+<text x="230.0" y="284.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">LDF X0.0 / ANDF / ORF</text>
+<text x="560.0" y="284.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">–|N|–  + edge memory bit</text>
+<text x="850.0" y="284.0" font-size="11.5" text-anchor="start" fill="#000">1 for ONE scan when the signal goes 1 → 0</text>
+<line x1="30.0" y1="307.0" x2="1170.0" y2="307.0" stroke="#ccc" stroke-width="0.8"/>
+<line x1="60.0" y1="335.0" x2="104.0" y2="335.0" stroke="#000" stroke-width="1.4"/>
+<line x1="126.0" y1="335.0" x2="170.0" y2="335.0" stroke="#000" stroke-width="1.4"/>
+<path d="M109.0 324 A 12 12 0 0 0 109.0 346" stroke="#000" stroke-width="2" fill="none"/>
+<path d="M121.0 324 A 12 12 0 0 1 121.0 346" stroke="#000" stroke-width="2" fill="none"/>
+<text x="230.0" y="339.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">OUT Y0.0</text>
+<text x="560.0" y="339.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">–( )–  %Q0.0</text>
+<text x="850.0" y="339.0" font-size="11.5" text-anchor="start" fill="#000">output = result of the rung (written every scan)</text>
+<line x1="30.0" y1="362.0" x2="1170.0" y2="362.0" stroke="#ccc" stroke-width="0.8"/>
+<line x1="60.0" y1="390.0" x2="104.0" y2="390.0" stroke="#000" stroke-width="1.4"/>
+<line x1="126.0" y1="390.0" x2="170.0" y2="390.0" stroke="#000" stroke-width="1.4"/>
+<path d="M109.0 379 A 12 12 0 0 0 109.0 401" stroke="#000" stroke-width="2" fill="none"/>
+<path d="M121.0 379 A 12 12 0 0 1 121.0 401" stroke="#000" stroke-width="2" fill="none"/>
+<text x="115.0" y="394.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">S</text>
+<text x="230.0" y="394.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">SET S20</text>
+<text x="560.0" y="394.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">–(S)–</text>
+<text x="850.0" y="394.0" font-size="11.5" text-anchor="start" fill="#000">set to 1 when the rung is true, stays 1</text>
+<line x1="30.0" y1="417.0" x2="1170.0" y2="417.0" stroke="#ccc" stroke-width="0.8"/>
+<line x1="60.0" y1="445.0" x2="104.0" y2="445.0" stroke="#000" stroke-width="1.4"/>
+<line x1="126.0" y1="445.0" x2="170.0" y2="445.0" stroke="#000" stroke-width="1.4"/>
+<path d="M109.0 434 A 12 12 0 0 0 109.0 456" stroke="#000" stroke-width="2" fill="none"/>
+<path d="M121.0 434 A 12 12 0 0 1 121.0 456" stroke="#000" stroke-width="2" fill="none"/>
+<text x="115.0" y="449.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">R</text>
+<text x="230.0" y="449.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">RST S10</text>
+<text x="560.0" y="449.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">–(R)–</text>
+<text x="850.0" y="449.0" font-size="11.5" text-anchor="start" fill="#000">reset to 0 when the rung is true</text>
+<line x1="30.0" y1="472.0" x2="1170.0" y2="472.0" stroke="#ccc" stroke-width="0.8"/>
+<line x1="60.0" y1="500.0" x2="85.0" y2="500.0" stroke="#000" stroke-width="1.4"/>
+<rect x="85.0" y="487.0" width="60.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="115.0" y="504.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">TON</text>
+<line x1="145.0" y1="500.0" x2="170.0" y2="500.0" stroke="#000" stroke-width="1.4"/>
+<text x="230.0" y="504.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">TMR T0 K20  (100 ms base → 2.0 s)</text>
+<text x="560.0" y="504.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">TON box, instance DB, PT := T#2S</text>
+<text x="850.0" y="504.0" font-size="11.5" text-anchor="start" fill="#000">on-delay: Q = 1 after IN was 1 for PT</text>
+<line x1="30.0" y1="527.0" x2="1170.0" y2="527.0" stroke="#ccc" stroke-width="0.8"/>
+<line x1="60.0" y1="555.0" x2="85.0" y2="555.0" stroke="#000" stroke-width="1.4"/>
+<rect x="85.0" y="542.0" width="60.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="115.0" y="559.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">CTU</text>
+<line x1="145.0" y1="555.0" x2="170.0" y2="555.0" stroke="#000" stroke-width="1.4"/>
+<text x="230.0" y="559.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">CNT C0 K10 + RST C0</text>
+<text x="560.0" y="559.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">CTU box, CU, R, PV := 10</text>
+<text x="850.0" y="559.0" font-size="11.5" text-anchor="start" fill="#000">counts rising edges, Q = 1 when CV ≥ PV</text>
+<line x1="30.0" y1="582.0" x2="1170.0" y2="582.0" stroke="#ccc" stroke-width="0.8"/>
+<line x1="60.0" y1="610.0" x2="85.0" y2="610.0" stroke="#000" stroke-width="1.4"/>
+<rect x="85.0" y="597.0" width="60.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="115.0" y="614.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">CMP</text>
+<line x1="145.0" y1="610.0" x2="170.0" y2="610.0" stroke="#000" stroke-width="1.4"/>
+<text x="230.0" y="614.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">LD&gt;= D0 K107  /  FLD&gt;= (REAL)</text>
+<text x="560.0" y="614.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">CMP &gt;= box, IN1, IN2 (Int / Real)</text>
+<text x="850.0" y="614.0" font-size="11.5" text-anchor="start" fill="#000">compare contact: closed when true</text>
+<line x1="30.0" y1="637.0" x2="1170.0" y2="637.0" stroke="#ccc" stroke-width="0.8"/>
+<line x1="60.0" y1="665.0" x2="85.0" y2="665.0" stroke="#000" stroke-width="1.4"/>
+<rect x="85.0" y="652.0" width="60.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="115.0" y="669.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">MOV</text>
+<line x1="145.0" y1="665.0" x2="170.0" y2="665.0" stroke="#000" stroke-width="1.4"/>
+<text x="230.0" y="669.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">MOV K650 D315  /  DMOVR (REAL)</text>
+<text x="560.0" y="669.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">MOVE box, IN → OUT1</text>
+<text x="850.0" y="669.0" font-size="11.5" text-anchor="start" fill="#000">copy a value when the rung is true</text>
+<line x1="30.0" y1="692.0" x2="1170.0" y2="692.0" stroke="#ccc" stroke-width="0.8"/>
+<line x1="60.0" y1="720.0" x2="85.0" y2="720.0" stroke="#000" stroke-width="1.4"/>
+<rect x="85.0" y="707.0" width="60.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="115.0" y="724.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">CALC</text>
+<line x1="145.0" y1="720.0" x2="170.0" y2="720.0" stroke="#000" stroke-width="1.4"/>
+<text x="230.0" y="724.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">MUL / ADD … (scratch D900)</text>
+<text x="560.0" y="724.0" font-size="12" text-anchor="start" font-family="Consolas, monospace" fill="#000">CALCULATE box  OUT := IN1*IN2+IN3</text>
+<text x="850.0" y="724.0" font-size="11.5" text-anchor="start" fill="#000">arithmetic when the rung is true</text>
+<line x1="30.0" y1="747.0" x2="1170.0" y2="747.0" stroke="#ccc" stroke-width="0.8"/>
+<text x="40.0" y="790.0" font-size="12" text-anchor="start" fill="#1565c0">Delta AS: bit addresses word.bit (X0.0 … X0.15), DVP: octal (X0 … X7, X10 …). Siemens: byte.bit, bit 0 … 7 only (%I0.7 → next is %I1.0).</text>
+</svg>

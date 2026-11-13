@@ -56,14 +56,14 @@
 <text x="680.0" y="152.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >T = 20 + 211 = 231 °C  (check the magnet limit!)</text>
 <text x="680.0" y="186.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >Minimum interference budget (µm on Ø):</text>
 <rect x="690.0" y="210.0" width="10.9" height="30.0" fill="#f2f2f2" stroke="#000" stroke-width="1" />
-<text x="694.0" y="266.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >torque 2 × 120 N·m: 2.9 µm</text>
+<text x="694.0" y="266.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >torque 2 × 140 N·m: 3.4 µm</text>
 <rect x="700.9" y="210.0" width="59.6" height="30.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
-<text x="694.0" y="282.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >rotation 12 000 rpm: 15.9 µm</text>
+<text x="694.0" y="282.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >rotation 10 000 rpm: 11.0 µm</text>
 <rect x="760.5" y="210.0" width="56.2" height="30.0" fill="#b3b3b3" stroke="#000" stroke-width="1" />
 <text x="694.0" y="298.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >rotor 20 K warmer: 15.0 µm</text>
 <rect x="816.8" y="210.0" width="19.5" height="30.0" fill="#888" stroke="#000" stroke-width="1" />
 <text x="694.0" y="314.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000" >smoothing Rz: 5.2 µm</text>
-<text x="690.0" y="200.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >Σ ≈ 39 µm needed</text>
+<text x="690.0" y="200.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >Σ ≈ 35 µm needed</text>
 <line x1="858.8" y1="204.0" x2="858.8" y2="250.0" stroke="#0b6fb8" stroke-width="1.6" />
 <text x="858.8" y="200.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#0b6fb8" >min 45</text>
 <line x1="915.0" y1="204.0" x2="915.0" y2="250.0" stroke="#0b6fb8" stroke-width="1.6" />
@@ -74,7 +74,7 @@
 <text x="680.0" y="340.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >Lamé (sleeve Ø65/Ø85, shaft bore Ø41, μ 0.15):</text>
 <text x="680.0" y="358.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >p = 31.6 MPa → torque 5 030 N·m, axial 155 kN</text>
 <text x="680.0" y="376.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >hoop stress sleeve bore 121 MPa, shaft bore −105 MPa</text>
-<text x="680.0" y="394.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >twin fault rotor: i = 0.028 mm &lt; 39 µm → slips at speed</text>
+<text x="680.0" y="394.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >twin fault rotor: i = 0.028 mm &lt; 35 µm → slips at speed</text>
 <text x="680.0" y="412.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >(models – the motor maker gives the real minimum)</text>
 <rect x="20.0" y="500.0" width="640.0" height="200.0" fill="#fff" stroke="#000" stroke-width="1" />
 <text x="30.0" y="524.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >Safety (risk assessment VC-ASM-RA-0201)</text>

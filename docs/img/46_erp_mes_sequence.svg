@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="aK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker></defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">ERP ↔ MES over HTTP – release, finished goods, confirmations, settlement</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<rect x="40" y="70" width="220" height="40" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="150.0" y="94.5" font-size="13" text-anchor="middle" font-weight="700" fill="#000">Planner / browser</text>
+<line x1="150" y1="110" x2="150" y2="740" stroke="#000" stroke-width="1" stroke-dasharray="4 4"/>
+<rect x="370" y="70" width="220" height="40" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="480.0" y="94.5" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1">ERP /api/bsf/erp</text>
+<line x1="480" y1="110" x2="480" y2="740" stroke="#000" stroke-width="1" stroke-dasharray="4 4"/>
+<rect x="700" y="70" width="220" height="40" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="810.0" y="94.5" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1">MES /api/bsf/mes</text>
+<line x1="810" y1="110" x2="810" y2="740" stroke="#000" stroke-width="1" stroke-dasharray="4 4"/>
+<rect x="970" y="70" width="220" height="40" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="1080.0" y="94.5" font-size="13" text-anchor="middle" font-weight="700" fill="#000">Shop floor (gateway)</text>
+<line x1="1080" y1="110" x2="1080" y2="740" stroke="#000" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="150" y1="140" x2="476" y2="140" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<text x="315.0" y="134" font-size="11.5" text-anchor="middle" fill="#000">POST /productionorders/PO-260004/release  Idempotency-Key: rel-…</text>
+<line x1="480" y1="180" x2="806" y2="180" stroke="#1f6fd1" stroke-width="1.5" marker-end="url(#aA)"/>
+<text x="645.0" y="174" font-size="11.5" text-anchor="middle" fill="#000">GET /workorders?size=200  (erpOrder = PO-260004 already there?)</text>
+<line x1="810" y1="215" x2="484" y2="215" stroke="#1f6fd1" stroke-width="1.5" marker-end="url(#aA)"/>
+<text x="645.0" y="209" font-size="12" text-anchor="middle" fill="#000">200 {items: [...]}  – not found</text>
+<line x1="480" y1="255" x2="806" y2="255" stroke="#1f6fd1" stroke-width="1.5" marker-end="url(#aA)"/>
+<text x="645.0" y="249" font-size="11.5" text-anchor="middle" fill="#000">POST /workorders {product, qty, due, erpOrder, release: true}  Key erp-rel-PO-260004</text>
+<line x1="810" y1="290" x2="484" y2="290" stroke="#1f6fd1" stroke-width="1.5" marker-end="url(#aA)"/>
+<text x="645.0" y="284" font-size="12" text-anchor="middle" fill="#000">201 {id: WO-00004, status: released, lots: [...]}</text>
+<line x1="480" y1="325" x2="154" y2="325" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<text x="315.0" y="319" font-size="12" text-anchor="middle" fill="#000">201 {productionOrder, mesWorkOrder: WO-00004, lots}</text>
+<line x1="810" y1="370" x2="1076" y2="370" stroke="#1f6fd1" stroke-width="1.5" marker-end="url(#aA)"/>
+<text x="945.0" y="364" font-size="12" text-anchor="middle" fill="#000">order download (Modbus TCP via gateway, item 4/6)</text>
+<line x1="1080" y1="405" x2="814" y2="405" stroke="#1f6fd1" stroke-width="1.5" marker-end="url(#aA)"/>
+<text x="945.0" y="399" font-size="12" text-anchor="middle" fill="#000">counters → confirmations</text>
+<line x1="810" y1="450" x2="484" y2="450" stroke="#1f6fd1" stroke-width="1.5" marker-end="url(#aA)"/>
+<text x="645.0" y="444" font-size="11.5" text-anchor="middle" fill="#000">POST /api/bsf/erp/goodsmovements {type: GR, material, qty, order: WO-00004}</text>
+<line x1="480" y1="485" x2="806" y2="485" stroke="#1f6fd1" stroke-width="1.5" marker-end="url(#aA)"/>
+<text x="645.0" y="479" font-size="12" text-anchor="middle" fill="#000">201 {id: MV-…, stock}</text>
+<line x1="150" y1="530" x2="476" y2="530" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<text x="315.0" y="524" font-size="12" text-anchor="middle" fill="#000">POST /productionorders/PO-260004/sync</text>
+<line x1="480" y1="565" x2="806" y2="565" stroke="#1f6fd1" stroke-width="1.5" marker-end="url(#aA)"/>
+<text x="645.0" y="559" font-size="11.5" text-anchor="middle" fill="#000">GET /workorders/WO-00004 · GET /confirmations?n=5000 · GET /serials?lot=</text>
+<line x1="810" y1="600" x2="484" y2="600" stroke="#1f6fd1" stroke-width="1.5" marker-end="url(#aA)"/>
+<text x="645.0" y="594" font-size="12" text-anchor="middle" fill="#000">200 operations (good, scrap, setupMin, runMin), serials</text>
+<text x="490" y="640" font-size="12" text-anchor="start" fill="#000">backflush GI (raw = pieces started, parts = good) · status done</text>
+<line x1="150" y1="690" x2="476" y2="690" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<text x="315.0" y="684" font-size="11.5" text-anchor="middle" fill="#000">POST /productionorders/PO-260004/settle → variances (qty, efficiency, scrap)</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/><line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your ERP team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 7 ERP · guide 46 · 46_erp_mes_sequence.svg</text></svg>

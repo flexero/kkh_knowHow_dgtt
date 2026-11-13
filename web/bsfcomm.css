@@ -1,0 +1,69 @@
+/* Ball screw + guide factory – item 4 communication (bsfcomm*.js). Light + dark theme via the style.css variables. */
+.bf4-wrap { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+.bf4-rule { border: 1px solid var(--border); border-left: 5px solid var(--accent); border-radius: 8px; padding: 9px 12px; font-size: 13px; color: var(--text); background: var(--surface); }
+.bf4-ctl { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.bf4-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 6px 0; }
+.bf4-lbl { font-size: 12.5px; color: var(--text-2); display: inline-flex; align-items: center; gap: 6px; }
+.bf4-sub { font-size: 12px; color: var(--text-2); }
+.bf4-sub2 { font-size: 12px; color: var(--text-2); margin: 4px 0 8px; line-height: 1.45; }
+.bf4-h { margin: 14px 0 6px; font-size: 13.5px; color: var(--text); }
+.bf4-mut { color: var(--text-2); font-size: 11.5px; }
+.bf4-mono, .bf4-hx, .bf4-pre { font-family: Consolas, "Courier New", monospace; font-size: 12px; }
+.bf4-mono { color: var(--text); overflow-wrap: anywhere; margin: 3px 0; }
+.bf4-hx { overflow-wrap: anywhere; word-break: break-all; color: var(--text); }
+.bf4-hx.bad { color: var(--critical); }
+.bf4-alarm { color: var(--critical); }
+.bf4-tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
+.bf4-tbl th, .bf4-tbl td { border: 1px solid var(--border); padding: 3px 6px; text-align: left; vertical-align: top; color: var(--text); white-space: normal; line-height: 1.35; }
+.bf4-tbl th { background: var(--surface-2); font-weight: 600; position: sticky; top: 0; z-index: 1; }
+.bf4-tbl td { font-variant-numeric: tabular-nums; }
+.bf4-small td, .bf4-small th { font-size: 11.5px; padding: 2px 5px; }
+.bf4-fr td:nth-child(4), .bf4-fr td:nth-child(5) { min-width: 180px; max-width: 330px; }
+.bf4-netgrid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, 1fr); gap: 14px; align-items: start; }
+.bf4-fig { display: block; border: 1px solid var(--border); border-radius: 8px; background: #fff; overflow: hidden; }
+.bf4-fig img { display: block; width: 100%; height: auto; }
+.bf4-badge { display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 12px; border: 1px solid var(--border); color: var(--text-2); background: var(--surface-2); }
+.bf4-badge.on { color: #fff; background: var(--good, #27ae60); border-color: transparent; }
+.bf4-badge.bad { color: #fff; background: var(--critical, #d03b3b); border-color: transparent; }
+.bf4-flowbox { border: 1px solid var(--border); border-radius: 8px; background: var(--surface); overflow-x: auto; }
+.bf4-anim { display: block; width: 100%; min-width: 760px; height: auto; color: var(--text-2); font-family: Arial, Helvetica, sans-serif; }
+.bf4-zone { fill: none; stroke: var(--border); stroke-dasharray: 6 4; }
+.bf4-zone.b { stroke: var(--accent); }
+.bf4-zt { font-size: 12px; fill: var(--text-2); }
+.bf4-link { fill: none; stroke: var(--text-2); stroke-width: 1.6; }
+.bf4-ll { font-size: 11.5px; fill: var(--text-2); }
+.bf4-node rect { fill: var(--surface-2); stroke: var(--text-2); stroke-width: 1.2; }
+.bf4-node.gw rect { stroke: var(--accent); stroke-width: 2.2; }
+.bf4-nt { font-size: 13px; font-weight: 700; fill: var(--text); }
+.bf4-ns { font-size: 11px; fill: var(--text-2); }
+.bf4-hexl { font-family: Consolas, "Courier New", monospace; font-size: 11.5px; fill: var(--text); }
+.bf4-dot { stroke: #fff; stroke-width: 1; }
+.bf4-dot.mb { fill: #e67e22; } .bf4-dot.snap { fill: #8e44ad; } .bf4-dot.sse { fill: var(--accent); } .bf4-dot.mes, .bf4-dot.erp { fill: #27ae60; }
+.bf4-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 10px 0; }
+.bf4-k { padding: 9px 12px; margin: 0; }
+.bf4-kh { font-size: 12px; color: var(--text-2); }
+.bf4-kv { font-size: 19px; font-weight: 700; color: var(--text); margin: 2px 0; font-variant-numeric: tabular-nums; }
+.bf4-ks { font-size: 11.5px; color: var(--text-2); line-height: 1.35; }
+.bf4-k.ok { border-left: 4px solid var(--good); } .bf4-k.warn { border-left: 4px solid var(--warning); } .bf4-k.bad { border-left: 4px solid var(--critical); }
+.bf4-log { max-height: 190px; overflow: auto; border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px; background: var(--surface); }
+.bf4-ev { font-size: 11.5px; line-height: 1.4; color: var(--text); border-bottom: 1px dotted var(--border); padding: 2px 0; }
+.bf4-devgrid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(300px, 1fr); gap: 12px; align-items: start; }
+.bf4-devtbl { max-height: 560px; overflow: auto; border: 1px solid var(--border); border-radius: 6px; }
+.bf4-info { font-size: 12.5px; max-height: 560px; overflow: auto; border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px 10px; background: var(--surface); color: var(--text); }
+.bf4-info h3 { margin: 4px 0; font-size: 14px; }
+.bf4-dot2 { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; border: 1px solid rgba(0,0,0,.25); }
+.bf4-maptbl { max-height: 460px; overflow: auto; border: 1px solid var(--border); border-radius: 6px; }
+.bf4-tools { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: 8px; }
+.bf4-tool textarea { width: 100%; box-sizing: border-box; font-family: Consolas, "Courier New", monospace; font-size: 12px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 6px; }
+.bf4-tool input[type=text] { background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 4px 6px; }
+.bf4-ex .btn { padding: 3px 8px; font-size: 12px; }
+.bf4-out { margin-top: 6px; }
+.bf4-dec { border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; background: var(--surface); margin-top: 4px; font-size: 12.5px; color: var(--text); }
+.bf4-fbtn { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
+.bf4-fbtn .btn { font-size: 12.5px; padding: 4px 9px; }
+.bf4-apigrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+.bf4-pre { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 360px; overflow: auto; margin: 0; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text); min-height: 60px; }
+.bf4-ul { margin: 4px 0 0 18px; padding: 0; font-size: 12.5px; color: var(--text); line-height: 1.5; }
+.bf4-debug { border: 1px dashed var(--border); padding: 8px; font-size: 11px; } .bf4-debug pre { white-space: pre-wrap; margin: 0 0 8px; color: var(--text); }
+#bf4AEx { max-width: 100%; }
+@media (max-width: 1100px) { .bf4-netgrid, .bf4-devgrid, .bf4-tools, .bf4-apigrid { grid-template-columns: 1fr; } }

@@ -2,7 +2,7 @@
 <title>Runout test with test mandrel and two-plane balancing set-up</title>
 <rect x="0" y="0" width="1180" height="740" fill="#ffffff"/>
 <text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000" >Runout check with the test mandrel (step 20) and two-plane balancing of the rotor unit (step 12)</text>
-<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >Example limits: taper ≤ 2 µm, 300 mm ≤ 5 µm (check ISO 10791-1 / contract); balance G 1.0 at 12 000 rpm, m = 16 kg → U_per 12.73 g·mm.</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >Example limits: taper ≤ 2 µm, 300 mm ≤ 5 µm (check ISO 10791-1 / contract); balance G 1.0 at 10 000 rpm, m = 16 kg → U_per 15.28 g·mm.</text>
 <rect x="20.0" y="70.0" width="560.0" height="400.0" fill="#fff" stroke="#000" stroke-width="1" />
 <text x="30.0" y="92.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000" >A  Test mandrel HSK-A63 × 300 mm + probes on frame J11</text>
 <rect x="40.0" y="180.0" width="170.0" height="140.0" fill="#d9d9d9" stroke="#000" stroke-width="1" />
@@ -103,8 +103,8 @@
 <text x="270.0" y="610.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >m2 = m·sin β1 / sin(β1+β2) = 0.65 g ∠240°</text>
 <text x="270.0" y="630.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >(β1 = 10°, β2 = 20°) – resultant 1.87 g ∠220°</text>
 <text x="270.0" y="650.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000" >Plane allocation (ISO 21940-11):</text>
-<text x="270.0" y="670.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >U_A = 12.73 × 169 / 326.5 = 6.59 g·mm</text>
-<text x="270.0" y="690.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >U_B = 12.73 × 157.5 / 326.5 = 6.14 g·mm</text>
+<text x="270.0" y="670.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >U_A = 15.28 × 169 / 326.5 = 7.91 g·mm</text>
+<text x="270.0" y="690.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >U_B = 15.28 × 157.5 / 326.5 = 7.37 g·mm</text>
 <rect x="590.0" y="640.0" width="570.0" height="74.0" fill="#fff" stroke="#000" stroke-width="1.2" />
 <line x1="590.0" y1="664.0" x2="1160.0" y2="664.0" stroke="#000" stroke-width="1" />
 <text x="598.0" y="657.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000" >Fig. 19-7  Runout check + balancing set-up</text>

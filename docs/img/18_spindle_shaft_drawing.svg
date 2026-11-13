@@ -2,7 +2,7 @@
 <title>Spindle shaft drawing (example)</title>
 <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker><pattern id="hat" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="0.6"/></pattern><pattern id="hatA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1565c0" stroke-width="0.7"/></pattern></defs>
 <rect x="0" y="0" width="1400" height="920" fill="#fff"/>
-<text x="20.0" y="30.0" font-size="15" text-anchor="start" fill="#000" font-weight="bold">Spindle shaft VC-HMC-SPN-0101-A – motor spindle HSK-A63, 12 000 rpm (half section above the axis, outside view below)</text>
+<text x="20.0" y="30.0" font-size="15" text-anchor="start" fill="#000" font-weight="bold">Spindle shaft VC-HMC-SPN-0101-A – motor spindle HSK-A63, 10 000 rpm (half section above the axis, outside view below)</text>
 <text x="20.0" y="50.0" font-size="12" text-anchor="start" fill="#000">Material 31CrMoV9 +QT (EN 10085), gas nitrided · all dimensions in mm · twin example profile (x = 0 at the nose)</text>
 <polygon points="135.0,251.8 184.2,251.8 184.2,301.1 371.4,301.1 371.4,301.1 406.9,301.1 406.9,303.0 485.7,303.0 485.7,306.0 800.9,306.0 800.9,307.9 879.7,307.9 879.7,310.9 962.4,310.9 962.4,310.9 991.9,310.9 991.9,320.8 1080.6,320.8 1080.6,340.4 1001.8,340.4 1001.8,348.3 726.0,348.3 726.0,329.6 509.3,329.6 509.3,348.3 282.8,348.3 282.8,334.5 198.0,334.5 198.0,325.9 135.0,322.7" fill="url(#hat)" stroke="#000" stroke-width="1.6"/>
 <polyline points="135.0,370.0 135.0,488.2 184.2,488.2 184.2,438.9 371.4,438.9 371.4,438.9 406.9,438.9 406.9,437.0 485.7,437.0 485.7,434.0 800.9,434.0 800.9,432.1 879.7,432.1 879.7,429.1 962.4,429.1 962.4,429.1 991.9,429.1 991.9,419.2 1080.6,419.2 1080.6,370.0" fill="#fff" stroke="#000" stroke-width="1.6"/>
@@ -233,7 +233,7 @@
 <text x="1105.0" y="330.0" font-size="12" text-anchor="start" fill="#000">    ISO 14104 / Barkhausen 100 %.</text>
 <text x="1105.0" y="347.5" font-size="12" text-anchor="start" fill="#000">8. Measure at 20 °C after ≥ 4 h soak.</text>
 <text x="1105.0" y="365.0" font-size="12" text-anchor="start" fill="#000">9. Balance G 1 at 1 200 rpm:</text>
-<text x="1105.0" y="382.5" font-size="12" text-anchor="start" fill="#000">    ≤ 4.4 g·mm per plane (planes 1+2,</text>
+<text x="1105.0" y="382.5" font-size="12" text-anchor="start" fill="#000">    ≤ 5.2 g·mm per plane (planes 1+2,</text>
 <text x="1105.0" y="400.0" font-size="12" text-anchor="start" fill="#000">    M6 screws, r = 34 mm).</text>
 <text x="1105.0" y="417.5" font-size="12" text-anchor="start" fill="#000">10. HSK-A63 receiver ISO 12164-2;</text>
 <text x="1105.0" y="435.0" font-size="12" text-anchor="start" fill="#000">    blue contact ≥ 80 %.</text>

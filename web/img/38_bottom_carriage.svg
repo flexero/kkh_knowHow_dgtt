@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>Bottom carriage – welded box beam</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+<pattern id="grout" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#fff"/><circle cx="3" cy="3" r="1" fill="#777"/><circle cx="8" cy="7" r="0.8" fill="#777"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="818" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="24.0" y="30.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Elevation (along the aisle)</text>
+<rect x="70.0" y="230.0" width="638.0" height="35.2" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="70.0" y="230.0" width="638.0" height="3.3" rx="0" fill="url(#hatchA)" stroke="#000" stroke-width="1.2"/>
+<rect x="70.0" y="261.9" width="638.0" height="3.3" rx="0" fill="url(#hatchA)" stroke="#000" stroke-width="1.2"/>
+<line x1="92.0" y1="233.3" x2="92.0" y2="261.9" stroke="#000" stroke-width="0.9" stroke-dasharray="4 3"/>
+<line x1="202.0" y1="233.3" x2="202.0" y2="261.9" stroke="#000" stroke-width="0.9" stroke-dasharray="4 3"/>
+<line x1="312.0" y1="233.3" x2="312.0" y2="261.9" stroke="#000" stroke-width="0.9" stroke-dasharray="4 3"/>
+<line x1="422.0" y1="233.3" x2="422.0" y2="261.9" stroke="#000" stroke-width="0.9" stroke-dasharray="4 3"/>
+<line x1="532.0" y1="233.3" x2="532.0" y2="261.9" stroke="#000" stroke-width="0.9" stroke-dasharray="4 3"/>
+<line x1="642.0" y1="233.3" x2="642.0" y2="261.9" stroke="#000" stroke-width="0.9" stroke-dasharray="4 3"/>
+<rect x="67.8" y="214.6" width="92.4" height="92.4" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="114.0" cy="263.0" r="44.0" fill="#fff" stroke="#000" stroke-width="1.2" stroke-dasharray="6 3"/>
+<circle cx="114.0" cy="263.0" r="9.2" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="595.8" y="214.6" width="92.4" height="92.4" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="642.0" cy="263.0" r="44.0" fill="#fff" stroke="#000" stroke-width="1.2" stroke-dasharray="6 3"/>
+<circle cx="642.0" cy="263.0" r="9.2" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="111.8" y="218.0" width="136.4" height="12.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1.2"/>
+<rect x="125.0" y="158.0" width="110.0" height="60.0" rx="0" fill="none" stroke="#000" stroke-width="1.2" stroke-dasharray="6 3"/>
+<text x="180.0" y="150.0" font-size="11" text-anchor="middle" fill="#000">mast (phantom)</text>
+<line x1="70.0" y1="320.2" x2="708.0" y2="320.2" stroke="#000" stroke-width="1.4"/>
+<text x="714.0" y="324.2" font-size="11" text-anchor="start" fill="#000">rail top</text>
+<line x1="114.0" y1="324.2" x2="114.0" y2="364.2" stroke="#555" stroke-width="0.6"/>
+<line x1="642.0" y1="324.2" x2="642.0" y2="364.2" stroke="#555" stroke-width="0.6"/>
+<line x1="114.0" y1="360.2" x2="642.0" y2="360.2" stroke="#000" stroke-width="0.9" marker-end="url(#ek)" marker-start="url(#sk)"/>
+<text x="378.0" y="355.2" font-size="11.5" text-anchor="middle" fill="#000">wheelbase 2 400</text>
+<line x1="70.0" y1="324.2" x2="70.0" y2="394.2" stroke="#555" stroke-width="0.6"/>
+<line x1="708.0" y1="324.2" x2="708.0" y2="394.2" stroke="#555" stroke-width="0.6"/>
+<line x1="70.0" y1="390.2" x2="708.0" y2="390.2" stroke="#000" stroke-width="0.9" marker-end="url(#ek)" marker-start="url(#sk)"/>
+<text x="389.0" y="385.2" font-size="11.5" text-anchor="middle" fill="#000">2 900</text>
+<line x1="114.0" y1="216.0" x2="114.0" y2="126.0" stroke="#555" stroke-width="0.6"/>
+<line x1="180.0" y1="216.0" x2="180.0" y2="126.0" stroke="#555" stroke-width="0.6"/>
+<line x1="114.0" y1="130.0" x2="180.0" y2="130.0" stroke="#000" stroke-width="0.9" marker-end="url(#ek)" marker-start="url(#sk)"/>
+<text x="147.0" y="125.0" font-size="11.5" text-anchor="middle" fill="#000">300 drive wheel → mast axis</text>
+<line x1="712.0" y1="230.0" x2="742.0" y2="230.0" stroke="#555" stroke-width="0.6"/>
+<line x1="712.0" y1="265.2" x2="742.0" y2="265.2" stroke="#555" stroke-width="0.6"/>
+<line x1="738.0" y1="230.0" x2="738.0" y2="265.2" stroke="#000" stroke-width="0.9" marker-end="url(#ek)" marker-start="url(#sk)"/>
+<text x="752.0" y="247.6" font-size="11.5" text-anchor="middle" fill="#000" transform="rotate(-90 752.0 247.6)">160</text>
+<circle cx="378.0" cy="232.0" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<line x1="378.0" y1="232.0" x2="378.0" y2="170.0" stroke="#000" stroke-width="0.7"/>
+<text x="382.0" y="174.0" font-size="11.5" text-anchor="start" fill="#000">top flange 15</text>
+<circle cx="455.0" cy="263.0" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<line x1="455.0" y1="263.0" x2="459.4" y2="192.0" stroke="#000" stroke-width="0.7"/>
+<text x="463.4" y="196.0" font-size="11.5" text-anchor="start" fill="#000">web 10 (2×)</text>
+<circle cx="532.0" cy="247.6" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<line x1="532.0" y1="247.6" x2="538.6" y2="168.0" stroke="#000" stroke-width="0.7"/>
+<text x="542.6" y="172.0" font-size="11.5" text-anchor="start" fill="#000">diaphragm 10, pitch 500</text>
+<polygon points="70.8,214.6 84.8,214.6 77.8,205.6" fill="#000" stroke="#000" stroke-width="0.5"/>
+<line x1="77.8" y1="205.6" x2="77.8" y2="184.6" stroke="#000" stroke-width="0.9"/>
+<rect x="66.8" y="162.6" width="22.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.1"/>
+<text x="77.8" y="178.6" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">A</text>
+<text x="24.0" y="430.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Plan (from above)</text>
+<rect x="70.0" y="520.0" width="638.0" height="147.8" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="70.0" y="520.0" width="638.0" height="3.5" rx="0" fill="url(#hatchA)" stroke="#000" stroke-width="1.2"/>
+<rect x="70.0" y="664.3" width="638.0" height="3.5" rx="0" fill="url(#hatchA)" stroke="#000" stroke-width="1.2"/>
+<rect x="67.8" y="512.0" width="92.4" height="163.8" rx="0" fill="none" stroke="#000" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="114.0" y1="490.0" x2="114.0" y2="697.8" stroke="#000" stroke-width="0.7" stroke-dasharray="12 3 2 3"/>
+<rect x="595.8" y="512.0" width="92.4" height="163.8" rx="0" fill="none" stroke="#000" stroke-width="1.2" stroke-dasharray="6 3"/>
+<line x1="642.0" y1="490.0" x2="642.0" y2="697.8" stroke="#000" stroke-width="0.7" stroke-dasharray="12 3 2 3"/>
+<rect x="111.8" y="541.1" width="136.4" height="105.6" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1.2"/>
+<circle cx="122.8" cy="552.1" r="4.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="151.4" cy="552.1" r="4.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="180.0" cy="552.1" r="4.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="208.6" cy="552.1" r="4.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="237.2" cy="552.1" r="4.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="122.8" cy="593.9" r="4.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="237.2" cy="593.9" r="4.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="122.8" cy="635.7" r="4.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="151.4" cy="635.7" r="4.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="180.0" cy="635.7" r="4.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="208.6" cy="635.7" r="4.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="237.2" cy="635.7" r="4.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="237.2" cy="552.1" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<line x1="237.2" y1="552.1" x2="300.0" y2="480.0" stroke="#000" stroke-width="0.7"/>
+<text x="304.0" y="484.0" font-size="11.5" text-anchor="start" fill="#000">12 × M24 10.9 HV (tapped / through)</text>
+<polygon points="63.0,667.8 77.0,667.8 70.0,676.8" fill="#000" stroke="#000" stroke-width="0.5"/>
+<line x1="70.0" y1="676.8" x2="70.0" y2="691.8" stroke="#000" stroke-width="0.9"/>
+<rect x="59.0" y="691.8" width="22.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.1"/>
+<text x="70.0" y="707.8" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">C</text>
+<text x="100.0" y="709.8" font-size="11" text-anchor="start" fill="#000">C = side face (rail side)</text>
+<polygon points="107.0,697.8 121.0,697.8 114.0,706.8" fill="#000" stroke="#000" stroke-width="0.5"/>
+<line x1="114.0" y1="706.8" x2="114.0" y2="717.8" stroke="#000" stroke-width="0.9"/>
+<rect x="103.0" y="717.8" width="22.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.1"/>
+<text x="114.0" y="733.8" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">B</text>
+<text x="136.0" y="737.8" font-size="11" text-anchor="start" fill="#000">B = drive-wheel bore axis</text>
+<line x1="712.0" y1="520.0" x2="742.0" y2="520.0" stroke="#555" stroke-width="0.6"/>
+<line x1="712.0" y1="667.8" x2="742.0" y2="667.8" stroke="#555" stroke-width="0.6"/>
+<line x1="738.0" y1="520.0" x2="738.0" y2="667.8" stroke="#000" stroke-width="0.9" marker-end="url(#ek)" marker-start="url(#sk)"/>
+<text x="752.0" y="593.9" font-size="11.5" text-anchor="middle" fill="#000" transform="rotate(-90 752.0 593.9)">420</text>
+<text x="790.0" y="80.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">Data (example)</text>
+<text x="790.0" y="98.0" font-size="11.5" text-anchor="start" fill="#000">S355J2+N plates EN 10025-2, 3.1 certificate</text>
+<text x="790.0" y="116.0" font-size="11.5" text-anchor="start" fill="#000">flanges 420 × 15, webs 130 × 10 (inside)</text>
+<text x="790.0" y="134.0" font-size="11.5" text-anchor="start" fill="#000">I = 70.1 × 10⁶ mm⁴, W = 877 × 10³ mm³</text>
+<text x="790.0" y="170.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">Beam check (simply supported on the wheels)</text>
+<text x="790.0" y="188.0" font-size="11.5" text-anchor="start" fill="#000">M = N·a·b/L + M_foot·b/L + cabinet</text>
+<text x="790.0" y="206.0" font-size="11.5" text-anchor="start" fill="#000">  = 5.41 + 16.16 + 0.34 = 21.9 kN·m</text>
+<text x="790.0" y="224.0" font-size="11.5" text-anchor="start" fill="#000">  (M_foot = 18.47 kN·m emergency case)</text>
+<text x="790.0" y="242.0" font-size="11.5" text-anchor="start" fill="#000">σ = 21.9 × 10⁶ / 877 × 10³ = 25 MPa</text>
+<text x="790.0" y="260.0" font-size="11.5" text-anchor="start" fill="#000">deflection under the mast ≈ 0.08 mm</text>
+<text x="790.0" y="296.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">Make: cut → bevel → fit in jig → weld</text>
+<text x="790.0" y="314.0" font-size="11.5" text-anchor="start" fill="#000">(MAG, balanced) → stress relief 580–620 °C</text>
+<text x="790.0" y="332.0" font-size="11.5" text-anchor="start" fill="#000">→ machine pads + bores in one set-up</text>
+<text x="790.0" y="350.0" font-size="11.5" text-anchor="start" fill="#000">→ NDT (UT butt welds, MT fillets) → paint</text>
+<text x="790.0" y="368.0" font-size="11.5" text-anchor="start" fill="#000">mass ≈ 650 kg welded (frame only)</text>
+<text x="790.0" y="404.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">Datums</text>
+<text x="790.0" y="422.0" font-size="11.5" text-anchor="start" fill="#000">A = wheel-block pad plane</text>
+<text x="790.0" y="440.0" font-size="11.5" text-anchor="start" fill="#000">B = drive-wheel bore axis</text>
+<text x="790.0" y="458.0" font-size="11.5" text-anchor="start" fill="#000">C = side face (rail side)</text>
+<rect x="774.0" y="752.0" width="414.0" height="66.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="774.0" y1="774.0" x2="1188.0" y2="774.0" stroke="#000" stroke-width="0.8"/>
+<line x1="844.0" y1="752.0" x2="844.0" y2="774.0" stroke="#000" stroke-width="0.8"/>
+<text x="782.0" y="768.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">38-03</text>
+<text x="852.0" y="768.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Bottom carriage – welded box beam</text>
+<text x="782.0" y="791.0" font-size="12" text-anchor="start" fill="#b00000" font-weight="bold">EXAMPLE – check the crane maker's drawings</text>
+<text x="782.0" y="809.0" font-size="11" text-anchor="start" fill="#000">Digital twin · ASRS-RAW stacker crane · guide 38 · not to scale · mm</text>
+</svg>

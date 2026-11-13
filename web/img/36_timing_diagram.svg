@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 970" width="1400" height="970" font-family="Arial, Helvetica, sans-serif">
+<title>APC ladder timing – M60 handshake, step bits, valves, watchdog example (example)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="970" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold">Timing diagram – M60 / FIN handshake, step bits, outputs and one watchdog case (simulation, scan 20 ms)</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#666666">Times from the APC page (8.8 s change) + scan delay. Top: normal change. Bottom: chip under the pallet → seating watchdog 0.8 s → F_Seat.</text>
+<line x1="349.5" y1="80.0" x2="349.5" y2="700.0" stroke="#eee" stroke-width="0.8"/>
+<text x="349.5" y="76.0" font-size="10" text-anchor="middle" fill="#666666">0 s</text>
+<line x1="448.6" y1="80.0" x2="448.6" y2="700.0" stroke="#eee" stroke-width="0.8"/>
+<text x="448.6" y="76.0" font-size="10" text-anchor="middle" fill="#666666">1 s</text>
+<line x1="547.6" y1="80.0" x2="547.6" y2="700.0" stroke="#eee" stroke-width="0.8"/>
+<text x="547.6" y="76.0" font-size="10" text-anchor="middle" fill="#666666">2 s</text>
+<line x1="646.7" y1="80.0" x2="646.7" y2="700.0" stroke="#eee" stroke-width="0.8"/>
+<text x="646.7" y="76.0" font-size="10" text-anchor="middle" fill="#666666">3 s</text>
+<line x1="745.7" y1="80.0" x2="745.7" y2="700.0" stroke="#eee" stroke-width="0.8"/>
+<text x="745.7" y="76.0" font-size="10" text-anchor="middle" fill="#666666">4 s</text>
+<line x1="844.8" y1="80.0" x2="844.8" y2="700.0" stroke="#eee" stroke-width="0.8"/>
+<text x="844.8" y="76.0" font-size="10" text-anchor="middle" fill="#666666">5 s</text>
+<line x1="943.8" y1="80.0" x2="943.8" y2="700.0" stroke="#eee" stroke-width="0.8"/>
+<text x="943.8" y="76.0" font-size="10" text-anchor="middle" fill="#666666">6 s</text>
+<line x1="1042.9" y1="80.0" x2="1042.9" y2="700.0" stroke="#eee" stroke-width="0.8"/>
+<text x="1042.9" y="76.0" font-size="10" text-anchor="middle" fill="#666666">7 s</text>
+<line x1="1141.9" y1="80.0" x2="1141.9" y2="700.0" stroke="#eee" stroke-width="0.8"/>
+<text x="1141.9" y="76.0" font-size="10" text-anchor="middle" fill="#666666">8 s</text>
+<line x1="1241.0" y1="80.0" x2="1241.0" y2="700.0" stroke="#eee" stroke-width="0.8"/>
+<text x="1241.0" y="76.0" font-size="10" text-anchor="middle" fill="#666666">9 s</text>
+<line x1="1340.0" y1="80.0" x2="1340.0" y2="700.0" stroke="#eee" stroke-width="0.8"/>
+<text x="1340.0" y="76.0" font-size="10" text-anchor="middle" fill="#666666">10 s</text>
+<text x="290.0" y="104.0" font-size="11" text-anchor="end" fill="#c62828">NC_M60 (X1.4 / %I23.0)</text>
+<polyline points="300.0,108.0 349.5,108.0 349.5,94.0 1231.0,94.0 1231.0,108.0 1340.0,108.0" stroke="#c62828" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="132.0" font-size="11" text-anchor="end" fill="#000">S1 door open</text>
+<polyline points="300.0,136.0 349.5,136.0 349.5,122.0 498.1,122.0 498.1,136.0 1340.0,136.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="160.0" font-size="11" text-anchor="end" fill="#000">S2 unclamp</text>
+<polyline points="300.0,164.0 498.1,164.0 498.1,150.0 577.3,150.0 577.3,164.0 1340.0,164.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="188.0" font-size="11" text-anchor="end" fill="#000">S3 lift</text>
+<polyline points="300.0,192.0 577.3,192.0 577.3,178.0 656.6,178.0 656.6,192.0 1340.0,192.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="216.0" font-size="11" text-anchor="end" fill="#000">S4 rotate</text>
+<polyline points="300.0,220.0 656.6,220.0 656.6,206.0 904.2,206.0 904.2,220.0 1340.0,220.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="244.0" font-size="11" text-anchor="end" fill="#000">S5 lower</text>
+<polyline points="300.0,248.0 904.2,248.0 904.2,234.0 983.4,234.0 983.4,248.0 1340.0,248.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="272.0" font-size="11" text-anchor="end" fill="#000">S6 clamp</text>
+<polyline points="300.0,276.0 983.4,276.0 983.4,262.0 1062.7,262.0 1062.7,276.0 1340.0,276.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="300.0" font-size="11" text-anchor="end" fill="#000">S7 seating</text>
+<polyline points="300.0,304.0 1062.7,304.0 1062.7,290.0 1102.3,290.0 1102.3,304.0 1340.0,304.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="328.0" font-size="11" text-anchor="end" fill="#000">S8 door close</text>
+<polyline points="300.0,332.0 1102.3,332.0 1102.3,318.0 1221.1,318.0 1221.1,332.0 1340.0,332.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="356.0" font-size="11" text-anchor="end" fill="#000">S9 FIN</text>
+<polyline points="300.0,360.0 1221.1,360.0 1221.1,346.0 1233.0,346.0 1233.0,360.0 1340.0,360.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="384.0" font-size="11" text-anchor="end" fill="#000">DoorOpen Y0.4</text>
+<polyline points="300.0,388.0 349.5,388.0 349.5,374.0 498.1,374.0 498.1,388.0 1340.0,388.0" stroke="#1565c0" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="412.0" font-size="11" text-anchor="end" fill="#000">UnclampValve Y0.2</text>
+<polyline points="300.0,416.0 498.1,416.0 498.1,402.0 983.4,402.0 983.4,416.0 1340.0,416.0" stroke="#1565c0" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="440.0" font-size="11" text-anchor="end" fill="#000">LiftUpValve Y0.0</text>
+<polyline points="300.0,444.0 577.3,444.0 577.3,430.0 656.6,430.0 656.6,444.0 1340.0,444.0" stroke="#1565c0" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="468.0" font-size="11" text-anchor="end" fill="#000">ServoStart Y0.9</text>
+<polyline points="300.0,472.0 656.6,472.0 656.6,458.0 904.2,458.0 904.2,472.0 1340.0,472.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="496.0" font-size="11" text-anchor="end" fill="#000">LiftDownValve Y0.1</text>
+<polyline points="300.0,500.0 904.2,500.0 904.2,486.0 983.4,486.0 983.4,500.0 1340.0,500.0" stroke="#1565c0" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="524.0" font-size="11" text-anchor="end" fill="#000">SeatingAir Y0.3</text>
+<polyline points="300.0,528.0 1062.7,528.0 1062.7,514.0 1102.3,514.0 1102.3,528.0 1340.0,528.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="552.0" font-size="11" text-anchor="end" fill="#000">DoorClose Y0.5</text>
+<polyline points="300.0,556.0 1102.3,556.0 1102.3,542.0 1221.1,542.0 1221.1,556.0 1340.0,556.0" stroke="#1565c0" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="580.0" font-size="11" text-anchor="end" fill="#c62828">NC_FIN Y0.15 / %Q23.0</text>
+<polyline points="300.0,584.0 1221.1,584.0 1221.1,570.0 1233.0,570.0 1233.0,584.0 1340.0,584.0" stroke="#c62828" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="608.0" font-size="11" text-anchor="end" fill="#000">UnloadValve (charge)</text>
+<polyline points="300.0,612.0 498.1,612.0 498.1,598.0 983.4,598.0 983.4,612.0 1340.0,612.0" stroke="#1565c0" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="1239.0" y="104.0" font-size="10" text-anchor="start" fill="#c62828">NC drops M60 0.1 s after FIN</text>
+<text x="1239.0" y="356.0" font-size="10" text-anchor="start" fill="#000">S9 → S0</text>
+<line x1="20.0" y1="628.0" x2="1340.0" y2="628.0" stroke="#000" stroke-width="1"/>
+<text x="24.0" y="650.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Fault case: chip under the pallet</text>
+<text x="290.0" y="678.0" font-size="11" text-anchor="end" fill="#000">S7 seating</text>
+<polyline points="300.0,682.0 1062.7,682.0 1062.7,668.0 1340.0,668.0 1340.0,682.0 1340.0,682.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="706.0" font-size="11" text-anchor="end" fill="#000">SeatingAir Y0.3</text>
+<polyline points="300.0,710.0 1062.7,710.0 1062.7,696.0 1141.9,696.0 1141.9,710.0 1340.0,710.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="734.0" font-size="11" text-anchor="end" fill="#000">SeatingAirOK X0.8</text>
+<polyline points="300.0,738.0 1340.0,738.0" stroke="#000" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="762.0" font-size="11" text-anchor="end" fill="#000">T_Wd7.ET (0 → 0.8 s)</text>
+<polyline points="300.0,766.0 1062.7,766.0 1141.9,752.0 1141.9,766.0 1340.0,766.0" stroke="#1565c0" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="290.0" y="790.0" font-size="11" text-anchor="end" fill="#000">F_Seat → M_Fault, AlarmLamp</text>
+<polyline points="300.0,794.0 1141.9,794.0 1141.9,780.0 1340.0,780.0 1340.0,794.0 1340.0,794.0" stroke="#c62828" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+<text x="1147.9" y="776.0" font-size="10" text-anchor="start" fill="#c62828">AlarmNo = 7, chain holds, air off</text>
+<text x="24.0" y="850.0" font-size="12" text-anchor="start" fill="#000">Reading: in the twin a step ends in the scan its sensor comes (plant before logic) → 8.80 s. A real PLC adds filter + scan + valve time ≈ 30 ms per step (guide 36 §8.4).</text>
+<text x="24.0" y="866.0" font-size="12" text-anchor="start" fill="#000">Watchdog = 2 × nominal (guide 09 §24.3). Timer accuracy: + 0 … 1 scan (the timer is evaluated once per scan).</text>
+<text x="24.0" y="882.0" font-size="12" text-anchor="start" fill="#000">FIN handshake: NC sets M60 (strobe) → PLC does the change → FIN = 1 → NC sets M60 = 0 → PLC sets FIN = 0. Never a fixed FIN pulse time.</text>
+<rect x="848.0" y="866.0" width="540.0" height="92.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="848.0" y1="892.0" x2="1388.0" y2="892.0" stroke="#000" stroke-width="1"/>
+<line x1="848.0" y1="916.0" x2="1388.0" y2="916.0" stroke="#000" stroke-width="1"/>
+<line x1="848.0" y1="937.0" x2="1388.0" y2="937.0" stroke="#000" stroke-width="1"/>
+<line x1="1188.0" y1="916.0" x2="1188.0" y2="958.0" stroke="#000" stroke-width="1"/>
+<text x="856.0" y="884.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="856.0" y="909.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Timing diagram – handshake + watchdog</text>
+<text x="856.0" y="931.0" font-size="11" text-anchor="start" fill="#000">Guide 36 – PLC ladder program of the APC</text>
+<text x="1196.0" y="931.0" font-size="11" text-anchor="start" fill="#000">Dwg VC-APC-PLC-3605</text>
+<text x="856.0" y="952.0" font-size="11" text-anchor="start" fill="#000">Digital twin · program: web/apclad_prog.js, guide 09</text>
+<text x="1196.0" y="952.0" font-size="11" text-anchor="start" fill="#000">not to scale · 2026-11-13</text>
+</svg>

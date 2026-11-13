@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs>
+<marker id="arrK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker>
+<marker id="arrKs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#000"/></marker>
+<marker id="arrAs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="1.4"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">Work-order and lot life cycle – states and who moves them</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<rect x="60" y="110" width="170" height="60" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="145.0" y="145.25" font-size="15" text-anchor="middle" font-weight="700" fill="#000">created</text>
+<rect x="290" y="110" width="170" height="60" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="375.0" y="145.25" font-size="15" text-anchor="middle" font-weight="700" fill="#1f6fd1">released</text>
+<rect x="520" y="110" width="170" height="60" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="605.0" y="145.25" font-size="15" text-anchor="middle" font-weight="700" fill="#1f6fd1">running</text>
+<rect x="750" y="110" width="170" height="60" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="835.0" y="145.25" font-size="15" text-anchor="middle" font-weight="700" fill="#000">done</text>
+<rect x="980" y="110" width="170" height="60" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="1065.0" y="145.25" font-size="15" text-anchor="middle" font-weight="700" fill="#000">closed</text>
+<line x1="230" y1="140" x2="290" y2="140" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="210" y="200" font-size="11" text-anchor="start" fill="#000">release: readiness check</text>
+<text x="210" y="215" font-size="11" text-anchor="start" fill="#000">(material, tools, gauges)</text>
+<line x1="460" y1="140" x2="520" y2="140" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="440" y="200" font-size="11" text-anchor="start" fill="#000">first confirmation</text>
+<text x="440" y="215" font-size="11" text-anchor="start" fill="#000">(terminal / gateway)</text>
+<line x1="690" y1="140" x2="750" y2="140" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="670" y="200" font-size="11" text-anchor="start" fill="#000">last lot done</text>
+<text x="670" y="215" font-size="11" text-anchor="start" fill="#000">(FG booked)</text>
+<line x1="920" y1="140" x2="980" y2="140" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="900" y="200" font-size="11" text-anchor="start" fill="#000">close</text>
+<text x="900" y="215" font-size="11" text-anchor="start" fill="#000">(ERP settles cost)</text>
+<rect x="60" y="250" width="170" height="50" rx="6" fill="#fff" stroke="#000" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="145.0" y="279.9" font-size="14" text-anchor="middle" font-weight="700" fill="#000">cancelled</text>
+<line x1="145" y1="170" x2="145" y2="250" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="240" y="280" font-size="11" text-anchor="start" fill="#000">cancel (planner, with reason)</text>
+<text x="60" y="330" font-size="12" text-anchor="start" font-weight="700" fill="#000">Work order (WO) – HTTP: POST /workorders → POST /workorders/{id}/release (409 wrong state, 422 not ready, force)</text>
+<rect x="60" y="420" width="170" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="145.0" y="453.25" font-size="15" text-anchor="middle" font-weight="700" fill="#000">planned</text>
+<rect x="280" y="420" width="170" height="56" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="365.0" y="453.25" font-size="15" text-anchor="middle" font-weight="700" fill="#1f6fd1">queued</text>
+<rect x="500" y="420" width="170" height="56" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="585.0" y="453.25" font-size="15" text-anchor="middle" font-weight="700" fill="#1f6fd1">running</text>
+<rect x="720" y="420" width="170" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="805.0" y="453.25" font-size="15" text-anchor="middle" font-weight="700" fill="#000">moving</text>
+<rect x="940" y="420" width="170" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="1025.0" y="453.25" font-size="15" text-anchor="middle" font-weight="700" fill="#000">done</text>
+<line x1="230" y1="448" x2="280" y2="448" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<line x1="450" y1="448" x2="500" y2="448" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<line x1="670" y1="448" x2="720" y2="448" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<path d="M 805 420 C 805 380 365 380 365 420" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="470" y="375" font-size="11" text-anchor="start" fill="#000">arrives at the next machine type</text>
+<line x1="890" y1="448" x2="940" y2="448" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="232" y="440" font-size="11" text-anchor="start" fill="#000">WO released</text>
+<text x="452" y="440" font-size="11" text-anchor="start" fill="#000">download / start</text>
+<text x="672" y="440" font-size="11" text-anchor="start" fill="#000">op done</text>
+<text x="892" y="440" font-size="11" text-anchor="start" fill="#000">last op</text>
+<rect x="380" y="560" width="220" height="70" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="490.0" y="591.05" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1">hold</text>
+<text x="490.0" y="608.05" font-size="13" text-anchor="middle" fill="#000">quality: gate NOK, NCR, SPC</text>
+<rect x="720" y="560" width="170" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="805.0" y="592.9" font-size="14" text-anchor="middle" font-weight="700" fill="#000">scrapped</text>
+<line x1="365" y1="476" x2="440" y2="560" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)"/>
+<line x1="585" y1="476" x2="530" y2="560" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)"/>
+<polyline points="490,630 490,652 330,652 330,476" fill="none" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)"/>
+<text x="500" y="668" font-size="11" text-anchor="start" fill="#1f6fd1">release by quality → back to queued</text>
+<line x1="585" y1="476" x2="760" y2="560" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="650" y="530" font-size="11" text-anchor="start" fill="#000">qty good = 0</text>
+<text x="60" y="700" font-size="12" text-anchor="start" fill="#000">Lot – held lots are not scheduled, not dispatched; confirmation + download answer HTTP 423.</text>
+<text x="60" y="716" font-size="12" text-anchor="start" fill="#000">Operation states: open → running (first confirmation / download) → done (good + scrap ≥ quantity in).</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your MES team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 6 MES · guide 45 · 45_order_lifecycle.svg</text>
+</svg>

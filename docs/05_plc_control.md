@@ -638,7 +638,7 @@ Rules:
 * Keep safety I/O in its own range (F-modules have their own addresses).
 * Use the same scheme in every line PLC, so a technician recognises it.
 
-**The binding scheme for the real factory is in chapter 12.4** (= doc 15 §3.11): station block b = 1 … 19,
+**The binding scheme for the real factory is in chapter 12.4** (= doc 15 §3.11): station block b = 1 … 5 (b ≤ 5 per PLC),
 digital bytes `10·b … 10·b+9`, analog words from `%IW(64 + 16·(b−1))`, fail-safe I/O in `%I200`–`%I299`,
 interface DB `10 + b`. It replaces the twin's two different example schemes (PLC tab `%IW(64 + 16·k)` /
 `DB(20+k)` and SCADA tab `%IW(64 + 8·i)` / `DB(10+i)`, see section 8). Short version:
@@ -646,12 +646,12 @@ interface DB `10 + b`. It replaces the twin's two different example schemes (PLC
 | Range (per line PLC) | Use |
 |---|---|
 | `%I0.0`–`%I9.7` / `%Q0.0`–`%Q9.7` | main cabinet, line signals (main switch, PSU OK, reset, cabinet door, line stack light) |
-| `%I(10·b).0`–`%I(10·b+9).7` / same for `%Q` | station block b = 1 … 19, 10 bytes each (HMC01, b = 2: `%I20.0`–`%I29.7`) |
+| `%I(10·b).0`–`%I(10·b+9).7` / same for `%Q` | station block b = 1 … 5, 10 bytes each (HMC01, b = 2: `%I20.0`–`%I29.7`) |
 | `%IW(64 + 16·(b−1))` … +14 | station block b, 8 analog inputs (HMC01: `%IW80`–`%IW94`) |
 | `%I200.0`–`%I299.7` / `%Q200.0`–`%Q299.7` | fail-safe (F) I/O of the whole PLC |
 | `DB10`–`DB29` | station interface DBs, `DB(10 + b)` (HMC01: DB12) – SCADA / MES read these by symbol |
 | `DB90`–`DB99` | PLC-to-PLC coupler and MES/SCADA line interface DBs |
-| bus devices (CNC telegram, IO-Link, meters) | not yet fixed in doc 15 – proposal in 12.4 |
+| bus devices (CNC telegram, IO-Link, meters) | `%I(300 + 20·(b−1))` … +19 / same for `%Q` (doc 15 §3.11, see 12.4) |
 
 > In modern Siemens projects the program uses **symbols**, not absolute addresses. The address scheme is
 > still important for wiring, diagnostics and FAT.
@@ -1199,11 +1199,11 @@ MTTFd = 1 300 000 / (0.1 · 14 080) = 923 years  → counts as "high"
 T10d  = 1 300 000 / 14 080 = 92 years  (> 20-year mission time → no planned replacement)
 ```
 
-| MTTFd per channel | Rating |
+| MTTFd per channel (ISO 13849-1:2023 – bands unchanged from 2015) | Rating |
 |---|---|
 | 3 ≤ MTTFd < 10 years | low |
 | 10 ≤ MTTFd < 30 years | medium |
-| 30 ≤ MTTFd ≤ 100 years | high (values above 100 are cut to 100 for categories B–3; ISO 13849-1:2015 allows up to 2500 years for category 4 – check edition) |
+| 30 ≤ MTTFd ≤ 100 years | high (values above 100 are cut to 100 for categories B–3; ISO 13849-1:2015 allows up to 2500 years for category 4 – check edition; 2015 named here only as history) |
 
 Step 3 – **DCavg** (diagnostic coverage – how many dangerous faults the system detects itself):
 
@@ -1260,7 +1260,7 @@ T  total stopping time = machine stopping time + safety device response + safety
 C  extra distance for reaching through: for a light curtain with resolution d ≤ 40 mm: C = 8 · (d − 14) mm
 ```
 
-Rules for a vertical light curtain, d ≤ 40 mm (ISO 13855:2010 – a revised edition exists, check):
+Rules for a vertical light curtain, d ≤ 40 mm (values here from ISO 13855:2010; ISO 13855:2024 is current – check the formulas, K values and C values against the 2024 edition before final design; the worked example below uses the 2010 values):
 
 1. Calculate with K = 2000 mm/s. If S ≤ 500 mm, use it (minimum 100 mm).
 2. If S > 500 mm, you may recalculate with K = 1600 mm/s; then the minimum is 500 mm.
@@ -1550,7 +1550,7 @@ The F-DI channel pairing (0+4, 1+5 …) depends on the module – check the manu
 ### 11.13 PLC program structure (IEC 61131-3)
 
 IEC 61131-3 defines the languages (LD, FBD, ST, SFC; IL – instruction list – was marked "deprecated" in edition 3 of 2013
-and is dropped in the newer edition – do not use it) and the program organisation
+and is removed in IEC 61131-3 ed. 4 (2025) – do not use it; state the edition your PLC tool supports) and the program organisation
 units (programs, function blocks, functions). It does **not** define names – the naming below is a project rule
 (similar to the PLCopen coding guidelines).
 
@@ -1588,8 +1588,8 @@ The limit values are tag parameters with the suffixes `_Hi`, `_HiHi`, `_Lo`, `_L
 | HMC01_A5121 | Coolant pressure low | 3 warning | CoolantPress < CoolantPress_Lo (2.0 bar) | 15 s | check coolant pump and filter |
 | HMC01_A2105 | Clamping pressure low – cycle start blocked | 2 serious | ClampPress_Ok = 0 while part clamped | 0.5 s | check hydraulic unit |
 | HMC01_A3002 | Air pressure < 5 bar | 3 warning | AirPress_Ok = 0 | 2 s | check air supply |
-| HMC01_A8010 | Timeout step 10 (CNC does not answer InCycle) | 2 serious | step 10 longer than 5 s | – | check CNC mode / alarms, reset |
-| HMC01_A8040 | Timeout step 40 (part not removed) | 2 serious | step 40 longer than 30 s | – | check handling / AGV, reset |
+| HMC01_A8030 | Timeout step 30 (CNC does not answer InCycle) | 2 serious | step 30 (21.2) longer than 5 s | – | check CNC mode / alarms, reset |
+| HMC01_A8040 | Timeout step 40 (unload – part not removed) | 2 serious | step 40 (21.2) longer than 120 s | – | check handling / AGV, reset |
 | HMC01_A4001 | CNC / drive fault (CNC alarm number in the text) | 1 critical | CNC Fault = 1 | – | read CNC alarm, repair |
 | HMC01_A1001 | E-stop pressed – reset needed | 1 critical | EStop_Ok = 0 | – | remove cause, release, reset, start |
 
@@ -1601,7 +1601,7 @@ Tag database fields for SCADA: guide 06, chapter 11.
 
 The project master is `docs/15_numbering_and_identification.md` (doc 15). **If this chapter and doc 15 differ,
 doc 15 wins.** This chapter applies doc 15 to the control system and adds only what doc 15 does not cover
-(marked *proposal – add to doc 15*).
+(the former proposals of 12.3 and 12.4 are now in doc 15 §3.11/§3.12, decision D-06).
 
 ### 12.1 Tags, PLC symbols and alarm IDs (doc 15 §3.10)
 
@@ -1651,7 +1651,7 @@ in schematic, I/O list, device label and hydraulic/pneumatic diagram (valve `-QM
 ### 12.3 Terminals, wires and cables (doc 15 §3.12)
 
 * Terminal strips per voltage: **`-XD1` 400 V AC, `-XD2` 24 V DC signals, `-XD3` safety circuits**.
-  Terminal `-XD2:7` = strip XD2, terminal 7. Project rule inside -XD2 (*proposal – add to doc 15*): DI on
+  Terminal `-XD2:7` = strip XD2, terminal 7. Project rule inside -XD2 (doc 15 §3.12): DI on
   terminals 1–20, DQ 21–40, AI 41–60, in channel order.
 * **Wire numbers**: page/column of the schematic where the wire starts, plus a running letter if needed –
   `23.4`, `23.4a`. Sleeve markers on both ends. IEC 60204-1 requires every conductor to be identifiable at each
@@ -1662,7 +1662,9 @@ in schematic, I/O list, device label and hydraulic/pneumatic diagram (valve `-QM
 
 ### 12.4 I/O address scheme (binding, doc 15 §3.11)
 
-Station **block b** inside its line PLC: b = 0 is the main cabinet (`%I0.0`–`%I9.7`), b = 1 … 19 are stations.
+Station **block b** inside its line PLC: b = 0 is the main cabinet (`%I0.0`–`%I9.7`), b = 1 … 5 are stations.
+**b ≤ 5 per PLC** (doc 15 §3.11): digital and analog addresses share one input image (`%IW80` = `%IB80` + `%IB81`),
+so a digital block 6 (`%I60`–`%I69`) would overlap the analog words of block 1 (`%IW64`–`%IW78` = bytes 64–79).
 
 | Area | Station block b | b = 2 (HMC01) | Rule |
 |---|---|---|---|
@@ -1675,8 +1677,8 @@ Station **block b** inside its line PLC: b = 0 is the main cabinet (`%I0.0`–`%
 
 Inside a block the modules follow the slot order without gaps; spare at the end of the block.
 
-**Not yet in doc 15** (*proposal – add to doc 15*): addresses for **bus devices** (CNC I-device telegram,
-IO-Link master process data, power meters). Proposal: `%I300` upwards / `%Q300` upwards, 20 bytes per station
+Addresses for **bus devices** (doc 15 §3.11, decision D-06) (CNC I-device telegram,
+IO-Link master process data, power meters): `%I300` upwards / `%Q300` upwards, 20 bytes per station
 block: `%I(300 + 20·(b−1))` → HMC01 (b = 2): `%I320`–`%I339`. Also analog outputs (`%QW`): same formula as AI.
 
 Rules: bits `.0`–`.7` only; words +2, double words +4; no address used twice (cross-reference check); fix the
@@ -1721,7 +1723,7 @@ to avoid a wrong reference.
 
 | Number | Title (short) | Requirement for this factory | Value / clause | Verification |
 |---|---|---|---|---|
-| IEC 61131-3 | PLC programming languages | program in LD, FBD, ST, SFC; structure with FB / FC / DB | IL deprecated since edition 3 (2013) – not to be used | code review |
+| IEC 61131-3 | PLC programming languages | program in LD, FBD, ST, SFC; structure with FB / FC / DB | IL deprecated since edition 3 (2013), removed in IEC 61131-3 ed. 4 (2025) – not to be used | code review |
 | IEC 61131-2 | PLC equipment requirements | 24 V DC range, DI types | 24 V −15 %/+20 % (20.4–28.8 V); input types 1/2/3 | data sheets |
 | IEC 61131-9 | IO-Link (SDCI) | smart sensors | max 20 m cable | commissioning |
 | IEC 60204-1 | Electrical equipment of machines | stop categories 0/1/2; E-stop cat 0 or 1; wire colours; push-button and lamp colours; enclosure ≥ IP22; voltage drop ≤ 5 %; ambient 5–40 °C; documentation; conductor identification | check clause numbers in your edition | inspection, continuity of PE, insulation test, voltage test as required, functional test |
@@ -1811,7 +1813,7 @@ The fail-safe wiring (E-stop, door, light curtain, safety contactors) is drawn i
 ### 14.3 Addresses (from 12.4, b = 2)
 
 DI %I20.x · DQ %Q20.x · AI %IW80 / %IW82 · F-DI %I200.x · F-DQ %Q200.x · interface DB12 ·
-IO-Link and CNC telegram: bus range (proposal 12.4: %I320–%I339 / %Q320–%Q339 – confirm in doc 15).
+IO-Link and CNC telegram: bus range (12.4: %I320–%I339 / %Q320–%Q339, doc 15 §3.11).
 
 ### 14.4 Safety program (F-program) – function
 
@@ -1866,8 +1868,8 @@ VAR_OUTPUT
     rSpindleTemp   : REAL;    // degC, copied to DB12
     xA5101         : BOOL;    // HMC01_A5101 spindle temperature high
     xA5103         : BOOL;    // HMC01_A5103 sensor fault
-    xA8010         : BOOL;    // HMC01_A8010 timeout step 10
-    xA8040         : BOOL;    // HMC01_A8040 timeout step 40
+    xA8030         : BOOL;    // HMC01_A8030 InCycle timeout (step 30 in 21.2, step 10 here)
+    xA8040         : BOOL;    // HMC01_A8040 unload timeout (step 40)
     iStep          : INT;     // shown on HMI / SCADA
 END_VAR
 VAR
@@ -1901,7 +1903,7 @@ END_IF;
 
 // 4. Run enable: any stop condition clears it; only a NEW start edge sets it
 fbStartEdge(CLK := xStartButton);
-IF NOT xSafetyOk OR NOT xAutoMode OR NOT xStopButtonOk OR xCncFault OR xA8010 OR xA8040 THEN
+IF NOT xSafetyOk OR NOT xAutoMode OR NOT xStopButtonOk OR xCncFault OR xA8030 OR xA8040 THEN
     xRunEnable := FALSE;
 ELSIF fbStartEdge.Q THEN
     xRunEnable := TRUE;
@@ -1910,13 +1912,13 @@ END_IF;
 // 5. Step timeout (restarts at every step change)
 CASE iStep OF
     10: tTimeout := T#5S;     // CNC must answer InCycle within 5 s (agree with CNC supplier)
-    40: tTimeout := T#30S;    // part must be removed within 30 s after unclamp
+    40: tTimeout := T#120S;   // part must be removed within 120 s after unclamp
 ELSE
     tTimeout := T#0S;         // no timeout (waiting for part / cycle / free buffer is normal)
 END_CASE;
 fbStepTimer(IN := (iStep = iLastStep) AND (tTimeout > T#0S), PT := tTimeout);
 IF fbStepTimer.Q THEN         // latched; cleared by reset in the fault step (not shown)
-    IF iStep = 10 THEN xA8010 := TRUE; END_IF;
+    IF iStep = 10 THEN xA8030 := TRUE; END_IF;
     IF iStep = 40 THEN xA8040 := TRUE; END_IF;
 END_IF;
 iLastStep := iStep;
@@ -1955,7 +1957,7 @@ CASE iStep OF
 END_CASE;
 
 // 7. Stack light (IEC 60204-1 colours)
-xLampRedCmd    := NOT xSafetyOk OR xCncFault OR xA8010 OR xA8040 OR xA5103;
+xLampRedCmd    := NOT xSafetyOk OR xCncFault OR xA8030 OR xA8040 OR xA5103;
 xLampGreenCmd  := xRunEnable AND NOT xLampRedCmd;
 xLampYellowCmd := NOT xRunEnable AND NOT xLampRedCmd;
 END_FUNCTION_BLOCK
@@ -2029,7 +2031,7 @@ E-stop.
 
 1. Every row of table 11.12: force / actuate → correct bit, correct terminal, correct SCADA tag.
 2. Inject 4 / 12 / 20 mA on %IW80 → 0 / 75 / 150 °C in PLC and SCADA; open the wire → HMC01_A5103.
-3. Step chain: run 10 cycles; remove InCycle answer → HMC01_A8010 after 5 s.
+3. Step chain: run 10 cycles; remove InCycle answer → HMC01_A8030 after 5 s.
 4. E-stop: press in each step → stop; release → still stopped; press Start → refused; Reset → reset lamp off;
    Start → runs. Same from SCADA: start during E-stop refused.
 5. SF2 / SF3 validation (14.6), stopping time measured for the light curtain distance (10.10).
@@ -2044,7 +2046,7 @@ from your design, suppliers or site:
 
 | Data | From whom | Needed for |
 |---|---|---|
-| Address range for bus devices (CNC telegram, IO-Link, meters) and the -XD2 terminal ranges – proposals in 12.3/12.4, not yet in doc 15; confirmation of the "verify" letter codes (MB, PF, TB …) in your E-CAD library | numbering owner (doc 15), electrical design | chapter 12 |
+| Address range for bus devices (CNC telegram, IO-Link, meters) and the -XD2 terminal ranges – decided in doc 15 §3.11/§3.12 (D-06), only confirm; confirmation of the "verify" letter codes (MB, PF, TB …) in your E-CAD library | numbering owner (doc 15), electrical design | chapter 12 |
 | F-address table per station inside `%I200`–`%I299` | electrical design (after hardware configuration) | 12.4 |
 | Real machine list and which machines have own controllers (CNC, robot, washer, test bench) | layout / purchasing | PLC split (5.1) |
 | Real PLC family and CPU types; licence for OPC UA | your decision / vendor | 11.6 |
@@ -2587,7 +2589,7 @@ The drawing `img/05_grafcet_cell.svg` is in section 3.6.
 | 90 | fault step: lamp red, stop movements, alarm with step number | Reset (rising edge) → recovery → 0 | – | – |
 
 The step numbers here are the **sequence design** of the real station; the shorter example `FB_Station` in 14.5 uses
-steps 0–40 and the alarms A8010/A8040 – use one numbering in your project.
+steps 0–40, but its timeout alarms carry the numbers of this sequence (A8030 InCycle, A8040 unload – doc 15 §3.10, D-08).
 
 Cycle time (numbers from `config/factory.json`: cycle 345 s, load/unload 120 s; APC page 8.8 s):
 
@@ -3305,7 +3307,7 @@ in real time or make the PLC timers scalable (e.g. a test factor) only in the te
 | T-HMC01-001 | I/O check DI | cabinet powered | actuate -BG1 | %I20.1 = 1, HMI tag PartPresent = 1 | correct bit + terminal -XD2:2 |
 | T-HMC01-010 | analog scaling | loop calibrator on -XD2:41/42 | inject 4 / 12 / 20 mA | 0.0 / 75.0 / 150.0 °C in PLC and SCADA | ±0.2 °C |
 | T-HMC01-011 | wire break | as 010 | open the loop | HMC01_A5103 within 1 s, value quality Bad | alarm text + priority |
-| T-HMC01-020 | step timeout | AUTO, part present | block the InCycle answer | HMC01_A8030 (or A8010 in 14.5) after 5 s, lamp red | 5 s ± 0.2 s |
+| T-HMC01-020 | step timeout | AUTO, part present | block the InCycle answer | HMC01_A8030 after 5 s, lamp red | 5 s ± 0.2 s |
 | T-HMC01-030 | interlock | spindle turning | command Unclamp | refused, message shown | no output |
 | T-HMC01-040 | first-out | all OK | close air supply | first-out shows "air" | correct first bit |
 | T-HMC01-050 | PackML | Idle | Start, then remove pallet supply | Execute → Suspending → Suspended; return supply → Execute | states on SCADA |

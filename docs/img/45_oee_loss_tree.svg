@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs>
+<marker id="arrK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker>
+<marker id="arrKs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#000"/></marker>
+<marker id="arrAs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="1.4"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">OEE loss tree (ISO 22400-2) – one thread grinder, one shift, example numbers</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<text x="40" y="126" font-size="13" text-anchor="start" font-weight="700" fill="#000">Planned operation time POT</text>
+<rect x="330" y="100" width="768.0" height="40" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="338" y="126" font-size="13" text-anchor="start" font-weight="700" fill="#000">480 min</text>
+<text x="336" y="158" font-size="12" text-anchor="start" fill="#000">8 h shift</text>
+<text x="40" y="206" font-size="13" text-anchor="start" font-weight="700" fill="#000">Planned busy time PBT</text>
+<rect x="330" y="180" width="720.0" height="40" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="338" y="206" font-size="13" text-anchor="start" font-weight="700" fill="#000">450 min</text>
+<rect x="1050.0" y="180" width="48.0" height="40" fill="url(#hatch)" stroke="#000" stroke-width="1"/>
+<text x="336" y="238" font-size="12" text-anchor="start" fill="#000">− 30 min planned (break) = PDOT</text>
+<text x="40" y="286" font-size="13" text-anchor="start" font-weight="700" fill="#000">Actual production time APT</text>
+<rect x="330" y="260" width="648.0" height="40" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="338" y="286" font-size="13" text-anchor="start" font-weight="700" fill="#000">405 min</text>
+<rect x="978.0" y="260" width="72.0" height="40" fill="url(#hatch)" stroke="#000" stroke-width="1"/>
+<text x="336" y="318" font-size="12" text-anchor="start" fill="#000">− 30 breakdown − 15 set-up  → A = 405 / 450 = 0.900</text>
+<text x="40" y="366" font-size="13" text-anchor="start" font-weight="700" fill="#000">Net production time PRI × PQ</text>
+<rect x="330" y="340" width="576.0" height="40" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="338" y="366" font-size="13" text-anchor="start" font-weight="700" fill="#000">360 min</text>
+<rect x="906.0" y="340" width="72.0" height="40" fill="url(#hatch)" stroke="#000" stroke-width="1"/>
+<text x="336" y="398" font-size="12" text-anchor="start" fill="#000">− 45 speed loss (9 × 40 = 360)  → E = 360 / 405 = 0.889</text>
+<text x="40" y="446" font-size="13" text-anchor="start" font-weight="700" fill="#000">Fully productive time PRI × GQ</text>
+<rect x="330" y="420" width="512.0" height="40" fill="#1f6fd1" stroke="#000" stroke-width="1.4"/>
+<text x="338" y="446" font-size="13" text-anchor="start" font-weight="700" fill="#fff">320 min</text>
+<rect x="842.0" y="420" width="64.0" height="40" fill="url(#hatch)" stroke="#000" stroke-width="1"/>
+<text x="336" y="478" font-size="12" text-anchor="start" fill="#000">− 40 quality loss (1 scrap × 40)  → Q = 8 / 9 = 0.889</text>
+<rect x="40" y="520" width="1120" height="120" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="48" y="559.05" font-size="13" text-anchor="start" font-weight="700" fill="#1f6fd1">OEE = A × E × Q = 0.900 × 0.889 × 0.889 = 0.711   (= 320 / 450)</text>
+<text x="48" y="576.05" font-size="13" text-anchor="start" fill="#000">A availability = APT / PBT · E effectiveness (performance) = PRI × PQ / APT · Q quality ratio = GQ / PQ</text>
+<text x="48" y="593.05" font-size="13" text-anchor="start" fill="#000">PRI = planned run time per item (40 min) · PQ produced quantity (9) · GQ good quantity (8)</text>
+<text x="48" y="610.05" font-size="13" text-anchor="start" fill="#000">Line / plant OEE = Σ (OEE_i × PBT_i) / Σ PBT_i   e.g. (0.711 × 450 + 0.800 × 900) / 1 350 = 0.770</text>
+<text x="40" y="680" font-size="12" text-anchor="start" fill="#000">MES rule (this plant): PBT = run + set-up + down + blocked + starved (all time the machine should produce). 'No order' and breaks = not planned.</text>
+<text x="40" y="699" font-size="12" text-anchor="start" fill="#000">Hatched = loss. Downtime reason codes tell WHY (Pareto). Set-up counts as availability loss – reduce it with families (SMED).</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your MES team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 6 MES · guide 45 · 45_oee_loss_tree.svg</text>
+</svg>

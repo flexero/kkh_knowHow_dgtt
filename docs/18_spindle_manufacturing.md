@@ -1,7 +1,8 @@
 # 18 – Spindle Manufacturing: Motor-Spindle Shaft, Housing, Spacers, Drawbar – Process Twin and Real Manufacturing
 
 > **All numbers in this guide are example values from the twin.** They are typical for an HMC motor spindle
-> HSK-A63, 12 000 rpm, 15 kW, hybrid angular-contact bearings 4 × 7014 front / 2 × 7012 rear, built-in
+> HSK-A63, 10 000 rpm, 18 kW S1 (115 N·m S1 up to the base speed 1 500 rpm; S6-40 %: 22 kW / 140 N·m – decided
+> 2026-11-12), hybrid angular-contact bearings 4 × 7014 front / 2 × 7012 rear, built-in
 > synchronous motor, drawbar with disc springs. Before you make a real spindle, replace them with the values
 > from **your drawings**, the **catalogues of your bearing, motor, clamping-set and lock-nut suppliers**, the
 > **offers of your heat treater and machine suppliers**, and **your own trials**. Values marked **"check"** are
@@ -39,7 +40,7 @@ treatment, grinding data), 15 (numbering), 16 (standards register).
 
 **Part B – textbook, technical reference and design guide (added Nov 2026)**
 
-17. Design data check before manufacturing (speed / power conflict, spring chamber, shaft mass, DFM rules)
+17. Design data check before manufacturing (speed / power decision, spring chamber, shaft mass, DFM rules)
 18. Materials and heat treatment (steels, CHD / NHD / SHD, QT + tempering parameter, gas / plasma nitriding with K_N, case hardening, induction, spacers, hardness conversion, decision table, HT order)
 19. Turning, hard turning, boring, threading, deep-hole drilling (Kienzle, power, roughness, cutting data, boring-bar L/D, hard turning vs grinding)
 20. Grinding technology (kinematics, Q′_w, d_e, power, burn estimate, plunge cycle, CBN vs corundum, dressing, internal + taper, thread, coolant)
@@ -57,7 +58,7 @@ treatment, grinding data), 15 (numbering), 16 (standards register).
 
 ## 1. Purpose
 
-The **motor spindle** is the heart of the HMC: it turns the tool at up to 12 000 rpm, holds it with
+The **motor spindle** is the heart of the HMC: it turns the tool at up to 10 000 rpm, holds it with
 18 kN clamping force in an HSK-A63 taper, and must run true to **1–2 µm**. Most of that accuracy is made
 when the **spindle shaft** and the **housing** are manufactured – no assembly trick can repair a bad taper
 or an oval bearing seat.
@@ -259,7 +260,7 @@ for balance grade G:
 
 U_per = 9549 · G · m / n  [g·mm]  with G in mm/s, m in kg, n in rpm.
 
-For G 1, m = 11.0 kg (finished shaft, twin profile with the spring bore), n = 12 000 rpm: **U_per = 8.7 g·mm** → the mass centre may be only **0.8 µm** off the
+For G 1, m = 11.0 kg (finished shaft, twin profile with the spring bore), n = 10 000 rpm: **U_per = 10.5 g·mm** → the mass centre may be only **0.95 µm** off the
 axis. The shaft is balanced alone (Op 130), then again as a full rotor in the assembly.
 
 ### 3.11 Temperature
@@ -275,8 +276,8 @@ measuring are done in a **20 ±1 °C** room, the part **soaks** before measuring
 
 | Input | Value | Input | Value |
 |---|---|---|---|
-| Max. speed | 12 000 rpm | Bar Ø | 130 mm, 31CrMoV9 +QT |
-| Motor power S1 / torque S6 | 15 kW / 120 N·m | Allowance after rough turning | 2 mm on Ø |
+| Max. speed | 10 000 rpm | Bar Ø | 130 mm, 31CrMoV9 +QT |
+| Motor power / torque S1 (S6-40 %) | 18 kW / 115 N·m (22 kW / 140 N·m) | Allowance after rough turning | 2 mm on Ø |
 | Front bearings | 4 × 7014 (70 × 110 × 20) | Grinding stock after semi-finish | 0.4 mm on Ø |
 | Rear bearings | 2 × 7012 (60 × 95 × 18) | Stock left by pre-grinding | 0.06 mm on Ø |
 | Rotor seat | Ø65 × 160 | Gun drill v_c / f | 80 m/min / 0.03 mm/rev |
@@ -308,7 +309,7 @@ Allowance check: a_R ≥ 2 · (drift + bend) + clean-up = 2 · (0.15 + 0.15) + 1
 
 **Drift → unbalance:** the removed core is not centred, so the shaft has an unbalance
 U ≈ m_core · e / 2 (average offset over the length ≈ half the exit drift for a drift growing along the bore).
-For e = 0.1 mm: U ≈ 1 089 g · 0.05 mm ≈ **54 g·mm** – six times U_per of the shaft (8.7 g·mm). That is why the
+For e = 0.1 mm: U ≈ 1 089 g · 0.05 mm ≈ **54 g·mm** – five times U_per of the shaft (10.5 g·mm). That is why the
 drift limit is tight (example **≤ 0.15 mm**) and why balancing correction capacity is limited on purpose.
 
 ### 4.5 Gas nitriding time
@@ -348,19 +349,19 @@ Furnace cost per shaft = (44 + 12) h · 70 $/h / 12 shafts per charge ≈ **$329
 
 ### 4.8 Balancing (Op 130)
 
-* U_per = 9549 · 1 · 11.0 / 12 000 = **8.7 g·mm**, **4.4 g·mm per plane** (two planes, symmetric approx. – the
+* U_per = 9549 · 1 · 11.0 / 10 000 = **10.5 g·mm**, **5.2 g·mm per plane** (two planes, symmetric approx. – the
   exact split by the mass-centre position is in chapter 23),
-* mass-centre offset e = U / m = 8.7 / 11.0 = **0.8 µm**,
+* mass-centre offset e = U / m = 10.5 / 11.0 = **0.95 µm**,
 * correction capacity = m_max · r = 3 g · 34 mm = **102 g·mm per plane** (M6 balancing screws in body 1 Ø68, r = 34 mm),
-* full rotor (shaft + rotor + nuts, 16 kg, spindle.js): U_per = 12.7 g·mm, 6.4 g·mm per plane.
+* full rotor (shaft + rotor + nuts, 16 kg, spindle.js): U_per = 9549 · 1 · 16 / 10 000 = 15.3 g·mm, 7.6 g·mm per plane.
 
 ### 4.9 Design checks (from spindle.js – for information)
 
 | Check | Formula | Result |
 |---|---|---|
-| Torque at n_max | T = P / ω = 15 000 / 1 257 | 11.9 N·m |
-| Base speed | n_b = P / T_max · 60 / 2π | 1 194 rpm |
-| Speed factor front | n · d_m = 12 000 · 90 | 1.08·10⁶ mm/min (≤ ≈ 1.2–1.4·10⁶ hybrid + grease – check catalogue) |
+| Torque at n_max | T = P / ω = 18 000 / 1 047 | 17.2 N·m (S1) |
+| Base speed | n_b = P / T_S1 · 60 / 2π = 18 000 / 115 · 60 / 2π | 1 495 ≈ 1 500 rpm |
+| Speed factor front | n · d_m = 10 000 · 90 | 0.90·10⁶ mm/min (≤ ≈ 1.2–1.4·10⁶ hybrid + grease – check catalogue) |
 | Drawbar force | F_clamp / i = 18 / 3 | 6 kN → spring pack 6.9 kN (+15 %) |
 | Unclamp piston | F = F_spring × 1.88 (pack force at full 6 mm stroke) × 1.1 = 14.3 kN; A = F / p at 6 MPa = 2 378 mm² | Ø55 mm (solid) |
 | Rotor shrink heating | ΔT = (δ + 0.0015·d)/(α·d) = (0.06 + 0.0975)/(11.5·10⁻⁶ × 65) = 211 K | ≈ 231 °C (check magnet limit) |
@@ -545,7 +546,7 @@ If the threads were nitrided (not masked): **thread grinding** instead of turnin
 1. Shaft on the **roller supports** at the bearing seats, belt drive, **1 200 rpm**.
 2. Measure in 2 planes (body 1, body 2): amount + angle.
 3. Correct with **M6 balancing screws** (mass + angle from the machine); thread locker.
-4. Verification run: residual **≤ 4.4 g·mm per plane** (G 1).
+4. Verification run: residual **≤ 5.2 g·mm per plane** (G 1).
    Initial unbalance above the correction capacity (102 g·mm) → stop, check the bore drift.
 
 ### 5.15 Op 140 – Final inspection, marking, preservation
@@ -768,9 +769,10 @@ workshop measured as if it were 20 °C is 4 µm "too big" on Ø70 – the whole 
 ### 10.6 Balancing – rigid rotor
 
 Below about half of its first bending critical speed the rotor behaves rigid: an unbalance in any plane can
-be corrected in **two planes**. The unbalance force F = U · ω² (U in kg·m). At 12 000 rpm (ω = 1 257 1/s)
-U = 8.7 g·mm gives F = 8.7·10⁻⁶ · 1 257² ≈ **13.8 N** – small against the bearing preload, so it does
-not shake the spindle. 140 g·mm (drift fault) gives ≈ 220 N.
+be corrected in **two planes**. The unbalance force F = U · ω² (U in kg·m). At 10 000 rpm (ω = 2π · 10 000 / 60 = 1 047 1/s)
+U = 10.5 g·mm gives F = 10.5·10⁻⁶ · 1 047² ≈ **11.5 N** – small against the bearing preload, so it does
+not shake the spindle. 140 g·mm (drift fault) gives ≈ 154 N. (Note: U_per ~ 1/n but F ~ n², so the residual
+force of a G 1 rotor grows only in proportion to n.)
 
 ### 10.7 Roundness and lobes
 
@@ -826,7 +828,7 @@ The 1:10 taper has a half-angle of 2.862°. An angle error of only 0.01° shifts
 | Cover spigot | per housing | h6 / H7 | per ISO 286 table | – |
 
 Rotor seat: with the rotor sleeve bore from the motor maker, the interference must give the torque **and**
-stay tight at 12 000 rpm (centrifugal growth) – use the motor maker's value (spindle.js example 0.06 mm).
+stay tight at 10 000 rpm (centrifugal growth) – use the motor maker's value (spindle.js example 0.06 mm).
 
 ### 11.4 Geometric tolerances (ISO 1101 – example values)
 
@@ -859,12 +861,12 @@ stay tight at 12 000 rpm (centrifugal growth) – use the motor maker's value (s
 
 ### 11.6 Drawing notes (shaft) – checklist
 
-1. General tolerances ISO 2768-mK (unless stated).
+1. General tolerances ISO 2768-mK (unless stated). (Decide ISO 2768-2 vs ISO 22081 in the drawing standard – guide 14 §6.2, guide 15 title block.)
 2. Datum A = front bearing seat, B = rear bearing seat; common axis A-B.
 3. Material, heat treatment, nitriding note (11.2), masks shown with a chain line.
 4. "Grinding burn not allowed – nital etch ISO 14104 on surfaces ⓖ."
 5. "Measure at 20 °C after ≥ 4 h soak."
-6. "Balanced G 1 (ISO 21940-11) at 1 200 rpm, U_per ≤ 4.4 g·mm per plane, correction with M6 screws in
+6. "Balanced G 1 (ISO 21940-11) at 1 200 rpm, U_per ≤ 5.2 g·mm per plane, correction with M6 screws in
    planes 1 and 2 only."
 7. "Mark serial SPS-YYWW-nnnnn (laser) on body 1 – not on functional surfaces."
 8. "Edges of cross holes deburred, bore free of chips; centre chamfers 60° protected."
@@ -890,7 +892,7 @@ stay tight at 12 000 rpm (centrifugal growth) – use the motor maker's value (s
 | 110 | Taper contact | ≥ 80 % | taper gauge + blue | every shaft |
 | 110 | Runout nose / 300 mm | ≤ 2 / ≤ 5 µm | test mandrel + dial 0.5 µm | every shaft |
 | 120 | Thread / squareness | 6g / ≤ 3 µm | ring gauges / gauge nut + dial | every shaft |
-| 130 | Residual unbalance | ≤ 4.4 g·mm per plane | balancing machine | every shaft |
+| 130 | Residual unbalance | ≤ 5.2 g·mm per plane | balancing machine | every shaft |
 | 140 | Full report | all | roundness tester, CMM, UCI | every shaft |
 
 Instrument map: `docs/img/18_measurement_plan.svg`; uncertainty, MSA and decision rules in chapter 24.
@@ -923,25 +925,25 @@ test on your first parts.
 
 ## 12. Identification and numbering
 
-All formats follow guide 15. New codes are marked **(proposal)** – the coordinator adds them to guide 15 §8a
-when accepted. Group code `SPN` (spindle) already exists in guide 15 §3.
+All formats follow guide 15. The codes first proposed here were accepted into guide 15 §8a (decisions D-17,
+D-19, D-24). Group code `SPN` (spindle) already exists in guide 15 §3.
 
 ### 12.1 Drawings and part numbers
 
-| Part | Drawing (proposal) | Serial / lot |
+| Part | Drawing (guide 15 §8a) | Serial / lot |
 |---|---|---|
-| Spindle shaft | `VC-HMC-SPN-0101-A` | serial `SPS-<YYWW>-<nnnnn>` **(proposal)** |
-| Spindle housing (cartridge) | `VC-HMC-SPN-0102-A` | serial `SPH-<YYWW>-<nnnnn>` **(proposal)** |
+| Spindle shaft | `VC-HMC-SPN-0101-A` | serial `SPS-<YYWW>-<nnnnn>` |
+| Spindle housing (cartridge) | `VC-HMC-SPN-0102-A` | serial `SPH-<YYWW>-<nnnnn>` |
 | Cooling sleeve | `VC-HMC-SPN-0103-A` | via housing serial |
-| Bearing spacers inner / outer (front pair) | `VC-HMC-SPN-0104-A` / `-0105-A` | pair mark `SPC-<YYWW>-<nnnnn>` **(proposal)** |
+| Bearing spacers inner / outer (front pair) | `VC-HMC-SPN-0104-A` / `-0105-A` | pair mark `SPC-<YYWW>-<nnnnn>` |
 | Drawbar | `VC-HMC-SPN-0106-A` | lot |
 | Disc-spring pack (bought springs) | BUY part `B-SPR-<5 digits>` | spring lot |
 | Front cover / rear cover / labyrinth ring | `VC-HMC-SPN-0107-A` / `-0108-A` / `-0109-A` | lot |
-| Process plan shaft | `VC-HMC-SPN-PP-0101-A` **(proposal)** | – |
+| Process plan shaft | `VC-HMC-SPN-PP-0101-A` | – |
 
 The block **SPN-01xx** is for the manufactured spindle parts; the assembly guide uses its own block for the
-spindle unit and its documents (coordinate – e.g. spindle unit serial `SPU-<YYWW>-<nnnnn>`, **proposal for
-the assembly guide**).
+spindle unit and its documents (coordinate – e.g. spindle unit serial `SPU-<YYWW>-<nnnnn>`, guide 15 §8a,
+used in the assembly guide).
 
 ### 12.2 Other codes
 
@@ -949,9 +951,9 @@ the assembly guide**).
 |---|---|---|
 | Bar lot | `LOT-BAR130-<YYWW>-<3 digits>` (guide 15 §8a) | `LOT-BAR130-2646-001` |
 | Nitriding / relief charge | `HT-<YYWW>-<4 digits>` (guide 15 §8a) | `HT-2646-0031` |
-| NC programs shaft | `O56<op/10, 2 digits>` **(proposal)** | `O5604` = Op 40 gun drilling, `O5610` = Op 100 OD grind |
-| Gauges (new types) | `GA-RND` roundness tester, `GA-BAL` balancing machine, `GA-TPG` HSK taper gauge, `GA-TMD` test mandrel, `GA-UTW` ultrasonic wall gauge, `GA-GNT` gauge nut + 4 digits **(proposal)** | `GA-TPG-0001` |
-| Equipment IDs | as guide 15 (e.g. `GDM-01` gun-drilling machine, `CGR-01` cylindrical grinder, `IGR-01` internal grinder, `BAL-01` balancing machine – **proposal**) | `CGR-01` |
+| NC programs shaft | `O56<op/10, 2 digits>` (guide 15 §8a) | `O5604` = Op 40 gun drilling, `O5610` = Op 100 OD grind |
+| Gauges (new types) | `GA-RND` roundness tester, `GA-BAL` balancing machine, `GA-TPG` HSK taper gauge, `GA-TMD` test mandrel, `GA-UTW` ultrasonic wall gauge, `GA-GNT` gauge nut + 4 digits (guide 15 §8a) | `GA-TPG-0001` |
+| Equipment IDs | as guide 15 (e.g. `GDM-01` gun-drilling machine, `CGR-01` cylindrical grinder, `IGR-01` internal grinder, `BAL-01` balancing machine – guide 15 §8a) | `CGR-01` |
 | Part record file | `<serial>_part_record.json` | `SPS-2646-00001_part_record.json` |
 
 ---
@@ -1107,16 +1109,34 @@ review of November 2026.
 
 ### 17.1 Spindle speed and power – one value in all documents
 
-| Source | Speed | Power | Used for |
-|---|---|---|---|
-| This guide, `web/spindle.js`, `web/spdmfg.js`, guide 19, guide 20, guide 12 Part 4 (HMC 500) | **12 000 rpm** | **15 kW S1** (≈ 22 kW S6), 120 N·m S6 | design of the spindle and its parts |
-| `web/gcode.js` (machine HMC-01…03), guide 08, `config/factory.json` (`run_power_kw`) | **10 000 rpm** | **18 kW** | G-code simulation, cutting power checks, factory twin |
+Until November 2026 the project had two spindle data sets: 12 000 rpm / 15 kW S1 / 120 N·m S6 (this guide, guides 12,
+19, 20, `web/spindle.js`) and 10 000 rpm / 18 kW (`web/gcode.js`, guide 08, `config/factory.json`).
 
-**Status: open conflict – not changed in the code.** The manufacturing data in this guide (balancing limit U_per,
-n·dm, grinding of the rotor seat, bearing seats) are calculated for **12 000 rpm**. If the project decides for
-10 000 rpm the shaft is not changed, but U_per grows (U_per ~ 1/n: 8.7 × 12 000 / 10 000 = 10.5 g·mm) and the
-balancing becomes easier. If the decision is 18 kW, the motor maker must confirm the rotor seat (length, interference)
-because the torque grows. **Action for the lead:** fix one spindle specification and change the other files to it.
+**Decided 2026-11-12: 10 000 rpm / 18 kW.** One data set for all documents and the twin (example values – the
+spindle maker's datasheet decides):
+
+| Item | Value | How it is found |
+|---|---|---|
+| Max. speed n_max | **10 000 rpm** | ω = 2π · 10 000 / 60 = 1 047.2 1/s |
+| Base speed n_b | **1 500 rpm** | end of the constant-torque range |
+| Power S1 (100 % duty) | **18 kW** from 1 500 to 10 000 rpm | constant power range |
+| Torque S1 | **115 N·m** up to 1 500 rpm | T = P / ω = 18 000 / (2π · 1 500 / 60) = 18 000 / 157.08 = 114.6 N·m |
+| Power / torque S6-40 % | **22 kW / 140 N·m** | 22 000 / 157.08 = 140.1 N·m |
+| Interface, bearings | HSK-A63, 18 kN; front 4 × 7014 C hybrid TBT, rear 2 × 7012 C DB, grease | unchanged |
+
+What changed in this guide (re-calculated with 10 000 rpm):
+
+| Value | Old (12 000 rpm) | New (10 000 rpm) |
+|---|---|---|
+| U_per shaft, G 1, 11.0 kg = 9549 · G · m / n | 8.7 g·mm (4.4 per plane) | **10.5 g·mm (5.2 per plane)** – balancing is easier |
+| U_per full rotor 16 kg | 12.7 g·mm | **15.3 g·mm** |
+| Speed factor front n · d_m | 1.08·10⁶ mm/min | **0.90·10⁶ mm/min** – more margin to the grease limit |
+| Residual force F = U · ω² | 13.8 N | **11.5 N** |
+| Torque at n_max = P / ω | 11.9 N·m | **17.2 N·m** |
+
+The shaft geometry is **not** changed. Because the S1 torque is now 115 N·m (was 120 N·m S6; S6 is now 140 N·m),
+the **motor maker must confirm the rotor seat** (length, interference) for 140 N·m S6 – the shrink fit must hold the
+peak torque with a safety factor (guide 19).
 
 ### 17.2 The disc-spring chamber Ø41 cannot be bored with a normal bar
 
@@ -1141,7 +1161,7 @@ Options (for design to decide – see also 5.19):
 The profile with the spring chamber and the stepped body (Ø68 / Ø65 / Ø63) gives a finished mass of
 **m = Σ π·(r_o² − r_i²)·Δx·ρ = 10.99 kg** (checked with the same 1 mm strip integration as `spdmfg.js`).
 Older text said 13.9 kg. All balancing values in this guide now use **11.0 kg**:
-U_per = 9549 · 1 · 11.0 / 12 000 = **8.7 g·mm** (4.4 g·mm per plane).
+U_per = 9549 · 1 · 11.0 / 10 000 = **10.5 g·mm** (5.2 g·mm per plane).
 
 ### 17.4 Design-for-manufacture rules for spindle parts
 
@@ -1637,7 +1657,7 @@ Lesson: with 3 µm required at the spindle nose, the shaft taper alone must be �
 | W_t / waviness | longer waves | grinding chatter shows here – keep W_t ≤ 1 µm (example) |
 
 Measuring conditions: cut-off λc = 0.8 mm for R_a 0.1–2 µm, λc = 0.25 mm for R_a 0.02–0.1 µm; evaluation
-length 5 × λc; stylus tip 2 µm radius (ISO 3274). **Write λc on the drawing** if it differs from the default.
+length 5 × λc; stylus tip 2 µm radius (ISO 3274 (former; see ISO 25178-601 – check)). **Write λc on the drawing** if it differs from the default.
 
 ### 21.6 Taper tolerances
 
@@ -1713,7 +1733,7 @@ Grooves (helix or rings): turning or milling, groove Ø ±0.05, O-ring grooves p
 
 ### 23.1 Shaft: split of U_per to the two planes by the mass-centre position (ISO 21940-11)
 
-The 50 : 50 split of the twin (4.4 g·mm per plane) is an approximation. ISO 21940-11 allocates U_per to the
+The 50 : 50 split of the twin (5.2 g·mm per plane) is an approximation. ISO 21940-11 allocates U_per to the
 **bearing planes A and B** by the distances of the mass centre:
 
 U_per,A = U_per · L_B / L ;  U_per,B = U_per · L_A / L   (L = bearing distance, L_A / L_B = distance of the mass centre from A / B)
@@ -1723,25 +1743,25 @@ U_per,A = U_per · L_B / L ;  U_per,B = U_per · L_A / L   (L = bearing distance
 | Mass m, mass centre x_S (1 mm strip integration of the twin profile) | **11.0 kg, x_S = 194.5 mm** from the nose |
 | Bearing plane A (front seat centre), B (rear seat centre) | x_A = 72.5, x_B = 399.0 → L = **326.5 mm** |
 | L_A = x_S − x_A, L_B = x_B − x_S | **122.0 mm, 204.5 mm** |
-| U_per = 9549 · 1 · 11.0 / 12 000 | **8.74 g·mm** |
-| U_per,A = 8.74 · 204.5 / 326.5 | **5.5 g·mm** (front, near the heavy nose) |
-| U_per,B = 8.74 · 122.0 / 326.5 | **3.3 g·mm** (rear) |
+| U_per = 9549 · 1 · 10.99 / 10 000 | **10.49 g·mm** |
+| U_per,A = 10.49 · 204.5 / 326.5 | **6.6 g·mm** (front, near the heavy nose) |
+| U_per,B = 10.49 · 122.0 / 326.5 | **3.9 g·mm** (rear) |
 
 The correction planes (body 1 at x ≈ 158, body 2 at x ≈ 358) lie between the bearings; for a rigid rotor the
 limits can be transferred to them (ISO 21940-11 gives the rules – for simple cases use the bearing-plane values).
-**Practical choice:** set the machine to 3.3 g·mm in both planes (safe) or to 5.5 / 3.3 by plane.
+**Practical choice:** set the machine to 3.9 g·mm in both planes (safe) or to 6.6 / 3.9 by plane.
 
 ### 23.2 Can the balancing machine do it?
 
 * **Minimum achievable residual unbalance** e_mar (g·mm/kg, from the maker, tested per ISO 21940-21):
-  U_mar = e_mar · m. With e_mar = 0.2 g·mm/kg: U_mar = 0.2 · 11.0 = **2.2 g·mm** = **25 %** of U_per.
+  U_mar = e_mar · m. With e_mar = 0.2 g·mm/kg: U_mar = 0.2 · 11.0 = **2.2 g·mm** = **21 %** of U_per.
   Rule of thumb: machine + tooling errors ≤ ≈ 10–20 % of U_per (ISO 21940-14 explains the error assessment –
   check) → choose a machine with **e_mar ≤ 0.1 g·mm/kg** (U_mar = 1.1 g·mm) for this shaft.
 * **Unbalance reduction ratio** URR = (U₁ − U₂) / U₁ ≥ 90–95 % per correction run (machine spec).
 * Initial unbalance after gun drilling: ≈ 16 g·mm + drift part (twin); with drift 0.1 mm: 1 089 g · 0.05 mm = 54 g·mm
-  total = 6 × U_per. Correction capacity 3 g × 34 mm = **102 g·mm per plane**.
-* Force of the residual at 12 000 rpm: F = U · ω² = 8.74·10⁻⁶ kg·m · 1 257² = **13.8 N** (small); drift fault
-  152 g·mm → **240 N** per plane.
+  total = 5 × U_per. Correction capacity 3 g × 34 mm = **102 g·mm per plane**.
+* Force of the residual at 10 000 rpm: F = U · ω² = 10.49·10⁻⁶ kg·m · 1 047² = **11.5 N** (small); drift fault
+  152 g·mm → **167 N** per plane.
 
 ### 23.3 Correction methods
 
@@ -1760,7 +1780,7 @@ limits can be transferred to them (ISO 21940-11 gives the rules – for simple c
 * Precision lock nuts are bought **pre-balanced** or with radial set screws (correct the nut face runout – guide 19
   step 7).
 * Drawbar + spring pack: symmetric, balanced in the assembly with the rotor (guide 19 step 12).
-* The **whole rotor** (shaft + rotor + nuts + drawbar, ≈ 16 kg) is balanced again: U_per = 12.7 g·mm (G 1) – guide 19
+* The **whole rotor** (shaft + rotor + nuts + drawbar, ≈ 16 kg) is balanced again: U_per = 15.3 g·mm (G 1, 10 000 rpm) – guide 19
   step 12 and guide 20 (balancing grades, ISO 21940-11 chart).
 
 ---
@@ -1955,7 +1975,7 @@ cost explodes (≈ 12 × $329) unless the shaft travels with other parts or goes
 | 110 | Taper contact | ≥ 80 % | CC | gauge + blue | 100 % | re-grind, check swivel with sine bar |
 | 110 | Taper runout | ≤ 2 µm | CC | test mandrel | 100 % | re-grind on seats |
 | 120 | Nut face runout | ≤ 3 µm | SC | gauge nut | 100 % | re-cut on ground seats |
-| 130 | Residual unbalance | ≤ 4.4 g·mm per plane | SC | balancing machine | 100 % | re-balance; check proving rotor |
+| 130 | Residual unbalance | ≤ 5.2 g·mm per plane | SC | balancing machine | 100 % | re-balance; check proving rotor |
 
 ### 26.2 PFMEA – examples
 
@@ -2168,7 +2188,7 @@ Rough total: **several million €** – justified only for a spindle maker with
 
 | Option | What you do | Suits | Comment |
 |---|---|---|---|
-| **A. Buy complete motor spindles** (recommended for a compressor factory building a few HMCs) | specify (12 000 rpm or 10 000 rpm, 15 / 18 kW, HSK-A63, 18 kN, sensors) and buy from a spindle maker | < 20 spindles / year | makers e.g. GMN, Franz Kessler, Fischer Precise, Step-Tec, IBAG, Siemens Weiss Spindeltechnologie, Setco – **ask for a quote and the datasheet**; use guides 18–20 to judge the offer and to run the incoming test |
+| **A. Buy complete motor spindles** (recommended for a compressor factory building a few HMCs) | specify (10 000 rpm, 18 kW S1 / 115 N·m S1, 22 kW / 140 N·m S6-40 %, HSK-A63, 18 kN, sensors) and buy from a spindle maker | < 20 spindles / year | makers e.g. GMN, Franz Kessler, Fischer Precise, Step-Tec, IBAG, Siemens Weiss Spindeltechnologie, Setco – **ask for a quote and the datasheet**; use guides 18–20 to judge the offer and to run the incoming test |
 | B. Make the parts with bought operations | turning + milling in-house; buy gun drilling, nitriding, precision grinding, balancing; assemble in-house (guide 19) | 20–100 spindles / year | qualification list = 11.8 E-table; the critical know-how stays in-house (assembly, test) |
 | C. Make everything | cell of 28.11 | > 100–200 spindles / year | high investment, long learning curve |
 
@@ -2196,7 +2216,7 @@ and re-grinding of the taper.
 | ISO 1502 | Screw thread gauges | 19.6 |
 | ISO 12181-1 / -2, ISO 12180, ISO 12780 | GPS – roundness, cylindricity, straightness | 24.2 |
 | ISO 21920-1 / -2 / -3 | GPS – surface texture profile (indication, parameters, operators) | 21.5 |
-| ISO 3274 | Stylus instruments for surface measurement | 21.5 |
+| ISO 3274 (former; see ISO 25178-601 – check) | Stylus instruments for surface measurement | 21.5 |
 | ISO 1947 | System of cone tolerances | 21.6 |
 | ISO 7388-1 / DIN 69871 | Steep taper (SK40) tool shanks | 21.6 |
 | ISO 1 | Standard reference temperature 20 °C | 24.7 |

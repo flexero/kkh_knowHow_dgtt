@@ -1,0 +1,55 @@
+/* Ball screw + guide factory – item 7 ERP (bsferp*.js). Light + dark theme via the style.css variables. */
+:root { --bf7-s1: #2a78d6; --bf7-s2: #c46a12; --bf7-s3: #6d5bd0; --bf7-warn: #d0621b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bf7-s1: #4f97ea; --bf7-s2: #e39445; --bf7-s3: #9a8cf0; --bf7-warn: #ef8a45; } }
+:root[data-theme="dark"] { --bf7-s1: #4f97ea; --bf7-s2: #e39445; --bf7-s3: #9a8cf0; --bf7-warn: #ef8a45; }
+.bf7-wrap { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+.bf7-rule { border: 1px solid var(--border); border-left: 5px solid var(--accent); border-radius: 8px; padding: 9px 12px; font-size: 13px; color: var(--text); background: var(--surface); line-height: 1.5; }
+.bf7-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 6px 0; }
+.bf7-lbl { font-size: 12.5px; color: var(--text-2); display: inline-flex; align-items: center; gap: 5px; }
+.bf7-sub { font-size: 12px; color: var(--text-2); }
+.bf7-sub2 { font-size: 12.5px; color: var(--text-2); margin: 4px 0 8px; line-height: 1.5; }
+.bf7-h { margin: 12px 0 6px; font-size: 13.5px; color: var(--text); }
+.bf7-hint { font-size: 12.5px; color: var(--text); line-height: 1.55; margin: 4px 0 8px; }
+.bf7-mut { color: var(--text-2); font-size: 11.5px; }
+.bf7-nok { color: var(--critical, #d03b3b); } .bf7-warn { color: var(--bf7-warn); }
+.bf7-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 900px) { .bf7-two { grid-template-columns: minmax(0, 1fr); } }
+.bf7-img { width: 100%; height: auto; border: 1px solid var(--border); border-radius: 6px; background: #fff; margin-top: 6px; }
+.bf7-half { max-width: 820px; display: block; margin: 10px auto 0; }
+.bf7-tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
+.bf7-tbl th, .bf7-tbl td { border: 1px solid var(--border); padding: 3px 6px; text-align: left; vertical-align: top; color: var(--text); line-height: 1.35; }
+.bf7-tbl th { background: var(--surface-2); font-weight: 600; position: sticky; top: 0; z-index: 1; }
+.bf7-small td, .bf7-small th { font-size: 11.5px; padding: 2px 5px; }
+.bf7-num td { font-variant-numeric: tabular-nums; }
+.bf7-mrp td { text-align: right; font-variant-numeric: tabular-nums; min-width: 54px; } .bf7-mrp tbody th { text-align: left; background: var(--surface); font-weight: 600; position: static; }
+.bf7-mrp .bf7-net td { color: var(--bf7-warn); } .bf7-mrp .bf7-rel td { font-weight: 700; color: var(--text); } .bf7-mrp .bf7-poh td { color: var(--text-2); }
+.bf7-scroll { max-height: 380px; overflow: auto; border: 1px solid var(--border); border-radius: 6px; }
+.bf7-pre { font-family: Consolas, "Courier New", monospace; font-size: 11.5px; white-space: pre-wrap; overflow-wrap: anywhere; max-height: 300px; overflow: auto; margin: 6px 0; padding: 8px;
+  border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text); min-height: 36px; }
+.bf7-ta { width: 100%; box-sizing: border-box; font-family: Consolas, "Courier New", monospace; font-size: 12px; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px; }
+.bf7-badge { display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 12px; border: 1px solid var(--border); color: var(--text-2); background: var(--surface-2); }
+.bf7-badge.on { color: #fff; background: var(--good, #27ae60); border-color: transparent; }
+.bf7-info { font-size: 12.5px; border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; background: var(--surface); color: var(--text); line-height: 1.5; margin-top: 6px; }
+.bf7-info h3 { margin: 4px 0; font-size: 14px; } .bf7-info p { margin: 4px 0 8px; }
+.bf7-ol { margin: 4px 0 6px 18px; padding: 0; } .bf7-ol li { margin: 2px 0; }
+.bf7-x { padding: 1px 8px; font-size: 11.5px; margin: 1px 3px 1px 0; }
+.bf7-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; } .bf7-tab.on { outline: 2px solid var(--accent); }
+.bf7-det { margin-top: 10px; font-size: 12.5px; color: var(--text); } .bf7-det summary { cursor: pointer; font-weight: 600; margin-bottom: 6px; }
+.bf7-log { max-height: 320px; overflow: auto; border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px; background: var(--surface); }
+.bf7-ev { font-size: 11.5px; line-height: 1.45; color: var(--text); border-bottom: 1px dotted var(--border); padding: 3px 0; }
+.bf7-ev pre { white-space: pre-wrap; font-size: 11px; margin: 2px 0; color: var(--text); }
+.bf7-debug { border: 1px dashed var(--border); padding: 8px; font-size: 11px; } .bf7-debug pre { white-space: pre-wrap; margin: 0 0 8px; color: var(--text); }
+.bf7-st { display: inline-block; font-size: 11px; padding: 0 6px; border-radius: 9px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); white-space: nowrap; }
+.bf7-st.confirmed, .bf7-st.released, .bf7-st.sent { border-color: var(--accent); } .bf7-st.running, .bf7-st.in-production { background: var(--accent); color: #fff; border-color: transparent; }
+.bf7-st.delivered, .bf7-st.done, .bf7-st.received, .bf7-st.accept, .bf7-st.paid, .bf7-st.settled { background: var(--good, #27ae60); color: #fff; border-color: transparent; }
+.bf7-st.cancelled, .bf7-st.reject { background: var(--critical, #d03b3b); color: #fff; border-color: transparent; }
+.bf7-kpis { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.bf7-tile { border: 1px solid var(--border); border-radius: 8px; padding: 5px 10px; background: var(--surface); min-width: 130px; }
+.bf7-tile span { display: block; font-size: 11px; color: var(--text-2); } .bf7-tile b { font-size: 16px; color: var(--text); }
+.bf7-lvl { display: inline-block; font-weight: 700; color: var(--text-2); }
+/* charts */
+.bf7-chart { width: 100%; height: auto; display: block; font-family: Arial, Helvetica, sans-serif; }
+.bf7-grid { stroke: var(--text-2); stroke-width: 0.5; opacity: 0.3; } .bf7-base { stroke: var(--text-2); stroke-width: 1; }
+.bf7-ax { font-size: 11px; fill: var(--text-2); } .bf7-ax2 { font-size: 11.5px; fill: var(--text); }
+.bf7-ref { stroke: var(--text-2); stroke-dasharray: 4 3; stroke-width: 1.2; }
+.bf7-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--text); margin: 2px 0 6px 58px; } .bf7-legend span { display: inline-flex; align-items: center; gap: 5px; }

@@ -36,7 +36,8 @@
     ["Lift (hydraulic cylinder)", [
       ["s", "Lift stroke", "mm", 60, "pallet must clear cones + pull studs"],
       ["tlift", "Lift time (= lower time)", "s", 0.8, ""],
-      ["p", "Hydraulic system pressure", "MPa", 6, "HMC typical 3.5–7 MPa"],
+      ["p", "Hydraulic system pressure (lowest working pressure)", "MPa", 10, "decided 2026-11-12: 10 MPa accumulator system (charged 10.8–11.5 MPa), guide 09 §27"],
+      ["mcar", "Carriage + rotor (lifted too, not in the bore rule)", "kg", 280, "carriage plate, bearing, hub, ring gear, gearbox + servo, rod – guide 09 §20.2"],
       ["etah", "Pump efficiency", "", 0.85, ""]]],
     ["Clamping in the machine (zero-point modules)", [
       ["nmod", "Zero-point modules per pallet", "", 4, ""],
@@ -63,8 +64,13 @@
       ["tman", "Change time without APC (load inside the machine)", "s", 120, "operator loads in the machine"]]],
   ];
   const DEF = {}; GROUPS.forEach(([, fs]) => fs.forEach(([k, , , d]) => { DEF[k] = d; }));
+  DEF._v = 2;                                // version of the saved state (2 = 10 MPa design)
   let P = { ...DEF };
-  try { Object.assign(P, JSON.parse(localStorage.getItem("apcState") || "{}")); } catch (e) { /* private window */ }
+  try {
+    const st = JSON.parse(localStorage.getItem("apcState") || "{}");
+    if (!(st._v >= 2)) delete st.p;          // old saved default 6 MPa → new 10 MPa design (decided 2026-11-12)
+    Object.assign(P, st, { _v: 2 });
+  } catch (e) { /* private window */ }
   let twinChange = null, R = null, T = 0, playing = false, last = 0;
 
   // example servo classes (generic AC servo motors; real values from the supplier catalogue)
@@ -103,6 +109,11 @@
     const D = BORES.find((x) => x >= Dmin) || null;
     const A = D ? Math.PI * D * D / 4 : NaN, Fact = P.p * A, v = P.s / P.tlift;
     const Q = A * v * 60 / 1e6, Pp = P.p * Q / (60 * P.etah);
+    // real lifted mass (carriage + rotor added) at the lowest working pressure: cylinder η 0.95 + line/valve losses
+    // (laminar line ∝ Q, 2 valves ∝ Q², meter-out throttle ≈ 0.3 MPa – same model as guide 09 §20.2 / guide 25 §14.2)
+    const mreal = mlift + (P.mcar || 0), Freal = mreal * G * (1 + al_l / G) * 1.1;
+    const dpLoss = 0.146 * Q / 8.836 + 2 * 0.076 * (Q / 14.03) ** 2 + 0.3;
+    const pNeedReal = D ? Freal / (A * 0.95) + dpLoss : NaN, resReal = D ? (P.p - dpLoss) * A * 0.95 / Freal - 1 : NaN;
     // 4 clamping
     const FN = P.nmod * P.fmod * 1000 + mpl * G;
     const Flat = Math.max(P.fc, P.mw * P.arap);
@@ -125,7 +136,7 @@
     // 8 geometry: swing circle and the gap between the two pallets (the partition wall must fit in it)
     const diag = Math.hypot(P.a, P.b), swing = 2 * P.r + diag, gap = 2 * P.r - P.a;
 
-    Object.assign(R, { mpl, J, Jp, Jw, Ja, ta, om, al, Fax, Tacc, Tfr, Tl, Tm, nm, Ppk, Jref, servo, dpos, mlift, al_l, Fl, Freq, Dmin, D, A, Fact, v, Q, Pp,
+    Object.assign(R, { mpl, J, Jp, Jw, Ja, ta, om, al, Fax, Tacc, Tfr, Tl, Tm, nm, Ppk, Jref, servo, dpos, mlift, al_l, Fl, Freq, Dmin, D, A, Fact, v, Q, Pp, mreal, Freal, dpLoss, pNeedReal, resReal,
       FN, Flat, slip, Mt, Mres, tilt, I, Fa, Mb, sig, def, FaB, Mk, steps, tch, cap, Sd, C, L, diag, swing, gap });
     const ok = (good, warn) => (good ? "ok" : warn ? "warn" : "bad");
     R.checks = [
@@ -133,6 +144,7 @@
       ["Inertia ratio load : motor", ok(servo && servo.ratio <= 10, servo && servo.ratio <= 20), servo ? `${f(servo.ratio, 1)} : 1 (aim ≤ 10)` : "–"],
       ["Arm position error from backlash", ok(dpos <= P.cap * 0.5, dpos <= P.cap), `${f(dpos, 2)} mm vs capture ±${P.cap} mm`],
       ["Lift cylinder", ok(!!D && Freq / Fact <= 0.9, !!D), D ? `Ø${D} mm, used ${f(Freq / Fact * 100, 0)} %` : "bigger than Ø200 – raise pressure"],
+      ["Lift – real mass at the lowest pressure", ok(resReal >= 0.25, resReal >= 0), D ? `${f(mreal, 0)} kg: needs ${f(pNeedReal, 2)} MPa at the HPU (${P.p} MPa) → reserve ${f(resReal * 100, 0)} % (aim 25 %; < 25 % = start interlock + low-pressure alarm, guide 09 §20.2)` : "–"],
       ["Clamping: no slipping", ok(slip <= 1, slip <= 1.2), `${f(slip * 100, 0)} % used`],
       ["Clamping: no tilting", ok(tilt <= 1, tilt <= 1.2), `${f(tilt * 100, 0)} % used`],
       ["Module release pressure", ok(P.prel <= P.p * 0.9, P.prel <= P.p), `${P.prel} MPa needed, system ${P.p} MPa`],
@@ -200,8 +212,10 @@
         `Bore               D = √(4F/(π·p)) = √(4·${f(r.Freq, 0)}/(π·${P.p})) = ${f(r.Dmin, 1)} mm → standard <b>Ø${r.D ?? "–"} mm</b>, rod Ø${r.D ? RODS[r.D] : "–"} mm`,
         `Real force         F = p·A = ${P.p} · ${f(r.A, 0)} mm² = ${f(r.Fact / 1000, 1)} kN`,
         `Oil flow           Q = A·v = ${f(r.A, 0)} mm² · ${f(r.v, 0)} mm/s · 60/10⁶ = <b>${f(r.Q, 1)} L/min</b>`,
-        `Pump power         P = p·Q / (60·η) = ${P.p}·${f(r.Q, 1)} / (60·${P.etah}) = <b>${f(r.Pp, 2)} kW</b>`],
-        "The same hydraulic unit releases the zero-point modules and can clamp the fixtures. An accumulator stores oil for the short APC moves, so a smaller pump is enough."),
+        `Pump power         P = p·Q / (60·η) = ${P.p}·${f(r.Q, 1)} / (60·${P.etah}) = <b>${f(r.Pp, 2)} kW</b>  (without accumulator)`,
+        `Real lifted mass   m = ${f(r.mlift, 0)} + ${P.mcar || 0} (carriage + rotor) = ${f(r.mreal, 0)} kg → F = ${f(r.Freal / 1000, 1)} kN`,
+        `Pressure needed    p = F/(A·0.95) + losses = ${f(r.Freal, 0)}/(${f(r.A, 0)}·0.95) + ${f(r.dpLoss, 2)} = <b>${f(r.pNeedReal, 2)} MPa</b> ${r.pNeedReal <= P.p ? "≤" : "> (too low!)"} ${P.p} MPa → reserve ${f(r.resReal * 100, 0)} %`],
+        "The bore rule uses the page mass (2 pallets + arm) with 25 % margin. The real lifted mass also includes the carriage and the rotor: with the example values (Ø50/28 at 10 MPa) the reserve is only ≈ 7 %, so the accumulator must keep ≥ 10 MPa during the lift (start interlock ≥ 10.7 MPa, alarm < 10.0 MPa – guide 09 §20.2, §27). The same hydraulic unit releases the zero-point modules (reduced to 5 MPa) and clamps the B-table. An accumulator stores oil for the short APC moves, so a small pump is enough."),
       blk("4. Clamping the pallet in the machine", [
         `Clamp force        FN = n·F_module + weight = ${P.nmod}·${P.fmod} kN + ${f(r.mpl * G / 1000, 1)} kN = <b>${f(r.FN / 1000, 1)} kN</b>`,
         `Side load          F = max(cutting force, m·a_rapid) = max(${P.fc}, ${P.mw}·${P.arap}) = ${f(r.Flat, 0)} N`,
@@ -255,7 +269,7 @@
       ["Servo motor + drive (STO)", 1, sv ? `${sv.kw} kW class, Tn ${sv.tn} / Tmax ${sv.tmax} N·m, ${sv.nmax} rpm, absolute encoder, brake` : "no fit – change inputs", "drive on PROFINET (PROFIdrive positioning)"],
       ["Planetary gearbox + pinion", 1, `i = ${P.i}, backlash ≤ ${P.backlash} arcmin, torque at the arm ≥ ${f(r.Tl * 1.5, 0)} N·m (×1.5 shock), at the motor ${f(r.Tm, 2)} N·m`, ""],
       ["Lift cylinder (hydraulic) + guide column", 1, `Ø${r.D ?? "–"}/${r.D ? RODS[r.D] : "–"} mm, stroke ${P.s} mm, ${P.p} MPa, with end cushioning`, "guide column takes side forces"],
-      ["Hydraulic power unit", 1, `${P.p} MPa, ${f(r.Q, 1)} L/min (or smaller pump + accumulator), motor ≈ ${f(Math.max(0.75, r.Pp * 1.3), 2)} kW, oil cooler`, "shared with fixture clamping"],
+      ["Hydraulic power unit", 1, `${P.p} MPa minimum: without accumulator ${f(r.Q, 1)} L/min, motor ≈ ${f(Math.max(0.75, r.Pp * 1.3), 2)} kW; recommended: 4 cm³/rev pump + 1.5 kW motor + 4 L accumulator charged 10.8–11.5 MPa, relief 13 MPa (guide 09 §27)`, "shared with zero-point release and B-table clamp"],
       ["Solenoid valves 4/3 or 4/2", 3, "lift up/down, machine clamp/unclamp, seating air (5/2 pneumatic)", "with manual override for service"],
       ["Pressure switches", 2, "unclamped / clamped (hydraulic), 1 air pressure switch for seating check", ""],
       ["Inductive sensors M12", 6, "arm up, arm down, arm 0°, arm 180°, pallet present machine, pallet present station", "IO-Link versions give diagnostics"],

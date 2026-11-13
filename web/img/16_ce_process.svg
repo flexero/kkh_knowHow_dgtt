@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 980" width="1400" height="980" font-family="Arial, Helvetica, sans-serif">
+<title>CE conformity flow under the Machinery Regulation</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="980" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">CE conformity flow – Machinery Directive 2006/42/EC until 19 Jan 2027, Machinery Regulation (EU) 2023/1230 from 20 Jan 2027</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#555" xml:space="preserve">Four cases in this project. The person in the lane header is the "manufacturer" who signs the declaration. Annex numbers refer to Regulation 2023/1230.</text>
+<rect x="30.0" y="72.0" width="400.0" height="50.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.5"/>
+<text x="40.0" y="92.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">A  OWN-BUILT MACHINE</text>
+<text x="40.0" y="112.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">APC, test bench, AGV, run-in rig – you = manufacturer</text>
+<rect x="450.0" y="72.0" width="300.0" height="50.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.5"/>
+<text x="460.0" y="92.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">B  BOUGHT COMPLETE MACHINE</text>
+<text x="460.0" y="112.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">HMC, robot cell, AS/RS – you = user</text>
+<rect x="770.0" y="72.0" width="300.0" height="50.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.5"/>
+<text x="780.0" y="92.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">C  PARTLY COMPLETED MACHINERY</text>
+<text x="780.0" y="112.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">robot arm, linear unit, spindle unit</text>
+<rect x="1090.0" y="72.0" width="280.0" height="50.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.5"/>
+<text x="1100.0" y="92.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">D  ASSEMBLY / SUBST. MODIFICATION</text>
+<text x="1100.0" y="112.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">FMS cell, line; APC added to HMC</text>
+<rect x="40.0" y="140.0" width="380.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="50.0" y="158.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">1  Define machine and limits</text>
+<text x="50.0" y="175.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">intended use, misuse, life phases (ISO 12100 §5.3)</text>
+<line x1="230.0" y1="188.0" x2="230.0" y2="204.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="40.0" y="204.0" width="380.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="50.0" y="222.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">2  Find laws + standards</text>
+<text x="50.0" y="239.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">C-standard first, then A/B; EMC, RoHS, PED/SPVD, RED</text>
+<line x1="230.0" y1="252.0" x2="230.0" y2="268.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="40.0" y="268.0" width="380.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="50.0" y="286.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">3  Risk assessment ISO 12100</text>
+<text x="50.0" y="303.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">hazard list, risk estimation, PLr per safety function</text>
+<line x1="230.0" y1="316.0" x2="230.0" y2="332.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="40.0" y="332.0" width="380.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="50.0" y="350.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">4  Design and verify</text>
+<text x="50.0" y="367.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">ISO 13849-1 PL, ISO 13855 distances, IEC 60204-1</text>
+<line x1="230.0" y1="380.0" x2="230.0" y2="396.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="40.0" y="396.0" width="380.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="50.0" y="414.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">5  Validate and test</text>
+<text x="50.0" y="431.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">ISO 13849-2, PE / insulation tests, stopping times</text>
+<line x1="230.0" y1="444.0" x2="230.0" y2="460.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="40.0" y="460.0" width="380.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="50.0" y="478.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">6  Instructions (ISO 20607)</text>
+<text x="50.0" y="495.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">user language; digital allowed (paper on request)</text>
+<line x1="230.0" y1="508.0" x2="230.0" y2="524.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="40.0" y="524.0" width="380.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="50.0" y="542.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">7  Conformity procedure</text>
+<text x="50.0" y="559.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Annex I? see box right; else Module A (Annex VI)</text>
+<line x1="230.0" y1="572.0" x2="230.0" y2="588.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="40.0" y="588.0" width="380.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="50.0" y="606.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">8  Technical documentation</text>
+<text x="50.0" y="623.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Annex IV Part A; keep 10 years after last unit</text>
+<line x1="230.0" y1="636.0" x2="230.0" y2="652.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="40.0" y="652.0" width="380.0" height="48.0" rx="0" fill="#fff" stroke="#c62828" stroke-width="2.0"/>
+<text x="50.0" y="670.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">9  EU DoC + CE marking</text>
+<text x="50.0" y="687.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Annex V Part A; CE on nameplate; put into service</text>
+<rect x="455.0" y="140.0" width="290.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="465.0" y="158.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">B1  Check CE plate + EU DoC</text>
+<text x="465.0" y="175.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Declaration of Conformity, not DoI</text>
+<line x1="600.0" y1="188.0" x2="600.0" y2="204.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="455.0" y="204.0" width="290.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="465.0" y="222.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">B2  Check DoC content</text>
+<text x="465.0" y="239.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">right law (date!), EMC, standards, signature</text>
+<line x1="600.0" y1="252.0" x2="600.0" y2="268.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="455.0" y="268.0" width="290.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="465.0" y="286.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">B3  Instructions + documents</text>
+<text x="465.0" y="303.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">language, schematics, PL summary, stop times</text>
+<line x1="600.0" y1="316.0" x2="600.0" y2="332.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="455.0" y="332.0" width="290.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="465.0" y="350.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">B4  Interfaces added by you?</text>
+<text x="465.0" y="367.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">AGV transfer, robot loading → lane D</text>
+<line x1="600.0" y1="380.0" x2="600.0" y2="396.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="455.0" y="396.0" width="290.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="465.0" y="414.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">B5  SAT incl. safety tests</text>
+<text x="465.0" y="431.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">every safety function, IEC 60204-1 records</text>
+<line x1="600.0" y1="444.0" x2="600.0" y2="460.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="455.0" y="460.0" width="290.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="465.0" y="478.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">B6  User duties (2009/104/EC)</text>
+<text x="465.0" y="495.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">inspection after installation, training, checks</text>
+<rect x="775.0" y="140.0" width="290.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="785.0" y="158.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">C1  Supplier delivers DoI</text>
+<text x="785.0" y="175.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Declaration of Incorporation – no CE (machinery)</text>
+<line x1="920.0" y1="188.0" x2="920.0" y2="204.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="775.0" y="204.0" width="290.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="785.0" y="222.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">C2  + assembly instructions</text>
+<text x="785.0" y="239.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Annex XI; + relevant docs Annex IV Part B</text>
+<line x1="920.0" y1="252.0" x2="920.0" y2="268.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="775.0" y="268.0" width="290.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="785.0" y="286.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">C3  Integrate into machine</text>
+<text x="785.0" y="303.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">gripper, guards, safety PLC, cell</text>
+<line x1="920.0" y1="316.0" x2="920.0" y2="332.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="775.0" y="332.0" width="290.0" height="48.0" rx="0" fill="#fff" stroke="#c62828" stroke-width="2.0"/>
+<text x="785.0" y="350.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">C4  Continue as lane A</text>
+<text x="785.0" y="367.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">from step 3: you are manufacturer of the result</text>
+<polyline points="775.0,356.0 760.0,356.0 760.0,132.0 440.0,132.0 440.0,292.0" fill="none" stroke="#c62828" stroke-width="1.5"/>
+<line x1="440.0" y1="292.0" x2="422.0" y2="292.0" stroke="#c62828" stroke-width="1.5" marker-end="url(#aa)"/>
+<rect x="1095.0" y="140.0" width="270.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1105.0" y="158.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">D1  Assembly test (all 3 = yes)</text>
+<text x="1105.0" y="175.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">common job · common control · hazard transfer</text>
+<line x1="1230.0" y1="188.0" x2="1230.0" y2="204.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="1095.0" y="204.0" width="270.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1105.0" y="222.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">D2  Or substantial modification?</text>
+<text x="1105.0" y="239.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">new hazard / higher risk, safety control changed</text>
+<line x1="1230.0" y1="252.0" x2="1230.0" y2="268.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="1095.0" y="268.0" width="270.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1105.0" y="286.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">D3  Risk assessment of interfaces</text>
+<text x="1105.0" y="303.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">ISO 11161, common E-stop zones, modes</text>
+<line x1="1230.0" y1="316.0" x2="1230.0" y2="332.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="1095.0" y="332.0" width="270.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1105.0" y="350.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">D4  Verify + validate the whole</text>
+<text x="1105.0" y="367.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">common safety functions, ISO 13849-2</text>
+<line x1="1230.0" y1="380.0" x2="1230.0" y2="396.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="1095.0" y="396.0" width="270.0" height="48.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1105.0" y="414.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">D5  File + EU DoC for assembly</text>
+<text x="1105.0" y="431.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">single machines keep their own CE</text>
+<line x1="1230.0" y1="444.0" x2="1230.0" y2="460.0" stroke="#000" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="1095.0" y="460.0" width="270.0" height="48.0" rx="0" fill="#fff" stroke="#c62828" stroke-width="2.0"/>
+<text x="1105.0" y="478.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">D6  CE plate for the assembly</text>
+<text x="1105.0" y="495.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">e.g. at the cell entrance</text>
+<rect x="455.0" y="540.0" width="910.0" height="150.0" rx="0" fill="#fff" stroke="#c62828" stroke-width="2.0"/>
+<text x="467.0" y="562.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">Step 7 – which conformity procedure? (Regulation 2023/1230, Art. 25 + Annex I)</text>
+<text x="467.0" y="588.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Annex I Part A</text>
+<text x="605.0" y="588.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">e.g. removable transmission devices, vehicle servicing lifts, ML-based safety components</text>
+<text x="1075.0" y="588.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">notified body always: B + C, H or G</text>
+<text x="467.0" y="613.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Annex I Part B</text>
+<text x="605.0" y="613.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">e.g. presses with manual loading, logic units, person-detecting devices</text>
+<text x="1075.0" y="613.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Module A only if harmonised standards fully applied</text>
+<text x="467.0" y="638.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">all other machines</text>
+<text x="605.0" y="638.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">HMC with own APC, test bench, AGV, rotary-table station</text>
+<text x="1075.0" y="638.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Module A – internal production control (Annex VI)</text>
+<text x="467.0" y="663.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">old Directive</text>
+<text x="605.0" y="663.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">machines put into service up to 19 Jan 2027</text>
+<text x="1075.0" y="663.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Annex IV list (23 types) with the same logic</text>
+<rect x="30.0" y="720.0" width="1335.0" height="160.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="42.0" y="742.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Key rules</text>
+<text x="42.0" y="764.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">• Date rule: a machine placed on the market or put into service from 20 Jan 2027 (also own-built for own use) follows Regulation (EU) 2023/1230 – no transition.</text>
+<text x="42.0" y="783.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">• Harmonised standards listed under 2006/42/EC do not automatically give presumption under the Regulation – check the new OJEU / Commission lists.</text>
+<text x="42.0" y="802.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">• Technical documentation: risk assessment, drawings, calculations, test reports, standards list, instructions, DoC; safety software logic on reasoned request.</text>
+<text x="42.0" y="821.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">• Cyber: Annex III 1.1.9 "protection against corruption" – document network access, passwords, IEC 62443 measures for safety-related controls.</text>
+<text x="42.0" y="840.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">• UK (GB): Supply of Machinery (Safety) Regulations 2008 – UKCA, CE currently accepted (check). Northern Ireland follows EU law.</text>
+<text x="42.0" y="859.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">• A Declaration of Incorporation is never enough for a complete machine – ask for an EU Declaration of Conformity.</text>
+<rect x="930.0" y="902.0" width="450.0" height="62.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="930.0" y1="924.0" x2="1380.0" y2="924.0" stroke="#000" stroke-width="1.3"/>
+<line x1="1230.0" y1="924.0" x2="1230.0" y2="964.0" stroke="#000" stroke-width="1.3"/>
+<text x="938.0" y="918.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">EXAMPLE – check the current edition of every standard</text>
+<text x="938.0" y="940.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">CE conformity flow – four cases</text>
+<text x="938.0" y="956.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Guide 16 – standards register · 2026-11-12</text>
+<text x="1238.0" y="940.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VC-QA-DWG-1602</text>
+<text x="1238.0" y="956.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">not legal advice</text>
+</svg>

@@ -703,7 +703,7 @@ perpendicularity). Circular run-out: H 0.1, K 0.2, L 0.5.
 individual tolerance (ISO 286 or a geometric tolerance).
 
 Note: ISO 2768-2 is being replaced by the ISO 22081 approach (general geometrical specification). Many
-workshops still use ISO 2768 – agree with your supplier which one applies.
+workshops still use ISO 2768 – agree with your supplier which one applies. Decide ISO 2768-2 vs ISO 22081 once in the drawing standard (guide 15 title block).
 
 ### 6.3 ISO 13920 – general tolerances for welded constructions
 
@@ -1859,7 +1859,7 @@ General formula: **S = K · T + C**
 | T | total stopping time = response time of the protective device + response time of the safety controller + stopping time of the machine [s] |
 | C | additional distance for intrusion (reaching in before detection) [mm] |
 
-| Device | K and C (ISO 13855:2010) |
+| Device | K and C (ISO 13855:2010 – ISO 13855:2024 is current: check these constants; the example below uses the 2010 values) |
 |---|---|
 | Light curtain, normal (perpendicular) approach, detection capability d ≤ 40 mm | K = 2000 mm/s, C = 8 · (d − 14), but C ≥ 0. If S > 500 mm: calculate again with K = 1600 mm/s; then S ≥ 500 mm. Minimum S = 100 mm |
 | Light curtain / multi-beam, 40 < d ≤ 70 mm, or multi-beam devices (body detection) | K = 1600 mm/s, C = 850 mm. Beam heights: 2 beams 400 / 900 mm; 3 beams 300 / 700 / 1100 mm; 4 beams 300 / 600 / 900 / 1200 mm |
@@ -2642,7 +2642,7 @@ Several bore sizes in the right part match the outer rings of common bearings (3
 ### 20.6 O-rings – ISO 3601 sizes and groove design
 
 **Cross-sections (d₂):** ISO 3601-1 inch-based series (same as AS568): **1.78 · 2.62 · 3.53 · 5.33 · 6.99 mm**;
-common metric series (DIN 3771 / maker standard): 1.0 · 1.5 · 2.0 · 2.5 · 3.0 · 4.0 · 5.0 · 6.0 mm. Inner
+common metric series (ISO 3601-1 / maker standard; DIN 3771 withdrawn – use ISO 3601-1 sizes and ISO 3601-2 grooves): 1.0 · 1.5 · 2.0 · 2.5 · 3.0 · 4.0 · 5.0 · 6.0 mm. Inner
 diameters d₁ in fine steps (ISO 3601-1 table) – order as "d₁ × d₂ material hardness", e.g.
 "O-ring 44.04 × 3.53 NBR 70".
 
@@ -2762,6 +2762,8 @@ Compressed-air mains today are often aluminium or stainless press systems (outer
 40, 50, 63, 80, 110 mm) – take the inner diameter from the maker.
 
 ### 21.3 Hydraulic hoses – EN 853 / EN 856 (maximum working pressure, check the hose print)
+
+(EN 853 / EN 856 are being replaced by EN ISO 1436 / ISO 3862 – check; type codes stay)
 
 | DN (inner Ø) | Dash size | Inch | 1SN (EN 853) [bar] | 2SN (EN 853) [bar] | 4SP (EN 856) [bar] |
 |---|---|---|---|---|---|
@@ -3446,7 +3448,7 @@ Priority list of the standards to buy first: guide 16 §5.
 | GO / NO-GO plug gauges H7 | ISO 1938-1 / DIN 2245 | same makers | € per size | series inspection of holes |
 | Thread plug and ring gauges 6H / 6g | ISO 1502 | Hoffmann, Vargus, Mitutoyo, local makers | € per size | threads M3 – M30 |
 | Roughness comparison specimens (turned, milled, ground) | ISO 21920 style | Rubert & Co, Flexbar | € | shop-floor visual/tactile check |
-| Roughness tester (portable) | ISO 21920 / ISO 3274 | Mitutoyo SJ-210, Mahr MarSurf PS 10, Hommel (Jenoptik) | €€ – €€€ | Ra / Rz check of seats and seal surfaces |
+| Roughness tester (portable) | ISO 21920 / ISO 3274 (former; see ISO 25178-601 – check) | Mitutoyo SJ-210, Mahr MarSurf PS 10, Hommel (Jenoptik) | €€ – €€€ | Ra / Rz check of seats and seal surfaces |
 | Hardness test blocks (calibrated HRC / HV / HBW) | ISO 6506-3 / 6507-3 / 6508-3 | Yamamoto, Wilson, Emco-Test, Qness | € per block | daily check of the hardness tester |
 | Precision square, straight edge, granite surface plate grade 0/00 | DIN 875 / DIN 874 / ISO 8512-2 | Mitutoyo, Mahr, Kolb & Baumann, Eley | €€ | flatness, perpendicularity |
 | Electronic level / precision level 0.02 mm/m | – | Wyler, Mahr, Starrett, RSK | €€ – €€€ | machine installation (guide 26 B1) |

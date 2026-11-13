@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker></defs>
+<rect width="1200" height="830" fill="#fff"/>
+<text x="40.0" y="40.0" font-size="15" text-anchor="start" font-weight="bold" fill="#000">PLC input and output wiring – PNP / NPN sensors, transistor outputs, interposing relay</text>
+<text x="1160.0" y="815.0" font-size="10" text-anchor="end" fill="#666">Example drawing – guide 35 · check every address and value with your PLC configuration</text>
+<text x="40.0" y="80.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Delta AS332T-A input (X0.0)</text>
+<line x1="40.0" y1="110.0" x2="560.0" y2="110.0" stroke="#c62828" stroke-width="2.5"/>
+<text x="40.0" y="104.0" font-size="11" text-anchor="start" fill="#c62828">+24 V DC (L+)</text>
+<line x1="40.0" y1="330.0" x2="560.0" y2="330.0" stroke="#1565c0" stroke-width="2.5"/>
+<text x="40.0" y="348.0" font-size="11" text-anchor="start" fill="#1565c0">0 V (M)</text>
+<rect x="80.0" y="170.0" width="70.0" height="90.0" rx="0" fill="#fafafa" stroke="#000" stroke-width="1.2"/>
+<text x="115.0" y="186.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">PNP sensor</text>
+<text x="115.0" y="202.0" font-size="10" text-anchor="middle" fill="#666">3-wire</text>
+<text x="152.0" y="222.0" font-size="10" text-anchor="start" fill="#000">BN +</text>
+<text x="152.0" y="238.0" font-size="10" text-anchor="start" fill="#000">BK out</text>
+<text x="152.0" y="254.0" font-size="10" text-anchor="start" fill="#000">BU –</text>
+<line x1="150.0" y1="222.0" x2="190.0" y2="222.0" stroke="#000" stroke-width="1.4"/>
+<line x1="190.0" y1="222.0" x2="190.0" y2="110.0" stroke="#c62828" stroke-width="1.4"/>
+<line x1="150.0" y1="238.0" x2="340.0" y2="238.0" stroke="#000" stroke-width="1.4"/>
+<line x1="150.0" y1="254.0" x2="170.0" y2="254.0" stroke="#000" stroke-width="1.4"/>
+<line x1="170.0" y1="254.0" x2="170.0" y2="330.0" stroke="#1565c0" stroke-width="1.4"/>
+<rect x="340.0" y="160.0" width="160.0" height="140.0" rx="4" fill="#f3f6fb" stroke="#1565c0" stroke-width="1.5"/>
+<text x="420.0" y="180.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">AS332T-A</text>
+<circle cx="340.0" cy="238.0" r="4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="348.0" y="242.0" font-size="11" text-anchor="start" fill="#000">X0.0</text>
+<circle cx="340.0" cy="285.0" r="4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="348.0" y="289.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">S/S</text>
+<path d="M440 238 h30 v47 h-30" stroke="#000" stroke-width="1" fill="none" stroke-dasharray="3 2"/>
+<text x="420.0" y="294.0" font-size="10" text-anchor="middle" fill="#666">opto-coupler</text>
+<line x1="340.0" y1="285.0" x2="300.0" y2="285.0" stroke="#000" stroke-width="1.4"/>
+<line x1="300.0" y1="285.0" x2="300.0" y2="330.0" stroke="#1565c0" stroke-width="1.4"/>
+<text x="40.0" y="372.0" font-size="11" text-anchor="start" fill="#000">S/S to 0 V → PNP sensors (Delta: 'source' wiring – check the manual);  S/S to +24 V → NPN sensors</text>
+<text x="40.0" y="392.0" font-size="11" text-anchor="start" fill="#666">Current path: +24 V → sensor → BK → input → opto-coupler → S/S → 0 V.  Signal 1 ≥ 15 V, ≈ 2.5 – 5 mA.</text>
+<text x="620.0" y="80.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Siemens ET 200SP DI 16×24VDC ST (%I0.0)</text>
+<line x1="620.0" y1="110.0" x2="1140.0" y2="110.0" stroke="#c62828" stroke-width="2.5"/>
+<text x="620.0" y="104.0" font-size="11" text-anchor="start" fill="#c62828">+24 V DC (L+)</text>
+<line x1="620.0" y1="330.0" x2="1140.0" y2="330.0" stroke="#1565c0" stroke-width="2.5"/>
+<text x="620.0" y="348.0" font-size="11" text-anchor="start" fill="#1565c0">0 V (M)</text>
+<rect x="660.0" y="170.0" width="70.0" height="90.0" rx="0" fill="#fafafa" stroke="#000" stroke-width="1.2"/>
+<text x="695.0" y="186.0" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">PNP sensor</text>
+<text x="695.0" y="202.0" font-size="10" text-anchor="middle" fill="#666">3-wire</text>
+<text x="732.0" y="222.0" font-size="10" text-anchor="start" fill="#000">BN +</text>
+<text x="732.0" y="238.0" font-size="10" text-anchor="start" fill="#000">BK out</text>
+<text x="732.0" y="254.0" font-size="10" text-anchor="start" fill="#000">BU –</text>
+<line x1="730.0" y1="222.0" x2="770.0" y2="222.0" stroke="#000" stroke-width="1.4"/>
+<line x1="770.0" y1="222.0" x2="770.0" y2="110.0" stroke="#c62828" stroke-width="1.4"/>
+<line x1="730.0" y1="238.0" x2="920.0" y2="238.0" stroke="#000" stroke-width="1.4"/>
+<line x1="730.0" y1="254.0" x2="750.0" y2="254.0" stroke="#000" stroke-width="1.4"/>
+<line x1="750.0" y1="254.0" x2="750.0" y2="330.0" stroke="#1565c0" stroke-width="1.4"/>
+<rect x="920.0" y="160.0" width="160.0" height="140.0" rx="4" fill="#f3f6fb" stroke="#1565c0" stroke-width="1.5"/>
+<text x="1000.0" y="180.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">DI 16x24VDC</text>
+<circle cx="920.0" cy="238.0" r="4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="928.0" y="242.0" font-size="11" text-anchor="start" fill="#000">DI 0 (%I0.0)</text>
+<circle cx="920.0" cy="285.0" r="4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="928.0" y="289.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">M</text>
+<path d="M1020 238 h30 v47 h-30" stroke="#000" stroke-width="1" fill="none" stroke-dasharray="3 2"/>
+<text x="1000.0" y="294.0" font-size="10" text-anchor="middle" fill="#666">opto-coupler</text>
+<line x1="920.0" y1="285.0" x2="880.0" y2="285.0" stroke="#000" stroke-width="1.4"/>
+<line x1="880.0" y1="285.0" x2="880.0" y2="330.0" stroke="#1565c0" stroke-width="1.4"/>
+<text x="620.0" y="372.0" font-size="11" text-anchor="start" fill="#000">sourcing (PNP) sensors only – the input sinks the current to M (IEC 61131-2 type 3)</text>
+<text x="620.0" y="392.0" font-size="11" text-anchor="start" fill="#666">Current path: +24 V → sensor → BK → input → opto-coupler → M → 0 V.  Signal 1 ≥ 15 V, ≈ 2.5 – 5 mA.</text>
+<text x="40.0" y="440.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Outputs – Delta AS332T-A = transistor SINKING (NPN): load between +24 V and Y</text>
+<line x1="40.0" y1="470.0" x2="560.0" y2="470.0" stroke="#c62828" stroke-width="2.5"/>
+<line x1="40.0" y1="690.0" x2="560.0" y2="690.0" stroke="#1565c0" stroke-width="2.5"/>
+<text x="40.0" y="464.0" font-size="11" text-anchor="start" fill="#c62828">+24 V</text>
+<text x="40.0" y="708.0" font-size="11" text-anchor="start" fill="#1565c0">0 V</text>
+<rect x="320.0" y="560.0" width="160.0" height="90.0" rx="4" fill="#f3f6fb" stroke="#1565c0" stroke-width="1.5"/>
+<text x="400.0" y="580.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">AS332T-A</text>
+<circle cx="320.0" cy="600.0" r="4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="328.0" y="604.0" font-size="11" text-anchor="start" fill="#000">Y0.11</text>
+<circle cx="320.0" cy="630.0" r="4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="328.0" y="634.0" font-size="11" text-anchor="start" fill="#000">C0 (0 V)</text>
+<line x1="320.0" y1="630.0" x2="280.0" y2="630.0" stroke="#000" stroke-width="1.4"/>
+<line x1="280.0" y1="630.0" x2="280.0" y2="690.0" stroke="#1565c0" stroke-width="1.4"/>
+<rect x="150.0" y="520.0" width="40.0" height="50.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="170.0" y="550.0" font-size="10" text-anchor="middle" font-weight="bold" fill="#000">K1</text>
+<line x1="170.0" y1="470.0" x2="170.0" y2="520.0" stroke="#c62828" stroke-width="1.4"/>
+<line x1="170.0" y1="570.0" x2="170.0" y2="600.0" stroke="#000" stroke-width="1.4"/>
+<line x1="170.0" y1="600.0" x2="320.0" y2="600.0" stroke="#000" stroke-width="1.4"/>
+<path d="M200 520 L215 520 L215 570 L200 570" stroke="#000" stroke-width="1.2" fill="none"/>
+<path d="M209 552 L215 538 L221 552 Z" stroke="#000" stroke-width="1.2" fill="#000"/>
+<text x="226.0" y="548.0" font-size="10" text-anchor="start" fill="#000">free-wheeling diode</text>
+<text x="40.0" y="740.0" font-size="11" text-anchor="start" fill="#000">interposing relay K1 (24 V DC coil, diode built in) switches the beacon / contactor / 230 V load</text>
+<text x="620.0" y="440.0" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Siemens DQ 16×24VDC/0.5A ST = SOURCING (PNP): load between DQ and M</text>
+<line x1="620.0" y1="470.0" x2="1160.0" y2="470.0" stroke="#c62828" stroke-width="2.5"/>
+<line x1="620.0" y1="690.0" x2="1160.0" y2="690.0" stroke="#1565c0" stroke-width="2.5"/>
+<text x="620.0" y="464.0" font-size="11" text-anchor="start" fill="#c62828">+24 V (L+ of the module)</text>
+<text x="620.0" y="708.0" font-size="11" text-anchor="start" fill="#1565c0">0 V (M)</text>
+<rect x="660.0" y="540.0" width="160.0" height="90.0" rx="4" fill="#f3f6fb" stroke="#1565c0" stroke-width="1.5"/>
+<text x="740.0" y="560.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">DQ 16x24VDC</text>
+<circle cx="820.0" cy="600.0" r="4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="770.0" y="604.0" font-size="11" text-anchor="start" fill="#000">DQ 0</text>
+<line x1="700.0" y1="470.0" x2="700.0" y2="540.0" stroke="#c62828" stroke-width="1.4"/>
+<line x1="820.0" y1="600.0" x2="960.0" y2="600.0" stroke="#000" stroke-width="1.4"/>
+<rect x="940.0" y="600.0" width="40.0" height="50.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="960.0" y="630.0" font-size="10" text-anchor="middle" font-weight="bold" fill="#000">K1</text>
+<line x1="960.0" y1="650.0" x2="960.0" y2="690.0" stroke="#1565c0" stroke-width="1.4"/>
+<path d="M990 600 L1005 600 L1005 650 L990 650" stroke="#000" stroke-width="1.2" fill="none"/>
+<path d="M999 632 L1005 618 L1011 632 Z" stroke="#000" stroke-width="1.2" fill="#000"/>
+<text x="1016.0" y="630.0" font-size="10" text-anchor="start" fill="#000">diode</text>
+<text x="620.0" y="740.0" font-size="11" text-anchor="start" fill="#000">Rules: max 0.5 A per transistor output (check the total per group);</text>
+<text x="620.0" y="757.0" font-size="11" text-anchor="start" fill="#000">inductive loads → diode (DC) or RC / varistor (AC); fuse or ECB per group;</text>
+<text x="620.0" y="774.0" font-size="11" text-anchor="start" fill="#000">NEVER switch an e-stop or a safety function with a standard output.</text>
+</svg>

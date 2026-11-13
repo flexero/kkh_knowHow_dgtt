@@ -1,0 +1,100 @@
+/* AS/RS item 4 styles – WMS / ERP / MES (asrswms.js, asrswms_erp.js). Uses the theme tokens of style.css. */
+#srItem4 .s4-top { padding-top: 10px; padding-bottom: 10px; }
+#srItem4 .s4-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+#srItem4 .s4-live { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12.5px; color: var(--text-2); }
+#srItem4 .s4-live b { color: var(--text); font-weight: 600; }
+#srItem4 .s4-p { font-size: 13.5px; max-width: 980px; margin: 0 0 10px; }
+#srItem4 .s4-f { font-size: 12.5px; color: var(--text-2); margin: 6px 0 10px; max-width: 1000px; }
+#srItem4 h3 small { font-weight: normal; color: var(--muted); }
+#srItem4 .chip.on { border-color: var(--accent); color: var(--accent); font-weight: 600; box-shadow: inset 0 -2px 0 var(--accent); }
+#srItem4 .s4-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 8px 0; font-size: 13px; }
+#srItem4 .s4-bar label { display: inline-flex; align-items: center; gap: 6px; }
+#srItem4 .s4-bar input[type=number] { font: inherit; padding: 4px 6px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text); }
+#srItem4 .s4-grid2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+#srItem4 .s4-land, #srItem4 .s4-rack { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(260px, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 1100px) { #srItem4 .s4-grid2, #srItem4 .s4-land, #srItem4 .s4-rack { grid-template-columns: minmax(0, 1fr); } }
+#srItem4 .s4-svgwrap { min-width: 0; }
+#srItem4 .s4-svgwrap svg { width: 100%; height: auto; display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+#srItem4 .s4-detail { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; background: var(--surface); font-size: 13px; min-width: 0; }
+#srItem4 .s4-detail h3 { margin: 0 0 6px; color: var(--text); font-size: 14px; }
+#srItem4 .s4-detail p { margin: 6px 0; }
+#srItem4 .s4-pre { font: 11.5px/1.45 ui-monospace, Consolas, "Courier New", monospace; background: var(--surface-2); color: var(--text); border-radius: 6px; padding: 8px 10px;
+  white-space: pre-wrap; overflow-wrap: anywhere; max-height: 380px; overflow: auto; margin: 6px 0; }
+#srItem4 .s4-form { max-height: none; font-size: 12px; }
+/* tables */
+#srItem4 table.s4-t { font-size: 12.5px; }
+#srItem4 table.s4-t th, #srItem4 table.s4-t td { white-space: normal; border-bottom: 1px solid var(--border); padding: 4px 6px; text-align: left; vertical-align: top; }
+#srItem4 table.s4-t th { color: var(--text-2); font-weight: 600; background: var(--surface-2); position: sticky; top: 0; }
+#srItem4 table.s4-t .num { text-align: right; white-space: nowrap; }
+#srItem4 table.s4-t tr.s4-sum td { font-weight: 600; background: var(--surface-2); }
+#srItem4 table.s4-t tr.s4-hit td { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+#srItem4 table.s4-kv { font-size: 12.5px; }
+#srItem4 table.s4-kv td { white-space: normal; overflow-wrap: anywhere; padding: 3px 6px; border-bottom: 1px solid var(--border); vertical-align: top; }
+#srItem4 table.s4-kv td:first-child { color: var(--text-2); white-space: nowrap; width: 1%; }
+#srItem4 .s4-tall { max-height: 420px; }
+#srItem4 .s4-dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; border: 1px solid rgba(0,0,0,.15); }
+#srItem4 .s4-dot.res { background: transparent; border: 2px solid var(--accent); }
+#srItem4 .s4-dot.blk { background: repeating-linear-gradient(45deg, var(--critical) 0 2px, transparent 2px 4px); border-color: var(--critical); }
+#srItem4 .s4-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--text-2); margin-top: 6px; }
+/* KPI tiles */
+#srItem4 .s4-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 10px; }
+#srItem4 .s4-kpis .kpi .value { font-size: 21px; }
+#srItem4 .s4-kpis .kpi.s4-alert { box-shadow: inset 4px 0 0 var(--critical); }
+#srItem4 .s4-kpis .kpi.s4-alert .value { color: var(--critical); }
+/* landscape svg */
+#srItem4 .s4-landsvg text, #srItem4 .s4-racksvg text, #srItem4 .s4-sawsvg text { font-family: system-ui, "Segoe UI", sans-serif; fill: var(--text); }
+#srItem4 .s4-sys rect { fill: var(--surface-2); stroke: var(--axis); stroke-width: 1.2; }
+#srItem4 .s4-sys { cursor: pointer; }
+#srItem4 .s4-sys:hover rect, #srItem4 .s4-sys:focus rect { stroke: var(--accent); }
+#srItem4 .s4-sys.on rect { stroke: var(--accent); stroke-width: 2.2; fill: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
+#srItem4 .s4-st { font-size: 14px; font-weight: 700; }
+#srItem4 .s4-ss { font-size: 11px; fill: var(--text-2) !important; }
+#srItem4 .s4-sh { font-size: 11px; font-family: ui-monospace, Consolas, monospace !important; fill: var(--accent) !important; }
+#srItem4 .s4-lv { font-size: 12px; font-weight: 700; fill: var(--muted) !important; }
+#srItem4 .s4-msg { cursor: pointer; }
+#srItem4 .s4-msg line { stroke: var(--text-2); stroke-width: 1.4; }
+#srItem4 .s4-msg rect { fill: var(--surface); stroke: var(--axis); }
+#srItem4 .s4-msg text { font-size: 11px; }
+#srItem4 .s4-msg .s4-mt { font-weight: 700; }
+#srItem4 .s4-msg:hover rect, #srItem4 .s4-msg.on rect { stroke: var(--accent); stroke-width: 2; }
+#srItem4 .s4-msg.on line { stroke: var(--accent); stroke-width: 2.4; }
+#srItem4 .s4-arh { fill: var(--text-2); }
+#srItem4 .s4-phys { stroke: var(--muted); stroke-width: 1.2; stroke-dasharray: 5 4; fill: none; }
+/* rack map */
+#srItem4 .s4-cell { stroke: var(--grid); stroke-width: .6; cursor: pointer; }
+#srItem4 .s4-cell.res { stroke: var(--accent); stroke-width: 2; }
+#srItem4 .s4-cell.blk { stroke: var(--critical); stroke-width: 2.2; stroke-dasharray: 3 2; }
+#srItem4 .s4-cell.mis { stroke: var(--critical); stroke-width: 1.2; stroke-dasharray: 2 2; }
+#srItem4 .s4-sel { fill: none; stroke: var(--text); stroke-width: 2; pointer-events: none; }
+#srItem4 .s4-aisle { fill: var(--surface-2); }
+#srItem4 .s4-crane { fill: var(--serious); }
+#srItem4 .s4-ax { font-size: 11px; fill: var(--text-2) !important; }
+/* flows */
+#srItem4 .s4-flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 6px; margin-bottom: 8px; }
+#srItem4 .s4-step { flex: 1 1 130px; min-width: 120px; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; background: var(--surface); }
+#srItem4 .s4-step.bad { box-shadow: inset 4px 0 0 var(--critical); }
+#srItem4 .s4-sh2 { font-size: 12px; color: var(--text-2); font-weight: 600; }
+#srItem4 .s4-sv { font-size: 20px; font-weight: 600; margin: 2px 0; }
+#srItem4 .s4-step.bad .s4-sv { color: var(--critical); }
+#srItem4 .s4-sn { font-size: 11.5px; color: var(--muted); }
+#srItem4 .s4-arr { align-self: center; color: var(--muted); font-size: 16px; }
+/* saw-tooth */
+#srItem4 .s4-axl { stroke: var(--axis); }
+#srItem4 .s4-rop { stroke: var(--warning); stroke-width: 1.5; stroke-dasharray: 6 4; }
+#srItem4 .s4-ss2 { stroke: var(--critical); stroke-width: 1.2; stroke-dasharray: 3 3; }
+#srItem4 .s4-now { stroke: var(--muted); stroke-dasharray: 2 3; }
+#srItem4 .s4-act { fill: none; stroke: var(--series); stroke-width: 2; }
+#srItem4 .s4-proj { fill: none; stroke: var(--series); stroke-width: 2; stroke-dasharray: 7 5; opacity: .8; }
+/* genealogy tree */
+#srItem4 .s4-tree ul { list-style: none; margin: 0; padding-left: 18px; position: relative; }
+#srItem4 .s4-tree > ul { padding-left: 0; }
+#srItem4 .s4-tree li { position: relative; padding: 3px 0 3px 14px; }
+#srItem4 .s4-tree li::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; border-left: 1px solid var(--axis); }
+#srItem4 .s4-tree li::after { content: ""; position: absolute; left: 0; top: 15px; width: 12px; border-top: 1px solid var(--axis); }
+#srItem4 .s4-tree > ul > li::before, #srItem4 .s4-tree > ul > li::after { display: none; }
+#srItem4 .s4-tn { display: inline-block; border: 1px solid var(--border); border-radius: 6px; padding: 3px 8px; background: var(--surface); font-size: 12.5px; }
+#srItem4 .s4-tn small { color: var(--text-2); }
+#srItem4 .s4-tn.s4-l8 { box-shadow: inset 3px 0 0 var(--accent); }
+#srItem4 .s4-tn.s4-l0 { box-shadow: inset 3px 0 0 var(--serious); }
+#srItem4 table.s4-t td:has(> .s4-dot:first-child) { white-space: nowrap; }
+#srItem4 .s4-detail code, #srItem4 .s4-tree code { overflow-wrap: anywhere; }

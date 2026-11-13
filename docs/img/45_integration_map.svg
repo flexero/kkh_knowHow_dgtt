@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs>
+<marker id="arrK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker>
+<marker id="arrKs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#000"/></marker>
+<marker id="arrAs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="1.4"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">Integration map – the MES talks HTTP; machines only through the Modbus TCP gateway</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<rect x="470" y="290" width="260" height="130" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="600.0" y="332.9" font-size="14" text-anchor="middle" font-weight="700" fill="#1f6fd1">MES server</text>
+<text x="600.0" y="350.9" font-size="14" text-anchor="middle" fill="#000">twin/bsf_mes.py</text>
+<text x="600.0" y="368.9" font-size="14" text-anchor="middle" fill="#000">REST + JSON + SSE</text>
+<text x="600.0" y="386.9" font-size="14" text-anchor="middle" fill="#000">SQLite bsf_mes.sqlite</text>
+<rect x="80" y="90" width="260" height="70" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="210.0" y="121.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">ERP (item 7)</text>
+<text x="210.0" y="137.2" font-size="12" text-anchor="middle" fill="#000">production orders, GR / GI, stock</text>
+<rect x="470" y="90" width="260" height="70" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="600.0" y="121.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">AGV fleet manager</text>
+<text x="600.0" y="137.2" font-size="12" text-anchor="middle" fill="#000">POST /agv/transportorders</text>
+<rect x="860" y="90" width="260" height="70" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="990.0" y="121.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">Label print server</text>
+<text x="990.0" y="137.2" font-size="12" text-anchor="middle" fill="#000">POST /printer/jobs (ZPL inside)</text>
+<rect x="80" y="300" width="260" height="70" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="210.0" y="331.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">QA service (item 5)</text>
+<text x="210.0" y="347.2" font-size="12" text-anchor="middle" fill="#000">POST /qa/results, NCR</text>
+<rect x="860" y="300" width="260" height="70" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="990.0" y="331.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">Terminals + andon (browser)</text>
+<text x="990.0" y="347.2" font-size="12" text-anchor="middle" fill="#000">GET /mes/andon, POST confirmations</text>
+<rect x="80" y="500" width="260" height="70" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="210.0" y="531.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">Twin page (item 3)</text>
+<text x="210.0" y="547.2" font-size="12" text-anchor="middle" fill="#000">POST /mes/twin (demo shop floor)</text>
+<rect x="470" y="520" width="260" height="70" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="600.0" y="551.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">Modbus TCP gateway (item 4)</text>
+<text x="600.0" y="567.2" font-size="12" text-anchor="middle" fill="#000">POST /command, GET /machines, SSE</text>
+<rect x="860" y="500" width="260" height="70" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="990.0" y="531.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">Supervisor / planner (browser)</text>
+<text x="990.0" y="547.2" font-size="12" text-anchor="middle" fill="#000">schedule, dispatch, trace</text>
+<line x1="210" y1="160" x2="600" y2="290" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)" marker-start="url(#arrAs)"/>
+<line x1="600" y1="160" x2="600" y2="290" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)" marker-start="url(#arrAs)"/>
+<line x1="990" y1="160" x2="600" y2="290" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)" marker-start="url(#arrAs)"/>
+<line x1="340" y1="335" x2="470" y2="355" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)" marker-start="url(#arrAs)"/>
+<line x1="860" y1="335" x2="730" y2="355" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)" marker-start="url(#arrAs)"/>
+<line x1="210" y1="500" x2="600" y2="420" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)" marker-start="url(#arrAs)"/>
+<line x1="600" y1="520" x2="600" y2="420" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)" marker-start="url(#arrAs)"/>
+<line x1="990" y1="500" x2="600" y2="420" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)" marker-start="url(#arrAs)"/>
+<text x="610" y="480" font-size="12" text-anchor="start" font-weight="700" fill="#1f6fd1">HTTP</text>
+<rect x="200" y="640" width="800" height="56" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<rect x="214" y="652" width="54" height="32" fill="#fff" stroke="#000"/>
+<rect x="279" y="652" width="54" height="32" fill="#fff" stroke="#000"/>
+<rect x="344" y="652" width="54" height="32" fill="#fff" stroke="#000"/>
+<rect x="409" y="652" width="54" height="32" fill="#fff" stroke="#000"/>
+<rect x="474" y="652" width="54" height="32" fill="#fff" stroke="#000"/>
+<rect x="539" y="652" width="54" height="32" fill="#fff" stroke="#000"/>
+<rect x="604" y="652" width="54" height="32" fill="#fff" stroke="#000"/>
+<rect x="669" y="652" width="54" height="32" fill="#fff" stroke="#000"/>
+<rect x="734" y="652" width="54" height="32" fill="#fff" stroke="#000"/>
+<rect x="799" y="652" width="54" height="32" fill="#fff" stroke="#000"/>
+<rect x="864" y="652" width="54" height="32" fill="#fff" stroke="#000"/>
+<rect x="929" y="652" width="54" height="32" fill="#fff" stroke="#000"/>
+<text x="600" y="715" font-size="12" text-anchor="middle" fill="#000">73 machines / PLCs / test stands – Modbus TCP servers, port 502, machine VLANs</text>
+<line x1="600" y1="590" x2="600" y2="640" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)" marker-start="url(#arrKs)"/>
+<text x="610" y="622" font-size="12" text-anchor="start" font-weight="700" fill="#000">Modbus TCP only (FC03 / FC06 / FC16)</text>
+<text x="40" y="760" font-size="12" text-anchor="start" fill="#000">No MQTT, no OPC UA, no direct MES → machine connection. Safety hard-wired. All HTTP inside the plant network over HTTPS + API keys in the real plant.</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your MES team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 6 MES · guide 45 · 45_integration_map.svg</text>
+</svg>

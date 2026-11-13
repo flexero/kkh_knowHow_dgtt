@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs>
+<marker id="arrK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker>
+<marker id="arrKs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#000"/></marker>
+<marker id="arrAs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="1.4"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">Order download – sequence MES → gateway → machine (toggle-bit handshake)</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<rect x="10" y="70" width="220" height="44" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="120.0" y="96.55" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1">MES (HTTP)</text>
+<line x1="120" y1="114" x2="120" y2="760" stroke="#000" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="290" y="70" width="220" height="44" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="400.0" y="96.55" font-size="13" text-anchor="middle" font-weight="700" fill="#000">Gateway (item 4)</text>
+<line x1="400" y1="114" x2="400" y2="760" stroke="#000" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="650" y="70" width="220" height="44" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="760.0" y="96.55" font-size="13" text-anchor="middle" font-weight="700" fill="#000">Machine PLC (Modbus TCP server)</text>
+<line x1="760" y1="114" x2="760" y2="760" stroke="#000" stroke-width="1" stroke-dasharray="5 4"/>
+<line x1="120" y1="150" x2="400" y2="150" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)"/>
+<text x="130" y="144" font-size="11" text-anchor="start" fill="#1f6fd1">POST /api/bsf/command {id, cmd: order, order: lot, part, qty, msgId}</text>
+<line x1="400" y1="190" x2="760" y2="190" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="410" y="184" font-size="11" text-anchor="start" fill="#000">1  FC03 read 200 – 202  (cmd.code, cmd.seq, cmd.ctl = REQ)</text>
+<line x1="760" y1="230" x2="400" y2="230" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="410" y="224" font-size="11" text-anchor="start" fill="#000">   regs 0, 6, 0</text>
+<line x1="400" y1="270" x2="760" y2="270" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="410" y="264" font-size="11" text-anchor="start" fill="#000">2  FC03 read 8 – 10  (hs.status ACK, ackSeq, result)</text>
+<line x1="760" y1="310" x2="400" y2="310" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="410" y="304" font-size="11" text-anchor="start" fill="#000">   ACK = REQ → machine free (READY bit 4)</text>
+<line x1="400" y1="350" x2="760" y2="350" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="410" y="344" font-size="11" text-anchor="start" fill="#000">3  FC16 write 200 – 225: code 1, seq 7, order, part, recipe, qty</text>
+<line x1="400" y1="390" x2="760" y2="390" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)"/>
+<text x="410" y="384" font-size="11" text-anchor="start" fill="#1f6fd1">4  FC06 write 202 = REQ toggled  (written LAST)</text>
+<rect x="590" y="414" width="340" height="26" rx="4" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="760.0" y="430.85" font-size="11" text-anchor="middle" font-weight="700" fill="#000">PLC: checks data → copies seq to ackSeq → ACK := REQ → BUSY</text>
+<line x1="400" y1="470" x2="760" y2="470" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="410" y="464" font-size="11" text-anchor="start" fill="#000">5  FC03 poll 8 – 11 every 100 ms (max 3 s)</text>
+<line x1="760" y1="510" x2="400" y2="510" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="410" y="504" font-size="11" text-anchor="start" fill="#000">   ACK = REQ, ackSeq = 7, result 0 OK, BUSY</text>
+<line x1="400" y1="550" x2="120" y2="550" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)"/>
+<text x="130" y="544" font-size="11" text-anchor="start" fill="#1f6fd1">200 {ok, result 0, ackSeq 7, steps[...]}  (422 + result 2 / 3 / 4 if rejected)</text>
+<line x1="760" y1="590" x2="400" y2="590" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="410" y="584" font-size="11" text-anchor="start" fill="#000">counters every 1 s: hs.lotDone, std.good, std.scrap</text>
+<line x1="400" y1="630" x2="120" y2="630" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)"/>
+<text x="130" y="624" font-size="11" text-anchor="start" fill="#1f6fd1">MES pull: delta of hs.lotDone → automatic confirmation (key gw/machine/lot/count)</text>
+<line x1="760" y1="670" x2="400" y2="670" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="410" y="664" font-size="11" text-anchor="start" fill="#000">DONE toggle (hs.status bit 2) → op finished</text>
+<line x1="400" y1="710" x2="120" y2="710" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)"/>
+<text x="130" y="704" font-size="11" text-anchor="start" fill="#1f6fd1">lot → next operation, transport request to the AGV fleet (HTTP)</text>
+<text x="950" y="160" font-size="12" text-anchor="start" font-weight="700" fill="#000">Why the toggle?</text>
+<text x="950" y="176" font-size="12" text-anchor="start" fill="#000">REQ ≠ ACK = command open.</text>
+<text x="950" y="192" font-size="12" text-anchor="start" fill="#000">The PLC acts once per edge –</text>
+<text x="950" y="208" font-size="12" text-anchor="start" fill="#000">a repeated HTTP request</text>
+<text x="950" y="224" font-size="12" text-anchor="start" fill="#000">(same msgId) is answered</text>
+<text x="950" y="240" font-size="12" text-anchor="start" fill="#000">from the cache: no 2nd lot.</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your MES team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 6 MES · guide 45 · 45_machine_handshake.svg</text>
+</svg>

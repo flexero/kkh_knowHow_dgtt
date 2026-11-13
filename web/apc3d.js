@@ -21,7 +21,7 @@ const H0 = 1050;                    // receiver top = pallet bottom height above
 /* ------------------------------------------------------------------ geometry (all in mm) */
 function dims(P, R) {
   const a = P.a, b = P.b, r = P.r;
-  const D = R.D || 63, rod = RODS[D] || Math.round(D * 0.56);
+  const D = R.D || 50, rod = RODS[D] || Math.round(D * 0.56);
   const tp = Math.max(50, Math.round(Math.min(a, b) * 0.14));       // pallet thickness
   const yArmTop = H0 - 5, yArmBot = yArmTop - P.secH;
   const yBearTop = yArmBot - 120, yBearBot = yBearTop - 70, yc = yBearBot;  // carriage plate top
@@ -37,10 +37,20 @@ function dims(P, R) {
            iPlan: P.i / (zr / zp), height: yArmTop + wallH, zH: -(swing / 2 + 450) };
 }
 
-function accuSize(P, R) {          // bladder accumulator for one lift stroke (isothermal): V0 = dV / (p0/p1 - p0/p2)
-  const dV = (R.A || 3117) * P.s / 1e6, p1 = P.p, p2 = P.p * 1.25, p0 = 0.9 * p1;
-  const V0 = dV / (p0 / p1 - p0 / p2), std = [0.7, 1.4, 2.5, 4, 6, 10].find((x) => x >= V0) || 10;
-  return { dV, V0, std, p0 };
+function accuSize(P, R) {
+  // bladder accumulator (guide 09 §27, decided 2026-11-12): worst draw without pump help = module release + one lift,
+  // band from the cut-out p2 = 1.15·p down to the lowest working pressure p1 = p (10 → 11.5 MPa), ABSOLUTE pressures,
+  // fast discharge → adiabatic n = 1.4, pre-charge p0 = 0.9·p1 (abs), +25 % margin → next catalogue size.
+  const dVl = (R.A || 1963.5) * P.s / 1e6, dVr = (P.nmod || 4) * 0.0118, dV = dVl + dVr;
+  const p1 = P.p, p2 = Math.round(P.p * 1.15 * 10) / 10, p1a = p1 + 0.1, p2a = p2 + 0.1, p0a = 0.9 * p1a, e = 1 / 1.4;
+  const fac = (p0a / p1a) ** e - (p0a / p2a) ** e, V0 = dV / fac;
+  // start interlock: lowest start pressure so that release + lift (no pump help) still end at p1.
+  // Choose the smallest size ≥ 1.25·V0 whose start pressure lies in the lower half of the band (else the PLC waits
+  // for a full charge before every change and the pump switches very often).
+  const pSt = (V) => p0a * (V / (V * (p0a / p1a) ** e - dV)) ** 1.4 - 0.1;
+  const std = [0.5, 1, 2.5, 4, 5, 10, 20].find((x) => x >= 1.25 * V0 && x * (p0a / p1a) ** e > dV && pSt(x) <= (p1 + p2) / 2) || 20;
+  const pStart = pSt(std);
+  return { dV, dVl, dVr, V0, std, p0: p0a - 0.1, p1, p2, fac, pStart, relief: Math.ceil(p2 * 1.1 * 2) / 2 };
 }
 
 /* ------------------------------------------------------------------ part information (click a part) */
@@ -110,7 +120,7 @@ function partInfo(key, P, R, d) {
     bush: ["Linear ball bushing", "BUY", "flanged linear ball bushing", "Low-friction guiding of the carriage.", "4 pieces, for Ø50 shafts.", "With wipers against dust."],
     cylinder: ["Lift cylinder (hydraulic, double acting)", "BUY", "ISO 6020/6022 cylinder, flange mount",
       "Lifts the carriage with the rotor and both pallets.",
-      `Ø ${d.D} / ${d.rod} mm, stroke ${P.s} mm, ${P.p} MPa → ${f(R.Fact / 1000, 1)} kN (needs ${f(R.Freq / 1000, 1)} kN), end cushioning both sides.`,
+      `Ø ${d.D} / ${d.rod} mm, stroke ${P.s} mm, ${P.p} MPa → ${f(R.Fact / 1000, 1)} kN (needs ${f(R.Freq / 1000, 1)} kN page mass; real ${f((R.Freal || 0) / 1000, 1)} kN, reserve ${f((R.resReal || 0) * 100, 0)} %), ISO 6020-2 16 MPa (e.g. Rexroth CDT3), end cushioning both sides.`,
       "Flange on the base top plate; rod end with a self-aligning coupling to the carriage (no side load on the rod)."],
     base: ["Base frame", "MAKE", "S355 square tube 80×80×5 welded, top plate 30 mm",
       "Carries everything; anchored to the floor next to the machine.", `Footprint ${d.S} × ${d.S} mm, height ${f(d.yt, 0)} mm.`,
@@ -127,21 +137,21 @@ function partInfo(key, P, R, d) {
     tank: ["Hydraulic tank", "BUY (HPU)", "steel tank with level / temperature switch",
       "Stores the oil; part of the hydraulic power unit (HPU).", `≈ ${f(Math.max(30, 4 * R.Q), 0)} L (3–5 × pump flow per minute), HLP 46 oil.`, "Breather filter, level gauge, drain plug, oil cooler if the duty is high."],
     pump: ["Motor + pump", "BUY (HPU)", "internal gear pump + IE3 motor",
-      "Builds the pressure.", `${f(R.Q, 1)} L/min at ${P.p} MPa → ${f(R.Pp, 2)} kW (with the accumulator a smaller pump is enough).`, "Bell housing + flexible coupling; pressure relief valve set to p + 10 %."],
+      "Builds the pressure.", `without accumulator ${f(R.Q, 1)} L/min at ${P.p} MPa → ${f(R.Pp, 2)} kW; with the accumulator a 4 cm³/rev gear pump (5.4 L/min) + 1.5 kW motor is enough (guide 09 §27).`, `Bell housing + flexible coupling; relief valve 0V1 above the cut-out: ≥ 1.1 × ${accu.p2} = ${accu.relief} MPa.`],
     accu: ["Bladder accumulator", "BUY (HPU)", "bladder accumulator with safety block",
       "Gives the oil for the fast lift and keeps pressure on the module release during the change.",
-      `one lift ΔV = A·s = ${f(accu.dV, 3)} L; isothermal V0 = ΔV/(p0/p1 − p0/p2) = ${f(accu.V0, 2)} L → ${accu.std} L, gas pre-charge p0 = ${f(accu.p0, 1)} MPa.`,
+      `release + lift ΔV = ${f(accu.dVr, 3)} + ${f(accu.dVl, 3)} = ${f(accu.dV, 3)} L; band ${accu.p1}–${accu.p2} MPa (abs. +0.1), adiabatic V0 = ΔV/((p0/p1)^0.714 − (p0/p2)^0.714) = ${f(accu.V0, 2)} L, +25 % → ${accu.std} L, pre-charge p0 = ${f(accu.p0, 2)} MPa; start a change only at p ≥ ${f(accu.pStart, 1)} MPa.`,
       "Safety block with relief valve + drain valve (pressure equipment rules)."],
     manifold: ["Valve manifold (NG6 / CETOP 3)", "BUY / MAKE", "steel block with drilled channels",
       "Carries the solenoid valves; all valves in one place = short pipes, easy service.", "3 valve stations + pressure switches + test points.", "Pressure test 1.5 × p, mark every port (P, T, A, B)."],
-    vlift: ["Valve 1V1: 4/3 solenoid valve – lift", "BUY", "NG6, closed centre, 24 V DC",
+    vlift: ["Valve 1V1: 4/3 solenoid valve – lift", "BUY", "NG6, centre P blocked + A, B → T (for the pilot checks), 24 V DC",
       "Up / down / hold the lift cylinder. With pilot-operated check valves (1V2) the arm cannot sink, and meter-out throttles (1V3) set the speed.", `flow ${f(R.Q, 1)} L/min.`, "Manual override for service."],
     vclamp: ["Valve 2V1: 3/2 solenoid valve – module release", "BUY", "NG6 3/2 or 4/2 with plugged port, 24 V DC",
       "Energized: oil to the zero-point modules (open). Not energized: oil to tank, the springs clamp.", `${P.prel} MPa release pressure.`, "Pressure switch 2S1 after the valve confirms 'unclamped'."],
-    vair: ["Valve 3V1: pneumatic 3/2 – seating check", "BUY", "3/2 solenoid valve + FRL unit",
-      "Blows air through the nozzles in the receiver; if the pallet lies flat the air is blocked and pressure switch 3S1 switches.", "0.3–0.6 MPa, gap < 0.02 mm.", "Clean, dry air (filter 5 µm)."],
+    vair: ["Valve 5V1: pneumatic 3/2 – seating check", "BUY", "3/2 solenoid valve + FRL unit",
+      "Blows air through the nozzles in the receiver; if the pallet lies flat the air is blocked and pressure switch 5S1 switches.", "0.3–0.6 MPa, gap < 0.02 mm.", "Clean, dry air (filter 5 µm)."],
     filter: ["Return filter", "BUY (HPU)", "10 µm, with clogging indicator", "Keeps the oil clean (zero-point modules and valves are sensitive).", "", "Change the element when the indicator shows."],
-    gauge: ["Pressure gauge + test point", "BUY", "glycerin gauge 0–10 MPa", "Shows the system pressure.", `${P.p} MPa set pressure.`, ""],
+    gauge: ["Pressure gauge + test point", "BUY", "glycerin gauge 0–16 MPa", "Shows the system pressure.", `${P.p} MPa minimum, cut-out ${accu.p2} MPa (working pressure in the middle of the scale).`, ""],
     pswitch: ["Pressure switch", "BUY", "electronic pressure switch, IO-Link", "Confirms 'unclamped' / 'clamped' to the PLC.", "", "Switch points set in the PLC (IO-Link)."],
     prox: ["Inductive proximity sensor M12", "BUY", "PNP, IO-Link", "Arm up / down, arm 0° / 180°: each sequence step waits for one of these.", "", "Adjustable bracket, switching distance 4 mm."],
     pipe: ["Hydraulic / air pipe", "MAKE", "precision steel tube 12×1.5 (E235+N) or 2SN hose; air: PU tube 8 mm",
@@ -608,7 +618,7 @@ function hydSVG(s, P, R) {
   g += `<path d="M150,440 m-8,0 l8,-8 l8,8" class="sym"/>` + T(150, 424, "check");
   g += `<path d="M190,470 l10,-10 l10,10 l-10,10 z" class="sym"/><line x1="190" y1="470" x2="210" y2="470" class="sym" stroke-dasharray="3 2"/>` + T(200, 500, "filter 10 µm");
   g += `<rect x="236" y="384" width="26" height="40" rx="12" class="sym"/><line x1="236" y1="400" x2="262" y2="400" class="sym"/><line x1="249" y1="424" x2="249" y2="440" class="sym"/>` + T(249, 376, `0Z2 accumulator ${accuSize(P, R).std} L`);
-  g += `<circle cx="290" cy="420" r="10" class="sym"/><line x1="285" y1="425" x2="296" y2="414" class="sym"/><line x1="290" y1="430" x2="290" y2="440" class="sym"/>` + T(290, 404, `${P.p} MPa`);
+  g += `<circle cx="290" cy="420" r="10" class="sym"/><line x1="285" y1="425" x2="296" y2="414" class="sym"/><line x1="290" y1="430" x2="290" y2="440" class="sym"/>` + T(290, 404, `${P.p}–${accuSize(P, R).p2} MPa`);
 
   // ---- branch 1: lift cylinder 1A1 with 4/3 valve 1V1, pilot check 1V2, throttles 1V3
   const x1 = 400, vy = 340;
@@ -659,8 +669,8 @@ function hydSVG(s, P, R) {
   g += `<path d="M${x3 - 10},${yP - 60} l10,-14 l10,14 z" class="sym" fill="none"/>` + T(x3, yP - 36, "air 0.6 MPa") ;
   g += vbox(x3 - 20, 250, 40, k === 6);
   g += ln(`M${x3},${yP - 74} V284`, k === 6 ? "air" : "off", 2) + ln(`M${x3},250 V200`, st.AIR, 2);
-  g += `<rect x="${x3 - 14}" y="174" width="28" height="22" class="sym ${k === 6 ? "act" : ""}"/>` + T(x3, 166, "3S1");
-  g += T(x3, 304, "3V1", "middle");
+  g += `<rect x="${x3 - 14}" y="174" width="28" height="22" class="sym ${k === 6 ? "act" : ""}"/>` + T(x3, 166, "5S1");
+  g += T(x3, 304, "5V1", "middle");
   // legend
   g += `<g transform="translate(20,20)">${[["p", "pressure"], ["hold", "pressure held"], ["t", "to tank"], ["air", "air"], ["off", "no flow"]]
     .map(([c, t], i) => `<line x1="${i * 104}" y1="0" x2="${i * 104 + 24}" y2="0" class="hy ${c}" stroke-width="4"/><text x="${i * 104 + 30}" y="4" class="apc-t">${t}</text>`).join("")}</g>`;

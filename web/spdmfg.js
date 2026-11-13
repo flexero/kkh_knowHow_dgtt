@@ -1,4 +1,4 @@
-/* HMC build tab - item 4: DIGITAL TWIN of the SPINDLE MANUFACTURING (motor spindle HSK-A63, 12 000 rpm).
+/* HMC build tab - item 4: DIGITAL TWIN of the SPINDLE MANUFACTURING (motor spindle HSK-A63, 10 000 rpm / 18 kW).
    The SPINDLE SHAFT runs through 14 animated operations (2D SVG side view in half section + optional 3D view): saw,
    face + centre, rough turn, deep-hole (gun) drilling of the drawbar bore, stress relief, semi-finish turn, C-axis milling,
    pre-grinding, gas nitriding, external cylindrical grinding, internal grinding of the HSK taper, thread finishing,

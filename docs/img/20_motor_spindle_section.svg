@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 880" width="1280" height="880" font-family="Arial, Helvetica, sans-serif">
-<title>Motor spindle section (example HSK-A63, 12 000 rpm)</title>
+<title>Motor spindle section (example HSK-A63, 10 000 rpm)</title>
 <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker><pattern id="hat" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="0.6"/></pattern><pattern id="hat2" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="0.6"/></pattern></defs>
 <rect x="0" y="0" width="1280" height="880" fill="#fff"/>
-<text x="20.0" y="30.0" font-size="15" text-anchor="start" fill="#000" font-weight="bold">Motor spindle – longitudinal section (schematic, example HSK-A63 / 12 000 rpm / 15 kW, front 4 × 7014 C TBT, rear 2 × 7012 C DB)</text>
+<text x="20.0" y="30.0" font-size="15" text-anchor="start" fill="#000" font-weight="bold">Motor spindle – longitudinal section (schematic, example HSK-A63 / 10 000 rpm / 18 kW, front 4 × 7014 C TBT, rear 2 × 7012 C DB)</text>
 <text x="20.0" y="50.0" font-size="12" text-anchor="start" fill="#000">x = 0 at the nose face; scale ≈ 1 : 0.7 of the drawing width; dimensions in mm from web/spindle.js (examples)</text>
 <rect x="167.8" y="535.0" width="688.8" height="21.8" rx="0" fill="url(#hat)" stroke="#000" stroke-width="1.2"/>
 <rect x="167.8" y="223.2" width="688.8" height="21.8" rx="0" fill="url(#hat)" stroke="#000" stroke-width="1.2"/>

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 960" width="1400" height="960" font-family="Arial, Helvetica, sans-serif">
+<title>All number families and how they link</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="960" fill="#ffffff"/>
+<text x="24" y="34" font-size="17" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">All number families and how they link – one compressor serial is the centre of the genealogy</text>
+<text x="24" y="56" font-size="12" text-anchor="start" fill="#555" xml:space="preserve">Arrows = links stored in MES / ERP / PDM records. Formats from guide 15 chapter 3; all values are examples (GS1 prefix 952 = demo only).</text>
+<rect x="40" y="80" width="420" height="150" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="40" y="80" width="420" height="22" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="48" y="96" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">DOCUMENTS (PDM)</text>
+<text x="48" y="119" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-CC-0020-C   drawing, rev C</text>
+<text x="48" y="136" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-ASY-0012-A  general assembly</text>
+<text x="48" y="153" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-QA-CP-0004-A    control plan</text>
+<text x="48" y="170" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">ECN-2546-0007      change notice</text>
+<text x="48" y="187" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-ITS-TAG-0001-A  tag list</text>
+<rect x="490" y="80" width="420" height="150" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="490" y="80" width="420" height="22" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="498" y="96" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">PRODUCT (ERP item master)</text>
+<text x="498" y="119" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC20-300           SKU / sales item</text>
+<text x="498" y="136" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">GTIN 09521234567899  (01) trade item</text>
+<text x="498" y="153" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-ASY-0012    our part no. (240)</text>
+<text x="498" y="170" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">model code VC20    → serial prefix</text>
+<text x="498" y="187" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-ASY-0002    pump unit (level 1)</text>
+<rect x="940" y="80" width="420" height="150" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="940" y="80" width="420" height="22" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="948" y="96" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">ORDERS AND RECORDS (ERP / MES)</text>
+<text x="948" y="119" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">SO-2546-0002   sales order</text>
+<text x="948" y="136" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">WO-2546-0004   work order (20 × VC20)</text>
+<text x="948" y="153" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">PO-2545-0011   purchase order</text>
+<text x="948" y="170" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">SHP-2547-0021  shipment + SSCC (00)</text>
+<text x="948" y="187" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">NCR-2548-0002  non-conformance</text>
+<rect x="500" y="300" width="400" height="180" rx="0" fill="#fff" stroke="#c62828" stroke-width="1.8"/>
+<rect x="500" y="300" width="400" height="22" rx="0" fill="#fbe9e9" stroke="#c62828" stroke-width="1.8"/>
+<text x="508" y="316" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">SERIAL = ONE UNIT (MES genealogy)</text>
+<text x="508" y="339" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve"></text>
+<text x="508" y="356" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve"></text>
+<text x="508" y="373" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">model VC20 · ISO week 2025-W46</text>
+<text x="508" y="390" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">sequence 00123 · Luhn check 7</text>
+<text x="508" y="407" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">marked at LOAD-CC (DataMatrix + text)</text>
+<text x="700" y="358" font-size="26" text-anchor="middle" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC20-2546-00123</text>
+<rect x="40" y="560" width="420" height="190" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="40" y="560" width="420" height="22" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="48" y="576" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">PARTS, LOTS, HEATS</text>
+<text x="48" y="599" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-CC-0020  crankcase, machined</text>
+<text x="48" y="616" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">CC20-CAST       casting (BUY)</text>
+<text x="48" y="633" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">LOT-CC20-2546-003  own lot</text>
+<text x="48" y="650" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">F-88213  supplier batch</text>
+<text x="48" y="667" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">H41137   heat (EN 10204 3.1)</text>
+<text x="48" y="684" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">B-BRG-00042  bought part, R-BAR-00065</text>
+<rect x="490" y="560" width="420" height="190" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="490" y="560" width="420" height="22" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="498" y="576" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">RESOURCES USED ON THE UNIT</text>
+<text x="498" y="599" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">PAL-0007 / FIX-0003  pallet + fixture</text>
+<text x="498" y="616" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">O2102 v1.4.0  NC program</text>
+<text x="498" y="633" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">T1203-02      tool assembly</text>
+<text x="498" y="650" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">GA-PLG-0045   gauge (Ø52 H7)</text>
+<text x="498" y="667" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">ASRS-RAW-A03-L2-S14  location</text>
+<text x="498" y="684" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">TO-2546-0153  transport order</text>
+<rect x="940" y="560" width="420" height="190" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="940" y="560" width="420" height="22" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="948" y="576" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">EQUIPMENT AND AUTOMATION</text>
+<text x="948" y="599" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">HMC-01        equipment ID</text>
+<text x="948" y="616" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">PLC-01  vc-mch-plc01  10.51.0.11</text>
+<text x="948" y="633" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">vc-mch-hmc01-cnc     10.51.0.51</text>
+<text x="948" y="650" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">MCH_L2_HMC01_SpindleTemp  tag</text>
+<text x="948" y="667" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">HMC01_A5101   alarm</text>
+<text x="948" y="684" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">=MCH.L2.HMC01 +CAB01 -QA3  device</text>
+<line x1="700" y1="300" x2="700" y2="232" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<rect x="656.4" y="256" width="87.19999999999999" height="16" rx="0" fill="#fff" stroke="none" stroke-width="1.3"/>
+<text x="700" y="268" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">is a unit of</text>
+<line x1="600" y1="300" x2="330" y2="232" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<rect x="346.9" y="256" width="186.2" height="16" rx="0" fill="#fff" stroke="none" stroke-width="1.3"/>
+<text x="440" y="268" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">built to rev (frozen in WO)</text>
+<line x1="800" y1="300" x2="1080" y2="232" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<rect x="890.0" y="256" width="140.0" height="16" rx="0" fill="#fff" stroke="none" stroke-width="1.3"/>
+<text x="960" y="268" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">ordered / shipped on</text>
+<line x1="600" y1="480" x2="300" y2="558" stroke="#000" stroke-width="1.6" marker-end="url(#aa)"/>
+<rect x="313.4" y="508" width="153.2" height="16" rx="0" fill="#fff" stroke="none" stroke-width="1.3"/>
+<text x="390" y="520" font-size="12" text-anchor="middle" fill="#c62828" xml:space="preserve">made from (lot → heat)</text>
+<line x1="700" y1="480" x2="700" y2="558" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<rect x="649.8" y="508" width="100.39999999999999" height="16" rx="0" fill="#fff" stroke="none" stroke-width="1.3"/>
+<text x="700" y="520" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">processed with</text>
+<line x1="800" y1="480" x2="1100" y2="558" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
+<rect x="966.4" y="508" width="87.19999999999999" height="16" rx="0" fill="#fff" stroke="none" stroke-width="1.3"/>
+<text x="1010" y="520" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">processed on</text>
+<text x="40" y="790" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Trace back in one line (guide 15 §3.18):</text>
+<text x="40" y="812" font-size="13" text-anchor="start" fill="#c62828" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC20-2546-00123 → WO-2546-0004 → LOT-CC20-2546-003 → PO-2545-0011 → batch F-88213 → heat H41137</text>
+<text x="40" y="834" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">Trace forward: heat H41137 → all lots with this heat → all serials → shipments (SSCC) → customers</text>
+<text x="40" y="862" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Rule: one thing = one ID, fixed for life, same text in every system. Equipment ID (HMC-01 = role) ≠ serial of the machine (HMC-2546-00001).</text>
+<rect x="840" y="856" width="540" height="92" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="840" y1="882" x2="1380" y2="882" stroke="#000" stroke-width="1"/>
+<line x1="840" y1="906" x2="1380" y2="906" stroke="#000" stroke-width="1"/>
+<line x1="840" y1="927" x2="1380" y2="927" stroke="#000" stroke-width="1"/>
+<line x1="1180" y1="906" x2="1180" y2="948" stroke="#000" stroke-width="1"/>
+<text x="848" y="874" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">EXAMPLE – check the current standard</text>
+<text x="848" y="899" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Number families and links</text>
+<text x="848" y="921" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Overview of the identification scheme</text>
+<text x="1188" y="921" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Dwg VC-QA-SPEC-0001-A</text>
+<text x="848" y="942" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Guide 15 – numbering and identification · digital twin</text>
+<text x="1188" y="942" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">no scale · 2026-11-12</text>
+</svg>

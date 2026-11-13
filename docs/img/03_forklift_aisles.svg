@@ -49,9 +49,8 @@
 <rect x="595.0" y="367.5" width="55.0" height="40.0" rx="0" fill="#eeeeee" stroke="#000" stroke-width="0.7"/>
 <rect x="460.0" y="248.8" width="70.0" height="62.5" rx="0" fill="#fff" stroke="#c62828" stroke-width="2"/>
 <rect x="530.0" y="260.0" width="60.0" height="40.0" rx="0" fill="#f3c7c7" stroke="#000" stroke-width="1.2"/>
-<text x="495.0" y="284.0" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">reach truck</text>
+<text x="495.0" y="284.0" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">reach</text>
 <text x="560.0" y="284.0" font-size="11" text-anchor="middle" fill="#000">pallet</text>
-<circle cx="472.5" cy="280.0" r="6.0" fill="none" stroke="#000" stroke-width="0.8"/>
 <line x1="455.0" y1="410.0" x2="455.0" y2="442.0" stroke="#000" stroke-width="0.6"/>
 <line x1="595.0" y1="410.0" x2="595.0" y2="442.0" stroke="#000" stroke-width="0.6"/>
 <line x1="455.0" y1="436.0" x2="595.0" y2="436.0" stroke="#000" stroke-width="0.9" marker-end="url(#ak)" marker-start="url(#ak)"/>
@@ -78,7 +77,7 @@
 <text x="808.8" y="250.0" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">turret</text>
 <text x="808.8" y="264.0" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">truck</text>
 <rect x="808.8" y="297.5" width="60.0" height="40.0" rx="0" fill="#f3c7c7" stroke="#000" stroke-width="1.2"/>
-<text x="838.8" y="320.0" font-size="11" text-anchor="middle" fill="#000">pallet</text>
+<text x="845.0" y="350.0" font-size="11" text-anchor="start" fill="#000">pallet</text>
 <line x1="769.0" y1="150.0" x2="769.0" y2="410.0" stroke="#000" stroke-width="2.2"/>
 <line x1="848.5" y1="150.0" x2="848.5" y2="410.0" stroke="#000" stroke-width="2.2"/>
 <text x="808.8" y="402.0" font-size="11" text-anchor="middle" fill="#000">guide rails</text>
@@ -109,7 +108,6 @@
 <text x="1052.5" y="284.0" font-size="11" text-anchor="middle" fill="#c62828" font-weight="bold">stacker</text>
 <text x="1107.5" y="284.0" font-size="11" text-anchor="middle" fill="#000">pallet</text>
 <line x1="1027.5" y1="280.0" x2="1023.5" y2="280.0" stroke="#000" stroke-width="2"/>
-<circle cx="1040.0" cy="280.0" r="6.0" fill="none" stroke="#000" stroke-width="0.8"/>
 <line x1="1022.5" y1="410.0" x2="1022.5" y2="442.0" stroke="#000" stroke-width="0.6"/>
 <line x1="1142.5" y1="410.0" x2="1142.5" y2="442.0" stroke="#000" stroke-width="0.6"/>
 <line x1="1022.5" y1="436.0" x2="1142.5" y2="436.0" stroke="#000" stroke-width="0.9" marker-end="url(#ak)" marker-start="url(#ak)"/>

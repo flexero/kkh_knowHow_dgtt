@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>Hoist – rope reeving 1:1 and toothed-belt option</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+<pattern id="grout" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#fff"/><circle cx="3" cy="3" r="1" fill="#777"/><circle cx="8" cy="7" r="0.8" fill="#777"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="818" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="24.0" y="30.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">Rope reeving (2 ropes, 1:1, no counterweight)</text>
+<line x1="60.0" y1="720.0" x2="560.0" y2="720.0" stroke="#000" stroke-width="1.6"/>
+<rect x="220.0" y="126.0" width="33.0" height="575.5" rx="0" fill="url(#hatchA)" stroke="#000" stroke-width="1.2"/>
+<rect x="120.0" y="701.5" width="360.0" height="10.6" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="170.0" cy="689.6" r="18.2" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="170.0" cy="689.6" r="3.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<text x="170.0" y="729.6" font-size="11" text-anchor="middle" fill="#000">drum Ø250</text>
+<rect x="60.0" y="680.4" width="70.0" height="19.8" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="95.0" y="674.4" font-size="11" text-anchor="middle" fill="#000">11 kW + brake</text>
+<circle cx="216.0" cy="118.1" r="14.8" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="216.0" cy="118.1" r="3.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<circle cx="275.0" cy="118.1" r="14.8" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="275.0" cy="118.1" r="3.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<text x="236.0" y="96.1" font-size="11" text-anchor="middle" fill="#000">top pulleys Ø320</text>
+<line x1="177.8" y1="679.6" x2="201.2" y2="118.1" stroke="#1f6fd1" stroke-width="1.6"/>
+<path d="M201.216,118.08000000000004 A14.783999999999999,14.783999999999999 0 0 1 230.784,118.08000000000004" fill="none" stroke="#1f6fd1" stroke-width="1.6"/>
+<line x1="230.8" y1="118.1" x2="260.2" y2="103.3" stroke="#1f6fd1" stroke-width="1.6"/>
+<path d="M260.216,118.08000000000004 A14.783999999999999,14.783999999999999 0 0 1 289.784,118.08000000000004" fill="none" stroke="#1f6fd1" stroke-width="1.6"/>
+<line x1="289.8" y1="118.1" x2="289.8" y2="353.7" stroke="#1f6fd1" stroke-width="1.6"/>
+<rect x="257.0" y="353.7" width="120.0" height="66.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="317.0" y="386.7" font-size="11" text-anchor="middle" fill="#000">lifting carriage</text>
+<rect x="257.0" y="417.7" width="170.0" height="6.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<line x1="393.0" y1="403.2" x2="393.0" y2="463.2" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#ea)"/>
+<text x="401.0" y="443.2" font-size="11.5" text-anchor="start" fill="#1f6fd1">m (g + a) = 900 × 10.31 = 9 279 N</text>
+<text x="293.0" y="244.8" font-size="11.5" text-anchor="start" fill="#1f6fd1">2 ropes Ø8, 4 640 N each</text>
+<text x="600.0" y="70.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">Rope + drum (example)</text>
+<text x="600.0" y="89.0" font-size="11.5" text-anchor="start" fill="#000">rope force total F = m (g + a) = 900 × (9.81 + 0.5) = 9 279 N</text>
+<text x="600.0" y="108.0" font-size="11.5" text-anchor="start" fill="#000">per rope 4 640 N; MBF ≥ 40 kN each</text>
+<text x="600.0" y="127.0" font-size="11.5" text-anchor="start" fill="#000">safety factor Z_p = 2 × 40 000 / 9 279 = 8.6</text>
+<text x="600.0" y="146.0" font-size="11.5" text-anchor="start" fill="#000">(min. 4.5 for group M5 per ISO 16625 / FEM 1.001 –</text>
+<text x="600.0" y="165.0" font-size="11.5" text-anchor="start" fill="#000"> check EN 528 + the crane maker; many use ≥ 6–8)</text>
+<text x="600.0" y="184.0" font-size="11.5" text-anchor="start" fill="#000">D/d drum = 250 / 8 = 31   ·   D/d pulley = 320 / 8 = 40</text>
+<text x="600.0" y="203.0" font-size="11.5" text-anchor="start" fill="#000">drum speed n = 1.0 / (π × 0.25) × 60 = 76 rpm</text>
+<text x="600.0" y="222.0" font-size="11.5" text-anchor="start" fill="#000">drum torque = 9 279 × 0.125 = 1 160 N·m</text>
+<text x="600.0" y="241.0" font-size="11.5" text-anchor="start" fill="#000">lift 7.7 m → 7.7 / (π × 0.25) + 3 dead turns = 12.8 turns</text>
+<text x="600.0" y="260.0" font-size="11.5" text-anchor="start" fill="#000">groove pitch 9 → 115 mm grooved section per rope</text>
+<text x="600.0" y="279.0" font-size="11.5" text-anchor="start" fill="#000">fleet angle ≈ 58 mm / 8.5 m = 0.4° (limit 1.5–4°)</text>
+<text x="600.0" y="298.0" font-size="11.5" text-anchor="start" fill="#000">hoist power P = 900 × 9.81 × 1.0 / 0.85 = 10.4 kW → 11 kW</text>
+<text x="600.0" y="317.0" font-size="11.5" text-anchor="start" fill="#000">drum shaft Ø80 42CrMo4: σ_v ≈ 34 MPa</text>
+<text x="600.0" y="355.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">Safety devices</text>
+<text x="600.0" y="374.0" font-size="11.5" text-anchor="start" fill="#000">2 ropes (one can hold the load), load pins → overload</text>
+<text x="600.0" y="393.0" font-size="11.5" text-anchor="start" fill="#000">+ slack rope, safety catch on the carriage, brake test</text>
+<text x="600.0" y="412.0" font-size="11.5" text-anchor="start" fill="#000">rope inspection + discard per ISO 4309</text>
+<rect x="600.0" y="470.0" width="560.0" height="260.0" rx="0" fill="none" stroke="#000" stroke-width="1.0" stroke-dasharray="6 3"/>
+<text x="612.0" y="492.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Alternative: steel-cord PU toothed belt</text>
+<circle cx="680.0" cy="600.0" r="34.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="680.0" y="604.0" font-size="11" text-anchor="middle" fill="#000">pinion</text>
+<line x1="714.0" y1="600.0" x2="720.0" y2="600.0" stroke="#000" stroke-width="2"/>
+<line x1="711.4" y1="613.0" x2="717.0" y2="615.3" stroke="#000" stroke-width="2"/>
+<line x1="704.0" y1="624.0" x2="708.3" y2="628.3" stroke="#000" stroke-width="2"/>
+<line x1="693.0" y1="631.4" x2="695.3" y2="637.0" stroke="#000" stroke-width="2"/>
+<line x1="680.0" y1="634.0" x2="680.0" y2="640.0" stroke="#000" stroke-width="2"/>
+<line x1="667.0" y1="631.4" x2="664.7" y2="637.0" stroke="#000" stroke-width="2"/>
+<line x1="656.0" y1="624.0" x2="651.7" y2="628.3" stroke="#000" stroke-width="2"/>
+<line x1="648.6" y1="613.0" x2="643.0" y2="615.3" stroke="#000" stroke-width="2"/>
+<line x1="646.0" y1="600.0" x2="640.0" y2="600.0" stroke="#000" stroke-width="2"/>
+<line x1="648.6" y1="587.0" x2="643.0" y2="584.7" stroke="#000" stroke-width="2"/>
+<line x1="656.0" y1="576.0" x2="651.7" y2="571.7" stroke="#000" stroke-width="2"/>
+<line x1="667.0" y1="568.6" x2="664.7" y2="563.0" stroke="#000" stroke-width="2"/>
+<line x1="680.0" y1="566.0" x2="680.0" y2="560.0" stroke="#000" stroke-width="2"/>
+<line x1="693.0" y1="568.6" x2="695.3" y2="563.0" stroke="#000" stroke-width="2"/>
+<line x1="704.0" y1="576.0" x2="708.3" y2="571.7" stroke="#000" stroke-width="2"/>
+<line x1="711.4" y1="587.0" x2="717.0" y2="584.7" stroke="#000" stroke-width="2"/>
+<rect x="716.0" y="520.0" width="8.0" height="190.0" rx="0" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="732.0" y="530.0" font-size="11" text-anchor="start" fill="#000">belt fixed at both ends (top + carriage),</text>
+<text x="732.0" y="548.0" font-size="11" text-anchor="start" fill="#000">pinion drive on the bottom carriage</text>
+<text x="740.0" y="590.0" font-size="11" text-anchor="start" fill="#000">+ no lubrication, no drum, low stretch, quiet</text>
+<text x="740.0" y="608.0" font-size="11" text-anchor="start" fill="#000">+ no rope discard inspection per ISO 4309</text>
+<text x="740.0" y="626.0" font-size="11" text-anchor="start" fill="#000">– own inspection rules (cord breaks, tooth wear)</text>
+<text x="740.0" y="644.0" font-size="11" text-anchor="start" fill="#000">– sensitive to oil, heat, sharp edges</text>
+<text x="740.0" y="662.0" font-size="11" text-anchor="start" fill="#000">the page example uses ROPES (classic, widely</text>
+<text x="740.0" y="680.0" font-size="11" text-anchor="start" fill="#000">known); ask the maker which one they use</text>
+<rect x="774.0" y="752.0" width="414.0" height="66.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="774.0" y1="774.0" x2="1188.0" y2="774.0" stroke="#000" stroke-width="0.8"/>
+<line x1="844.0" y1="752.0" x2="844.0" y2="774.0" stroke="#000" stroke-width="0.8"/>
+<text x="782.0" y="768.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">38-06</text>
+<text x="852.0" y="768.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Hoist – rope reeving 1:1 and toothed-belt option</text>
+<text x="782.0" y="791.0" font-size="12" text-anchor="start" fill="#b00000" font-weight="bold">EXAMPLE – check the crane maker's drawings</text>
+<text x="782.0" y="809.0" font-size="11" text-anchor="start" fill="#000">Digital twin · ASRS-RAW stacker crane · guide 38 · not to scale · mm</text>
+</svg>

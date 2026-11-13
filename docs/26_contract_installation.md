@@ -30,7 +30,7 @@ Offline only: no CDN, no fonts, no build step; stdlib Python. Optional 3D: local
 
 ## Reference machine + factory (shared example data – use these so the three items agree)
 From `config/factory.json`: HMC-01/02/03 "Crankcase Machining Center", positions x = −23.3 m, y = −21.2 / −16.4 / −11.6 m
-(4.8 m pitch), run power 18 kW, idle 4 kW, spindle 6000 rpm, vibration warn 4.5 mm/s, alarm 7.1 mm/s (ISO 10816-3 style).
+(4.8 m pitch), run power 18 kW, idle 4 kW, spindle 6000 rpm, vibration warn 4.5 mm/s, alarm 7.1 mm/s (ISO 10816-3 style; ISO 20816-3:2022 replaces ISO 10816-3).
 Pallet 500 × 500 mm, pallet 110 kg + workpiece 400 kg (HMC / Pallet-changer tabs). Line also has WASH, VMC, robot cell, conveyors.
 
 Example HMC 500 data (typical catalogue class – label as example):

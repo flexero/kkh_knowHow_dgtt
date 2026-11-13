@@ -11,12 +11,17 @@
  *   Communication tab (#tab-comm)                       → #mrComm  – guide 07 (drawings 07_*, buy list §34.1 – 34.12, shopping list §35)
  *   CNC / G-code tab (#tab-cnc)                         → #mrCnc   – guide 08 (drawings 08_*, buy list §31.1 – 31.10, shopping list §32)
  *   Mechanical elements item 1 (#mxItem1, pallet transfer station) → #mrMech1 – guide 10 (drawings 10_*, buy list §36.1 – 36.14, shopping list §37)
+ *   Live factory tab (#tab-live)                        → #mrLive  – guide 01 (drawings 01_*, buy list §36.1 – 36.6, shopping list §37)
+ *   FMS & products tab (#tab-fms, at the very end)      → #mrFms   – guide 02 (drawings 02_* without order flow / VSM, buy list §30.1 – 30.6, shopping list §30.7)
+ *   Order flow tab (#tab-order)                         → #mrOrder – guide 02 (drawings order flow, VSM, CONWIP; scheduling / APS software §30.5; no shopping list)
+ *   MES tab (#tab-mes)                                  → #mrMes   – guide 04 (MES, CMMS, QMS / CAQ, terminals §31.1/3/4/6; drawings ISA-95 … integration; shopping list §31.8)
+ *   ERP tab (#tab-erp)                                  → #mrErp   – guide 04 (ERP, PLM, servers §31.2/5/7; drawings BOM, MRP, cost; shopping list §31.8)
  *   HMC items 2 – 3 (worm, wheel): no card – guide 12 §5.20.1 / W7.1 give equipment buy specs, not catalogue examples.
  *   A new card = one ITEMS entry (gen_mach.py) + one TARGETS line below.
  * The card is makeCard() from robotref.js. Data: machref_data.js (generated from the guide tables).
  * Lazy: built the first time its tab (and item) is visible; a MutationObserver keeps the card as the LAST element
  *   (or directly after its anchor element, for the PLC card).
- * Test: &mrhold=hmc|apc|agv|asm|scada|fms|comm|cnc|mech (headless: keep load pending + show the tab) · ?mrtab=draw|buy|shop · &mrq=text · &mrbox=N · &mrscroll ·
+ * Test: &mrhold=hmc|apc|agv|asm|scada|fms|comm|cnc|mech|live|order|mes|erp (headless: keep load pending + show the tab) · ?mrtab=draw|buy|shop · &mrq=text · &mrbox=N · &mrscroll ·
  *       &mrchk (console "MRCHK …"; switches the items of the shown tab, e.g. HMC 1→2→3→4→1).
  */
 import { makeCard } from "./robotref.js";
@@ -36,6 +41,10 @@ const TABS = {
   comm: { pane: "tab-comm", item: null, items: [], show: null },
   cnc: { pane: "tab-cnc", item: null, items: [], show: null },
   mech: { pane: "tab-mech", item: "mxItem", items: ["1", "2", "3", "4"], show: clickItem("data-mxitem") },
+  live: { pane: "tab-live", item: null, items: [], show: null },
+  order: { pane: "tab-order", item: null, items: [], show: null },
+  mes: { pane: "tab-mes", item: null, items: [], show: null },
+  erp: { pane: "tab-erp", item: null, items: [], show: null },
 };
 // the PLC section ends with the learn card "How a PLC controls the line" (static HTML in index.html) – the PLC card goes right after it
 const plcAnchor = () => [...document.querySelectorAll("#tab-fms > .card.learn")].find((c) => /PLC/.test((c.querySelector("h2") || {}).textContent || "")) || null;
@@ -52,6 +61,11 @@ const TARGETS = [
   { key: "comm", tab: "comm", host: "tab-comm", card: "mrComm", s: "Comm" },
   { key: "cnc", tab: "cnc", host: "tab-cnc", card: "mrCnc", s: "Cnc" },
   { key: "mech1", tab: "mech", host: "mxItem1", card: "mrMech1", s: "Mech1" },
+  { key: "live", tab: "live", host: "tab-live", card: "mrLive", s: "Live" },
+  { key: "fms", tab: "fms", host: "tab-fms", card: "mrFms", s: "Fms" },        // very end of the FMS tab (the PLC card stays after its anchor)
+  { key: "order", tab: "order", host: "tab-order", card: "mrOrder", s: "Order" },
+  { key: "mes", tab: "mes", host: "tab-mes", card: "mrMes", s: "Mes" },
+  { key: "erp", tab: "erp", host: "tab-erp", card: "mrErp", s: "Erp" },
 ];
 // card position: directly after T.after() if the target has an anchor, else the last element of the host
 const placed = (T, host, c) => (T.after ? !!T.after() && T.after().nextElementSibling === c : host.lastElementChild === c);

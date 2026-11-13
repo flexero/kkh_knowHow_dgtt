@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="aK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker></defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">MRP logic – level by level (low-level code 0 → 4)</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<rect x="40" y="90" width="330" height="120" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="205.0" y="136.2" font-size="15" text-anchor="middle" font-weight="700" fill="#000">1 Gross requirements</text>
+<text x="205.0" y="155.2" font-size="15" text-anchor="middle" fill="#000">level 0: max(forecast, firm orders)</text>
+<text x="205.0" y="174.2" font-size="15" text-anchor="middle" fill="#000">lower levels: parent releases × BOM qty</text>
+<rect x="420" y="90" width="330" height="120" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="585.0" y="136.2" font-size="15" text-anchor="middle" font-weight="700" fill="#1f6fd1">2 Net requirements</text>
+<text x="585.0" y="155.2" font-size="15" text-anchor="middle" fill="#000">net = gross − on hand</text>
+<text x="585.0" y="174.2" font-size="15" text-anchor="middle" fill="#000">− scheduled receipts + safety stock (if &gt; 0)</text>
+<rect x="800" y="90" width="330" height="120" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="965.0" y="136.2" font-size="15" text-anchor="middle" font-weight="700" fill="#000">3 Lot sizing</text>
+<text x="965.0" y="155.2" font-size="15" text-anchor="middle" fill="#000">L4L · FOQ (multiples) · EOQ √(2DS/H)</text>
+<text x="965.0" y="174.2" font-size="15" text-anchor="middle" fill="#000">POQ (P periods of demand)</text>
+<rect x="40" y="290" width="330" height="120" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="205.0" y="336.2" font-size="15" text-anchor="middle" font-weight="700" fill="#1f6fd1">4 Lead-time offset</text>
+<text x="205.0" y="355.2" font-size="15" text-anchor="middle" fill="#000">release week = receipt week − LT</text>
+<text x="205.0" y="374.2" font-size="15" text-anchor="middle" fill="#000">release in the past → expedite</text>
+<rect x="420" y="290" width="330" height="120" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="585.0" y="336.2" font-size="15" text-anchor="middle" font-weight="700" fill="#000">5 Planned orders</text>
+<text x="585.0" y="355.2" font-size="15" text-anchor="middle" fill="#000">make → production order</text>
+<text x="585.0" y="374.2" font-size="15" text-anchor="middle" fill="#000">buy → purchase requisition</text>
+<rect x="800" y="290" width="330" height="120" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="965.0" y="336.2" font-size="15" text-anchor="middle" font-weight="700" fill="#000">6 Next level</text>
+<text x="965.0" y="355.2" font-size="15" text-anchor="middle" fill="#000">planned releases × qty</text>
+<text x="965.0" y="374.2" font-size="15" text-anchor="middle" fill="#000">= dependent gross of the children</text>
+<line x1="370" y1="150" x2="418" y2="150" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<line x1="750" y1="150" x2="798" y2="150" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<path d="M 875,210 L 875,250 L 205,250 L 205,288" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<line x1="370" y1="350" x2="418" y2="350" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<line x1="750" y1="350" x2="798" y2="350" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<path d="M 1035,410 L 1035,460 L 205,460 L 205,212" fill="none" stroke="#1f6fd1" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#aA)"/>
+<text x="540" y="478" font-size="12" text-anchor="start" fill="#1f6fd1">loop: next low-level code</text>
+<rect x="40" y="520" width="540" height="200" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="48.0" y="577.8" font-size="15" text-anchor="start" font-weight="700" fill="#000">Exception messages (compare receipts with need)</text>
+<text x="48.0" y="596.8" font-size="15" text-anchor="start" fill="#000">expedite – planned release before today / receipt needed earlier</text>
+<text x="48.0" y="615.8" font-size="15" text-anchor="start" fill="#000">push out – a scheduled receipt comes too early</text>
+<text x="48.0" y="634.8" font-size="15" text-anchor="start" fill="#000">cancel – a receipt is not needed in the horizon</text>
+<text x="48.0" y="653.8" font-size="15" text-anchor="start" fill="#000">Planner decides – MRP only proposes (no automatic change</text>
+<text x="48.0" y="672.8" font-size="15" text-anchor="start" fill="#000">of a PO already sent to the supplier).</text>
+<rect x="620" y="520" width="540" height="200" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="628.0" y="577.8" font-size="15" text-anchor="start" font-weight="700" fill="#000">Inputs of this plant (example)</text>
+<text x="628.0" y="596.8" font-size="15" text-anchor="start" fill="#000">8 weekly buckets, week 0 = this week</text>
+<text x="628.0" y="615.8" font-size="15" text-anchor="start" fill="#000">forecast = MPS: 600 FABS + 1 000 FALG per week</text>
+<text x="628.0" y="634.8" font-size="15" text-anchor="start" fill="#000">on hand = free stock (blocked QI stock excluded)</text>
+<text x="628.0" y="653.8" font-size="15" text-anchor="start" fill="#000">scheduled receipts = open POs + production orders</text>
+<text x="628.0" y="672.8" font-size="15" text-anchor="start" fill="#000">lead time weeks = ceil(working days / 5)</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/><line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your ERP team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 7 ERP · guide 46 · 46_mrp_logic.svg</text></svg>

@@ -1,0 +1,72 @@
+/* AS/RS item 6 – stacker crane structure + manufacturing (asrscrane*.js). Light + dark theme via the style.css variables. */
+.sr6-wrap { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+.sr6-ctl { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.sr6-lbl, .sr6-chk { font-size: 12.5px; color: var(--text-2); display: inline-flex; align-items: center; gap: 5px; }
+.sr6-lbl input[type=range] { width: 110px; }
+.sr6-main { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 12px; align-items: stretch; }
+.sr6-3d { position: relative; height: min(74vh, 740px); min-height: 480px; background: #e8ecf0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.sr6-3dasm { height: min(64vh, 620px); min-height: 420px; }
+.sr6-v canvas { display: block; touch-action: none; }
+.sr6-msg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #555; font-size: 13px; }
+.sr6-info { font-size: 12.5px; max-height: min(74vh, 740px); overflow: auto; border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px 12px; background: var(--surface); position: relative; color: var(--text); }
+.sr6-info h3 { margin: 4px 24px 6px 0; font-size: 14px; color: var(--text); }
+.sr6-x { position: absolute; top: 6px; right: 8px; border: 0; background: transparent; color: var(--text-2); font-size: 15px; cursor: pointer; }
+.sr6-asm { font-size: 12px; color: var(--text-2); margin-bottom: 6px; }
+.sr6-dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; border: 1px solid rgba(0,0,0,.25); }
+.sr6-dl { margin: 0; } .sr6-dl dt { font-weight: 600; color: var(--text); margin-top: 7px; font-size: 12px; } .sr6-dl dd { margin: 2px 0 0; color: var(--text); line-height: 1.4; }
+.sr6-small { font-size: 11.5px; color: var(--text-2); margin: 8px 0 0; line-height: 1.4; }
+.sr6-kv { width: 100%; border-collapse: collapse; margin-top: 6px; }
+.sr6-kv th, .sr6-kv td { text-align: left; padding: 3px 4px; border-bottom: 1px solid var(--border); font-weight: normal; color: var(--text); }
+.sr6-kv td { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sr6-legend { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.sr6-lg { display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 14px; padding: 3px 10px; font: inherit; font-size: 12px; cursor: pointer; }
+.sr6-lg:hover { border-color: var(--accent); }
+.sr6-lg i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; border: 1px solid rgba(0,0,0,.25); }
+.sr6-lg small { color: var(--text-2); }
+/* 3D overlay labels */
+.sr6-tags { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 2; }
+.sr6-tag, .sr6-ftag { position: absolute; left: 0; top: 0; white-space: nowrap; font-size: 11.5px; line-height: 1.2; padding: 2px 6px; border-radius: 5px; background: rgba(255,255,255,.9); color: #111; border: 1px solid #b8c2cc; transform-origin: 0 0; }
+.sr6-tag i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
+.sr6-ftag { background: #fff3f0; border-color: #d62828; color: #8a1010; font-weight: 600; }
+.sr6-tag[hidden], .sr6-ftag[hidden] { display: none; }
+/* load card */
+.sr6-loadgrid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+.sr6-loadsvg svg { width: 100%; height: auto; border: 1px solid var(--border); border-radius: 8px; background: #fff; }
+.sr6-flowl { stroke-dasharray: 8 5; animation: sr6dash 1.2s linear infinite; }
+@keyframes sr6dash { to { stroke-dashoffset: -26; } }
+@media (prefers-reduced-motion: reduce) { .sr6-flowl { animation: none; } }
+.sr6-inp { display: grid; grid-template-columns: 1fr; gap: 6px; font-size: 12.5px; color: var(--text-2); }
+.sr6-inp label { display: grid; grid-template-columns: 1fr 96px 44px; align-items: center; gap: 8px; }
+.sr6-inp input { width: 96px; box-sizing: border-box; }
+.sr6-note { font-size: 12px; color: var(--text-2); margin: 10px 0 0; line-height: 1.45; }
+.sr6-h { margin: 16px 0 4px; font-size: 13.5px; color: var(--text); }
+.sr6-sn { margin: 0 0 6px; font-size: 12px; color: var(--text-2); }
+.sr6-tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; table-layout: fixed; min-width: 760px; }
+.sr6-tbl th, .sr6-tbl td { white-space: normal; border: 1px solid var(--border); padding: 4px 6px; text-align: left; vertical-align: top; color: var(--text); line-height: 1.35; overflow-wrap: anywhere; }
+.sr6-tbl th { background: var(--surface-2, var(--surface)); font-weight: 600; }
+.sr6-tbl td.sr6-v { text-align: right; font-variant-numeric: tabular-nums; }
+.sr6-tbl tr.sr6-sum td { background: var(--surface-2, var(--surface)); }
+.sr6-okb, .sr6-nok { display: inline-block; font-size: 11px; font-weight: 700; padding: 0 5px; border-radius: 4px; }
+.sr6-okb { background: color-mix(in srgb, var(--good-text, #2e9e57) 18%, transparent); color: var(--good-text, #2e9e57); }
+.sr6-nok { background: color-mix(in srgb, var(--critical, #c0392b) 18%, transparent); color: var(--critical, #c0392b); }
+.sr6-bad { color: var(--critical, #c0392b); }
+.sr6-buy { color: var(--accent); font-weight: 600; } .sr6-make { font-weight: 600; }
+/* manufacturing card */
+.sr6-parts { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.sr6-mfggrid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+.sr6-player svg { width: 100%; height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; background: #fff; }
+.sr6-pctl { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.sr6-opinfo { font-size: 12.5px; border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px 12px; background: var(--surface); color: var(--text); }
+.sr6-opinfo h3 { margin: 4px 0 6px; font-size: 14px; }
+.sr6-route tbody tr[data-sr6op] { cursor: pointer; }
+.sr6-route tbody tr[data-sr6op]:hover td { background: color-mix(in srgb, var(--accent) 5%, transparent); }
+.sr6-route tr.sr6-cur td { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+/* assembly card */
+.sr6-step { display: block; width: 100%; text-align: left; border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 6px; padding: 5px 8px; margin: 0 0 4px; font: inherit; font-size: 12.5px; cursor: pointer; }
+.sr6-step.on { border-color: var(--accent); color: var(--accent); font-weight: 600; box-shadow: inset 3px 0 0 var(--accent); }
+#sr6StepTbl { margin-top: 12px; }
+/* test output */
+.sr6-debug { font-size: 11.5px; border: 1px dashed var(--border); border-radius: 8px; padding: 8px; background: var(--surface); color: var(--text); }
+.sr6-debug pre { white-space: pre-wrap; margin: 0 0 8px; font-size: 11px; }
+.sr6-shot { max-width: 480px; border: 1px solid var(--border); }
+@media (max-width: 1100px) { .sr6-main, .sr6-loadgrid, .sr6-mfggrid { grid-template-columns: 1fr; } .sr6-info { max-height: none; } }

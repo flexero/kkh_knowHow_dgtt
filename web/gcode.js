@@ -26,9 +26,12 @@ const fx = (v, d = 1) => (Math.round(v * 10 ** d) / 10 ** d).toLocaleString("en-
 const MACHINES = {
   "VMC-01": { kind: "vmc", name: "Cylinder Boring Center", maxRpm: 8000, rapid: 30000, maxFeed: 12000, powerKw: 11, tc: 3,
               travel: { x: [-300, 300], y: [-200, 200], z: [-350, 150] }, zHome: 150 },
-  "HMC-01": { kind: "hmc", name: "Crankcase Machining Center 1", maxRpm: 10000, rapid: 50000, maxFeed: 20000, powerKw: 18, tc: 2.5,
+  "HMC-01": { kind: "hmc", name: "Crankcase Machining Center 1", maxRpm: 10000, rapid: 50000, maxFeed: 20000, powerKw: 18, torqueNm: 115, tc: 2.5,
               travel: { x: [-365, 365], y: [-365, 365], z: [-450, 200] }, zHome: 200 },
 };
+/* Spindle power available at speed n (example S1 data): constant torque below the base speed,
+   constant power above it.  P = min(P_S1, M_S1 · n / 9 550).  HMC: 115 N·m up to 1 500 rpm, then 18 kW. */
+const availKw = (mach, n) => (mach.torqueNm && n > 0 ? Math.min(mach.powerKw, (mach.torqueNm * n) / 9550) : mach.powerKw);
 MACHINES["HMC-02"] = { ...MACHINES["HMC-01"], name: "Crankcase Machining Center 2" };
 MACHINES["HMC-03"] = { ...MACHINES["HMC-01"], name: "Crankcase Machining Center 3" };
 
@@ -999,7 +1002,8 @@ function opCalc(k) {
   if (pc !== null) parts.push(`Pc ≈ <b>${fx(pc, 2)}</b> kW`);
   parts.push(`time <b>${mmss(time)}</b>`);
   const warn = [...info.warn];
-  if (pc !== null && pc > mach.powerKw * 0.8) warn.push(`Needs ${fx(pc, 1)} kW but the spindle has about ${mach.powerKw} kW (example): reduce ap, ae or the feed.`);
+  const pav = availKw(mach, cd.n);
+  if (pc !== null && pc > pav * 0.8) warn.push(`Needs ${fx(pc, 1)} kW but the spindle gives only about ${fx(pav, 1)} kW at ${cd.n} rpm (example${pav < mach.powerKw ? `, torque limit ${mach.torqueNm} N·m below the base speed` : ""}): reduce ap, ae or the feed.`);
   return { html: parts.join(" · ") + warn.map((w) => `<div class="gc-warn">⚠ ${esc(w)}</div>`).join(""), cd, tool, info, mrr, pc, time };
 }
 function renderCalcs() { S.ops.forEach((_, k) => { const el = $("gcCalc" + k); if (el) el.innerHTML = opCalc(k).html; }); renderFormula(); }
@@ -1024,11 +1028,11 @@ function renderFormula() {
   }
   if (tool.type === "drill") {
     L.push(`Drill point     tip = 0.3 · D = 0.3 · ${tool.d} = ${info.tip} mm  (118° point)  →  Z = top − depth − tip = <b>${info.zb}</b>`);
-    if (c.pc !== null) L.push(`Power           Pc = f · Vc · D · kc / 240 000 = ${cd.fz} · ${fx(cd.vcReal, 0)} · ${tool.d} · ${mat.kc} / 240 000 = <b>${fx(c.pc, 2)} kW</b>  (machine ≈ ${mach.powerKw} kW)`);
+    if (c.pc !== null) L.push(`Power           Pc = f · Vc · D · kc / 240 000 = ${cd.fz} · ${fx(cd.vcReal, 0)} · ${tool.d} · ${mat.kc} / 240 000 = <b>${fx(c.pc, 2)} kW</b>  (machine ≈ ${fx(availKw(mach, cd.n), 1)} kW at ${cd.n} rpm)`);
   }
   if ((tool.type === "face" || tool.type === "end") && c.mrr !== null) {
     L.push(`Metal removal   Q = ap · ae · F / 1000 = ${fx(info.ap, 2)} · ${fx(info.ae, 2)} · ${cd.F} / 1000 = <b>${fx(c.mrr)} cm³/min</b>${info.aeNote ? `  (${info.aeNote})` : ""}`);
-    L.push(`Cutting power   Pc = Q · kc / 60 000 = ${fx(c.mrr)} · ${mat.kc} / 60 000 = <b>${fx(c.pc, 2)} kW</b>  (machine ≈ ${mach.powerKw} kW, kc = specific cutting force)`);
+    L.push(`Cutting power   Pc = Q · kc / 60 000 = ${fx(c.mrr)} · ${mat.kc} / 60 000 = <b>${fx(c.pc, 2)} kW</b>  (machine ≈ ${fx(availKw(mach, cd.n), 1)} kW at ${cd.n} rpm, kc = specific cutting force)`);
   }
   L.push(`Time            t = path length / F · 60 + rapid moves  →  <b>${mmss(c.time)}</b> for this operation`);
   el.innerHTML = `<div class="gc-formula">${L.join("\n")}</div><p class="hint">Vc, fz and kc are example values for ${esc(mat.name)} with carbide tools. Real values come from the tool supplier's catalogue. Type your own Vc / fz in the operation card to override them.</p>`;

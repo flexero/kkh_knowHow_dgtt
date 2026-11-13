@@ -1252,7 +1252,7 @@ Observations: the cat 1 distance grows with v² (4 × distance at 2 × speed); c
 
 ### 16.4 Safety distance (ISO 13855)
 
-**S = K·T + C**
+**S = K·T + C** (values here from ISO 13855:2010; ISO 13855:2024 is current – check the constants)
 
 | Symbol | Meaning | Values |
 |---|---|---|

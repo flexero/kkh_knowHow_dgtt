@@ -124,7 +124,7 @@
 <text x="238.0" y="552.0" font-size="11" text-anchor="end" fill="#000">S355 80 × 80 × 5, annealed</text>
 <line x1="672.1" y1="588.4" x2="242.0" y2="580.0" stroke="#000" stroke-width="0.8"/>
 <circle cx="672.1" cy="588.4" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>
-<text x="238.0" y="584.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Lift cylinder Ø63/36 × 60</text>
+<text x="238.0" y="584.0" font-size="12" text-anchor="end" fill="#000" font-weight="bold">Lift cylinder Ø50/28 × 60</text>
 <text x="238.0" y="598.0" font-size="11" text-anchor="end" fill="#000">ISO 6020-2, cushions both ends</text>
 <line x1="997.6" y1="142.0" x2="1156.0" y2="100.0" stroke="#000" stroke-width="0.8"/>
 <circle cx="997.6" cy="142.0" r="2.0" stroke="#000" stroke-width="1" fill="#000"/>

@@ -212,7 +212,7 @@ export const ITEMS = {
      ],
      [
       "Electric motor + bell housing + coupling",
-      "E1-A 3 kW / E2 0.75 kW, 4-pole IE3, B5 / B35",
+      "E1-A 3 kW / E2 1.5 kW (frame 90L), 4-pole IE3, B5 / B35",
       "see guide 25 §18.3 (Siemens SIMOTICS GP, ABB, WEG W22); bell housings + jaw couplings KTR (ROTEX + bell housings), R+W, Raja-Lovejoy",
       "IE3 efficiency per IEC 60034-30-1 – see datasheet",
       "low",
@@ -282,7 +282,7 @@ export const ITEMS = {
     "rows": [
      [
       "Double-acting cylinder §6.1",
-      "E1: bore 63 / rod 36 (or 45 for buckling, §3) × 200, cushions both ends; E2 lift: 63 / 36 × 60",
+      "E1: bore 63 / rod 36 (or 45 for buckling, §3) × 200, cushions both ends; E2 lift: 50 / 28 × 60 (ISO 6020-2, 16 MPa; rod side ≤ 15.6 MPa at the 13 MPa relief)",
       "Bosch Rexroth CDT3 (tie-rod, ISO 6020-2, 16 MPa); Rexroth CDH1 / CDH2 (mill type – check pressure class); Parker HMI (ISO 6020-2 tie-rod); Parker HMD (ISO 6022, 25 MPa – check); Hänchen (servo / special cylinders); AHP Merkle (check)",
       "ISO 6020-2: 16 MPa, bores 25–200; ISO 6022: 25 MPa – see datasheet",
       "medium (63 × 200 standard)",
@@ -448,7 +448,7 @@ export const ITEMS = {
      ],
      [
       "Pressure relief valve – pilot operated §8.2",
-      "E1 0V1 10–11 MPa, E2 0V1 8.5 MPa, ≥ 20 L/min",
+      "E1 0V1 10–11 MPa, E2 0V1 13 MPa, ≥ 20 L/min",
       "Bosch Rexroth DB / DBW (DBW with solenoid unloading); Sun RPEC (check); Parker R4V (check); Atos AGAM (check)",
       "flat curve (override 3–8 %), vent X – see datasheet",
       "low–medium",
@@ -684,7 +684,7 @@ export const ITEMS = {
     "rows": [
      [
       "Bladder accumulator §12.1",
-      "E1-C: 5 L, p0 ≈ 7 MPa; E2: 2.5 L, p0 5.39 MPa",
+      "E1-C: 5 L, p0 ≈ 7 MPa; E2: 4 L, p0 8.99 MPa",
       "Hydac SB330 (bladder, 33 MPa class); Parker / Olaer EHV; Bosch Rexroth HAB; EPE (check)",
       "p2/p0 ≤ 4, sizes ≈ 0.5–50 L – see datasheet",
       "low–medium",
@@ -708,7 +708,7 @@ export const ITEMS = {
      ],
      [
       "Accumulator sizing §12.4",
-      "E1 4.2 L → 5 L; E2 1.74 L → 2.5 L",
+      "E1 4.2 L → 5 L; E2 1.89 L → 4 L (2.5 L would leave a start window of only 0.4 MPa)",
       "maker sizing software (e.g. Hydac – check name)",
       "–",
       "–",
@@ -716,7 +716,7 @@ export const ITEMS = {
      ],
      [
       "Accumulator safety and shut-off block §12.5",
-      "0V3: relief 10 MPa (E2) sealed, manual + solenoid discharge",
+      "0V3: relief 14 MPa (E2) sealed, manual + solenoid discharge",
       "Hydac SAF10 / SAF20 / SAF32 (+ solenoid DSV option – check); Bosch Rexroth ABZSS (check); Parker (check series)",
       "type-tested relief (PED safety accessory), DN 10 / 20 / 32 – see datasheet",
       "low–medium",
@@ -937,7 +937,7 @@ export const ITEMS = {
      ],
      [
       "Pressure gauge §15.6",
-      "0S1: 0–10 MPa (E2), 0–16 MPa (E1), class 1.6",
+      "0S1: 0–16 MPa (E1 and E2), class 1.6",
       "WIKA 213.53 / 232.50 (glycerine filled); Stauff, Hydac gauges; gauge isolator valves",
       "range ≈ 1.5–2 × working p – see datasheet",
       "low",
@@ -1023,28 +1023,28 @@ export const ITEMS = {
      [
       "0P1 (3)",
       "External gear pump §4.1 4 cm³/rev",
-      "average flow only 0.28 L/min, peak 14 L/min → smallest gear pump + accumulator; a variable piston pump is too big and too expensive",
-      "4 cm³/rev, ≥ 10 MPa continuous, 1 450 rpm",
+      "average flow only 0.26 L/min, peak 8.84 L/min (17.7 L/min short peak from the accumulator) → smallest gear pump + accumulator; a variable piston pump is too big and too expensive",
+      "4 cm³/rev, ≥ 13 MPa continuous, 1 450 rpm",
       "§17.1"
      ],
      [
       "0M1 + coupling (2, 4)",
-      "electric motor 0.75 kW + bell housing (§17.1 last row)",
-      "peak 0.79 kW for ≈ 5 s only; motor runs on, pump unloads (no motor starts)",
-      "0.75 kW 4-pole IE3, B5, PTC",
+      "electric motor 1.5 kW + bell housing (§17.1 last row)",
+      "peak 115 bar · 5.39 / (600 · 0.85) = 1.22 kW for ≈ 2–4 s per charge; torque 8.1 N·m > 7.3 N·m rated of a 1.1 kW motor → 1.5 kW (9.9 N·m); motor runs on, pump unloads (no motor starts)",
+      "1.5 kW 4-pole IE3 (frame 90L), B5, PTC",
       "§17.1"
      ],
      [
       "0V1 (5)",
-      "Pressure relief valve – pilot operated §8.2 8.5 MPa",
-      "flat curve: the relief must not open below the 7.5 MPa cut-out; a direct valve has 10–25 % override",
-      "8.5 MPa, ≥ 10 L/min, sealable",
+      "Pressure relief valve – pilot operated §8.2 13 MPa",
+      "flat curve: the relief must not open below the 11.5 MPa cut-out (≥ 1.1 · 11.5 = 12.65 → 13); not above 13 MPa, because the rod side then sees 15.6 MPa (limit 16 MPa); a direct valve has 10–25 % override",
+      "13 MPa, ≥ 10 L/min, sealable",
       "§17.5"
      ],
      [
       "0V5 (7)",
       "2/2 NO solenoid valve as unloading valve (instead of Unloading valve §8.8 / Accumulator charging valve §8.9)",
-      "PLC switches with 0B2 → thresholds 6.0 / 7.5 MPa adjustable and visible in the twin",
+      "PLC switches with 0B2 → thresholds cut-in 10.8 / cut-out 11.5 MPa adjustable and visible in the twin",
       "NG6 or cartridge, 24 V DC, NO",
       "§17.4 / §17.5"
      ],
@@ -1064,16 +1064,16 @@ export const ITEMS = {
      ],
      [
       "0Z5 (9)",
-      "Bladder accumulator §12.1 2.5 L, p0 5.39 MPa",
-      "fast cycles, p2/p0 = 1.38 ≤ 4; a diaphragm type is too small, a piston type not needed",
-      "2.5 L, PS ≥ 10 MPa class, PED cat. II (≈ 825 bar·L at 330 bar PS)",
+      "Bladder accumulator §12.1 4 L, p0 8.99 MPa",
+      "fast cycles; V0 needed 1.89 L, 4 L chosen for a start window ≥ 10.7 MPa; p2/p0 = 11.6 / 9.09 = 1.28 ≤ 4; a diaphragm type is too small, a piston type not needed",
+      "4 L, PS ≥ 14 MPa (330 bar class), PED cat. III (≈ 1 320 bar·L at 330 bar PS)",
       "§17.9"
      ],
      [
       "0V3 (10)",
       "Accumulator safety and shut-off block §12.5",
       "EN ISO 4413: automatic discharge at power off + safe isolation",
-      "relief 10 MPa sealed, NO solenoid discharge",
+      "relief 14 MPa sealed, NO solenoid discharge",
       "§17.9"
      ],
      [
@@ -1086,7 +1086,7 @@ export const ITEMS = {
      [
       "0Z1, 0S3 (1, 13)",
       "Hydraulic tank §13.9 25 L + Level and temperature switches §13.10",
-      "heat ≈ 0.07 kW average → no Oil cooler §13.7",
+      "heat ≈ 0.09 kW average → no Oil cooler §13.7",
       "25 L, baffle, clean-out, min. level + 60 °C",
       "§17.10"
      ],
@@ -1094,21 +1094,21 @@ export const ITEMS = {
       "0S1, 0X1 (14)",
       "Pressure gauge §15.6 + Test points §15.5",
       "local reading + test points for commissioning",
-      "0–10 MPa class 1.6, M16 × 2",
+      "0–16 MPa class 1.6, M16 × 2",
       "§17.12"
      ],
      [
       "1V1 (15)",
       "Spool directional valve §7.1 4/3 NG6, centre Spool centre types §7.2 float (P blocked, A + B → T)",
       "float centre so the pilot-operated checks close; closed centre would trap pilot oil",
-      "NG6, 24 V DC, Δp ≈ 0.08 MPa per path at 14 L/min",
+      "NG6, 24 V DC, Δp ≈ 0.03 MPa per path at 8.8 L/min",
       "§17.4"
      ],
      [
       "1V2 (16)",
       "Double pilot-operated check §10.3 sandwich NG6",
       "the lift load does not run away (throttled lowering) → POC is enough; a Counterbalance / overcentre valve §8.6 is the choice for running-away loads",
-      "ratio ≈ 3:1, opens at ≈ 1.3 MPa",
+      "ratio ≈ 3:1, opens at ≈ 2.5 MPa (7.39 MPa load pressure / 3)",
       "§17.7"
      ],
      [
@@ -1120,15 +1120,15 @@ export const ITEMS = {
      ],
      [
       "1A1 (18)",
-      "Double-acting cylinder §6.1 Ø63/36 × 60, End-position cushioning §6.7 both ends, Cylinder position sensors §6.9 1B1 / 1B2",
-      "docs/09 machine design (6 MPa class)",
-      "ISO 6020-2, MF1 or as the APC design",
+      "Double-acting cylinder §6.1 Ø50/28 × 60, End-position cushioning §6.7 both ends, Cylinder position sensors §6.9 1B1 / 1B2",
+      "decided 2026-11-12: 10 MPa accumulator system; real lifted mass 1 480 kg = 16.6 kN, reserve +7 % at 10.0 MPa (docs/09 §20.2)",
+      "ISO 6020-2 16 MPa, MF1 or as the APC design, cap-side test port",
       "§17.3"
      ],
      [
       "2V2, 3V2 (20)",
       "Pressure reducing valve §8.4 3-way (reducing / relieving) 5.0 MPa",
-      "modules and clamp ring must never see 7.5 MPa; relieving takes thermal expansion",
+      "modules and clamp ring must never see 11.5 MPa; relieving takes thermal expansion",
       "5.0 MPa, drain to T",
       "§17.5"
      ],
@@ -1157,7 +1157,7 @@ export const ITEMS = {
       "manifold (25)",
       "Manifolds and subplates §14.6 (+ optional Screw-in cartridge valves §11.1)",
       "one block for the NG6 stacks: short lines, few leak points",
-      "ISO 4401-03 patterns, steel or aluminium for 10 MPa",
+      "ISO 4401-03 patterns, steel or aluminium for 11.5 MPa (16 MPa rated)",
       "§17.11"
      ],
      [
@@ -1836,7 +1836,7 @@ export const ITEMS = {
     "rows": [
      [
       "Hydraulic power units",
-      "E2: 0.75 kW, 5.4 L/min, 7.5 MPa, 25 L, accumulator 2.5 L, 3 circuits",
+      "E2: 1.5 kW, 5.4 L/min, 11.5 MPa cut-out (relief 13), 25 L, accumulator 4 L, 3 circuits",
       "HAWE compact hydraulic power packs (e.g. types HK / HC / KA / MP families) with HAWE valve banks",
       "compact units for machine tools and clamping, small motors, tank from a few litres – see datasheet",
       "medium–high",
@@ -1848,7 +1848,7 @@ export const ITEMS = {
       "Bosch Rexroth CytroPac (compact unit with frequency-controlled pump drive, integrated cooling)",
       "small tank (≈ 20 L class), motor power and max pressure – see datasheet",
       "high",
-      "power vs our 0.75–3 kW, pressure, noise dB(A), integrated sensors, IO-Link / fieldbus"
+      "power vs our 0.75–3 kW (E2 1.5 kW), pressure, noise dB(A), integrated sensors, IO-Link / fieldbus"
      ],
      [
       "Hydraulic power units",
@@ -1922,7 +1922,7 @@ export const ITEMS = {
     "rows": [
      [
       "Electric motors",
-      "E1-C / E2: 0.75 kW, frame 80M, B5 / B35 (V1 vertical on the lid)",
+      "E1-C: 0.75 kW, frame 80M; E2: 1.5 kW, frame 90L (peak 8.1 N·m at 11.5 MPa); B5 / B35 (V1 vertical on the lid)",
       "Siemens SIMOTICS GP / SD (1LE1 series), ABB process / general performance (M3AA / M3BP families), WEG W22",
       "IE3 η ≥ 82.5 % (IEC 60034-30-1), ≈ 1 400 rpm, 400 V Δ / 690 V Y or 230/400 V",
       "low",
@@ -1992,7 +1992,7 @@ export const ITEMS = {
     "rows": [
      [
       "Pressure valves",
-      "0V1 relief: E1 10 / 11 MPa, E2 8.5 MPa, ≥ 20 L/min",
+      "0V1 relief: E1 10 / 11 MPa, E2 13 MPa, ≥ 20 L/min",
       "Bosch Rexroth DBDS (direct operated, inline / cartridge), Rexroth DB / DBW (pilot operated, DBW with unloading solenoid), Sun Hydraulics RDDA (direct) / RPEC (pilot) cartridges",
       "direct: fast, small flow; pilot: flat p–Q curve; spring ranges in steps (e.g. up to 5 / 10 / 20 / 31.5 MPa) – see datasheet",
       "low",
@@ -2093,8 +2093,8 @@ export const ITEMS = {
      ],
      [
       "Accumulators and safety blocks",
-      "E2: bladder 2.5 L, p0 5.39 MPa",
-      "Hydac SB330-2.5, Olaer EHV 2.5, Rexroth HAB 2.5",
+      "E2: bladder 4 L, p0 8.99 MPa",
+      "Hydac SB330-4, Olaer EHV 4, Rexroth HAB 4",
       "as above",
       "low–medium",
       "as above"
@@ -2222,7 +2222,7 @@ export const ITEMS = {
       "WIKA 213.53 / 232.50 (glycerine filled), Hydac / Stauff gauges",
       "class 1.0–1.6, range ≈ 1.5–2 × working pressure",
       "low",
-      "range 0–16 MPa (E1), 0–10 MPa (E2), snubber, gauge isolator"
+      "range 0–16 MPa (E1), 0–16 MPa (E2, 10–11.5 MPa working), snubber, gauge isolator"
      ],
      [
       "Sensors and measurement",
@@ -2673,7 +2673,7 @@ export const ITEMS = {
       "0M1",
       "1",
       "electric motor",
-      "0.75 kW 4-pole IE3, B5 V1, PTC",
+      "1.5 kW 4-pole IE3 (frame 90L), B5 V1, PTC",
       "Siemens SIMOTICS GP, ABB, WEG W22",
       "low"
      ],
@@ -2682,7 +2682,7 @@ export const ITEMS = {
       "0P1",
       "1",
       "gear pump",
-      "4 cm³/rev, ≥ 10 MPa continuous",
+      "4 cm³/rev, ≥ 13 MPa continuous",
       "Rexroth AZPF, Casappa, Marzocchi, Parker PGP",
       "low"
      ],
@@ -2691,7 +2691,7 @@ export const ITEMS = {
       "–",
       "1",
       "bell housing + elastic coupling + damping ring",
-      "for frame 80 / pump flange",
+      "for frame 90 / pump flange",
       "KTR / R+W / Raja-Lovejoy type",
       "low"
      ],
@@ -2700,7 +2700,7 @@ export const ITEMS = {
       "0V1",
       "1",
       "pressure relief, pilot operated",
-      "8.5 MPa, ≥ 10 L/min, sealed",
+      "13 MPa, ≥ 10 L/min, sealed",
       "Rexroth DB / Sun RPEC",
       "low"
      ],
@@ -2736,8 +2736,8 @@ export const ITEMS = {
       "0Z5",
       "1",
       "bladder accumulator",
-      "2.5 L, p0 5.39 MPa g, PED",
-      "Hydac SB330-2.5, Olaer EHV, Rexroth HAB",
+      "4 L, p0 8.99 MPa g, PED",
+      "Hydac SB330-4, Olaer EHV, Rexroth HAB",
       "low–medium"
      ],
      [
@@ -2745,7 +2745,7 @@ export const ITEMS = {
       "0V3",
       "1",
       "safety + shut-off block",
-      "relief 10 MPa sealed, manual + solenoid discharge",
+      "relief 14 MPa sealed, manual + solenoid discharge",
       "Hydac SAF10",
       "low–medium"
      ],
@@ -2780,7 +2780,7 @@ export const ITEMS = {
       "14",
       "0S1, 0X1",
       "1 + 4",
-      "gauge 0–10 MPa + test points M16×2",
+      "gauge 0–16 MPa + test points M16×2",
       "class 1.6",
       "WIKA 213.53, Minimess-style",
       "low"
@@ -2817,8 +2817,8 @@ export const ITEMS = {
       "1A1",
       "1",
       "lift cylinder (if not part of the APC supply)",
-      "Ø63/36 × 60, cushions both ends, ISO 6020-2",
-      "cylinder makers (Rexroth CDT3/CDH, Parker, Hänchen …)",
+      "Ø50/28 × 60 (decided 2026-11-12), cushions both ends, ISO 6020-2 16 MPa, cap-side test port",
+      "cylinder makers (Rexroth CDT3 – CDH1 25 MPa only if the band is raised, docs/09 §20.2; Parker HMI, Hänchen …)",
       "medium"
      ],
      [

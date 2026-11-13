@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 970" width="1400" height="970" font-family="Arial, Helvetica, sans-serif">
+<title>APC PLC output wiring – valves, contactor, servo DI (example)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="970" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold">Output wiring – solenoid valves, coupling relay for the pump contactor, servo inputs (example)</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#666666">Delta AS332T-A = transistor SINK (NPN) outputs: load between +24 V and Y. Siemens 1215C DC/DC/DC and SM 1222 = SOURCE (PNP) outputs: load between Q and M.</text>
+<line x1="40.0" y1="120.0" x2="1360.0" y2="120.0" stroke="#c62828" stroke-width="2.5"/>
+<text x="44.0" y="112.0" font-size="11" text-anchor="start" fill="#c62828">+24 V DC valves (fused -F3 4 A)</text>
+<line x1="40.0" y1="150.0" x2="1360.0" y2="150.0" stroke="#c62828" stroke-width="2.5" stroke-dasharray="8 4"/>
+<text x="44.0" y="166.0" font-size="11" text-anchor="start" fill="#c62828">+24 V DC motion valves – through safety relay -KF5 safe outputs 13/14, 23/24 (cut by e-stop / door)</text>
+<line x1="40.0" y1="700.0" x2="1360.0" y2="700.0" stroke="#1565c0" stroke-width="2.5"/>
+<text x="44.0" y="718.0" font-size="11" text-anchor="start" fill="#1565c0">0 V (M)</text>
+<text x="40.0" y="92.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">Delta AS332T-A – sink output (left)</text>
+<line x1="90.0" y1="150.0" x2="90.0" y2="260.0" stroke="#c62828" stroke-width="1.5"/>
+<circle cx="90.0" cy="150.0" r="3.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<rect x="68.0" y="260.0" width="44.0" height="60.0" rx="0" stroke="#000" stroke-width="1.8" fill="#fff"/>
+<line x1="68.0" y1="320.0" x2="112.0" y2="260.0" stroke="#000" stroke-width="1"/>
+<text x="120.0" y="286.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1V1-a</text>
+<text x="120.0" y="302.0" font-size="10" text-anchor="start" fill="#666666">24 V 0.8 A</text>
+<line x1="40.0" y1="250.0" x2="40.0" y2="330.0" stroke="#000" stroke-width="1"/>
+<line x1="40.0" y1="250.0" x2="90.0" y2="250.0" stroke="#000" stroke-width="1"/>
+<line x1="40.0" y1="330.0" x2="90.0" y2="330.0" stroke="#000" stroke-width="1"/>
+<polygon points="32.0,300.0 48.0,300.0 40.0,284.0" stroke="#000" stroke-width="1" fill="#000" stroke-linejoin="round"/>
+<line x1="32.0" y1="284.0" x2="48.0" y2="284.0" stroke="#000" stroke-width="1.5"/>
+<line x1="90.0" y1="320.0" x2="90.0" y2="460.0" stroke="#000" stroke-width="1.5"/>
+<rect x="60.0" y="460.0" width="60.0" height="40.0" rx="0" stroke="#000" stroke-width="1.5" fill="#f5f5f5"/>
+<text x="90.0" y="485.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">Y0.0</text>
+<text x="126.0" y="484.0" font-size="10" text-anchor="start" fill="#000">LiftUpValve</text>
+<line x1="90.0" y1="500.0" x2="90.0" y2="560.0" stroke="#000" stroke-width="1"/>
+<text x="96.0" y="548.0" font-size="9" text-anchor="start" fill="#666666">NPN</text>
+<line x1="90.0" y1="560.0" x2="90.0" y2="700.0" stroke="#1565c0" stroke-width="1.5"/>
+<circle cx="90.0" cy="700.0" r="3.0" stroke="#1565c0" stroke-width="1" fill="#1565c0"/>
+<line x1="280.0" y1="150.0" x2="280.0" y2="260.0" stroke="#c62828" stroke-width="1.5"/>
+<circle cx="280.0" cy="150.0" r="3.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<rect x="258.0" y="260.0" width="44.0" height="60.0" rx="0" stroke="#000" stroke-width="1.8" fill="#fff"/>
+<line x1="258.0" y1="320.0" x2="302.0" y2="260.0" stroke="#000" stroke-width="1"/>
+<text x="310.0" y="286.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">1V1-b</text>
+<text x="310.0" y="302.0" font-size="10" text-anchor="start" fill="#666666">24 V 0.8 A</text>
+<line x1="230.0" y1="250.0" x2="230.0" y2="330.0" stroke="#000" stroke-width="1"/>
+<line x1="230.0" y1="250.0" x2="280.0" y2="250.0" stroke="#000" stroke-width="1"/>
+<line x1="230.0" y1="330.0" x2="280.0" y2="330.0" stroke="#000" stroke-width="1"/>
+<polygon points="222.0,300.0 238.0,300.0 230.0,284.0" stroke="#000" stroke-width="1" fill="#000" stroke-linejoin="round"/>
+<line x1="222.0" y1="284.0" x2="238.0" y2="284.0" stroke="#000" stroke-width="1.5"/>
+<line x1="280.0" y1="320.0" x2="280.0" y2="460.0" stroke="#000" stroke-width="1.5"/>
+<rect x="250.0" y="460.0" width="60.0" height="40.0" rx="0" stroke="#000" stroke-width="1.5" fill="#f5f5f5"/>
+<text x="280.0" y="485.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">Y0.1</text>
+<text x="316.0" y="484.0" font-size="10" text-anchor="start" fill="#000">LiftDownValve</text>
+<line x1="280.0" y1="500.0" x2="280.0" y2="560.0" stroke="#000" stroke-width="1"/>
+<text x="286.0" y="548.0" font-size="9" text-anchor="start" fill="#666666">NPN</text>
+<line x1="280.0" y1="560.0" x2="280.0" y2="700.0" stroke="#1565c0" stroke-width="1.5"/>
+<circle cx="280.0" cy="700.0" r="3.0" stroke="#1565c0" stroke-width="1" fill="#1565c0"/>
+<line x1="470.0" y1="150.0" x2="470.0" y2="260.0" stroke="#c62828" stroke-width="1.5"/>
+<circle cx="470.0" cy="150.0" r="3.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<rect x="448.0" y="260.0" width="44.0" height="60.0" rx="0" stroke="#000" stroke-width="1.8" fill="#fff"/>
+<line x1="448.0" y1="320.0" x2="492.0" y2="260.0" stroke="#000" stroke-width="1"/>
+<text x="500.0" y="286.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">2V1</text>
+<text x="500.0" y="302.0" font-size="10" text-anchor="start" fill="#666666">24 V 0.8 A</text>
+<line x1="420.0" y1="250.0" x2="420.0" y2="330.0" stroke="#000" stroke-width="1"/>
+<line x1="420.0" y1="250.0" x2="470.0" y2="250.0" stroke="#000" stroke-width="1"/>
+<line x1="420.0" y1="330.0" x2="470.0" y2="330.0" stroke="#000" stroke-width="1"/>
+<polygon points="412.0,300.0 428.0,300.0 420.0,284.0" stroke="#000" stroke-width="1" fill="#000" stroke-linejoin="round"/>
+<line x1="412.0" y1="284.0" x2="428.0" y2="284.0" stroke="#000" stroke-width="1.5"/>
+<line x1="470.0" y1="320.0" x2="470.0" y2="460.0" stroke="#000" stroke-width="1.5"/>
+<rect x="440.0" y="460.0" width="60.0" height="40.0" rx="0" stroke="#000" stroke-width="1.5" fill="#f5f5f5"/>
+<text x="470.0" y="485.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">Y0.2</text>
+<text x="506.0" y="484.0" font-size="10" text-anchor="start" fill="#000">UnclampValve</text>
+<line x1="470.0" y1="500.0" x2="470.0" y2="560.0" stroke="#000" stroke-width="1"/>
+<text x="476.0" y="548.0" font-size="9" text-anchor="start" fill="#666666">NPN</text>
+<line x1="470.0" y1="560.0" x2="470.0" y2="700.0" stroke="#1565c0" stroke-width="1.5"/>
+<circle cx="470.0" cy="700.0" r="3.0" stroke="#1565c0" stroke-width="1" fill="#1565c0"/>
+<text x="60.0" y="590.0" font-size="11" text-anchor="start" fill="#000">Y output switches to 0 V (C0 common).</text>
+<text x="60.0" y="606.0" font-size="11" text-anchor="start" fill="#000">Free-wheel diode on every DC coil (or a valve plug</text>
+<text x="60.0" y="622.0" font-size="11" text-anchor="start" fill="#000">with LED + suppressor) protects the transistor.</text>
+<text x="60.0" y="644.0" font-size="11" text-anchor="start" fill="#c62828">Sourcing wanted? → AS332P-A (PNP) – check.</text>
+<text x="700.0" y="92.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">Siemens SM 1222 DQ 16 × 24 V DC – source output (right)</text>
+<line x1="740.0" y1="120.0" x2="740.0" y2="200.0" stroke="#c62828" stroke-width="1.5"/>
+<circle cx="740.0" cy="120.0" r="3.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="746.0" y="190.0" font-size="10" text-anchor="start" fill="#c62828">L+</text>
+<rect x="710.0" y="260.0" width="60.0" height="40.0" rx="0" stroke="#000" stroke-width="1.5" fill="#f5f5f5"/>
+<text x="740.0" y="285.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">%Q20.3</text>
+<line x1="740.0" y1="200.0" x2="740.0" y2="260.0" stroke="#c62828" stroke-width="1.2"/>
+<text x="776.0" y="284.0" font-size="10" text-anchor="start" fill="#000">SeatingAir</text>
+<line x1="740.0" y1="300.0" x2="740.0" y2="400.0" stroke="#000" stroke-width="1.5"/>
+<text x="746.0" y="350.0" font-size="9" text-anchor="start" fill="#666666">PNP</text>
+<rect x="718.0" y="400.0" width="44.0" height="60.0" rx="0" stroke="#000" stroke-width="1.8" fill="#fff"/>
+<line x1="718.0" y1="460.0" x2="762.0" y2="400.0" stroke="#000" stroke-width="1"/>
+<text x="770.0" y="426.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">5V1</text>
+<text x="770.0" y="442.0" font-size="10" text-anchor="start" fill="#666666">24 V DC coil</text>
+<line x1="740.0" y1="460.0" x2="740.0" y2="700.0" stroke="#1565c0" stroke-width="1.5"/>
+<circle cx="740.0" cy="700.0" r="3.0" stroke="#1565c0" stroke-width="1" fill="#1565c0"/>
+<line x1="940.0" y1="120.0" x2="940.0" y2="200.0" stroke="#c62828" stroke-width="1.5"/>
+<circle cx="940.0" cy="120.0" r="3.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="946.0" y="190.0" font-size="10" text-anchor="start" fill="#c62828">L+</text>
+<rect x="910.0" y="260.0" width="60.0" height="40.0" rx="0" stroke="#000" stroke-width="1.5" fill="#f5f5f5"/>
+<text x="940.0" y="285.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">%Q21.3</text>
+<line x1="940.0" y1="200.0" x2="940.0" y2="260.0" stroke="#c62828" stroke-width="1.2"/>
+<text x="976.0" y="284.0" font-size="10" text-anchor="start" fill="#000">UnloadValve</text>
+<line x1="940.0" y1="300.0" x2="940.0" y2="400.0" stroke="#000" stroke-width="1.5"/>
+<text x="946.0" y="350.0" font-size="9" text-anchor="start" fill="#666666">PNP</text>
+<rect x="918.0" y="400.0" width="44.0" height="60.0" rx="0" stroke="#000" stroke-width="1.8" fill="#fff"/>
+<line x1="918.0" y1="460.0" x2="962.0" y2="400.0" stroke="#000" stroke-width="1"/>
+<text x="970.0" y="426.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">0V5</text>
+<text x="970.0" y="442.0" font-size="10" text-anchor="start" fill="#666666">24 V DC coil</text>
+<line x1="940.0" y1="460.0" x2="940.0" y2="700.0" stroke="#1565c0" stroke-width="1.5"/>
+<circle cx="940.0" cy="700.0" r="3.0" stroke="#1565c0" stroke-width="1" fill="#1565c0"/>
+<line x1="1140.0" y1="120.0" x2="1140.0" y2="200.0" stroke="#c62828" stroke-width="1.5"/>
+<circle cx="1140.0" cy="120.0" r="3.0" stroke="#c62828" stroke-width="1" fill="#c62828"/>
+<text x="1146.0" y="190.0" font-size="10" text-anchor="start" fill="#c62828">L+</text>
+<rect x="1110.0" y="260.0" width="60.0" height="40.0" rx="0" stroke="#000" stroke-width="1.5" fill="#f5f5f5"/>
+<text x="1140.0" y="285.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold">%Q21.2</text>
+<line x1="1140.0" y1="200.0" x2="1140.0" y2="260.0" stroke="#c62828" stroke-width="1.2"/>
+<text x="1176.0" y="284.0" font-size="10" text-anchor="start" fill="#000">PumpContactor</text>
+<line x1="1140.0" y1="300.0" x2="1140.0" y2="400.0" stroke="#000" stroke-width="1.5"/>
+<text x="1146.0" y="350.0" font-size="9" text-anchor="start" fill="#666666">PNP</text>
+<rect x="1118.0" y="400.0" width="44.0" height="60.0" rx="0" stroke="#000" stroke-width="1.8" fill="#fff"/>
+<text x="1140.0" y="434.0" font-size="14" text-anchor="middle" fill="#000" font-weight="bold">K</text>
+<text x="1170.0" y="420.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">-KA1 coupling relay</text>
+<text x="1170.0" y="436.0" font-size="10" text-anchor="start" fill="#666666">24 V DC, contact 230 V AC</text>
+<text x="1170.0" y="452.0" font-size="10" text-anchor="start" fill="#666666">→ -QA1 contactor 1.5 kW pump</text>
+<line x1="1140.0" y1="460.0" x2="1140.0" y2="700.0" stroke="#1565c0" stroke-width="1.5"/>
+<circle cx="1140.0" cy="700.0" r="3.0" stroke="#1565c0" stroke-width="1" fill="#1565c0"/>
+<rect x="700.0" y="540.0" width="640.0" height="130.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff" stroke-dasharray="5 3"/>
+<text x="712.0" y="562.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Servo drive (Delta ASDA-B3 / Siemens SINAMICS V90 PN or S210):</text>
+<text x="712.0" y="582.0" font-size="11" text-anchor="start" fill="#000">Delta: Y0.8 SON, Y0.9 CTRG, Y0.10 POS0 → drive DI (24 V, opto); drive DO TPOS / ALRM → X1.7 / X1.8.</text>
+<text x="712.0" y="597.0" font-size="11" text-anchor="start" fill="#000">Siemens: no wires – PROFINET telegram 111 with the library block SINA_POS (EnableAxis, Position, ExecuteMode,</text>
+<text x="712.0" y="612.0" font-size="11" text-anchor="start" fill="#000">AxisPosOk, Error). STO is NEVER a PLC output of the standard program: STO terminals ← safety relay / F-DQ.</text>
+<text x="712.0" y="627.0" font-size="11" text-anchor="start" fill="#000">Outputs max. 0.5 A each (check): a contactor coil &gt; 0.5 A or 230 V AC always via a coupling relay.</text>
+<text x="40.0" y="760.0" font-size="12" text-anchor="start" fill="#000">Rules (example):</text>
+<text x="40.0" y="776.0" font-size="12" text-anchor="start" fill="#000">• One output → one load. Never parallel two outputs. Check the group current (e.g. SM 1222: 8 A per group of 8 outputs – check the manual).</text>
+<text x="40.0" y="792.0" font-size="12" text-anchor="start" fill="#000">• Lift up / lift down: interlocked in the program (Network 12) AND by the 4/3 valve spool (only one position at a time).</text>
+<text x="40.0" y="808.0" font-size="12" text-anchor="start" fill="#000">• The safety relay cuts the +24 V of the motion valves (lift, door) and the servo STO – the PLC output alone is never the safety function.</text>
+<text x="40.0" y="824.0" font-size="12" text-anchor="start" fill="#000">• Unclamp valve 2V1: spring return = clamped without power (fail-safe for the pallet).</text>
+<rect x="848.0" y="866.0" width="540.0" height="92.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="848.0" y1="892.0" x2="1388.0" y2="892.0" stroke="#000" stroke-width="1"/>
+<line x1="848.0" y1="916.0" x2="1388.0" y2="916.0" stroke="#000" stroke-width="1"/>
+<line x1="848.0" y1="937.0" x2="1388.0" y2="937.0" stroke="#000" stroke-width="1"/>
+<line x1="1188.0" y1="916.0" x2="1188.0" y2="958.0" stroke="#000" stroke-width="1"/>
+<text x="856.0" y="884.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="856.0" y="909.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">PLC output wiring (valves, relay, servo)</text>
+<text x="856.0" y="931.0" font-size="11" text-anchor="start" fill="#000">Guide 36 – PLC ladder program of the APC</text>
+<text x="1196.0" y="931.0" font-size="11" text-anchor="start" fill="#000">Dwg VC-APC-PLC-3602</text>
+<text x="856.0" y="952.0" font-size="11" text-anchor="start" fill="#000">Digital twin · program: web/apclad_prog.js, guide 09</text>
+<text x="1196.0" y="952.0" font-size="11" text-anchor="start" fill="#000">not to scale · 2026-11-13</text>
+</svg>

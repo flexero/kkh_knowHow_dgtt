@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="aK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker></defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">Standard cost roll-up – ground ball screw BS-3210-1000-C5 (€ per piece)</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<line x1="70" y1="660" x2="1150" y2="660" stroke="#000" stroke-width="1.5"/>
+<line x1="70" y1="660.0" x2="1150" y2="660.0" stroke="#000" stroke-width="0.6" stroke-dasharray="2 4"/>
+<text x="64" y="664.0" font-size="12" text-anchor="end" fill="#000">0</text>
+<line x1="70" y1="542.0861678004535" x2="1150" y2="542.0861678004535" stroke="#000" stroke-width="0.6" stroke-dasharray="2 4"/>
+<text x="64" y="546.0861678004535" font-size="12" text-anchor="end" fill="#000">100</text>
+<line x1="70" y1="424.17233560090705" x2="1150" y2="424.17233560090705" stroke="#000" stroke-width="0.6" stroke-dasharray="2 4"/>
+<text x="64" y="428.17233560090705" font-size="12" text-anchor="end" fill="#000">200</text>
+<line x1="70" y1="306.2585034013606" x2="1150" y2="306.2585034013606" stroke="#000" stroke-width="0.6" stroke-dasharray="2 4"/>
+<text x="64" y="310.2585034013606" font-size="12" text-anchor="end" fill="#000">300</text>
+<line x1="70" y1="188.3446712018141" x2="1150" y2="188.3446712018141" stroke="#000" stroke-width="0.6" stroke-dasharray="2 4"/>
+<text x="64" y="192.3446712018141" font-size="12" text-anchor="end" fill="#000">400</text>
+<rect x="90" y="634.007074829932" width="110" height="25.992925170068027" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="145.0" y="626.007074829932" font-size="13" text-anchor="middle" font-weight="700" fill="#000">22.04</text>
+<text x="145.0" y="680" font-size="13" text-anchor="middle" fill="#000">material</text>
+<rect x="220" y="632.4474993197279" width="110" height="1.5595755102040816" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="275.0" y="624.4474993197279" font-size="13" text-anchor="middle" font-weight="700" fill="#000">1.32</text>
+<text x="275.0" y="680" font-size="13" text-anchor="middle" fill="#000">MOH 6 %</text>
+<rect x="350" y="547.2579024632009" width="110" height="85.18959685652698" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="405.0" y="539.2579024632009" font-size="13" text-anchor="middle" font-weight="700" fill="#000">72.25</text>
+<text x="405.0" y="680" font-size="13" text-anchor="middle" fill="#000">machine</text>
+<rect x="480" y="490.67860087589935" width="110" height="56.579301587301586" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="535.0" y="482.67860087589935" font-size="13" text-anchor="middle" font-weight="700" fill="#000">47.98</text>
+<text x="535.0" y="680" font-size="13" text-anchor="middle" fill="#000">labour</text>
+<rect x="610" y="405.6172618096022" width="110" height="85.06133906629714" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="665.0" y="397.6172618096022" font-size="13" text-anchor="middle" font-weight="700" fill="#000">72.14</text>
+<text x="665.0" y="680" font-size="13" text-anchor="middle" fill="#000">POH 60 %</text>
+<rect x="740" y="388.7164108620088" width="110" height="16.900850947593437" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="795.0" y="380.7164108620088" font-size="13" text-anchor="middle" font-weight="700" fill="#000">14.33</text>
+<text x="795.0" y="680" font-size="13" text-anchor="middle" fill="#000">scrap allow.</text>
+<rect x="870" y="388.7164108620088" width="110" height="271.2835891379912" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1"/>
+<text x="925.0" y="380.7164108620088" font-size="13" text-anchor="middle" font-weight="700" fill="#000">230.07</text>
+<text x="925.0" y="680" font-size="13" text-anchor="middle" fill="#000">std cost</text>
+<rect x="1000" y="348.0238724913101" width="110" height="311.9761275086899" fill="#000" stroke="#000" stroke-width="1"/>
+<text x="1055.0" y="340.0238724913101" font-size="13" text-anchor="middle" font-weight="700" fill="#000">264.58</text>
+<text x="1055.0" y="680" font-size="13" text-anchor="middle" fill="#000">full cost</text>
+<line x1="70" y1="164.76190476190482" x2="1150" y2="164.76190476190482" stroke="#1f6fd1" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="1150" y="156.76190476190482" font-size="13" text-anchor="end" font-weight="700" fill="#1f6fd1">list price 420 € · margin 37.0 % on full cost</text>
+<text x="24" y="700" font-size="12" text-anchor="start" fill="#000">material: 1.01 m bar × 14.40 + lock nut 4.50 + key 0.20 + tube 2.80 = 22.04 € · machine + labour over 12 operations (op 100 thread grinding = 74.07 €)</text>
+<text x="24" y="718" font-size="12" text-anchor="start" fill="#000">scrap allowance = base 215.74 × (1 / route yield 0.9377 − 1) · full cost = std × (1 + SG&amp;A 15 %)</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/><line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your ERP team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 7 ERP · guide 46 · 46_cost_waterfall.svg</text></svg>

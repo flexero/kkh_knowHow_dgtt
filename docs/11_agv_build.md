@@ -73,6 +73,7 @@ After reading you should be able to:
 **Important:** if you build an AGV yourself, **you are the manufacturer**. The risk assessment,
 ISO 3691-4 (driverless industrial trucks), safety functions validated to PL d (ISO 13849),
 CE marking and the operating manual are your job. This guide does not replace them.
+Machines placed on the market / put into service from 20 Jan 2027 – including own-built ones – follow Machinery Regulation (EU) 2023/1230; harmonised standards listed under the Directive do not automatically carry over (guide 16 §10).
 
 ---
 
@@ -2529,7 +2530,7 @@ A **safety program or scanner field change** always needs a new version **and** 
 | `manufacturer` | `VC` (or the company name fixed in doc 15 / the fleet manager) | same for all own-built AGVs |
 | `serialNumber` | `AGV-2546-00001` | = vehicle serial, never the equipment ID |
 | MQTT topic | `uagv/v2/VC/AGV-2546-00001/order` (`state`, `instantActions`, `visualization`, `connection`, `factsheet`) | `interfaceName/majorVersion/manufacturer/serialNumber/topic` |
-| `version` | the VDA 5050 version used, e.g. 2.0.0 | must match the fleet manager – verify |
+| `version` | the VDA 5050 version used: VDA 5050 2.x (current 2.1.0 – check; 3.0 announced); the example messages use 2.0.0 | must match the fleet manager – verify |
 | factsheet | seriesName "AGV U300", agvKinematic DIFF, agvClass CARRIER, maxLoadMass 300, speedMax 1.2 … | from chapter 14 |
 
 The fleet manager maps `AGV-01` (equipment) → `AGV-2546-00001` (vehicle). When a vehicle is replaced, only this map
@@ -3788,7 +3789,7 @@ Spec: Type 3 (IEC 61496-3), PL d, ≥ 16 field sets (better 32+), 275°, protect
 | # | Item | Qty | Spec | Section |
 |---|---|---|---|---|
 | 1 | Navigation controller + licence (contour + reflectors) | 4 | VDA 5050 client, offline | 18, 29.8 |
-| 2 | Fleet manager software + on-premise server + MQTT broker | 1 | VDA 5050 2.x, traffic zones, charging | 25, 29.10 |
+| 2 | Fleet manager software + on-premise server + MQTT broker | 1 | VDA 5050 2.x (current 2.1.0 – check; 3.0 announced), traffic zones, charging | 25, 29.10 |
 | 3 | Safety laser scanner | 8 | Type 3, PL d, ≥ 16 field sets, Ethernet data | 23, 29.7 |
 | 4 | Safety controller with safe speed | 4 | PL e, 2 encoder inputs | 11.9, 29.9 |
 | 5 | Servo drive 48 V, CiA 402, STO | 4 (U300 drive) + 2 (U300 lift) + 4 (P1000 drive) + 2 (P1000 actuators, if not integrated) + 2 (P1000 chain) | U300 10/30 A; P1000 size from the 400 W motor data | 4.2, 29.3 |

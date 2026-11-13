@@ -10,6 +10,22 @@
 <link rel="stylesheet" href="instseq.css">
 <link rel="stylesheet" href="hydlib.css">
 <link rel="stylesheet" href="hydckt.css">
+<link rel="stylesheet" href="asrs1.css">
+<link rel="stylesheet" href="asrs2.css">
+<link rel="stylesheet" href="asrs3.css">
+<link rel="stylesheet" href="asrs4.css">
+<link rel="stylesheet" href="ladder.css">
+<link rel="stylesheet" href="asrscrane.css">
+<link rel="stylesheet" href="asrsfork.css">
+<link rel="stylesheet" href="bsfprod.css">
+<link rel="stylesheet" href="bsfmfg.css">
+<link rel="stylesheet" href="bsflay.css">
+<link rel="stylesheet" href="bsfcomm.css">
+<link rel="stylesheet" href="bsfqa.css">
+<link rel="stylesheet" href="bsfmes.css">
+<link rel="stylesheet" href="bsferp.css">
+<link rel="stylesheet" href="bsfplc.css">
+<link rel="stylesheet" href="am.css">
 <script src="theme.js"></script>
 </head>
 <body>
@@ -35,8 +51,11 @@
     <button class="tab" data-tab="mech">Mechanical elements</button>
     <button class="tab" data-tab="agv">AGV build</button>
     <button class="tab" data-tab="robot">Industrial robot</button>
+    <button class="tab" data-tab="asrs">AS/RS raw materials</button>
     <button class="tab" data-tab="inst">Installation</button>
     <button class="tab" data-tab="hyd">Hydraulics</button>
+    <button class="tab" data-tab="bsf">Ball screw + guide factory</button>
+    <button class="tab" data-tab="am">Additive manufacturing</button>
     <button class="tab" data-tab="comm">Communication</button>
     <button class="tab" data-tab="whatif">What-if simulation</button>
     <button class="tab" data-tab="learn">How it works</button>
@@ -745,7 +764,7 @@
         <button class="mx-el" data-hritem="4">4 · Spindle manufacturing – digital twin (shaft + housing + spacers + drawbar)</button>
         <button class="mx-el" disabled title="next item">5 · next – you decide (e.g. spindle unit, column + slides, tool magazine)</button>
       </div>
-      <p class="intro" id="hrIntro4" hidden>A <b>digital twin of the motor-spindle manufacturing</b> (HSK-A63, 12 000 rpm, hybrid angular-contact bearings, built-in motor, drawbar with disc springs).
+      <p class="intro" id="hrIntro4" hidden>A <b>digital twin of the motor-spindle manufacturing</b> (HSK-A63, 10 000 rpm / 18 kW, hybrid angular-contact bearings, built-in motor, drawbar with disc springs).
         The spindle shaft runs through every operation (2D + 3D) with the real equipment; housing, spacers and drawbar have their process plans. Design data are shared with the spindle assembly
         (Assembly tab, item 2). All values are examples.</p>
       <p class="intro" id="hrIntro3" hidden>A <b>digital twin of the worm wheel process</b> (the bronze wheel that runs with the duplex worm of item 2). 11 operations: steel hub, centrifugal-cast
@@ -851,7 +870,7 @@
       <div class="card">
         <div class="card-head"><h2>Hydraulic circuit</h2><span class="sub">ISO 1219 style · live state of the step</span></div>
         <div id="apcHyd"></div>
-        <p class="hint">0P1 pump, 0V1 relief valve, 0Z2 accumulator. Lift: 4/3 valve 1V1 with closed centre, pilot-operated check valves 1V2
+        <p class="hint">0P1 pump, 0V1 relief valve, 0Z2 accumulator. Lift: 4/3 valve 1V1, centre P blocked, A + B → T (guide 09 §9.3), pilot-operated check valves 1V2
           (the arm cannot sink when a hose breaks or the valve leaks) and meter-out throttles 1V3 (speed). Clamping: 3/2 valve 2V1 through the
           rotary union to the 4 modules, pressure switch 2S1 = "unclamped". Air: 3/2 valve 3V1 + pressure switch 3S1 = seating check.</p>
       </div>
@@ -915,6 +934,10 @@
     <div class="card" style="margin-top:16px">
       <div class="card-head"><h2>Safety</h2></div>
       <div id="apcSafety"></div>
+    </div>
+    <div class="card" id="apcLadderCard">
+      <div class="card-head"><h2>PLC ladder program – Delta + Siemens side by side</h2><span class="sub">the step chain above as LAD networks · live simulation · example</span></div>
+      <div id="apcLadder"></div>
     </div>
   </section>
 
@@ -1131,6 +1154,46 @@
     <div id="rbItem3" hidden></div>
   </section>
 
+  <section id="tab-asrs" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>AS/RS raw materials – automated high-bay store, real digital 3D twin</h2>
+        <span class="sub">ASRS-RAW of the factory · 392 pallet-crate slots, 1 stacker crane, I/O conveyors · live simulation shared by all items · example values – the AS/RS supplier's offer decides · offline</span></div>
+      <div class="mx-nav" role="group" aria-label="AS/RS item">
+        <button class="mx-el active" data-sritem="1">1 · Mechanical system – 3D twin (rack, stacker crane, load handling, conveyors) – live</button>
+        <button class="mx-el" data-sritem="2">2 · Control system – crane motion, positioning, WCS, safety (live)</button>
+        <button class="mx-el" data-sritem="3">3 · PLC + electrical circuits – power, drives, safety, I/O (schematics, live)</button>
+        <button class="mx-el" data-sritem="4">4 · WMS / ERP / MES – stock, slotting, orders, traceability, integration (live)</button>
+        <button class="mx-el" data-sritem="5">5 · PLC ladder program – Delta + Siemens side by side (live simulation)</button>
+        <button class="mx-el" data-sritem="6">6 · Stacker crane – structure + manufacturing (3D build twin: parts, welding, machining, assembly)</button>
+        <button class="mx-el" data-sritem="7">7 · Telescopic fork – how it moves, gear / chain transfer, load pick-up (3D simulation)</button>
+      </div>
+      <p class="intro" id="srIntro1">The <b>mechanical system</b> of the raw-material store as a running 3D twin: steel high-bay rack (14 bays × 2 crates × 7 levels × 2 sides
+        = <b>392 slots</b> for crankcase, cylinder and crankshaft crates), <b>stacker crane</b> (bottom/top rail, mast, lifting carriage, telescopic fork, travel and hoist drives),
+        infeed / outfeed conveyors with ID point and contour check, safety fence and maintenance access. Watch real store / retrieve cycles, click any part to see what it is,
+        its design data and calculation (rack loads, crane cycle FEM 9.851, rail, mast deflection, drives). All values are examples.</p>
+      <p class="intro" id="srIntro2" hidden>The <b>control system</b> of the AS/RS: control architecture (WMS → WCS → crane PLC → drives), the crane motion control
+        (travel / hoist / fork axes, trapezoid and S-curve profiles, absolute positioning with laser distance and bar-code positioning, fine positioning, sway), the
+        job sequence and state machine, the conveyor control and ID point, interlocks and <b>safety</b> (e-stop, door, overspeed, end-of-aisle, overload, safe speed),
+        energy (shared DC link, regenerative braking). Live values from the running twin, faults you can inject. All values are examples.</p>
+      <p class="intro" id="srIntro3" hidden>The <b>electrical circuits</b> of the crane and conveyor control as real schematic pages: power supply and power rail,
+        travel / hoist / fork servo drives with STO and brakes, DC link and braking resistor, 24 V supply, safety circuits (e-stops, door interlocks, light curtains at the
+        I/O, overspeed / slack-rope / overload), positioning sensors, PLC I/O and the data link to the moving crane. Live: contacts and signals follow the twin. All values are examples.</p>
+      <p class="intro" id="srIntro4" hidden>The <b>software layer</b>: WMS (stock per slot and lot, slotting strategy, FIFO, inventory counts), the job interface to the WCS,
+        <b>ERP</b> (material master, goods receipt, stock, MRP and reorder point) and <b>MES</b> (line call-off, kanban, traceability of castings to the compressor serial),
+        with message examples and KPIs – all live from the running twin. All values are examples.</p>
+      <p class="intro" id="srIntro5" hidden>The <b>PLC ladder program (LAD)</b> of the crane and conveyor control, written twice – for a <b>Delta</b> PLC (ISPSoft) and for a <b>Siemens</b> S7-1500 / S7-1200 (TIA Portal) – side by side: I/O list with addresses, networks for modes, start / stop, job handshake, travel / hoist / fork step chain, conveyors, faults and alarms. Click the inputs and watch the rungs work. Safety functions stay in the safety relay / F-PLC. All values are examples.</p>
+      <p class="intro" id="srIntro6" hidden>The <b>stacker crane explained part by part</b> and how to <b>manufacture</b> it: bottom carriage with wheel blocks and travel drive, welded box mast, top guide, lifting carriage with hoist, telescopic fork, cabinet and rails. Explode the 3D model, click any part for drawing data (size, material, tolerances), watch each part being made (cutting, welding, stress relief, machining, painting) and the assembly sequence with checks. All values are examples – the crane maker's drawings decide.</p>
+      <p class="intro" id="srIntro7" hidden>The <b>telescopic fork</b> in detail: why 3 stages move out together, how one motor drives them (gear motor → pinion → rack on the middle stage, chains or belts double the stroke for the top stage), rollers and guides, and how the fork <b>picks up a crate</b> from the rack (travel to the slot, extend under the load, lift by 100 mm (60 mm free), retract, place). Live 3D simulation with speed and stroke graphs, X-ray view of the gears and chains, fault cases, design calculations and manufacturing data. All values are examples – the fork maker's data decides.</p>
+    </div>
+    <div id="srItem1"></div>
+    <div id="srItem2" hidden></div>
+    <div id="srItem3" hidden></div>
+    <div id="srItem4" hidden></div>
+    <div id="srItem5" hidden></div>
+    <div id="srItem6" hidden></div>
+    <div id="srItem7" hidden></div>
+  </section>
+
   <section id="tab-inst" class="tabpane">
     <div class="card">
       <div class="card-head"><h2>Installation – how to install the CNC machines in the factory</h2>
@@ -1165,6 +1228,39 @@
     <div id="inItem5" hidden></div>
   </section>
 
+  <section id="tab-bsf" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>Ball screw + profiled linear guide factory – complete digital twin</h2>
+        <span class="sub">new product line, 8 items · communication only Ethernet + Modbus TCP + HTTP · all values are examples · offline</span></div>
+      <div class="mx-nav" role="group" aria-label="Ball screw factory item">
+        <button class="mx-el active" data-bfitem="1">1 · Products – ball screw, nut, profiled linear guide: design, load ratings, accuracy, 3D</button>
+        <button class="mx-el" data-bfitem="2">2 · Manufacturing processes – screw shaft, nut, rail, carriage: every operation in 3D</button>
+        <button class="mx-el" data-bfitem="3">3 · Factory layout + live 3D digital twin (lines, machines, AGVs, stores)</button>
+        <button class="mx-el" data-bfitem="4">4 · Communication – only Ethernet + Modbus TCP + HTTP (register maps, gateway, live)</button>
+        <button class="mx-el" data-bfitem="5">5 · Quality + inspection – lead accuracy, preload, parallelism, SPC</button>
+        <button class="mx-el" data-bfitem="6">6 · MES – work orders, dispatch, traceability, OEE (HTTP)</button>
+        <button class="mx-el" data-bfitem="7">7 · ERP – BOM, MRP, purchasing, cost, sales orders (HTTP)</button>
+        <button class="mx-el" data-bfitem="8">8 · PLC control programs – machines, handling, gateway (Delta + Siemens)</button>
+      </div>
+      <p class="intro" id="bfIntro1">The <b>products</b> of the new factory: <b>ball screw</b> (screw shaft + ball nut with recirculation) and <b>profiled linear guide</b> (rail + carriage with balls / rollers). How they work, the parts, real geometry, load ratings C / C0, life L10, accuracy grades (ISO 3408, JIS B 1192), preload, rigidity, lubrication, sealing, mounting – live 3D model with cut views and moving balls, calculators with example numbers. All values are examples – check the maker's catalogue.</p>
+      <p class="intro" id="bfIntro2" hidden>How each part is <b>made</b>: screw shaft (bar → straighten → turn → induction harden → straighten → grind journals → thread grinding or whirling → lead check), ball nut (turn → drill return path → carburize → internal thread grinding → assembly + preload), rail (drawn profile → mill holes → induction harden → straighten → profile grinding) and carriage (forged / cut blank → mill → harden → raceway grinding → end caps + seals). Every operation as a live 3D machine with the tool, the cutting data, the cycle time, the quality check and the typical mistake – routing sheets, machine list, takt and capacity. All values are examples.</p>
+      <p class="intro" id="bfIntro3" hidden>The <b>whole factory as a live 3D digital twin</b>: hall layout with all machines of item 2 grouped in cells (turning, heat treatment, grinding room at 20 ± 1 °C, assembly, inspection), raw-material and finished-goods stores, AGVs with transport orders, work-in-process, machine states (run / idle / setup / down), live KPIs (output per day, OEE, bottleneck, lead time, WIP). Change the order mix, shifts or a breakdown and watch the flow. All values are examples.</p>
+      <p class="intro" id="bfIntro4" hidden>The <b>whole communication with only Ethernet + Modbus TCP + HTTP</b>: network plan (VLANs, IP addresses, switches, firewall), a Modbus TCP register map for every machine type, a gateway that polls all 73 machines and offers the data over HTTP (REST + JSON, live push by Server-Sent Events), the HTTP APIs for MES, ERP, AGV fleet, label printer and the twin. Live: real Modbus TCP frames (hex, decoded) and HTTP messages between the twin, the gateway, MES and ERP, timing and load, faults (cable, time-out, wrong word order). All values are examples.</p>
+      <p class="intro" id="bfIntro5" hidden>The <b>quality system</b> of the factory: the 17 quality gates of the routings, measuring the lead error of a ball screw with a laser (e_p, v_300p, v_2πp per ISO 3408-3), runout, hardness and case depth, thread profile, preload torque and its variation, rail running parallelism and carriage height, SPC charts with Cpk, gauge R&R (MSA), sampling, NCR and traceability per serial. Live measurement simulation with data from the twin; results reach the MES by HTTP. All values are examples.</p>
+      <p class="intro" id="bfIntro6" hidden>The <b>MES</b> of the factory, talking only HTTP (to ERP, AGV fleet, printers, browsers) and reading the machines through the Modbus TCP gateway: production orders from ERP → work orders and lots on the routings, scheduling and dispatch lists per machine (rules, setups, the thread-grinder bottleneck), order download to the machine (toggle-bit handshake), confirmations, material and tool / gauge checks, heat-treatment batches, serial numbers and labels, traceability (genealogy), OEE and downtime reasons, andon, shift report. Live with the twin. All values are examples.</p>
+      <p class="intro" id="bfIntro7" hidden>The <b>ERP</b> of the factory, talking HTTP only: customers and sales orders (configured ball screws and guides), material masters and multi-level BOMs, routings with work centres and rates, MRP (gross → net requirements, lot sizing, lead-time offset), purchasing of steel bars, balls, seals and wheels, stock and goods movements, production orders released to the MES and confirmations back, standard cost and actual cost per product, invoicing and simple finance figures. Live with the twin and the MES. All values are examples.</p>
+      <p class="intro" id="bfIntro8" hidden>The <b>PLC programs</b> of the factory as live ladder (LAD) for <b>Delta</b> and <b>Siemens</b> side by side: the standard machine interface every machine offers to the gateway (Modbus TCP server, status word, counters, MES order handshake with toggle bits), induction hardening line, straightening press, thread grinder loader + coolant / oil temperature, rail grinder handling, preload torque test stand, assembly + run-in station, AGV transfer station. Click the inputs and watch the rungs; the Modbus registers update live. Safety stays in the safety relay / F-PLC. All values are examples.</p>
+    </div>
+    <div id="bfItem1"></div>
+    <div id="bfItem2" hidden></div>
+    <div id="bfItem3" hidden></div>
+    <div id="bfItem4" hidden></div>
+    <div id="bfItem5" hidden></div>
+    <div id="bfItem6" hidden></div>
+    <div id="bfItem7" hidden></div>
+    <div id="bfItem8" hidden></div>
+  </section>
+
   <section id="tab-hyd" class="tabpane">
     <div class="card">
       <div class="card-head"><h2>Hydraulics – elements, circuits and system design</h2>
@@ -1173,6 +1269,7 @@
         <button class="mx-el active" data-hyitem="1">1 · Element data book – pumps, motors, cylinders, valves (directional, pressure, flow, check / lock), accumulators, filters, pipes …</button>
         <button class="mx-el" data-hyitem="2">2 · Standard circuits – hydraulic lock, counterbalance, meter-in/out, sequence, regenerative, motor + brake … (live)</button>
         <button class="mx-el" data-hyitem="3">3 · System sizing – from the load list to pump, motor, valves, pipes, tank, cooler and parts list</button>
+        <button class="mx-el" data-hyitem="4">4 · PLC ladder program – hydraulic power unit + circuits, Delta + Siemens (live simulation)</button>
       </div>
       <p class="intro" id="hyIntro1">Every <b>hydraulic element</b> with its ISO 1219 symbol, how it works inside, the types, <b>real data ranges</b>
         (sizes, pressure, flow, speed, efficiency, leakage), how to <b>select</b> it with a formula and example numbers, how it is mounted, and how it
@@ -1185,10 +1282,39 @@
       <p class="intro" id="hyIntro3" hidden>The <b>complete design</b> of a hydraulic system step by step: load list and sequence → system pressure
         → cylinders and motors → flows and duty cycle → pump, electric motor, accumulator → valve sizes (NG / CETOP) → pipes and hoses →
         tank, cooler, filter → <b>parts list</b>. Change the inputs and every number updates. All values are examples.</p>
+      <p class="intro" id="hyIntro4" hidden>The <b>PLC ladder program (LAD)</b> of a hydraulic power unit and its circuits – pump start (star-delta / soft start), accumulator charging with unloading, pressure and temperature monitoring, filter and level alarms, cooler / heater, valve solenoids with interlocks (clamp, lock, counterbalance, sequence) – for a <b>Delta</b> PLC and a <b>Siemens</b> PLC side by side. Click the inputs and watch the rungs and the circuit. All values are examples.</p>
     </div>
     <div id="hyItem1"></div>
     <div id="hyItem2" hidden></div>
     <div id="hyItem3" hidden></div>
+    <div id="hyItem4" hidden></div>
+  </section>
+
+  <!-- ============================== ADDITIVE MANUFACTURING ============================== -->
+  <section id="tab-am" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>Additive manufacturing (3D printing) – technologies and a metal process twin</h2>
+        <span class="sub">ISO/ASTM 52900 · real industrial practice · example values · machine names = examples of a class · offline</span></div>
+      <div class="mx-nav" role="group" aria-label="Additive manufacturing item">
+        <button class="mx-el active" data-amitem="1">1 · Technology map – the 7 process families, real factory uses, which process for my part</button>
+        <button class="mx-el" data-amitem="2">2 · Metal LPBF process twin – powder → print (live monitoring, 3D) → post-processing → CT → released part</button>
+        <button class="mx-el" data-amitem="3">3 · Industry map – where AM is really used in the world (series, growing, pilot, hype) and what it means for you</button>
+        <button class="mx-el" data-amitem="4" disabled>4 · next – you decide (e.g. polymer MJF / FFF jig printing, sand printing for castings, DED repair)</button>
+      </div>
+      <p class="intro" id="amIntro1"><b>Additive manufacturing (AM)</b> builds a part layer by layer from powder, wire, plastic or resin – instead of cutting material away
+        (milling) or pouring it into a mould (casting). There are <b>7 process families</b>. Click one to see how it works, what it can make, what it costs and
+        where real factories use it. Then check <b>which process fits your part</b> and <b>where AM pays in your compressor factory</b>. All values are examples.</p>
+      <p class="intro" id="amIntro2" hidden>A <b>digital twin of a metal 3D-printing production line</b> (laser powder bed fusion, the most used metal AM process):
+        powder check → build preparation → machine set-up → <b>printing layer by layer</b> with melt-pool, camera and O2 monitoring → depowdering → stress relief →
+        cutting from the plate → supports → heat treatment / HIP → machining → CT and coupons → release. Choose part, material, machine and parameters: build time,
+        powder, cost per part and every check update. Inject faults and see which check finds them. All values are examples.</p>
+      <p class="intro" id="amIntro3" hidden>Where does 3D printing <b>really</b> work in industry today? Every field with its <b>maturity</b> (series production,
+        growing, pilot, hype), the typical parts, why AM wins there, <b>public examples</b> from real companies, typical numbers and a realistic outlook –
+        plus what each field means for your compressor factory. Market numbers are rounded estimates from public market reports.</p>
+    </div>
+    <div id="amItem1"></div>
+    <div id="amItem2" hidden></div>
+    <div id="amItem3" hidden></div>
   </section>
 
   <section id="tab-comm" class="tabpane">
@@ -1507,6 +1633,7 @@
 <script src="apc.js"></script>
 <script type="module" src="gcode.js"></script>
 <script type="module" src="apc3d.js"></script>
+<script type="module" src="apclad.js"></script>
 <script type="module" src="mech.js"></script>
 <script type="module" src="mech2.js"></script>
 <script type="module" src="mech3.js"></script>
@@ -1527,14 +1654,35 @@
 <script type="module" src="robotctl.js"></script>
 <script type="module" src="robotckt.js"></script>
 <script type="module" src="robotref.js"></script>
+<script type="module" src="sr.js"></script>
+<script type="module" src="asrs3d.js"></script>
+<script type="module" src="asrsctl.js"></script>
+<script type="module" src="asrsckt.js"></script>
+<script type="module" src="asrswms.js"></script>
+<script type="module" src="asrslad.js"></script>
+<script type="module" src="asrscrane.js"></script>
+<script type="module" src="asrsfork.js"></script>
 <script type="module" src="inst.js"></script>
 <script type="module" src="instmech.js"></script>
 <script type="module" src="instelec.js"></script>
 <script type="module" src="instseq.js"></script>
 <script type="module" src="instref.js"></script>
 <script type="module" src="hyd.js"></script>
+<script type="module" src="bsf.js"></script>
+<script type="module" src="bsfprod.js"></script>
+<script type="module" src="bsfmfg.js"></script>
+<script type="module" src="bsflay.js"></script>
+<script type="module" src="bsfcomm.js"></script>
+<script type="module" src="bsfqa.js"></script>
+<script type="module" src="bsfmes.js"></script>
+<script type="module" src="bsferp.js"></script>
+<script type="module" src="bsfplc.js"></script>
 <script type="module" src="hydlib.js"></script>
 <script type="module" src="hydckt.js"></script>
+<script type="module" src="am.js"></script>
+<script type="module" src="amlpbf.js"></script>
+<script type="module" src="amind.js"></script>
+<script type="module" src="hydlad.js"></script>
 <script type="module" src="hydref.js"></script>
 <script type="module" src="machref.js"></script>
 <script type="module">

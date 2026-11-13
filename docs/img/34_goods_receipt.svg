@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="830" viewBox="0 0 1200 830"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111111"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0a5fb4"/></marker></defs>
+<rect x="0" y="0" width="1200" height="830" fill="#ffffff"/>
+<text x="14.0" y="26.0" font-family="Arial, Helvetica, sans-serif" font-size="17" text-anchor="start" font-weight="bold" fill="#111111">Goods receipt flow – ASN → unloading → ID point → quality check → putaway job → slot</text>
+<text x="14.0" y="46.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#666666">physical flow (boxes) and system postings (accent text) for one delivery of 120 × CC20-CAST = 30 crates; times are examples</text>
+<rect x="1" y="803" width="1198" height="26" fill="none" stroke="#111111"/>
+<text x="10.0" y="821.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="start" font-weight="bold" fill="#111111">EXAMPLE – check the AS/RS supplier's documentation</text>
+<text x="1190.0" y="821.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="end" fill="#666666">Guide 34 · AS/RS raw materials – WMS / ERP / MES · values = examples (ASRS-RAW, V-compressor factory)</text>
+<rect x="30.0" y="90.0" width="150.0" height="92.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="38.0" y="108.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" font-weight="bold" fill="#111111">1 ASN / DESADV</text>
+<text x="38.0" y="125.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">supplier sends ASN:</text>
+<text x="38.0" y="140.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">PO, 30 SSCC, batch,</text>
+<text x="38.0" y="155.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">heat, 3.1 certificate</text>
+<text x="38.0" y="202.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" fill="#0a5fb4">ERP: inbound delivery</text>
+<text x="38.0" y="217.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#0a5fb4">WMS: expected receipt</text>
+<line x1="180.0" y1="136.0" x2="197.0" y2="136.0" stroke="#111111" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="197.0" y="90.0" width="150.0" height="92.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="205.0" y="108.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" font-weight="bold" fill="#111111">2 Unload at dock</text>
+<text x="205.0" y="125.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">forklift + VM terminal</text>
+<text x="205.0" y="140.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">scan SSCC vs. ASN</text>
+<text x="205.0" y="155.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">count crates (30)</text>
+<text x="205.0" y="202.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" fill="#0a5fb4">WMS: HU created</text>
+<text x="205.0" y="217.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#0a5fb4">status QI</text>
+<line x1="347.0" y1="136.0" x2="364.0" y2="136.0" stroke="#111111" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="364.0" y="90.0" width="150.0" height="92.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="372.0" y="108.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" font-weight="bold" fill="#111111">3 Label + infeed</text>
+<text x="372.0" y="125.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">own crate label if</text>
+<text x="372.0" y="140.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">needed (CRT, lot)</text>
+<text x="372.0" y="155.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">put crate on infeed</text>
+<text x="372.0" y="202.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" fill="#0a5fb4">print job</text>
+<text x="372.0" y="217.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#0a5fb4">vc-ops-prt01</text>
+<line x1="514.0" y1="136.0" x2="531.0" y2="136.0" stroke="#111111" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="531.0" y="90.0" width="150.0" height="92.0" rx="4" fill="#ffffff" stroke="#0a5fb4" stroke-width="2"/>
+<text x="539.0" y="108.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" font-weight="bold" fill="#111111">4 ID point</text>
+<text x="539.0" y="125.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">RFID + barcode read</text>
+<text x="539.0" y="140.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">contour (overhang)</text>
+<text x="539.0" y="155.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">weight ≤ 300 kg</text>
+<text x="539.0" y="202.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" fill="#0a5fb4">SCAN telegram</text>
+<text x="539.0" y="217.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#0a5fb4">no-read → reject lane</text>
+<line x1="681.0" y1="136.0" x2="698.0" y2="136.0" stroke="#111111" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="698.0" y="90.0" width="150.0" height="92.0" rx="4" fill="#ffffff" stroke="#0a5fb4" stroke-width="2"/>
+<text x="706.0" y="108.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" font-weight="bold" fill="#111111">5 Quality check</text>
+<text x="706.0" y="125.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">ISO 2859-1, level II,</text>
+<text x="706.0" y="140.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">AQL 1.0: lot 120 →</text>
+<text x="706.0" y="155.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">n = 13, Ac 0 / Re 1</text>
+<text x="706.0" y="202.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" fill="#0a5fb4">lot QI → released</text>
+<text x="706.0" y="217.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#0a5fb4">or blocked + NCR</text>
+<line x1="848.0" y1="136.0" x2="865.0" y2="136.0" stroke="#111111" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="865.0" y="90.0" width="150.0" height="92.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="873.0" y="108.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" font-weight="bold" fill="#111111">6 Putaway job</text>
+<text x="873.0" y="125.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">WMS picks the slot:</text>
+<text x="873.0" y="140.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">zone by class, FIFO,</text>
+<text x="873.0" y="155.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">weight class</text>
+<text x="873.0" y="202.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" fill="#0a5fb4">TO telegram</text>
+<text x="873.0" y="217.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#0a5fb4">crane store cycle</text>
+<line x1="1015.0" y1="136.0" x2="1032.0" y2="136.0" stroke="#111111" stroke-width="1.3" marker-end="url(#ar)"/>
+<rect x="1032.0" y="90.0" width="150.0" height="92.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="1040.0" y="108.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" font-weight="bold" fill="#111111">7 In stock</text>
+<text x="1040.0" y="125.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">TC status 00</text>
+<text x="1040.0" y="140.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">quant in slot</text>
+<text x="1040.0" y="155.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">category released</text>
+<text x="1040.0" y="202.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" fill="#0a5fb4">GM 101 to ERP</text>
+<text x="1040.0" y="217.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#0a5fb4">value + lot qty</text>
+<path d="M606,225 L606,265 L272,265 L272,230" stroke="#111111" stroke-width="1.3" fill="none" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+<text x="439.0" y="282.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="middle" fill="#111111">reject lane: re-label / manual check, then infeed again (TC 11 / 12 / 13)</text>
+<text x="30.0" y="320.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" font-weight="bold" fill="#111111">Dock-to-stock time for one delivery of 30 crates (example)</text>
+<text x="30.0" y="354.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#111111">unload + scan 30 crates</text>
+<rect x="280.0" y="340.0" width="180.0" height="18.0" rx="2" fill="#f2f2f2" stroke="#111111" stroke-width="1.2"/>
+<text x="466.0" y="354.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">0 – 20 min</text>
+<text x="30.0" y="382.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#111111">ID point + infeed</text>
+<rect x="370.0" y="368.0" width="270.0" height="18.0" rx="2" fill="#f2f2f2" stroke="#111111" stroke-width="1.2"/>
+<text x="646.0" y="382.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">10 – 40 min</text>
+<text x="30.0" y="410.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#111111">sample inspection n = 13</text>
+<rect x="460.0" y="396.0" width="540.0" height="18.0" rx="2" fill="#eef3fa" stroke="#0a5fb4" stroke-width="1.2"/>
+<text x="1006.0" y="410.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">20 – 80 min</text>
+<text x="30.0" y="438.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#111111">putaway 30 × 35 s (single cycles)</text>
+<rect x="550.0" y="424.0" width="432.0" height="18.0" rx="2" fill="#f2f2f2" stroke="#111111" stroke-width="1.2"/>
+<text x="988.0" y="438.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" fill="#111111">30 – 78 min</text>
+<line x1="280.0" y1="455.0" x2="280.0" y2="461.0" stroke="#111111" stroke-width="1"/>
+<text x="280.0" y="475.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">0</text>
+<line x1="370.0" y1="455.0" x2="370.0" y2="461.0" stroke="#111111" stroke-width="1"/>
+<text x="370.0" y="475.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">10</text>
+<line x1="460.0" y1="455.0" x2="460.0" y2="461.0" stroke="#111111" stroke-width="1"/>
+<text x="460.0" y="475.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">20</text>
+<line x1="550.0" y1="455.0" x2="550.0" y2="461.0" stroke="#111111" stroke-width="1"/>
+<text x="550.0" y="475.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">30</text>
+<line x1="640.0" y1="455.0" x2="640.0" y2="461.0" stroke="#111111" stroke-width="1"/>
+<text x="640.0" y="475.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">40</text>
+<line x1="730.0" y1="455.0" x2="730.0" y2="461.0" stroke="#111111" stroke-width="1"/>
+<text x="730.0" y="475.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">50</text>
+<line x1="820.0" y1="455.0" x2="820.0" y2="461.0" stroke="#111111" stroke-width="1"/>
+<text x="820.0" y="475.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">60</text>
+<line x1="910.0" y1="455.0" x2="910.0" y2="461.0" stroke="#111111" stroke-width="1"/>
+<text x="910.0" y="475.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">70</text>
+<line x1="1000.0" y1="455.0" x2="1000.0" y2="461.0" stroke="#111111" stroke-width="1"/>
+<text x="1000.0" y="475.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">80</text>
+<line x1="1090.0" y1="455.0" x2="1090.0" y2="461.0" stroke="#111111" stroke-width="1"/>
+<text x="1090.0" y="475.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#111111">90</text>
+<text x="685.0" y="492.0" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" fill="#666666">minutes after the truck arrives</text>
+<text x="30.0" y="520.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#111111">dock-to-stock (booked → all crates stored and released) ≈ 80 min – the sample decides, not the crane (30 × 35 s = 17.5 min of crane time).</text>
+<text x="30.0" y="538.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#111111">Crates can be stored in status QI before the sample result (the WMS blocks them for call-off) – then the crane does not wait for the lab.</text>
+<rect x="30.0" y="560.0" width="1140.0" height="220.0" rx="4" fill="#ffffff" stroke="#111111" stroke-width="1"/>
+<text x="42.0" y="582.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="start" font-weight="bold" fill="#111111">Checks at goods receipt (minimum)</text>
+<text x="42.0" y="604.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#111111">1  ASN ↔ PO: item, quantity, date, price – differences go to purchasing, not to the store</text>
+<text x="42.0" y="626.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#111111">2  SSCC unique, GS1 check digit OK (mod 10); crate ID readable by RFID AND barcode (two technologies)</text>
+<text x="42.0" y="648.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#111111">3  3.1 certificate (EN 10204) present, heat number on the certificate = heat on the ASN; file name = lot ID</text>
+<text x="42.0" y="670.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#111111">4  sample per ISO 2859-1: visual (cracks, porosity), key dimensions, hardness HB; record in the MES / QMS</text>
+<text x="42.0" y="692.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#111111">5  crate: no damage, no overhang (contour), weight ≤ 300 kg (rack design load), label on 2 sides</text>
+<text x="42.0" y="714.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#111111">6  result: lot released → category unrestricted; failed → whole lot blocked, NCR, supplier 8D, return or 100 % sort</text>
+<text x="42.0" y="736.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" fill="#111111">7  dock-to-stock KPI ≤ 1 – 2 h including inspection (guide 03 §28)</text>
+</svg>

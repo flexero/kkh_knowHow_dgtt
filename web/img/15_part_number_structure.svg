@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1060" width="1400" height="1060" font-family="Arial, Helvetica, sans-serif">
+<title>Part number and serial number structure</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="1060" fill="#ffffff"/>
+<text x="24" y="34" font-size="17" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Structure of drawing, part, serial and order numbers (fixed fields + running number, no meaning in the running number)</text>
+<text x="24" y="56" font-size="12" text-anchor="start" fill="#555" xml:space="preserve">Monospace characters: each field has a fixed length; hyphen = field separator; only A–Z, 0–9 and &#x27;-&#x27;.</text>
+<text x="40" y="100" font-size="14" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">1  Drawing number  VC-&lt;area&gt;-&lt;group&gt;-&lt;nnnn&gt;-&lt;rev&gt;</text>
+<text x="60" y="150" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC</text>
+<path d="M62,160 L62,168 L95.4,168 L95.4,160" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="78.7" y1="168" x2="78.7" y2="176" stroke="#000" stroke-width="1"/>
+<text x="78.7" y="190" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">project</text>
+<text x="97.4" y="150" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="116.10000000000001" y="150" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">PRD</text>
+<path d="M118.10000000000001,160 L118.10000000000001,168 L170.20000000000002,168 L170.20000000000002,160" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="144.15" y1="168" x2="144.15" y2="196" stroke="#000" stroke-width="1"/>
+<text x="144.15" y="210" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">area: product</text>
+<text x="172.20000000000002" y="150" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="190.90000000000003" y="150" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">CC</text>
+<path d="M192.90000000000003,160 L192.90000000000003,168 L226.30000000000004,168 L226.30000000000004,160" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="209.60000000000002" y1="168" x2="209.60000000000002" y2="176" stroke="#000" stroke-width="1"/>
+<text x="209.60000000000002" y="190" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">group: crankcase</text>
+<text x="228.30000000000004" y="150" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="247.00000000000006" y="150" font-size="34" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">0020</text>
+<path d="M249.00000000000006,160 L249.00000000000006,168 L319.80000000000007,168 L319.80000000000007,160" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="284.4000000000001" y1="168" x2="284.4000000000001" y2="196" stroke="#000" stroke-width="1"/>
+<text x="284.4000000000001" y="210" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">running no. (assigned)</text>
+<text x="321.80000000000007" y="150" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="340.50000000000006" y="150" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">C</text>
+<path d="M342.50000000000006,160 L342.50000000000006,168 L357.20000000000005,168 L357.20000000000005,160" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="349.8500000000001" y1="168" x2="349.8500000000001" y2="176" stroke="#000" stroke-width="1"/>
+<text x="349.8500000000001" y="190" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">revision</text>
+<text x="560" y="150" font-size="13" text-anchor="start" fill="#000" xml:space="preserve">MAKE part number = drawing number without revision:</text>
+<text x="560" y="176" font-size="14" text-anchor="start" fill="#c62828" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-CC-0020   (revision C is a separate ERP field)</text>
+<text x="40" y="260" font-size="14" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">2  BUY part  B-&lt;class&gt;-&lt;5 digits&gt;      Raw material  R-&lt;class&gt;-&lt;5 digits&gt;</text>
+<text x="60" y="310" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">B</text>
+<path d="M62,320 L62,328 L76.7,328 L76.7,320" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="69.35" y1="328" x2="69.35" y2="336" stroke="#000" stroke-width="1"/>
+<text x="69.35" y="350" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">buy</text>
+<text x="78.7" y="310" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="97.4" y="310" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">BRG</text>
+<path d="M99.4,320 L99.4,328 L151.5,328 L151.5,320" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="125.45000000000002" y1="328" x2="125.45000000000002" y2="356" stroke="#000" stroke-width="1"/>
+<text x="125.45000000000002" y="370" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">class: bearings</text>
+<text x="153.5" y="310" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="172.2" y="310" font-size="34" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">00042</text>
+<path d="M174.2,320 L174.2,328 L263.7,328 L263.7,320" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="218.95" y1="328" x2="218.95" y2="336" stroke="#000" stroke-width="1"/>
+<text x="218.95" y="350" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">running no.</text>
+<text x="420" y="310" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">R</text>
+<path d="M422,320 L422,328 L436.7,328 L436.7,320" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="429.35" y1="328" x2="429.35" y2="336" stroke="#000" stroke-width="1"/>
+<text x="429.35" y="350" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">raw</text>
+<text x="438.7" y="310" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="457.4" y="310" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">BAR</text>
+<path d="M459.4,320 L459.4,328 L511.5,328 L511.5,320" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="485.45" y1="328" x2="485.45" y2="356" stroke="#000" stroke-width="1"/>
+<text x="485.45" y="370" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">class: round bar</text>
+<text x="513.5" y="310" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="532.2" y="310" font-size="34" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">00065</text>
+<path d="M534.2,320 L534.2,328 L623.7,328 L623.7,320" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="578.95" y1="328" x2="578.95" y2="336" stroke="#000" stroke-width="1"/>
+<text x="578.95" y="350" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">running no.</text>
+<text x="800" y="300" font-size="13" text-anchor="start" fill="#000" xml:space="preserve">One number per exact catalogue item;</text>
+<text x="800" y="320" font-size="13" text-anchor="start" fill="#000" xml:space="preserve">maker + order code are ERP attributes,</text>
+<text x="800" y="340" font-size="13" text-anchor="start" fill="#000" xml:space="preserve">not part of the number (non-intelligent).</text>
+<text x="40" y="420" font-size="14" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">3  Serial number  &lt;type code&gt;-&lt;YYWW&gt;-&lt;nnnnn&gt;[-&lt;check&gt;]</text>
+<text x="60" y="470" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC20</text>
+<path d="M62,480 L62,488 L132.8,488 L132.8,480" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="97.4" y1="488" x2="97.4" y2="496" stroke="#000" stroke-width="1"/>
+<text x="97.4" y="510" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">type code (model)</text>
+<text x="134.8" y="470" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="153.5" y="470" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">25</text>
+<path d="M155.5,480 L155.5,488 L188.9,488 L188.9,480" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="172.2" y1="488" x2="172.2" y2="516" stroke="#000" stroke-width="1"/>
+<text x="172.2" y="530" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">ISO year</text>
+<text x="190.9" y="470" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">46</text>
+<path d="M192.9,480 L192.9,488 L226.3,488 L226.3,480" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="209.60000000000002" y1="488" x2="209.60000000000002" y2="496" stroke="#000" stroke-width="1"/>
+<text x="209.60000000000002" y="510" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">ISO week</text>
+<text x="228.3" y="470" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="247.0" y="470" font-size="34" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">00123</text>
+<path d="M249.0,480 L249.0,488 L338.5,488 L338.5,480" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="293.75" y1="488" x2="293.75" y2="516" stroke="#000" stroke-width="1"/>
+<text x="293.75" y="530" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">sequence, restarts every week</text>
+<text x="340.5" y="470" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="359.2" y="470" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">7</text>
+<path d="M361.2,480 L361.2,488 L375.9,488 L375.9,480" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="368.55" y1="488" x2="368.55" y2="496" stroke="#000" stroke-width="1"/>
+<text x="368.55" y="510" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">Luhn check (option)</text>
+<text x="640" y="462" font-size="13" text-anchor="start" fill="#000" xml:space="preserve">capacity = 99 999 per type code per ISO week</text>
+<text x="640" y="482" font-size="13" text-anchor="start" fill="#000" xml:space="preserve">twin bottleneck (3 HMC, 345 s): 31.3 /h × 80 h = 2 504 /week</text>
+<text x="640" y="502" font-size="13" text-anchor="start" fill="#c62828" xml:space="preserve">use = 2 504 / 99 999 = 2.5 %  → 5 digits are enough</text>
+<text x="40" y="580" font-size="14" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">4  Order / record  &lt;prefix&gt;-&lt;YYWW&gt;-&lt;nnnn&gt;        Lot  LOT-&lt;item prefix&gt;-&lt;YYWW&gt;-&lt;nnn&gt;</text>
+<text x="60" y="630" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">WO</text>
+<path d="M62,640 L62,648 L95.4,648 L95.4,640" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="78.7" y1="648" x2="78.7" y2="656" stroke="#000" stroke-width="1"/>
+<text x="78.7" y="670" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">prefix</text>
+<text x="97.4" y="630" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="116.10000000000001" y="630" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">2546</text>
+<path d="M118.10000000000001,640 L118.10000000000001,648 L188.90000000000003,648 L188.90000000000003,640" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="153.5" y1="648" x2="153.5" y2="676" stroke="#000" stroke-width="1"/>
+<text x="153.5" y="690" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">ISO week</text>
+<text x="190.90000000000003" y="630" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="209.60000000000002" y="630" font-size="34" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">0004</text>
+<path d="M211.60000000000002,640 L211.60000000000002,648 L282.40000000000003,648 L282.40000000000003,640" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="247.00000000000003" y1="648" x2="247.00000000000003" y2="656" stroke="#000" stroke-width="1"/>
+<text x="247.00000000000003" y="670" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">sequence</text>
+<text x="420" y="630" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">LOT</text>
+<path d="M422,640 L422,648 L474.1,648 L474.1,640" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="448.05" y1="648" x2="448.05" y2="656" stroke="#000" stroke-width="1"/>
+<text x="448.05" y="670" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">lot</text>
+<text x="476.1" y="630" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="494.8" y="630" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">CC20</text>
+<path d="M496.8,640 L496.8,648 L567.6,648 L567.6,640" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="532.2" y1="648" x2="532.2" y2="676" stroke="#000" stroke-width="1"/>
+<text x="532.2" y="690" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">item prefix</text>
+<text x="569.6" y="630" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="588.3000000000001" y="630" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">2546</text>
+<path d="M590.3000000000001,640 L590.3000000000001,648 L661.1000000000001,648 L661.1000000000001,640" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="625.7" y1="648" x2="625.7" y2="656" stroke="#000" stroke-width="1"/>
+<text x="625.7" y="670" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">week of receipt</text>
+<text x="663.1000000000001" y="630" font-size="34" text-anchor="start" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-</text>
+<text x="681.8000000000002" y="630" font-size="34" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">003</text>
+<path d="M683.8000000000002,640 L683.8000000000002,648 L735.9000000000002,648 L735.9000000000002,640" stroke="#000" stroke-width="1.2" fill="none"/>
+<line x1="709.8500000000001" y1="648" x2="709.8500000000001" y2="676" stroke="#000" stroke-width="1"/>
+<text x="709.8500000000001" y="690" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">sequence</text>
+<text x="40" y="740" font-size="14" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">5  Product part-number plan VC10 / VC20 / VC30 (assigned numbers – software must not decode them)</text>
+<rect x="40" y="760" width="1320" height="24" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="46" y="777" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Item</text>
+<text x="306" y="777" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VC10</text>
+<text x="566" y="777" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VC20</text>
+<text x="826" y="777" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VC30</text>
+<text x="1086" y="777" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Note</text>
+<rect x="40" y="784" width="1320" height="22" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="46" y="800" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Sales item (SKU)</text>
+<text x="306" y="800" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC10-100</text>
+<text x="566" y="800" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC20-300</text>
+<text x="826" y="800" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC30-500</text>
+<text x="1086" y="800" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">config/factory.json</text>
+<rect x="40" y="806" width="1320" height="22" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="46" y="822" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">General assembly</text>
+<text x="306" y="822" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-ASY-0011</text>
+<text x="566" y="822" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-ASY-0012</text>
+<text x="826" y="822" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-ASY-0013</text>
+<text x="1086" y="822" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">AI (240) on nameplate</text>
+<rect x="40" y="828" width="1320" height="22" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="46" y="844" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Pump unit</text>
+<text x="306" y="844" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-ASY-0001</text>
+<text x="566" y="844" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-ASY-0002</text>
+<text x="826" y="844" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-ASY-0003</text>
+<text x="1086" y="844" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">BOM level 1</text>
+<rect x="40" y="850" width="1320" height="22" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="46" y="866" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Crankcase, machined</text>
+<text x="306" y="866" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-CC-0010</text>
+<text x="566" y="866" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-CC-0020</text>
+<text x="826" y="866" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-CC-0030</text>
+<text x="1086" y="866" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">casting CC10/20/30-CAST</text>
+<rect x="40" y="872" width="1320" height="22" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="46" y="888" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Cylinder, machined</text>
+<text x="306" y="888" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-CYL-0020</text>
+<text x="566" y="888" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-CYL-0020</text>
+<text x="826" y="888" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-CYL-0020</text>
+<text x="1086" y="888" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">one part for all models (CYL-CAST)</text>
+<rect x="40" y="894" width="1320" height="22" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="46" y="910" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Crankshaft, machined</text>
+<text x="306" y="910" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-CS-0020</text>
+<text x="566" y="910" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-CS-0020</text>
+<text x="826" y="910" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC-PRD-CS-0020</text>
+<text x="1086" y="910" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">one part for all models (CS-FORG)</text>
+<rect x="40" y="916" width="1320" height="22" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="46" y="932" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">GTIN-13 (demo 952)</text>
+<text x="306" y="932" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">9521234567882</text>
+<text x="566" y="932" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">9521234567899</text>
+<text x="826" y="932" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">9521234567905</text>
+<text x="1086" y="932" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">check digits verified</text>
+<rect x="840" y="956" width="540" height="92" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="840" y1="982" x2="1380" y2="982" stroke="#000" stroke-width="1"/>
+<line x1="840" y1="1006" x2="1380" y2="1006" stroke="#000" stroke-width="1"/>
+<line x1="840" y1="1027" x2="1380" y2="1027" stroke="#000" stroke-width="1"/>
+<line x1="1180" y1="1006" x2="1180" y2="1048" stroke="#000" stroke-width="1"/>
+<text x="848" y="974" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">EXAMPLE – check the current standard</text>
+<text x="848" y="999" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Part / serial number structure</text>
+<text x="848" y="1021" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Field layout with examples</text>
+<text x="1188" y="1021" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Dwg VC-QA-SPEC-0001-A</text>
+<text x="848" y="1042" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Guide 15 – numbering and identification · digital twin</text>
+<text x="1188" y="1042" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">no scale · 2026-11-12</text>
+</svg>

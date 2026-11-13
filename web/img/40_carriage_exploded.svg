@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>Carriage – exploded view</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="eab" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1 L10,5 L0,9 Z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatch2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="818" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="20.0" y="30.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">Carriage LB-25-FL – exploded view along the rail axis (oblique projection, scale ≈ 1 : 0.31)</text>
+<line x1="77.7" y1="586.5" x2="638.7" y2="263.5" stroke="#888" stroke-width="0.8" stroke-dasharray="10,5"/>
+<line x1="77.7" y1="516.1" x2="638.7" y2="193.1" stroke="#888" stroke-width="0.8" stroke-dasharray="10,5"/>
+<line x1="151.3" y1="586.5" x2="712.3" y2="263.5" stroke="#888" stroke-width="0.8" stroke-dasharray="10,5"/>
+<line x1="151.3" y1="520.9" x2="712.3" y2="197.9" stroke="#888" stroke-width="0.8" stroke-dasharray="10,5"/>
+<text x="77.7" y="604.5" font-size="11.5" text-anchor="start" fill="#555">rail (phantom, dashed)</text>
+<polygon points="612.4,259.2 575.5,259.2 575.5,175.4 726.0,175.4 726.0,259.2 689.1,259.2 689.1,209.6 684.7,205.4 616.8,205.4 612.4,209.6" fill="#f2f2f2" stroke="#000" stroke-width="0.8800000000000001"/>
+<polygon points="607.4,262.0 570.6,262.0 575.5,259.2 612.4,259.2" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="570.6,262.0 570.6,178.2 575.5,175.4 575.5,259.2" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="570.6,178.2 721.0,178.2 726.0,175.4 575.5,175.4" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="721.0,178.2 721.0,262.0 726.0,259.2 726.0,175.4" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="721.0,262.0 684.2,262.0 689.1,259.2 726.0,259.2" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="684.2,262.0 684.2,212.4 689.1,209.6 689.1,259.2" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="684.2,212.4 679.7,208.3 684.7,205.4 689.1,209.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="679.7,208.3 611.9,208.3 616.8,205.4 684.7,205.4" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="611.9,208.3 607.4,212.4 612.4,209.6 616.8,205.4" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="607.4,212.4 607.4,262.0 612.4,259.2 612.4,209.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="607.4,262.0 570.6,262.0 570.6,178.2 721.0,178.2 721.0,262.0 684.2,262.0 684.2,212.4 679.7,208.3 611.9,208.3 607.4,212.4" fill="#ddd" stroke="#000" stroke-width="1.1"/>
+<polygon points="559.6,288.0 524.4,288.0 524.4,201.6 674.8,201.6 674.8,288.0 639.6,288.0 639.6,238.4 634.8,233.6 564.4,233.6 559.6,238.4" fill="#f2f2f2" stroke="#000" stroke-width="0.8800000000000001"/>
+<polygon points="543.1,297.5 507.9,297.5 524.4,288.0 559.6,288.0" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="507.9,297.5 507.9,211.1 524.4,201.6 524.4,288.0" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="507.9,211.1 658.3,211.1 674.8,201.6 524.4,201.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="658.3,211.1 658.3,297.5 674.8,288.0 674.8,201.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="658.3,297.5 623.1,297.5 639.6,288.0 674.8,288.0" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="623.1,297.5 623.1,247.9 639.6,238.4 639.6,288.0" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="623.1,247.9 618.3,243.1 634.8,233.6 639.6,238.4" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="618.3,243.1 547.9,243.1 564.4,233.6 634.8,233.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="547.9,243.1 543.1,247.9 559.6,238.4 564.4,233.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="543.1,247.9 543.1,297.5 559.6,288.0 559.6,238.4" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="543.1,297.5 507.9,297.5 507.9,211.1 658.3,211.1 658.3,297.5 623.1,297.5 623.1,247.9 618.3,243.1 547.9,243.1 543.1,247.9" fill="#fff" stroke="#000" stroke-width="1.1"/>
+<polygon points="450.7,398.7 436.3,398.7 436.3,393.9 450.7,393.9" fill="#666" stroke="#000" stroke-width="0.6400000000000001"/>
+<polygon points="355.0,453.8 340.6,453.8 436.3,398.7 450.7,398.7" fill="#666" stroke="#000" stroke-width="0.5599999999999999"/>
+<polygon points="340.6,453.8 340.6,449.0 436.3,393.9 436.3,398.7" fill="#666" stroke="#000" stroke-width="0.5599999999999999"/>
+<polygon points="340.6,449.0 355.0,449.0 450.7,393.9 436.3,393.9" fill="#666" stroke="#000" stroke-width="0.5599999999999999"/>
+<polygon points="355.0,449.0 355.0,453.8 450.7,398.7 450.7,393.9" fill="#666" stroke="#000" stroke-width="0.5599999999999999"/>
+<polygon points="355.0,453.8 340.6,453.8 340.6,449.0 355.0,449.0" fill="#333" stroke="#000" stroke-width="0.8"/>
+<polygon points="530.7,398.7 545.1,398.7 545.1,393.9 530.7,393.9" fill="#666" stroke="#000" stroke-width="0.6400000000000001"/>
+<polygon points="435.0,453.8 449.4,453.8 545.1,398.7 530.7,398.7" fill="#666" stroke="#000" stroke-width="0.5599999999999999"/>
+<polygon points="449.4,453.8 449.4,449.0 545.1,393.9 545.1,398.7" fill="#666" stroke="#000" stroke-width="0.5599999999999999"/>
+<polygon points="449.4,449.0 435.0,449.0 530.7,393.9 545.1,393.9" fill="#666" stroke="#000" stroke-width="0.5599999999999999"/>
+<polygon points="435.0,449.0 435.0,453.8 530.7,398.7 530.7,393.9" fill="#666" stroke="#000" stroke-width="0.5599999999999999"/>
+<polygon points="435.0,453.8 449.4,453.8 449.4,449.0 435.0,449.0" fill="#333" stroke="#000" stroke-width="0.8"/>
+<polygon points="605.9,331.5 621.9,331.5 621.9,315.5 605.9,315.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="0.8"/>
+<polygon points="510.2,386.6 526.2,386.6 621.9,331.5 605.9,331.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="0.7"/>
+<polygon points="526.2,386.6 526.2,370.6 621.9,315.5 621.9,331.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="0.7"/>
+<polygon points="526.2,370.6 510.2,370.6 605.9,315.5 621.9,315.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="0.7"/>
+<polygon points="510.2,370.6 510.2,386.6 605.9,331.5 605.9,315.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="0.7"/>
+<polygon points="510.2,386.6 526.2,386.6 526.2,370.6 510.2,370.6" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<polygon points="450.7,352.3 413.9,352.3 413.9,286.7 378.7,286.7 378.7,254.7 602.7,254.7 602.7,286.7 567.5,286.7 567.5,352.3 530.7,352.3 530.7,301.1 525.9,296.3 455.5,296.3 450.7,301.1" fill="#f2f2f2" stroke="#000" stroke-width="0.8800000000000001"/>
+<polygon points="355.0,407.4 318.2,407.4 413.9,352.3 450.7,352.3" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="318.2,407.4 318.2,341.8 413.9,286.7 413.9,352.3" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="318.2,341.8 283.0,341.8 378.7,286.7 413.9,286.7" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="283.0,341.8 283.0,309.8 378.7,254.7 378.7,286.7" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="283.0,309.8 507.0,309.8 602.7,254.7 378.7,254.7" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="507.0,309.8 507.0,341.8 602.7,286.7 602.7,254.7" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="507.0,341.8 471.8,341.8 567.5,286.7 602.7,286.7" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="471.8,341.8 471.8,407.4 567.5,352.3 567.5,286.7" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="471.8,407.4 435.0,407.4 530.7,352.3 567.5,352.3" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="435.0,407.4 435.0,356.2 530.7,301.1 530.7,352.3" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="435.0,356.2 430.2,351.4 525.9,296.3 530.7,301.1" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="430.2,351.4 359.8,351.4 455.5,296.3 525.9,296.3" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="359.8,351.4 355.0,356.2 450.7,301.1 455.5,296.3" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="355.0,356.2 355.0,407.4 450.7,352.3 450.7,301.1" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="355.0,407.4 318.2,407.4 318.2,341.8 283.0,341.8 283.0,309.8 507.0,309.8 507.0,341.8 471.8,341.8 471.8,407.4 435.0,407.4 435.0,356.2 430.2,351.4 359.8,351.4 355.0,356.2" fill="url(#hatch)" stroke="#000" stroke-width="1.1"/>
+<circle cx="423.8" cy="349.8" r="7.0" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1.2"/>
+<circle cx="438.2" cy="385.0" r="7.0" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1.2"/>
+<circle cx="366.2" cy="349.8" r="7.0" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1.2"/>
+<circle cx="351.8" cy="385.0" r="7.0" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1.2"/>
+<circle cx="454.2" cy="354.6" r="8.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<circle cx="457.4" cy="391.4" r="8.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<circle cx="335.8" cy="354.6" r="8.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<circle cx="332.6" cy="391.4" r="8.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<polygon points="262.6,459.0 227.4,459.0 227.4,372.6 377.8,372.6 377.8,459.0 342.6,459.0 342.6,409.4 337.8,404.6 267.4,404.6 262.6,409.4" fill="#f2f2f2" stroke="#000" stroke-width="0.8800000000000001"/>
+<polygon points="246.1,468.5 210.9,468.5 227.4,459.0 262.6,459.0" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="210.9,468.5 210.9,382.1 227.4,372.6 227.4,459.0" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="210.9,382.1 361.3,382.1 377.8,372.6 227.4,372.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="361.3,382.1 361.3,468.5 377.8,459.0 377.8,372.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="361.3,468.5 326.1,468.5 342.6,459.0 377.8,459.0" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="326.1,468.5 326.1,418.9 342.6,409.4 342.6,459.0" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="326.1,418.9 321.3,414.1 337.8,404.6 342.6,409.4" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="321.3,414.1 250.9,414.1 267.4,404.6 337.8,404.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="250.9,414.1 246.1,418.9 262.6,409.4 267.4,404.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="246.1,418.9 246.1,468.5 262.6,459.0 262.6,409.4" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="246.1,468.5 210.9,468.5 210.9,382.1 361.3,382.1 361.3,468.5 326.1,468.5 326.1,418.9 321.3,414.1 250.9,414.1 246.1,418.9" fill="#fff" stroke="#000" stroke-width="1.1"/>
+<polygon points="196.5,498.6 159.8,498.6 159.8,414.8 310.1,414.8 310.1,498.6 273.3,498.6 273.3,449.0 268.9,444.8 201.0,444.8 196.5,449.0" fill="#f2f2f2" stroke="#000" stroke-width="0.8800000000000001"/>
+<polygon points="191.6,501.4 154.8,501.4 159.8,498.6 196.5,498.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="154.8,501.4 154.8,417.6 159.8,414.8 159.8,498.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="154.8,417.6 305.2,417.6 310.1,414.8 159.8,414.8" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="305.2,417.6 305.2,501.4 310.1,498.6 310.1,414.8" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="305.2,501.4 268.4,501.4 273.3,498.6 310.1,498.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="268.4,501.4 268.4,451.8 273.3,449.0 273.3,498.6" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="268.4,451.8 263.9,447.7 268.9,444.8 273.3,449.0" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="263.9,447.7 196.1,447.7 201.0,444.8 268.9,444.8" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="196.1,447.7 191.6,451.8 196.5,449.0 201.0,444.8" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="191.6,451.8 191.6,501.4 196.5,498.6 196.5,449.0" fill="#f2f2f2" stroke="#000" stroke-width="0.77"/>
+<polygon points="191.6,501.4 154.8,501.4 154.8,417.6 305.2,417.6 305.2,501.4 268.4,501.4 268.4,451.8 263.9,447.7 196.1,447.7 191.6,451.8" fill="#ddd" stroke="#000" stroke-width="1.1"/>
+<circle cx="395.0" cy="265.0" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="395.0" cy="239.4" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="401.3" cy="261.4" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="401.3" cy="235.8" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="407.5" cy="257.8" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="407.5" cy="232.2" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="413.8" cy="254.2" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="413.8" cy="228.6" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="420.1" cy="250.6" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="420.1" cy="225.0" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="426.4" cy="246.9" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="426.4" cy="221.3" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="432.6" cy="243.3" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="432.6" cy="217.7" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="438.9" cy="239.7" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="438.9" cy="214.1" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="445.2" cy="236.1" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="445.2" cy="210.5" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="451.4" cy="232.5" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="451.4" cy="206.9" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="457.7" cy="228.9" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="457.7" cy="203.3" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="464.0" cy="225.3" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="464.0" cy="199.7" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="470.2" cy="221.7" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="470.2" cy="196.1" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="476.5" cy="218.1" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="476.5" cy="192.5" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="482.8" cy="214.5" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="482.8" cy="188.9" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="489.1" cy="210.8" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<circle cx="489.1" cy="185.2" r="5.5" fill="#eaf1fb" stroke="#1f6fd1" stroke-width="1"/>
+<line x1="391.7" y1="275.2" x2="497.3" y2="214.4" stroke="#000" stroke-width="1.4"/>
+<line x1="391.7" y1="249.6" x2="497.3" y2="188.8" stroke="#000" stroke-width="1.4"/>
+<polygon points="251.0,482.6 260.0,477.6 269.0,482.6 269.0,492.6 260.0,497.6 251.0,492.6" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="260.0" y1="477.6" x2="246.0" y2="461.6" stroke="#000" stroke-width="3"/>
+<circle cx="244.0" cy="459.6" r="4.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="116.5" cy="452.5" r="5.0" fill="#fff" stroke="#000" stroke-width="1.1"/>
+<line x1="121.5" y1="449.5" x2="150.5" y2="432.5" stroke="#000" stroke-width="2.2"/>
+<circle cx="244.5" cy="452.5" r="5.0" fill="#fff" stroke="#000" stroke-width="1.1"/>
+<line x1="249.5" y1="449.5" x2="278.5" y2="432.5" stroke="#000" stroke-width="2.2"/>
+<line x1="556.5" y1="281.3" x2="470.0" y2="150.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="556.5" cy="281.3" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<circle cx="470.0" cy="150.0" r="11.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="470.0" y="154.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">10</text>
+<line x1="444.5" y1="210.9" x2="340.0" y2="120.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="444.5" cy="210.9" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<circle cx="340.0" cy="120.0" r="11.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="340.0" y="124.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">20</text>
+<line x1="477.5" y1="225.8" x2="420.0" y2="110.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="477.5" cy="225.8" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<circle cx="420.0" cy="110.0" r="11.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="420.0" y="114.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">70</text>
+<line x1="369.5" y1="377.3" x2="300.0" y2="230.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="369.5" cy="377.3" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<circle cx="300.0" cy="230.0" r="11.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="300.0" y="234.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">30</text>
+<line x1="666.5" y1="206.3" x2="640.0" y2="160.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="666.5" cy="206.3" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<circle cx="640.0" cy="160.0" r="11.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="640.0" y="164.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">30</text>
+<line x1="157.3" y1="416.2" x2="120.0" y2="330.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="157.3" cy="416.2" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<circle cx="120.0" cy="330.0" r="11.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="120.0" y="334.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">50</text>
+<line x1="722.6" y1="177.3" x2="700.0" y2="210.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="722.6" cy="177.3" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<circle cx="700.0" cy="210.0" r="11.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="700.0" y="214.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">50</text>
+<line x1="608.7" y1="323.1" x2="690.0" y2="330.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="608.7" cy="323.1" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<circle cx="690.0" cy="330.0" r="11.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="690.0" y="334.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">40</text>
+<line x1="498.9" y1="425.3" x2="520.0" y2="520.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="498.9" cy="425.3" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<circle cx="520.0" cy="520.0" r="11.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="520.0" y="524.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">60</text>
+<line x1="260.0" y1="487.6" x2="330.0" y2="560.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="260.0" cy="487.6" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<circle cx="330.0" cy="560.0" r="11.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="330.0" y="564.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">80</text>
+<line x1="244.5" y1="452.5" x2="260.0" y2="330.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="244.5" cy="452.5" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<circle cx="260.0" cy="330.0" r="11.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="260.0" y="334.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">90</text>
+<line x1="572.7" y1="301.5" x2="600.0" y2="470.0" stroke="#000" stroke-width="0.8"/>
+<circle cx="572.7" cy="301.5" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<circle cx="600.0" cy="470.0" r="11.0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="600.0" y="474.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">100</text>
+<rect x="760.0" y="50.0" width="430.0" height="22.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="0.8"/>
+<text x="765.0" y="66.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Pos</text>
+<line x1="800.0" y1="50.0" x2="800.0" y2="72.0" stroke="#000" stroke-width="0.8"/>
+<text x="805.0" y="66.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Part</text>
+<line x1="978.0" y1="50.0" x2="978.0" y2="72.0" stroke="#000" stroke-width="0.8"/>
+<text x="983.0" y="66.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Qty</text>
+<line x1="1014.0" y1="50.0" x2="1014.0" y2="72.0" stroke="#000" stroke-width="0.8"/>
+<text x="1019.0" y="66.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">M/B</text>
+<line x1="1060.0" y1="50.0" x2="1060.0" y2="72.0" stroke="#000" stroke-width="0.8"/>
+<text x="1065.0" y="66.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Material / note</text>
+<rect x="760.0" y="72.0" width="430.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="765.0" y="88.0" font-size="11" text-anchor="start" fill="#000">10</text>
+<line x1="800.0" y1="72.0" x2="800.0" y2="94.0" stroke="#000" stroke-width="0.8"/>
+<text x="805.0" y="88.0" font-size="11" text-anchor="start" fill="#000">Steel body (flange type)</text>
+<line x1="978.0" y1="72.0" x2="978.0" y2="94.0" stroke="#000" stroke-width="0.8"/>
+<text x="983.0" y="88.0" font-size="11" text-anchor="start" fill="#000">1</text>
+<line x1="1014.0" y1="72.0" x2="1014.0" y2="94.0" stroke="#000" stroke-width="0.8"/>
+<text x="1019.0" y="88.0" font-size="11" text-anchor="start" fill="#000">MAKE</text>
+<line x1="1060.0" y1="72.0" x2="1060.0" y2="94.0" stroke="#000" stroke-width="0.8"/>
+<text x="1065.0" y="88.0" font-size="11" text-anchor="start" fill="#000">20CrMo4 / 100Cr6</text>
+<rect x="760.0" y="94.0" width="430.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="765.0" y="110.0" font-size="11" text-anchor="start" fill="#000">20</text>
+<line x1="800.0" y1="94.0" x2="800.0" y2="116.0" stroke="#000" stroke-width="0.8"/>
+<text x="805.0" y="110.0" font-size="11" text-anchor="start" fill="#000">Balls Ø4.763 (4 rows × 30)</text>
+<line x1="978.0" y1="94.0" x2="978.0" y2="116.0" stroke="#000" stroke-width="0.8"/>
+<text x="983.0" y="110.0" font-size="11" text-anchor="start" fill="#000">120</text>
+<line x1="1014.0" y1="94.0" x2="1014.0" y2="116.0" stroke="#000" stroke-width="0.8"/>
+<text x="1019.0" y="110.0" font-size="11" text-anchor="start" fill="#000">BUY</text>
+<line x1="1060.0" y1="94.0" x2="1060.0" y2="116.0" stroke="#000" stroke-width="0.8"/>
+<text x="1065.0" y="110.0" font-size="11" text-anchor="start" fill="#000">100Cr6, ISO 3290 G10</text>
+<rect x="760.0" y="116.0" width="430.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="765.0" y="132.0" font-size="11" text-anchor="start" fill="#000">30</text>
+<line x1="800.0" y1="116.0" x2="800.0" y2="138.0" stroke="#000" stroke-width="0.8"/>
+<text x="805.0" y="132.0" font-size="11" text-anchor="start" fill="#000">End cap with return path</text>
+<line x1="978.0" y1="116.0" x2="978.0" y2="138.0" stroke="#000" stroke-width="0.8"/>
+<text x="983.0" y="132.0" font-size="11" text-anchor="start" fill="#000">2</text>
+<line x1="1014.0" y1="116.0" x2="1014.0" y2="138.0" stroke="#000" stroke-width="0.8"/>
+<text x="1019.0" y="132.0" font-size="11" text-anchor="start" fill="#000">BUY</text>
+<line x1="1060.0" y1="116.0" x2="1060.0" y2="138.0" stroke="#000" stroke-width="0.8"/>
+<text x="1065.0" y="132.0" font-size="11" text-anchor="start" fill="#000">POM / PA66 moulded</text>
+<rect x="760.0" y="138.0" width="430.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="765.0" y="154.0" font-size="11" text-anchor="start" fill="#000">40</text>
+<line x1="800.0" y1="138.0" x2="800.0" y2="160.0" stroke="#000" stroke-width="0.8"/>
+<text x="805.0" y="154.0" font-size="11" text-anchor="start" fill="#000">Return pipe / insert</text>
+<line x1="978.0" y1="138.0" x2="978.0" y2="160.0" stroke="#000" stroke-width="0.8"/>
+<text x="983.0" y="154.0" font-size="11" text-anchor="start" fill="#000">4</text>
+<line x1="1014.0" y1="138.0" x2="1014.0" y2="160.0" stroke="#000" stroke-width="0.8"/>
+<text x="1019.0" y="154.0" font-size="11" text-anchor="start" fill="#000">BUY</text>
+<line x1="1060.0" y1="138.0" x2="1060.0" y2="160.0" stroke="#000" stroke-width="0.8"/>
+<text x="1065.0" y="154.0" font-size="11" text-anchor="start" fill="#000">POM, in the holes</text>
+<rect x="760.0" y="160.0" width="430.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="765.0" y="176.0" font-size="11" text-anchor="start" fill="#000">50</text>
+<line x1="800.0" y1="160.0" x2="800.0" y2="182.0" stroke="#000" stroke-width="0.8"/>
+<text x="805.0" y="176.0" font-size="11" text-anchor="start" fill="#000">End seal (double lip + plate)</text>
+<line x1="978.0" y1="160.0" x2="978.0" y2="182.0" stroke="#000" stroke-width="0.8"/>
+<text x="983.0" y="176.0" font-size="11" text-anchor="start" fill="#000">2</text>
+<line x1="1014.0" y1="160.0" x2="1014.0" y2="182.0" stroke="#000" stroke-width="0.8"/>
+<text x="1019.0" y="176.0" font-size="11" text-anchor="start" fill="#000">BUY</text>
+<line x1="1060.0" y1="160.0" x2="1060.0" y2="182.0" stroke="#000" stroke-width="0.8"/>
+<text x="1065.0" y="176.0" font-size="11" text-anchor="start" fill="#000">NBR + steel</text>
+<rect x="760.0" y="182.0" width="430.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="765.0" y="198.0" font-size="11" text-anchor="start" fill="#000">60</text>
+<line x1="800.0" y1="182.0" x2="800.0" y2="204.0" stroke="#000" stroke-width="0.8"/>
+<text x="805.0" y="198.0" font-size="11" text-anchor="start" fill="#000">Bottom seal strip</text>
+<line x1="978.0" y1="182.0" x2="978.0" y2="204.0" stroke="#000" stroke-width="0.8"/>
+<text x="983.0" y="198.0" font-size="11" text-anchor="start" fill="#000">2</text>
+<line x1="1014.0" y1="182.0" x2="1014.0" y2="204.0" stroke="#000" stroke-width="0.8"/>
+<text x="1019.0" y="198.0" font-size="11" text-anchor="start" fill="#000">BUY</text>
+<line x1="1060.0" y1="182.0" x2="1060.0" y2="204.0" stroke="#000" stroke-width="0.8"/>
+<text x="1065.0" y="198.0" font-size="11" text-anchor="start" fill="#000">NBR</text>
+<rect x="760.0" y="204.0" width="430.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="765.0" y="220.0" font-size="11" text-anchor="start" fill="#000">70</text>
+<line x1="800.0" y1="204.0" x2="800.0" y2="226.0" stroke="#000" stroke-width="0.8"/>
+<text x="805.0" y="220.0" font-size="11" text-anchor="start" fill="#000">Ball retainer (wire / strip)</text>
+<line x1="978.0" y1="204.0" x2="978.0" y2="226.0" stroke="#000" stroke-width="0.8"/>
+<text x="983.0" y="220.0" font-size="11" text-anchor="start" fill="#000">4</text>
+<line x1="1014.0" y1="204.0" x2="1014.0" y2="226.0" stroke="#000" stroke-width="0.8"/>
+<text x="1019.0" y="220.0" font-size="11" text-anchor="start" fill="#000">BUY</text>
+<line x1="1060.0" y1="204.0" x2="1060.0" y2="226.0" stroke="#000" stroke-width="0.8"/>
+<text x="1065.0" y="220.0" font-size="11" text-anchor="start" fill="#000">steel wire / POM</text>
+<rect x="760.0" y="226.0" width="430.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="765.0" y="242.0" font-size="11" text-anchor="start" fill="#000">80</text>
+<line x1="800.0" y1="226.0" x2="800.0" y2="248.0" stroke="#000" stroke-width="0.8"/>
+<text x="805.0" y="242.0" font-size="11" text-anchor="start" fill="#000">Grease nipple M6 × 0.75</text>
+<line x1="978.0" y1="226.0" x2="978.0" y2="248.0" stroke="#000" stroke-width="0.8"/>
+<text x="983.0" y="242.0" font-size="11" text-anchor="start" fill="#000">1</text>
+<line x1="1014.0" y1="226.0" x2="1014.0" y2="248.0" stroke="#000" stroke-width="0.8"/>
+<text x="1019.0" y="242.0" font-size="11" text-anchor="start" fill="#000">BUY</text>
+<line x1="1060.0" y1="226.0" x2="1060.0" y2="248.0" stroke="#000" stroke-width="0.8"/>
+<text x="1065.0" y="242.0" font-size="11" text-anchor="start" fill="#000">on one end cap</text>
+<rect x="760.0" y="248.0" width="430.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="765.0" y="264.0" font-size="11" text-anchor="start" fill="#000">90</text>
+<line x1="800.0" y1="248.0" x2="800.0" y2="270.0" stroke="#000" stroke-width="0.8"/>
+<text x="805.0" y="264.0" font-size="11" text-anchor="start" fill="#000">Screws for end caps</text>
+<line x1="978.0" y1="248.0" x2="978.0" y2="270.0" stroke="#000" stroke-width="0.8"/>
+<text x="983.0" y="264.0" font-size="11" text-anchor="start" fill="#000">4</text>
+<line x1="1014.0" y1="248.0" x2="1014.0" y2="270.0" stroke="#000" stroke-width="0.8"/>
+<text x="1019.0" y="264.0" font-size="11" text-anchor="start" fill="#000">BUY</text>
+<line x1="1060.0" y1="248.0" x2="1060.0" y2="270.0" stroke="#000" stroke-width="0.8"/>
+<text x="1065.0" y="264.0" font-size="11" text-anchor="start" fill="#000">ISO 7380 M2.5 / M3</text>
+<rect x="760.0" y="270.0" width="430.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="765.0" y="286.0" font-size="11" text-anchor="start" fill="#000">100</text>
+<line x1="800.0" y1="270.0" x2="800.0" y2="292.0" stroke="#000" stroke-width="0.8"/>
+<text x="805.0" y="286.0" font-size="11" text-anchor="start" fill="#000">Dummy rail (shipping)</text>
+<line x1="978.0" y1="270.0" x2="978.0" y2="292.0" stroke="#000" stroke-width="0.8"/>
+<text x="983.0" y="286.0" font-size="11" text-anchor="start" fill="#000">1</text>
+<line x1="1014.0" y1="270.0" x2="1014.0" y2="292.0" stroke="#000" stroke-width="0.8"/>
+<text x="1019.0" y="286.0" font-size="11" text-anchor="start" fill="#000">BUY</text>
+<line x1="1060.0" y1="270.0" x2="1060.0" y2="292.0" stroke="#000" stroke-width="0.8"/>
+<text x="1065.0" y="286.0" font-size="11" text-anchor="start" fill="#000">keep the block on it</text>
+<text x="760.0" y="322.0" font-size="11.5" text-anchor="start" fill="#000">Assembly order (item 2):</text>
+<text x="760.0" y="340.0" font-size="11.5" text-anchor="start" fill="#000">1  body on a dummy rail / mandrel</text>
+<text x="760.0" y="358.0" font-size="11.5" text-anchor="start" fill="#000">2  balls into the 4 loaded tracks + returns</text>
+<text x="760.0" y="376.0" font-size="11.5" text-anchor="start" fill="#000">3  retainers, return pipes</text>
+<text x="760.0" y="394.0" font-size="11.5" text-anchor="start" fill="#000">4  end caps (aligned to the raceways)</text>
+<text x="760.0" y="412.0" font-size="11.5" text-anchor="start" fill="#000">5  end seals, bottom seals, nipple</text>
+<text x="760.0" y="430.0" font-size="11.5" text-anchor="start" fill="#000">6  grease fill, slide test (drag force),</text>
+<text x="760.0" y="448.0" font-size="11.5" text-anchor="start" fill="#000">    preload check (Z0 / Z1 / Z2), marking</text>
+<text x="760.0" y="470.0" font-size="11.5" text-anchor="start" fill="#000">The ball row above the body is drawn</text>
+<text x="760.0" y="487.0" font-size="11.5" text-anchor="start" fill="#000">pulled out (one of 4 rows): loaded part</text>
+<text x="760.0" y="504.0" font-size="11.5" text-anchor="start" fill="#000">under the body, return in the hole, 180°</text>
+<text x="760.0" y="521.0" font-size="11.5" text-anchor="start" fill="#000">turn in the end caps.</text>
+<rect x="812.0" y="742.0" width="382.0" height="82.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="812.0" y1="768.0" x2="1194.0" y2="768.0" stroke="#000" stroke-width="0.8"/>
+<line x1="812.0" y1="792.0" x2="1194.0" y2="792.0" stroke="#000" stroke-width="0.8"/>
+<line x1="1002.0" y1="792.0" x2="1002.0" y2="824.0" stroke="#000" stroke-width="0.8"/>
+<text x="820.0" y="760.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Carriage – exploded view</text>
+<text x="820.0" y="785.0" font-size="12" text-anchor="start" fill="#1f6fd1" font-weight="bold">EXAMPLE – check the maker's catalogue</text>
+<text x="820.0" y="812.0" font-size="11.5" text-anchor="start" fill="#000">Drawing 40-09</text>
+<text x="1010.0" y="806.0" font-size="11" text-anchor="start" fill="#000">Scale: ≈ 1 : 0.31, oblique</text>
+<text x="1010.0" y="819.0" font-size="11" text-anchor="start" fill="#000">guide 40 §12.2</text>
+</svg>

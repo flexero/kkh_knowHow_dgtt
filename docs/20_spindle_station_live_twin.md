@@ -283,7 +283,7 @@ for **10 s** (simulated devices show `sim`).
            "results": {"nut.torque": {"v": 124.5, "st": "ok", "src": "device:TQ-01", "t": 1794388180.1, "user": "TQ-01"},
                        "nut.runout_after": {"v": null, "st": "pending"}}},
   "devices": [{"id": "TQ-01", "proto": "http", "state": "online", "last": {"torque_nm": 124.5}}],
-  "runin": {"active": false, "rpm_set": 0, "profile": [[1500, 10], [3000, 10]], "rules": []},
+  "runin": {"active": false, "rpm_set": 0, "profile": [[1250, 10], [2500, 10]], "rules": []},
   "kpi": {"units": 3, "accepted": 2, "fpy": 0.5, "avg_lead_h": 31.0, "open_ncr": 1} }
 ```
 
@@ -381,7 +381,7 @@ Invoke-RestMethod -Uri http://localhost:8080/api/spst/ingest -Method Post -Conte
 | 9 rotor | `rotor.interf` manual 0.045–0.075 mm (soft), `rotor.temp` OV-01.temp_c ≤ 250 °C, `rotor.gap` manual ≤ 0.05 mm |
 | 10 rear | `rear.torque` TQ-01.torque_nm 69.4–76.6, `rear.runout` IND-01 ≤ 2 µm, `rear.tail_runout` IND-01 ≤ 3 µm, `rear.sleeve` manual |
 | 11 draw | `draw.count` manual = 36, `draw.L0` manual 96.7–97.7 mm (soft), `draw.force` FG-01.force_kn ≥ 6.69 kN |
-| 12 balance | `balance.u0_1` BAL-01.u1_gmm, `balance.u0_2` BAL-01.u2_gmm (1st reading, info), `balance.ures_1` / `ures_2` (2nd reading) ≤ 6.37 g·mm |
+| 12 balance | `balance.u0_1` BAL-01.u1_gmm, `balance.u0_2` BAL-01.u2_gmm (1st reading, info), `balance.ures_1` / `ures_2` (2nd reading) ≤ 7.64 g·mm |
 | 13 stator | `stator.p_drop` PRS-01.p_bar ≤ 0.1 bar, `stator.r_ins` INS-01.r_mohm ≥ 100 MΩ, `stator.r_bal` manual ≤ 2 % |
 | 14 insert | `insert.bolt_torque` TQ-01.torque_nm 63.7–70.3, `insert.gap_1…4` manual 0.9–1.1 mm, `insert.turn_torque` manual ≤ 0.8 N·m (soft) |
 | 15 cover | `cover.torque` TQ-01.torque_nm 9.0–10.0, `cover.lab_1…4` manual 0.20–0.30 mm, `cover.air` manual, `cover.sleeve_force` manual ≤ 150 N |
@@ -389,7 +389,7 @@ Invoke-RestMethod -Uri http://localhost:8080/api/spst/ingest -Method Post -Conte
 | 17 clamp | `clamp.f_1…3` HSK-01.force_kn (info, in order), `clamp.f_mean` calc 16.2–20.7 kN, `clamp.sensor` manual, `clamp.eject` manual |
 | 18 sensors | `sensors.pt_front`, `sensors.pt_stator` manual 18–22 °C, `sensors.enc_a/b` manual 0.8–1.2 Vpp, `sensors.labelled` manual |
 | 19 runin | `runin.dT_max` auto ≤ 25 K (≤ 27 warn), `runin.stops` auto 0 (1–2 warn), `runin.time_h` auto (info), `runin.dT_end` auto ≤ 20 K, `runin.vib_end` auto ≤ 1.0 mm/s (≤ 1.5 warn), `runin.noise` manual |
-| 20 test | `test.runout_taper` PRB-01.runout_um ≤ 2 µm, `test.runout_300` PRB-01.runout_um (2nd) ≤ 5 µm, `test.k_ax` manual ≥ 136 N/µm, `test.k_rad` manual ≥ 170 N/µm, `test.growth` PRB-01.axial_um ≤ 15 µm, `test.vib` RUN-01.vib_mm_s ≤ 1.0 mm/s, `test.u_shift` manual ≤ 6.37 g·mm, `test.noise` manual ≤ 75 dB(A), `test.clamp` HSK-01.force_kn ≥ 16.2 kN |
+| 20 test | `test.runout_taper` PRB-01.runout_um ≤ 2 µm, `test.runout_300` PRB-01.runout_um (2nd) ≤ 5 µm, `test.k_ax` manual ≥ 136 N/µm, `test.k_rad` manual ≥ 170 N/µm, `test.growth` PRB-01.axial_um ≤ 15 µm, `test.vib` RUN-01.vib_mm_s ≤ 1.0 mm/s, `test.u_shift` manual ≤ 7.64 g·mm, `test.noise` manual ≤ 75 dB(A), `test.clamp` HSK-01.force_kn ≥ 16.2 kN |
 | 21 pack | `pack.plate` SCN-01.code = unit serial, `pack.record` manual, `pack.lock` manual |
 
 **Calculations of the station (example numbers):**
@@ -570,8 +570,12 @@ Every refused action is written into the audit trail ("REFUSED confirm: …") wi
 
 | Speed step | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
-| rpm | 1 500 | 3 000 | 4 500 | 6 000 | 7 500 | 9 000 | 10 500 | 12 000 |
+| rpm | 1 250 | 2 500 | 3 750 | 5 000 | 6 250 | 7 500 | 8 750 | 10 000 |
 | minimum dwell (min) | 10 | 10 | 10 | 10 | 15 | 15 | 15 | 30 |
+
+The steps are n_i = i × nmax / 8 = i × 10 000 / 8 = 1 250 · i rpm (i = 1 … 8), i.e. 12.5 % of nmax per step.
+**Decided 2026-11-12: HMC motor spindle 10 000 rpm / 18 kW** (before: 12 000 rpm, steps 1 500 … 12 000). Because the
+thermal model works with n/nmax, all model temperatures and times below stay the same – only the rpm labels changed.
 
 Go to the next step when the dwell is reached **and** the temperature is stable (|rate| < 0.06 K/min –
 the code uses the absolute value, so a temperature that still **falls** fast after the grease peak also
@@ -597,25 +601,25 @@ Front bearing temperature rise ΔT (K, above the cooling water inlet):
 Euler step every 5 s (0.083 min): ΔT_new = ΔT + (ΔT_ss + ch − ΔT) × 0.083 / 9.
 Example: ΔT = 10 K, ΔT_ss + ch = 20 K → ΔT_new = 10 + 10 × 0.083/9 = **10.09 K**.
 
-Example at nmax (12 000 rpm, F = 400 N): ΔT_ss = 14 K, ch at the start of the step = 6 K →
+Example at nmax (10 000 rpm, F = 400 N): ΔT_ss = 14 K, ch at the start of the step = 6 K →
 peak ≈ **16 K** (16.2 K), end ≈ **15 K** (14.9 K, ≤ 20 → ok). Total run-in ≈ **1.95 h** process time
-(117 min, re-calculated noise-free with the code's rules; the random factor C0f = 1 ± 0.1 per unit changes
+(116.8 min, re-calculated noise-free with the code's rules; the random factor C0f = 1 ± 0.1 per unit changes
 this only by about ±1 min). With the fault "too much grease" (C0 × 3.6, τc = 25 min) the temperature
-reaches ≈ 24 K at 10 500 rpm, then **25 K at 12 000 rpm → 1 stop** (or just no stop, with C0f = 0.9);
+reaches ≈ 24 K at 8 750 rpm, then **25 K at 10 000 rpm → 1 stop** (or just no stop, with C0f = 0.9);
 run-in ≈ **3.4–4.1 h** instead of ≈ 1.95 h. (Correction: an older version of this guide said ≈ 2.2 h.)
 
 Steady values of the model per speed step (F = 400 N, no fault):
 
 | Step rpm | n/nmax | ΔT_ss front (K) | churn peak C0·n/nmax (K) | stator ΔT_ss (K) | water ΔT_w (K) | vibration (mm/s) |
 |---|---|---|---|---|---|---|
-| 1 500 | 0.125 | 1.15 | 0.75 | 1.47 | 0.45 | 0.125 |
-| 3 000 | 0.25 | 2.65 | 1.50 | 3.75 | 0.92 | 0.139 |
-| 4 500 | 0.375 | 4.31 | 2.25 | 6.55 | 1.52 | 0.162 |
-| 6 000 | 0.5 | 6.09 | 3.00 | 9.78 | 2.23 | 0.195 |
-| 7 500 | 0.625 | 7.96 | 3.75 | 13.37 | 3.03 | 0.237 |
-| 9 000 | 0.75 | 9.91 | 4.50 | 17.29 | 3.92 | 0.289 |
-| 10 500 | 0.875 | 11.93 | 5.25 | 21.51 | 4.89 | 0.350 |
-| 12 000 | 1.0 | 14.00 | 6.00 | 26.00 | 5.93 | 0.420 |
+| 1 250 | 0.125 | 1.15 | 0.75 | 1.47 | 0.45 | 0.125 |
+| 2 500 | 0.25 | 2.65 | 1.50 | 3.75 | 0.92 | 0.139 |
+| 3 750 | 0.375 | 4.31 | 2.25 | 6.55 | 1.52 | 0.162 |
+| 5 000 | 0.5 | 6.09 | 3.00 | 9.78 | 2.23 | 0.195 |
+| 6 250 | 0.625 | 7.96 | 3.75 | 13.37 | 3.03 | 0.237 |
+| 7 500 | 0.75 | 9.91 | 4.50 | 17.29 | 3.92 | 0.289 |
+| 8 750 | 0.875 | 11.93 | 5.25 | 21.51 | 4.89 | 0.350 |
+| 10 000 | 1.0 | 14.00 | 6.00 | 26.00 | 5.93 | 0.420 |
 
 (Water ΔT_w in the model = 5.73 × (n/nmax)^1.5 + 0.2 K offset.) With a wrong preload the same model gives:
 spacer fault F ≈ 926 N → end ΔT ≈ 23 K (> 20 K → **bad**), reversed bearing (× 2.2 = 880 N) → ≈ 22.5 K
@@ -659,7 +663,7 @@ The factor is written to RUN-01 register 101 / topic `cmd/time_factor` so that t
 | 3 | Fault drill | `faults = ["oring"]`, then `["dirt"]` … | NCR appears, unit reworked / scrapped as in 6.4 |
 | 4 | Manual run | login, `start_step`, `record`, `confirm` by PowerShell (5.4) | interlock errors appear as in chapter 7 |
 | 5 | Gateway test | `python tools/spst_gateway.py --server http://localhost:8084 --devices TQ-01,IND-01` | TQ-01 / IND-01 `online`, values with `src = device:TQ-01` |
-| 6 | Modbus test | `python tools/spst_modbus_sim.py --port 5020`, then `device RUN-01 proto modbus addr 127.0.0.1:5020/unit1` | RUN-01 online, run-in uses Modbus values, the simulator prints "write unit 1 register 100 = 1500" |
+| 6 | Modbus test | `python tools/spst_modbus_sim.py --port 5020`, then `device RUN-01 proto modbus addr 127.0.0.1:5020/unit1` | RUN-01 online, run-in uses Modbus values, the simulator prints "write unit 1 register 100 = 1250" |
 | 7 | MQTT test | `python tools/spst_mqtt_broker.py --port 1883`, `device TQ-01 proto mqtt`, `spst_gateway.py --mode mqtt --devices TQ-01` | `nut.torque` filled by MQTT |
 | 8 | First real device | e.g. torque wrench: write `read_device()` in the gateway for its interface | 10 tightenings: value in twin = value on the display (± resolution) |
 | 9 | Next devices | one after the other, the run-in PLC last | each device: 10 values compared, offline alarm after unplugging (10 s) |
@@ -775,7 +779,7 @@ The technical standards of the test station (bearings, balancing, vibration, saf
 | IEC 62541 (OPC UA) | secure industrial communication | recommended for real devices / PLC (guide 07) |
 | ISA-18.2 / IEC 62682 | alarm management | alarm severities, acknowledge |
 | ISO 9001 (clause 8.5.2 identification and traceability, 8.7 nonconforming outputs) | quality system | traceability, NCR |
-| ISO 22514 series / ISO 21747 (check) | process capability (Cp, Cpk) | SPC 5.7 |
+| ISO 22514 series / ISO 22514-2 (replaces withdrawn ISO 21747) | process capability (Cp, Cpk) | SPC 5.7 |
 | ISO 13849-1 / IEC 62061 | functional safety of machine controls | run-in stand safety (not the twin) |
 | ISO 10012, ISO 14253-1 | measurement management, decision rules | gauge calibration, accept / reject |
 | ISO 21940-11, ISO 10791-1, ISO 14644-1 | balancing, spindle geometric tests, clean room | limits of the checks (guide 19) |
@@ -906,8 +910,8 @@ logs in again. A concession (accepting a bad value) is also only possible as ins
   with the dashed **stop** line (water in + 25 K) and **hold** line (+20 K); cooling water in / out; vibration with the
   stop line 1.8 mm/s and the end limit 1.0 mm/s. Move the mouse over a chart to read the values.
   X axis = process time in minutes (in the simulator the run-in runs `time_factor` times faster than real time).
-* Example: at 9000 rpm the front bearing shows 31.2 °C, water in 20.1 °C → ΔT = 11.1 K, rate 0.3 K/min → the
-  station waits until the temperature is stable, then steps up to 10 500 rpm. With "too much grease" the curve rises
+* Example: at 7 500 rpm the front bearing shows 31.2 °C, water in 20.1 °C → ΔT = 11.1 K, rate 0.3 K/min → the
+  station waits until the temperature is stable, then steps up to 8 750 rpm. With "too much grease" the curve rises
   steeply, hits 25 K, the speed drops to 0 (stop), cools to 12 K and the same step is repeated ("Stops" counts up).
 * Buttons: **Start run-in** (step 19 after Start step; normally the start is automatic), **Stop** (no results – start again),
   **Ack alarms** (after a trip by vibration or cooling the program can start again only after Ack).
@@ -969,9 +973,10 @@ are **not repeated** – links point to them.
 
 | Item | Symbol | Value (example) | Used in chapter |
 |---|---|---|---|
-| Maximum speed | nmax | 12 000 rpm | 21, 24, 26, 29 |
-| Motor power S1 / S6-40 % | P | 15 kW / ≈ 22 kW | 29 |
-| Maximum torque (S6) | Tmax | 120 N·m | 29 |
+| Maximum speed | nmax | **10 000 rpm** (decided 2026-11-12) | 21, 24, 26, 29 |
+| Base speed (end of constant torque) | n_b | 1 500 rpm | 29 |
+| Motor power S1 (100 %) / S6-40 % | P | **18 kW** / 22 kW (from 1 500 to 10 000 rpm) | 29 |
+| Torque S1 / S6-40 % (up to n_b) | T | 115 N·m / 140 N·m | 29 |
 | Tool interface | – | HSK-A63 | 30 |
 | Clamping force on the tool | Fclamp | 18 kN | 30 |
 | Front bearings | – | 4 × 7014 C (70 × 110 × 20), TBT, hybrid, 15° | 19–22 |
@@ -1032,7 +1037,7 @@ How to read the section (from the nose = left to the tail = right):
 | **Motor spindle (built-in motor, "electro-spindle")** | rotor shrunk on the spindle shaft, stator in the housing | 10 000–60 000 rpm and more | compact, stiff, fast acceleration, no transmission | motor heat inside the spindle → cooling needed, expensive repair, run-in + test station needed |
 
 The example spindle of this project is a **motor spindle** for a horizontal machining centre (HMC 40-taper
-class, 12 000 rpm). Ranges in the table are rough typical values – the spindle makers' catalogues give real data.
+class, **10 000 rpm / 18 kW S1** – decided 2026-11-12). Ranges in the table are rough typical values – the spindle makers' catalogues give real data.
 
 ### 18.2 Parts of a motor spindle (see the section drawing)
 
@@ -1052,7 +1057,7 @@ class, 12 000 rpm). Ranges in the table are rough typical values – the spindle
 ### 18.3 How to choose (design guide)
 
 * **Torque at low speed** decides between gear / belt (high torque) and motor spindle (high speed).
-  Example: the motor spindle gives 120 N·m up to the base speed ≈ 1 194 rpm (chapter 29).
+  Example: the motor spindle gives 115 N·m (S1) / 140 N·m (S6-40 %) up to the base speed 1 500 rpm (chapter 29).
 * **Highest speed** decides the bearing size and lubrication (n·dm, chapter 21).
 * **Stiffness** decides the bearing arrangement and the nose design (chapters 19, 25).
 * **Thermal stability** decides the cooling and the fixed / floating concept (chapter 23).
@@ -1153,7 +1158,7 @@ Fa = 900 N (preload + share of the thrust). Assumed X = 0.44, Y = 1.23 (from a c
 1. P = 0.44 × 1 000 + 1.23 × 900 = 440 + 1 107 = **1 547 N**
 2. L10 = (48 000 / 1 547)³ = 31.03³ = **29 871 million revolutions**
 3. At a mean speed of 8 000 rpm: L10h = 10⁶ / (60 × 8 000) × 29 871 = **62 232 h**
-4. At 12 000 rpm all the time: L10h = **41 488 h**
+4. At nmax = 10 000 rpm all the time: L10h = 10⁶ / (60 × 10 000) × 29 871 = **49 785 h**
 
 ### 20.3 Modified rating life Lnm (ISO 281:2007)
 
@@ -1215,10 +1220,10 @@ clean assembly (guide 19 §3.2), the run-in (chapter 24) and monitoring (chapter
 It measures the speed of the balls. Above the limit the lubricant film breaks down, the balls skid, the
 temperature rises.
 
-Worked example (example spindle at 12 000 rpm):
+Worked example (example spindle at nmax = 10 000 rpm):
 
-* front 7014: dm = (70 + 110) / 2 = 90 mm → n·dm = 12 000 × 90 = **1.08·10⁶ mm/min**
-* rear 7012: dm = (60 + 95) / 2 = 77.5 mm → n·dm = 12 000 × 77.5 = **0.93·10⁶ mm/min**
+* front 7014: dm = (70 + 110) / 2 = 90 mm → n·dm = 10 000 × 90 = **0.90·10⁶ mm/min**
+* rear 7012: dm = (60 + 95) / 2 = 77.5 mm → n·dm = 10 000 × 77.5 = **0.78·10⁶ mm/min**
 
 ### 21.2 Typical limits by lubrication (guide values – the bearing catalogue gives the real limit)
 
@@ -1229,8 +1234,8 @@ Worked example (example spindle at 12 000 rpm):
 | Oil-air (oil-air mixture, very small oil quantity) | ≈ 1.2–1.6·10⁶ | ≈ 1.8–2.5·10⁶ | needs oil-air unit, clean dry air |
 | Oil-jet / under-race lubrication | ≈ 2·10⁶ | > 2.5·10⁶ | high power loss, for very high speed |
 
-The example front set (1.08·10⁶, hybrid, grease) is inside the usual grease range of guide 19 §4.2
-(1.2–1.4·10⁶ for hybrid + grease) – OK.
+The example front set (0.90·10⁶, hybrid, grease) is well inside the usual grease range of guide 19 §4.2
+(1.2–1.4·10⁶ for hybrid + grease) – OK, with margin (0.90 / 1.2 = 75 % of the lower guide value).
 
 **Catalogue speed values.** Bearing tables list a **"limiting speed" (grease / oil-air)** for a single
 bearing. For sets the speed must be reduced by a factor (e.g. ≈ 0.8 for a pair, ≈ 0.65–0.75 for
@@ -1288,22 +1293,22 @@ Palmgren split the friction torque of a rolling bearing into a speed part M0 and
 
 Heat power: **N = M · ω = M · 2π·n / 60** (W, with M in N·m).
 
-### 22.2 Worked example – one front bearing 7014 C at 12 000 rpm
+### 22.2 Worked example – one front bearing 7014 C at 10 000 rpm
 
-Inputs: f0 = 1 (after run-in), ν = 15 mm²/s, n = 12 000 rpm, dm = 90 mm, P1 = P0 = 400 N, C0 = 30 kN (assumed).
+Inputs: f0 = 1 (after run-in), ν = 15 mm²/s, n = 10 000 rpm, dm = 90 mm, P1 = P0 = 400 N, C0 = 30 kN (assumed).
 
-1. ν·n = 15 × 12 000 = 180 000 → (ν·n)^(2/3) = 3 188
+1. ν·n = 15 × 10 000 = 150 000 → (ν·n)^(2/3) = 2 823
 2. dm³ = 90³ = 729 000
-3. M0 = 10⁻⁷ × 1 × 3 188 × 729 000 = **232 N·mm**
+3. M0 = 10⁻⁷ × 1 × 2 823 × 729 000 = **206 N·mm**
 4. f1 = 0.001 × (400 / 30 000)^0.33 = **0.000 241** → M1 = 0.000 241 × 400 × 90 = **8.7 N·mm**
-5. M = 232 + 8.7 = **241 N·mm = 0.241 N·m**
-6. ω = 2π × 12 000 / 60 = **1 256.6 rad/s** → N = 0.241 × 1 256.6 = **303 W per bearing**
+5. M = 206 + 8.7 = **214 N·mm = 0.214 N·m**
+6. ω = 2π × 10 000 / 60 = **1 047.2 rad/s** → N = 0.214 × 1 047.2 = **225 W per bearing**
 
-With fresh grease (f0 = 2): M0 = 465 N·mm → N ≈ **595 W** per bearing – **twice the heat**. This is
+With fresh grease (f0 = 2): M0 = 412 N·mm → N ≈ **440 W** per bearing – **about twice the heat**. This is
 exactly what the run-in must remove: excess grease is pushed out of the ball path, f0 falls, the temperature
-falls (the "churning peak" of the twin, chapter 24). At 6 000 rpm (f0 = 1): M = 155 N·mm → **97 W**.
+falls (the "churning peak" of the twin, chapter 24). At 5 000 rpm (run-in step 4, f0 = 1): M = 138 N·mm → **72 W**.
 
-**Check against the twin:** 4 front bearings × 303 W ≈ 1.2 kW, but the twin assumes **1.6 kW for motor +
+**Check against the twin:** 4 front bearings × 225 W ≈ 0.9 kW, but the twin assumes **1.6 kW for motor +
 all bearings** at nmax. Palmgren with these factors gives an **upper estimate** – for minimum-quantity
 grease the real bearing loss is usually lower. For design use the bearing maker's tool (e.g. SKF
 SimPro / bearing calculator, Schaeffler BEARINX, NSK, GMN software – ask the maker) and measure the
@@ -1402,20 +1407,20 @@ common pattern (example – **not** a maker program):
 | 4 | final speed | run ≥ 30 min stable |
 | 5 | record | temperatures, speed, vibration, time, stops |
 
-The twin's program: 8 steps 1 500 … 12 000 rpm, dwell 10 / 10 / 10 / 10 / 15 / 15 / 15 / 30 min, stop 25 K,
-resume 12 K, hold 20 K and 1.0 K/min (chapter 8). Guide 19 step 19 shows an older 6-step example
-(2 000 … 12 000 rpm) – **the twin code uses the 8-step program of chapter 8.1**.
+The twin's program: 8 steps 1 250 … 10 000 rpm, dwell 10 / 10 / 10 / 10 / 15 / 15 / 15 / 30 min, stop 25 K,
+resume 12 K, hold 20 K and 1.0 K/min (chapter 8). Guide 19 step 19 shows an older, simpler step example
+(2 000 rpm steps up to nmax) – **the twin code uses the 8-step program of chapter 8.1**.
 
 ![Run-in curve (twin model): the normal spindle runs through 8 steps in 1.95 h; with too much grease the curve rises steeply, one stop at 25 K, ≈ 4 h](img/20_runin_curve.svg)
 
 ### 24.4 Worked example – reading the curve
 
-* Normal spindle: the speed steps up at ≈ 0, 10.0, 20.8, 31.6, 41.9, 56.9, 71.9, 86.9 min (1 500 → 12 000 rpm). At 12 000 rpm the
+* Normal spindle: the speed steps up at ≈ 0, 10.0, 20.8, 31.5, 41.8, 56.8, 71.8, 86.8 min (1 250 → 10 000 rpm). At 10 000 rpm the
   churning peak gives **16.2 K** at ≈ 97 min, then the curve falls to **14.9 K** (mean of the last 2 min) – ok
   (≤ 20 K). Run-in time **1.95 h**, 0 stops.
 * Too much grease: the churning peak is 3.6 × larger and decays 2.5 × slower (τc = 25 min). The station waits
-  the 60-min maximum at 7 500 rpm (|rate| stays above 0.06 K/min) and at 10 500 rpm (hold rule ΔT > 20 K), reaches
-  24.3 K at 10 500 rpm and stops once at 12 000 rpm (at 191 min). After the stop the grease is "pushed out" (churning × 0.55). Total ≈ **4.1 h**, 1 stop
+  the 60-min maximum at 6 250 rpm (|rate| stays above 0.06 K/min) and at 8 750 rpm (hold rule ΔT > 20 K), reaches
+  24.3 K at 8 750 rpm and stops once at 10 000 rpm (at 191 min). After the stop the grease is "pushed out" (churning × 0.55). Total ≈ **4.1 h**, 1 stop
   (= `runin.stops` warn).
 
 ### 24.5 Run-in on the real station – rules for the PLC program
@@ -1480,7 +1485,7 @@ mass lumped at mid-span, 60 % of the rotating mass taking part):
 2. Hollow section Ø65 / Ø22: I = π (0.065⁴ − 0.022⁴) / 64 = 8.65·10⁻⁷ m⁴
 3. k = 48 · E · I / L³ = 48 × 210·10⁹ × 8.65·10⁻⁷ / 0.3265³ = **250 N/µm**
 4. n_crit = 60 / 2π · √(k / (0.6 · m)) = 60 / 2π × √(250·10⁶ / 9.6) ≈ **48 800 rpm** (the twin rounds to ≈ 49 000)
-5. Check: n_crit ≥ 1.3 × nmax = 15 600 rpm → **OK** (rough – the real rotor dynamics need an FE model with bearing
+5. Check: n_crit ≥ 1.3 × nmax = 1.3 × 10 000 = 13 000 rpm → **OK** (rough – the real rotor dynamics need an FE model with bearing
    stiffness; bearing stiffness lowers the critical speed a lot).
 
 ### 25.3 Frequency response function (FRF) and tap test
@@ -1549,22 +1554,25 @@ The balance grade G (mm/s) is the product e · ω (ISO 21940-11). The permissibl
 
   **U_per = 9 549 · G · m / n**  (g·mm, m in kg, n in rpm)   →   e_per = 9 549 · G / n (µm)
 
-Worked examples (m = 16 kg, n = 12 000 rpm):
+Worked examples (m = 16 kg, n = nmax = 10 000 rpm):
 
 | Grade G | U_per total (g·mm) | per plane (½, symmetric rotor) | e_per (µm) |
 |---|---|---|---|
-| G 0.4 | 5.09 | 2.55 | 0.318 |
-| **G 1.0 (example spindle)** | **12.73** | **6.37** | **0.796** |
-| G 2.5 | 31.83 | 15.92 | 1.99 |
-| G 6.3 | 80.21 | 40.11 | 5.01 |
+| G 0.4 | 6.11 | 3.06 | 0.382 |
+| **G 1.0 (example spindle)** | **15.28** | **7.64** | **0.955** |
+| G 2.5 | 38.20 | 19.10 | 2.39 |
+| G 6.3 | 96.25 | 48.13 | 6.02 |
 
-* Check: e · ω = 0.796·10⁻³ mm × 1 256.6 1/s = **1.0 mm/s** = G 1.0 ✓
-* Force at G 1.0: F = 12.73·10⁻⁶ kg·m × 1 256.6² = **20.1 N** (guide 19 §10.5).
-* The station limits `balance.ures_1/2` and `test.u_shift` are **6.37 g·mm** per plane (= U_per / 2).
+* U_per = 9 549 × 1.0 × 16 / 10 000 = **15.28 g·mm**; e_per = 9 549 × 1.0 / 10 000 = **0.955 µm**
+* Check: e · ω = 0.955·10⁻³ mm × 1 047.2 1/s = **1.0 mm/s** = G 1.0 ✓
+* Force at G 1.0: F = U · ω² = 15.28·10⁻⁶ kg·m × 1 047.2² = **16.8 N** (guide 19 §10.5). Note: the lower speed
+  allows a larger U_per, but the force at nmax is smaller, because F = m · G · ω falls with ω.
+* The station limits `balance.ures_1/2` and `test.u_shift` are **7.64 g·mm** per plane (= U_per / 2).
 * The equal split per plane is a simplification – ISO 21940-11 gives rules for the allocation to the planes
-  (depends on the distances of the planes to the bearings – check).
+  (depends on the distances of the planes to the bearings – check). Guide 19 §25.3 does this for the example
+  rotor: U_per = 15.28 g·mm → U_A = 7.91 g·mm, U_B = 7.37 g·mm; the station keeps the simple limit 7.64 g·mm per plane.
 
-![ISO 21940-11 chart with lines G 0.4 to G 16 and the example point (12 000 rpm, 0.796 µm)](img/20_balancing_grades.svg)
+![ISO 21940-11 chart with lines G 0.4 to G 16 and the example point (10 000 rpm, 0.955 µm)](img/20_balancing_grades.svg)
 
 Typical grades (ISO 21940-11 examples – check the edition): G 0.4 precision grinder spindles; **G 1**
 grinding-machine drives, small high-speed spindles; G 2.5 machine-tool drives, turbines; G 6.3 general machines.
@@ -1572,7 +1580,7 @@ Many spindle makers balance motor spindles to **G 0.4–G 1** at service speed.
 
 ### 26.2 Rigid or flexible rotor
 
-* **Rigid rotor:** runs well below its first bending critical speed (here 12 000 vs ≈ 48 800 rpm) → balancing at
+* **Rigid rotor:** runs well below its first bending critical speed (here 10 000 vs ≈ 48 800 rpm) → balancing at
   low speed in 2 planes is valid at all speeds (ISO 21940-11).
 * **Flexible rotor:** runs near or above a bending critical → modal balancing at speed (ISO 21940-12).
 
@@ -1623,7 +1631,7 @@ rotation, angle measured with or against rotation) the same in all runs – the 
 ### 26.5 Balancing on the test station (trim balancing)
 
 * After the run-in the unbalance can shift a little (rotor sleeve settles, grease moves). Check `test.u_shift`
-  ≤ 6.37 g·mm (example) with a field balancer: accelerometer A1/A2 + once-per-rev reference.
+  ≤ 7.64 g·mm (example) with a field balancer: accelerometer A1/A2 + once-per-rev reference.
 * Correction: screws in the threaded holes of the nuts / balancing rings (guide 19 step 12).
 * Balance with the **test mandrel or a balanced dummy tool**, never with an unbalanced tool.
 * Tool holders are balanced separately (ISO 21940-11 / tool maker, e.g. G 2.5 at 25 000 rpm – check).
@@ -1642,9 +1650,11 @@ rotation, angle measured with or against rotation) the same in all runs – the 
 | envelope (demodulated acceleration) | g | early bearing damage (impacts) | band 5–20 kHz, spectrum up to ≈ 5 kHz |
 
 Conversion for a single frequency f: **v = a / (2π f)**, **x = v / (2π f)**.
-Example: a = 1 m/s² at 200 Hz → v = 1 / (2π × 200) = 0.000 796 m/s = **0.80 mm/s**.
+Example: a = 1 m/s² at 166.7 Hz (1 × f_r at 10 000 rpm) → v = 1 / (2π × 166.7) = 0.000 955 m/s = **0.95 mm/s**.
 
 ### 27.2 ISO 10816-3 / ISO 20816-3 evaluation zones (machines > 15 kW on site – check the edition)
+
+Source: **ISO 20816-3:2022 (replaces ISO 10816-3)** – zone values below kept; check group and support type.
 
 | Zone | Meaning | Group 2 (15–300 kW), rigid foundation: v RMS (mm/s) | flexible foundation |
 |---|---|---|---|
@@ -1670,16 +1680,16 @@ r = D_w · cos α / d_m:
 | BPFI | ball pass frequency inner race | Z / 2 · f_r · (1 + r) |
 | BSF | ball spin frequency (one point of the ball; a ball defect often shows at 2 × BSF) | d_m / (2 D_w) · f_r · (1 − r²) |
 
-Worked example – front bearing 7014 C at 12 000 rpm. **Assumed geometry** (get the real Z and D_w from the bearing
+Worked example – front bearing 7014 C at nmax = 10 000 rpm. **Assumed geometry** (get the real Z and D_w from the bearing
 maker – most makers publish the frequency factors): Z = 20, D_w = 11.112 mm, d_m = 90 mm, α = 15°.
 
-* f_r = 12 000 / 60 = **200 Hz**; r = 11.112 × cos 15° / 90 = 11.112 × 0.9659 / 90 = **0.1193**
-* FTF = 200 / 2 × (1 − 0.1193) = **88.1 Hz**
-* BPFO = 20 / 2 × 200 × (1 − 0.1193) = **1 761 Hz**
-* BPFI = 20 / 2 × 200 × (1 + 0.1193) = **2 239 Hz**
-* BSF = 90 / (2 × 11.112) × 200 × (1 − 0.1193²) = **798 Hz** (2 × BSF = 1 597 Hz)
-* At 6 000 rpm (run-in step 4) all values are half: FTF 44.0, BPFO 881, BPFI 1 119, BSF 399 Hz.
-* Check: BPFO + BPFI = Z · f_r = 4 000 Hz ✓
+* f_r = 10 000 / 60 = **166.7 Hz**; r = 11.112 × cos 15° / 90 = 11.112 × 0.9659 / 90 = **0.1193**
+* FTF = 166.7 / 2 × (1 − 0.1193) = **73.4 Hz**
+* BPFO = 20 / 2 × 166.7 × (1 − 0.1193) = **1 468 Hz**
+* BPFI = 20 / 2 × 166.7 × (1 + 0.1193) = **1 865 Hz**
+* BSF = 90 / (2 × 11.112) × 166.7 × (1 − 0.1193²) = **665 Hz** (2 × BSF = 1 331 Hz)
+* At 5 000 rpm (run-in step 4) all values are half: FTF 36.7, BPFO 734, BPFI 933, BSF 333 Hz.
+* Check: BPFO + BPFI = Z · f_r = 20 × 166.7 = 3 333 Hz ✓
 
 ![Illustrative spectra: velocity spectrum with BPFO and harmonics; envelope spectrum with BPFI and ±1× side bands](img/20_bearing_frequencies.svg)
 
@@ -1796,10 +1806,10 @@ The inverter (frequency converter) makes a 3-phase voltage of variable frequency
 
   **f = p · n / 60**  (synchronous motor; p = number of pole pairs)
 
-Example n = 12 000 rpm: p = 1 → 200 Hz, **p = 2 → 400 Hz**, p = 3 → 600 Hz, p = 4 → 800 Hz. The inverter must support
+Example n = 10 000 rpm: p = 1 → 166.7 Hz, **p = 2 → 333.3 Hz**, p = 3 → 500 Hz, p = 4 → 666.7 Hz. The inverter must support
 this output frequency (and the right switching frequency – motor spindles often need ≥ 8 kHz switching or a sine
-filter – check). Asynchronous motor: n = n_s · (1 − s), slip s ≈ 1–3 %; at 400 Hz, p = 2 and s = 2 %:
-n = 12 000 × 0.98 = 11 760 rpm.
+filter – check). Asynchronous motor: n = n_s · (1 − s), slip s ≈ 1–3 %; at 333.3 Hz, p = 2 and s = 2 %:
+n = 10 000 × 0.98 = 9 800 rpm.
 
 ### 29.3 Control methods
 
@@ -1811,12 +1821,21 @@ n = 12 000 × 0.98 = 11 760 rpm.
 
 ### 29.4 Power, torque, base speed (example spindle)
 
-* Torque at nmax in S1: T = P / ω = 15 000 / 1 256.6 = **11.9 N·m**
-* Base speed (end of constant torque 120 N·m at S1 power): n_base = P / Tmax · 60 / 2π = 15 000 / 120 × 60 / 2π =
-  **1 194 rpm** (spCalc `nBase`). Above it: constant power (field weakening).
-* Motor current (estimate, U = 400 V, η = 0.93, cos φ = 0.9): I = P / (√3 · U · η · cos φ) = 15 000 / (1.732 ×
-  400 × 0.93 × 0.9) = **25.9 A** (S1); S6 22 kW → **37.9 A** → choose the motor module for the S6 current and the
-  peak current of the motor datasheet.
+**Decided 2026-11-12: HMC motor spindle 10 000 rpm / 18 kW** (example data – the spindle maker's datasheet decides):
+n_max = 10 000 rpm, base speed n_b = 1 500 rpm, S1 = 18 kW, S6-40 % = 22 kW.
+
+* ω at base speed: ω_b = 2π × 1 500 / 60 = **157.08 rad/s**; ω at nmax = 2π × 10 000 / 60 = **1 047.2 rad/s**
+* Torque S1 up to n_b: T = P / ω_b = 18 000 / 157.08 = 114.6 → **115 N·m**; S6-40 %: 22 000 / 157.08 = 140.1 →
+  **140 N·m**. Above n_b: constant power (field weakening).
+* Torque at nmax in S1: T = 18 000 / 1 047.2 = **17.2 N·m** (S6: 22 000 / 1 047.2 = 21.0 N·m)
+* Field-weakening range: n_max / n_b = 10 000 / 1 500 = **6.7 : 1** (constant power range)
+* Motor current (estimate, U = 400 V, η = 0.93, cos φ = 0.9): I = P / (√3 · U · η · cos φ) = 18 000 / (1.732 ×
+  400 × 0.93 × 0.9) = **31.0 A** (S1); S6 22 kW → **37.9 A** → choose the motor module for the S6 current and the
+  peak current of the motor datasheet (drive module ≥ 18 kW S1, ≥ 30 kW peak class).
+* Back-EMF (PMSM, estimate): if the back-EMF is ≈ 380 V at n_b = 1 500 rpm, it grows with speed:
+  E = 380 × 10 000 / 1 500 ≈ **2.5 kV** at nmax – far above the DC link → with an inverter fault the motor would push
+  energy back: a **voltage protection module** (VPM) or a motor that is designed for this is needed (check the
+  motor maker).
 * DC link of a 400 V drive: ≈ 1.35 × 400 = **540 V** (uncontrolled infeed) up to ≈ 600 V (active infeed).
 * Duty types (IEC 60034-1): S1 continuous, S6-40 % intermittent periodic (4 min on / 6 min no load in a 10 min cycle).
 
@@ -1959,7 +1978,7 @@ maker's test specification and the bearing maker's values.
 | `test.k_rad` | radial stiffness at the nose | ≥ 170 N/µm | load steps (25) |
 | `test.growth` | thermal growth at the nose, 60 min nmax | ≤ 15 µm | Z probe (23) |
 | `test.vib` | vibration velocity at nmax | ≤ 1.0 mm/s RMS | A1/A2, 10–1 000 Hz (27); counts only at ≥ 0.95 × nmax |
-| `test.u_shift` | unbalance change after the run-in | ≤ 6.37 g·mm | field balancer (26) |
+| `test.u_shift` | unbalance change after the run-in | ≤ 7.64 g·mm | field balancer (26) |
 | `test.noise` | noise at 1 m | ≤ 75 dB(A) | sound level meter class 2 (ISO 11201 type) |
 | `test.clamp` | clamping force re-check | ≥ 16.2 kN | HSK gauge (30) |
 
@@ -1997,8 +2016,9 @@ maker's test specification and the bearing maker's values.
 | 51.2 kS/s | 16 384 | 3.13 Hz | 0.32 s | 20 kHz |
 | 25.6 kS/s | 8 192 | 3.13 Hz | 0.32 s | 10 kHz |
 
-Worked example: to separate BPFI = 2 239 Hz from its side bands at ± 200 Hz, Δf = 5 Hz is plenty → N = 16 384 at
-51.2 kS/s (0.32 s per block). To separate 1 × (200 Hz) from a peak at 201 Hz you need Δf ≤ 0.5 Hz → N ≥ 102 400.
+Worked example (10 000 rpm): to separate BPFI = 1 865 Hz from its side bands at ± 166.7 Hz, Δf = 5 Hz is plenty →
+N = 16 384 at 51.2 kS/s (0.32 s per block). To separate 1 × (166.7 Hz) from a peak at 167.7 Hz you need Δf ≤ 0.5 Hz
+→ N ≥ 102 400.
 
 * **Window:** Hann window for spectra of running machines (reduces leakage); flat-top for accurate amplitudes;
   rectangular / force-exponential windows for tap tests.
@@ -2054,7 +2074,7 @@ COOLING (temperature stop) → RUNNING … → STOPPING → STANDSTILL (SSM) →
 |---|---|---|
 | STO – safe torque off | no torque-producing energy to the motor | E-stop (after SS1), door open at standstill |
 | SS1 – safe stop 1 | braking, then STO | E-stop, door request while turning |
-| SLS – safely limited speed | speed monitored below a limit | nmax of the spindle under test (e.g. 12 000 rpm + small margin) – prevents overspeed if a wrong recipe or the twin sends a wrong set-point |
+| SLS – safely limited speed | speed monitored below a limit | nmax of the spindle under test (e.g. 10 000 rpm + small margin, e.g. 10 300 rpm) – prevents overspeed if a wrong recipe or the twin sends a wrong set-point |
 | SSM – safe speed monitor | safe signal "speed below x" | guard locking release only below e.g. 10 rpm |
 | SBC – safe brake control | – | motor spindles normally have no brake |
 
@@ -2070,16 +2090,16 @@ COOLING (temperature stop) → RUNNING … → STOPPING → STANDSTILL (SSM) →
 
 * Rotor inertia estimate: J ≈ ½ · m · r_g² with m = 16 kg, r_g = 40 mm (example) → J = 0.5 × 16 × 0.040² =
   **0.0128 kg·m²**
-* At 12 000 rpm (ω = 1 256.6 rad/s): E = 0.5 × 0.0128 × 1 256.6² = **10.1 kJ** (≈ the energy of a 1 t car at 16 km/h)
-* A tool / holder (2 kg, r_g = 30 mm, J = 0.0009 kg·m²): E = **711 J**
-* A tool fragment of 0.1 kg at r = 50 mm: v = ω · r = **62.8 m/s**, E = ½ · 0.1 · 62.8² = **197 J**
+* At 10 000 rpm (ω = 1 047.2 rad/s): E = 0.5 × 0.0128 × 1 047.2² = **7.0 kJ** (≈ the energy of a 1 t car at 13.5 km/h)
+* A tool / holder (2 kg, r_g = 30 mm, J = 0.0009 kg·m²): E = 0.5 × 0.0009 × 1 047.2² = **493 J**
+* A tool fragment of 0.1 kg at r = 50 mm: v = ω · r = 1 047.2 × 0.05 = **52.4 m/s**, E = ½ · 0.1 · 52.4² = **137 J**
 
 The guard must stop the fragment (sheet steel thickness / polycarbonate window thickness from ISO 16090-1 tables or
 tests; polycarbonate windows age – replace by the maker's interval). **Never run a spindle on the test stand
 without the guard closed** – also not "just a short test".
 
-**Braking:** with 120 N·m braking torque t = J·ω / T = 0.0128 × 1 256.6 / 120 = **0.13 s** (torque-limited); at the
-22 kW power limit: t ≈ E / P = 10 106 / 22 000 = **0.46 s**. The braking energy goes to a brake resistor (Smart Line
+**Braking:** with 140 N·m braking torque t = J·ω / T = 0.0128 × 1 047.2 / 140 = **0.10 s** (torque-limited, only
+below n_b); at the 22 kW power limit: t ≈ E / P = 7 018 / 22 000 = **0.32 s** (above n_b the power limit rules). The braking energy goes to a brake resistor (Smart Line
 Module) or back to the grid (Active Line Module) – see the electrical overview.
 
 ### 34.4 Electrical design points (see the electrical overview figure)
@@ -2142,7 +2162,7 @@ better (proposal):
 
 ```json
 {"ts": "2026-11-12T08:15:02.120Z", "device": "RUN-01", "seq": 18234,
- "values": {"rpm": 9000, "t_front_c": 31.2, "t_win_c": 20.1, "vib_mm_s": 0.29, "flow_lpm": 4.0},
+ "values": {"rpm": 7500, "t_front_c": 31.2, "t_win_c": 20.1, "vib_mm_s": 0.29, "flow_lpm": 4.0},
  "quality": "good"}
 ```
 
@@ -2236,7 +2256,7 @@ says "see datasheet". **Price class** (rough, 2026, excl. VAT – **estimate –
 | Oil-streak / flow monitor | detects oil in the oil-air line | offered by the oil-air makers | € – €€ | response time, output signal |
 | Sealing-air panel | FRL (5 µm + 0.01 µm coalescing filter), regulator, flow meter | Festo MS series, SMC AC series FRL; flow meters with analog output | € | air quality ISO 8573-1 class required by the spindle maker |
 
-### 37.3 Drive for the test stand (spec: 15 kW S1 / 22 kW S6, I_S6 ≈ 38 A at 400 V, output frequency ≥ 400 Hz for p = 2 at 12 000 rpm, encoder sin/cos 1 Vpp, Safety Integrated SLS/SSM/STO/SS1)
+### 37.3 Drive for the test stand (spec: 18 kW S1 / 22 kW S6, ≥ 30 kW peak class, I_S1 ≈ 31 A, I_S6 ≈ 38 A at 400 V, output frequency ≥ 333 Hz for p = 2 at 10 000 rpm (choose ≥ 400 Hz for margin), encoder sin/cos 1 Vpp, Safety Integrated SLS/SSM/STO/SS1)
 
 | Maker | Example product family | Key data to read | Price class | Check |
 |---|---|---|---|---|
@@ -2307,7 +2327,7 @@ says "see datasheet". **Price class** (rough, 2026, excl. VAT – **estimate –
 | Guard locking switch | ISO 14119, power-to-unlock, PL d/e | **Pilz PSENmlock**; Euchner MGB / CTM | € | holding force ≥ need, escape release |
 | E-stop | 2 NC, IEC 60947-5-5 | Siemens 3SU1, Pilz PIT es | € | – |
 | 24 V supply | 20 A, PELV | Siemens SITOP | € | – |
-| Brake resistor / braking module | for E = 10 kJ per stop, cycle | drive maker accessory | € | duty cycle |
+| Brake resistor / braking module | for E = 7 kJ per stop (10 000 rpm), cycle | drive maker accessory | € | duty cycle |
 
 ### 37.10 Station mechanics and utilities
 
@@ -2322,7 +2342,7 @@ says "see datasheet". **Price class** (rough, 2026, excl. VAT – **estimate –
 
 ## 38. Consolidated shopping list for one spindle test station
 
-Example for the 12 000 rpm HSK-A63 motor spindle (grease lubricated). Quantities and prices are **estimates – ask
+Example for the 10 000 rpm / 18 kW HSK-A63 motor spindle (grease lubricated, decided 2026-11-12). Quantities and prices are **estimates – ask
 for quotes**. (Assembly equipment E1–E19 is in guide 19 §11.1.)
 
 | Pos | Item | Qty | Key spec | Price class |
@@ -2331,7 +2351,7 @@ for quotes**. (Assembly equipment E1–E19 is in guide 19 §11.1.)
 | 2 | Run-in cradle J12 + sensor frame J11 | 1 + 1 | housing Ø230, probe holders | €€ |
 | 3 | Guard enclosure with guard locking door | 1 | burst-rated (chapter 34.3) | €€ |
 | 4 | Drive SINAMICS S120 (line module, motor module ≥ 45 A class, CU320-2, SMC) + cabinet | 1 | 400 V, ≥ 400 Hz, Safety Integrated | €€€ |
-| 5 | Brake resistor / braking module | 1 | 10 kJ per stop | € |
+| 5 | Brake resistor / braking module | 1 | 7 kJ per stop | € |
 | 6 | Safety PLC S7-1500F + I/O (F-DI, F-DQ, AI, RTD) | 1 | PROFINET, OPC UA, Modbus TCP | €€ |
 | 7 | E-stops, guard locking switch, signal tower | 2 + 1 + 1 | PL d (example) | € |
 | 8 | Chiller | 1 | ≥ 2.5 kW @ 20 °C, ±0.5 K | €€ |
@@ -2377,7 +2397,7 @@ ask for quotes. The largest items are the drive cabinet, the capacitive probe sy
 **Drive supplier**
 1. Max. output frequency in servo / vector control for our motor; derating at the needed switching frequency?
 2. Safety functions SLS / SSM / SS1 / STO – licences, PL / SIL, response times, encoder requirements?
-3. Braking: resistor sizing for 10 kJ per stop, regenerative option?
+3. Braking: resistor sizing for 7 kJ per stop, regenerative option?
 4. Interfaces: PROFINET, OPC UA, data logging (trace) for run-up / run-down?
 
 **Chiller supplier**

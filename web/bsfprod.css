@@ -1,0 +1,67 @@
+/* Ball screw + guide factory – item 1 products (bsfprod*.js). Light + dark theme via the style.css variables. */
+.bf1-wrap { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+.bf1-ctl { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.bf1-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-bottom: 10px; }
+.bf1-sep { width: 1px; height: 22px; background: var(--border); margin: 0 2px; }
+.bf1-lbl, .bf1-chk { font-size: 12.5px; color: var(--text-2); display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.bf1-lbl input[type=range] { width: 120px; }
+.bf1-lbl b { min-width: 58px; color: var(--text); font-variant-numeric: tabular-nums; }
+.bf1-lbl select { max-width: 240px; }
+.bf1-lbl .seg-btn { padding: 4px 9px; font-size: 12.5px; }
+.bf1-main { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 12px; align-items: stretch; }
+.bf1-3d { position: relative; height: min(64vh, 600px); min-height: 420px; background: #e8ecf0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.bf1-3d canvas { display: block; touch-action: none; }
+.bf1-msg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #555; font-size: 13px; }
+.bf1-info { font-size: 12.5px; max-height: min(64vh, 600px); overflow: auto; border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px 12px; background: var(--surface); color: var(--text); }
+.bf1-info h3 { margin: 4px 0 6px; font-size: 14px; }
+.bf1-kv { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.bf1-kv th { width: 52%; }
+.bf1-kv th, .bf1-kv td { white-space: normal; overflow-wrap: anywhere; text-align: left; padding: 3px 4px; border-bottom: 1px solid var(--border); font-weight: normal; color: var(--text); font-size: 12px; vertical-align: top; }
+.bf1-kv td { text-align: right; font-variant-numeric: tabular-nums; }
+.bf1-dl { margin: 0; } .bf1-dl dt { font-weight: 600; margin-top: 7px; font-size: 12.5px; color: var(--text); } .bf1-dl dd { margin: 2px 0 0; font-size: 12.5px; line-height: 1.45; color: var(--text); }
+.bf1-small { font-size: 11.5px; color: var(--text-2); margin: 6px 0 0; line-height: 1.4; }
+.bf1-design { font-size: 12.5px; color: var(--text); margin-top: 10px; line-height: 1.5; padding: 6px 10px; border-left: 3px solid var(--accent); background: var(--surface-2); border-radius: 4px; }
+.bf1-h { margin: 16px 0 6px; font-size: 13.5px; color: var(--text); }
+.bf1-p { font-size: 12.5px; line-height: 1.5; color: var(--text); margin: 6px 0; }
+/* 3D overlay labels */
+.bf1-tags { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 2; }
+.bf1-tag { position: absolute; left: 0; top: 0; white-space: nowrap; font-size: 11px; line-height: 1.2; padding: 1px 5px; border-radius: 4px; background: rgba(255,255,255,.9); color: #111; border: 1px solid #b8c2cc; }
+.bf1-tag.drv { border-color: #d62828; } .bf1-tag.chn { border-color: #e67e22; }
+.bf1-tag.hl { background: #fff6c2; border-color: #c9a300; font-weight: 600; }
+.bf1-tag[hidden] { display: none; }
+/* tables */
+.bf1-tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; table-layout: auto; margin-top: 6px; }
+.bf1-tbl th, .bf1-tbl td { white-space: normal; border: 1px solid var(--border); padding: 4px 6px; text-align: left; vertical-align: top; color: var(--text); line-height: 1.35; overflow-wrap: anywhere; }
+.bf1-tbl th { background: var(--surface-2); font-weight: 600; }
+.bf1-kv4 td:nth-child(odd) { color: var(--text-2); width: 16%; }
+.bf1-res td.bf1-v { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 600; }
+.bf1-res td.bf1-f { font-family: ui-monospace, Consolas, monospace; font-size: 11.8px; }
+.bf1-res td.bf1-f .bf1-small { font-family: inherit; }
+.bf1-ok, .bf1-nok { display: inline-block; font-size: 11px; font-weight: 700; padding: 0 5px; border-radius: 4px; margin-left: 4px; }
+.bf1-ok { background: color-mix(in srgb, var(--good-text, #2e9e57) 18%, transparent); color: var(--good-text, #2e9e57); }
+.bf1-nok { background: color-mix(in srgb, var(--critical, #c0392b) 18%, transparent); color: var(--critical, #c0392b); }
+.bf1-sel td:first-child { white-space: nowrap; width: 26px; } .bf1-sel td:last-child, .bf1-sel th:last-child { white-space: nowrap; width: 64px; }
+.bf1-ok, .bf1-nok { white-space: nowrap; }
+.bf1-bom th, .bf1-bom td:nth-child(1), .bf1-bom td:nth-child(3) { white-space: nowrap; }
+.bf1-make { font-weight: 600; } .bf1-buy { color: var(--accent); font-weight: 600; }
+.bf1-bom td:nth-child(3) { text-align: right; }
+/* calculators */
+.bf1-ctabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; background: var(--surface-2); padding: 3px; border-radius: 8px; }
+.bf1-ctabs .seg-btn { font-size: 12.5px; padding: 5px 10px; }
+.bf1-cgrid, .bf1-selgrid { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 14px; align-items: start; }
+.bf1-inp { display: grid; grid-template-columns: 1fr; gap: 5px; font-size: 12.5px; color: var(--text-2); }
+.bf1-inp h4 { margin: 8px 0 2px; font-size: 12.5px; color: var(--text); }
+.bf1-inp label { display: grid; grid-template-columns: 1fr 96px 46px; align-items: center; gap: 6px; }
+.bf1-inp input, .bf1-inp select { width: 96px; box-sizing: border-box; }
+.bf1-inp em { font-style: normal; font-size: 11.5px; }
+.bf1-cyc { border-collapse: collapse; font-size: 12px; }
+.bf1-cyc th, .bf1-cyc td { white-space: normal; border: 0; padding: 2px 3px; text-align: left; color: var(--text); font-weight: normal; }
+.bf1-cyc input { width: 64px; box-sizing: border-box; }
+.bf1-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.bf1-svg svg { width: 100%; height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; background: #fff; }
+/* test output */
+.bf1-debug { font-size: 11.5px; border: 1px dashed var(--border); border-radius: 8px; padding: 8px; background: var(--surface); color: var(--text); }
+.bf1-debug pre { white-space: pre-wrap; margin: 0 0 8px; font-size: 11px; }
+.bf1-shot { max-width: 520px; border: 1px solid var(--border); margin: 4px; }
+@media (max-width: 1100px) { .bf1-main, .bf1-two, .bf1-cgrid, .bf1-selgrid { grid-template-columns: 1fr; } .bf1-info { max-height: none; } }
+@media (max-width: 640px) { .bf1-3d { min-height: 320px; height: 52vh; } .bf1-lbl input[type=range] { width: 90px; } .bf1-inp label { grid-template-columns: 1fr 88px 40px; } }

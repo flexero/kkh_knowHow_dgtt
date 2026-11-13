@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 980" width="1400" height="980" font-family="Arial, Helvetica, sans-serif">
+<title>IEC 81346 reference designations – three aspects</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="980" fill="#ffffff"/>
+<text x="24" y="34" font-size="17" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">IEC 81346 reference designation – one device seen from three aspects (function =, product -, location +)</text>
+<text x="24" y="56" font-size="12" text-anchor="start" fill="#555" xml:space="preserve">Example: the &#x27;arm up&#x27; proximity sensor of the pallet changer on HMC-01 and its cable to the main cabinet. Two-letter classes per IEC 81346-2:2019.</text>
+<rect x="30" y="90" width="420" height="30" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.6"/>
+<text x="40" y="110" font-size="14" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">= FUNCTION aspect (what it does)</text>
+<text x="40" y="150" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">=MCH</text>
+<text x="280" y="150" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">machining area</text>
+<line x1="50" y1="152" x2="50" y2="171" stroke="#000" stroke-width="1"/>
+<line x1="50" y1="171" x2="64" y2="171" stroke="#000" stroke-width="1"/>
+<text x="68" y="176" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">=MCH.L2</text>
+<text x="280" y="176" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">crankcase FMS cell</text>
+<line x1="78" y1="178" x2="78" y2="197" stroke="#000" stroke-width="1"/>
+<line x1="78" y1="197" x2="92" y2="197" stroke="#000" stroke-width="1"/>
+<text x="96" y="202" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">=MCH.L2.HMC01</text>
+<text x="280" y="202" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">machine HMC-01</text>
+<line x1="106" y1="204" x2="106" y2="223" stroke="#000" stroke-width="1"/>
+<line x1="106" y1="223" x2="120" y2="223" stroke="#000" stroke-width="1"/>
+<text x="124" y="228" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">=MCH.L2.APCHMC01</text>
+<text x="280" y="228" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">pallet changer</text>
+<line x1="134" y1="230" x2="134" y2="249" stroke="#000" stroke-width="1"/>
+<line x1="134" y1="249" x2="148" y2="249" stroke="#000" stroke-width="1"/>
+<text x="152" y="254" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">…-BG12</text>
+<text x="280" y="254" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">arm up sensor</text>
+<line x1="134" y1="256" x2="134" y2="275" stroke="#000" stroke-width="1"/>
+<line x1="134" y1="275" x2="148" y2="275" stroke="#000" stroke-width="1"/>
+<text x="152" y="280" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">…-MB4 / -QM4</text>
+<text x="280" y="280" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">lift valve coil / valve</text>
+<line x1="78" y1="282" x2="78" y2="301" stroke="#000" stroke-width="1"/>
+<line x1="78" y1="301" x2="92" y2="301" stroke="#000" stroke-width="1"/>
+<text x="96" y="306" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">=MCH.L2.LOADCC</text>
+<text x="280" y="306" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">load station</text>
+<line x1="50" y1="308" x2="50" y2="327" stroke="#000" stroke-width="1"/>
+<line x1="50" y1="327" x2="64" y2="327" stroke="#000" stroke-width="1"/>
+<text x="68" y="332" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">=MCH.L3</text>
+<text x="280" y="332" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">cylinder line</text>
+<text x="40" y="358" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">=LOG.L0.ASRSRAW</text>
+<text x="280" y="358" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">raw AS/RS</text>
+<rect x="490" y="90" width="420" height="30" rx="0" fill="#fbe9e9" stroke="#c62828" stroke-width="1.6"/>
+<text x="500" y="110" font-size="14" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">- PRODUCT aspect (what it is)</text>
+<text x="500" y="150" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-BG12</text>
+<text x="740" y="150" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">inductive sensor M18</text>
+<line x1="510" y1="152" x2="510" y2="171" stroke="#000" stroke-width="1"/>
+<line x1="510" y1="171" x2="524" y2="171" stroke="#000" stroke-width="1"/>
+<text x="528" y="176" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-BG12:1 (BN)</text>
+<text x="740" y="176" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">+24 V</text>
+<line x1="510" y1="178" x2="510" y2="197" stroke="#000" stroke-width="1"/>
+<line x1="510" y1="197" x2="524" y2="197" stroke="#000" stroke-width="1"/>
+<text x="528" y="202" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-BG12:3 (BU)</text>
+<text x="740" y="202" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">0 V</text>
+<line x1="510" y1="204" x2="510" y2="223" stroke="#000" stroke-width="1"/>
+<line x1="510" y1="223" x2="524" y2="223" stroke="#000" stroke-width="1"/>
+<text x="528" y="228" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-BG12:4 (BK)</text>
+<text x="740" y="228" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">signal</text>
+<text x="500" y="254" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-KF2</text>
+<text x="740" y="254" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">DI module in ET 200SP</text>
+<text x="500" y="280" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-XD2</text>
+<text x="740" y="280" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">terminal strip 24 V DC</text>
+<text x="500" y="306" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-W0123</text>
+<text x="740" y="306" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">signal cable 4 × 0.34</text>
+<text x="500" y="332" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-QA3</text>
+<text x="740" y="332" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">contactor</text>
+<text x="500" y="358" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-FC1</text>
+<text x="740" y="358" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">circuit breaker</text>
+<rect x="950" y="90" width="420" height="30" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.6"/>
+<text x="960" y="110" font-size="14" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">+ LOCATION aspect (where it is)</text>
+<text x="960" y="150" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">+HALL1</text>
+<text x="1200" y="150" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">production hall</text>
+<line x1="970" y1="152" x2="970" y2="171" stroke="#000" stroke-width="1"/>
+<line x1="970" y1="171" x2="984" y2="171" stroke="#000" stroke-width="1"/>
+<text x="988" y="176" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">+CAB01</text>
+<text x="1200" y="176" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">main cabinet HMC-01</text>
+<line x1="998" y1="178" x2="998" y2="197" stroke="#000" stroke-width="1"/>
+<line x1="998" y1="197" x2="1012" y2="197" stroke="#000" stroke-width="1"/>
+<text x="1016" y="202" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">+CAB01.R1</text>
+<text x="1200" y="202" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">mounting rail 1</text>
+<line x1="970" y1="204" x2="970" y2="223" stroke="#000" stroke-width="1"/>
+<line x1="970" y1="223" x2="984" y2="223" stroke="#000" stroke-width="1"/>
+<text x="988" y="228" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">+JB01</text>
+<text x="1200" y="228" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">junction box</text>
+<line x1="970" y1="230" x2="970" y2="249" stroke="#000" stroke-width="1"/>
+<line x1="970" y1="249" x2="984" y2="249" stroke="#000" stroke-width="1"/>
+<text x="988" y="254" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">+OP01</text>
+<text x="1200" y="254" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">operator panel</text>
+<line x1="970" y1="256" x2="970" y2="275" stroke="#000" stroke-width="1"/>
+<line x1="970" y1="275" x2="984" y2="275" stroke="#000" stroke-width="1"/>
+<text x="988" y="280" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">+FLD.APC</text>
+<text x="1200" y="280" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">field, on the APC</text>
+<text x="960" y="306" font-size="13" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">+CAB51</text>
+<text x="1200" y="306" font-size="11" text-anchor="start" fill="#333" xml:space="preserve">network cabinet cell 51</text>
+<text x="30" y="400" font-size="15" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Full designation and what is printed where</text>
+<text x="30" y="434" font-size="24" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">=MCH.L2.APCHMC01 +FLD.APC -BG12</text>
+<text x="30" y="460" font-size="13" text-anchor="start" fill="#555" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">function            location   product</text>
+<text x="30" y="492" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Schematic page</text>
+<text x="290" y="492" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">full designation in the page header; device shows -BG12</text>
+<text x="30" y="514" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Device label at sensor</text>
+<text x="290" y="514" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">-BG12  (short form; function and location are known from the place)</text>
+<text x="30" y="536" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">I/O list VC-ELE-IOL-0001</text>
+<text x="290" y="536" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">tag MCH_L2_APCHMC01_ArmUp_Fb · %I20.3 · -XD2:4 · -W0123</text>
+<text x="30" y="558" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Cable label both ends</text>
+<text x="290" y="558" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">-W0123 → +FLD.APC-BG12   and   -W0123 → +CAB01-XD2:31…34</text>
+<text x="30" y="580" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Hydraulic diagram (ISO 1219-2)</text>
+<text x="290" y="580" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">1V1 lift valve = electrical -QM4 with coil -MB4 (verify class codes)</text>
+<text x="30" y="640" font-size="15" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Connection: field device to cabinet terminal</text>
+<rect x="40" y="660" width="220" height="110" rx="0" fill="#fff" stroke="#000" stroke-width="1.3" stroke-dasharray="6,3"/>
+<text x="50" y="680" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">+FLD.APC</text>
+<rect x="80" y="700" width="110" height="50" rx="0" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="135" y="730" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-BG12</text>
+<rect x="620" y="660" width="360" height="140" rx="0" fill="#fff" stroke="#000" stroke-width="1.3" stroke-dasharray="6,3"/>
+<text x="630" y="680" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">+CAB01</text>
+<rect x="650" y="700" width="130" height="80" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="715" y="725" font-size="13" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-XD2</text>
+<text x="670" y="745" font-size="11" text-anchor="start" fill="#000" xml:space="preserve"></text>
+<text x="670" y="745" font-size="11" text-anchor="start" fill="#000" xml:space="preserve"></text>
+<text x="670" y="745" font-size="11" text-anchor="start" fill="#000" xml:space="preserve"></text>
+<text x="670" y="745" font-size="11" text-anchor="start" fill="#000" xml:space="preserve"></text>
+<text x="715" y="745" font-size="11" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">:31 :32 :33 :34</text>
+<rect x="820" y="700" width="130" height="80" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="885" y="725" font-size="13" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">-KF2</text>
+<text x="885" y="745" font-size="11" text-anchor="middle" fill="#000" xml:space="preserve">DI ch 3</text>
+<text x="885" y="762" font-size="11" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">%I20.3</text>
+<line x1="190" y1="725" x2="650" y2="725" stroke="#c62828" stroke-width="2.2"/>
+<text x="420" y="715" font-size="12" text-anchor="middle" fill="#c62828" xml:space="preserve">-W0123  4 × 0.34 mm² PUR, M12, 8 m</text>
+<line x1="780" y1="740" x2="820" y2="740" stroke="#000" stroke-width="1.4"/>
+<text x="420" y="750" font-size="11" text-anchor="middle" fill="#000" xml:space="preserve">wire markers: 23.4 / 23.4a (page.column)</text>
+<text x="30" y="830" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Comparison – KKS / RDS-PP (power plants):</text>
+<text x="30" y="852" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">1 LAB10 AP001 -M01  = unit 1 · system LAB10 (feed-water piping) · equipment AP001 (pump unit) · component M01 (motor) – typical, check</text>
+<text x="30" y="874" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">KKS codes are fixed letter tables for plants; for a machine factory IEC 81346 with the project codes of guide 15 is simpler.</text>
+<rect x="840" y="876" width="540" height="92" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="840" y1="902" x2="1380" y2="902" stroke="#000" stroke-width="1"/>
+<line x1="840" y1="926" x2="1380" y2="926" stroke="#000" stroke-width="1"/>
+<line x1="840" y1="947" x2="1380" y2="947" stroke="#000" stroke-width="1"/>
+<line x1="1180" y1="926" x2="1180" y2="968" stroke="#000" stroke-width="1"/>
+<text x="848" y="894" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">EXAMPLE – check the current standard</text>
+<text x="848" y="919" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">IEC 81346 reference designations</text>
+<text x="848" y="941" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Function / product / location aspects</text>
+<text x="1188" y="941" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Dwg VC-ELE-SCH-0901-D</text>
+<text x="848" y="962" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Guide 15 – numbering and identification · digital twin</text>
+<text x="1188" y="962" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">no scale · 2026-11-12</text>
+</svg>

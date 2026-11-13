@@ -27,7 +27,7 @@
 <rect x="380.0" y="338.0" width="34.0" height="14.0" fill="#fff" stroke="#000" stroke-width="1.2" />
 <line x1="397.0" y1="338.0" x2="430.0" y2="255.0" stroke="#000" stroke-width="0.8" />
 <circle cx="397.0" cy="338.0" r="2" fill="#000"/>
-<text x="434.0" y="259.0" font-size="12" text-anchor="start" fill="#000" >motor spindle HSK-A63, 12 000 rpm, 15 kW</text>
+<text x="434.0" y="259.0" font-size="12" text-anchor="start" fill="#000" >motor spindle HSK-A63, 10 000 rpm, 18 kW</text>
 <line x1="206.0" y1="300.0" x2="206.0" y2="215.0" stroke="#c0392b" stroke-width="2.2" marker-end="url(#arA)" marker-start="url(#arA)"/>
 <text x="196.0" y="262.0" font-size="13" text-anchor="end" fill="#c0392b" font-weight="bold" >Y 730</text>
 <rect x="226.0" y="200.0" width="14.0" height="90.0" fill="#fff" stroke="#000" stroke-width="1.2" />

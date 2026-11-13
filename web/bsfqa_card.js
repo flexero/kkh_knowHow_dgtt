@@ -1,0 +1,80 @@
+/* Ball screw + guide factory – item 5 quality: catalogue card CARD5 (makeCard of web/robotref.js). Guide: docs/44_bsf_quality_inspection.md §21.
+ * Makers marked (check) – confirm the exact model. Prices = rough estimates 2026 – ask for a quote. No external links (offline). */
+const PR = "estimate – ask for a quote";
+export const CARD5 = {
+  guides: "guide 44", shopTab: "Shopping list (first QA room)", shopLbl: "QA room", ph: "(e.g. Renishaw, Mahr, Zeiss, Struers, Mitutoyo)",
+  buyNote: "Prices are rough estimates 2026 (" + PR + "); makers marked (check) – confirm the exact model, the accuracy class and the service in your country. No external links – offline.",
+  drawings: [
+    { sec: "Quality system", f: "44_control_plan_flow.svg", t: "Control plan flow with the 17 quality gates", c: "Routings of screw, nut, rail, carriage and the two assemblies as operation boxes; diamonds = gates QG-BS-1 … QG-FA-3 with what is checked, the gauge and the reaction.", g: "guide 44 §4" },
+    { sec: "Ball screw lead", f: "44_laser_lead_setup.svg", t: "Laser lead measuring bench", c: "Work head with rotary encoder, screw between centres, carriage on air bearings with ball probe + retro-reflector, laser head, linear interferometer, compensator with air + 3 material sensors, granite bed; dead path, Abbe offset.", g: "guide 44 §7" },
+    { sec: "Ball screw lead", f: "44_lead_error_curve.svg", t: "Lead error curve – T, E, e_p, v_up, v_300p, v_2πp", c: "Actual travel deviation over l_u = 700 mm, mean travel line (least squares), specified travel compensation T, tolerance e_p (C5 ± 35 µm), band v_up, any 300 mm window, one revolution window.", g: "guide 44 §8" },
+    { sec: "Ball screw lead", f: "44_preload_torque_curve.svg", t: "Preload torque vs stroke", c: "Dynamic preload torque chart: reference Tp = 0.29 N·m, band ± 40 % (C5), ignored ends, mean torque, fluctuation; test set-up with force arm and load cell.", g: "guide 44 §9" },
+    { sec: "Geometry", f: "44_runout_measurement.svg", t: "Run-out measurement between centres / V-blocks", c: "Screw between centres, dial gauges at 5 stations, TIR = max − min in one turn, bow vs out-of-round, journal run-out to the thread axis (t5).", g: "guide 44 §10" },
+    { sec: "Geometry", f: "44_rail_parallelism.svg", t: "Rail running parallelism measurement", c: "Rail on a granite table against a straight edge, measuring block with 2 probes (top B → A, side D → C), parallelism vs length for classes N / H / P / SP / UP.", g: "guide 44 §11" },
+    { sec: "Material", f: "44_case_depth_traverse.svg", t: "Hardness traverse + case depth at 550 HV", c: "Cut-up of the screw thread, HV 1 indentations every 0.2 mm, hardness curve, limit hardness 550 HV, case depth 2.5 mm, core hardness, ISO 18203 rule.", g: "guide 44 §12" },
+    { sec: "Statistics", f: "44_spc_chart.svg", t: "X̄-R control chart + capability", c: "X̄ and R chart with centre line, UCL / LCL, zones 1σ / 2σ, Western Electric rules marked, histogram with LSL / USL, Cp / Cpk formulas with the example numbers.", g: "guide 44 §14" },
+    { sec: "Statistics", f: "44_gauge_rr.svg", t: "Gauge R&R study 10 × 3 × 3", c: "Average + range method: EV, AV, GRR, PV, TV, %GRR 9.5 %, ndc 14; operator lines, range chart, acceptance 10 / 30 %.", g: "guide 44 §15" },
+    { sec: "Metrology room", f: "44_metrology_room.svg", t: "Metrology room 20 ± 0.5 °C – layout", c: "Lead bench, CMM, roundness + contour + roughness, hardness corner, rail bench, soak racks, air lock, displacement ventilation, sensors, granite on isolated foundations.", g: "guide 44 §13" },
+    { sec: "Traceability", f: "44_traceability_model.svg", t: "Traceability data model", c: "Heat lot → production lot → serial → operation records → measurement records → gauge (calibration) → NCR → shipment; owners ERP / MES / QA; HTTP + Modbus TCP paths.", g: "guide 44 §18" },
+    { sec: "Traceability", f: "44_ncr_8d_flow.svg", t: "NCR / 8D workflow", c: "Detect → contain → root cause (5-Why, Ishikawa 6M) → corrective action → verify → close, with the example 'v_300 too high on BS-TGR-03'.", g: "guide 44 §17" },
+  ],
+  groups: [
+    { id: "laser", t: "Laser interferometers + lead measuring machines", src: "guide 44 §7, §21", rows: [
+      ["Laser interferometer system (linear)", "HeNe stabilised, ± 0.5 ppm with environmental compensation, 0.001 µm resolution, 50 kHz, linear + angular optics", "Renishaw XL-80 + XC-80 compensator (check)", "check", "≈ 25 – 45 k€ (" + PR + ")", "accuracy with compensator, sensors (air + 3 material), software for ISO 3408 / 230-2, calibration certificate"],
+      ["Multi-axis calibrator (6 DOF in one set-up)", "linear + pitch + yaw + straightness + roll", "Renishaw XM-60 (check)", "check", "≈ 60 – 100 k€", "useful for the bench + machine tools; roll needs XM-60"],
+      ["Laser interferometer (alternative makers)", "same class", "Keysight (Agilent) 5530 · API XD Laser · SIOS SP-series · Status Pro (check)", "check", "≈ 25 – 80 k€", "service in your country, software, sensors"],
+      ["Ball screw lead measuring machine (complete bench)", "≤ 2 000 mm, granite, air-bearing carriage, rotary encoder, laser, ISO 3408-3 evaluation, temperature compensation", "screw-machine makers / integrators – e.g. Steinmeyer group in-house type, Mitsui Seiki, Hiwin / THK in-house (mark check) – local integrator with Renishaw laser", "check", "≈ 120 – 300 k€", "repeatability ≤ 0.5 µm, v_2π evaluation, data export (CSV / HTTP), Modbus TCP result registers"],
+      ["Reference (master) ball screw", "C1 / C0, calibrated curve", "maker of the bench / accredited lab", "check", "≈ 5 – 15 k€", "certificate with uncertainty"],
+    ] },
+    { id: "cmm", t: "CMM, form, contour, roughness", src: "guide 44 §10 – §12, §21", rows: [
+      ["Bridge CMM (700 × 1 000 × 600)", "MPE_E ≈ 1.5 + L/350 µm, scanning probe", "Zeiss CONTURA / PRISMO · Hexagon GLOBAL / Leitz · Mitutoyo CRYSTA-Apex · Wenzel (check)", "check", "≈ 120 – 300 k€", "ISO 10360-2 data, temperature range, nut + carriage fixtures"],
+      ["Roundness / form tester", "spindle 0.02 µm, column 350 – 550 mm", "Mahr MarForm MMQ · Taylor Hobson Talyrond · Mitutoyo Roundtest · Jenoptik (check)", "check", "≈ 60 – 150 k€", "journal roundness, run-out, cylindricity"],
+      ["Contour tester (gothic-arch profile)", "traverse 120 mm, resolution 0.01 µm, arc + angle evaluation", "Mahr MarSurf XC / LD · Taylor Hobson Form Talysurf · Mitutoyo CV / Formtracer · Jenoptik Waveline (check)", "check", "≈ 40 – 120 k€", "internal arm for nuts, ball-fit evaluation software"],
+      ["Roughness tester (portable + lab)", "Ra / Rz ISO 21920, λc 0.25 / 0.8", "Mahr MarSurf PS10 / GD · Mitutoyo SJ-210 / SJ-410 · Taylor Hobson Surtronic · Jenoptik (check)", "check", "≈ 3 – 25 k€", "skid-less pick-up for raceways, standard ISO 5436-1"],
+      ["Rail measuring bench", "1.5 – 4.5 m granite, carriage with probes, scale", "own design with Heidenhain / Renishaw scales + Mahr / Mitutoyo probes (check)", "check", "≈ 80 – 200 k€", "running parallelism, hole pitch, height class"],
+    ] },
+    { id: "hard", t: "Hardness + metallography", src: "guide 44 §12, §21", rows: [
+      ["Rockwell hardness tester", "ISO 6508, HRC / HRA / HR30N, closed-loop load", "Struers (Duramin / DuraJet) · Emco-Test · Wilson (Buehler) · Zwick/Roell · Mitutoyo (check)", "check", "≈ 8 – 25 k€", "test blocks, anvils for shafts (V-anvil), data output"],
+      ["Vickers / micro-hardness tester with motorised stage", "HV 0.1 – HV 10, automatic traverse + CHD evaluation (ISO 18203)", "Struers Duramin-40 · Emco-Test DuraScan · Buehler Wilson VH · Qness (check)", "check", "≈ 30 – 80 k€", "automatic CHD / SHD report, image analysis"],
+      ["Cut-off machine + mounting press + grinder / polisher", "metallography line", "Struers · Buehler · ATM Qness · Presi (check)", "check", "≈ 30 – 70 k€", "coolant, consumables cost per sample"],
+      ["Eddy-current crack tester (100 % in line)", "rotating probe, phase / amplitude", "Foerster · Rohmann · Magnetic Analysis (check)", "check", "≈ 40 – 120 k€", "test speed, reference defect"],
+    ] },
+    { id: "torque", t: "Preload, force, noise", src: "guide 44 §9, §21", rows: [
+      ["Preload torque tester for ball screws", "servo drive, encoder, load cell 0.5 – 10 N·m, chart + band evaluation", "own design with HBM / Kistler / Lorenz / Burster sensors · screw-maker test benches (check)", "check", "≈ 40 – 120 k€", "measuring speed, seal-less test, ISO 3408-3 / JIS evaluation"],
+      ["Torque / force sensors", "0.1 % class, DAkkS calibrated", "HBM (HBK) · Kistler · Lorenz Messtechnik · Burster · ME-Meßsysteme (check)", "check", "≈ 1 – 5 k€ each", "calibration certificate, amplifier with Modbus TCP"],
+      ["Sound level meter class 1 + calibrator", "IEC 61672-1, octave / FFT", "Brüel & Kjær (HBK) · NTi Audio · Svantek · Norsonic (check)", "check", "≈ 3 – 10 k€", "data export, microphone fixture"],
+      ["Accelerometer + DAQ for run-in", "IEPE, 1 – 10 kHz", "PCB · Kistler · HBK · NI (check)", "check", "≈ 2 – 8 k€", "FFT software, limit masks"],
+    ] },
+    { id: "basic", t: "Basic metrology + room", src: "guide 44 §13, §21", rows: [
+      ["Granite surface plates", "DIN 876 grade 00 / 0, 1 000 × 630 … 2 500 × 1 000", "Mitutoyo · Mahr · local stone makers (Tschudin / Planolith class) (check)", "check", "≈ 2 – 15 k€ each", "flatness certificate, support stand"],
+      ["Gauge block sets", "ISO 3650 grade 0 / K, steel or ceramic", "Mitutoyo · Mahr · Tesa · Koba (check)", "check", "≈ 2 – 8 k€ per set", "calibration certificate"],
+      ["Height gauges, micrometers, dial gauges, ball-pin micrometers", "0.1 – 1 µm", "Mahr · Mitutoyo · Tesa · Sylvac (check)", "check", "≈ 10 – 30 k€ (set)", "data output (USB / Bluetooth) to the QA PC"],
+      ["Air gauges + in-process gauges", "± 0.1 µm, masters", "Marposs · Movomatic · Mahr · Stotz (check)", "check", "≈ 3 – 15 k€ per station", "master rings, Modbus TCP interface"],
+      ["Air-conditioning for the metrology room", "20 ± 0.5 °C, ± 0.5 K/h, displacement ventilation, 45 ± 10 % rH", "Weiss Klimatechnik · Stulz · Kiefer · Trox · local HVAC contractor (check)", "check", "≈ 80 – 200 k€ (60 – 100 m²)", "temperature mapping report, redundancy, energy"],
+      ["Room temperature monitoring", "8 – 16 sensors 0.05 K, logger", "Testo · Rotronic · Ahlborn · Renishaw XC-80 (check)", "check", "≈ 3 – 10 k€", "Modbus TCP / HTTP output to the twin"],
+    ] },
+    { id: "sw", t: "SPC + quality software", src: "guide 44 §14 – §18, §21", rows: [
+      ["SPC software (CAQ)", "control charts, capability, MSA, alarms", "Q-DAS (Hexagon) qs-STAT / O-QIS · Minitab · InfinityQS · Babtec · iqs CAQ (check)", "check", "≈ 5 – 40 k€ + yearly", "HTTP / REST import, ISO 22514 evaluation, AQDEF format"],
+      ["Gauge management / calibration software", "due dates, certificates, MSA", "Q-DAS solara.MP · CAQ suites · Blue Gauge (check)", "check", "≈ 3 – 15 k€", "HTTP API to the MES (block expired gauges)"],
+      ["Own QA service (this page + twin/bsf_qa.py)", "stdlib Python, HTTP JSON, in the MES server", "in-house", "–", "internal effort", "backup, user rights, audit trail"],
+    ] },
+  ],
+  shopTitle: "First QA room for 120 ball screws + 200 rails + 400 carriages per day (example design point – guide 44 §21). Machines with built-in gauges: see item 2 (bfCard2).",
+  shopNote: "Prices are rough estimates 2026 – ask for a quote. Building work (room, foundation, insulation), installation and training not included.",
+  shops: [
+    { title: "QA room + laboratory – first equipment", cols: ["Pos", "Qty", "Item", "Spec (from the guide)", "Example (choose one maker per item)", "Price class (" + PR + ")"], m: 4, p: 5, rows: [
+      ["1", "1", "Ball screw lead measuring bench ≤ 2 m with laser", "ISO 3408-3, v_2π, temp. comp.", "integrator + Renishaw XL-80 / XC-80", "≈ 150 – 300 k€"],
+      ["2", "1", "Rail measuring bench 1.5 m (extendable)", "parallelism, height, pitch", "own design + Heidenhain / Mahr", "≈ 80 – 200 k€"],
+      ["3", "1", "Bridge CMM 700 × 1 000 × 600", "MPE 1.5 + L/350 µm", "Zeiss · Hexagon · Mitutoyo · Wenzel", "≈ 120 – 300 k€"],
+      ["4", "1", "Contour + roughness combined station", "gothic arch + Ra", "Mahr · Taylor Hobson · Mitutoyo · Jenoptik", "≈ 60 – 150 k€"],
+      ["5", "1", "Roundness tester", "journal form + run-out", "Mahr · Taylor Hobson · Mitutoyo", "≈ 60 – 150 k€"],
+      ["6", "1 + 1", "Rockwell tester + micro-hardness tester with CHD software", "ISO 6508 / 6507 / 18203", "Struers · Emco-Test · Wilson", "≈ 40 – 100 k€"],
+      ["7", "1", "Metallography line (cut, mount, polish)", "1 cut-up per shift", "Struers · Buehler · Qness", "≈ 30 – 70 k€"],
+      ["8", "2", "Preload torque testers (screw) + matching station sensors (block)", "0.01 N·m, band evaluation", "own design + HBM / Kistler", "≈ 80 – 200 k€"],
+      ["9", "1", "Granite plates, gauge blocks, height gauges, indicators, masters", "grade 0 / 00", "Mitutoyo · Mahr · Tesa", "≈ 30 – 60 k€"],
+      ["10", "1", "Metrology room 80 m² 20 ± 0.5 °C (HVAC, insulation, air lock, isolated foundations)", "± 0.5 K/h, 45 ± 10 % rH", "HVAC contractor", "≈ 150 – 350 k€"],
+      ["11", "1", "SPC / CAQ software + gauge management", "HTTP import", "Q-DAS · Minitab · Babtec", "≈ 15 – 60 k€"],
+      ["12", "1", "Calibration of all gauges (first year, accredited)", "ISO/IEC 17025", "accredited labs", "≈ 10 – 25 k€ / year"],
+    ] },
+  ],
+};

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="aK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker></defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">Multi-level BOM – ball screw set FABS-3210-1000-C5 (low-level codes)</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<rect x="470" y="70" width="260" height="60" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="600.0" y="96.2" font-size="12" text-anchor="middle" font-weight="700" fill="#1f6fd1">FABS-3210-1000-C5</text>
+<text x="600.0" y="112.2" font-size="12" text-anchor="middle" fill="#000">level 0 · make · assembly route FABS</text>
+<rect x="60" y="180" width="240" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="180.0" y="204.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">BS-3210-1000-C5 × 1</text>
+<text x="180.0" y="220.2" font-size="12" text-anchor="middle" fill="#000">L1 · make · route BS</text>
+<line x1="600" y1="130" x2="180" y2="178" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="330" y="180" width="240" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="450.0" y="204.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">BN-3210-FL × 1</text>
+<text x="450.0" y="220.2" font-size="12" text-anchor="middle" fill="#000">L1 · make · route BN</text>
+<line x1="600" y1="130" x2="450" y2="178" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="640" y="180" width="240" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="760.0" y="204.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">BOX-FABS × 1</text>
+<text x="760.0" y="220.2" font-size="12" text-anchor="middle" fill="#000">L1 · buy (packaging)</text>
+<line x1="600" y1="130" x2="760" y2="178" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="900" y="180" width="240" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="1020.0" y="204.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">GREASE-NLGI2 × 2 g</text>
+<text x="1020.0" y="220.2" font-size="12" text-anchor="middle" fill="#000">L1 · buy · LLC 2</text>
+<line x1="600" y1="130" x2="1020" y2="178" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="20" y="290" width="200" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="120.0" y="314.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">SF-BS3210-HARD × 1</text>
+<text x="120.0" y="330.2" font-size="12" text-anchor="middle" fill="#000">L2 · phantom (after op 80)</text>
+<rect x="20" y="400" width="200" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="120.0" y="424.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">SF-BS3210-SOFT × 1</text>
+<text x="120.0" y="440.2" font-size="12" text-anchor="middle" fill="#000">L3 · phantom (after op 40)</text>
+<rect x="20" y="510" width="200" height="56" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="120.0" y="534.2" font-size="12" text-anchor="middle" font-weight="700" fill="#1f6fd1">RAW-50CRMO4-D36</text>
+<text x="120.0" y="550.2" font-size="12" text-anchor="middle" fill="#000">L4 · 1.01 m bar, heat lot</text>
+<rect x="230" y="290" width="160" height="40" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="310.0" y="314.2" font-size="12" text-anchor="middle" fill="#000">LOCKNUT-M25 × 1</text>
+<rect x="230" y="340" width="160" height="40" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="310.0" y="364.2" font-size="12" text-anchor="middle" fill="#000">KEY-6x6x20 × 1</text>
+<rect x="230" y="390" width="160" height="40" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="310.0" y="414.2" font-size="12" text-anchor="middle" fill="#000">PACK-TUBE-1000 × 1</text>
+<line x1="180" y1="236" x2="120" y2="288" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<line x1="120" y1="346" x2="120" y2="398" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<line x1="120" y1="456" x2="120" y2="508" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<line x1="180" y1="236" x2="300" y2="288" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="420" y="290" width="210" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="525.0" y="314.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">SF-BN3210-HARD × 1</text>
+<text x="525.0" y="330.2" font-size="12" text-anchor="middle" fill="#000">L2 · phantom (after op 40)</text>
+<rect x="420" y="400" width="210" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="525.0" y="424.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">SF-BN3210-SOFT × 1</text>
+<text x="525.0" y="440.2" font-size="12" text-anchor="middle" fill="#000">L3 · phantom (after op 30)</text>
+<rect x="420" y="510" width="210" height="56" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="525.0" y="534.2" font-size="12" text-anchor="middle" font-weight="700" fill="#1f6fd1">RAW-20MNCR5-D85</text>
+<text x="525.0" y="550.2" font-size="12" text-anchor="middle" fill="#000">L4 · 0.105 m bar, heat lot</text>
+<line x1="450" y1="236" x2="525" y2="288" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<line x1="525" y1="346" x2="525" y2="398" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<line x1="525" y1="456" x2="525" y2="508" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="660" y="290" width="200" height="38" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="760.0" y="313.2" font-size="12" text-anchor="middle" fill="#000">BALL-6.35-G5 × 60</text>
+<rect x="660" y="336" width="200" height="38" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="760.0" y="359.2" font-size="12" text-anchor="middle" fill="#000">DEFL-3210 × 4</text>
+<rect x="660" y="382" width="200" height="38" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="760.0" y="405.2" font-size="12" text-anchor="middle" fill="#000">SEAL-3210 × 2</text>
+<rect x="660" y="428" width="200" height="38" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="760.0" y="451.2" font-size="12" text-anchor="middle" fill="#000">RING-472 × 2</text>
+<rect x="660" y="474" width="200" height="38" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="760.0" y="497.2" font-size="12" text-anchor="middle" fill="#000">NIPPLE-M6 × 1</text>
+<rect x="660" y="520" width="200" height="38" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="760.0" y="543.2" font-size="12" text-anchor="middle" fill="#000">GREASE-NLGI2 × 4 g</text>
+<line x1="450" y1="236" x2="700" y2="288" stroke="#000" stroke-width="1.5" marker-end="url(#aK)"/>
+<rect x="900" y="290" width="260" height="150" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="1030.0" y="329.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">Low-level code (LLC)</text>
+<text x="1030.0" y="345.2" font-size="12" text-anchor="middle" fill="#000">= deepest level where an item</text>
+<text x="1030.0" y="361.2" font-size="12" text-anchor="middle" fill="#000">appears in ANY BOM.</text>
+<text x="1030.0" y="377.2" font-size="12" text-anchor="middle" fill="#000">GREASE: L1 in FABS, L2 in BN</text>
+<text x="1030.0" y="393.2" font-size="12" text-anchor="middle" fill="#000">→ LLC 2: MRP plans it once,</text>
+<text x="1030.0" y="409.2" font-size="12" text-anchor="middle" fill="#000">after all its parents.</text>
+<rect x="900" y="470" width="260" height="130" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="1030.0" y="507.2" font-size="12" text-anchor="middle" font-weight="700" fill="#000">Phantom = routing step</text>
+<text x="1030.0" y="523.2" font-size="12" text-anchor="middle" fill="#000">no own order, no stock,</text>
+<text x="1030.0" y="539.2" font-size="12" text-anchor="middle" fill="#000">requirement passes through,</text>
+<text x="1030.0" y="555.2" font-size="12" text-anchor="middle" fill="#000">value shown for WIP</text>
+<text x="1030.0" y="571.2" font-size="12" text-anchor="middle" fill="#000">(raw + conversion to op)</text>
+<text x="24" y="640" font-size="13" text-anchor="start" fill="#000">Explosion for 1 set: bar 50CrMo4 1.01 m · bar 20MnCr5 0.105 m · 60 balls Ø6.35 · 4 deflectors · 2 seals · 2 rings · 1 nipple · 6 g grease · lock nut · key · tube · carton.</text>
+<text x="24" y="662" font-size="13" text-anchor="start" fill="#000">Source: BOM of item 1 (web/bsfprod_data.js) → ERP master data web/bsferp_data.js (MD.bom).</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/><line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your ERP team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 7 ERP · guide 46 · 46_bom_tree.svg</text></svg>

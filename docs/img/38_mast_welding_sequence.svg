@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>Mast – welding sequence and distortion control</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+<pattern id="grout" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#fff"/><circle cx="3" cy="3" r="1" fill="#777"/><circle cx="8" cy="7" r="0.8" fill="#777"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="818" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="24.0" y="30.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">1. Fit-up in the jig (mast lying, plates clamped square)</text>
+<rect x="60.0" y="110.0" width="640.0" height="40.0" rx="0" fill="url(#hatchA)" stroke="#000" stroke-width="1.2"/>
+<rect x="72.0" y="150.0" width="16.0" height="30.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="66.0" y1="180.0" x2="94.0" y2="180.0" stroke="#000" stroke-width="2"/>
+<rect x="70.0" y="96.0" width="20.0" height="10.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="152.0" y="150.0" width="16.0" height="30.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="146.0" y1="180.0" x2="174.0" y2="180.0" stroke="#000" stroke-width="2"/>
+<rect x="150.0" y="96.0" width="20.0" height="10.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="232.0" y="150.0" width="16.0" height="30.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="226.0" y1="180.0" x2="254.0" y2="180.0" stroke="#000" stroke-width="2"/>
+<rect x="230.0" y="96.0" width="20.0" height="10.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="312.0" y="150.0" width="16.0" height="30.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="306.0" y1="180.0" x2="334.0" y2="180.0" stroke="#000" stroke-width="2"/>
+<rect x="310.0" y="96.0" width="20.0" height="10.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="392.0" y="150.0" width="16.0" height="30.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="386.0" y1="180.0" x2="414.0" y2="180.0" stroke="#000" stroke-width="2"/>
+<rect x="390.0" y="96.0" width="20.0" height="10.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="472.0" y="150.0" width="16.0" height="30.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="466.0" y1="180.0" x2="494.0" y2="180.0" stroke="#000" stroke-width="2"/>
+<rect x="470.0" y="96.0" width="20.0" height="10.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="552.0" y="150.0" width="16.0" height="30.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="546.0" y1="180.0" x2="574.0" y2="180.0" stroke="#000" stroke-width="2"/>
+<rect x="550.0" y="96.0" width="20.0" height="10.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="632.0" y="150.0" width="16.0" height="30.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="626.0" y1="180.0" x2="654.0" y2="180.0" stroke="#000" stroke-width="2"/>
+<rect x="630.0" y="96.0" width="20.0" height="10.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<text x="710.0" y="135.0" font-size="11" text-anchor="start" fill="#000">clamps + saddles every ≈ 1 m</text>
+<circle cx="70.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="91.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="112.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="133.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="154.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="175.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="196.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="217.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="238.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="259.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="280.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="301.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="322.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="343.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="364.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="385.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="406.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="427.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="448.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="469.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="490.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="511.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="532.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="553.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="574.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="595.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="616.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="637.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="658.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<circle cx="679.0" cy="110.0" r="2.2" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="0.5"/>
+<text x="60.0" y="84.0" font-size="11.5" text-anchor="start" fill="#000">tack welds 40 mm long, pitch ≈ 300 mm, on all 4 corners, both ends first, then from the middle outward</text>
+<text x="710.0" y="155.0" font-size="11" text-anchor="start" fill="#000">diaphragms fitted + welded first</text>
+<text x="710.0" y="172.0" font-size="11" text-anchor="start" fill="#000">(open box), then the 4th plate</text>
+<text x="24.0" y="230.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">2. Weld order in the section</text>
+<rect x="90.0" y="255.0" width="120.0" height="170.0" rx="0" fill="#fff" stroke="#000" stroke-width="4"/>
+<circle cx="210.0" cy="255.0" r="13.0" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="210.0" y="259.5" font-size="12.5" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+<circle cx="90.0" cy="425.0" r="13.0" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="90.0" y="429.5" font-size="12.5" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+<circle cx="90.0" cy="255.0" r="13.0" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="90.0" y="259.5" font-size="12.5" text-anchor="middle" fill="#fff" font-weight="bold">3</text>
+<circle cx="210.0" cy="425.0" r="13.0" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="210.0" y="429.5" font-size="12.5" text-anchor="middle" fill="#fff" font-weight="bold">4</text>
+<text x="260.0" y="270.0" font-size="11.5" text-anchor="start" fill="#000">weld 1 + 2 = diagonal pair (shrinkage moments cancel)</text>
+<text x="260.0" y="289.0" font-size="11.5" text-anchor="start" fill="#000">turn the mast 180° on the positioner, then weld 3 + 4</text>
+<text x="260.0" y="308.0" font-size="11.5" text-anchor="start" fill="#000">two welders at the same time on opposite corners = best</text>
+<text x="260.0" y="327.0" font-size="11.5" text-anchor="start" fill="#000">all 4 corners: same parameters, same direction, same speed</text>
+<text x="24.0" y="470.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">3. Backstep segments along each corner (≈ 500 mm, from the middle outward)</text>
+<line x1="60.0" y1="520.0" x2="700.0" y2="520.0" stroke="#000" stroke-width="3"/>
+<line x1="380.0" y1="506.0" x2="330.0" y2="506.0" stroke="#1f6fd1" stroke-width="1.8" marker-end="url(#ea)"/>
+<text x="355.0" y="498.0" font-size="11.5" text-anchor="middle" fill="#1f6fd1" font-weight="bold">1</text>
+<line x1="430.0" y1="506.0" x2="380.0" y2="506.0" stroke="#1f6fd1" stroke-width="1.8" marker-end="url(#ea)"/>
+<text x="405.0" y="498.0" font-size="11.5" text-anchor="middle" fill="#1f6fd1" font-weight="bold">2</text>
+<line x1="330.0" y1="506.0" x2="280.0" y2="506.0" stroke="#1f6fd1" stroke-width="1.8" marker-end="url(#ea)"/>
+<text x="305.0" y="498.0" font-size="11.5" text-anchor="middle" fill="#1f6fd1" font-weight="bold">3</text>
+<line x1="480.0" y1="506.0" x2="430.0" y2="506.0" stroke="#1f6fd1" stroke-width="1.8" marker-end="url(#ea)"/>
+<text x="455.0" y="498.0" font-size="11.5" text-anchor="middle" fill="#1f6fd1" font-weight="bold">4</text>
+<line x1="280.0" y1="506.0" x2="230.0" y2="506.0" stroke="#1f6fd1" stroke-width="1.8" marker-end="url(#ea)"/>
+<text x="255.0" y="498.0" font-size="11.5" text-anchor="middle" fill="#1f6fd1" font-weight="bold">5</text>
+<line x1="530.0" y1="506.0" x2="480.0" y2="506.0" stroke="#1f6fd1" stroke-width="1.8" marker-end="url(#ea)"/>
+<text x="505.0" y="498.0" font-size="11.5" text-anchor="middle" fill="#1f6fd1" font-weight="bold">6</text>
+<text x="60.0" y="544.0" font-size="11.5" text-anchor="start" fill="#000">each segment welded against the direction of progress; then 7, 8 … to the ends</text>
+<text x="780.0" y="230.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">4. Bow from longitudinal shrinkage</text>
+<text x="780.0" y="255.0" font-size="11.5" text-anchor="start" fill="#000">heat input Q = k·U·I / v = 0.8 × 26 V × 240 A / 6 mm/s</text>
+<text x="780.0" y="274.0" font-size="11.5" text-anchor="start" fill="#000">  = 832 J/mm (MAG 135, a4)</text>
+<text x="780.0" y="293.0" font-size="11.5" text-anchor="start" fill="#000">shrink force (White, rule of thumb)</text>
+<text x="780.0" y="312.0" font-size="11.5" text-anchor="start" fill="#000">F_s ≈ 0.2 · Q · E·α / (c·ρ) ≈ 116 kN per corner weld</text>
+<text x="780.0" y="331.0" font-size="11.5" text-anchor="start" fill="#000">bow if ONE corner weld alone (e = 250 mm):</text>
+<text x="780.0" y="350.0" font-size="11.5" text-anchor="start" fill="#000">δ = F_s · e · L² / (8 E I) ≈ 4.0 mm  &gt; 3 mm limit</text>
+<text x="780.0" y="369.0" font-size="11.5" text-anchor="start" fill="#1f6fd1" font-weight="bold">balanced order 1-2 / 3-4 → moments cancel, δ &lt; 1–2 mm</text>
+<text x="780.0" y="388.0" font-size="11.5" text-anchor="start" fill="#000">tolerance after welding ≤ L/3000 ≈ 3 mm (example)</text>
+<line x1="780.0" y1="510.0" x2="1160.0" y2="510.0" stroke="#000" stroke-width="0.8"/>
+<line x1="780.0" y1="450.0" x2="780.0" y2="570.0" stroke="#000" stroke-width="0.8"/>
+<polyline points="780.0,510.0 792.7,504.6 805.3,499.2 818.0,493.9 830.7,488.8 843.3,484.0 856.0,479.4 868.7,475.2 881.3,471.4 894.0,467.9 906.7,465.0 919.3,462.5 932.0,460.5 944.7,459.1 957.3,458.3 970.0,458.0 982.7,458.3 995.3,459.1 1008.0,460.5 1020.7,462.5 1033.3,465.0 1046.0,467.9 1058.7,471.4 1071.3,475.2 1084.0,479.4 1096.7,484.0 1109.3,488.8 1122.0,493.9 1134.7,499.2 1147.3,504.6 1160.0,510.0" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="6 3"/>
+<polyline points="780.0,510.0 792.7,508.9 805.3,507.8 818.0,506.8 830.7,505.8 843.3,504.8 856.0,503.9 868.7,503.0 881.3,502.3 894.0,501.6 906.7,501.0 919.3,500.5 932.0,500.1 944.7,499.8 957.3,499.7 970.0,499.6 982.7,499.7 995.3,499.8 1008.0,500.1 1020.7,500.5 1033.3,501.0 1046.0,501.6 1058.7,502.3 1071.3,503.0 1084.0,503.9 1096.7,504.8 1109.3,505.8 1122.0,506.8 1134.7,507.8 1147.3,508.9 1160.0,510.0" fill="none" stroke="#1f6fd1" stroke-width="1.8"/>
+<text x="970.0" y="452.0" font-size="11" text-anchor="middle" fill="#000">one corner only: 4.0 mm</text>
+<text x="970.0" y="534.0" font-size="11" text-anchor="middle" fill="#1f6fd1">balanced: ≈ 0.8 mm</text>
+<text x="780.0" y="586.0" font-size="11" text-anchor="start" fill="#000">bow along the 9.3 m mast (vertical scale exaggerated)</text>
+<text x="24.0" y="600.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">5. Measure + straighten</text>
+<rect x="60.0" y="640.0" width="640.0" height="34.0" rx="0" fill="url(#hatchA)" stroke="#000" stroke-width="1.2"/>
+<polygon points="214.0,674.0 246.0,674.0 230.0,646.0" fill="#fff" stroke="#1f6fd1" stroke-width="1.5"/>
+<polygon points="364.0,674.0 396.0,674.0 380.0,646.0" fill="#fff" stroke="#1f6fd1" stroke-width="1.5"/>
+<polygon points="514.0,674.0 546.0,674.0 530.0,646.0" fill="#fff" stroke="#1f6fd1" stroke-width="1.5"/>
+<text x="60.0" y="700.0" font-size="11.5" text-anchor="start" fill="#000">laser line / taut wire over the full length, readings every 1 m on 2 faces</text>
+<text x="60.0" y="718.0" font-size="11.5" text-anchor="start" fill="#000">wedge-shaped heat spots on the convex side, ≤ 650 °C (dull red; S355+N), cool in air – never water</text>
+<text x="60.0" y="736.0" font-size="11.5" text-anchor="start" fill="#000">re-measure; record in the inspection report (ITP hold point)</text>
+<rect x="774.0" y="752.0" width="414.0" height="66.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="774.0" y1="774.0" x2="1188.0" y2="774.0" stroke="#000" stroke-width="0.8"/>
+<line x1="844.0" y1="752.0" x2="844.0" y2="774.0" stroke="#000" stroke-width="0.8"/>
+<text x="782.0" y="768.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">38-08</text>
+<text x="852.0" y="768.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Mast – welding sequence and distortion control</text>
+<text x="782.0" y="791.0" font-size="12" text-anchor="start" fill="#b00000" font-weight="bold">EXAMPLE – check the crane maker's drawings</text>
+<text x="782.0" y="809.0" font-size="11" text-anchor="start" fill="#000">Digital twin · ASRS-RAW stacker crane · guide 38 · not to scale · mm</text>
+</svg>

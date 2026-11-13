@@ -1,0 +1,72 @@
+/* Ball screw + guide factory – item 2 manufacturing processes (bsfmfg*.js). Light + dark theme via the style.css variables. */
+.bf2-wrap { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+.bf2-ctl { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.bf2-ctl .seg-btn { padding: 4px 9px; font-size: 12.5px; }
+.bf2-ctl select { max-width: 360px; }
+.bf2-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-bottom: 10px; }
+.bf2-lbl, .bf2-chk { font-size: 12.5px; color: var(--text-2); display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.bf2-lbl input[type=range] { width: 130px; }
+.bf2-lbl b { min-width: 34px; color: var(--text); font-variant-numeric: tabular-nums; }
+.bf2-lbl select { max-width: 330px; }
+.bf2-main { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 12px; align-items: stretch; }
+.bf2-3d { position: relative; height: min(66vh, 620px); min-height: 440px; background: #e8ecf0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.bf2-3d canvas { display: block; touch-action: none; }
+.bf2-msg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #555; font-size: 13px; }
+.bf2-info { font-size: 12.5px; max-height: min(66vh, 620px); overflow: auto; border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px 12px; background: var(--surface); color: var(--text); }
+.bf2-info h3 { margin: 4px 0 6px; font-size: 14px; }
+.bf2-dl { margin: 0; } .bf2-dl dt { font-weight: 600; margin-top: 6px; font-size: 12.5px; color: var(--text); } .bf2-dl dd { margin: 2px 0 0; font-size: 12.5px; line-height: 1.45; color: var(--text); }
+.bf2-kv { width: 100%; border-collapse: collapse; table-layout: fixed; margin-top: 4px; }
+.bf2-kv th { width: 46%; }
+.bf2-kv th, .bf2-kv td { white-space: normal; overflow-wrap: anywhere; text-align: left; padding: 3px 4px; border-bottom: 1px solid var(--border); font-weight: normal; color: var(--text); font-size: 12px; vertical-align: top; }
+.bf2-kv td { font-variant-numeric: tabular-nums; }
+.bf2-chart { width: 100%; height: auto; display: block; margin-top: 6px; border: 1px solid var(--border); border-radius: 6px; background: #fff; }
+.bf2-small { font-size: 11.5px; color: var(--text-2); margin: 6px 0 0; line-height: 1.4; }
+.bf2-h { margin: 12px 0 4px; font-size: 13px; color: var(--text); }
+.bf2-p { font-size: 12.5px; line-height: 1.5; color: var(--text); margin: 6px 0; }
+.bf2-gate { display: inline-block; font-size: 11px; font-weight: 700; padding: 0 5px; border-radius: 4px; color: var(--accent); border: 1px solid var(--accent); white-space: nowrap; }
+.bf2-bn { display: inline-block; margin-top: 4px; font-weight: 700; color: var(--critical, #c0392b); }
+/* flow diagram */
+.bf2-flowsvg { overflow-x: auto; }
+.bf2-flow { width: 100%; min-width: 760px; height: auto; display: block; background: #fff; border: 1px solid var(--border); border-radius: 8px; }
+.bf2-flow text { font: 11.5px Arial, Helvetica, sans-serif; fill: #111; }
+.bf2-flow text.b { font-weight: 700; } .bf2-flow text.m { fill: #444; font-weight: 600; } .bf2-flow text.g { fill: #1f6fd1; font-weight: 700; }
+.bf2-box { cursor: pointer; } .bf2-box rect { fill: #fff; stroke: #333; stroke-width: 1.2; }
+.bf2-box.gate rect { stroke: #1f6fd1; stroke-width: 2.4; }
+.bf2-box:hover rect, .bf2-box:focus rect { fill: #f2f6fb; } .bf2-box:focus { outline: none; }
+.bf2-box.sel rect { fill: #dfeafa; stroke: #1f6fd1; stroke-width: 3; }
+/* tables */
+.bf2-tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; table-layout: auto; margin-top: 6px; }
+.bf2-tbl th, .bf2-tbl td { white-space: normal; border: 1px solid var(--border); padding: 4px 6px; text-align: left; vertical-align: top; color: var(--text); line-height: 1.35; overflow-wrap: anywhere; }
+.bf2-tbl th { background: var(--surface-2); font-weight: 600; }
+.bf2-sheet { font-size: 11.8px; min-width: 1500px; } .bf2-sheet th { white-space: nowrap; } .bf2-sheet td:nth-child(2) { min-width: 170px; } .bf2-sheet td:nth-child(3) { white-space: nowrap; } .bf2-sheet td:nth-child(n+6):nth-child(-n+12) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bf2-sheet td:nth-child(4), .bf2-sheet td:nth-child(5) { min-width: 150px; } .bf2-sheet td:nth-child(13), .bf2-sheet td:nth-child(14) { min-width: 150px; }
+.bf2-sheet tr.sel td { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.bf2-mach { font-size: 12px; min-width: 1200px; } .bf2-mach td:nth-child(1), .bf2-mach td:nth-child(5) { white-space: nowrap; } .bf2-mach td:nth-child(4), .bf2-mach td:nth-child(6) { text-align: right; }
+.bf2-sig { display: inline-block; font-size: 10.5px; padding: 0 4px; border: 1px solid var(--border); border-radius: 4px; margin: 1px 0; cursor: help; }
+.bf2-cap td:nth-child(3), .bf2-cap td:nth-child(4), .bf2-cap td:nth-child(5), .bf2-cap td:nth-child(6) { text-align: right; font-variant-numeric: tabular-nums; }
+.bf2-cap td:nth-child(7) { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.bf2-barw { position: relative; overflow: hidden; display: inline-block; width: 110px; height: 10px; border: 1px solid var(--border); border-radius: 3px; vertical-align: middle; background: var(--surface); }
+.bf2-barf { display: block; height: 100%; background: color-mix(in srgb, var(--accent) 45%, transparent); }
+.bf2-barf.bf2-hi { background: color-mix(in srgb, #e67e22 70%, transparent); } .bf2-barf.bf2-bnk { background: var(--critical, #c0392b); }
+.bf2-res td:nth-child(4) { white-space: nowrap; text-align: right; }
+.bf2-f { font-family: ui-monospace, Consolas, monospace; font-size: 11.8px; }
+.bf2-det { margin-top: 8px; font-size: 12.5px; } .bf2-det summary { cursor: pointer; color: var(--accent); }
+.bf2-link { background: none; border: 0; padding: 0; color: var(--accent); font: inherit; font-weight: 700; cursor: pointer; text-decoration: underline; }
+/* calculators */
+.bf2-capgrid, .bf2-pgrid { display: grid; grid-template-columns: 310px minmax(0, 1fr); gap: 14px; align-items: start; }
+.bf2-ptabs { margin-bottom: 10px; } .bf2-ptabs .seg { flex-wrap: wrap; } .bf2-ptabs .seg-btn { font-size: 12.5px; padding: 5px 10px; }
+.bf2-inp { display: grid; grid-template-columns: 1fr; gap: 5px; font-size: 12.5px; color: var(--text-2); }
+.bf2-inp h4 { margin: 8px 0 2px; font-size: 12.5px; color: var(--text); }
+.bf2-inp label { display: grid; grid-template-columns: 1fr 96px 34px; align-items: center; gap: 6px; }
+.bf2-pgrid .bf2-inp label { grid-template-columns: 1fr 110px; }
+.bf2-inp input, .bf2-inp select { width: 100%; box-sizing: border-box; }
+.bf2-inp em { font-style: normal; font-size: 11.5px; }
+/* test output */
+.bf2-debug { font-size: 11.5px; border: 1px dashed var(--border); border-radius: 8px; padding: 8px; background: var(--surface); color: var(--text); }
+.bf2-debug pre { white-space: pre-wrap; margin: 0 0 8px; font-size: 11px; }
+.bf2-shot { max-width: 520px; border: 1px solid var(--border); margin: 4px; }
+@media (max-width: 1100px) { .bf2-main, .bf2-capgrid, .bf2-pgrid { grid-template-columns: 1fr; } .bf2-info { max-height: none; } }
+@media (max-width: 640px) { .bf2-3d { min-height: 320px; height: 52vh; } .bf2-lbl input[type=range] { width: 90px; } }
+.bf2-tbl code { white-space: nowrap; } .bf2-link { white-space: nowrap; }
+.bf2-mach th { white-space: nowrap; } .bf2-mach td:nth-child(3), .bf2-mach td:nth-child(4), .bf2-mach td:nth-child(6), .bf2-mach td:nth-child(7) { white-space: nowrap; }
+.bf2-cap th { white-space: nowrap; }

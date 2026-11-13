@@ -37,6 +37,8 @@ import urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+NMAX = 10000            # HMC motor spindle max speed, rpm (decided 2026-11-12: 10 000 rpm / 18 kW)
+
 
 def http(url, payload=None, timeout=5):
     data = json.dumps(payload).encode("utf-8") if payload is not None else None
@@ -101,7 +103,7 @@ class RunInStand:
             self.last_set, self.t_at = rpm_set, 0.0
         self.t_at += dt
         self.rpm += max(-200 * dt, min(50 * dt, rpm_set - self.rpm))
-        fr = max(0.0, self.rpm / 12000)
+        fr = max(0.0, self.rpm / NMAX)
         ch = 6 * fr * math.exp(-(self.t_at / 60) / 10) if rpm_set else 0
         self.dT += (14 * fr ** 1.2 + ch - self.dT) * min(1, dt / 60 / 9)
         w = 20 + random.gauss(0, 0.03)
@@ -170,7 +172,7 @@ def main():
             # 4. run-in stand: continuous values, follows the set-point of the twin (closed loop)
             ri = st.get("runin") or {}
             if "RUN-01" in devs and (ri.get("active") or (u and u.get("step") == "test")):
-                rpm_set = ri.get("rpm_set", 0) if ri.get("active") else 12000
+                rpm_set = ri.get("rpm_set", 0) if ri.get("active") else NMAX
                 vals = stand.read(rpm_set, dt * float(ri.get("time_factor") or 1))
                 print(send("RUN-01", vals))
             # keep-alive every 5 s so the twin shows the devices "online" between measurements

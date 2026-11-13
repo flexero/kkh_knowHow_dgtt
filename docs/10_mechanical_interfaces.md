@@ -163,7 +163,7 @@ Concept comparison (from the page, correcting ±13 mm):
 | | anchors / allowed per anchor / allowed height step | 6 / 8 kN / ±3 mm |
 | Manual cart | mass / wheelbase / worst stop | 160 kg / 900 mm / 1.5 m/s² |
 | Cell timing | pool distance / AGV speed / hand-over at pool / machining | 35 m / 1.2 m/s / 20 s / 1380 s |
-| From APC tab | pallet 500 × 500, 110 + 400 kg, hc 250, pitch 400, r 480, stroke 60, 6 MPa | |
+| From APC tab | pallet 500 × 500, 110 + 400 kg, hc 250, pitch 400, r 480, stroke 60, 10 MPa (lift cylinder Ø50/28, decided 2026-11-12) | |
 
 Constants in the code: receiver top H0 = 1050 mm, pull stud length below the pallet LS = 44 mm, receiver radius 30 mm, pallet thickness 70 mm.
 

@@ -46,7 +46,9 @@ FAULTS = ("mix", "spacer", "dirt", "grease", "nut", "rotor", "spring", "oring")
 # ----------------------------------------------------------------------------------------------- design (spindle.js)
 def _design():
     """Example design values of web/spindle.js (SP_DEF + spCalc + packCalc of asmsp.js)."""
-    M = dict(nmax=12000, Fclamp=18.0, iClamp=3.0, dF=70, DF=110, BF=20, dR=60, DR=95, BR=18, Fpre=400.0, cax=160.0,
+    # HMC motor spindle - decided 2026-11-12: 10 000 rpm / 18 kW S1 (115 N·m S1, 22 kW / 140 N·m S6-40 %,
+    # base speed 1 500 rpm) - example values, the spindle maker's datasheet decides
+    M = dict(nmax=10000, P_S1=18.0, P_S6=22.0, T_S1=115.0, T_S6=140.0, nBase=1500, Fclamp=18.0, iClamp=3.0, dF=70, DF=110, BF=20, dR=60, DR=95, BR=18, Fpre=400.0, cax=160.0,
              dRot=65, mRot=16.0, Gbal=1.0, dRotI=0.06, dT=15.0, Qw=4.0, Ploss=1.6)
     D = dict(M)
     D["Uper"] = 9549 * M["Gbal"] * M["mRot"] / M["nmax"]                       # g.mm  ISO 21940-11
@@ -256,7 +258,7 @@ DEVICES = [  # id, name, type, values
 DEV_IDS = [d[0] for d in DEVICES]
 
 # run-in profile: [rpm, minimum dwell in minutes] (example - bearing / grease maker gives the real program)
-RUNIN_PROFILE = [[1500, 10], [3000, 10], [4500, 10], [6000, 10], [7500, 15], [9000, 15], [10500, 15], [12000, 30]]
+RUNIN_PROFILE = [[1250, 10], [2500, 10], [3750, 10], [5000, 10], [6250, 15], [7500, 15], [8750, 15], [10000, 30]]
 RUNIN_MAX_DWELL_MIN = 60
 RL = dict(stop=25.0, resume=12.0, hold_dT=20.0, hold_rate=1.0, stable_rate=0.06, vib_stop=1.8, flow_min=2.0, dTw_max=8.0)
 RUNIN_RULES = [

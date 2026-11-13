@@ -27,7 +27,7 @@
 
 **Part B – textbook, technical reference and design guide (added Nov 2026)**
 
-17. Design data check – spindle conflict 10 000 rpm / 18 kW vs 12 000 rpm / 15 kW, training vs real parts
+17. Design data check – spindle data (decided 2026-11-12: 10 000 rpm / 18 kW, torque curve), training vs real parts
 18. G-code reference in depth (dialects Fanuc / Siemens / Heidenhain, modal groups, arcs, planes, feed modes, G41/G42 geometry, G43, work offsets G54–G59 / G54.1 / G10, canned cycles G73–G89, lathe cycles G71 / G76, macro B and R parameters, subprograms, G05.1 / CYCLE832, HMC program template)
 19. The 4th axis B and tool centre point (indexing, work offset per face with worked numbers, TCP / RTCP / TRAORI, rotary feed, G93)
 20. Cutting technology – formula sheet and worked examples (deck face milling, bearing seat boring, aluminium, drilling / tapping, thread milling, helical entry)
@@ -257,10 +257,11 @@ N40 G43 H1 Z50. M8                            ← then length compensation and Z
 (The spindle power is read from `run_power_kw` in `config/factory.json` when the server runs: 18 kW for the HMCs,
 11 kW for VMC-01.) In the 3D view an HMC is shown with a horizontal tool axis, a VMC with a vertical one.
 
-> **Open project conflict (Nov 2026):** guides 12, 18, 19 and 20 design the HMC spindle with **12 000 rpm, 15 kW S1,
-> 120 N·m S6** (base speed 1 194 rpm), while this table and `web/gcode.js` use **10 000 rpm / 18 kW** with a flat power
-> (no torque curve). Both are kept here; chapter 17.1 shows what changes in the checks (e.g. only 8.8 kW available at
-> 700 rpm). The lead decides which spindle is valid.
+> **Decided 2026-11-12: one HMC spindle in all guides and in the twin – 10 000 rpm / 18 kW S1** (example values):
+> constant torque **115 N·m S1** up to the base speed **1 500 rpm**, then constant power 18 kW up to 10 000 rpm;
+> S6-40 % (short duty): 22 kW / 140 N·m. `web/gcode.js` now uses this torque curve for the power warning:
+> P_available = min(18 kW, 115 N·m · n / 9 550). At 700 rpm only 115 · 700 / 9 550 = **8.4 kW** are available
+> (chapter 17.1).
 
 ### 4.2 Example materials
 
@@ -348,7 +349,8 @@ Q  = (π · D² / 4) · F / 1000      = (π · 8.5² / 4) · 674 / 1000 = 38.2 c
 Pc = f · Vc · D · kc / 240 000    = 0.20 · 90 · 8.5 · 1100 / 240 000 = 0.70 kW
 ```
 
-**Power check:** the twin warns if `Pc > 0.8 × spindle power` (HMC: 0.8 × 18 = 14.4 kW). Here all
+**Power check:** the twin warns if `Pc > 0.8 × available spindle power at this speed` (HMC above 1 500 rpm:
+0.8 × 18 = 14.4 kW; below 1 500 rpm: 0.8 × 115 · n / 9 550). Here all
 operations are far below – the example is a light finishing part. (With the Kienzle correction of chapter
 10.2 the powers roughly double – T1 1.18 kW, T2 1.27 kW, drilling 1.39 kW – still far below.) Note: Pc is the power **at the cutting
 edge**; the motor must also cover the losses of the spindle drive.
@@ -1271,7 +1273,7 @@ position Ø0.2. Datums: A = top face (machined first in this op), B = Ø36 bore.
 
 | Decision | Choice | Reason |
 |---|---|---|
-| Machine | HMC-01 (18 kW, 10 000 rpm – twin values; guide 12 spindle: 15 kW, 12 000 rpm, see 17.1) | crankcase family on HMCs (twin config) |
+| Machine | HMC-01 (10 000 rpm, 18 kW S1, 115 N·m up to 1 500 rpm – decided 2026-11-12, see 17.1) | crankcase family on HMCs (twin config) |
 | Work zero | X0 Y0 = stock centre, Z0 = finished top face, measured with spindle probe | as twin |
 | Fixture | VC-MCH-FIX-0014-A, 3-2-1 on cast datum targets, hydraulic clamps above the supports | 11.5 |
 | Sequence | face (T1) → contour (T2) → pocket (T3) → Ø36 helical (T2) → drill (T4) → tap (T5) | face first creates datum A |
@@ -1437,30 +1439,46 @@ small Python script (stdlib only). Catalogue data of real products is given only
 
 ## 17. Design data check – open points before programming
 
-### 17.1 Spindle data: two different values in the project
+### 17.1 Spindle data – decided 2026-11-12: 10 000 rpm / 18 kW
 
-| Source | Max speed | Power | Torque | Note |
-|---|---|---|---|---|
-| This guide (4.1) and `web/gcode.js` (`MACHINES["HMC-01"]`) | **10 000 rpm** | **18 kW** (from `run_power_kw` in `config/factory.json`) | not modelled (flat power) | the twin's CNC tab |
-| Guides 12 (HMC build), 18, 19, 20 | **12 000 rpm** | **15 kW S1** | **120 N·m S6**, base speed 1 194 rpm | HSK-A63 motor spindle designed in guide 18/19 |
+Until November 2026 the project had two different spindle data sets: the twin (`web/gcode.js`, this guide) used
+10 000 rpm / 18 kW with a **flat** power, guides 12, 18, 19 and 20 used 12 000 rpm / 15 kW S1 / 120 N·m S6. The
+decision: **one spindle for all documents and the twin** (example values – the spindle maker's datasheet decides):
 
-This guide does **not** change the code. Both values are documented here. What the difference means:
-
-| Check | Twin (10 000 rpm / 18 kW, flat) | Guide 12 spindle (12 000 rpm / 15 kW, 120 N·m) |
+| Item | Value | Formula / note |
 |---|---|---|
-| 80 % power rule (4.4) | 0.8 · 18 = **14.4 kW** | 0.8 · 15 = **12.0 kW** above 1 194 rpm |
-| Power at low speed | 18 kW at every speed (not real) | P = M · n / 9 550 → at 700 rpm: 120 · 700 / 9 550 = **8.8 kW** only |
-| AlSi9Cu3, end mill Ø12 at vc 400 | n = 10 610 rpm → **limited to 10 000** (real vc 377 m/min) | 10 610 rpm OK |
-| Stability lobe N = 0 at 12 000 rpm (25.5) | not reachable | reachable |
-| Deck face mill Ø100, ap 3 (20.3): Pc 7.26 kW at 700 rpm | 40 % of 18 kW – "OK" | **82 % of 8.8 kW – above the 80 % rule** |
+| Max. speed n_max | **10 000 rpm** | `MACHINES["HMC-01"].maxRpm` |
+| Base speed n_b | **1 500 rpm** | end of the constant-torque range |
+| Power S1 (continuous) | **18 kW** from 1 500 to 10 000 rpm | `powerKw` (from `run_power_kw` in `config/factory.json`) |
+| Torque S1 | **115 N·m** up to 1 500 rpm | M = 9 550 · P / n = 9 550 · 18 / 1 500 = 114.6 N·m; `torqueNm: 115` |
+| Power / torque S6-40 % | **22 kW / 140 N·m** | short duty only (40 % of a 10 min cycle) |
+| Interface | HSK-A63, 18 kN clamping force | guide 18 / 19 |
+
+**Power available at speed n (S1):**
+
+```
+P_available = min( P_S1 ,  M_S1 · n / 9 550 )          [kW, N·m, rpm]
+
+n =   700 rpm:  115 ·   700 / 9 550 =  8.4 kW   (torque-limited)
+n = 1 000 rpm:  115 · 1 000 / 9 550 = 12.0 kW   (torque-limited)
+n = 1 500 rpm:  115 · 1 500 / 9 550 = 18.1 → 18 kW (base speed)
+n ≥ 1 500 rpm:  18 kW                             (power-limited)
+```
+
+What the torque curve changes in the checks:
+
+| Check | Flat 18 kW (old twin) | HMC spindle with torque curve (now) |
+|---|---|---|
+| 80 % power rule (4.4) | 0.8 · 18 = **14.4 kW** at every speed | **14.4 kW** above 1 500 rpm; below: 0.8 · 115 · n / 9 550 |
+| Power at 700 rpm | 18 kW (not real) | 115 · 700 / 9 550 = **8.4 kW** (S1), 10.3 kW (S6-40 %) |
+| AlSi9Cu3, end mill Ø12 at vc 400 | n = 10 610 rpm → **limited to 10 000** (real vc 377 m/min) | same |
+| Stability lobe N = 0 of a 4-tooth cutter at 12 000 rpm (25.5) | not reachable | not reachable → 5 teeth (9 600 rpm) or N = 1 lobe |
+| Deck face mill Ø100, ap 3 (20.3): Pc 7.26 kW at 700 rpm | 40 % of 18 kW – "OK" | **86 % of 8.4 kW – above the 80 % rule** |
 
 **Lesson:** a flat power value hides the torque limit at low speed. Large face mills and boring heads run at low
-speed, where a motor spindle has only its constant torque. Always check `Pc ≤ 0.8 · M_max · n / 9 550` below the
-base speed (drawing `08_cutting_forces.svg`, part C).
-
-**Open point for the lead:** decide one spindle for the HMC and align the twin (`web/gcode.js` machine table,
-`config/factory.json` `run_power_kw`) and guides 08/12/18/19/20. A torque curve (constant torque up to the base
-speed) in the twin would make the power warning realistic.
+speed, where a motor spindle has only its constant torque. Always check `Pc ≤ 0.8 · M_S1 · n / 9 550` below the
+base speed (drawing `08_cutting_forces.svg`, part C). Since 2026-11-12 the twin's CNC tab does this check
+(`availKw()` in `web/gcode.js`); the VMC-01 still uses a flat 11 kW because no torque value is given for it.
 
 ### 17.2 Training parts vs real parts
 
@@ -1978,7 +1996,7 @@ turns 10°. Without TCP and with a wrong centre position, this becomes a contour
 
 ### 20.3 Worked example A – face milling the cylinder deck (real crankcase, EN-GJL-250)
 
-![Cutting forces, power and torque – face milling the cylinder deck with a Ø100 face mill (engagement angle 97.2°, Pc 7.26 kW, 99 N·m), drilling Ø8.5 (1.39 kW, 3.9 N·m, feed force about 790 N) and the spindle power curve 15 kW / 120 N·m with the 80 % rule](img/08_cutting_forces.svg)
+![Cutting forces, power and torque – face milling the cylinder deck with a Ø100 face mill (engagement angle 97.2°, Pc 7.26 kW, 99 N·m), drilling Ø8.5 (1.39 kW, 3.9 N·m, feed force about 790 N) and the spindle power curve 18 kW S1 / 115 N·m up to 1 500 rpm with the 80 % rule](img/08_cutting_forces.svg)
 
 Tool: face mill Ø100, z = 7, κ 45°, K-grade inserts. Data: vc 220 m/min, fz 0.20 mm, ae 75 mm (cutter centred), ap 3 mm.
 
@@ -1994,10 +2012,12 @@ M  = 9 550 · 7.26 / 700                       = 99 N·m
 Ft = 2 · 99 / 0.100                           = 1 980 N
 ```
 
-Spindle check (17.1): guide 12 spindle at 700 rpm gives 120 · 700 / 9 550 = **8.8 kW** → 7.26 / 8.8 = **82 %** → above
-the 80 % rule. **Solution:** ap 2 mm (two passes) → Q 147 cm³/min, Pc **4.84 kW** (55 %), M 66 N·m; or a smaller
-cutter at a higher speed. With the twin's flat 18 kW the same cut looks like 40 % – this is why the torque curve
-matters.
+Spindle check (17.1): at 700 rpm the HMC spindle (S1 115 N·m) gives 115 · 700 / 9 550 = **8.4 kW** → 7.26 / 8.4 =
+**86 %** → above the 80 % rule (limit 0.8 · 8.4 = 6.7 kW). The torque says the same: M = 99 N·m is 86 % of 115 N·m.
+The S6-40 % torque (140 N·m → 10.3 kW, 71 %) is only allowed for short cuts, not for a whole deck face.
+**Solution:** ap 2 mm (two passes) → Q 147 cm³/min, Pc **4.84 kW** (57 %), M 66 N·m; or a smaller cutter at a
+higher speed. With a flat 18 kW (no torque curve) the same cut would look like 40 % – this is why the torque curve
+matters. The twin's CNC tab now warns for this cut.
 
 ### 20.4 Worked example B – bearing seat Ø62 K7 (rough + fine boring)
 
@@ -2021,11 +2041,11 @@ from both sides with B180 – then the table centre accuracy (19.2) and the B re
 
 ### 20.5 Worked example C – the aluminium variant (AlSi9Cu3) and the speed limit
 
-| Tool | vc (catalogue range 11.2) | n needed | Twin HMC (10 000 rpm) | Guide 12 spindle (12 000 rpm) |
-|---|---|---|---|---|
-| Face mill Ø63 | 600 | 3 032 rpm | OK | OK |
-| End mill Ø12 | 400 | 10 610 rpm | **limited to 10 000** → vc 377 m/min | OK |
-| Drill Ø8.5 | 150 | 5 617 rpm | OK | OK |
+| Tool | vc (catalogue range 11.2) | n needed = 1000 · vc / (π · D) | HMC spindle (n_max 10 000 rpm) |
+|---|---|---|---|
+| Face mill Ø63 | 600 | 3 032 rpm | OK |
+| End mill Ø12 | 400 | 10 610 rpm | **limited to 10 000** → vc = π · 12 · 10 000 / 1000 = 377 m/min (−6 %) |
+| Drill Ø8.5 | 150 | 5 617 rpm | OK |
 
 In aluminium the spindle speed, not the power, limits the output. PCD or polished uncoated carbide tools, sharp
 positive edges and emulsion or MQL (29) prevent built-up edge.
@@ -2186,9 +2206,9 @@ taper; with face contact versions, e.g. "BIG-PLUS" type). Buy holders for **one*
 0.09 mm = **+12.5 %** load on that tooth; the tool life of small solid carbide tools drops strongly (supplier rule of
 thumb: every 10 µm run-out can cost a large part of the tool life – measure on the presetter).
 
-**Balance (ISO 21940-11):** permissible residual unbalance e_per = 9 549 · G / n (g·mm/kg). Grade **G2.5 at 12 000
-rpm** → e = 9 549 · 2.5 / 12 000 = **1.99 g·mm/kg**; tool + holder 1.5 kg → **U = 3.0 g·mm**. At 10 000 rpm (twin
-spindle) U = 3.6 g·mm. Many shops balance all holders used above 8 000 rpm.
+**Balance (ISO 21940-11):** permissible residual unbalance e_per = 9 549 · G / n (g·mm/kg). Grade **G2.5 at 10 000
+rpm** (n_max of the HMC spindle) → e = 9 549 · 2.5 / 10 000 = **2.39 g·mm/kg**; tool + holder 1.5 kg → **U = 3.6 g·mm**.
+(A 12 000 rpm spindle would need 1.99 g·mm/kg → U = 3.0 g·mm: higher speed = tighter limit.) Many shops balance all holders used above 8 000 rpm.
 
 ### 21.9 Tool list – real crankcase OP20/OP30 (example, numbers per guide 15 `T<family><nnn>`)
 
@@ -2507,10 +2527,13 @@ n_best ≈ 60 · f_n / (z · (N + 1)),  N = 0, 1, 2 …
 
 Example: tool/holder natural frequency f_n = 800 Hz (from a tap test), z = 4:
 N = 0 → 12 000 rpm,  N = 1 → 6 000 rpm,  N = 2 → 4 000 rpm,  N = 3 → 3 000 rpm
+Same tool with z = 5 teeth:
+N = 0 →  9 600 rpm,  N = 1 → 4 800 rpm,  N = 2 → 3 200 rpm,  N = 3 → 2 400 rpm
 ```
 
-The N = 0 lobe (the largest stable area) at 12 000 rpm is reachable with the guide 12 spindle but **not** with the
-twin's 10 000 rpm (17.1). Practical procedure: tap test of the tool in the holder (guide 20 §25.3) → lobe speeds → try
+The N = 0 lobe (the largest stable area) of the 4-tooth cutter is at 12 000 rpm – **not reachable** with the HMC
+spindle (n_max 10 000 rpm, 17.1). Two ways out: use the N = 1 lobe at 6 000 rpm (smaller stable area), or take a
+cutter with **5 teeth**: its N = 0 lobe moves to 60 · 800 / 5 = 9 600 rpm, which the spindle can run. Practical procedure: tap test of the tool in the holder (guide 20 §25.3) → lobe speeds → try
 the cut at these speeds with rising ap → note the stable ap in the tool list. If no tap test: change the speed by
 10–20 % when chatter appears, use variable-pitch cutters, shorten the overhang.
 
@@ -2914,8 +2937,8 @@ examples for planning; price classes as in chapter 31.
 | # | Where | Finding | Action taken / proposed |
 |---|---|---|---|
 | 1 | 10.4, last sentence | referred to "guide 08 Step 8" inside guide 08 | corrected to "chapter 5, Step 8" |
-| 2 | 4.1, 14.2 vs guides 12/18/19/20 | spindle 10 000 rpm / 18 kW (twin) vs 12 000 rpm / 15 kW S1, 120 N·m S6 | documented in 17.1; **code not changed** – lead decides; a torque curve in `web/gcode.js` would make the power warning realistic |
-| 3 | `web/gcode.js` power check | flat power (`Pc > 0.8 · powerKw`) hides the low-speed torque limit (20.3: 82 % instead of 40 %) | proposal only (no code change in this task) |
+| 2 | 4.1, 14.2 vs guides 12/18/19/20 | spindle 10 000 rpm / 18 kW (twin) vs 12 000 rpm / 15 kW S1, 120 N·m S6 | **Decided 2026-11-12: 10 000 rpm / 18 kW S1, 115 N·m S1 up to 1 500 rpm, 22 kW / 140 N·m S6-40 %** – guides 08/12/18/19/20 aligned (17.1) |
+| 3 | `web/gcode.js` power check | flat power (`Pc > 0.8 · powerKw`) hid the low-speed torque limit (20.3: 86 % instead of 40 %) | **done 2026-11-12:** `torqueNm: 115` for HMC-01…03, warning uses P = min(18 kW, 115 · n / 9 550) |
 | 4 | 11.4 / templates | Ø52 training bore vs real Ø75 (already noted in 11.4) | real features used in Part B (17.2) |
 | 5 | all existing numbers of chapters 4, 10, 11, 14 | re-calculated (n, F, Q, Pc, Kienzle, Taylor, Rth, deflection, chatter limit, clamp force, RSS) | **no numeric errors found** |
 

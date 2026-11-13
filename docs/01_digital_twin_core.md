@@ -760,7 +760,7 @@ packaging 1.0, inspection 0.3 (any other type: 1.0).
 Limits in the config: warning 4.5, alarm 7.1 mm/s for the CNC machines. (These values match the zone
 boundaries B/C and C/D for medium machines (group 2, 15–300 kW) on **flexible** foundations in the
 ISO 10816-3 vibration severity table. For **rigid** foundations the same boundaries are 2.8 and
-4.5 mm/s. ISO 10816-3 has been replaced by **ISO 20816-3**; check the zone values in the current
+4.5 mm/s. ISO 10816-3 has been replaced by **ISO 20816-3:2022** (replaces ISO 10816-3 – cite it as the source of the twin limits); check the zone values in the current
 edition. Machine tools often have their own limits from the supplier – those win. Check the correct
 group and foundation class for each of your real machines with the machine supplier.)
 
@@ -1865,7 +1865,7 @@ and this chapter differ, **guide 15 wins**. This chapter shows what the scheme m
 | `UTL` utilities | `L0` | compressed air, power meters |
 
 The twin server itself is in network VLAN 40 `OT-L2-SUP` (guide 15, 3.13); its host name follows
-`vc-<area>-<device>`, e.g. `vc-its-twin01`.
+`vc-<zone>-<role><nn>`, i.e. `vc-sup-twin01` = 10.40.0.102 (guide 15, 3.13 master plan).
 
 ### 12.3 Tag names
 

@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1080" width="1400" height="1080" font-family="Arial, Helvetica, sans-serif">
+<title>IP plan and host names</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="1080" fill="#ffffff"/>
+<text x="24" y="34" font-size="17" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">IP address plan 10.&lt;VLAN&gt;.0.&lt;host&gt; and host names vc-&lt;area&gt;-&lt;device&gt; (consistent with guide 07 and twin/plc.py)</text>
+<text x="24" y="56" font-size="12" text-anchor="start" fill="#555" xml:space="preserve">Second byte = VLAN number. Twin addresses 192.168.10.x keep their host number. Firewall between every zone (IEC 62443 zones and conduits).</text>
+<rect x="30" y="80" width="1340" height="54" rx="0" fill="#fafafa" stroke="#000" stroke-width="1.3"/>
+<text x="42" y="100" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VLAN 10  ENT-OFFICE  10.10.0.0/16  (enterprise, L4)</text>
+<text x="60" y="122" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">ERP, office PCs, mail – DHCP allowed here</text>
+<line x1="700" y1="134" x2="700" y2="144" stroke="#000" stroke-width="1"/>
+<rect x="30" y="144" width="1340" height="74" rx="0" fill="#fafafa" stroke="#000" stroke-width="1.3"/>
+<text x="42" y="164" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VLAN 20  DMZ  10.20.0.0/24  (industrial DMZ)</text>
+<text x="60" y="186" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.100 vc-dmz-ntp01 time server</text>
+<text x="500" y="186" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.101 vc-dmz-b2mml01 ERP gateway</text>
+<text x="940" y="186" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.102 vc-dmz-hist01 historian mirror</text>
+<text x="60" y="206" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.103 vc-dmz-patch01 patch server</text>
+<text x="500" y="206" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.104 vc-dmz-ra01 remote-access gateway</text>
+<line x1="700" y1="218" x2="700" y2="228" stroke="#000" stroke-width="1"/>
+<rect x="30" y="228" width="1340" height="94" rx="0" fill="#fafafa" stroke="#000" stroke-width="1.3"/>
+<text x="42" y="248" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VLAN 30  OT-L3-OPS  10.30.0.0/24  (operations)</text>
+<text x="60" y="270" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.100 vc-ops-mes01 MES</text>
+<text x="500" y="270" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.101/.102 vc-ops-mqtt01/02 broker</text>
+<text x="940" y="270" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.103 vc-ops-hist01 historian</text>
+<text x="60" y="290" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.104 vc-ops-wms01 WMS</text>
+<text x="500" y="290" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.105 vc-ops-dnc01 NC programs</text>
+<text x="940" y="290" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.106 vc-ops-prt01 label server</text>
+<text x="60" y="310" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.110 vc-ops-log01 syslog</text>
+<text x="500" y="310" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.111 vc-ops-nms01 network mgmt</text>
+<text x="940" y="310" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.112 vc-ops-dns01 DNS</text>
+<line x1="700" y1="322" x2="700" y2="332" stroke="#000" stroke-width="1"/>
+<rect x="30" y="332" width="1340" height="74" rx="0" fill="#fafafa" stroke="#000" stroke-width="1.3"/>
+<text x="42" y="352" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VLAN 40  OT-L2-SUP  10.40.0.0/24  (supervisory)</text>
+<text x="60" y="374" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.100/.101 vc-sup-scada01/02</text>
+<text x="500" y="374" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.102 vc-sup-twin01 digital twin</text>
+<text x="940" y="374" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.103 vc-sup-fleet01 AGV fleet mgr</text>
+<text x="60" y="394" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.104 vc-sup-edge01 edge gateway</text>
+<text x="500" y="394" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.110 vc-sup-eng01 engineering st.</text>
+<text x="940" y="394" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.120/.121 vc-sup-cl01/02 clients</text>
+<line x1="700" y1="406" x2="700" y2="416" stroke="#000" stroke-width="1"/>
+<text x="712" y="418" font-size="11" text-anchor="start" fill="#c62828" xml:space="preserve">firewall rules FW-01 … FW-15 between zones (guide 07)</text>
+<rect x="30" y="430" width="670" height="110" rx="0" fill="#fff" stroke="#c62828" stroke-width="1.6"/>
+<text x="40" y="450" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VLAN 51  OT-L1-MCH-L2  crankcase FMS cell</text>
+<text x="46" y="472" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.2–.7 vc-mch-sw51-1…6</text>
+<text x="371" y="472" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.11 PLC-01 vc-mch-plc01</text>
+<text x="46" y="492" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.51–.53 vc-mch-hmc01…03-cnc</text>
+<text x="371" y="492" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.100 vc-mch-loadcc-hmi</text>
+<text x="46" y="512" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.150 vc-mch-loadcc-io1</text>
+<text x="371" y="512" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.151–.153 vc-mch-hmc0x-io1</text>
+<text x="46" y="532" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.180 vc-mch-loadcc-mrk1 marker</text>
+<text x="371" y="532" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.181 vc-mch-loadcc-cam1 reader</text>
+<rect x="700" y="430" width="670" height="110" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="710" y="450" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VLAN 52  OT-L1-MCH-L1L3  cylinder + crankshaft</text>
+<text x="716" y="472" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.12 PLC-02 vc-mch-plc02</text>
+<text x="1041" y="472" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.13 PLC-03 vc-mch-plc03</text>
+<text x="716" y="492" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.51 vc-mch-vmc01-cnc</text>
+<text x="1041" y="492" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.52 vc-mch-hone01-cnc</text>
+<text x="716" y="512" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.53 vc-mch-lathe01-cnc</text>
+<text x="1041" y="512" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.54 vc-mch-grind01-cnc</text>
+<rect x="30" y="548" width="670" height="110" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="40" y="568" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VLAN 53  OT-L1-ASM-TST  assembly, test, paint, final</text>
+<text x="46" y="590" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.14 PLC-04 vc-asm-plc04</text>
+<text x="371" y="590" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.15 PLC-05 vc-fin-plc05</text>
+<text x="46" y="610" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.55 vc-asm-robot01-rc</text>
+<text x="371" y="610" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.101/.102 vc-tst-test0x-hmi</text>
+<text x="46" y="630" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.180 vc-fin-pack01-prt1 printer</text>
+<text x="371" y="630" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.181 vc-fin-final01-cam1</text>
+<rect x="700" y="548" width="670" height="110" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="710" y="568" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VLAN 54  OT-L1-LOG-ASRS  stacker cranes</text>
+<text x="716" y="590" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.31 PLC-ASRS-RAW vc-log-plcasrsraw</text>
+<text x="1041" y="590" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.32 PLC-ASRS-FG vc-log-plcasrsfg</text>
+<text x="716" y="610" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.150/.151 vc-log-asrsraw-rfid1/2</text>
+<rect x="30" y="666" width="670" height="110" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="40" y="686" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VLAN 60  OT-L1-AGV-WIFI  AGVs (own SSID)</text>
+<text x="46" y="708" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.51 AGV-01 vc-log-agv01</text>
+<text x="371" y="708" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.52 AGV-02 vc-log-agv02</text>
+<text x="46" y="728" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">.150/.151 vc-log-chg01/02</text>
+<rect x="700" y="666" width="670" height="110" rx="0" fill="#fafafa" stroke="#000" stroke-width="1.3"/>
+<text x="710" y="686" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Same object, same text in every system</text>
+<text x="716" y="708" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">equipment ID  HMC-01      tag part  HMC01</text>
+<text x="716" y="726" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">host  vc-mch-hmc01-cnc   IP 10.51.0.51</text>
+<text x="716" y="744" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">OPC UA ApplicationUri  urn:vc:plant1:MCH:L2:HMC01</text>
+<text x="716" y="762" font-size="12" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">ISA-95 path  VC/PLANT1/MCH/L2/HMC-01</text>
+<text x="30" y="798" font-size="14" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Host ranges inside every /24 (guide 15 §3.13)</text>
+<rect x="30" y="810" width="5.275590551181103" height="40" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<rect x="35.275590551181104" y="810" width="42.20472440944882" height="40" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="56.37795275590551" y="828" font-size="11" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">.2–.9</text>
+<rect x="77.48031496062993" y="810" width="211.02362204724412" height="40" rx="0" fill="#fbe9e9" stroke="#000" stroke-width="1.3"/>
+<text x="182.99212598425197" y="828" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">.10–.49</text>
+<text x="182.99212598425197" y="844" font-size="11" text-anchor="middle" fill="#000" xml:space="preserve">PLC</text>
+<rect x="288.503937007874" y="810" width="263.7795275590551" height="40" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="420.3937007874016" y="828" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">.50–.99</text>
+<text x="420.3937007874016" y="844" font-size="11" text-anchor="middle" fill="#000" xml:space="preserve">CNC, robot, drive, AGV</text>
+<rect x="552.2834645669291" y="810" width="263.7795275590551" height="40" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="684.1732283464567" y="828" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">.100–.149</text>
+<text x="684.1732283464567" y="844" font-size="11" text-anchor="middle" fill="#000" xml:space="preserve">HMI, IPC, server</text>
+<rect x="816.0629921259842" y="810" width="263.7795275590551" height="40" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="947.9527559055118" y="828" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">.150–.199</text>
+<text x="947.9527559055118" y="844" font-size="11" text-anchor="middle" fill="#000" xml:space="preserve">I/O, camera, printer, reader, meter</text>
+<rect x="1079.8425196850394" y="810" width="211.02362204724412" height="40" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="1185.3543307086616" y="828" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">.200–.239</text>
+<text x="1185.3543307086616" y="844" font-size="11" text-anchor="middle" fill="#000" xml:space="preserve">reserve</text>
+<rect x="1290.8661417322835" y="810" width="79.13385826771655" height="40" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="1330.4330708661419" y="828" font-size="12" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">.240–.254</text>
+<text x="1330.4330708661419" y="844" font-size="11" text-anchor="middle" fill="#000" xml:space="preserve">service laptops</text>
+<text x="30" y="874" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Host name rule: vc-&lt;area&gt;-&lt;equipment ID lower case, no hyphen&gt;[-&lt;function&gt;&lt;n&gt;]; servers vc-&lt;zone&gt;-&lt;role&gt;&lt;nn&gt;. Windows hosts ≤ 15 characters (NetBIOS).</text>
+<text x="30" y="894" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">DNS zone e.g. plant1.ot.&lt;company domain&gt; (not .local). PROFINET device name = host name text. No DHCP in OT cells.</text>
+<rect x="840" y="976" width="540" height="92" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="840" y1="1002" x2="1380" y2="1002" stroke="#000" stroke-width="1"/>
+<line x1="840" y1="1026" x2="1380" y2="1026" stroke="#000" stroke-width="1"/>
+<line x1="840" y1="1047" x2="1380" y2="1047" stroke="#000" stroke-width="1"/>
+<line x1="1180" y1="1026" x2="1180" y2="1068" stroke="#000" stroke-width="1"/>
+<text x="848" y="994" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">EXAMPLE – check the current standard</text>
+<text x="848" y="1019" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">IP plan and host names</text>
+<text x="848" y="1041" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">VLANs, subnets, host ranges</text>
+<text x="1188" y="1041" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Dwg VC-ITS-NET-0001-A</text>
+<text x="848" y="1062" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Guide 15 – numbering and identification · digital twin</text>
+<text x="1188" y="1062" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">no scale · 2026-11-12</text>
+</svg>

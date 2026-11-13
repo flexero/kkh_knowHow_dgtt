@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="aK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker></defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">ATP and CTP – promise dates with the thread-grinder bottleneck</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<text x="40" y="90" font-size="15" text-anchor="start" font-weight="700" fill="#000">1  ATP (available to promise) = free stock + MPS output − commitments, cumulative with look-ahead</text>
+<rect x="80" y="249.6" width="60" height="50.400000000000006" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="110" y="316" font-size="12" text-anchor="middle" fill="#000">day 0</text>
+<text x="110" y="243.6" font-size="12" text-anchor="middle" fill="#000">420</text>
+<rect x="180" y="235.2" width="60" height="64.8" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="210" y="316" font-size="12" text-anchor="middle" fill="#000">day 1</text>
+<text x="210" y="229.2" font-size="12" text-anchor="middle" fill="#000">540</text>
+<rect x="280" y="220.8" width="60" height="79.2" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="310" y="316" font-size="12" text-anchor="middle" fill="#000">day 2</text>
+<text x="310" y="214.8" font-size="12" text-anchor="middle" fill="#000">660</text>
+<rect x="380" y="206.39999999999998" width="60" height="93.60000000000001" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="410" y="316" font-size="12" text-anchor="middle" fill="#000">day 3</text>
+<text x="410" y="200.39999999999998" font-size="12" text-anchor="middle" fill="#000">780</text>
+<rect x="480" y="192.0" width="60" height="108.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="510" y="316" font-size="12" text-anchor="middle" fill="#000">day 4</text>
+<text x="510" y="186.0" font-size="12" text-anchor="middle" fill="#000">900</text>
+<rect x="580" y="177.6" width="60" height="122.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="610" y="316" font-size="12" text-anchor="middle" fill="#000">day 5</text>
+<text x="610" y="171.6" font-size="12" text-anchor="middle" fill="#000">1020</text>
+<rect x="680" y="168.0" width="60" height="132.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="710" y="316" font-size="12" text-anchor="middle" fill="#000">day 6</text>
+<text x="710" y="162.0" font-size="12" text-anchor="middle" fill="#000">1100</text>
+<rect x="780" y="153.6" width="60" height="146.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="810" y="316" font-size="12" text-anchor="middle" fill="#000">day 7</text>
+<text x="810" y="147.6" font-size="12" text-anchor="middle" fill="#000">1220</text>
+<rect x="880" y="139.20000000000002" width="60" height="160.79999999999998" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="910" y="316" font-size="12" text-anchor="middle" fill="#000">day 8</text>
+<text x="910" y="133.20000000000002" font-size="12" text-anchor="middle" fill="#000">1340</text>
+<rect x="980" y="124.79999999999998" width="60" height="175.20000000000002" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="1010" y="316" font-size="12" text-anchor="middle" fill="#000">day 9</text>
+<text x="1010" y="118.79999999999998" font-size="12" text-anchor="middle" fill="#000">1460</text>
+<text x="90" y="140" font-size="13" text-anchor="start" fill="#000">stock 420 + 120 / day (MPS)</text>
+<text x="90" y="158" font-size="13" text-anchor="start" fill="#000">− confirmed orders (example)</text>
+<text x="40" y="360" font-size="15" text-anchor="start" font-weight="700" fill="#000">2  CTP (capable to promise) – free minutes of the drum: 8 thread grinders × 900 min × OEE 0.75 = 5400 min/day</text>
+<rect x="80" y="390" width="900" height="50" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="80" y="390" width="876.5485634602794" height="50" fill="#ddd" stroke="#000" stroke-width="1"/>
+<rect x="956.5485634602794" y="390" width="23.45143653972059" height="50" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1"/>
+<text x="518.2742817301397" y="420" font-size="13" text-anchor="middle" fill="#000">MPS load 5259 min/day (128 shafts × 43.11 min)</text>
+<text x="1000" y="420" font-size="13" text-anchor="start" font-weight="700" fill="#1f6fd1">free ≈ 141 min/day</text>
+<rect x="40" y="470" width="540" height="260" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="48.0" y="538.8" font-size="15" text-anchor="start" font-weight="700" fill="#000">CTP steps (code: ctpCase)</text>
+<text x="48.0" y="557.8" font-size="15" text-anchor="start" fill="#000">rem = qty − ATP now</text>
+<text x="48.0" y="576.8" font-size="15" text-anchor="start" fill="#000">minutes = rem × min per piece</text>
+<text x="48.0" y="595.8" font-size="15" text-anchor="start" fill="#000">min per piece = t / yield after op 100 = 42.25 / 0.9801 = 43.11</text>
+<text x="48.0" y="614.8" font-size="15" text-anchor="start" fill="#000">start after the upstream days (soft + HT = 3,</text>
+<text x="48.0" y="633.8" font-size="15" text-anchor="start" fill="#000">or the raw-material lead time if the bar is short)</text>
+<text x="48.0" y="652.8" font-size="15" text-anchor="start" fill="#000">fill the free minutes day by day → done day</text>
+<text x="48.0" y="671.8" font-size="15" text-anchor="start" fill="#000">promise = done day + 2 days (QC, assembly) + 1 shipping</text>
+<rect x="620" y="470" width="550" height="260" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="628.0" y="538.8" font-size="15" text-anchor="start" font-weight="700" fill="#1f6fd1">Hand case (self-check &amp;bf7test)</text>
+<text x="628.0" y="557.8" font-size="15" text-anchor="start" fill="#000">q = 100, ATP now 30 → rem 70</text>
+<text x="628.0" y="576.8" font-size="15" text-anchor="start" fill="#000">70 × 45 min = 3 150 min</text>
+<text x="628.0" y="595.8" font-size="15" text-anchor="start" fill="#000">free 1 200 min/day from day 3</text>
+<text x="628.0" y="614.8" font-size="15" text-anchor="start" fill="#000">day 3: 1 200 · day 4: 2 400 · day 5: 3 600 ≥ 3 150</text>
+<text x="628.0" y="633.8" font-size="15" text-anchor="start" fill="#000">done day 5 → promise = 5 + 2 + 1 = day 8</text>
+<text x="628.0" y="652.8" font-size="15" text-anchor="start" fill="#000">booked CTP minutes reduce the free capacity</text>
+<text x="628.0" y="671.8" font-size="15" text-anchor="start" fill="#000">for the next order (finite loading)</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/><line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your ERP team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 7 ERP · guide 46 · 46_atp_ctp.svg</text></svg>

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs>
+<marker id="arrK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker>
+<marker id="arrKs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#000"/></marker>
+<marker id="arrAs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="1.4"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">MES data model – entities, keys and relations (same in browser + server)</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<rect x="40" y="80" width="240" height="68" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<rect x="40" y="80" width="240" height="22" fill="#000"/>
+<text x="48" y="96" font-size="13" text-anchor="start" font-weight="700" fill="#fff">ProductionOrder (ERP)</text>
+<text x="48" y="120" font-size="12" text-anchor="start" fill="#000">erpOrder</text>
+<text x="48" y="138" font-size="12" text-anchor="start" fill="#000">product, qty, due</text>
+<rect x="300" y="80" width="240" height="104" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<rect x="300" y="80" width="240" height="22" fill="#1f6fd1"/>
+<text x="308" y="96" font-size="13" text-anchor="start" font-weight="700" fill="#fff">WorkOrder</text>
+<text x="308" y="120" font-size="12" text-anchor="start" fill="#000">id WO-00001</text>
+<text x="308" y="138" font-size="12" text-anchor="start" fill="#000">erpOrder, product, route</text>
+<text x="308" y="156" font-size="12" text-anchor="start" fill="#000">qty, due, priority, status</text>
+<text x="308" y="174" font-size="12" text-anchor="start" fill="#000">routingVersion, lines[]</text>
+<rect x="600" y="80" width="240" height="104" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<rect x="600" y="80" width="240" height="22" fill="#1f6fd1"/>
+<text x="608" y="96" font-size="13" text-anchor="start" font-weight="700" fill="#fff">Lot</text>
+<text x="608" y="120" font-size="12" text-anchor="start" fill="#000">id WO-00001-BS-01</text>
+<text x="608" y="138" font-size="12" text-anchor="start" fill="#000">wo, route, code, family</text>
+<text x="608" y="156" font-size="12" text-anchor="start" fill="#000">qty / qty0, status, i, hold</text>
+<text x="608" y="174" font-size="12" text-anchor="start" fill="#000">heat, serials[]</text>
+<rect x="900" y="80" width="240" height="104" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<rect x="900" y="80" width="240" height="22" fill="#000"/>
+<text x="908" y="96" font-size="13" text-anchor="start" font-weight="700" fill="#fff">Operation (of a lot)</text>
+<text x="908" y="120" font-size="12" text-anchor="start" fill="#000">lot + op no.</text>
+<text x="908" y="138" font-size="12" text-anchor="start" fill="#000">machine type, set-up, cycle</text>
+<text x="908" y="156" font-size="12" text-anchor="start" fill="#000">status, machine, good, scrap</text>
+<text x="908" y="174" font-size="12" text-anchor="start" fill="#000">tStart, tEnd, plan</text>
+<rect x="900" y="300" width="240" height="104" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<rect x="900" y="300" width="240" height="22" fill="#000"/>
+<text x="908" y="316" font-size="13" text-anchor="start" font-weight="700" fill="#fff">Confirmation</text>
+<text x="908" y="340" font-size="12" text-anchor="start" fill="#000">id CF-00001</text>
+<text x="908" y="358" font-size="12" text-anchor="start" fill="#000">lot, op, machine</text>
+<text x="908" y="376" font-size="12" text-anchor="start" fill="#000">good, scrap, setupMin, runMin</text>
+<text x="908" y="394" font-size="12" text-anchor="start" fill="#000">source, Idempotency-Key</text>
+<rect x="600" y="330" width="240" height="104" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<rect x="600" y="330" width="240" height="22" fill="#1f6fd1"/>
+<text x="608" y="346" font-size="13" text-anchor="start" font-weight="700" fill="#fff">Serial</text>
+<text x="608" y="370" font-size="12" text-anchor="start" fill="#000">BS3210-261113-0042</text>
+<text x="608" y="388" font-size="12" text-anchor="start" fill="#000">code, kind, lot, heat</text>
+<text x="608" y="406" font-size="12" text-anchor="start" fill="#000">parent, children[]</text>
+<text x="608" y="424" font-size="12" text-anchor="start" fill="#000">grade, status, label</text>
+<rect x="300" y="330" width="240" height="104" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<rect x="300" y="330" width="240" height="22" fill="#000"/>
+<text x="308" y="346" font-size="13" text-anchor="start" font-weight="700" fill="#fff">Heat lot (material)</text>
+<text x="308" y="370" font-size="12" text-anchor="start" fill="#000">H7741</text>
+<text x="308" y="388" font-size="12" text-anchor="start" fill="#000">material, mill</text>
+<text x="308" y="406" font-size="12" text-anchor="start" fill="#000">EN 10204 3.1 certificate</text>
+<text x="308" y="424" font-size="12" text-anchor="start" fill="#000">qty, used</text>
+<rect x="40" y="330" width="240" height="104" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<rect x="40" y="330" width="240" height="22" fill="#000"/>
+<text x="48" y="346" font-size="13" text-anchor="start" font-weight="700" fill="#fff">Furnace load</text>
+<text x="48" y="370" font-size="12" text-anchor="start" fill="#000">HT-00001</text>
+<text x="48" y="388" font-size="12" text-anchor="start" fill="#000">furnace, machine</text>
+<text x="48" y="406" font-size="12" text-anchor="start" fill="#000">lots[], qty / capacity</text>
+<text x="48" y="424" font-size="12" text-anchor="start" fill="#000">program, start, end</text>
+<rect x="900" y="520" width="240" height="104" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<rect x="900" y="520" width="240" height="22" fill="#000"/>
+<text x="908" y="536" font-size="13" text-anchor="start" font-weight="700" fill="#fff">Machine (MES view)</text>
+<text x="908" y="560" font-size="12" text-anchor="start" fill="#000">BS-TGR-03</text>
+<text x="908" y="578" font-size="12" text-anchor="start" fill="#000">type, state, lot</text>
+<text x="908" y="596" font-size="12" text-anchor="start" fill="#000">download, spcStop</text>
+<text x="908" y="614" font-size="12" text-anchor="start" fill="#000">open downtime</text>
+<rect x="600" y="560" width="240" height="104" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<rect x="600" y="560" width="240" height="22" fill="#000"/>
+<text x="608" y="576" font-size="13" text-anchor="start" font-weight="700" fill="#fff">Downtime</text>
+<text x="608" y="600" font-size="12" text-anchor="start" fill="#000">DT-00001</text>
+<text x="608" y="618" font-size="12" text-anchor="start" fill="#000">machine, start, end</text>
+<text x="608" y="636" font-size="12" text-anchor="start" fill="#000">reason code, source</text>
+<text x="608" y="654" font-size="12" text-anchor="start" fill="#000">comment, by</text>
+<rect x="300" y="560" width="240" height="86" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<rect x="300" y="560" width="240" height="22" fill="#000"/>
+<text x="308" y="576" font-size="13" text-anchor="start" font-weight="700" fill="#fff">Measurement record (item 5)</text>
+<text x="308" y="600" font-size="12" text-anchor="start" fill="#000">QR-00001</text>
+<text x="308" y="618" font-size="12" text-anchor="start" fill="#000">serial, char, value</text>
+<text x="308" y="636" font-size="12" text-anchor="start" fill="#000">decision, gauge, op</text>
+<rect x="40" y="560" width="240" height="86" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<rect x="40" y="560" width="240" height="22" fill="#000"/>
+<text x="48" y="576" font-size="13" text-anchor="start" font-weight="700" fill="#fff">Transport request</text>
+<text x="48" y="600" font-size="12" text-anchor="start" fill="#000">TR-00001</text>
+<text x="48" y="618" font-size="12" text-anchor="start" fill="#000">lot, from, to</text>
+<text x="48" y="636" font-size="12" text-anchor="start" fill="#000">AGV order id, state</text>
+<line x1="280" y1="110" x2="300" y2="110" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="294.0" y="105.0" font-size="11" text-anchor="start" fill="#000">1 : n</text>
+<line x1="540" y1="110" x2="600" y2="110" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="574.0" y="105.0" font-size="11" text-anchor="start" fill="#000">1 : n</text>
+<line x1="840" y1="110" x2="900" y2="110" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="874.0" y="105.0" font-size="11" text-anchor="start" fill="#000">1 : n</text>
+<line x1="1020" y1="190" x2="1020" y2="300" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="1024.0" y="240.0" font-size="11" text-anchor="start" fill="#000">1 : n</text>
+<line x1="720" y1="190" x2="720" y2="330" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="724.0" y="255.0" font-size="11" text-anchor="start" fill="#000">1 : n (marked at op 30 / 20)</text>
+<line x1="540" y1="380" x2="600" y2="380" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="430" y="320" font-size="11" text-anchor="start" fill="#000">1 : n (heat → lots → serials)</text>
+<line x1="160" y1="330" x2="160" y2="300" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="60" y="296" font-size="11" text-anchor="start" fill="#000">n : m lots per load</text>
+<path d="M 840 400 C 900 400 900 470 840 470" fill="none" stroke="#1f6fd1" stroke-width="2" marker-end="url(#arrA)"/>
+<text x="850" y="492" font-size="11" text-anchor="start" fill="#1f6fd1">parent ↔ children (assembly genealogy)</text>
+<line x1="1020" y1="520" x2="1020" y2="410" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="1024.0" y="460.0" font-size="11" text-anchor="start" fill="#000">n : 1</text>
+<line x1="900" y1="600" x2="840" y2="600" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="874.0" y="595.0" font-size="11" text-anchor="start" fill="#000">1 : n</text>
+<line x1="540" y1="600" x2="600" y2="450" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrK)"/>
+<text x="420" y="540" font-size="11" text-anchor="start" fill="#000">n : 1 serial</text>
+<line x1="280" y1="600" x2="160" y2="600" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="40" y="720" font-size="12" text-anchor="start" fill="#000">Keys are strings (readable on labels + terminals). Times = seconds of one clock + ISO 8601 text in JSON.</text>
+<text x="40" y="736" font-size="12" text-anchor="start" fill="#000">Every change is written to the audit journal (who, what, when) – SQLite table journal.</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your MES team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 6 MES · guide 45 · 45_mes_data_model.svg</text>
+</svg>

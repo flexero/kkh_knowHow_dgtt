@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" font-family="Arial, Helvetica, sans-serif">
+<title>GS1 mod-10 check digit worked example</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="900" fill="#ffffff"/>
+<text x="24" y="34" font-size="17" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Check digit worked examples – GS1 mod 10 (GTIN-13), Luhn (serial) and weighted mod 11</text>
+<text x="24" y="56" font-size="12" text-anchor="start" fill="#555" xml:space="preserve">A check digit finds most reading and typing errors. All results verified with Python (stdlib).</text>
+<text x="40" y="100" font-size="15" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">1  GS1 mod 10 – GTIN-13 of VC20-300 (demo company prefix 9521234, item reference 56789)</text>
+<text x="40" y="152" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">position (from left)</text>
+<text x="40" y="188" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">digit</text>
+<text x="40" y="224" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">weight (3,1,3 … from right)</text>
+<text x="40" y="260" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">digit × weight</text>
+<rect x="260" y="128" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="297.0" y="152" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">1</text>
+<rect x="260" y="164" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="297.0" y="188" font-size="16" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">9</text>
+<rect x="260" y="200" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="297.0" y="224" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">1</text>
+<rect x="260" y="236" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="297.0" y="260" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">9</text>
+<rect x="334" y="128" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="371.0" y="152" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">2</text>
+<rect x="334" y="164" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="371.0" y="188" font-size="16" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">5</text>
+<rect x="334" y="200" width="74" height="36" rx="0" fill="#fbe9e9" stroke="#000" stroke-width="1.3"/>
+<text x="371.0" y="224" font-size="14" text-anchor="middle" fill="#c62828" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">3</text>
+<rect x="334" y="236" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="371.0" y="260" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">15</text>
+<rect x="408" y="128" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="445.0" y="152" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">3</text>
+<rect x="408" y="164" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="445.0" y="188" font-size="16" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">2</text>
+<rect x="408" y="200" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="445.0" y="224" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">1</text>
+<rect x="408" y="236" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="445.0" y="260" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">2</text>
+<rect x="482" y="128" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="519.0" y="152" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">4</text>
+<rect x="482" y="164" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="519.0" y="188" font-size="16" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">1</text>
+<rect x="482" y="200" width="74" height="36" rx="0" fill="#fbe9e9" stroke="#000" stroke-width="1.3"/>
+<text x="519.0" y="224" font-size="14" text-anchor="middle" fill="#c62828" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">3</text>
+<rect x="482" y="236" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="519.0" y="260" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">3</text>
+<rect x="556" y="128" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="593.0" y="152" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">5</text>
+<rect x="556" y="164" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="593.0" y="188" font-size="16" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">2</text>
+<rect x="556" y="200" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="593.0" y="224" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">1</text>
+<rect x="556" y="236" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="593.0" y="260" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">2</text>
+<rect x="630" y="128" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="667.0" y="152" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">6</text>
+<rect x="630" y="164" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="667.0" y="188" font-size="16" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">3</text>
+<rect x="630" y="200" width="74" height="36" rx="0" fill="#fbe9e9" stroke="#000" stroke-width="1.3"/>
+<text x="667.0" y="224" font-size="14" text-anchor="middle" fill="#c62828" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">3</text>
+<rect x="630" y="236" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="667.0" y="260" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">9</text>
+<rect x="704" y="128" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="741.0" y="152" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">7</text>
+<rect x="704" y="164" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="741.0" y="188" font-size="16" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">4</text>
+<rect x="704" y="200" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="741.0" y="224" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">1</text>
+<rect x="704" y="236" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="741.0" y="260" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">4</text>
+<rect x="778" y="128" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="815.0" y="152" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">8</text>
+<rect x="778" y="164" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="815.0" y="188" font-size="16" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">5</text>
+<rect x="778" y="200" width="74" height="36" rx="0" fill="#fbe9e9" stroke="#000" stroke-width="1.3"/>
+<text x="815.0" y="224" font-size="14" text-anchor="middle" fill="#c62828" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">3</text>
+<rect x="778" y="236" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="815.0" y="260" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">15</text>
+<rect x="852" y="128" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="889.0" y="152" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">9</text>
+<rect x="852" y="164" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="889.0" y="188" font-size="16" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">6</text>
+<rect x="852" y="200" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="889.0" y="224" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">1</text>
+<rect x="852" y="236" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="889.0" y="260" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">6</text>
+<rect x="926" y="128" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="963.0" y="152" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">10</text>
+<rect x="926" y="164" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="963.0" y="188" font-size="16" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">7</text>
+<rect x="926" y="200" width="74" height="36" rx="0" fill="#fbe9e9" stroke="#000" stroke-width="1.3"/>
+<text x="963.0" y="224" font-size="14" text-anchor="middle" fill="#c62828" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">3</text>
+<rect x="926" y="236" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="963.0" y="260" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">21</text>
+<rect x="1000" y="128" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1037.0" y="152" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">11</text>
+<rect x="1000" y="164" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1037.0" y="188" font-size="16" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">8</text>
+<rect x="1000" y="200" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1037.0" y="224" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">1</text>
+<rect x="1000" y="236" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1037.0" y="260" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">8</text>
+<rect x="1074" y="128" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1111.0" y="152" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">12</text>
+<rect x="1074" y="164" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1111.0" y="188" font-size="16" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">9</text>
+<rect x="1074" y="200" width="74" height="36" rx="0" fill="#fbe9e9" stroke="#000" stroke-width="1.3"/>
+<text x="1111.0" y="224" font-size="14" text-anchor="middle" fill="#c62828" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">3</text>
+<rect x="1074" y="236" width="74" height="36" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1111.0" y="260" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">27</text>
+<rect x="1148" y="128" width="74" height="144" rx="0" fill="#fff" stroke="#c62828" stroke-width="2"/>
+<text x="1185.0" y="152" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">13</text>
+<text x="1185.0" y="188" font-size="20" text-anchor="middle" fill="#c62828" font-weight="bold" xml:space="preserve">?</text>
+<text x="1185.0" y="224" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">check</text>
+<text x="40" y="310" font-size="15" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">sum = 9 + 15 + 2 + 3 + 2 + 9 + 4 + 15 + 6 + 21 + 8 + 27 = 121</text>
+<text x="40" y="336" font-size="15" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">check = (10 − (121 mod 10)) mod 10 = (10 − 1) mod 10 = 9</text>
+<text x="40" y="366" font-size="15" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">GTIN-13 = 9521234567899    as GTIN-14 in AI (01): 09521234567899 (leading 0 does not change the sum)</text>
+<text x="40" y="392" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Same method for GTIN-8/12/14, SSCC (17 + 1 digits) and GLN.  VC10-100 → 9521234567882 · VC30-500 → 9521234567905 · SSCC → 095212345000012349</text>
+<text x="40" y="450" font-size="15" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">2  Luhn (mod 10, ISO/IEC 7812-1) – serial VC20-2546-00123 → digits 2546 00123</text>
+<text x="40" y="490" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">digit</text>
+<text x="40" y="524" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">double? (from right)</text>
+<text x="40" y="558" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">value (−9 if &gt; 9)</text>
+<rect x="260" y="466" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="295" y="489" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">2</text>
+<rect x="260" y="500" width="70" height="34" rx="0" fill="#fbe9e9" stroke="#000" stroke-width="1.3"/>
+<text x="295" y="523" font-size="14" text-anchor="middle" fill="#c62828" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">×2</text>
+<rect x="260" y="534" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="295" y="557" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">4</text>
+<rect x="330" y="466" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="365" y="489" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">5</text>
+<rect x="330" y="500" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="365" y="523" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">–</text>
+<rect x="330" y="534" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="365" y="557" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">5</text>
+<rect x="400" y="466" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="435" y="489" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">4</text>
+<rect x="400" y="500" width="70" height="34" rx="0" fill="#fbe9e9" stroke="#000" stroke-width="1.3"/>
+<text x="435" y="523" font-size="14" text-anchor="middle" fill="#c62828" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">×2</text>
+<rect x="400" y="534" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="435" y="557" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">8</text>
+<rect x="470" y="466" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="505" y="489" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">6</text>
+<rect x="470" y="500" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="505" y="523" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">–</text>
+<rect x="470" y="534" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="505" y="557" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">6</text>
+<rect x="540" y="466" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="575" y="489" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">0</text>
+<rect x="540" y="500" width="70" height="34" rx="0" fill="#fbe9e9" stroke="#000" stroke-width="1.3"/>
+<text x="575" y="523" font-size="14" text-anchor="middle" fill="#c62828" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">×2</text>
+<rect x="540" y="534" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="575" y="557" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">0</text>
+<rect x="610" y="466" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="645" y="489" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">0</text>
+<rect x="610" y="500" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="645" y="523" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">–</text>
+<rect x="610" y="534" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="645" y="557" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">0</text>
+<rect x="680" y="466" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="715" y="489" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">1</text>
+<rect x="680" y="500" width="70" height="34" rx="0" fill="#fbe9e9" stroke="#000" stroke-width="1.3"/>
+<text x="715" y="523" font-size="14" text-anchor="middle" fill="#c62828" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">×2</text>
+<rect x="680" y="534" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="715" y="557" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">2</text>
+<rect x="750" y="466" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="785" y="489" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">2</text>
+<rect x="750" y="500" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="785" y="523" font-size="14" text-anchor="middle" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">–</text>
+<rect x="750" y="534" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="785" y="557" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">2</text>
+<rect x="820" y="466" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="855" y="489" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">3</text>
+<rect x="820" y="500" width="70" height="34" rx="0" fill="#fbe9e9" stroke="#000" stroke-width="1.3"/>
+<text x="855" y="523" font-size="14" text-anchor="middle" fill="#c62828" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">×2</text>
+<rect x="820" y="534" width="70" height="34" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="855" y="557" font-size="14" text-anchor="middle" fill="#000" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">6</text>
+<text x="940" y="490" font-size="15" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">sum = 33</text>
+<text x="940" y="516" font-size="15" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">check = (10 − 3) mod 10 = 7</text>
+<text x="940" y="546" font-size="18" text-anchor="start" fill="#c62828" font-weight="bold" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">VC20-2546-00123-7</text>
+<text x="40" y="600" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Read check: Luhn sum over all 10 digits (check digit not doubled) must end in 0. Finds every single-digit error and ~98 % of neighbour swaps (not 09 / 90).</text>
+<text x="40" y="650" font-size="15" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">3  Weighted mod 11 (ISBN-10 style) – weights 2, 3, 4 … from the right</text>
+<text x="40" y="680" font-size="14" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">Example 0-306-40615-?:  sum = 130 → 130 mod 11 = 9 → check = 11 − 9 = 2 → 0-306-40615-2</text>
+<text x="40" y="706" font-size="14" text-anchor="start" fill="#000" font-family="Consolas, 'Courier New', monospace" xml:space="preserve">Serial digits 254600123: sum = 155 → 155 mod 11 = 1 → check = 10 → &#x27;X&#x27; (needs a letter – avoid for serials)</text>
+<text x="40" y="736" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Detection of neighbour swaps (Python test, 20 000 random 9-digit numbers): GS1 mod 10 ≈ 89 % · Luhn ≈ 98 % · mod 11 = 100 %</text>
+<text x="40" y="756" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Project decision: GS1 mod 10 for all GS1 keys (mandatory); Luhn for the optional serial check digit (digits only, never &#x27;X&#x27;).</text>
+<rect x="840" y="796" width="540" height="92" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="840" y1="822" x2="1380" y2="822" stroke="#000" stroke-width="1"/>
+<line x1="840" y1="846" x2="1380" y2="846" stroke="#000" stroke-width="1"/>
+<line x1="840" y1="867" x2="1380" y2="867" stroke="#000" stroke-width="1"/>
+<line x1="1180" y1="846" x2="1180" y2="888" stroke="#000" stroke-width="1"/>
+<text x="848" y="814" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">EXAMPLE – check the current standard</text>
+<text x="848" y="839" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Check digit examples</text>
+<text x="848" y="861" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">GS1 mod 10, Luhn, mod 11</text>
+<text x="1188" y="861" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Dwg VC-QA-SPEC-0001-A</text>
+<text x="848" y="882" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Guide 15 – numbering and identification · digital twin</text>
+<text x="1188" y="882" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">no scale · 2026-11-12</text>
+</svg>

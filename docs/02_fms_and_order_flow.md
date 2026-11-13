@@ -1062,7 +1062,7 @@ store), input `alt` (`{"VC10": "RAW_TANK100", ...}` = model-specific input buffe
 
 | Field | Example |
 |---|---|
-| Card id | `KB-CYL-VC20-03` (proposal) |
+| Card id | `KB-CYL-VC20-03` (guide 15 §8a) |
 | Part / model | cylinder, VC20 |
 | Quantity per card (container) | 6 cylinders |
 | Supplier process → customer process | VMC-01/HONE-01 → ASSY-01 |
@@ -1190,10 +1190,10 @@ Format of orders: `<prefix>-<YYWW>-<4 digits>`, the sequence restarts at `0001` 
 | Fixture on the pallet | – | `FIX-<4 digits>` | `FIX-0003` |
 | Crate (cylinders, crankshafts in containers) | – | `CRT-<6 digits>` | `CRT-000123` |
 | Supermarket lane (floor / supermarket location) | `B_CYL` with `per_variant` | `FLR-<area>-R<rr>-P<pp>` | `FLR-ASM-R01-P02` (cylinder rack, VC20 lane) |
-| Kanban card | – | `KB-<part>-<model>-<nn>` (proposal of this guide – not in guide 15) | `KB-CYL-VC20-03` |
+| Kanban card | – | `KB-<item>-<model>-<2 digits>` (guide 15 §8a, D-11) | `KB-CYL-VC20-03` |
 | NC program | `OHMC01_VC20.nc` (twin example) | O-number `O<p><k><oo>` + file `<part no.>_<OP>_<machine type>_<rev>.nc` | `O2102`, `VC-PRD-CC-0020_OP20_HMC_C.nc` |
 | Tool / sister tool | – | `T<f><nnn>` / `T<f><nnn>-<nn>` | `T1203`, `T1203-01` |
-| Tool set of one model on one HMC | `initial: ["VC10","VC20"]` | list of tool numbers per O-program; set name `TS-<model>-<machine>` (proposal) | `TS-VC20-HMC01` |
+| Tool set of one model on one HMC | `initial: ["VC10","VC20"]` | list of tool numbers per O-program; set name `TS-<machine>-<model>` (guide 15 §8a, D-12) | `TS-HMC01-VC20` |
 
 YYWW = ISO year (2 digits) + ISO week (2 digits), Python `date.isocalendar()` (guide 15, 3.15).
 

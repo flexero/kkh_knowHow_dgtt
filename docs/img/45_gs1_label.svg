@@ -1,0 +1,226 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs>
+<marker id="arrK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker>
+<marker id="arrKs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#000"/></marker>
+<marker id="arrAs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="1.4"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">Label with GS1 Data Matrix – what the MES sends, what the printer prints</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<rect x="60" y="90" width="560" height="260" rx="10" fill="#fff" stroke="#000" stroke-width="2"/>
+<rect x="90" y="130" width="9" height="9" fill="#000"/>
+<rect x="108" y="130" width="9" height="9" fill="#000"/>
+<rect x="126" y="130" width="9" height="9" fill="#000"/>
+<rect x="144" y="130" width="9" height="9" fill="#000"/>
+<rect x="162" y="130" width="9" height="9" fill="#000"/>
+<rect x="180" y="130" width="9" height="9" fill="#000"/>
+<rect x="198" y="130" width="9" height="9" fill="#000"/>
+<rect x="216" y="130" width="9" height="9" fill="#000"/>
+<rect x="234" y="130" width="9" height="9" fill="#000"/>
+<rect x="90" y="139" width="9" height="9" fill="#000"/>
+<rect x="99" y="139" width="9" height="9" fill="#000"/>
+<rect x="108" y="139" width="9" height="9" fill="#000"/>
+<rect x="126" y="139" width="9" height="9" fill="#000"/>
+<rect x="144" y="139" width="9" height="9" fill="#000"/>
+<rect x="153" y="139" width="9" height="9" fill="#000"/>
+<rect x="171" y="139" width="9" height="9" fill="#000"/>
+<rect x="180" y="139" width="9" height="9" fill="#000"/>
+<rect x="189" y="139" width="9" height="9" fill="#000"/>
+<rect x="198" y="139" width="9" height="9" fill="#000"/>
+<rect x="207" y="139" width="9" height="9" fill="#000"/>
+<rect x="225" y="139" width="9" height="9" fill="#000"/>
+<rect x="234" y="139" width="9" height="9" fill="#000"/>
+<rect x="243" y="139" width="9" height="9" fill="#000"/>
+<rect x="90" y="148" width="9" height="9" fill="#000"/>
+<rect x="126" y="148" width="9" height="9" fill="#000"/>
+<rect x="144" y="148" width="9" height="9" fill="#000"/>
+<rect x="162" y="148" width="9" height="9" fill="#000"/>
+<rect x="171" y="148" width="9" height="9" fill="#000"/>
+<rect x="180" y="148" width="9" height="9" fill="#000"/>
+<rect x="189" y="148" width="9" height="9" fill="#000"/>
+<rect x="207" y="148" width="9" height="9" fill="#000"/>
+<rect x="234" y="148" width="9" height="9" fill="#000"/>
+<rect x="90" y="157" width="9" height="9" fill="#000"/>
+<rect x="108" y="157" width="9" height="9" fill="#000"/>
+<rect x="117" y="157" width="9" height="9" fill="#000"/>
+<rect x="126" y="157" width="9" height="9" fill="#000"/>
+<rect x="144" y="157" width="9" height="9" fill="#000"/>
+<rect x="153" y="157" width="9" height="9" fill="#000"/>
+<rect x="171" y="157" width="9" height="9" fill="#000"/>
+<rect x="180" y="157" width="9" height="9" fill="#000"/>
+<rect x="207" y="157" width="9" height="9" fill="#000"/>
+<rect x="243" y="157" width="9" height="9" fill="#000"/>
+<rect x="90" y="166" width="9" height="9" fill="#000"/>
+<rect x="108" y="166" width="9" height="9" fill="#000"/>
+<rect x="126" y="166" width="9" height="9" fill="#000"/>
+<rect x="135" y="166" width="9" height="9" fill="#000"/>
+<rect x="153" y="166" width="9" height="9" fill="#000"/>
+<rect x="162" y="166" width="9" height="9" fill="#000"/>
+<rect x="171" y="166" width="9" height="9" fill="#000"/>
+<rect x="216" y="166" width="9" height="9" fill="#000"/>
+<rect x="90" y="175" width="9" height="9" fill="#000"/>
+<rect x="108" y="175" width="9" height="9" fill="#000"/>
+<rect x="135" y="175" width="9" height="9" fill="#000"/>
+<rect x="153" y="175" width="9" height="9" fill="#000"/>
+<rect x="198" y="175" width="9" height="9" fill="#000"/>
+<rect x="207" y="175" width="9" height="9" fill="#000"/>
+<rect x="225" y="175" width="9" height="9" fill="#000"/>
+<rect x="234" y="175" width="9" height="9" fill="#000"/>
+<rect x="243" y="175" width="9" height="9" fill="#000"/>
+<rect x="90" y="184" width="9" height="9" fill="#000"/>
+<rect x="99" y="184" width="9" height="9" fill="#000"/>
+<rect x="108" y="184" width="9" height="9" fill="#000"/>
+<rect x="117" y="184" width="9" height="9" fill="#000"/>
+<rect x="135" y="184" width="9" height="9" fill="#000"/>
+<rect x="144" y="184" width="9" height="9" fill="#000"/>
+<rect x="153" y="184" width="9" height="9" fill="#000"/>
+<rect x="171" y="184" width="9" height="9" fill="#000"/>
+<rect x="180" y="184" width="9" height="9" fill="#000"/>
+<rect x="225" y="184" width="9" height="9" fill="#000"/>
+<rect x="234" y="184" width="9" height="9" fill="#000"/>
+<rect x="90" y="193" width="9" height="9" fill="#000"/>
+<rect x="99" y="193" width="9" height="9" fill="#000"/>
+<rect x="126" y="193" width="9" height="9" fill="#000"/>
+<rect x="135" y="193" width="9" height="9" fill="#000"/>
+<rect x="144" y="193" width="9" height="9" fill="#000"/>
+<rect x="153" y="193" width="9" height="9" fill="#000"/>
+<rect x="162" y="193" width="9" height="9" fill="#000"/>
+<rect x="180" y="193" width="9" height="9" fill="#000"/>
+<rect x="189" y="193" width="9" height="9" fill="#000"/>
+<rect x="198" y="193" width="9" height="9" fill="#000"/>
+<rect x="207" y="193" width="9" height="9" fill="#000"/>
+<rect x="243" y="193" width="9" height="9" fill="#000"/>
+<rect x="90" y="202" width="9" height="9" fill="#000"/>
+<rect x="126" y="202" width="9" height="9" fill="#000"/>
+<rect x="171" y="202" width="9" height="9" fill="#000"/>
+<rect x="180" y="202" width="9" height="9" fill="#000"/>
+<rect x="189" y="202" width="9" height="9" fill="#000"/>
+<rect x="207" y="202" width="9" height="9" fill="#000"/>
+<rect x="216" y="202" width="9" height="9" fill="#000"/>
+<rect x="225" y="202" width="9" height="9" fill="#000"/>
+<rect x="234" y="202" width="9" height="9" fill="#000"/>
+<rect x="90" y="211" width="9" height="9" fill="#000"/>
+<rect x="99" y="211" width="9" height="9" fill="#000"/>
+<rect x="108" y="211" width="9" height="9" fill="#000"/>
+<rect x="117" y="211" width="9" height="9" fill="#000"/>
+<rect x="126" y="211" width="9" height="9" fill="#000"/>
+<rect x="135" y="211" width="9" height="9" fill="#000"/>
+<rect x="144" y="211" width="9" height="9" fill="#000"/>
+<rect x="153" y="211" width="9" height="9" fill="#000"/>
+<rect x="180" y="211" width="9" height="9" fill="#000"/>
+<rect x="189" y="211" width="9" height="9" fill="#000"/>
+<rect x="198" y="211" width="9" height="9" fill="#000"/>
+<rect x="207" y="211" width="9" height="9" fill="#000"/>
+<rect x="216" y="211" width="9" height="9" fill="#000"/>
+<rect x="243" y="211" width="9" height="9" fill="#000"/>
+<rect x="90" y="220" width="9" height="9" fill="#000"/>
+<rect x="99" y="220" width="9" height="9" fill="#000"/>
+<rect x="108" y="220" width="9" height="9" fill="#000"/>
+<rect x="117" y="220" width="9" height="9" fill="#000"/>
+<rect x="126" y="220" width="9" height="9" fill="#000"/>
+<rect x="135" y="220" width="9" height="9" fill="#000"/>
+<rect x="144" y="220" width="9" height="9" fill="#000"/>
+<rect x="162" y="220" width="9" height="9" fill="#000"/>
+<rect x="171" y="220" width="9" height="9" fill="#000"/>
+<rect x="198" y="220" width="9" height="9" fill="#000"/>
+<rect x="216" y="220" width="9" height="9" fill="#000"/>
+<rect x="90" y="229" width="9" height="9" fill="#000"/>
+<rect x="117" y="229" width="9" height="9" fill="#000"/>
+<rect x="126" y="229" width="9" height="9" fill="#000"/>
+<rect x="135" y="229" width="9" height="9" fill="#000"/>
+<rect x="171" y="229" width="9" height="9" fill="#000"/>
+<rect x="180" y="229" width="9" height="9" fill="#000"/>
+<rect x="243" y="229" width="9" height="9" fill="#000"/>
+<rect x="90" y="238" width="9" height="9" fill="#000"/>
+<rect x="99" y="238" width="9" height="9" fill="#000"/>
+<rect x="117" y="238" width="9" height="9" fill="#000"/>
+<rect x="126" y="238" width="9" height="9" fill="#000"/>
+<rect x="135" y="238" width="9" height="9" fill="#000"/>
+<rect x="144" y="238" width="9" height="9" fill="#000"/>
+<rect x="153" y="238" width="9" height="9" fill="#000"/>
+<rect x="180" y="238" width="9" height="9" fill="#000"/>
+<rect x="216" y="238" width="9" height="9" fill="#000"/>
+<rect x="225" y="238" width="9" height="9" fill="#000"/>
+<rect x="234" y="238" width="9" height="9" fill="#000"/>
+<rect x="90" y="247" width="9" height="9" fill="#000"/>
+<rect x="99" y="247" width="9" height="9" fill="#000"/>
+<rect x="108" y="247" width="9" height="9" fill="#000"/>
+<rect x="144" y="247" width="9" height="9" fill="#000"/>
+<rect x="171" y="247" width="9" height="9" fill="#000"/>
+<rect x="216" y="247" width="9" height="9" fill="#000"/>
+<rect x="225" y="247" width="9" height="9" fill="#000"/>
+<rect x="243" y="247" width="9" height="9" fill="#000"/>
+<rect x="90" y="256" width="9" height="9" fill="#000"/>
+<rect x="99" y="256" width="9" height="9" fill="#000"/>
+<rect x="126" y="256" width="9" height="9" fill="#000"/>
+<rect x="135" y="256" width="9" height="9" fill="#000"/>
+<rect x="162" y="256" width="9" height="9" fill="#000"/>
+<rect x="171" y="256" width="9" height="9" fill="#000"/>
+<rect x="180" y="256" width="9" height="9" fill="#000"/>
+<rect x="207" y="256" width="9" height="9" fill="#000"/>
+<rect x="90" y="265" width="9" height="9" fill="#000"/>
+<rect x="99" y="265" width="9" height="9" fill="#000"/>
+<rect x="117" y="265" width="9" height="9" fill="#000"/>
+<rect x="126" y="265" width="9" height="9" fill="#000"/>
+<rect x="171" y="265" width="9" height="9" fill="#000"/>
+<rect x="198" y="265" width="9" height="9" fill="#000"/>
+<rect x="207" y="265" width="9" height="9" fill="#000"/>
+<rect x="216" y="265" width="9" height="9" fill="#000"/>
+<rect x="225" y="265" width="9" height="9" fill="#000"/>
+<rect x="243" y="265" width="9" height="9" fill="#000"/>
+<rect x="90" y="274" width="9" height="9" fill="#000"/>
+<rect x="99" y="274" width="9" height="9" fill="#000"/>
+<rect x="108" y="274" width="9" height="9" fill="#000"/>
+<rect x="117" y="274" width="9" height="9" fill="#000"/>
+<rect x="135" y="274" width="9" height="9" fill="#000"/>
+<rect x="144" y="274" width="9" height="9" fill="#000"/>
+<rect x="171" y="274" width="9" height="9" fill="#000"/>
+<rect x="216" y="274" width="9" height="9" fill="#000"/>
+<rect x="225" y="274" width="9" height="9" fill="#000"/>
+<rect x="234" y="274" width="9" height="9" fill="#000"/>
+<rect x="90" y="283" width="9" height="9" fill="#000"/>
+<rect x="99" y="283" width="9" height="9" fill="#000"/>
+<rect x="108" y="283" width="9" height="9" fill="#000"/>
+<rect x="117" y="283" width="9" height="9" fill="#000"/>
+<rect x="126" y="283" width="9" height="9" fill="#000"/>
+<rect x="135" y="283" width="9" height="9" fill="#000"/>
+<rect x="144" y="283" width="9" height="9" fill="#000"/>
+<rect x="153" y="283" width="9" height="9" fill="#000"/>
+<rect x="162" y="283" width="9" height="9" fill="#000"/>
+<rect x="171" y="283" width="9" height="9" fill="#000"/>
+<rect x="180" y="283" width="9" height="9" fill="#000"/>
+<rect x="189" y="283" width="9" height="9" fill="#000"/>
+<rect x="198" y="283" width="9" height="9" fill="#000"/>
+<rect x="207" y="283" width="9" height="9" fill="#000"/>
+<rect x="216" y="283" width="9" height="9" fill="#000"/>
+<rect x="225" y="283" width="9" height="9" fill="#000"/>
+<rect x="234" y="283" width="9" height="9" fill="#000"/>
+<rect x="243" y="283" width="9" height="9" fill="#000"/>
+<text x="280" y="150" font-size="20" text-anchor="start" font-weight="700" fill="#000">BS-3210-1000-C5</text>
+<text x="280" y="180" font-size="16" text-anchor="start" fill="#000">SN BS3210-261113-0042</text>
+<text x="280" y="205" font-size="15" text-anchor="start" fill="#000">LOT WO-00012-BS-01</text>
+<text x="280" y="230" font-size="15" text-anchor="start" fill="#000">C5 · 2026-11-13</text>
+<text x="90" y="320" font-size="12" text-anchor="start" fill="#000">(01)09501101000001(11)261113(21)BS3210-261113-0042</text>
+<text x="90" y="338" font-size="12" text-anchor="start" fill="#000">(10)WO-00012-BS-01(240)BS-3210-1000-C5</text>
+<rect x="660" y="90" width="500" height="260" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="668" y="165.05" font-size="13" text-anchor="start" font-weight="700" fill="#000">GS1 application identifiers (AI)</text>
+<text x="668" y="182.05" font-size="13" text-anchor="start" fill="#000">(01) GTIN-14 – product (needs own GS1 prefix!)</text>
+<text x="668" y="199.05" font-size="13" text-anchor="start" fill="#000">(11) production date YYMMDD</text>
+<text x="668" y="216.05" font-size="13" text-anchor="start" fill="#000">(21) serial number – variable, end with &lt;GS&gt;</text>
+<text x="668" y="233.05" font-size="13" text-anchor="start" fill="#000">(10) batch / lot – variable, end with &lt;GS&gt;</text>
+<text x="668" y="250.05" font-size="13" text-anchor="start" fill="#000">(240) additional product id = our code</text>
+<text x="668" y="267.05" font-size="13" text-anchor="start" fill="#000">FNC1 first → GS1 mode of ECC 200 Data Matrix</text>
+<text x="668" y="284.05" font-size="13" text-anchor="start" fill="#000">Example GTIN 0950110100000 + check digit 1</text>
+<text x="60" y="400" font-size="13" text-anchor="start" fill="#000">Check digit (GTIN-13 body 0950110100000): weights 3,1,3,1,… from the right → sum 29 → (10 − 29 mod 10) mod 10 = 1.</text>
+<text x="60" y="424" font-size="13" text-anchor="start" fill="#000">Raw string: 0109501101000001 11261113 21BS3210-261113-0042&lt;GS&gt; 10WO-00012-BS-01&lt;GS&gt; 240BS-3210-1000-C5 (spaces only for reading).</text>
+<text x="60" y="448" font-size="13" text-anchor="start" fill="#000">Where: laser mark on the part (screw end face, nut flange OD, rail end, block side) = DPM code; paper label on the box / tube.</text>
+<text x="60" y="472" font-size="13" text-anchor="start" fill="#000">Flow: MES → POST /api/bsf/printer/jobs {template, data} → print server builds ZPL (^BX… Data Matrix) → printer (TCP 9100 inside the print server).</text>
+<text x="60" y="496" font-size="13" text-anchor="start" fill="#000">Scan back: terminal scanner reads the label → GET /api/bsf/mes/trace?serial=… (genealogy) or POST /genealogy/link at assembly.</text>
+<text x="60" y="520" font-size="13" text-anchor="start" fill="#000">Pattern in this drawing = illustration only – a real symbol has Reed–Solomon error correction (ISO/IEC 16022).</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your MES team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 6 MES · guide 45 · 45_gs1_label.svg</text>
+</svg>

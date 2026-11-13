@@ -926,7 +926,7 @@ for uniformity). Emergency lighting on escape routes per local code.
 
 | Item | Example | Details in |
 |---|---|---|
-| Machine | HMC 500 mm pallet, 2-pallet APC, 60–120 tools, SK40/HSK-A63, 12 000 rpm class | §14.1, guide 12 |
+| Machine | HMC 500 mm pallet, 2-pallet APC, 60–120 tools, HSK-A63, 10 000 rpm / 18 kW S1 (decided 2026-11-12, guide 15 D-29) | §14.1, guide 12 |
 | Workholding | hydraulic fixture on pallet, 3-2-1 on cast datum targets, 2 parts per tombstone possible | guide 08 §11.5, guide 09 |
 | Operations | OP20: mounting face, top faces, bearing seats (fine boring), cylinder decks; OP30 (2nd side): holes, threads | guide 08 §14 |
 | Cycle (config) | VC10 270 s, VC20 345 s, VC30 450 s + 15 s pallet change | guide 02 §4.1 |
@@ -1260,7 +1260,7 @@ guide 04 §5).
 
 | Object | Key | Example | Source |
 |---|---|---|---|
-| Asset hierarchy (ISA-95) | enterprise / site / area / line / cell / unit | `VCF/SITE1/MCH/CC/HMC-01` | guide 15 |
+| Asset hierarchy (ISA-95) | enterprise / site / area / line / cell / unit | `VC/PLANT1/MCH/L2/HMC-01` | guide 15 |
 | Material / item | SKU | `CC20-CAST`, `VC20-300` | ERP (config `erp.items`) |
 | Serial / genealogy | serial no. | `VC20-000004` → crankcase lot `CC20-L0000`, cylinders, crankshaft, test record | MES |
 | Work order | WO number | `WO-000123`, model, qty 20 (config `wo_lot`) | MES ← ERP |
@@ -1527,7 +1527,7 @@ Price class = **estimate – ask for a quote** (k$ per unit, ±30 % or more, dep
 ### 14.1 Horizontal machining centres (crankcase, 3 pcs)
 
 Spec: pallet 400–500 mm, 2-pallet APC (or pallet pool interface), B-axis 0.001°, SK40/HSK-A63 spindle
-≥ 12 000 rpm and high torque for cast iron, tool magazine ≥ 120, through-spindle coolant, probe, OPC UA (umati).
+10 000 rpm, 18 kW S1, ≥ 115 N·m S1 / 140 N·m S6-40 % (project standard, decided 2026-11-12, guide 15 D-29) – high torque for cast iron, tool magazine ≥ 120, through-spindle coolant, probe, OPC UA (umati).
 
 | Maker + model (example) | Key catalogue data | Price class k$ | Check in the datasheet |
 |---|---|---|---|
@@ -1793,9 +1793,12 @@ legal requirements (machinery law, CE or local marking, pressure equipment law, 
 | **ISO 8573-1** | Compressed air – contaminants and purity classes | declare oil carry-over / particles if the customer asks; also for our factory air (§7.4) |
 | **EN 1012-1** | Compressors and vacuum pumps – safety requirements – part 1: air compressors | type-C safety standard: guards for belt and fan, hot surfaces, pressure relief, noise information, instructions |
 | **Machinery Directive 2006/42/EC → Machinery Regulation (EU) 2023/1230** (applies from 20 Jan 2027) | machinery safety law | the compressor package is machinery: risk assessment (ISO 12100), technical file, CE marking, Declaration of Conformity |
-| **Simple Pressure Vessels Directive 2014/29/EU** + EN 286-1 | air tanks of welded non-alloy steel, PS ≤ 30 bar, PS·V ≤ 10 000 bar·L | tanks: 100 L × 11 bar = 1 100 bar·L, 300 L = 3 300, 500 L = 5 500 bar·L (PS 11 bar example) → inside SPVD scope; CE marking by the tank maker (PS·V > 50 bar·L) |
+| **Simple Pressure Vessels Directive 2014/29/EU** + EN 286-1 | air tanks of welded non-alloy steel, PS ≤ 30 bar, PS·V ≤ 10 000 bar·L | tanks: 100 L × 11 bar = 1 100 bar·L, 300 L = 3 300, 500 L = 5 500 bar·L (PS 11 bar example) → inside SPVD scope; SPVD category: 100 L = **A2**, 300 L and 500 L = **A1** (> 3000 bar·L, notified body involved) – guide 16 §11.3; CE marking by the tank maker (PS·V > 50 bar·L); keep tank DoC + certificate + tank instructions in the VC technical file |
 | **Pressure Equipment Directive 2014/68/EU (PED)** | pressure equipment | safety valve = safety accessory; tanks outside SPVD scope fall under PED; check the category of other pressure parts with the notified body |
-| Low Voltage Directive 2014/35/EU, EMC Directive 2014/30/EU, IEC 60204-1 | electrical safety, EMC | motor, pressure switch, starter |
+| Low Voltage Directive 2014/35/EU, EMC Directive 2014/30/EU, IEC 60204-1 | electrical safety, EMC | motor, pressure switch, starter. The compressor is machinery: its LVD safety objectives apply through the machinery law, so the VC DoC lists 2006/42/EC → 2023/1230, EMC 2014/30/EU and RoHS 2011/65/EU – **not** the LVD (LVD only for electrical equipment that is not in machinery scope) |
+| RoHS Directive 2011/65/EU | restriction of hazardous substances in electrical and electronic equipment | listed in the VC DoC; lead in brass fittings needs an exemption – supplier declarations (guide 16 §11.6) |
+| REACH Regulation (EC) 1907/2006, Art. 33 | substances of very high concern (SVHC) in articles | lead in brass is an SVHC → inform customers, SCIP notification (guide 16 §11.6) |
+| WEEE Directive 2012/19/EU | waste electrical and electronic equipment | check category and register per country before first sale (guide 16 §11.6) |
 | Outdoor noise Directive 2000/14/EC | noise emission of outdoor equipment | check if your compressor class is in scope; sound power by ISO 3744 / ISO 2151 |
 | ISO 4126-1 | safety valves | safety valve on the tank |
 | IEC 60034-30-1 | motor efficiency classes | IE3 (or IE4) motors – check local ecodesign law (EU 2019/1781) |

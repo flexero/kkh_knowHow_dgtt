@@ -2,7 +2,7 @@
 <title>Motor spindle section - parts numbered in assembly order</title>
 <rect x="0" y="0" width="1240" height="780" fill="#ffffff"/>
 <text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000" >Motor spindle (example of the twin) – section with all assembly parts numbered in ASSEMBLY ORDER</text>
-<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >12 000 rpm, HSK-A63, front 4 × 7014 C hybrid TBT (fixed), rear 2 × 7012 C DB (floating), sizes from web/spindle.js – schematic, seals simplified</text>
+<text x="20.0" y="50.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000" >10 000 rpm / 18 kW, HSK-A63, front 4 × 7014 C hybrid TBT (fixed), rear 2 × 7012 C DB (floating), sizes from web/spindle.js – schematic, seals simplified</text>
 <line x1="58.4" y1="335.0" x2="845.8" y2="335.0" stroke="#000" stroke-width="0.8" stroke-dasharray="12,4,2,4"/>
 <polygon points="113.5,190.0 273.0,190.0 273.0,178.4 584.8,178.4 584.8,248.0 722.5,248.0 722.5,168.2 113.5,168.2" fill="#f2f2f2" stroke="#000" stroke-width="1" />
 <polygon points="113.5,480.0 273.0,480.0 273.0,491.6 584.8,491.6 584.8,422.0 722.5,422.0 722.5,501.8 113.5,501.8" fill="#f2f2f2" stroke="#000" stroke-width="1" />

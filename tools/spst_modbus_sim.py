@@ -34,7 +34,7 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from twin.spdevices import MODBUS_MAP, MODBUS_SIM_UNITS  # noqa: E402
 
-NMAX = 12000
+NMAX = 10000             # HMC motor spindle max speed (decided 2026-11-12: 10 000 rpm / 18 kW)
 LOCK = threading.Lock()
 REGS = {u: [0] * 128 for u in MODBUS_SIM_UNITS.values()}     # unit id -> holding registers
 ARGS = None

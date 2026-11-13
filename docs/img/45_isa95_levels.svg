@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs>
+<marker id="arrK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker>
+<marker id="arrKs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#000"/></marker>
+<marker id="arrAs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="1.4"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">ISA-95 / IEC 62264 levels of the ball screw + guide factory</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<rect x="70" y="80" width="640" height="96" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="390.0" y="115.55" font-size="13" text-anchor="middle" font-weight="700" fill="#000">Level 4 – business planning + logistics</text>
+<text x="390.0" y="132.55" font-size="13" text-anchor="middle" fill="#000">ERP (item 7): sales orders, MRP, purchasing, stock, cost</text>
+<text x="390.0" y="149.55" font-size="13" text-anchor="middle" fill="#000">days … months</text>
+<rect x="70" y="208" width="640" height="96" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="390.0" y="243.55" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1">Level 3 – manufacturing operations (MES)</text>
+<text x="390.0" y="260.55" font-size="13" text-anchor="middle" fill="#000">MES (this item): work orders, scheduling, dispatch, confirmations,</text>
+<text x="390.0" y="277.55" font-size="13" text-anchor="middle" fill="#000">genealogy, quality holds, OEE, andon · hours … minutes</text>
+<rect x="70" y="336" width="640" height="96" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="390.0" y="371.55" font-size="13" text-anchor="middle" font-weight="700" fill="#000">Level 2 – supervision</text>
+<text x="390.0" y="388.55" font-size="13" text-anchor="middle" fill="#000">Modbus TCP gateway (item 4), HMIs, SCADA views, cell PCs</text>
+<text x="390.0" y="405.55" font-size="13" text-anchor="middle" fill="#000">seconds</text>
+<rect x="70" y="464" width="640" height="96" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="390.0" y="499.55" font-size="13" text-anchor="middle" font-weight="700" fill="#000">Level 1 – control</text>
+<text x="390.0" y="516.55" font-size="13" text-anchor="middle" fill="#000">PLCs (item 8), CNC controls, furnace + induction controllers</text>
+<text x="390.0" y="533.55" font-size="13" text-anchor="middle" fill="#000">milliseconds</text>
+<rect x="70" y="592" width="640" height="96" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="390.0" y="627.55" font-size="13" text-anchor="middle" font-weight="700" fill="#000">Level 0 – the process</text>
+<text x="390.0" y="644.55" font-size="13" text-anchor="middle" fill="#000">sensors, drives, spindles, gauges, the parts</text>
+<text x="390.0" y="661.55" font-size="13" text-anchor="middle" fill="#000">real time</text>
+<line x1="390" y1="176" x2="390" y2="208" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)"/>
+<line x1="390" y1="304" x2="390" y2="336" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)"/>
+<line x1="390" y1="432" x2="390" y2="464" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<line x1="390" y1="560" x2="390" y2="592" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<text x="400" y="197" font-size="12" text-anchor="start" fill="#1f6fd1">HTTP only (REST + JSON, SSE)</text>
+<text x="400" y="325" font-size="12" text-anchor="start" fill="#1f6fd1">HTTP only (gateway API)</text>
+<text x="400" y="453" font-size="12" text-anchor="start" fill="#000">Modbus TCP, port 502 (gateway = client)</text>
+<text x="400" y="581" font-size="12" text-anchor="start" fill="#000">I/O, drive bus inside the machine</text>
+<rect x="760" y="80" width="400" height="300" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="768" y="158.05" font-size="13" text-anchor="start" font-weight="700" fill="#000">What level 3 does (IEC 62264-3)</text>
+<text x="768" y="175.05" font-size="13" text-anchor="start" fill="#000">• product definition: routing version</text>
+<text x="768" y="192.05" font-size="13" text-anchor="start" fill="#000">• resource management: machines, tools, gauges</text>
+<text x="768" y="209.05" font-size="13" text-anchor="start" fill="#000">• detailed scheduling (finite capacity)</text>
+<text x="768" y="226.05" font-size="13" text-anchor="start" fill="#000">• dispatching to the machines</text>
+<text x="768" y="243.05" font-size="13" text-anchor="start" fill="#000">• execution: start, stop, holds</text>
+<text x="768" y="260.05" font-size="13" text-anchor="start" fill="#000">• data collection: counters, states</text>
+<text x="768" y="277.05" font-size="13" text-anchor="start" fill="#000">• tracking: lots, serials, genealogy</text>
+<text x="768" y="294.05" font-size="13" text-anchor="start" fill="#000">• performance analysis: OEE, reports</text>
+<text x="768" y="311.05" font-size="13" text-anchor="start" fill="#000">+ quality, inventory, maintenance links</text>
+<rect x="760" y="400" width="400" height="190" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="768" y="457.05" font-size="13" text-anchor="start" font-weight="700" fill="#1f6fd1">Company rule (contract)</text>
+<text x="768" y="474.05" font-size="13" text-anchor="start" fill="#000">• machines ↔ gateway: Modbus TCP only</text>
+<text x="768" y="491.05" font-size="13" text-anchor="start" fill="#000">• everything above the gateway: HTTP only</text>
+<text x="768" y="508.05" font-size="13" text-anchor="start" fill="#000">• no MQTT, no OPC UA</text>
+<text x="768" y="525.05" font-size="13" text-anchor="start" fill="#000">• safety is hard-wired (never Modbus / HTTP)</text>
+<text x="768" y="542.05" font-size="13" text-anchor="start" fill="#000">• the MES never polls a machine directly</text>
+<text x="760" y="625" font-size="12" text-anchor="start" fill="#000">Time horizon grows upwards: level 0 = ms, level 4 = months.</text>
+<text x="760" y="641" font-size="12" text-anchor="start" fill="#000">Each level only talks to its neighbour level.</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your MES team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 6 MES · guide 45 · 45_isa95_levels.svg</text>
+</svg>

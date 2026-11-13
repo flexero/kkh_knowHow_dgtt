@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs>
+<marker id="arrK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker>
+<marker id="arrKs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#000"/></marker>
+<marker id="arrAs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="1.4"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">Andon board – layout of one area display (55", browser, GET /api/bsf/mes/andon)</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<rect x="40" y="70" width="1120" height="560" rx="6" fill="#fff" stroke="#000" stroke-width="2.2"/>
+<rect x="40" y="70" width="1120" height="46" fill="#000"/>
+<text x="60" y="100" font-size="16" text-anchor="start" font-weight="700" fill="#fff">GRINDING ROOM 20 ± 1 °C · shift A · D9 10:42</text>
+<text x="1140" y="100" font-size="16" text-anchor="end" font-weight="700" fill="#fff">plant OEE 71 %</text>
+<rect x="60" y="135" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="68" y="157" font-size="13" text-anchor="start" font-weight="700" fill="#000">BS-CLP-01</text>
+<text x="68" y="177" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="68" y="197" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="195" y="135" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="203" y="157" font-size="13" text-anchor="start" font-weight="700" fill="#000">BS-CGR-01</text>
+<text x="203" y="177" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="203" y="197" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="330" y="135" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="338" y="157" font-size="13" text-anchor="start" font-weight="700" fill="#000">BS-CGR-02</text>
+<text x="338" y="177" font-size="12" text-anchor="start" fill="#000">SETUP</text>
+<text x="338" y="197" font-size="11" text-anchor="start" fill="#000"></text>
+<rect x="465" y="135" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="473" y="157" font-size="13" text-anchor="start" font-weight="700" fill="#000">BS-TGR-01</text>
+<text x="473" y="177" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="473" y="197" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="600" y="135" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="608" y="157" font-size="13" text-anchor="start" font-weight="700" fill="#000">BS-TGR-02</text>
+<text x="608" y="177" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="608" y="197" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="735" y="135" width="125" height="80" rx="6" fill="#1f6fd1" stroke="#000" stroke-width="2.6"/>
+<text x="743" y="157" font-size="13" text-anchor="start" font-weight="700" fill="#fff">BS-TGR-03</text>
+<text x="743" y="177" font-size="12" text-anchor="start" fill="#fff">DOWN 213</text>
+<text x="743" y="197" font-size="11" text-anchor="start" fill="#fff">call: maintenance</text>
+<rect x="870" y="135" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="878" y="157" font-size="13" text-anchor="start" font-weight="700" fill="#000">BS-TGR-04</text>
+<text x="878" y="177" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="878" y="197" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="1005" y="135" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3" stroke-dasharray="5 3"/>
+<text x="1013" y="157" font-size="13" text-anchor="start" font-weight="700" fill="#000">BS-TGR-05</text>
+<text x="1013" y="177" font-size="12" text-anchor="start" fill="#000">STARVED</text>
+<text x="1013" y="197" font-size="11" text-anchor="start" fill="#000"></text>
+<rect x="60" y="227" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="68" y="249" font-size="13" text-anchor="start" font-weight="700" fill="#000">BS-TGR-06</text>
+<text x="68" y="269" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="68" y="289" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="195" y="227" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="203" y="249" font-size="13" text-anchor="start" font-weight="700" fill="#000">BS-TGR-07</text>
+<text x="203" y="269" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="203" y="289" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="330" y="227" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="338" y="249" font-size="13" text-anchor="start" font-weight="700" fill="#000">BS-TGR-08</text>
+<text x="338" y="269" font-size="12" text-anchor="start" fill="#000">SETUP</text>
+<text x="338" y="289" font-size="11" text-anchor="start" fill="#000"></text>
+<rect x="465" y="227" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="473" y="249" font-size="13" text-anchor="start" font-weight="700" fill="#000">BN-HTN-01</text>
+<text x="473" y="269" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="473" y="289" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="600" y="227" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3" stroke-dasharray="5 3"/>
+<text x="608" y="249" font-size="13" text-anchor="start" font-weight="700" fill="#000">BN-HTN-02</text>
+<text x="608" y="269" font-size="12" text-anchor="start" fill="#000">IDLE</text>
+<text x="608" y="289" font-size="11" text-anchor="start" fill="#000"></text>
+<rect x="735" y="227" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="743" y="249" font-size="13" text-anchor="start" font-weight="700" fill="#000">BN-ITG-01</text>
+<text x="743" y="269" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="743" y="289" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="870" y="227" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="878" y="249" font-size="13" text-anchor="start" font-weight="700" fill="#000">BN-ITG-02</text>
+<text x="878" y="269" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="878" y="289" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="1005" y="227" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="1013" y="249" font-size="13" text-anchor="start" font-weight="700" fill="#000">LG-SGR-01</text>
+<text x="1013" y="269" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="1013" y="289" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="60" y="319" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="68" y="341" font-size="13" text-anchor="start" font-weight="700" fill="#000">LG-PGR-01</text>
+<text x="68" y="361" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="68" y="381" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="195" y="319" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3" stroke-dasharray="5 3"/>
+<text x="203" y="341" font-size="13" text-anchor="start" font-weight="700" fill="#000">LG-PGR-02</text>
+<text x="203" y="361" font-size="12" text-anchor="start" fill="#000">BLOCKED</text>
+<text x="203" y="381" font-size="11" text-anchor="start" fill="#000"></text>
+<rect x="330" y="319" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="338" y="341" font-size="13" text-anchor="start" font-weight="700" fill="#000">LG-CUT-01</text>
+<text x="338" y="361" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="338" y="381" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="465" y="319" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="473" y="341" font-size="13" text-anchor="start" font-weight="700" fill="#000">LB-SGR-01</text>
+<text x="473" y="361" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="473" y="381" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="600" y="319" width="125" height="80" rx="6" fill="#1f6fd1" stroke="#000" stroke-width="2.6"/>
+<text x="608" y="341" font-size="13" text-anchor="start" font-weight="700" fill="#fff">LB-RGR-01</text>
+<text x="608" y="361" font-size="12" text-anchor="start" fill="#fff">SPC STOP</text>
+<text x="608" y="381" font-size="11" text-anchor="start" fill="#fff">call: maintenance</text>
+<rect x="735" y="319" width="125" height="80" rx="6" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<text x="743" y="341" font-size="13" text-anchor="start" font-weight="700" fill="#000">LB-RGR-02</text>
+<text x="743" y="361" font-size="12" text-anchor="start" fill="#000">RUN</text>
+<text x="743" y="381" font-size="11" text-anchor="start" fill="#000">L00412 · 12/20</text>
+<rect x="60" y="420" width="520" height="190" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="76" y="446" font-size="13" text-anchor="start" font-weight="700" fill="#000">Plan vs actual today (good parts / sets)</text>
+<text x="76" y="486" font-size="13" text-anchor="start" fill="#000">FABS  58 / 120</text>
+<rect x="230" y="470" width="240" height="22" fill="#fff" stroke="#000"/>
+<rect x="230" y="470" width="116" height="22" fill="#000"/>
+<text x="480" y="486" font-size="12" text-anchor="start" fill="#000">on track</text>
+<text x="76" y="528" font-size="13" text-anchor="start" fill="#000">FALG  102 / 200</text>
+<rect x="230" y="512" width="240" height="22" fill="#fff" stroke="#000"/>
+<rect x="230" y="512" width="122" height="22" fill="#000"/>
+<text x="480" y="528" font-size="12" text-anchor="start" fill="#000">on track</text>
+<text x="76" y="570" font-size="13" text-anchor="start" fill="#000">LB  171 / 400</text>
+<rect x="230" y="554" width="240" height="22" fill="#fff" stroke="#000"/>
+<rect x="230" y="554" width="103" height="22" fill="#1f6fd1"/>
+<text x="480" y="570" font-size="12" text-anchor="start" font-weight="700" fill="#1f6fd1">behind</text>
+<rect x="600" y="420" width="540" height="190" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="608" y="485.55" font-size="13" text-anchor="start" font-weight="700" fill="#1f6fd1">Open calls + holds</text>
+<text x="608" y="502.55" font-size="13" text-anchor="start" fill="#000">CALL maintenance at BS-TGR-03 (alarm 213 oil temp) 6 min</text>
+<text x="608" y="519.55" font-size="13" text-anchor="start" fill="#000">CALL quality at LB-RGR-01 – SPC stop LB-H</text>
+<text x="608" y="536.55" font-size="13" text-anchor="start" fill="#000">HOLD 2 lots: L00398 (NCR-00004), L00401</text>
+<text x="608" y="553.55" font-size="13" text-anchor="start" fill="#000">REASON MISSING: BS-CGR-02 downtime → operator</text>
+<text x="40" y="665" font-size="12" text-anchor="start" fill="#000">Colours on the real board: green run · blue set-up · yellow starved / blocked · red down / SPC stop · grey idle (here: accent = needs action, dashed = waiting).</text>
+<text x="40" y="684" font-size="12" text-anchor="start" fill="#000">Data: one GET every 2 s (or SSE); the board PC runs only a browser – no special software. Boards hang where every operator can see them.</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your MES team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 6 MES · guide 45 · 45_andon_layout.svg</text>
+</svg>

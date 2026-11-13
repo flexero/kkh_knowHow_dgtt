@@ -351,7 +351,7 @@ spindle 6 000 rpm → 100 Hz.
 Two different things:
 
 **(a) Vibration of the machine itself** (motors, pumps, spindles on their bearing housings) – ISO 10816-3, now
-**ISO 20816-3:2022**, velocity RMS 10–1000 Hz (mm/s):
+**ISO 20816-3:2022 (replaces ISO 10816-3)**, velocity RMS 10–1000 Hz (mm/s):
 
 | Group / foundation | A/B (new) | B/C (long run OK) | C/D (damage) |
 | --- | --- | --- | --- |
@@ -1077,7 +1077,7 @@ is clay or fill below the hall.
 
 ### C4.2 The rules of DIN 4024 and ACI 351.3 (ideas)
 
-- **DIN 4024-1** (machine foundations, flexible structures) / **DIN 4024-2** (rigid block foundations) and
+- **DIN 4024-1** (machine foundations, flexible structures) / **DIN 4024-2** (rigid block foundations) (check current status – 1988 / 1991 editions) and
   **ACI 351.3R** (foundations for dynamic equipment) all say: keep the natural frequencies of the foundation away from
   the operating frequencies – typically **at least ±20 %** (frequency ratio not between 0.8 and 1.2), better ±30 %.
 - **Tuning:** "high-tuned" (f_n above the operating frequency – stiff, typical for blocks under slow machines) or
@@ -1501,8 +1501,8 @@ Our examples are in §A5 (general machining 1.0 mm/s, precision 0.5, grinding 0.
 | Class III / group G (large on rigid foundations) | 1.8 / 4.5 / 11.2 |
 | Class IV / group T (large on soft foundations, turbo) | 2.8 / 7.1 / 18 |
 
-Today: ISO 20816-1 (general), ISO 20816-3 (industrial machines > 15 kW, table in §A5), ISO 10816-7 (pumps). The HMC
-values in the twin (warn 4.5, alarm 7.1 mm/s) follow the ISO 10816-3 group 2 style.
+Today: ISO 20816-1 (general), ISO 20816-3 (industrial machines > 15 kW, table in §A5), ISO 10816-7 (pumps – check status; may be replaced by ISO 20816-7). The HMC
+values in the twin (warn 4.5, alarm 7.1 mm/s) follow the ISO 10816-3 group 2 style – source to cite: ISO 20816-3:2022 (replaces ISO 10816-3).
 
 ## D5. Vibration measurement
 

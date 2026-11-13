@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>Assembly + installation sequence on site</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+<pattern id="grout" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#fff"/><circle cx="3" cy="3" r="1" fill="#777"/><circle cx="8" cy="7" r="0.8" fill="#777"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="818" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="24.0" y="30.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">8 steps (example – the crane maker's erection manual decides)</text>
+<rect x="30.0" y="50.0" width="280.0" height="330.0" rx="0" fill="none" stroke="#000" stroke-width="1.0"/>
+<text x="40.0" y="70.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">1 Survey rail + floor</text>
+<line x1="50.0" y1="280.0" x2="290.0" y2="280.0" stroke="#000" stroke-width="1.4"/>
+<rect x="60.0" y="277.0" width="220.0" height="3.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<line x1="60.0" y1="268.0" x2="280.0" y2="268.0" stroke="#1f6fd1" stroke-width="1.2" stroke-dasharray="8 4"/>
+<rect x="60.0" y="250.0" width="12.0" height="18.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="76.0" y="250.0" font-size="11" text-anchor="start" fill="#000">laser</text>
+<text x="40.0" y="302.0" font-size="11.5" text-anchor="start" fill="#000">rail straight ± 1 / 2 m</text>
+<text x="40.0" y="319.0" font-size="11.5" text-anchor="start" fill="#000">level ± 2 mm, joints &lt; 0.5 step</text>
+<text x="40.0" y="336.0" font-size="11.5" text-anchor="start" fill="#000">total station / laser level</text>
+<rect x="318.0" y="50.0" width="280.0" height="330.0" rx="0" fill="none" stroke="#000" stroke-width="1.0"/>
+<text x="328.0" y="70.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">2 Bottom carriage on rail</text>
+<line x1="338.0" y1="280.0" x2="578.0" y2="280.0" stroke="#000" stroke-width="1.4"/>
+<rect x="348.0" y="277.0" width="220.0" height="3.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="403.0" y="264.0" width="110.0" height="10.0" rx="0" fill="url(#hatchA)" stroke="#1f6fd1" stroke-width="1.6"/>
+<circle cx="418.0" cy="274.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="503.0" cy="274.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="458.0" y1="210.0" x2="458.0" y2="256.0" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#ea)"/>
+<line x1="458.0" y1="80.0" x2="458.0" y2="206.0" stroke="#000" stroke-width="1.0"/>
+<path d="M458.0,206.0 q0,8 -6,8" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="328.0" y="302.0" font-size="11.5" text-anchor="start" fill="#000">pre-assembled: wheels, drives</text>
+<text x="328.0" y="319.0" font-size="11.5" text-anchor="start" fill="#000">lowered by mobile crane</text>
+<text x="328.0" y="336.0" font-size="11.5" text-anchor="start" fill="#000">guide-roller play 1–3 mm</text>
+<rect x="606.0" y="50.0" width="280.0" height="330.0" rx="0" fill="none" stroke="#000" stroke-width="1.0"/>
+<text x="616.0" y="70.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">3 Erect mast + bolt</text>
+<line x1="626.0" y1="280.0" x2="866.0" y2="280.0" stroke="#000" stroke-width="1.4"/>
+<rect x="636.0" y="277.0" width="220.0" height="3.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="691.0" y="264.0" width="110.0" height="10.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="706.0" cy="274.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="791.0" cy="274.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="701.0" y="82.0" width="10.0" height="162.0" rx="0" fill="url(#hatchA)" stroke="#1f6fd1" stroke-width="1.6"/>
+<line x1="706.0" y1="80.0" x2="706.0" y2="78.0" stroke="#000" stroke-width="1.0"/>
+<path d="M706.0,78.0 q0,8 -6,8" fill="none" stroke="#000" stroke-width="1.4"/>
+<line x1="676.0" y1="160.0" x2="676.0" y2="210.0" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#ea)"/>
+<text x="616.0" y="302.0" font-size="11.5" text-anchor="start" fill="#000">≈ 1 t, 2-point lift, tag lines</text>
+<text x="616.0" y="319.0" font-size="11.5" text-anchor="start" fill="#000">12 × M24 10.9: 771 N·m</text>
+<text x="616.0" y="336.0" font-size="11.5" text-anchor="start" fill="#000">plumb ± 2 mm at 9.3 m</text>
+<rect x="894.0" y="50.0" width="280.0" height="330.0" rx="0" fill="none" stroke="#000" stroke-width="1.0"/>
+<text x="904.0" y="70.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">4 Slide lifting carriage on</text>
+<line x1="914.0" y1="280.0" x2="1154.0" y2="280.0" stroke="#000" stroke-width="1.4"/>
+<rect x="924.0" y="277.0" width="220.0" height="3.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="979.0" y="264.0" width="110.0" height="10.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="994.0" cy="274.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="1079.0" cy="274.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="989.0" y="102.0" width="10.0" height="162.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="999.0" y="150.0" width="20.0" height="26.0" rx="0" fill="url(#hatchA)" stroke="#1f6fd1" stroke-width="1.6"/>
+<line x1="1034.0" y1="130.0" x2="1034.0" y2="170.0" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#ea)"/>
+<text x="904.0" y="302.0" font-size="11.5" text-anchor="start" fill="#000">from the mast top, before</text>
+<text x="904.0" y="319.0" font-size="11.5" text-anchor="start" fill="#000">the top carriage; set rollers</text>
+<text x="904.0" y="336.0" font-size="11.5" text-anchor="start" fill="#000">with eccentrics 0.1–0.3 mm</text>
+<rect x="30.0" y="390.0" width="280.0" height="330.0" rx="0" fill="none" stroke="#000" stroke-width="1.0"/>
+<text x="40.0" y="410.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">5 Top carriage + rollers</text>
+<line x1="50.0" y1="620.0" x2="290.0" y2="620.0" stroke="#000" stroke-width="1.4"/>
+<rect x="60.0" y="617.0" width="220.0" height="3.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="115.0" y="604.0" width="110.0" height="10.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="130.0" cy="614.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="215.0" cy="614.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="125.0" y="442.0" width="10.0" height="162.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="135.0" y="530.0" width="20.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="120.0" y="436.0" width="22.0" height="6.0" rx="0" fill="url(#hatchA)" stroke="#1f6fd1" stroke-width="1.6"/>
+<text x="40.0" y="642.0" font-size="11.5" text-anchor="start" fill="#000">pulleys Ø320, top rollers Ø150</text>
+<text x="40.0" y="659.0" font-size="11.5" text-anchor="start" fill="#000">on the top rail 100 × 20</text>
+<text x="40.0" y="676.0" font-size="11.5" text-anchor="start" fill="#000">spring preload per maker</text>
+<rect x="318.0" y="390.0" width="280.0" height="330.0" rx="0" fill="none" stroke="#000" stroke-width="1.0"/>
+<text x="328.0" y="410.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">6 Reeve ropes + fork</text>
+<line x1="338.0" y1="620.0" x2="578.0" y2="620.0" stroke="#000" stroke-width="1.4"/>
+<rect x="348.0" y="617.0" width="220.0" height="3.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="403.0" y="604.0" width="110.0" height="10.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="418.0" cy="614.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="503.0" cy="614.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="413.0" y="442.0" width="10.0" height="162.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="423.0" y="530.0" width="20.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="408.0" y="436.0" width="22.0" height="6.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="426.0" y1="439.0" x2="426.0" y2="530.0" stroke="#1f6fd1" stroke-width="1.6"/>
+<rect x="443.0" y="552.0" width="50.0" height="4.0" rx="0" fill="#1f6fd1" stroke="#1f6fd1" stroke-width="1.2"/>
+<text x="328.0" y="642.0" font-size="11.5" text-anchor="start" fill="#000">2 × Ø8, load pins, equal</text>
+<text x="328.0" y="659.0" font-size="11.5" text-anchor="start" fill="#000">tension; fork bolted, level</text>
+<text x="328.0" y="676.0" font-size="11.5" text-anchor="start" fill="#000">± 1 mm over the tine length</text>
+<rect x="606.0" y="390.0" width="280.0" height="330.0" rx="0" fill="none" stroke="#000" stroke-width="1.0"/>
+<text x="616.0" y="410.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">7 Cabinet, cables, sensors</text>
+<line x1="626.0" y1="620.0" x2="866.0" y2="620.0" stroke="#000" stroke-width="1.4"/>
+<rect x="636.0" y="617.0" width="220.0" height="3.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="691.0" y="604.0" width="110.0" height="10.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="706.0" cy="614.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="791.0" cy="614.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="701.0" y="442.0" width="10.0" height="162.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="711.0" y="530.0" width="20.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="696.0" y="436.0" width="22.0" height="6.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="714.0" y1="439.0" x2="714.0" y2="530.0" stroke="#000" stroke-width="1.0"/>
+<rect x="731.0" y="552.0" width="50.0" height="4.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="766.0" y="560.0" width="22.0" height="44.0" rx="0" fill="url(#hatchA)" stroke="#1f6fd1" stroke-width="1.6"/>
+<text x="616.0" y="642.0" font-size="11.5" text-anchor="start" fill="#000">collector, energy chain,</text>
+<text x="616.0" y="659.0" font-size="11.5" text-anchor="start" fill="#000">laser x/z, DDLS, BPS tape</text>
+<text x="616.0" y="676.0" font-size="11.5" text-anchor="start" fill="#000">check PE + insulation</text>
+<rect x="894.0" y="390.0" width="280.0" height="330.0" rx="0" fill="none" stroke="#000" stroke-width="1.0"/>
+<text x="904.0" y="410.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">8 Align + test</text>
+<line x1="914.0" y1="620.0" x2="1154.0" y2="620.0" stroke="#000" stroke-width="1.4"/>
+<rect x="924.0" y="617.0" width="220.0" height="3.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="979.0" y="604.0" width="110.0" height="10.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="994.0" cy="614.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="1079.0" cy="614.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="989.0" y="442.0" width="10.0" height="162.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="999.0" y="530.0" width="20.0" height="26.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="984.0" y="436.0" width="22.0" height="6.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="1002.0" y1="439.0" x2="1002.0" y2="530.0" stroke="#000" stroke-width="1.0"/>
+<rect x="1019.0" y="552.0" width="50.0" height="4.0" rx="0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<rect x="1054.0" y="560.0" width="22.0" height="44.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="974.0" y1="442.0" x2="974.0" y2="604.0" stroke="#1f6fd1" stroke-width="1.0" stroke-dasharray="4 3"/>
+<text x="970.0" y="520.0" font-size="11" text-anchor="end" fill="#1f6fd1">plumb</text>
+<rect x="1022.0" y="528.0" width="30.0" height="22.0" rx="0" fill="none" stroke="#1f6fd1" stroke-width="1.2" stroke-dasharray="4 2"/>
+<text x="904.0" y="642.0" font-size="11.5" text-anchor="start" fill="#000">load test 375 kg (125 %) static,</text>
+<text x="904.0" y="659.0" font-size="11.5" text-anchor="start" fill="#000">330 kg (110 %) dynamic</text>
+<text x="904.0" y="676.0" font-size="11.5" text-anchor="start" fill="#000">FEM 9.851: SC 34.8 / DC 57.8 s</text>
+<rect x="774.0" y="752.0" width="414.0" height="66.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<line x1="774.0" y1="774.0" x2="1188.0" y2="774.0" stroke="#000" stroke-width="0.8"/>
+<line x1="844.0" y1="752.0" x2="844.0" y2="774.0" stroke="#000" stroke-width="0.8"/>
+<text x="782.0" y="768.0" font-size="12.5" text-anchor="start" fill="#000" font-weight="bold">38-10</text>
+<text x="852.0" y="768.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Assembly + installation sequence on site</text>
+<text x="782.0" y="791.0" font-size="12" text-anchor="start" fill="#b00000" font-weight="bold">EXAMPLE – check the crane maker's drawings</text>
+<text x="782.0" y="809.0" font-size="11" text-anchor="start" fill="#000">Digital twin · ASRS-RAW stacker crane · guide 38 · not to scale · mm</text>
+</svg>

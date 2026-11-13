@@ -3,17 +3,17 @@
 <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
 <rect x="0" y="0" width="1400" height="1120" fill="#ffffff"/>
 <text x="30.0" y="36.0" font-size="16" text-anchor="start" fill="#000" font-weight="bold">Circuit diagram (ISO 1219-2 style) – HMC power unit for APC lift, zero-point release and rotary table clamp (guide 25 example 2)</text>
-<text x="30.0" y="56.0" font-size="12" text-anchor="start" fill="#555">Pump 4 cm³/rev + 0.75 kW charges a 2.5 L accumulator between 6.0 and 7.5 MPa; clamp branches reduced to 5 MPa. Rest position = de-energised (fail-safe).</text>
+<text x="30.0" y="56.0" font-size="12" text-anchor="start" fill="#555">Lift Ø50/28 at 10 MPa (decided 2026-11-12). Pump 4 cm³/rev + 1.5 kW charges a 4 L accumulator 10.8–11.5 MPa; clamp branches 5 MPa. Rest = de-energised.</text>
 <text x="150.0" y="92.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">1 – APC lift</text>
 <rect x="372.0" y="140.0" width="56.0" height="110.0" rx="0" stroke="#000" stroke-width="1.8" fill="none"/>
 <rect x="374.0" y="212.0" width="52.0" height="10.0" rx="0" stroke="#000" stroke-width="1.2" fill="#ddd"/>
 <rect x="390.0" y="100.0" width="20.0" height="112.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
-<rect x="340.0" y="78.0" width="120.0" height="22.0" rx="0" stroke="#000" stroke-width="1.2" fill="#f2f2f2"/>
-<text x="400.0" y="94.0" font-size="11" text-anchor="middle" fill="#000">arm + 2 pallets 1 200 kg</text>
+<rect x="325.0" y="78.0" width="150.0" height="22.0" rx="0" stroke="#000" stroke-width="1.2" fill="#f2f2f2"/>
+<text x="400.0" y="94.0" font-size="11" text-anchor="middle" fill="#000">real lifted mass 1 480 kg</text>
 <text x="360.0" y="170.0" font-size="12" text-anchor="end" fill="#c62828" font-weight="bold">1A1</text>
-<text x="360.0" y="186.0" font-size="11" text-anchor="end" fill="#000">Ø63/36 × 60</text>
-<text x="360.0" y="200.0" font-size="11" text-anchor="end" fill="#000">13.4 kN → 4.54 MPa</text>
-<text x="360.0" y="214.0" font-size="11" text-anchor="end" fill="#000">14.0 L/min, 0.8 s</text>
+<text x="360.0" y="186.0" font-size="11" text-anchor="end" fill="#000">Ø50/28 × 60</text>
+<text x="360.0" y="200.0" font-size="11" text-anchor="end" fill="#000">16.6 kN → 8.89 MPa</text>
+<text x="360.0" y="214.0" font-size="11" text-anchor="end" fill="#000">8.8 L/min, 0.8 s</text>
 <text x="360.0" y="228.0" font-size="11" text-anchor="end" fill="#000">cushions both ends</text>
 <text x="470.0" y="150.0" font-size="11" text-anchor="start" fill="#000">1B1 arm up</text>
 <text x="470.0" y="240.0" font-size="11" text-anchor="start" fill="#000">1B2 arm down</text>
@@ -230,7 +230,7 @@
 <line x1="1104.0" y1="560.0" x2="1150.0" y2="560.0" stroke="#000" stroke-width="1.2" stroke-dasharray="5,3"/>
 <circle cx="1150.0" cy="560.0" r="3.0" stroke="#000" stroke-width="1" fill="#000"/>
 <line x1="280.0" y1="620.0" x2="1060.0" y2="620.0" stroke="#000" stroke-width="2.6"/>
-<text x="880.0" y="612.0" font-size="11" text-anchor="start" fill="#000">P 6.0–7.5 MPa, 12×1.5 (ID 9)</text>
+<text x="880.0" y="612.0" font-size="11" text-anchor="start" fill="#000">P 10.0–11.5 MPa, 12×1.5 (ID 9)</text>
 <line x1="406.1" y1="660.0" x2="1190.0" y2="660.0" stroke="#000" stroke-width="1.8"/>
 <line x1="1150.0" y1="660.0" x2="1150.0" y2="660.0" stroke="#000" stroke-width="1.5"/>
 <circle cx="1150.0" cy="660.0" r="3.0" stroke="#000" stroke-width="1" fill="#000"/>
@@ -255,7 +255,7 @@
 <circle cx="280.0" cy="860.0" r="22.0" stroke="#000" stroke-width="1.5" fill="none"/>
 <polygon points="280.0,838.0 272.0,851.0 288.0,851.0" stroke="#000" stroke-width="1" fill="#000" stroke-linejoin="round"/>
 <text x="200.0" y="902.0" font-size="12" text-anchor="middle" fill="#c62828" font-weight="bold">0M1</text>
-<text x="200.0" y="918.0" font-size="11" text-anchor="middle" fill="#000">0.75 kW</text>
+<text x="200.0" y="918.0" font-size="11" text-anchor="middle" fill="#000">1.5 kW</text>
 <text x="200.0" y="932.0" font-size="11" text-anchor="middle" fill="#000">4-pole IE3</text>
 <text x="310.0" y="900.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">0P1</text>
 <text x="310.0" y="916.0" font-size="11" text-anchor="start" fill="#000">gear 4 cm³/rev</text>
@@ -298,13 +298,13 @@
 <line x1="470.0" y1="620.0" x2="470.0" y2="700.0" stroke="#000" stroke-width="2"/>
 <line x1="470.0" y1="740.0" x2="470.0" y2="965.0" stroke="#000" stroke-width="1.6"/>
 <text x="430.0" y="712.0" font-size="12" text-anchor="end" fill="#c62828" font-weight="bold">0V1</text>
-<text x="430.0" y="728.0" font-size="11" text-anchor="end" fill="#000">relief 8.5 MPa</text>
+<text x="430.0" y="728.0" font-size="11" text-anchor="end" fill="#000">relief 13 MPa</text>
 <text x="430.0" y="742.0" font-size="11" text-anchor="end" fill="#000">(≥ 1.1 × 7.5)</text>
 <circle cx="540.0" cy="620.0" r="3.0" stroke="#000" stroke-width="1" fill="#000"/>
 <line x1="540.0" y1="620.0" x2="540.0" y2="598.0" stroke="#000" stroke-width="1.3"/>
 <circle cx="540.0" cy="586.0" r="12.0" stroke="#000" stroke-width="1.5" fill="none"/>
 <line x1="532.8" y1="593.2" x2="547.2" y2="578.8" stroke="#000" stroke-width="1.2" marker-end="url(#ar)"/>
-<text x="470.0" y="548.0" font-size="11" text-anchor="start" fill="#000">0S1 gauge 0–10 MPa</text>
+<text x="470.0" y="548.0" font-size="11" text-anchor="start" fill="#000">0S1 gauge 0–16 MPa</text>
 <text x="470.0" y="562.0" font-size="11" text-anchor="start" fill="#000">+ test point</text>
 <circle cx="640.0" cy="620.0" r="3.0" stroke="#000" stroke-width="1" fill="#000"/>
 <line x1="640.0" y1="620.0" x2="640.0" y2="940.0" stroke="#000" stroke-width="2"/>
@@ -330,7 +330,7 @@
 </g>
 <line x1="690.0" y1="775.0" x2="690.0" y2="790.0" stroke="#000" stroke-width="1.3"/>
 <polyline points="680.0,790.0 680.0,802.0 700.0,802.0 700.0,790.0" stroke="#000" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
-<text x="785.0" y="742.0" font-size="11" text-anchor="start" fill="#000">relief 10 MPa</text>
+<text x="785.0" y="742.0" font-size="11" text-anchor="start" fill="#000">relief 14 MPa</text>
 <text x="785.0" y="756.0" font-size="11" text-anchor="start" fill="#000">(sealed),</text>
 <text x="785.0" y="770.0" font-size="11" text-anchor="start" fill="#000">manual discharge</text>
 <line x1="640.0" y1="940.0" x2="960.0" y2="940.0" stroke="#000" stroke-width="2"/>
@@ -339,22 +339,22 @@
 <line x1="943.0" y1="881.5" x2="977.0" y2="881.5" stroke="#000" stroke-width="1.3"/>
 <text x="960.0" y="872.4" font-size="11" text-anchor="middle" fill="#000">N₂</text>
 <line x1="960.0" y1="920.0" x2="960.0" y2="930.0" stroke="#000" stroke-width="1.5"/>
-<text x="990.0" y="870.0" font-size="11" text-anchor="start" fill="#000">0Z5 bladder 2.5 L</text>
-<text x="990.0" y="884.0" font-size="11" text-anchor="start" fill="#000">p0 5.39 MPa (gauge)</text>
-<text x="990.0" y="898.0" font-size="11" text-anchor="start" fill="#000">usable 0.34 L (fast)</text>
+<text x="990.0" y="870.0" font-size="11" text-anchor="start" fill="#000">0Z5 bladder 4 L</text>
+<text x="990.0" y="884.0" font-size="11" text-anchor="start" fill="#000">p0 8.99 MPa (gauge)</text>
+<text x="990.0" y="898.0" font-size="11" text-anchor="start" fill="#000">usable 0.35 L (fast)</text>
 <circle cx="640.0" cy="880.0" r="3.0" stroke="#000" stroke-width="1" fill="#000"/>
 <line x1="640.0" y1="880.0" x2="720.0" y2="880.0" stroke="#000" stroke-width="1.5"/>
 <line x1="720.0" y1="880.0" x2="720.0" y2="868.0" stroke="#000" stroke-width="1.5"/>
 <rect x="702.0" y="840.0" width="36.0" height="28.0" rx="0" stroke="#000" stroke-width="1.3" fill="none"/>
 <text x="720.0" y="859.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">0B2</text>
 <text x="745.0" y="850.0" font-size="11" text-anchor="start" fill="#000">0B2 transmitter 4–20 mA:</text>
-<text x="745.0" y="864.0" font-size="11" text-anchor="start" fill="#000">cut-in 6.0 / cut-out 7.5 MPa</text>
+<text x="745.0" y="864.0" font-size="11" text-anchor="start" fill="#000">cut-in 10.8 / cut-out 11.5 MPa</text>
 <polyline points="70.0,950.0 70.0,1010.0 1260.0,1010.0 1260.0,950.0" stroke="#000" stroke-width="2" fill="none" stroke-linejoin="round"/>
 <line x1="70.0" y1="968.0" x2="1260.0" y2="968.0" stroke="#555" stroke-width="1" stroke-dasharray="8,6"/>
 <text x="80.0" y="1000.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">0Z1</text>
 <text x="120.0" y="1000.0" font-size="11" text-anchor="start" fill="#000">tank 25 L, HLP 46 (or VG 32 as the clamp makers specify), ISO 4406 17/15/12 target (zero-point modules + rotary union), breather 3 µm, level/temp switch</text>
 <text x="30.0" y="1040.0" font-size="11" text-anchor="start" fill="#000">Sequence (PLC): 2V1 on → 2S1 'unclamped' → 1Y1 lift → rotate 180° (1V2 holds) → 1Y2 lower → 2V1 off (springs clamp) → air seating check.</text>
-<text x="30.0" y="1054.0" font-size="11" text-anchor="start" fill="#000">Table indexing: 3V1 on (unclamp) → B-axis turns → 3V1 off → 3S1 'clamped' → cutting allowed. Pump: 0V5 on below 6.0 MPa, off at 7.5 MPa (≈ 20 cycles/h).</text>
+<text x="30.0" y="1054.0" font-size="11" text-anchor="start" fill="#000">Table indexing: 3V1 on (unclamp) → B-axis turns → 3V1 off → 3S1 'clamped' → cutting allowed. Pump: 0V5 on below 10.8 MPa, off at 11.5 MPa (≈ 43 cycles/h).</text>
 <text x="30.0" y="1068.0" font-size="11" text-anchor="start" fill="#000">Spindle tool unclamp is not drawn (own booster or a 4th branch).</text>
 <rect x="960.0" y="1026.0" width="420.0" height="86.0" rx="0" stroke="#000" stroke-width="1.5" fill="none"/>
 <line x1="960.0" y1="1056.0" x2="1380.0" y2="1056.0" stroke="#000" stroke-width="1"/>

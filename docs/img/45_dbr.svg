@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<defs>
+<marker id="arrK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fd1"/></marker>
+<marker id="arrKs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#000"/></marker>
+<marker id="arrAs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="1.4"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<text x="24" y="38" font-size="22" font-weight="700" fill="#000">Drum – buffer – rope (DBR) at the thread grinders BS-TGR</text>
+<line x1="24" y1="50" x2="1176" y2="50" stroke="#000" stroke-width="1.2"/>
+<rect x="60" y="250" width="110" height="60" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="115.0" y="284.55" font-size="13" text-anchor="middle" font-weight="700" fill="#000">saw</text>
+<rect x="190" y="250" width="110" height="60" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="245.0" y="284.55" font-size="13" text-anchor="middle" font-weight="700" fill="#000">turn</text>
+<rect x="320" y="250" width="110" height="60" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="375.0" y="284.55" font-size="13" text-anchor="middle" font-weight="700" fill="#000">harden</text>
+<rect x="450" y="250" width="110" height="60" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="505.0" y="284.55" font-size="13" text-anchor="middle" font-weight="700" fill="#000">straighten</text>
+<rect x="580" y="250" width="110" height="60" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="635.0" y="284.55" font-size="13" text-anchor="middle" font-weight="700" fill="#000">grind OD</text>
+<line x1="170" y1="280" x2="190" y2="280" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<line x1="300" y1="280" x2="320" y2="280" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<line x1="430" y1="280" x2="450" y2="280" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<line x1="560" y1="280" x2="580" y2="280" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<rect x="710" y="240" width="110" height="80" fill="#fff" stroke="#1f6fd1" stroke-width="2" stroke-dasharray="6 3"/>
+<rect x="722" y="290" width="18" height="22" fill="#1f6fd1"/>
+<rect x="746" y="290" width="18" height="22" fill="#1f6fd1"/>
+<rect x="770" y="290" width="18" height="22" fill="#1f6fd1"/>
+<rect x="794" y="290" width="18" height="22" fill="#1f6fd1"/>
+<text x="765" y="262" font-size="12" text-anchor="middle" font-weight="700" fill="#1f6fd1">time buffer</text>
+<text x="765" y="278" font-size="11" text-anchor="middle" fill="#000">16 h of work</text>
+<line x1="690" y1="280" x2="710" y2="280" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<rect x="860" y="230" width="150" height="100" rx="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.4"/>
+<text x="935.0" y="259.05" font-size="13" text-anchor="middle" font-weight="700" fill="#1f6fd1">DRUM</text>
+<text x="935.0" y="276.05" font-size="13" text-anchor="middle" fill="#000">8 × BS-TGR</text>
+<text x="935.0" y="293.05" font-size="13" text-anchor="middle" fill="#000">thread grinding</text>
+<text x="935.0" y="310.05" font-size="13" text-anchor="middle" fill="#000">bottleneck</text>
+<line x1="820" y1="280" x2="860" y2="280" stroke="#1f6fd1" stroke-width="2.2" marker-end="url(#arrA)"/>
+<rect x="1050" y="250" width="110" height="60" rx="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="1105.0" y="276.05" font-size="13" text-anchor="middle" font-weight="700" fill="#000">lead check</text>
+<text x="1105.0" y="293.05" font-size="13" text-anchor="middle" fill="#000">QC-LED</text>
+<line x1="1010" y1="280" x2="1050" y2="280" stroke="#000" stroke-width="1.5" marker-end="url(#arrK)"/>
+<path d="M 935 230 C 935 120 115 120 115 245" fill="none" stroke="#1f6fd1" stroke-width="2.4" stroke-dasharray="10 5" marker-end="url(#arrA)"/>
+<text x="380" y="92" font-size="14" text-anchor="start" font-weight="700" fill="#1f6fd1">ROPE: release a bar lot only when the drum schedule needs it</text>
+<text x="380" y="112" font-size="13" text-anchor="start" fill="#1f6fd1">release time = drum start − (upstream work + buffer)</text>
+<text x="60" y="400" font-size="13" text-anchor="start" fill="#000">Why: the plant can only make what the bottleneck makes. Lots released earlier only wait (WIP, lead time, damage risk).</text>
+<text x="60" y="424" font-size="13" text-anchor="start" fill="#000">Drum = the sequence on the bottleneck (here with set-up families, rule FAM or EDD).</text>
+<text x="60" y="448" font-size="13" text-anchor="start" fill="#000">Buffer = a time buffer in front of the drum (example 16 h = 2 shifts) so that a breakdown upstream does not starve the drum.</text>
+<text x="60" y="472" font-size="13" text-anchor="start" fill="#000">Rope = the release signal: MES releases lot i at  r_i = S_drum,i − (Σ p_upstream,i + B).</text>
+<text x="60" y="496" font-size="13" text-anchor="start" fill="#000">Example: drum start in 40 h, upstream work 9 h, buffer 16 h → release in 40 − 9 − 16 = 15 h (not now).</text>
+<text x="60" y="520" font-size="13" text-anchor="start" fill="#000">The MES runs the schedule twice: pass 1 finds the drum starts, pass 2 schedules with the new release times.</text>
+<text x="60" y="544" font-size="13" text-anchor="start" fill="#000">Check in the page (section 3): DBR on → 'lots released later', mean WIP falls, BS-TGR utilisation stays.</text>
+<rect x="770" y="766" width="406" height="48" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="770" y1="790" x2="1176" y2="790" stroke="#000" stroke-width="1"/>
+<text x="778" y="783" font-size="12" font-weight="700" fill="#1f6fd1">EXAMPLE – check with your MES team</text>
+<text x="778" y="807" font-size="11" fill="#000">Ball screw + guide factory · item 6 MES · guide 45 · 45_dbr.svg</text>
+</svg>

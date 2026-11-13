@@ -93,7 +93,7 @@
 <text x="660.0" y="565.0" font-size="11" text-anchor="middle" fill="#000" >E</text>
 <rect x="690.0" y="430.0" width="118.0" height="70.0" fill="#fff" stroke="#000" stroke-width="1.2" />
 <text x="749.0" y="448.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold" >Spindle</text>
-<text x="749.0" y="466.0" font-size="11.5" text-anchor="middle" fill="#000" >15 kW S1</text>
+<text x="749.0" y="466.0" font-size="11.5" text-anchor="middle" fill="#000" >18 kW S1</text>
 <text x="749.0" y="482.0" font-size="11.5" text-anchor="middle" fill="#000" >HSK-A63</text>
 <line x1="749.0" y1="410.0" x2="749.0" y2="430.0" stroke="#000" stroke-width="1.4" />
 <circle cx="749" cy="560" r="26" fill="#fff" stroke="#000" stroke-width="1.2"/>

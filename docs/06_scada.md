@@ -1080,7 +1080,7 @@ timeout (sss = step number)**, 9 maintenance. Alarm list document: `VC-ITS-ALM-0
 | HMC01_A4001 CNC / drive fault | CNC Fault = 1 | – | 1 | CNC alarm (number in text) | machine stopped | read CNC alarm, repair | 3 min | – |
 | HMC01_A1001 E-stop pressed | EStop_Ok = 0 | – | 1 | E-stop pressed | line stopped | find reason, release, local reset, start | 3 min | – |
 | HMC01_A0011 OPC UA connection SCADA ↔ PLC lost | node status Bad / LifeCounter frozen | – / – / 10 s | 2 | network, PLC down | blind for this machine | check network / PLC | 10 min | – |
-| HMC01_A8010 Timeout step 10 | step 10 > 5 s | – | 2 | CNC not in AUTO, CNC alarm | cell stops | check CNC, reset | 10 min | – |
+| HMC01_A8030 Timeout step 30 (InCycle) | step 30 > 5 s | – | 2 | CNC not in AUTO, CNC alarm | cell stops | check CNC, reset | 10 min | – |
 | HMC01_A7003 AGV handshake timeout | E84 answer missing | agreed time | 2 | AGV / station signal | pallet not delivered | check AGV and docking | 10 min | – |
 | AGV01_A9010 Battery low (example number) | battery < 15 % | 15 % / 3 % / 30 s | 3 | charging missed | AGV stops | check charging station | 30 min | AGV in maintenance |
 
@@ -1097,8 +1097,8 @@ production manager, audit trail read-only, account review every 6 months (exampl
 
 ## 12. Identification and numbering
 
-Master: `docs/15_numbering_and_identification.md` (doc 15). **If different, doc 15 wins.** Items that doc 15
-does not define yet are marked *proposal – add to doc 15*.
+Master: `docs/15_numbering_and_identification.md` (doc 15). **If different, doc 15 wins.** The former proposals
+of this chapter (screens, clients, accounts, report files) are now decided in doc 15 (§8b D-09, D-10).
 
 ### 12.1 Tags (doc 15 §3.10)
 
@@ -1121,7 +1121,7 @@ the OPC UA variable name (guide 05, 12.1).
 number, e.g. `APCHMC01_A8030` "Timeout step 30 (lift up)". One ID = one row in the alarm list = one
 rationalization record. In SCADA the alarm is shown with its ID, machine, text and the tag it belongs to.
 
-### 12.3 Screens (*proposal – add to doc 15*)
+### 12.3 Screens (doc 15 §3.10)
 
 | Level | ID | Example |
 |---|---|---|
@@ -1143,12 +1143,12 @@ rationalization record. In SCADA the alarm is shown with its ID, machine, text a
 
 | Object | Rule | Example |
 |---|---|---|
-| SCADA server(s) | host name `vc-<area>-<device>`, VLAN 40 `OT-L2-SUP`, hosts .100–.149 | `vc-sup-scada01` = 10.40.0.100, `vc-sup-scada02` (example .101) |
-| Historian | VLAN 30 `OT-L3-OPS` | `vc-ops-hist01` (example name / 10.30.0.1xx) |
-| Operator clients | VLAN 40 | `vc-sup-cl01` (*proposal*) |
+| SCADA server(s) | host name `vc-<area>-<device>`, VLAN 40 `OT-L2-SUP`, hosts .100–.149 | `vc-sup-scada01` = 10.40.0.100, `vc-sup-scada02` = 10.40.0.101 |
+| Historian | VLAN 30 `OT-L3-OPS` | `vc-ops-hist01` = 10.30.0.103 |
+| Operator clients | VLAN 40 | `vc-sup-cl01` = 10.40.0.120, `vc-sup-cl02` = .121 |
 | Personal accounts | first name . last name | anna.meier (example) |
-| Service accounts | `svc-<purpose>` (*proposal*) | svc-opcua-scada |
-| Report files | `<report>_<area>_<line>_<YYYYMMDD>_<shift>.csv` (*proposal*) | shift_MCH_L2_20261111_A.csv |
+| Service accounts | `svc-<system>-<purpose>` | svc-opcua-scada |
+| Report files | `<report>_<Area>_<Line>_<YYYYMMDD>_<shift>.csv` | shift_MCH_L2_20261111_A.csv |
 | SCADA project version | `MAJOR.MINOR.PATCH` (doc 15 §3.14) + change log | SCADA v1.2.0 |
 | Documents | tag list `VC-ITS-TAG-0001`, alarm list / philosophy `VC-ITS-ALM-0001`, network plan `VC-ITS-NET-0001` | |
 | Time stamps | ISO 8601, UTC stored | 2026-11-11T08:15:30Z |
@@ -1201,7 +1201,7 @@ STRUCT
     Good_Cnt     : DINT;
     Scrap_Cnt    : DINT;
     Speed_Sp     : REAL;   // %, written by SCADA, PLC limits to 50..130
-    AlarmBits    : DWORD;  // bit 0 A5101, bit 1 A5102, bit 2 A5103, bit 3 A8010, bit 4 A4001, bit 5 A1001 ...
+    AlarmBits    : DWORD;  // bit 0 A5101, bit 1 A5102, bit 2 A5103, bit 3 A8030, bit 4 A4001, bit 5 A1001 ...
     LifeCounter  : INT;    // +1 every second - SCADA checks that it changes (heartbeat)
 END_STRUCT
 END_TYPE
@@ -1293,7 +1293,7 @@ Audit record: … | anna.meier | vc-sup-cl01 | call | MCH_L2_HMC01 StartRequest 
 
 | Data | From whom | Needed for |
 |---|---|---|
-| Screen IDs, client host names, service-account and report-file rules (proposals in 12.3/12.5, not yet in doc 15); register of used alarm numbers | numbering owner (doc 15), IT/OT | chapter 12 |
+| Screen IDs, client host names, service-account and report-file rules (decided in doc 15 §8b D-09/D-10 – only confirm); register of used alarm numbers | numbering owner (doc 15), IT/OT | chapter 12 |
 | Operator positions and which machines each one supervises | production management | alarm rate targets (10.5) |
 | Chosen SCADA product, its licence model and sizing tool, bytes per sample and compression | vendor | 10.6, 11.1, 11.2 |
 | PLC OPC UA server limits (max monitored items, sessions, min sampling) | PLC vendor data sheet | 10.7 |
@@ -1465,11 +1465,12 @@ real availability. Test the switch-over at FAT and SAT (chapter 28) and every ye
 |---|---|---|
 | SCADA server A (active) – I/O, alarms, display, web | `vc-sup-scada01` 10.40.0.100 | Supervisory, VLAN 40 |
 | SCADA server B (hot standby) | `vc-sup-scada02` 10.40.0.101 | Supervisory, VLAN 40 |
-| Historian | `vc-ops-hist01` | Operations, VLAN 30 |
-| MES | `vc-ops-mes01` (example) | Operations, VLAN 30 |
+| Historian | `vc-ops-hist01` 10.30.0.103 | Operations, VLAN 30 |
+| MES | `vc-ops-mes01` 10.30.0.100 | Operations, VLAN 30 |
 | 2 operator stations + 65" wall display | `vc-sup-cl01`, `vc-sup-cl02` | VLAN 40 |
 | 5 line web clients (panel PC / thin client) | one per line | line VLAN, conduit to VLAN 40 |
-| Edge gateway + MQTT broker | `vc-sup-edge01` (*proposal*) | VLAN 40 |
+| MQTT broker cluster | `vc-ops-mqtt01` / `vc-ops-mqtt02` 10.30.0.101 / .102 | Operations, VLAN 30 |
+| Edge gateway (MQTT publisher, no broker) | `vc-sup-edge01` 10.40.0.104 | Supervisory, VLAN 40 |
 | Historian replica + web reports | DMZ | Industrial DMZ |
 
 ---
@@ -2058,7 +2059,7 @@ Cpk = Cp = 1.33. More capability methods: guide 13 (quality system) and 28.
 | Rate of change | `(x_now − x_(t−Δt)) / Δt` | rate-of-rise alarm (e.g. spindle temperature > 2 K/min) |
 
 The vibration limits of the machining centres (4.5 / 7.1 mm/s) are the zone boundaries B/C and C/D used in
-ISO 10816-3 / ISO 20816-3 for medium machines on flexible supports – check the exact class in guides 20 and 26
+ISO 20816-3:2022 (replaces ISO 10816-3) for medium machines on flexible supports – check the exact class in guides 20 and 26
 and with the machine supplier.
 
 ---

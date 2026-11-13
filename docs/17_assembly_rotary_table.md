@@ -1054,7 +1054,7 @@ Do this full pass at 30 %, again at 70 %, again at 100 %, then one **check pass 
 * Faults are **fixed offsets** (for example +6 µm for dirt). Real faults vary.
 * Only **one** wheel and pair number is used (`WHL-2546-00001`, `P-2546-00001`) whatever the worm.
 * The kit serials in step 1 (`HSG-…`, `TBL-…`, `CTG-…`, `CLR-…`) are **twin examples**; the type codes
-  are not yet in guide 15 (see 12.2).
+  are in guide 15 §8a (decision D-16, see 12.1).
 * The 12 h soak, the washing and the grinding are not simulated physically – only a check value.
 * The run-in curve is a simple first-order rise T = T_max · (1 − e^(−t/28 min)).
 * The ISO 230-2 model is simple: encoder error (1× per turn) + a 3× per turn term + an eccentric residue
@@ -1391,8 +1391,8 @@ Station layout drawing and zone sizes: chapter 26.3. Buy list with catalogue exa
 
 ## 12. Identification and numbering
 
-All formats follow guide 15. New codes proposed here are marked **(proposal)** – the coordinator adds
-them to guide 15 §8a when accepted.
+All formats follow guide 15. The codes first proposed here were accepted into guide 15
+§8a (decisions D-15, D-16, D-17, D-24, D-25).
 
 ### 12.1 The table, the pair, the parts
 
@@ -1406,7 +1406,7 @@ them to guide 15 §8a when accepted.
 | Housing, table, cartridges, clamp ring (made) | part number = drawing without revision; serial if traced | `VC-HMC-RT-0010` (housing) | record |
 
 The twin's step 1 shows serials `HSG-2546-00003`, `TBL-2546-00003`, `CTG-2546-00006/7`,
-`CLR-2546-00003`. These type codes are **not yet in guide 15**. **Proposal:** `HSG` housing, `TBL` table,
+`CLR-2546-00003`. These type codes are in guide 15 §8a (D-16): `HSG` housing, `TBL` table,
 `CLR` clamp ring, and **`CTG`** for the worm cartridge (the app already uses `CTG`) – because `CRT-<6 digits>`
 is already the crate code in guide 15 §3.9.
 
@@ -1415,14 +1415,14 @@ is already the crate code in guide 15 §3.9.
 | Item | Format | Example |
 |---|---|---|
 | Jig drawing | `VC-ASM-JIG-<nnnn>-<rev>` (area ASM, group JIG – guide 15 §3.2) | `VC-ASM-JIG-0101-A` (J1) … `VC-ASM-JIG-0112-A` (J12) |
-| Jig physical ID | `FIX-<4 digits>` engraved – **proposal: range `FIX-01nn` reserved for assembly jigs** (J1 = `FIX-0101` … J12 = `FIX-0112`) | `FIX-0102` = lifting beam J2 |
+| Jig physical ID | `FIX-<4 digits>` engraved – range `FIX-01nn` reserved for assembly jigs (guide 15, D-25) (J1 = `FIX-0101` … J12 = `FIX-0112`) | `FIX-0102` = lifting beam J2 |
 | Torque wrench | `GA-TQW-<nnnn>` | `GA-TQW-0011` (20–100 N·m) |
 | Dial indicator | `GA-DIA-<nnnn>` | `GA-DIA-0021` |
 | Micrometer | `GA-MIC-<nnnn>` | `GA-MIC-0014` |
 | Pressure gauge | `GA-PRS-<nnnn>` | `GA-PRS-0017` |
 | Thermometer / logger | `GA-THM-<nnnn>` | `GA-THM-0008` |
-| New gauge types **(proposal)** | `GA-ACL-` autocollimator, `GA-PGN-` polygon, `GA-LVL-` level, `GA-LDC-` load cell, `GA-HGT-` height gauge, `GA-GBK-` gauge block set, `GA-MDR-` setting mandrel J5 | `GA-PGN-0001` |
-| Assembly stand as equipment | `ASSY-<nn>` (guide 15 §3.9) | `ASSY-RT1` or `ASSY-02` |
+| New gauge types (guide 15 §3.14) | `GA-ACL-` autocollimator, `GA-PGN-` polygon, `GA-LVL-` level, `GA-LDC-` load cell, `GA-HGT-` height gauge, `GA-GBK-` gauge block set, `GA-MDR-` setting mandrel J5 | `GA-PGN-0001` |
+| Assembly stand as equipment | `ASSY-<nn>` (guide 15 §3.9) | `ASSY-RT1` (guide 15, D-24) |
 | Calibration record | `CAL-<YYWW>-<nnnn>` | `CAL-2546-0031` |
 
 Lifting accessories (J2, J4) additionally carry **WLL**, own weight, year and the inspection tag; they are
@@ -1433,7 +1433,7 @@ listed in the lifting gear register.
 | Item | Format | Example |
 |---|---|---|
 | Work instruction (the 18 steps) | `VC-ASM-WI-<nnnn>-<rev>` | `VC-ASM-WI-0101-A` |
-| Work card of a step **(proposal)** | WI number + `-S<2 digits>` | `VC-ASM-WI-0101-A-S09` (backlash) |
+| Work card of a step | WI number + `-S<2 digits>` (+ upper-case sub-step letter, guide 15 D-15) | `VC-ASM-WI-0101-A-S09` (backlash) |
 | Acceptance test procedure | `VC-HMC-TP-<nnnn>-<rev>` | `VC-HMC-TP-0001-A` (ISO 230-2 + geometry) |
 | Filled acceptance report | `VC-HMC-REP-<nnnn>-<rev>` | `VC-HMC-REP-0011-A` |
 | Risk assessment of jigs J1, J2, J4 | `VC-ASM-RA-<nnnn>-<rev>` | `VC-ASM-RA-0101-A` |
@@ -1507,7 +1507,7 @@ Work order `WO-2546-0001`. Room 20.1–20.4 °C during the assembly. Two fitters
 | Worm | WRM-2546-00001 | part record RELEASED (guide 12 W11.11: spacer prediction 2.60 mm) |
 | Worm wheel | WHL-2546-00001 | part record RELEASED |
 | Pair | **P-2546-00001** on both parts ✓ | |
-| Cartridges + spacer | CTG-2546-00006 / -00007 (twin; type code CTG is a proposal for guide 15) | |
+| Cartridges + spacer | CTG-2546-00006 / -00007 (twin; type code CTG as guide 15, D-16) | |
 | Clamp ring + disc | CLR-2546-00003 | pressure test record |
 | Encoder, union, 4 modules | supplier serials scanned | |
 
@@ -1922,7 +1922,7 @@ the next table) is enough; at 80 tables/year (takt 21 h) you need a second stand
 
 * Put a **"hold point"** (inspector signature) at the end of each chain that is hidden later: steps 4, 5,
   6, 9, 10, 11, 15, 17 (as in 6.2).
-* Write the **sub-assembly 7a** as its own work card (`VC-ASM-WI-0101-A-S07a`, proposal) with its own
+* Write the **sub-assembly 7a** as its own work card (`VC-ASM-WI-0101-A-S07A`) with its own
   record fields (bearing set no., friction torque, KM nut torque).
 * Never start a step whose predecessor has an open ✕.
 
@@ -2684,7 +2684,7 @@ One rotary-table assembly station in the clean room (11.3) needs about **8 × 6 
 | Document | Content | Number (chapter 12) |
 |---|---|---|
 | **Work instruction (WI)** | the 18 steps with pictures, torques, sequences, limits – the "how" | `VC-ASM-WI-0101-A` |
-| **Work card per step** | 1–2 pages: goal, parts, tools with IDs, jigs, torques + pattern drawing, procedure, check + limit, reaction, sign-off boxes | `…-S01 … -S18` (+ `-S07a`) |
+| **Work card per step** | 1–2 pages: goal, parts, tools with IDs, jigs, torques + pattern drawing, procedure, check + limit, reaction, sign-off boxes | `…-S01 … -S18` (+ `-S07A`) |
 | **Traveller / route card** | follows the table: list of steps, status, signatures, NCR links | in the MES, printed copy at the stand |
 | **Assembly record** | all measured values, serials, gauge IDs, torques, photos (12.4) | JSON / MES record per `RT-…` |
 | **Torque record** | per joint: screw count, torque, angle (if measured), wrench ID, time, OK/NOK | automatic from the electronic wrench, or paper table |

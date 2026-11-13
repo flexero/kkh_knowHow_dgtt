@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 970" width="1400" height="970" font-family="Arial, Helvetica, sans-serif">
+<title>APC step chain as GRAFCET (IEC 60848) – steps 0 to 9 with actions and transitions (example)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1400" height="970" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold">APC step chain as GRAFCET (IEC 60848) – steps, actions, transitions, watchdogs (= Networks 8–14 of the program)</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#666666">Square = step (double square = initial step). Box on the right = action (output while the step is active). Bar = transition condition.</text>
+<rect x="120.0" y="90.0" width="44.0" height="40.0" rx="0" stroke="#000" stroke-width="2" fill="#fff"/>
+<rect x="124.0" y="94.0" width="36.0" height="32.0" rx="0" stroke="#000" stroke-width="1.5" fill="none"/>
+<text x="142.0" y="116.0" font-size="16" text-anchor="middle" fill="#000" font-weight="bold">0</text>
+<text x="110.0" y="115.0" font-size="11" text-anchor="end" fill="#666666">S0</text>
+<text x="180.0" y="106.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">idle – wait for M60</text>
+<line x1="142.0" y1="130.0" x2="142.0" y2="174.0" stroke="#000" stroke-width="1.5"/>
+<line x1="124.0" y1="152.0" x2="160.0" y2="152.0" stroke="#000" stroke-width="3"/>
+<text x="170.0" y="156.0" font-size="11" text-anchor="start" fill="#1565c0">NC_M60 · M_StartOK (Network 6) · M_TrEn</text>
+<rect x="120.0" y="174.0" width="44.0" height="40.0" rx="0" stroke="#000" stroke-width="2" fill="#fff"/>
+<text x="142.0" y="200.0" font-size="16" text-anchor="middle" fill="#000" font-weight="bold">1</text>
+<text x="110.0" y="199.0" font-size="11" text-anchor="end" fill="#666666">S1</text>
+<text x="180.0" y="190.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">door open</text>
+<line x1="164.0" y1="194.0" x2="320.0" y2="194.0" stroke="#000" stroke-width="1.2"/>
+<rect x="320.0" y="180.0" width="360.0" height="28.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="328.0" y="199.0" font-size="11" text-anchor="start" fill="#000">DoorOpen (Y0.4 / %Q20.4)</text>
+<line x1="142.0" y1="214.0" x2="142.0" y2="258.0" stroke="#000" stroke-width="1.5"/>
+<line x1="124.0" y1="236.0" x2="160.0" y2="236.0" stroke="#000" stroke-width="3"/>
+<text x="170.0" y="240.0" font-size="11" text-anchor="start" fill="#1565c0">APCDoorOpen · NC_InPos · station door closed · curtain free</text>
+<text x="700.0" y="199.0" font-size="11" text-anchor="start" fill="#c62828">watchdog T_Wd1 = 3.0 s → F_Wd</text>
+<rect x="120.0" y="258.0" width="44.0" height="40.0" rx="0" stroke="#000" stroke-width="2" fill="#fff"/>
+<text x="142.0" y="284.0" font-size="16" text-anchor="middle" fill="#000" font-weight="bold">2</text>
+<text x="110.0" y="283.0" font-size="11" text-anchor="end" fill="#666666">S2</text>
+<text x="180.0" y="274.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">unclamp</text>
+<line x1="164.0" y1="278.0" x2="320.0" y2="278.0" stroke="#000" stroke-width="1.2"/>
+<rect x="320.0" y="264.0" width="360.0" height="28.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="328.0" y="283.0" font-size="11" text-anchor="start" fill="#000">UnclampValve 2V1 (Y0.2 / %Q20.2)</text>
+<line x1="142.0" y1="298.0" x2="142.0" y2="342.0" stroke="#000" stroke-width="1.5"/>
+<line x1="124.0" y1="320.0" x2="160.0" y2="320.0" stroke="#000" stroke-width="3"/>
+<text x="170.0" y="324.0" font-size="11" text-anchor="start" fill="#1565c0">MachineUnclamped (2S1 ≥ 4.5 MPa) · ArmDown</text>
+<text x="700.0" y="283.0" font-size="11" text-anchor="start" fill="#c62828">watchdog T_Wd2 = 1.6 s → F_Wd</text>
+<rect x="120.0" y="342.0" width="44.0" height="40.0" rx="0" stroke="#000" stroke-width="2" fill="#fff"/>
+<text x="142.0" y="368.0" font-size="16" text-anchor="middle" fill="#000" font-weight="bold">3</text>
+<text x="110.0" y="367.0" font-size="11" text-anchor="end" fill="#666666">S3</text>
+<text x="180.0" y="358.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">lift</text>
+<line x1="164.0" y1="362.0" x2="320.0" y2="362.0" stroke="#000" stroke-width="1.2"/>
+<rect x="320.0" y="348.0" width="360.0" height="28.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="328.0" y="367.0" font-size="11" text-anchor="start" fill="#000">LiftUpValve 1V1-a · UnclampValve · ServoEnable</text>
+<line x1="142.0" y1="382.0" x2="142.0" y2="426.0" stroke="#000" stroke-width="1.5"/>
+<line x1="124.0" y1="404.0" x2="160.0" y2="404.0" stroke="#000" stroke-width="3"/>
+<text x="170.0" y="408.0" font-size="11" text-anchor="start" fill="#1565c0">ArmUp · MachineUnclamped · curtain free</text>
+<text x="700.0" y="367.0" font-size="11" text-anchor="start" fill="#c62828">watchdog T_Wd3 = 1.6 s → F_Wd</text>
+<rect x="120.0" y="426.0" width="44.0" height="40.0" rx="0" stroke="#000" stroke-width="2" fill="#fff"/>
+<text x="142.0" y="452.0" font-size="16" text-anchor="middle" fill="#000" font-weight="bold">4</text>
+<text x="110.0" y="451.0" font-size="11" text-anchor="end" fill="#666666">S4</text>
+<text x="180.0" y="442.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">rotate 180°</text>
+<line x1="164.0" y1="446.0" x2="320.0" y2="446.0" stroke="#000" stroke-width="1.2"/>
+<rect x="320.0" y="432.0" width="360.0" height="28.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="328.0" y="451.0" font-size="11" text-anchor="start" fill="#000">ServoStart · ServoEnable · target 0° / 180°</text>
+<line x1="142.0" y1="466.0" x2="142.0" y2="510.0" stroke="#000" stroke-width="1.5"/>
+<line x1="124.0" y1="488.0" x2="160.0" y2="488.0" stroke="#000" stroke-width="3"/>
+<text x="170.0" y="492.0" font-size="11" text-anchor="start" fill="#1565c0">Servo_InPos · cam sensor of the target</text>
+<text x="700.0" y="451.0" font-size="11" text-anchor="start" fill="#c62828">watchdog T_Wd4 = 5.0 s → F_Wd</text>
+<rect x="120.0" y="510.0" width="44.0" height="40.0" rx="0" stroke="#000" stroke-width="2" fill="#fff"/>
+<text x="142.0" y="536.0" font-size="16" text-anchor="middle" fill="#000" font-weight="bold">5</text>
+<text x="110.0" y="535.0" font-size="11" text-anchor="end" fill="#666666">S5</text>
+<text x="180.0" y="526.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">lower</text>
+<line x1="164.0" y1="530.0" x2="320.0" y2="530.0" stroke="#000" stroke-width="1.2"/>
+<rect x="320.0" y="516.0" width="360.0" height="28.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="328.0" y="535.0" font-size="11" text-anchor="start" fill="#000">LiftDownValve 1V1-b · BlowOffAir · UnclampValve</text>
+<line x1="142.0" y1="550.0" x2="142.0" y2="594.0" stroke="#000" stroke-width="1.5"/>
+<line x1="124.0" y1="572.0" x2="160.0" y2="572.0" stroke="#000" stroke-width="3"/>
+<text x="170.0" y="576.0" font-size="11" text-anchor="start" fill="#1565c0">ArmDown · Arm0deg or Arm180deg</text>
+<text x="700.0" y="535.0" font-size="11" text-anchor="start" fill="#c62828">watchdog T_Wd5 = 1.6 s → F_Wd</text>
+<rect x="120.0" y="594.0" width="44.0" height="40.0" rx="0" stroke="#000" stroke-width="2" fill="#fff"/>
+<text x="142.0" y="620.0" font-size="16" text-anchor="middle" fill="#000" font-weight="bold">6</text>
+<text x="110.0" y="619.0" font-size="11" text-anchor="end" fill="#666666">S6</text>
+<text x="180.0" y="610.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">clamp</text>
+<line x1="164.0" y1="614.0" x2="320.0" y2="614.0" stroke="#000" stroke-width="1.2"/>
+<rect x="320.0" y="600.0" width="360.0" height="28.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="328.0" y="619.0" font-size="11" text-anchor="start" fill="#000">UnclampValve OFF (springs clamp)</text>
+<line x1="142.0" y1="634.0" x2="142.0" y2="678.0" stroke="#000" stroke-width="1.5"/>
+<line x1="124.0" y1="656.0" x2="160.0" y2="656.0" stroke="#000" stroke-width="3"/>
+<text x="170.0" y="660.0" font-size="11" text-anchor="start" fill="#1565c0">MachineClamped (2S1 ≤ 0.5 MPa)</text>
+<text x="700.0" y="619.0" font-size="11" text-anchor="start" fill="#c62828">watchdog T_Wd6 = 1.6 s → F_Wd</text>
+<rect x="120.0" y="678.0" width="44.0" height="40.0" rx="0" stroke="#000" stroke-width="2" fill="#fff"/>
+<text x="142.0" y="704.0" font-size="16" text-anchor="middle" fill="#000" font-weight="bold">7</text>
+<text x="110.0" y="703.0" font-size="11" text-anchor="end" fill="#666666">S7</text>
+<text x="180.0" y="694.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">seating check</text>
+<line x1="164.0" y1="698.0" x2="320.0" y2="698.0" stroke="#000" stroke-width="1.2"/>
+<rect x="320.0" y="684.0" width="360.0" height="28.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="328.0" y="703.0" font-size="11" text-anchor="start" fill="#000">SeatingAir 5V1 (Y0.3 / %Q20.3)</text>
+<line x1="142.0" y1="718.0" x2="142.0" y2="762.0" stroke="#000" stroke-width="1.5"/>
+<line x1="124.0" y1="740.0" x2="160.0" y2="740.0" stroke="#000" stroke-width="3"/>
+<text x="170.0" y="744.0" font-size="11" text-anchor="start" fill="#1565c0">SeatingAirOK (5S1)</text>
+<text x="700.0" y="703.0" font-size="11" text-anchor="start" fill="#c62828">watchdog T_Wd7 = 0.8 s → F_Seat</text>
+<rect x="120.0" y="762.0" width="44.0" height="40.0" rx="0" stroke="#000" stroke-width="2" fill="#fff"/>
+<text x="142.0" y="788.0" font-size="16" text-anchor="middle" fill="#000" font-weight="bold">8</text>
+<text x="110.0" y="787.0" font-size="11" text-anchor="end" fill="#666666">S8</text>
+<text x="180.0" y="778.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">door close</text>
+<line x1="164.0" y1="782.0" x2="320.0" y2="782.0" stroke="#000" stroke-width="1.2"/>
+<rect x="320.0" y="768.0" width="360.0" height="28.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="328.0" y="787.0" font-size="11" text-anchor="start" fill="#000">DoorClose (Y0.5 / %Q20.5)</text>
+<line x1="142.0" y1="802.0" x2="142.0" y2="846.0" stroke="#000" stroke-width="1.5"/>
+<line x1="124.0" y1="824.0" x2="160.0" y2="824.0" stroke="#000" stroke-width="3"/>
+<text x="170.0" y="828.0" font-size="11" text-anchor="start" fill="#1565c0">APCDoorClosed</text>
+<text x="700.0" y="787.0" font-size="11" text-anchor="start" fill="#c62828">watchdog T_Wd8 = 2.4 s → F_Wd</text>
+<rect x="120.0" y="846.0" width="44.0" height="40.0" rx="0" stroke="#000" stroke-width="2" fill="#fff"/>
+<text x="142.0" y="872.0" font-size="16" text-anchor="middle" fill="#000" font-weight="bold">9</text>
+<text x="110.0" y="871.0" font-size="11" text-anchor="end" fill="#666666">S9</text>
+<text x="180.0" y="862.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">FIN to the NC</text>
+<line x1="164.0" y1="866.0" x2="320.0" y2="866.0" stroke="#000" stroke-width="1.2"/>
+<rect x="320.0" y="852.0" width="360.0" height="28.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="328.0" y="871.0" font-size="11" text-anchor="start" fill="#000">NC_FIN (Y0.15 / %Q23.0)</text>
+<line x1="142.0" y1="886.0" x2="142.0" y2="930.0" stroke="#000" stroke-width="1.5"/>
+<line x1="124.0" y1="908.0" x2="160.0" y2="908.0" stroke="#000" stroke-width="3"/>
+<text x="170.0" y="912.0" font-size="11" text-anchor="start" fill="#1565c0">NOT NC_M60 (NC took the FIN)</text>
+<line x1="142.0" y1="886.0" x2="142.0" y2="920.0" stroke="#000" stroke-width="1.5"/>
+<polyline points="142.0,920.0 60.0,920.0 60.0,78.0 142.0,78.0 142.0,90.0" stroke="#000" stroke-width="1.5" fill="none" stroke-linejoin="round" marker-end="url(#ar)"/>
+<rect x="960.0" y="90.0" width="410.0" height="330.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="972.0" y="114.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">In the ladder (SET / RST step bits)</text>
+<text x="972.0" y="138.0" font-size="12" text-anchor="start" fill="#000">Transition n → n+1 =</text>
+<text x="972.0" y="155.0" font-size="12" text-anchor="start" fill="#000">  S(n) AND condition AND M_TrEn</text>
+<text x="972.0" y="172.0" font-size="12" text-anchor="start" fill="#000">  → SET S(n+1), RST S(n)</text>
+<text x="972.0" y="189.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="972.0" y="206.0" font-size="12" text-anchor="start" fill="#000">Written from the LAST step to the FIRST</text>
+<text x="972.0" y="223.0" font-size="12" text-anchor="start" fill="#000">(Networks 9 → 11): one step per scan only.</text>
+<text x="972.0" y="240.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="972.0" y="257.0" font-size="12" text-anchor="start" fill="#000">Action = output coil in ONE place</text>
+<text x="972.0" y="274.0" font-size="12" text-anchor="start" fill="#000">(Networks 12, 13) – no double coil.</text>
+<text x="972.0" y="291.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="972.0" y="308.0" font-size="12" text-anchor="start" fill="#000">No step active (power-up, abort)</text>
+<text x="972.0" y="325.0" font-size="12" text-anchor="start" fill="#000">→ SET S0 (Network 8).</text>
+<text x="972.0" y="342.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="972.0" y="359.0" font-size="12" text-anchor="start" fill="#000">Delta step relays S0 … S1023 (SFC) are an</text>
+<text x="972.0" y="376.0" font-size="12" text-anchor="start" fill="#000">alternative to M bits – check ISPSoft.</text>
+<rect x="960.0" y="440.0" width="410.0" height="250.0" rx="0" stroke="#c62828" stroke-width="1.5" fill="#fff"/>
+<text x="972.0" y="464.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">Fault (any step)</text>
+<text x="972.0" y="488.0" font-size="12" text-anchor="start" fill="#000">watchdog / low pressure / servo / HPU /</text>
+<text x="972.0" y="505.0" font-size="12" text-anchor="start" fill="#000">safety stop → M_Fault = 1</text>
+<text x="972.0" y="522.0" font-size="12" text-anchor="start" fill="#000">→ M_TrEn = 0: the chain HOLDS</text>
+<text x="972.0" y="539.0" font-size="12" text-anchor="start" fill="#000">→ lift valve to centre (POC holds)</text>
+<text x="972.0" y="556.0" font-size="12" text-anchor="start" fill="#000">→ red lamp, NC_Alarm, AlarmNo = step</text>
+<text x="972.0" y="573.0" font-size="12" text-anchor="start" fill="#000"></text>
+<text x="972.0" y="590.0" font-size="12" text-anchor="start" fill="#000">Ack: clears the stored faults</text>
+<text x="972.0" y="607.0" font-size="12" text-anchor="start" fill="#000">Manual + Home: RST S1 … S9 → S0</text>
+<text x="972.0" y="624.0" font-size="12" text-anchor="start" fill="#000">(after the APC was jogged to a safe position)</text>
+<rect x="960.0" y="710.0" width="410.0" height="120.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>
+<text x="972.0" y="734.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Nominal times (APC page defaults)</text>
+<text x="972.0" y="756.0" font-size="12" text-anchor="start" fill="#000">1.5 + 0.8 + 0.8 + 2.5 + 0.8 + 0.8 + 0.4 + 1.2</text>
+<text x="972.0" y="773.0" font-size="12" text-anchor="start" fill="#000">= 8.8 s (twin self-test: 8.80 s); real PLC</text>
+<text x="972.0" y="790.0" font-size="12" text-anchor="start" fill="#000">+ filter, scan, valve times ≈ + 0.25 s (§8.4)</text>
+<rect x="848.0" y="866.0" width="540.0" height="92.0" rx="0" stroke="#000" stroke-width="1.5" fill="#fff"/>
+<line x1="848.0" y1="892.0" x2="1388.0" y2="892.0" stroke="#000" stroke-width="1"/>
+<line x1="848.0" y1="916.0" x2="1388.0" y2="916.0" stroke="#000" stroke-width="1"/>
+<line x1="848.0" y1="937.0" x2="1388.0" y2="937.0" stroke="#000" stroke-width="1"/>
+<line x1="1188.0" y1="916.0" x2="1188.0" y2="958.0" stroke="#000" stroke-width="1"/>
+<text x="856.0" y="884.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – check the maker's documentation</text>
+<text x="856.0" y="909.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Step chain GRAFCET</text>
+<text x="856.0" y="931.0" font-size="11" text-anchor="start" fill="#000">Guide 36 – PLC ladder program of the APC</text>
+<text x="1196.0" y="931.0" font-size="11" text-anchor="start" fill="#000">Dwg VC-APC-PLC-3604</text>
+<text x="856.0" y="952.0" font-size="11" text-anchor="start" fill="#000">Digital twin · program: web/apclad_prog.js, guide 09</text>
+<text x="1196.0" y="952.0" font-size="11" text-anchor="start" fill="#000">not to scale · 2026-11-13</text>
+</svg>

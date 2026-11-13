@@ -1,4 +1,4 @@
-/* HMC build, Pallet changer, AGV build, Assembly, SCADA, PLC, Communication, CNC + Mechanical elements – data for the cards "Real components + drawings – catalogue examples" (machref.js).
+/* HMC build, Pallet changer, AGV build, Assembly, SCADA, PLC, Communication, CNC, Mechanical elements, Live factory, FMS, Order flow, MES + ERP – data for the cards "Real components + drawings – catalogue examples" (machref.js).
  * GENERATED from the guide tables – do not edit by hand; regenerate with gen_mach.py.
  *   hmc1: docs/12_hmc_build.md §M16 (10 tables) + §M17 BOM; drawings 12_*
  *   apc:  docs/09_pallet_changer_apc.md §28.1 – 28.10 + §28.11 shopping list; drawings 09_*
@@ -11,6 +11,9 @@
  *   comm: docs/07_communication.md §34.1 – 34.12 + §35 shopping list; drawings 07_*
  *   cnc:  docs/08_cnc_gcode.md §31.1 – 31.10 + §32 shopping list; drawings 08_*
  *   mech1: docs/10_mechanical_interfaces.md §36.1 – 36.14 + §37 shopping list; drawings 10_*
+ *   live: docs/01_digital_twin_core.md §36.1 – 36.6 + §37; drawings 01_*
+ *   fms / order: docs/02_fms_and_order_flow.md §30.1 – 30.6 + §30.7 / only §30.5 (APS); drawings 02_* split
+ *   mes / erp: docs/04_mes_and_erp.md §31.1, 31.3, 31.4, 31.6 / §31.2, 31.5, 31.7 + §31.8 on both; drawings 04_* split
  * Row format: [item, required spec, example maker + model, key data, price class (estimate), check in the datasheet]
  * Makers and models are real catalogue EXAMPLES – data and prices change; ask the supplier for the current datasheet and a quote.
  */
@@ -209,7 +212,7 @@ export const ITEMS = {
      ],
      [
       "Servo motors and drives",
-      "Spindle drive module 15 kW S1 (≥ 30 kW peak)",
+      "Spindle drive module ≥ 18 kW S1 (≥ 30 kW peak)",
       "same family as the CNC",
       "see datasheet",
       "€€",
@@ -373,7 +376,7 @@ export const ITEMS = {
     "rows": [
      [
       "Spindle, tool interface, clamping",
-      "Motor spindle HSK-A63, 12 000 rpm, 15 kW S1, 120 N·m S6 (buy instead of make, guides 18 / 19)",
+      "Motor spindle HSK-A63, 10 000 rpm, 18 kW S1, 115 N·m S1 / 140 N·m S6-40 % (buy instead of make, guides 18 / 19)",
       "Kessler, Fischer (Fischer Precise), GMN, Step-Tec",
       "power / torque curve: see datasheet",
       "€€€ – €€€€",
@@ -491,7 +494,7 @@ export const ITEMS = {
      ],
      [
       "Covers, chips, coolant, lubrication, hydraulics",
-      "Hydraulic unit (5–7 MPa, accumulator, 0.75 kW) – APC, clamp, counterbalance",
+      "Hydraulic unit (10–11.5 MPa, accumulator 4 L, 1.5 kW) – APC, clamp, counterbalance",
       "Bosch Rexroth, HAWE, Parker, HYDAC – design guides 25 / 29 / 30",
       "see datasheet",
       "€€",
@@ -697,7 +700,7 @@ export const ITEMS = {
      ],
      [
       "15",
-      "Motor spindle HSK-A63, 12 000 rpm, 15 kW (guides 18 / 19)",
+      "Motor spindle HSK-A63, 10 000 rpm, 18 kW (guides 18 / 19)",
       "1",
       "+ clamping unit",
       "MAKE (or BUY)",
@@ -1068,7 +1071,7 @@ export const ITEMS = {
     "rows": [
      [
       "Lift cylinder and end-position sensing",
-      "Ø63/36 × 60, cushions both ends, 16 MPa",
+      "Ø50/28 × 60, cushions both ends, 16 MPa (decided 2026-11-12)",
       "Bosch Rexroth CDT3 (tie-rod, ISO 6020-2)",
       "16 MPa nominal (series) – see datasheet",
       "medium",
@@ -1131,11 +1134,11 @@ export const ITEMS = {
      ],
      [
       "hydraulic rack-pinion rotary actuator",
-      "≥ 1 025 N·m at 6 MPa, 180°, adjustable stops + cushions",
+      "≥ 1 025 N·m at 10 MPa (same supply as the lift), 180°, adjustable stops + cushions",
       "Parker HTR (hydraulic rack & pinion – check), Helac (helical – check)",
       "–",
       "medium–high",
-      "oil per turn (0.78 L for double Ø63) vs accumulator, end-stop repeatability, backlash"
+      "oil per turn (0.49 L for double Ø50 → 10 L accumulator, §19.6) vs accumulator, end-stop repeatability, backlash"
      ]
     ]
    },
@@ -1249,7 +1252,7 @@ export const ITEMS = {
      [
       "Hydraulic power unit and valves",
       "0Z2 + 0V3",
-      "Hydac SB330 bladder accumulator 2.5 L + Hydac SAF safety & shut-off block (with solenoid drain = AccuHold)",
+      "Hydac SB330 bladder accumulator 4 L (p0 8.99 MPa) + Hydac SAF safety & shut-off block, relief 14 MPa (with solenoid drain = AccuHold)",
       "–",
       "medium",
       "–"
@@ -1479,7 +1482,7 @@ export const ITEMS = {
       "9",
       "1",
       "lift cylinder",
-      "Ø63/36 × 60, ISO 6020-2, 16 MPa, cushions (Ø80 if §20.2 decides)",
+      "Ø50/28 × 60, ISO 6020-2, 16 MPa, cushions both ends, cap-side test port",
       "Rexroth CDT3 / Parker HMI",
       "medium"
      ],
@@ -1495,7 +1498,7 @@ export const ITEMS = {
       "11",
       "1",
       "HPU",
-      "0.75 kW, 4 cm³/rev, 25 L, 0V1 8.5 MPa, filter 10 µm",
+      "1.5 kW, 4 cm³/rev, 25 L, 0V1 13 MPa, unloading valve 0V5, transmitter 0–16 MPa, filter 10 µm",
       "Rexroth / HAWE / Hydac / local builder",
       "high"
      ],
@@ -1503,7 +1506,7 @@ export const ITEMS = {
       "12",
       "1",
       "accumulator + safety block",
-      "2.5 L, p0 5.39 MPa, SAF with solenoid drain",
+      "4 L, p0 8.99 MPa, SAF relief 14 MPa with solenoid drain",
       "Hydac SB330 + SAF",
       "medium"
      ],
@@ -4748,7 +4751,7 @@ export const ITEMS = {
     "rows": [
      [
       "A. Buy complete motor spindles (recommended for a compressor factory building a few HMCs)",
-      "specify (12 000 rpm or 10 000 rpm, 15 / 18 kW, HSK-A63, 18 kN, sensors) and buy from a spindle maker",
+      "specify (10 000 rpm, 18 kW S1 / 115 N·m S1, 22 kW / 140 N·m S6-40 %, HSK-A63, 18 kN, sensors) and buy from a spindle maker",
       "< 20 spindles / year",
       "makers e.g. GMN, Franz Kessler, Fischer Precise, Step-Tec, IBAG, Siemens Weiss Spindeltechnologie, Setco – ask for a quote and the datasheet; use guides 18–20 to judge the offer and to run the incoming test"
      ],
@@ -7796,7 +7799,7 @@ export const ITEMS = {
       "14",
       "Hydraulic crankcase fixtures (3-2-1) per model",
       "31.9",
-      "2 pallets × 3 HMC = 6 bases + model-specific locator sets",
+      "2 pallets × 3 HMC = 6 bases for stand-alone HMCs; with the linear pallet storage of the FMS cell every pallet needs a base → ≈ 21 bases (guide 02 §18.3) + model-specific locator sets",
       "€€€ each",
       "clamping calculation 23.2, FAT with castings"
      ],
@@ -8869,5 +8872,2181 @@ export const ITEMS = {
   "price": "Price classes (guide 10, per piece): € < 50 € · €€ 50 – 500 € · €€€ 500 – 5 000 € · €€€€ > 5 000 € – estimate, ask for a quote.",
   "shopNote": "Quantities for one station; compare at least 2 makers for every bought part.",
   "ph": "(e.g. SKF, Bosch Rexroth, SEW, KTR, Festo, norelem)"
+ },
+ "live": {
+  "guide": "guide 01",
+  "drawings": [
+   {
+    "f": "01_twin_architecture.svg",
+    "c": "Digital twin architecture: real factory, data acquisition (gateways, OPC UA, MQTT), twin core (model, engine, state, historian), services (SCADA, MES, ERP, analytics …",
+    "g": "guide 01 §1.1",
+    "t": "Digital twin architecture"
+   },
+   {
+    "f": "01_factory_layout_twin.svg",
+    "c": "Plan view of the factory drawn from the pos values in config/factory.json: zones, 16 stations with mix-average cycle times, AS/RS, pallet pool, AGV aisle, chargers",
+    "g": "guide 01 §3.2",
+    "t": "Factory plan from config/factory.json"
+   },
+   {
+    "f": "01_maturity_levels.svg",
+    "c": "Digital model, digital shadow and digital twin compared, maturity levels L0 to L5, and the ISO 23247-2 entities mapped to the files of this project",
+    "g": "guide 01 §17.1",
+    "t": "Model, shadow, twin – maturity levels"
+   },
+   {
+    "f": "01_aas_model.svg",
+    "c": "Asset Administration Shell of HMC-01 with eight submodels: Digital Nameplate, Technical Data, Simulation Models, Time Series Data, Condition Monitoring …",
+    "g": "guide 01 §18.1",
+    "t": "Asset Administration Shell of HMC-01"
+   },
+   {
+    "f": "01_des_event_loop.svg",
+    "c": "Flow chart of the discrete-event simulation loop with future event list, plus a full event trace of a washer example with waits, queue length …",
+    "g": "guide 01 §19.2",
+    "t": "Discrete-event simulation loop"
+   },
+   {
+    "f": "01_queue_curve.svg",
+    "c": "Waiting time divided by service time versus utilisation for M/M/1 and Kingman, with FINAL-01 at 12, 14.4 and 16 units per hour and WASH-01 at 12 units per hour",
+    "g": "guide 01 §22.5",
+    "t": "Waiting time vs utilisation (M/M/1, Kingman)"
+   },
+   {
+    "f": "01_oee_loss_tree.svg",
+    "c": "OEE loss tree for HMC-01 in one 8 hour shift: planned time 28800 s, availability losses 1800 s, performance losses 2955 s, quality loss 343.5 s …",
+    "g": "guide 01 §24.2",
+    "t": "OEE loss tree of HMC-01"
+   },
+   {
+    "f": "01_validation_process.svg",
+    "c": "Verification and validation process: real system, conceptual model, computer model, experiments, with validity checks and a worked paired t-test and F-test example",
+    "g": "guide 01 §26.1",
+    "t": "Verification + validation process"
+   }
+  ],
+  "groups": [
+   {
+    "id": "l36_1",
+    "t": "Simulation software",
+    "src": "guide 01 §36.1",
+    "rows": [
+     [
+      "Simulation software",
+      "Object-oriented DES, 3D, AGV / worker libraries",
+      "Siemens – Tecnomatix Plant Simulation",
+      "DES with SimTalk script language; see datasheet",
+      "€€€",
+      "Offline: yes (local / floating licence server) · licence type, libraries included, training"
+     ],
+     [
+      "Simulation software",
+      "Multi-method (DES, agent-based, system dynamics)",
+      "AnyLogic – AnyLogic Professional (free Personal Learning Edition for learning)",
+      "Java-based; see datasheet",
+      "€€€",
+      "Offline: yes (cloud optional) · material-handling library, export of models"
+     ],
+     [
+      "Simulation software",
+      "3D DES",
+      "FlexSim – FlexSim (free Express version, limited)",
+      "see datasheet",
+      "€€–€€€",
+      "Offline: yes · AGV module, licence per seat"
+     ],
+     [
+      "Simulation software",
+      "Object-based DES, scheduling",
+      "Simio – Simio Design / Enterprise",
+      "see datasheet",
+      "€€–€€€",
+      "Offline: yes · scheduling add-on, data import"
+     ],
+     [
+      "Simulation software",
+      "Classic DES",
+      "Rockwell Automation – Arena Simulation",
+      "SIMAN-based; student version limited",
+      "€€–€€€",
+      "Offline: yes · 3D needs add-on; support locally"
+     ],
+     [
+      "Simulation software",
+      "3D layout, robots, simulation",
+      "Visual Components – Essentials / Professional / Premium",
+      "layout + DES-style simulation, OPC UA connectivity in higher editions",
+      "€€–€€€",
+      "Offline: yes · which edition has PLC connectivity"
+     ],
+     [
+      "Simulation software",
+      "Open-source DES library",
+      "SimPy (MIT licence)",
+      "Python, process-based DES",
+      "€ (free)",
+      "Offline: yes – install the wheel file offline · not standard library → pip install simpy-<ver>.whl from a local file"
+     ],
+     [
+      "Simulation software",
+      "Open-source DES with animation",
+      "Salabim (MIT licence)",
+      "Python DES + 2D/3D animation",
+      "€ (free)",
+      "Offline: yes (offline wheel) · same as SimPy"
+     ]
+    ]
+   },
+   {
+    "id": "l36_2",
+    "t": "3D and virtual commissioning",
+    "src": "guide 01 §36.2",
+    "rows": [
+     [
+      "3D and virtual commissioning",
+      "Physics-based mechatronic model + virtual PLC",
+      "Siemens – NX Mechatronics Concept Designer + S7-PLCSIM Advanced",
+      "MCD: physics, sensors; PLCSIM Advanced: virtual S7-1500",
+      "€€€–€€€€",
+      "Offline: yes · NX licence needed; coupling via PLCSIM Advanced API / OPC UA"
+     ],
+     [
+      "3D and virtual commissioning",
+      "Robot and human simulation, VC",
+      "Siemens – Tecnomatix Process Simulate (Virtual Commissioning)",
+      "see datasheet",
+      "€€€€",
+      "Offline: yes · robot controller support (RCS modules)"
+     ],
+     [
+      "3D and virtual commissioning",
+      "Real-time VC",
+      "ISG – ISG-virtuos",
+      "real-time simulation, fieldbus coupling; see datasheet",
+      "€€€",
+      "Offline: yes · supported fieldbuses / PLCs"
+     ],
+     [
+      "3D and virtual commissioning",
+      "Real-time VC, fieldbus emulation",
+      "Mewes & Partner – WinMOD",
+      "see datasheet",
+      "€€€",
+      "Offline: yes · PROFINET / EtherCAT emulation hardware"
+     ],
+     [
+      "3D and virtual commissioning",
+      "Material-handling emulation",
+      "Rockwell Automation – Emulate3D (Demo3D / Factory Test)",
+      "see datasheet",
+      "€€€",
+      "Offline: yes · PLC brands supported"
+     ],
+     [
+      "3D and virtual commissioning",
+      "Game engines for custom twins",
+      "Unity, Unreal Engine (Epic Games)",
+      "full 3D engines",
+      "€ – €€ (licence rules depend on revenue – check)",
+      "Offline: yes · licence terms, team skills"
+     ],
+     [
+      "3D and virtual commissioning",
+      "Web 3D library (used here)",
+      "three.js (MIT licence)",
+      "r160 in web/vendor/",
+      "€ (free)",
+      "Offline: yes · keep loaders (GLTFLoader) of the same version"
+     ]
+    ]
+   },
+   {
+    "id": "l36_3",
+    "t": "IIoT / digital twin platforms",
+    "src": "guide 01 §36.3",
+    "rows": [
+     [
+      "IIoT / digital twin platforms",
+      "Industrial IoT cloud",
+      "Siemens – Insights Hub (formerly MindSphere)",
+      "cloud service",
+      "subscription – ask",
+      "Offline: no (cloud) · ask about private / on-premise options"
+     ],
+     [
+      "IIoT / digital twin platforms",
+      "Industrial historian + data infrastructure",
+      "AVEVA – PI System",
+      "on-premise historian, asset framework",
+      "€€€–€€€€",
+      "Offline: yes (on-premise) · tag-based licence, connectors"
+     ],
+     [
+      "IIoT / digital twin platforms",
+      "IIoT application platform",
+      "PTC – ThingWorx",
+      "on-premise or cloud",
+      "€€€–€€€€",
+      "Offline: yes (on-premise installation) · licence model, Kepware connectivity"
+     ],
+     [
+      "IIoT / digital twin platforms",
+      "Digital twin graph service",
+      "Microsoft – Azure Digital Twins",
+      "DTDL models, cloud",
+      "pay per use",
+      "Offline: no (cloud) · not usable on the offline PC"
+     ],
+     [
+      "IIoT / digital twin platforms",
+      "Digital twin service with 3D scenes",
+      "Amazon Web Services – AWS IoT TwinMaker",
+      "cloud",
+      "pay per use",
+      "Offline: no (cloud) · not usable on the offline PC"
+     ]
+    ]
+   },
+   {
+    "id": "l36_4",
+    "t": "Asset Administration Shell tools",
+    "src": "guide 01 §36.4",
+    "rows": [
+     [
+      "Asset Administration Shell tools",
+      "AAS server / SDK",
+      "Eclipse Foundation – Eclipse BaSyx (open source)",
+      "Java / Python / C# SDKs, AAS server, registry; Docker images",
+      "€ (free)",
+      "Offline: yes (load the images from a local file) · AAS metamodel version (V3)"
+     ],
+     [
+      "Asset Administration Shell tools",
+      "AASX viewer / editor",
+      "Eclipse – AASX Package Explorer (open source)",
+      "Windows desktop tool, opens / edits AASX",
+      "€ (free)",
+      "Offline: yes · version vs. submodel templates"
+     ],
+     [
+      "Asset Administration Shell tools",
+      "AAS server (Java)",
+      "Fraunhofer IOSB – Eclipse FA³ST Service (open source)",
+      "AAS API server with OPC UA / MQTT asset connections",
+      "€ (free)",
+      "Offline: yes · Java runtime needed"
+     ],
+     [
+      "Asset Administration Shell tools",
+      "Submodel templates",
+      "IDTA – template specifications (02002, 02003, 02004, 02005, 02006, 02008, 02023 …)",
+      "PDF + AASX templates",
+      "€ (free)",
+      "Offline: yes (download once) · current version"
+     ]
+    ]
+   },
+   {
+    "id": "l36_5",
+    "t": "Data infrastructure",
+    "src": "guide 01 §36.5",
+    "rows": [
+     [
+      "Data infrastructure",
+      "Time-series database",
+      "InfluxData – InfluxDB (open-source edition)",
+      "time-series DB with retention policies",
+      "€ (OSS) / €€€ (enterprise)",
+      "Offline: yes · version (2.x / 3.x), backup method"
+     ],
+     [
+      "Data infrastructure",
+      "Time-series on SQL",
+      "Timescale – TimescaleDB (PostgreSQL extension)",
+      "hypertables, compression",
+      "€ (community)",
+      "Offline: yes · licence of the features you use"
+     ],
+     [
+      "Data infrastructure",
+      "Relational DB",
+      "PostgreSQL Global Development Group – PostgreSQL",
+      "open source",
+      "€",
+      "Offline: yes · Windows installer offline"
+     ],
+     [
+      "Data infrastructure",
+      "Flow-based integration",
+      "OpenJS Foundation – Node-RED",
+      "OPC UA / MQTT / Modbus nodes",
+      "€",
+      "Offline: yes (install packages from local files) · node licences, Node.js version"
+     ],
+     [
+      "Data infrastructure",
+      "Dashboards",
+      "Grafana Labs – Grafana OSS",
+      "time-series dashboards",
+      "€ (OSS)",
+      "Offline: yes · plugins offline"
+     ],
+     [
+      "Data infrastructure",
+      "MQTT broker",
+      "Eclipse – Mosquitto; HiveMQ (CE / Enterprise); EMQX",
+      "MQTT 3.1.1 / 5",
+      "€ – €€€",
+      "Offline: yes · clustering, TLS, Sparkplug support (guide 07, ch. 26)"
+     ],
+     [
+      "Data infrastructure",
+      "OPC UA connectivity server",
+      "PTC – Kepware KEPServerEX; Softing – dataFEED",
+      "many PLC drivers",
+      "€€",
+      "Offline: yes · driver list for your machines"
+     ]
+    ]
+   },
+   {
+    "id": "l36_6",
+    "t": "Hardware for the twin",
+    "src": "guide 01 §36.6",
+    "rows": [
+     [
+      "Hardware for the twin",
+      "Rack industrial PC (twin server)",
+      "Siemens – SIMATIC IPC547 series",
+      "19″ rack, industrial lifetime; see datasheet",
+      "€€",
+      "Offline: yes · CPU, RAM, RAID, OS licence, 24/7 rating"
+     ],
+     [
+      "Hardware for the twin",
+      "Box / control-cabinet IPC (gateway or small twin)",
+      "Siemens – SIMATIC IPC427 / IPC527 series; Beckhoff – C60xx ultra-compact IPCs",
+      "DIN-rail / wall mounting, fanless variants",
+      "€€",
+      "Offline: yes · operating temperature, TwinCAT / Windows IoT licence"
+     ],
+     [
+      "Hardware for the twin",
+      "Rugged edge server",
+      "Dell – PowerEdge XR series; HPE – ProLiant (DL rack) / Edgeline",
+      "short-depth, extended temperature (XR)",
+      "€€–€€€",
+      "Offline: yes · support contract on site, iDRAC / iLO offline"
+     ],
+     [
+      "Hardware for the twin",
+      "Workstation GPU for big 3D screens",
+      "NVIDIA – RTX A2000 / RTX 2000 Ada class",
+      "WebGL2 / OpenGL / DirectX; see datasheet",
+      "€€",
+      "Offline: yes · slot, power, driver offline installer"
+     ],
+     [
+      "Hardware for the twin",
+      "UPS (line-interactive / online)",
+      "APC by Schneider Electric – Smart-UPS (e.g. 1 500 VA class); Eaton – 5PX",
+      "runtime chart, network card",
+      "€–€€",
+      "Offline: yes · runtime at 230 W, shutdown software"
+     ],
+     [
+      "Hardware for the twin",
+      "24 V DC UPS for a cabinet IPC",
+      "Siemens – SITOP UPS1600 + battery module; Phoenix Contact – QUINT UPS",
+      "DC UPS, IPC shutdown signal",
+      "€",
+      "Offline: yes · battery type, buffer time"
+     ],
+     [
+      "Hardware for the twin",
+      "Backup NAS",
+      "Synology / QNAP (2–4 bay)",
+      "RAID 1 / 5, snapshot",
+      "€–€€",
+      "Offline: yes · disks rated for NAS, no cloud features needed"
+     ]
+    ]
+   }
+  ],
+  "shops": [
+   {
+    "title": "",
+    "cols": [
+     "Pos.",
+     "Item",
+     "Qty",
+     "Example product (or equal)",
+     "Price class",
+     "Note"
+    ],
+    "rows": [
+     [
+      "1",
+      "Twin server, industrial rack PC, 6–8 cores, 32 GB RAM, 2 × 1 TB SSD RAID 1",
+      "1",
+      "Siemens SIMATIC IPC547 or Dell PowerEdge XR class",
+      "€€",
+      "runs server.py, historian, optional DB"
+     ],
+     [
+      "2",
+      "Spare SSD + spare PSU (if not hot-swap)",
+      "1 set",
+      "maker spare parts",
+      "€",
+      "–"
+     ],
+     [
+      "3",
+      "Control-room PC with workstation GPU + 2 × 27″ monitors",
+      "1",
+      "office PC + NVIDIA RTX A2000 class",
+      "€€",
+      "3D view on the big screen"
+     ],
+     [
+      "4",
+      "Large display for the shop floor (55″, 24/7 rated)",
+      "2",
+      "professional signage display",
+      "€€",
+      "/?theme=dark&cam=overview"
+     ],
+     [
+      "5",
+      "UPS 1 500 VA with network card",
+      "1",
+      "APC Smart-UPS / Eaton 5PX",
+      "€–€€",
+      "clean shutdown (31.4)"
+     ],
+     [
+      "6",
+      "NAS 2-bay, 2 × 4 TB",
+      "1",
+      "Synology / QNAP",
+      "€–€€",
+      "backups (31.3)"
+     ],
+     [
+      "7",
+      "External backup disks (rotation, off-site)",
+      "2",
+      "2–4 TB USB",
+      "€",
+      "weekly off-site copy"
+     ],
+     [
+      "8",
+      "Gateway edge PCs (fanless, DIN rail)",
+      "3 (first machines)",
+      "Siemens IPC427 / Beckhoff C60xx class",
+      "€€ each",
+      "OPC UA client + store-and-forward"
+     ],
+     [
+      "9",
+      "OPC UA connectivity server licence",
+      "1",
+      "Kepware / Softing class",
+      "€€",
+      "if machines lack OPC UA"
+     ],
+     [
+      "10",
+      "Managed switch + firewall for the twin zone",
+      "1 + 1",
+      "see guide 07 shopping list",
+      "€€",
+      "VLAN 40, IEC 62443 zone"
+     ],
+     [
+      "11",
+      "Power meters (Modbus TCP) on HMC spindle drives",
+      "3",
+      "see guide 07 / 27",
+      "€ each",
+      "tool-wear trend (4.9)"
+     ],
+     [
+      "12",
+      "Software: Python 3.12 offline installer, three.js r160, SQLite tools",
+      "1",
+      "free",
+      "€",
+      "keep installers on the NAS"
+     ],
+     [
+      "13",
+      "Optional: time-series DB + Grafana (open source)",
+      "1",
+      "InfluxDB OSS / TimescaleDB + Grafana OSS",
+      "€",
+      "when the SQLite historian is too small"
+     ],
+     [
+      "14",
+      "Optional: DES licence for detailed studies",
+      "1",
+      "Plant Simulation / AnyLogic / FlexSim / Simio",
+      "€€–€€€",
+      "P1 studies (workers, AGV traffic)"
+     ],
+     [
+      "15",
+      "Optional: AAS tools",
+      "1",
+      "Eclipse BaSyx, AASX Package Explorer",
+      "€",
+      "P4"
+     ],
+     [
+      "16",
+      "Training (simulation method, OPC UA, IEC 62443 basics)",
+      "2–3 people",
+      "maker / university courses",
+      "€€",
+      "–"
+     ]
+    ],
+    "m": 3,
+    "p": 4,
+    "w": [
+     5,
+     27,
+     8,
+     26,
+     10,
+     24
+    ]
+   }
+  ],
+  "shopTab": "Shopping list – running the twin offline",
+  "shopLbl": "shopping list",
+  "shopTitle": "Shopping list – running the twin on the offline factory PC – guide 01 §37.",
+  "price": "Price classes (guide 01, per licence or unit): € free / < 1 000 € · €€ 1 000 – 10 000 € · €€€ 10 000 – 50 000 € · €€€€ > 50 000 € – estimate, ask for a quote.",
+  "shopNote": "Offline = runs on a PC without internet (licence activation may still need a one-time file transfer – ask).",
+  "ph": "(e.g. Plant Simulation, FlexSim, AAS, OPC UA, MQTT, server)"
+ },
+ "fms": {
+  "guide": "guide 02",
+  "drawings": [
+   {
+    "f": "02_fms_types.svg",
+    "c": "FMC, FMS with linear pallet storage, FML and multi-level pallet pool – plan view and comparison table",
+    "g": "guide 02 §17.1",
+    "t": "FMC, FMS, FML, pallet pool compared"
+   },
+   {
+    "f": "02_fms_layout.svg",
+    "c": "FMS cell layout: 3 HMCs, linear pallet storage PPS-1, rail vehicle, load station, washer – plan view from config positions",
+    "g": "guide 02 §17.3",
+    "t": "FMS cell layout (3 HMCs, PPS-1)"
+   },
+   {
+    "f": "02_pallet_count.svg",
+    "c": "Pallets needed vs unattended time for 1, 2 and 4 parts per pallet; cell place limit 23; twin point 10 pallets",
+    "g": "guide 02 §18.2",
+    "t": "Pallets needed vs unattended time"
+   },
+   {
+    "f": "02_part_families.svg",
+    "c": "Machine–part matrix before and after rank order clustering: 3 cells, 3 exceptional elements, efficacy 0.727",
+    "g": "guide 02 §19.3",
+    "t": "Part families – rank order clustering"
+   },
+   {
+    "f": "02_dispatch_rules.svg",
+    "c": "Gantt charts of FIFO, SPT, EDD, CR/slack and SETUP-grouping with makespan, mean flow time, maximum lateness",
+    "g": "guide 02 §20.3",
+    "t": "Dispatch rules compared (Gantt)"
+   },
+   {
+    "f": "02_conwip_kanban.svg",
+    "c": "CONWIP, kanban and DBR card loops with our line values, and throughput vs WIP benchmark curves",
+    "g": "guide 02 §20.5",
+    "t": "CONWIP, kanban, DBR loops"
+   }
+  ],
+  "groups": [
+   {
+    "id": "f30_1",
+    "t": "FMS and pallet pool systems",
+    "src": "guide 02 §30.1",
+    "rows": [
+     [
+      "FMS and pallet pool systems",
+      "standardised pallet automation for one or a few machines",
+      "Fastems FMS One (check)",
+      "see datasheet",
+      "high",
+      "number of machines, pallet weight class, extension path to MLS"
+     ],
+     [
+      "FMS and pallet pool systems",
+      "pallet tower / container for one machine (FMC)",
+      "Fastems FPC (Flexible Pallet Container – check)",
+      "see datasheet",
+      "high",
+      "pallet places, footprint, unattended hours"
+     ],
+     [
+      "FMS and pallet pool systems",
+      "multi-level linear storage with stacker crane, several machines, several load stations",
+      "Fastems MLS (Multi-Level System, e.g. MLS-MD – check)",
+      "see datasheet",
+      "very high",
+      "levels, move time, load station type, extension modules"
+     ],
+     [
+      "FMS and pallet pool systems",
+      "linear pallet handling for several machines",
+      "Liebherr PHS (Pallet Handling System, e.g. PHS 1500 / PHS Allround – check)",
+      "see datasheet",
+      "high – very high",
+      "pallet weight, number of levels, machine brands supported"
+     ],
+     [
+      "FMS and pallet pool systems",
+      "pallet storage / automation system",
+      "Liebherr PSS (check scope)",
+      "see datasheet",
+      "high",
+      "confirm what PSS covers before asking"
+     ],
+     [
+      "FMS and pallet pool systems",
+      "linear pallet pool for HMCs (multi-level options)",
+      "DMG MORI LPP (Linear Pallet Pool – check)",
+      "see datasheet",
+      "very high",
+      "only DMG MORI machines? cell controller CELLAS"
+     ],
+     [
+      "FMS and pallet pool systems",
+      "pallet handling for vertical / 5-axis machines",
+      "DMG MORI PH Cell (check)",
+      "see datasheet",
+      "high",
+      "pallet size – usually smaller than 500 mm HMC pallets"
+     ],
+     [
+      "FMS and pallet pool systems",
+      "linear pallet system for Mazak HMCs",
+      "Mazak Palletech (Palletech System, multi-level option)",
+      "see datasheet",
+      "very high",
+      "only Mazak machines; controller Smooth (30.2)"
+     ],
+     [
+      "FMS and pallet pool systems",
+      "linear pallet system for Makino HMCs",
+      "Makino MMC2 (Makino Machining Complex)",
+      "see datasheet",
+      "very high",
+      "controller MAS-A5 (30.2); a-series HMC pallet class"
+     ],
+     [
+      "FMS and pallet pool systems",
+      "pallet pool for Okuma HMCs",
+      "Okuma pallet systems for HMCs (multi-pallet / pallet pool options – check)",
+      "see datasheet",
+      "high – very high",
+      "product name, number of pallets"
+     ],
+     [
+      "FMS and pallet pool systems",
+      "robot loading of small pallets (EROWA, ITS)",
+      "EROWA Robot systems (e.g. Robot Compact / Robot Dynamic – check)",
+      "see datasheet",
+      "high",
+      "for small pallets (EDM, 5-axis, robot cells) – not for 500 mm HMC pallets"
+     ],
+     [
+      "FMS and pallet pool systems",
+      "robot cell for vice / zero-point workholding",
+      "LANG Technik RoboTrex (check)",
+      "see datasheet",
+      "medium – high",
+      "for small prismatic parts (future own parts, 17.2)"
+     ],
+     [
+      "FMS and pallet pool systems",
+      "mainly a press-line maker",
+      "Schuler (check)",
+      "–",
+      "–",
+      "check if you meant SCHUNK (gripping, robot cell modules) or another automation supplier"
+     ]
+    ]
+   },
+   {
+    "id": "f30_2",
+    "t": "FMS cell control software",
+    "src": "guide 02 §30.2",
+    "rows": [
+     [
+      "FMS cell control software",
+      "job / pallet scheduling, resource and tool check, NC program management for Fastems systems",
+      "Fastems Manufacturing Management Software (MMS)",
+      "–",
+      "medium – high",
+      "Offline: yes (on-premise – check) · MES interface, multi-brand machines, tool data import"
+     ],
+     [
+      "FMS cell control software",
+      "control of Liebherr PHS / automation",
+      "Liebherr LSC (cell control software – check name)",
+      "–",
+      "medium",
+      "Offline: yes (check) · interface to our MES, reporting"
+     ],
+     [
+      "FMS cell control software",
+      "Palletech scheduling, monitoring",
+      "Mazak Smooth family (Smooth PMC / cell controller for Palletech – check)",
+      "–",
+      "medium",
+      "Offline: yes (check) · open data interface (MTConnect, OPC UA)"
+     ],
+     [
+      "FMS cell control software",
+      "MMC2 cell control: schedule, pallets, programs, tools",
+      "Makino MAS-A5 (check)",
+      "–",
+      "medium",
+      "Offline: yes (check) · MES link, tool life sharing"
+     ],
+     [
+      "FMS cell control software",
+      "LPP cell control",
+      "DMG MORI CELLAS (check)",
+      "–",
+      "medium",
+      "Offline: yes (check) · multi-brand?"
+     ],
+     [
+      "FMS cell control software",
+      "release, rule order, kit check (11.4 F)",
+      "Own MES module + twin logic",
+      "–",
+      "medium (development)",
+      "Offline: yes · only if the system supplier gives an open interface"
+     ]
+    ]
+   },
+   {
+    "id": "f30_3",
+    "t": "Pallets, fixtures and identification",
+    "src": "guide 02 §30.3",
+    "rows": [
+     [
+      "Machining pallets 500 class",
+      "21 pieces (18.2), from the HMC / FMS builder",
+      "HMC builder spare pallets",
+      "–",
+      "medium per pallet",
+      "interchangeability on all 3 HMCs, RFID pocket"
+     ],
+     [
+      "Hydraulic fixture bases",
+      "21 bases + about 5 locator sets per model (concept B, 18.3)",
+      "Roemheld, AMF, SCHUNK, local fixture builders",
+      "–",
+      "medium per base",
+      "coupling of hydraulics on the pallet, seating check, model coding"
+     ],
+     [
+      "Zero-point modules / subplates",
+      "concept D",
+      "guide 09 §28.1 (SCHUNK VERO-S, AMF, Stark/Roemheld, Lang)",
+      "–",
+      "low – medium per module",
+      "automation version, pull-in force"
+     ],
+     [
+      "Pallet / fixture RFID",
+      "HF ISO/IEC 15693, on-metal tag (11.4 D)",
+      "Balluff BIS, SICK, Siemens SIMATIC RF, Pepperl+Fuchs, Turck (series – see datasheets)",
+      "–",
+      "low",
+      "one standard plant-wide"
+     ]
+    ]
+   },
+   {
+    "id": "f30_4",
+    "t": "Tool management systems",
+    "src": "guide 02 §30.4",
+    "rows": [
+     [
+      "Tool management systems",
+      "tool database, assemblies, presetter link, storage, tool demand",
+      "ZOLLER TMS Tool Management Solutions",
+      "–",
+      "medium",
+      "Offline: yes (on-premise) · CNC offset transfer per brand, CAM link, FMS controller link"
+     ],
+     [
+      "Tool management systems",
+      "tool data, tool lists, 3D tool models, ISO 13399, shop-floor tool logistics",
+      "TDM Systems (TDM Global Line / tool data management – Sandvik group)",
+      "–",
+      "medium – high",
+      "Offline: yes (on-premise – check) · CAM interfaces (NX, hyperMILL …), MES interface"
+     ],
+     [
+      "Tool management systems",
+      "tool dispensing cabinets, consumption tracking",
+      "Hoffmann Group tool management (GARANT / Tool24 dispensing systems – check)",
+      "–",
+      "low – medium",
+      "Offline: partly (check cloud parts) · which parts need internet"
+     ],
+     [
+      "Tool management systems",
+      "guide 08 §31.6–31.7 (ZOLLER smile / venturion, Haimer …)",
+      "Presetter + shrink + balancing",
+      "–",
+      "medium",
+      "Offline: yes · network or RFID offset output"
+     ]
+    ]
+   },
+   {
+    "id": "f30_5",
+    "t": "Scheduling / APS software",
+    "src": "guide 02 §30.5",
+    "rows": [
+     [
+      "Scheduling / APS software",
+      "finite-capacity scheduling, Gantt, rules, setup matrices",
+      "Siemens Opcenter APS (former Preactor)",
+      "–",
+      "medium – high",
+      "Offline: yes (on-premise) · sequence-dependent setups (20.4), interface to ERP/MES"
+     ],
+     [
+      "Scheduling / APS software",
+      "finite scheduling, strong in discrete manufacturing",
+      "Asprova APS",
+      "–",
+      "medium – high",
+      "Offline: yes (on-premise) · data model for tools / pallets as secondary resources"
+     ],
+     [
+      "Scheduling / APS software",
+      "APS / production scheduling",
+      "DELMIA Ortems (Dassault Systèmes)",
+      "–",
+      "medium – high",
+      "Offline: on-premise – check · current product line and licence model"
+     ],
+     [
+      "Scheduling / APS software",
+      "open source library (Apache 2.0), Python / C++ / Java",
+      "Google OR-Tools (CP-SAT solver)",
+      "–",
+      "free (engineering time)",
+      "Offline: yes – install the wheel from a local copy · needs a developer; good for custom rules and what-ifs"
+     ],
+     [
+      "Scheduling / APS software",
+      "open source planning engine (Java)",
+      "Timefold Solver (former OptaPlanner – check)",
+      "–",
+      "free (engineering time)",
+      "Offline: yes · Java skills"
+     ],
+     [
+      "Scheduling / APS software",
+      "rule evaluation, small brute force",
+      "Stdlib Python scripts (20.6)",
+      "–",
+      "free",
+      "Offline: yes · only for small problems"
+     ]
+    ]
+   },
+   {
+    "id": "f30_6",
+    "t": "Value stream mapping and simulation",
+    "src": "guide 02 §30.6",
+    "rows": [
+     [
+      "Value stream mapping and simulation",
+      "discrete-event simulation of lines, AGVs, FMS",
+      "Siemens Tecnomatix Plant Simulation",
+      "–",
+      "medium – high",
+      "Offline: yes · libraries for AGV / pallet systems, training effort"
+     ],
+     [
+      "Value stream mapping and simulation",
+      "3D discrete-event simulation",
+      "FlexSim",
+      "–",
+      "medium",
+      "Offline: yes · export of results"
+     ],
+     [
+      "Value stream mapping and simulation",
+      "multi-method (DES, agents, system dynamics)",
+      "AnyLogic",
+      "–",
+      "medium",
+      "Offline: yes (desktop) · licence type (personal learning edition limits)"
+     ],
+     [
+      "Value stream mapping and simulation",
+      "object-based DES with scheduling",
+      "Simio",
+      "–",
+      "medium – high",
+      "Offline: yes · scheduling add-on"
+     ],
+     [
+      "Value stream mapping and simulation",
+      "open source Python DES library (MIT licence)",
+      "SimPy",
+      "–",
+      "free",
+      "Offline: yes · programming needed; fits the twin's Python stack"
+     ],
+     [
+      "Value stream mapping and simulation",
+      "current / future state maps",
+      "VSM drawing: Microsoft Visio (VSM stencil), eVSM (check), paper + pencil on the floor",
+      "–",
+      "low",
+      "Offline: yes · the walk on the floor matters more than the tool"
+     ],
+     [
+      "Value stream mapping and simulation",
+      "rules, mix, pallets, tool sets",
+      "The twin itself (What-if tab)",
+      "–",
+      "–",
+      "Offline: yes · example data until the real config is entered"
+     ]
+    ]
+   }
+  ],
+  "shops": [
+   {
+    "title": "",
+    "cols": [
+     "No.",
+     "Item",
+     "Spec / quantity",
+     "Section",
+     "Price class (estimate)",
+     "Note"
+    ],
+    "rows": [
+     [
+      "1",
+      "HMC 500 class with 2-pallet APC",
+      "3; magazine ≥ 40 pockets (all 3 models with common tools, 21.2)",
+      "17, 21, guide 12/13",
+      "very high (each ≈ 450 k€ assumed)",
+      "identical machines → pallets interchangeable"
+     ],
+     [
+      "2",
+      "Linear pallet storage",
+      "8 m × 2 levels = 16 places, extendable",
+      "17.3, 18.2",
+      "high – very high",
+      "with item 3 as one system"
+     ],
+     [
+      "3",
+      "Rail vehicle (RGV)",
+      "v ≈ 1.5 m/s, fork ≈ 20 s (ask), double cycle",
+      "17.4",
+      "(in item 2)",
+      "manual mode, spare drive"
+     ],
+     [
+      "4",
+      "Load / unload stations",
+      "1 (+1 for fixture set-up later), tilting / rotating, RFID reader, screen",
+      "18, 27.3",
+      "medium each",
+      "ergonomics (ISO 11228-1), light curtain"
+     ],
+     [
+      "5",
+      "Machining pallets",
+      "21 (30-min break cover)",
+      "18.2",
+      "medium each",
+      "from the HMC builder"
+     ],
+     [
+      "6",
+      "Hydraulic fixture bases + locator sets",
+      "21 bases + 5 sets per model",
+      "18.3",
+      "medium each",
+      "3-2-1 datum common to all models"
+     ],
+     [
+      "7",
+      "RFID tags + readers",
+      "21 pallet tags, readers at load station + 3 APCs",
+      "30.3",
+      "low",
+      "HF ISO/IEC 15693"
+     ],
+     [
+      "8",
+      "Cell controller software + licences",
+      "3 machines, 1 storage, MES interface",
+      "27, 30.2",
+      "medium – high",
+      "yearly maintenance"
+     ],
+     [
+      "9",
+      "DNC / program management",
+      "revision control, checksum",
+      "27.1, guide 08",
+      "medium",
+      "–"
+     ],
+     [
+      "10",
+      "Tool management software",
+      "tool database, presetter link",
+      "21, 30.4",
+      "medium",
+      "–"
+     ],
+     [
+      "11",
+      "Presetter, shrink unit",
+      "1 each",
+      "21.4, guide 08 §31",
+      "medium",
+      "48 min/day load (21.4)"
+     ],
+     [
+      "12",
+      "Tool holders + cutting tools first fill",
+      "≈ 83 assemblies + sister tools",
+      "21.4",
+      "medium – high (total)",
+      "blanket order with the tool supplier"
+     ],
+     [
+      "13",
+      "Broken-tool detection (laser / contact)",
+      "3",
+      "21.3, guide 08 §22.5",
+      "low – medium each",
+      "needed for unattended hours"
+     ],
+     [
+      "14",
+      "Safety fence, door interlocks, light curtains",
+      "around rail + rack, load station",
+      "17.3, guide 24",
+      "medium",
+      "ISO 13855 distances"
+     ],
+     [
+      "15",
+      "Chip conveyors, central coolant, mist extraction",
+      "3 machines",
+      "guide 28",
+      "medium – high",
+      "–"
+     ],
+     [
+      "16",
+      "Interface engineering MES ↔ cell controller",
+      "B2MML / OPC UA",
+      "27.2, guide 04",
+      "medium",
+      "test with the twin first"
+     ],
+     [
+      "17",
+      "Spare parts package RGV + load station",
+      "per supplier list",
+      "28.3",
+      "low – medium",
+      "single points of failure"
+     ],
+     [
+      "18",
+      "Training (operators, maintenance, NC programmers)",
+      "–",
+      "–",
+      "low – medium",
+      "include manual mode drills"
+     ]
+    ],
+    "m": 1,
+    "p": 4,
+    "w": [
+     5,
+     26,
+     25,
+     10,
+     12,
+     22
+    ]
+   }
+  ],
+  "shopTab": "Shopping list – FMS cell",
+  "shopLbl": "shopping list",
+  "shopTitle": "Consolidated shopping list – FMS cell with 3 HMCs and linear pallet storage – guide 02 §30.7.",
+  "price": "Price classes (guide 02, systems): low < 10 k€ · medium 10 – 100 k€ · high 100 – 500 k€ · very high > 500 k€ – estimate, ask for a quote.",
+  "shopNote": "Pallets and fixtures in detail: guide 09 §28 (Pallet changer tab) and guide 08 §31 (CNC tab).",
+  "ph": "(e.g. Fastems, pallet pool, Zoller, APS, FlexSim)"
+ },
+ "order": {
+  "guide": "guide 02",
+  "drawings": [
+   {
+    "f": "02_order_flow.svg",
+    "c": "Order flow swimlanes Customer / ERP / MES / Shop floor / Logistics with lead time of every step for 20 × VC20",
+    "g": "guide 02 §24.1",
+    "t": "Order flow swimlanes"
+   },
+   {
+    "f": "02_vsm_crankcase.svg",
+    "c": "Value stream map with process data from config, WIP triangles, kanban supermarkets and lead time ladder",
+    "g": "guide 02 §24.4",
+    "t": "Value stream map – crankcase line"
+   },
+   {
+    "f": "02_conwip_kanban.svg",
+    "c": "CONWIP, kanban and DBR card loops with our line values, and throughput vs WIP benchmark curves",
+    "g": "guide 02 §20.5",
+    "t": "CONWIP, kanban, DBR loops"
+   }
+  ],
+  "groups": [
+   {
+    "id": "o30_5",
+    "t": "Scheduling / APS software",
+    "src": "guide 02 §30.5",
+    "rows": [
+     [
+      "Scheduling / APS software",
+      "finite-capacity scheduling, Gantt, rules, setup matrices",
+      "Siemens Opcenter APS (former Preactor)",
+      "–",
+      "medium – high",
+      "Offline: yes (on-premise) · sequence-dependent setups (20.4), interface to ERP/MES"
+     ],
+     [
+      "Scheduling / APS software",
+      "finite scheduling, strong in discrete manufacturing",
+      "Asprova APS",
+      "–",
+      "medium – high",
+      "Offline: yes (on-premise) · data model for tools / pallets as secondary resources"
+     ],
+     [
+      "Scheduling / APS software",
+      "APS / production scheduling",
+      "DELMIA Ortems (Dassault Systèmes)",
+      "–",
+      "medium – high",
+      "Offline: on-premise – check · current product line and licence model"
+     ],
+     [
+      "Scheduling / APS software",
+      "open source library (Apache 2.0), Python / C++ / Java",
+      "Google OR-Tools (CP-SAT solver)",
+      "–",
+      "free (engineering time)",
+      "Offline: yes – install the wheel from a local copy · needs a developer; good for custom rules and what-ifs"
+     ],
+     [
+      "Scheduling / APS software",
+      "open source planning engine (Java)",
+      "Timefold Solver (former OptaPlanner – check)",
+      "–",
+      "free (engineering time)",
+      "Offline: yes · Java skills"
+     ],
+     [
+      "Scheduling / APS software",
+      "rule evaluation, small brute force",
+      "Stdlib Python scripts (20.6)",
+      "–",
+      "free",
+      "Offline: yes · only for small problems"
+     ]
+    ]
+   }
+  ],
+  "shops": [],
+  "shopTab": "",
+  "shopLbl": "",
+  "shopTitle": "",
+  "price": "Price classes (guide 02, systems): low < 10 k€ · medium 10 – 100 k€ · high 100 – 500 k€ · very high > 500 k€ – estimate, ask for a quote.",
+  "shopNote": "",
+  "ph": "(e.g. APS, Asprova, Preactor, offline)"
+ },
+ "mes": {
+  "guide": "guide 04",
+  "drawings": [
+   {
+    "f": "04_isa95_mapping.svg",
+    "c": "ISA-95 levels 0–4 of the compressor factory: ERP, PLM and partners on level 4; MES with production, quality, maintenance and inventory operations on level 3; SCADA …",
+    "g": "guide 04 §17.2",
+    "t": "ISA-95 levels of the factory"
+   },
+   {
+    "f": "04_mes_functions.svg",
+    "c": "MES function wheel: the 11 MESA functions around the MES, with the VDI 5600 task for each and the coverage by the twin; table of the 10 VDI 5600 tasks",
+    "g": "guide 04 §18",
+    "t": "MES function wheel (MESA, VDI 5600)"
+   },
+   {
+    "f": "04_order_lifecycle.svg",
+    "c": "Production order life cycle: ERP statuses created, firmed, released, confirmed, technically complete / closed; MES states planned, released, in progress, on hold …",
+    "g": "guide 04 §22",
+    "t": "Production order life cycle"
+   },
+   {
+    "f": "04_traceability_genealogy.svg",
+    "c": "Genealogy graph: backward trace of serial VC20-2646-00123 to component lots …",
+    "g": "guide 04 §24",
+    "t": "Traceability – genealogy graph"
+   },
+   {
+    "f": "04_integration_flows.svg",
+    "c": "Integration map: ERP, MES, SCADA, PLM, EDI partners, CMMS, QMS, WMS / AS/RS, label printers, PLCs with message types, protocols and volumes per day",
+    "g": "guide 04 §29",
+    "t": "Integration map ERP – MES – SCADA – PLM"
+   }
+  ],
+  "groups": [
+   {
+    "id": "s31_1",
+    "t": "MES",
+    "src": "guide 04 §31.1",
+    "rows": [
+     [
+      "MES",
+      "full MES for discrete / assembly",
+      "Opcenter Execution Discrete (Siemens)",
+      "see datasheet",
+      "$$$",
+      "On-prem / offline: yes · ISA-95 interfaces, OPC UA, licence per station, partner in your country"
+     ],
+     [
+      "MES",
+      "cloud MES, integrated with S/4HANA",
+      "SAP Digital Manufacturing (SAP)",
+      "see datasheet",
+      "$$ – $$$ (subscription)",
+      "On-prem / offline: no (cloud; edge for buffering – check) · internet dependency, edge functions during outage"
+     ],
+     [
+      "MES",
+      "on-prem predecessor",
+      "SAP Manufacturing Execution (SAP ME)",
+      "see datasheet",
+      "$$$",
+      "On-prem / offline: yes · support end date – check SAP roadmap before choosing"
+     ],
+     [
+      "MES",
+      "cloud MES + ERP + QMS",
+      "Plex Smart Manufacturing Platform (Rockwell)",
+      "see datasheet",
+      "$$ – $$$ (subscription)",
+      "On-prem / offline: no (cloud) · offline buffering, data residency"
+     ],
+     [
+      "MES",
+      "on-prem MES",
+      "FactoryTalk ProductionCentre (Rockwell)",
+      "see datasheet",
+      "$$$",
+      "On-prem / offline: yes · product roadmap (check), Rockwell PLC focus"
+     ],
+     [
+      "MES",
+      "MES / MOM suite",
+      "DELMIA Apriso (Dassault Systèmes)",
+      "see datasheet",
+      "$$$",
+      "On-prem / offline: yes · effort for mid-size plant, partner"
+     ],
+     [
+      "MES",
+      "modular MES (BDE/MDE, quality, energy)",
+      "HYDRA X (MPDV)",
+      "strong VDI 5600 background",
+      "$$ – $$$",
+      "On-prem / offline: yes · module list vs requirement list, interface to your ERP"
+     ],
+     [
+      "MES",
+      "MES for discrete / electronics + mechanical",
+      "iTAC.MES.Suite (iTAC Software)",
+      "see datasheet",
+      "$$ – $$$",
+      "On-prem / offline: yes (also cloud) · references in mechanical assembly"
+     ],
+     [
+      "MES",
+      "MES (efficiency, quality, tracking)",
+      "Proficy Plant Applications (GE Vernova)",
+      "see datasheet",
+      "$$ – $$$",
+      "On-prem / offline: yes · discrete genealogy depth"
+     ],
+     [
+      "MES",
+      "modern MES, discrete / high-tech",
+      "Critical Manufacturing MES",
+      "see datasheet",
+      "$$$",
+      "On-prem / offline: yes · price for mid-size, local partner"
+     ],
+     [
+      "MES",
+      "SCADA platform with OEE, track & trace, SPC modules",
+      "Ignition + MES modules (Inductive Automation + Sepasoft)",
+      "unlimited-tag server licence model (check)",
+      "$ – $$",
+      "On-prem / offline: yes · how much you must build yourself; integrator quality"
+     ],
+     [
+      "MES",
+      "ERP-integrated MES-lite",
+      "Odoo Manufacturing / Shop Floor (Odoo)",
+      "see datasheet",
+      "$",
+      "On-prem / offline: yes (Community / Enterprise on-prem) · no real-time PLC link by default – needs integration"
+     ],
+     [
+      "MES",
+      "small MES",
+      "qcadoo MES (open source)",
+      "check",
+      "$",
+      "On-prem / offline: check · project activity, support"
+     ]
+    ]
+   },
+   {
+    "id": "s31_3",
+    "t": "CMMS / EAM",
+    "src": "guide 04 §31.3",
+    "rows": [
+     [
+      "CMMS / EAM",
+      "–",
+      "IBM Maximo (Maximo Application Suite)",
+      "–",
+      "$$ – $$$",
+      "On-prem / offline: yes (on own OpenShift cluster – check) · size of IT effort for a small plant"
+     ],
+     [
+      "CMMS / EAM",
+      "–",
+      "SAP PM / EAM (in S/4HANA)",
+      "–",
+      "in ERP",
+      "On-prem / offline: yes (with S/4 on-prem) · only if ERP = SAP"
+     ],
+     [
+      "CMMS / EAM",
+      "–",
+      "Fiix (Rockwell)",
+      "–",
+      "$ (subscription)",
+      "On-prem / offline: no (cloud) · offline mobile mode; office use only"
+     ],
+     [
+      "CMMS / EAM",
+      "–",
+      "UpKeep",
+      "–",
+      "$ (subscription)",
+      "On-prem / offline: no (cloud) · same"
+     ],
+     [
+      "CMMS / EAM",
+      "–",
+      "openMAINT (open source)",
+      "–",
+      "$",
+      "On-prem / offline: yes · support, configuration effort"
+     ],
+     [
+      "CMMS / EAM",
+      "–",
+      "CMMS modules of the ERP (IFS, Odoo Maintenance, Dynamics)",
+      "–",
+      "–",
+      "On-prem / offline: as ERP · depth: PM by counters, spare parts"
+     ]
+    ]
+   },
+   {
+    "id": "s31_4",
+    "t": "QMS / CAQ and SPC",
+    "src": "guide 04 §31.4",
+    "rows": [
+     [
+      "QMS / CAQ and SPC",
+      "CAQ: FMEA, inspection planning, complaints, 8D, gauges",
+      "BabtecQ (Babtec)",
+      "–",
+      "$$",
+      "On-prem: yes · interface to MES/ERP"
+     ],
+     [
+      "QMS / CAQ and SPC",
+      "CAQ suite incl. SPC, 8D, audits",
+      "iqs CAQ (iqs Software)",
+      "–",
+      "$$",
+      "On-prem: yes"
+     ],
+     [
+      "QMS / CAQ and SPC",
+      "CAQ suite",
+      "CASQ-it (Böhme & Weihs)",
+      "–",
+      "$$",
+      "On-prem: yes"
+     ],
+     [
+      "QMS / CAQ and SPC",
+      "statistics (Cp/Cpk, MSA), AQDEF format",
+      "Q-DAS (Hexagon): qs-STAT, procella, O-QIS",
+      "–",
+      "$ – $$",
+      "On-prem: yes · the AQDEF format is a de-facto standard for measurement data"
+     ],
+     [
+      "QMS / CAQ and SPC",
+      "statistics desktop",
+      "Minitab",
+      "–",
+      "$",
+      "On-prem: yes (desktop licence – check activation) · not a CAQ; for engineers"
+     ]
+    ]
+   },
+   {
+    "id": "s31_6",
+    "t": "Shop-floor terminals, scanners, printers, markers",
+    "src": "guide 04 §31.6",
+    "rows": [
+     [
+      "Industrial panel PC / thin client at stations",
+      "–",
+      "Siemens SIMATIC IPC / Panel PC; other industrial PC makers",
+      "IP65 front, 15 – 22\", touch with gloves",
+      "$ per unit (≈ 1 – 4 k$, estimate)",
+      "MES client type (browser), mounting, dust/coolant"
+     ],
+     [
+      "Rugged tablet",
+      "–",
+      "Siemens SIMATIC ITP1000; Zebra ET4x series",
+      "IP65, drop-tested, Wi-Fi",
+      "≈ 1.5 – 3 k$",
+      "battery hot-swap, MDM software offline"
+     ],
+     [
+      "Mobile computer with scanner",
+      "–",
+      "Zebra TC5x / MC9x series; Honeywell CT4x / CT6x series",
+      "1D/2D imager, Android, Wi-Fi",
+      "≈ 1 – 3 k$",
+      "Android support years, DPM capability"
+     ],
+     [
+      "Handheld scanner, rugged",
+      "–",
+      "Zebra DS36xx; Honeywell Granit 19xx series",
+      "1D/2D, cable or Bluetooth",
+      "≈ 0.3 – 1 k$",
+      "DPM version for marked castings"
+     ],
+     [
+      "DPM handheld reader",
+      "–",
+      "Cognex DataMan 8700 series",
+      "dot-peen / laser marks on metal",
+      "≈ 2 – 4 k$",
+      "read rate on painted / washed marks"
+     ],
+     [
+      "Fixed code reader (station)",
+      "–",
+      "Cognex DataMan, Keyence SR series, SICK Lector",
+      "DPM, PROFINET / EtherNet/IP / OPC UA",
+      "≈ 1.5 – 5 k$",
+      "lighting, mounting distance, PLC interface"
+     ],
+     [
+      "Industrial label printer",
+      "–",
+      "Zebra ZT4xx series; Honeywell PM series",
+      "thermal transfer, 300 dpi",
+      "≈ 1.5 – 4 k$",
+      "ZPL support, GS1 label templates"
+     ],
+     [
+      "DPM marker",
+      "–",
+      "dot-peen (e.g. SIC Marking, Gravotech, Telesis); fibre laser markers",
+      "DataMatrix on cast iron",
+      "≈ 10 – 40 k$",
+      "cycle time ≤ station cycle 90 s, fume extraction (laser)"
+     ],
+     [
+      "Barcode verifier",
+      "–",
+      "Axicon, Webscan, Cognex DataMan verifiers",
+      "ISO/IEC 15415 / 15416 grading",
+      "≈ 2 – 8 k$",
+      "for label acceptance and DPM (TR 29158)"
+     ]
+    ]
+   }
+  ],
+  "shops": [
+   {
+    "title": "",
+    "cols": [
+     "#",
+     "Item",
+     "Qty / users",
+     "Basis",
+     "Price class (estimate – ask for a quote)",
+     "On-prem"
+    ],
+    "rows": [
+     [
+      "1",
+      "ERP licence / subscription – full users",
+      "15",
+      "planner, purchasing 2, logistics lead, finance 2, sales support, plant manager, quality eng., maintenance planner, HR, MES/IT admin, 3 warehouse (1 per shift)",
+      "$$",
+      "must"
+     ],
+     [
+      "2",
+      "ERP light / limited users",
+      "10",
+      "team leaders 3, process engineers 2, tool room, controls, trainers",
+      "incl. in 1 or $",
+      "must"
+     ],
+     [
+      "3",
+      "MES server licence + modules (production, quality, genealogy, OEE)",
+      "1 plant",
+      "13 work centres, 16 machines",
+      "$$ – $$$",
+      "must"
+     ],
+     [
+      "4",
+      "MES station clients / terminals",
+      "18",
+      "one per station (LOAD, 3 HMC, WASH, VMC, HONE, LATHE, GRIND, ASSY, ROBOT, 2 TEST, PAINT, FINAL, PACK) + goods-in",
+      "incl. in 3 + hardware 31.6",
+      "must"
+     ],
+     [
+      "5",
+      "MES office users",
+      "10",
+      "planner, quality 2, maintenance, managers, IT",
+      "incl. in 3",
+      "must"
+     ],
+     [
+      "6",
+      "Machine connection (OPC UA / MTConnect drivers)",
+      "≈ 8 machine types",
+      "HMC, VMC, hone, lathe, grinder, robot, test bench, PLC lines",
+      "$$",
+      "must"
+     ],
+     [
+      "7",
+      "CMMS (or ERP module)",
+      "6 named + requesters",
+      "3 technicians (1 per shift), planner, tool room, lead",
+      "$ – $$",
+      "must for critical functions"
+     ],
+     [
+      "8",
+      "QMS / CAQ + SPC",
+      "4",
+      "quality engineer + 3 inspectors (1 per shift)",
+      "$ – $$",
+      "yes"
+     ],
+     [
+      "9",
+      "PLM / PDM",
+      "4 authors + 10 viewers",
+      "process engineers, controls engineer, design",
+      "$ – $$",
+      "yes"
+     ],
+     [
+      "10",
+      "Panel PCs at stations",
+      "18",
+      "item 4",
+      "≈ 18 × 1 – 4 k$",
+      "–"
+     ],
+     [
+      "11",
+      "Rugged tablets / mobile computers",
+      "8",
+      "logistics 3, maintenance 3, quality 2",
+      "≈ 8 × 1.5 – 3 k$",
+      "–"
+     ],
+     [
+      "12",
+      "Handheld scanners (DPM version where needed)",
+      "10",
+      "goods-in, ASSY, FINAL, PACK, shipping, spares",
+      "≈ 10 × 0.3 – 4 k$",
+      "–"
+     ],
+     [
+      "13",
+      "Fixed DPM readers at stations",
+      "9",
+      "serial read at main-route ops 0010 – 0090",
+      "≈ 9 × 1.5 – 5 k$",
+      "–"
+     ],
+     [
+      "14",
+      "Industrial label printers",
+      "4",
+      "goods-in, PACK, shipping, spares",
+      "≈ 4 × 1.5 – 4 k$",
+      "–"
+     ],
+     [
+      "15",
+      "DPM marker at LOAD-CC",
+      "1",
+      "serial marking op 0010",
+      "≈ 10 – 40 k$",
+      "–"
+     ],
+     [
+      "16",
+      "Barcode verifier",
+      "1",
+      "label / mark grading",
+      "≈ 2 – 8 k$",
+      "–"
+     ],
+     [
+      "17",
+      "Virtualisation hosts + storage",
+      "2",
+      "MES app + DB, ERP, interface queue, test system (11.16)",
+      "≈ 30 – 60 k$",
+      "–"
+     ],
+     [
+      "18",
+      "Backup system + offline copy",
+      "1",
+      "RPO 15 min",
+      "$",
+      "–"
+     ],
+     [
+      "19",
+      "UPS for server room",
+      "1",
+      "≥ 15 min",
+      "$",
+      "–"
+     ],
+     [
+      "20",
+      "MQTT broker / integration middleware",
+      "1",
+      "UNS or queue (29)",
+      "$ (open source) – $$",
+      "yes"
+     ],
+     [
+      "21",
+      "Implementation services ERP + MES + interfaces",
+      "1 project",
+      "8 – 14 months (30.3)",
+      "$$$",
+      "–"
+     ],
+     [
+      "22",
+      "Training + key-user time",
+      "≈ 25 key users",
+      "30.7",
+      "internal",
+      "–"
+     ]
+    ],
+    "m": 1,
+    "p": 4,
+    "w": [
+     4,
+     30,
+     14,
+     26,
+     16,
+     10
+    ]
+   }
+  ],
+  "shopTab": "Shopping list – MES / ERP / IT layer",
+  "shopLbl": "shopping list",
+  "shopTitle": "Consolidated shopping list for the factory MES / ERP / IT layer – guide 04 §31.8 (the same list is shown on the ERP tab).",
+  "price": "Price classes (guide 04, licences + implementation, first project): $ < 50 k$ · $$ 50 – 250 k$ · $$$ > 250 k$ – estimate, ask for a quote. On-prem = runs on our own servers without internet.",
+  "shopNote": "ERP, PLM and the servers are in the ERP-tab card.",
+  "ph": "(e.g. MES, CMMS, CAQ, SPC, scanner, label printer)"
+ },
+ "erp": {
+  "guide": "guide 04",
+  "drawings": [
+   {
+    "f": "04_bom_explosion.svg",
+    "c": "Multi-level BOM of VC20-300: level 1 pump assembly, tank, motor, kits; level 2 machined crankcase, cylinders …",
+    "g": "guide 04 §19.3",
+    "t": "Multi-level BOM of VC20-300"
+   },
+   {
+    "f": "04_mrp_table.svg",
+    "c": "Time-phased MRP record of CC20-CAST over 8 weeks with lot-for-lot: gross requirement, scheduled receipt 480, projected stock, net requirement …",
+    "g": "guide 04 §20.3",
+    "t": "Time-phased MRP record"
+   },
+   {
+    "f": "04_cost_breakdown.svg",
+    "c": "Cost structure per unit: twin standard cost of VC10, VC20, VC30 against the price, full-cost view of the VC20 with labour, fixed cost, depreciation and SG&A …",
+    "g": "guide 04 §27.2",
+    "t": "Cost structure per unit"
+   }
+  ],
+  "groups": [
+   {
+    "id": "e31_2",
+    "t": "ERP",
+    "src": "guide 04 §31.2",
+    "rows": [
+     [
+      "ERP",
+      "large ERP, full manufacturing",
+      "SAP S/4HANA",
+      "–",
+      "$$$",
+      "On-prem / offline: yes (on-prem edition; check SAP's on-prem roadmap) · effort and cost for 78 people – often oversized"
+     ],
+     [
+      "ERP",
+      "mid-market ERP with manufacturing",
+      "Microsoft Dynamics 365 Business Central",
+      "–",
+      "$ – $$",
+      "On-prem / offline: yes (on-prem possible – check current licensing) · depth of MRP/routing for 3 models is enough; partner add-ons"
+     ],
+     [
+      "ERP",
+      "large ERP",
+      "Microsoft Dynamics 365 Finance & Supply Chain Management",
+      "–",
+      "$$$",
+      "On-prem / offline: mainly cloud (on-prem option limited – check) · offline rule"
+     ],
+     [
+      "ERP",
+      "discrete manufacturing ERP",
+      "Infor CloudSuite Industrial (SyteLine)",
+      "–",
+      "$$ – $$$",
+      "On-prem / offline: yes (on-prem version – check) · configurator, APS"
+     ],
+     [
+      "ERP",
+      "ERP + EAM + service",
+      "IFS Cloud",
+      "–",
+      "$$ – $$$",
+      "On-prem / offline: yes (customer-managed deployment – check) · EAM included (CMMS)"
+     ],
+     [
+      "ERP",
+      "discrete manufacturing ERP",
+      "Epicor Kinetic",
+      "–",
+      "$$",
+      "On-prem / offline: yes · MES module (Advanced MES), partner"
+     ],
+     [
+      "ERP",
+      "German mid-market ERP",
+      "proALPHA",
+      "–",
+      "$$",
+      "On-prem / offline: yes · CAQ/MES add-ons, language"
+     ],
+     [
+      "ERP",
+      "mid-market manufacturing ERP",
+      "abas ERP (Forterro)",
+      "–",
+      "$$",
+      "On-prem / offline: yes · partner network in your country"
+     ],
+     [
+      "ERP",
+      "open source / open core ERP, MRP, quality, maintenance",
+      "Odoo (Community / Enterprise)",
+      "–",
+      "$",
+      "On-prem / offline: yes · implementation partner quality; Enterprise licence for some apps"
+     ],
+     [
+      "ERP",
+      "open source ERP with manufacturing",
+      "ERPNext (Frappe)",
+      "–",
+      "$",
+      "On-prem / offline: yes · depth of MRP and costing; own IT skills needed"
+     ]
+    ]
+   },
+   {
+    "id": "e31_5",
+    "t": "PLM / PDM",
+    "src": "guide 04 §31.5",
+    "rows": [
+     [
+      "PLM / PDM",
+      "–",
+      "Teamcenter (Siemens)",
+      "–",
+      "$$ – $$$",
+      "On-prem: yes (also SaaS \"Teamcenter X\") · fit with your CAD (NX, SolidWorks, Inventor …)"
+     ],
+     [
+      "PLM / PDM",
+      "–",
+      "Windchill (PTC)",
+      "–",
+      "$$ – $$$",
+      "On-prem: yes (also SaaS) · Creo integration, MBOM tools"
+     ],
+     [
+      "PLM / PDM",
+      "–",
+      "ENOVIA / 3DEXPERIENCE (Dassault)",
+      "–",
+      "$$ – $$$",
+      "On-prem: check (on-prem available for some roles) · CATIA/SOLIDWORKS link"
+     ],
+     [
+      "PLM / PDM",
+      "–",
+      "Aras Innovator",
+      "–",
+      "$ – $$",
+      "On-prem: yes · open core licence model; implementation partner"
+     ],
+     [
+      "PLM / PDM",
+      "–",
+      "CAD-integrated PDM (e.g. SOLIDWORKS PDM, Autodesk Vault)",
+      "–",
+      "$",
+      "On-prem: yes · enough for 2 – 6 engineers; ERP interface"
+     ]
+    ]
+   },
+   {
+    "id": "e31_7",
+    "t": "Servers and infrastructure for MES / ERP",
+    "src": "guide 04 §31.7",
+    "rows": [
+     [
+      "Virtualisation hosts (2, redundant)",
+      "2 × CPU, 256 – 512 GB RAM, SSD RAID",
+      "Dell PowerEdge R660/R760, HPE ProLiant DL380 Gen11, Lenovo ThinkSystem SR650 V3",
+      "–",
+      "≈ 15 – 30 k$ each",
+      "warranty 5 years on site"
+     ],
+     [
+      "Hypervisor",
+      "–",
+      "VMware vSphere, Microsoft Hyper-V, Proxmox VE",
+      "–",
+      "licence varies widely – check",
+      "licence model changes"
+     ],
+     [
+      "Database",
+      "per vendor",
+      "Microsoft SQL Server Standard, PostgreSQL, Oracle (if required by vendor)",
+      "–",
+      "per core",
+      "what the MES/ERP supports"
+     ],
+     [
+      "Backup",
+      "RPO 15 min",
+      "Veeam, built-in tools + NAS + offline copy",
+      "–",
+      "$",
+      "restore test"
+     ],
+     [
+      "UPS",
+      "≥ 15 min, shutdown software",
+      "APC Smart-UPS SRT or similar",
+      "–",
+      "$",
+      "–"
+     ]
+    ]
+   }
+  ],
+  "shops": [
+   {
+    "title": "",
+    "cols": [
+     "#",
+     "Item",
+     "Qty / users",
+     "Basis",
+     "Price class (estimate – ask for a quote)",
+     "On-prem"
+    ],
+    "rows": [
+     [
+      "1",
+      "ERP licence / subscription – full users",
+      "15",
+      "planner, purchasing 2, logistics lead, finance 2, sales support, plant manager, quality eng., maintenance planner, HR, MES/IT admin, 3 warehouse (1 per shift)",
+      "$$",
+      "must"
+     ],
+     [
+      "2",
+      "ERP light / limited users",
+      "10",
+      "team leaders 3, process engineers 2, tool room, controls, trainers",
+      "incl. in 1 or $",
+      "must"
+     ],
+     [
+      "3",
+      "MES server licence + modules (production, quality, genealogy, OEE)",
+      "1 plant",
+      "13 work centres, 16 machines",
+      "$$ – $$$",
+      "must"
+     ],
+     [
+      "4",
+      "MES station clients / terminals",
+      "18",
+      "one per station (LOAD, 3 HMC, WASH, VMC, HONE, LATHE, GRIND, ASSY, ROBOT, 2 TEST, PAINT, FINAL, PACK) + goods-in",
+      "incl. in 3 + hardware 31.6",
+      "must"
+     ],
+     [
+      "5",
+      "MES office users",
+      "10",
+      "planner, quality 2, maintenance, managers, IT",
+      "incl. in 3",
+      "must"
+     ],
+     [
+      "6",
+      "Machine connection (OPC UA / MTConnect drivers)",
+      "≈ 8 machine types",
+      "HMC, VMC, hone, lathe, grinder, robot, test bench, PLC lines",
+      "$$",
+      "must"
+     ],
+     [
+      "7",
+      "CMMS (or ERP module)",
+      "6 named + requesters",
+      "3 technicians (1 per shift), planner, tool room, lead",
+      "$ – $$",
+      "must for critical functions"
+     ],
+     [
+      "8",
+      "QMS / CAQ + SPC",
+      "4",
+      "quality engineer + 3 inspectors (1 per shift)",
+      "$ – $$",
+      "yes"
+     ],
+     [
+      "9",
+      "PLM / PDM",
+      "4 authors + 10 viewers",
+      "process engineers, controls engineer, design",
+      "$ – $$",
+      "yes"
+     ],
+     [
+      "10",
+      "Panel PCs at stations",
+      "18",
+      "item 4",
+      "≈ 18 × 1 – 4 k$",
+      "–"
+     ],
+     [
+      "11",
+      "Rugged tablets / mobile computers",
+      "8",
+      "logistics 3, maintenance 3, quality 2",
+      "≈ 8 × 1.5 – 3 k$",
+      "–"
+     ],
+     [
+      "12",
+      "Handheld scanners (DPM version where needed)",
+      "10",
+      "goods-in, ASSY, FINAL, PACK, shipping, spares",
+      "≈ 10 × 0.3 – 4 k$",
+      "–"
+     ],
+     [
+      "13",
+      "Fixed DPM readers at stations",
+      "9",
+      "serial read at main-route ops 0010 – 0090",
+      "≈ 9 × 1.5 – 5 k$",
+      "–"
+     ],
+     [
+      "14",
+      "Industrial label printers",
+      "4",
+      "goods-in, PACK, shipping, spares",
+      "≈ 4 × 1.5 – 4 k$",
+      "–"
+     ],
+     [
+      "15",
+      "DPM marker at LOAD-CC",
+      "1",
+      "serial marking op 0010",
+      "≈ 10 – 40 k$",
+      "–"
+     ],
+     [
+      "16",
+      "Barcode verifier",
+      "1",
+      "label / mark grading",
+      "≈ 2 – 8 k$",
+      "–"
+     ],
+     [
+      "17",
+      "Virtualisation hosts + storage",
+      "2",
+      "MES app + DB, ERP, interface queue, test system (11.16)",
+      "≈ 30 – 60 k$",
+      "–"
+     ],
+     [
+      "18",
+      "Backup system + offline copy",
+      "1",
+      "RPO 15 min",
+      "$",
+      "–"
+     ],
+     [
+      "19",
+      "UPS for server room",
+      "1",
+      "≥ 15 min",
+      "$",
+      "–"
+     ],
+     [
+      "20",
+      "MQTT broker / integration middleware",
+      "1",
+      "UNS or queue (29)",
+      "$ (open source) – $$",
+      "yes"
+     ],
+     [
+      "21",
+      "Implementation services ERP + MES + interfaces",
+      "1 project",
+      "8 – 14 months (30.3)",
+      "$$$",
+      "–"
+     ],
+     [
+      "22",
+      "Training + key-user time",
+      "≈ 25 key users",
+      "30.7",
+      "internal",
+      "–"
+     ]
+    ],
+    "m": 1,
+    "p": 4,
+    "w": [
+     4,
+     30,
+     14,
+     26,
+     16,
+     10
+    ]
+   }
+  ],
+  "shopTab": "Shopping list – MES / ERP / IT layer",
+  "shopLbl": "shopping list",
+  "shopTitle": "Consolidated shopping list for the factory MES / ERP / IT layer – guide 04 §31.8 (the same list is shown on the MES tab).",
+  "price": "Price classes (guide 04, licences + implementation, first project): $ < 50 k$ · $$ 50 – 250 k$ · $$$ > 250 k$ – estimate, ask for a quote. On-prem = runs on our own servers without internet.",
+  "shopNote": "MES, CMMS, QMS / CAQ and shop-floor terminals are in the MES-tab card.",
+  "ph": "(e.g. SAP, Odoo, PLM, PDM, server, backup)"
  }
 };

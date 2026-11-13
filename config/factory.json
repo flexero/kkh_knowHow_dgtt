@@ -198,7 +198,7 @@
 
   "asrs": [
     {"id": "ASRS-RAW", "name": "Raw material AS/RS", "pos": [-41, -7], "rot": 90, "length": 28, "height": 9.5,
-     "levels": 7, "crane_cycle_s": 50, "io": [-41, 9.6],
+     "levels": 7, "bays": 28, "slots": 392, "crane_cycle_s": 50, "io": [-41, 9.6],
      "unit_load": {"RAW_CC10": 6, "RAW_CC": 4, "RAW_CC30": 3, "RAW_CYL": 12, "RAW_CS": 6}},
     {"id": "ASRS-FG", "name": "Finished goods AS/RS", "pos": [9.5, 18.5], "rot": 0, "length": 16, "height": 8,
      "levels": 5, "crane_cycle_s": 60, "io": [-0.8, 18.5]}

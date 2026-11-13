@@ -43,7 +43,7 @@ class ASRS:
         self.io = list(cfg.get("io", cfg.get("pos", [0, 0])))
         self.cycle = float(cfg.get("crane_cycle_s", 60))
         self.levels = int(cfg.get("levels", 6))
-        self.bays = max(4, int(float(cfg.get("length", 20)) / 1.4))
+        self.bays = int(cfg.get("bays", max(4, int(float(cfg.get("length", 20)) / 1.4))))   # crate positions per side along the aisle
         self.slots = int(cfg.get("slots", 2 * self.bays * self.levels))
         self.unit_load = cfg.get("unit_load", {})       # parts per load unit, per buffer
         self.io_capacity = int(cfg.get("io_capacity", 3))  # loads that fit on the I/O conveyor

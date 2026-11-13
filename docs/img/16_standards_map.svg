@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 840" width="1400" height="840" font-family="Arial, Helvetica, sans-serif">
+<title>Standards map of the compressor smart factory</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="840" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Standards map – which standards govern which part of the V-type compressor smart factory</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#555" xml:space="preserve">Key numbers only (complete list: master table §16). Editions: see register. Red = legal frame (EU law) and centre.</text>
+<rect x="40.0" y="72.0" width="1320.0" height="50.0" rx="0" fill="#fff" stroke="#c62828" stroke-width="2.0"/>
+<text x="52.0" y="92.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">EU LAW (legal frame)</text>
+<text x="52.0" y="112.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Machinery Dir. 2006/42/EC → Machinery Reg. (EU) 2023/1230 from 20 Jan 2027 · PED 2014/68/EU · SPVD 2014/29/EU · EMC 2014/30/EU · LVD 2014/35/EU · ATEX 2014/34/EU + 1999/92/EC</text>
+<text x="232.0" y="92.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">RoHS 2011/65/EU · REACH · WEEE · Ecodesign motors (EU) 2019/1781 · Cyber Resilience Act (EU) 2024/2847 · Work equipment 2009/104/EC</text>
+<rect x="40.0" y="140.0" width="426.0" height="215.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="40.0" y="140.0" width="426.0" height="22.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="48.0" y="156.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">PRODUCT – VC10 / VC20 / VC30 compressor</text>
+<text x="48.0" y="179.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 1217 Annex C – FAD ± 7 %, specific energy ± 8 %</text>
+<text x="48.0" y="196.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">EN 1012-1 – air compressor safety (type C)</text>
+<text x="48.0" y="213.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">EN 286-1 + 2014/29/EU – air receiver (VC20: A1)</text>
+<text x="48.0" y="230.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 4126-1 – safety valve (PED cat. IV accessory)</text>
+<text x="48.0" y="247.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 8573-1 – air purity classes [P : W : O]</text>
+<text x="48.0" y="264.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 2151 / ISO 3744 – noise LWA, ISO 11201 LpA</text>
+<text x="48.0" y="281.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 60034-30-1 + (EU) 2019/1781 – IE3 motors</text>
+<text x="48.0" y="298.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 21940-11 – balancing (flywheel G6.3)</text>
+<text x="48.0" y="315.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">RoHS · REACH Art. 33 · WEEE · CRA (if connected)</text>
+<text x="48.0" y="332.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 12944 – paint corrosivity, ISO 8501-1 Sa 2½</text>
+<rect x="487.0" y="140.0" width="426.0" height="215.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="487.0" y="140.0" width="426.0" height="22.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="495.0" y="156.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">MACHINERY SAFETY (A / B standards)</text>
+<text x="495.0" y="179.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 12100 – risk assessment, 3-step method (A)</text>
+<text x="495.0" y="196.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 13849-1:2023 / -2 – PL a–e, validation</text>
+<text x="495.0" y="213.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 62061 – SIL (alternative method)</text>
+<text x="495.0" y="230.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 13855:2024 – S = K·T + C distances</text>
+<text x="495.0" y="247.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 13857 / ISO 13854 – reach distances, gaps</text>
+<text x="495.0" y="264.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 14119:2024 / ISO 14120 – interlocks, guards</text>
+<text x="495.0" y="281.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 13850 – E-stop · ISO 14118 – LOTO</text>
+<text x="495.0" y="298.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 61496 – light curtains (type 4), scanners (type 3)</text>
+<text x="495.0" y="315.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 11161 – integrated manufacturing systems</text>
+<text x="495.0" y="332.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 61800-5-2 – STO, SS1, SLS in drives</text>
+<rect x="934.0" y="140.0" width="426.0" height="215.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="934.0" y="140.0" width="426.0" height="22.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="942.0" y="156.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">MACHINES (C standards, acceptance)</text>
+<text x="942.0" y="179.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 16090-1 – machining centres (HMC, VMC)</text>
+<text x="942.0" y="196.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 10218-1/-2:2025 – robots and robot cells</text>
+<text x="942.0" y="213.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 3691-4:2023 – AGV / AMR systems</text>
+<text x="942.0" y="230.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">EN 528 / EN 619 – S/R machines, conveyors</text>
+<text x="942.0" y="247.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">EN 15512 / 15620 / 15635 – racks</text>
+<text x="942.0" y="264.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 4413 / ISO 4414 – hydraulics, pneumatics</text>
+<text x="942.0" y="281.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 16092-3 – hydraulic press-fit station</text>
+<text x="942.0" y="298.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 230-1/-2, ISO 10791 – machine acceptance</text>
+<text x="942.0" y="315.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 20816-3:2022 – vibration zones</text>
+<text x="942.0" y="332.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">EN 13155, EN 818, EN 1492 – lifting accessories</text>
+<rect x="450.0" y="380.0" width="500.0" height="62.0" rx="0" fill="#fff" stroke="#c62828" stroke-width="2.5"/>
+<text x="700.0" y="406.0" font-size="16" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">V-TYPE COMPRESSOR SMART FACTORY</text>
+<text x="700.0" y="428.0" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">register: guide 16 · numbering: guide 15 · checks every 6 months</text>
+<line x1="560.0" y1="380.0" x2="253.0" y2="355.0" stroke="#c62828" stroke-width="1.5"/>
+<line x1="700.0" y1="380.0" x2="700.0" y2="355.0" stroke="#c62828" stroke-width="1.5"/>
+<line x1="840.0" y1="380.0" x2="1147.0" y2="355.0" stroke="#c62828" stroke-width="1.5"/>
+<rect x="40.0" y="470.0" width="315.0" height="215.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="40.0" y="470.0" width="315.0" height="22.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="48.0" y="486.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">ELECTRICAL</text>
+<text x="48.0" y="509.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 60204-1 – electrical equipment</text>
+<text x="48.0" y="526.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 61439-1/-2 – cabinets, boards</text>
+<text x="48.0" y="543.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 60364 – building installation</text>
+<text x="48.0" y="560.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 61000-6-2 / -6-4 – EMC industrial</text>
+<text x="48.0" y="577.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 60529 – IP54 / IP67</text>
+<text x="48.0" y="594.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 60947 – switchgear, E-stop -5-5</text>
+<text x="48.0" y="611.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 61800-3 – drive EMC (C2 / C3)</text>
+<text x="48.0" y="628.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 81346 – reference designations</text>
+<text x="48.0" y="645.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">EN 50110-1 – 5 safety rules</text>
+<text x="48.0" y="662.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 62305 – lightning protection</text>
+<rect x="375.0" y="470.0" width="315.0" height="215.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="375.0" y="470.0" width="315.0" height="22.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="383.0" y="486.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">AUTOMATION / IT / TWIN</text>
+<text x="383.0" y="509.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 61131-3 (ed. 4) / -9 IO-Link</text>
+<text x="383.0" y="526.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 62264 = ISA-95 levels 0–4</text>
+<text x="383.0" y="543.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 62541 OPC UA + OPC 40501 umati</text>
+<text x="383.0" y="560.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO/IEC 20922 MQTT 3.1.1 / MQTT 5.0</text>
+<text x="383.0" y="577.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">VDA 5050 – AGV fleet interface</text>
+<text x="383.0" y="594.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 62443 – OT security zones, SL</text>
+<text x="383.0" y="611.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISA-18.2 / IEC 62682 – alarms</text>
+<text x="383.0" y="628.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISA-101 – high-performance HMI</text>
+<text x="383.0" y="645.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 63278-1 AAS · ISO 23247 twin</text>
+<text x="383.0" y="662.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 22400 – OEE KPIs</text>
+<rect x="710.0" y="470.0" width="315.0" height="215.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="710.0" y="470.0" width="315.0" height="22.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="718.0" y="486.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">QUALITY / DRAWINGS / ID</text>
+<text x="718.0" y="509.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 9001 – QMS (IATF ideas)</text>
+<text x="718.0" y="526.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 22514-2 – Cpk ≥ 1.33</text>
+<text x="718.0" y="543.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 286 / ISO 1101 / ISO 2768-1</text>
+<text x="718.0" y="560.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 21920 – surface texture (Ra)</text>
+<text x="718.0" y="577.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 16232 / VDA 19.1 – cleanliness</text>
+<text x="718.0" y="594.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO/IEC 17025 – calibration labs</text>
+<text x="718.0" y="611.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">EN 10204 3.1 – material certificates</text>
+<text x="718.0" y="628.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 5817 C / ISO 3834-3 – welding</text>
+<text x="718.0" y="645.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">GS1 · ISO/IEC 15415 / 15416 grading</text>
+<text x="718.0" y="662.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 7200 – title blocks</text>
+<rect x="1045.0" y="470.0" width="315.0" height="215.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="1045.0" y="470.0" width="315.0" height="22.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="1053.0" y="486.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">ENVIRONMENT / WORKPLACE</text>
+<text x="1053.0" y="509.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 14001 – environment</text>
+<text x="1053.0" y="526.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 45001 – health and safety</text>
+<text x="1053.0" y="543.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 50001 – energy, kWh per unit</text>
+<text x="1053.0" y="560.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">EN 12464-1 – lighting (lx, UGR)</text>
+<text x="1053.0" y="577.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 11228-1 – manual lifting 25 kg</text>
+<text x="1053.0" y="594.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">2003/10/EC – noise 80 / 85 / 87 dB(A)</text>
+<text x="1053.0" y="611.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ATEX zones – paint / powder booth</text>
+<text x="1053.0" y="628.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">EN 16985, EN 12981, EN 1539 – paint</text>
+<text x="1053.0" y="645.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">TRGS 611 type rules – coolant</text>
+<text x="1053.0" y="662.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 14644-1 – spindle clean room</text>
+<line x1="560.0" y1="442.0" x2="197.5" y2="470.0" stroke="#c62828" stroke-width="1.5"/>
+<line x1="560.0" y1="442.0" x2="532.5" y2="470.0" stroke="#c62828" stroke-width="1.5"/>
+<line x1="840.0" y1="442.0" x2="867.5" y2="470.0" stroke="#c62828" stroke-width="1.5"/>
+<line x1="840.0" y1="442.0" x2="1202.5" y2="470.0" stroke="#c62828" stroke-width="1.5"/>
+<text x="40.0" y="712.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">How to read: start in the box of your task; every number links to a row of the master table (§16) and to the guides that use it.</text>
+<text x="40.0" y="730.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Laws (red band) are binding; harmonised EN versions of the standards give presumption of conformity; all others are voluntary unless a contract names them.</text>
+<rect x="930.0" y="762.0" width="450.0" height="62.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="930.0" y1="784.0" x2="1380.0" y2="784.0" stroke="#000" stroke-width="1.3"/>
+<line x1="1230.0" y1="784.0" x2="1230.0" y2="824.0" stroke="#000" stroke-width="1.3"/>
+<text x="938.0" y="778.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">EXAMPLE – check the current edition of every standard</text>
+<text x="938.0" y="800.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Standards map – topic groups with key numbers</text>
+<text x="938.0" y="816.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Guide 16 – standards register · 2026-11-12</text>
+<text x="1238.0" y="800.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VC-QA-DWG-1601</text>
+<text x="1238.0" y="816.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">not legal advice</text>
+</svg>

@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1010" width="1600" height="1010" font-family="Arial, Helvetica, sans-serif">
+<title>Material flow Sankey of the compressor factory at 17.2 units/h – parts per hour, distances and part-metres from config/factory.json</title>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="0.8"/></pattern></defs>
+<rect x="0" y="0" width="1600" height="1010" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="18" text-anchor="start" fill="#000" font-weight="bold">Material flow diagram (Sankey) – parts per hour at 17.2 compressors/h, distances from config/factory.json</text>
+<text x="24.0" y="52.0" font-size="12" text-anchor="start" fill="#444">Band height = parts per hour (3 px per part/h). Red bands = AGV transport loops of the twin; grey bands = moves that the twin does not model (conveyor, cart, forklift or crane in the real factory).</text>
+<text x="24.0" y="68.0" font-size="12" text-anchor="start" fill="#444">Label on each band: parts/h · rectilinear distance · transport intensity (part-m/h = parts/h × m). Mix 30 % VC10 / 50 % VC20 / 20 % VC30.</text>
+<rect x="40.0" y="140.0" width="22.0" height="309.6" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="51.0" y="465.6" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Goods</text>
+<text x="51.0" y="480.6" font-size="11" text-anchor="middle" fill="#444">receipt</text>
+<rect x="230.0" y="140.0" width="22.0" height="206.4" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="241.0" y="120.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Raw AS/RS</text>
+<text x="241.0" y="134.0" font-size="11" text-anchor="middle" fill="#444">ASRS-RAW</text>
+<rect x="230.0" y="660.0" width="22.0" height="103.2" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="241.0" y="779.2" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Floor stores</text>
+<text x="241.0" y="794.2" font-size="11" text-anchor="middle" fill="#444">tanks + motors</text>
+<path d="M62.0,140.0 C146.0,140.0 146.0,140.0 230.0,140.0 L230.0,346.4 C146.0,346.4 146.0,346.4 62.0,346.4 Z" fill="#9e9e9e" fill-opacity="0.45" stroke="#000" stroke-width="0.6"/>
+<text x="135.0" y="250.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">68.8/h</text>
+<text x="135.0" y="264.0" font-size="11" text-anchor="middle" fill="#000">castings, cylinders,</text>
+<text x="135.0" y="278.0" font-size="11" text-anchor="middle" fill="#000">forgings (dock not</text>
+<text x="135.0" y="292.0" font-size="11" text-anchor="middle" fill="#000">in config)</text>
+<path d="M62.0,346.4 C146.0,346.4 146.0,660.0 230.0,660.0 L230.0,763.2 C146.0,763.2 146.0,449.6 62.0,449.6 Z" fill="#9e9e9e" fill-opacity="0.45" stroke="#000" stroke-width="0.6"/>
+<text x="110.0" y="520.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">34.4/h</text>
+<text x="110.0" y="534.0" font-size="11" text-anchor="start" fill="#000">tanks + motors</text>
+<rect x="470.0" y="110.0" width="22.0" height="51.6" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="481.0" y="90.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Crankcase cell</text>
+<text x="481.0" y="104.0" font-size="11" text-anchor="middle" fill="#444">LOAD-CC, 3 HMC, WASH</text>
+<rect x="470.0" y="220.0" width="22.0" height="103.2" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="481.0" y="339.2" font-size="12" text-anchor="middle" fill="#000" font-weight="bold"></text>
+<text x="498.0" y="260.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Cylinder line</text>
+<text x="498.0" y="274.0" font-size="11" text-anchor="start" fill="#444">VMC, HONE</text>
+<rect x="470.0" y="380.0" width="22.0" height="51.6" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="481.0" y="447.6" font-size="12" text-anchor="middle" fill="#000" font-weight="bold"></text>
+<text x="498.0" y="402.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold">Crankshaft line</text>
+<text x="498.0" y="416.0" font-size="11" text-anchor="start" fill="#444">LATHE, GRIND</text>
+<path d="M252.0,140.0 C361.0,140.0 361.0,110.0 470.0,110.0 L470.0,161.6 C361.0,161.6 361.0,191.6 252.0,191.6 Z" fill="#c62828" fill-opacity="0.35" stroke="#000" stroke-width="0.6"/>
+<text x="350.0" y="118.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">TR-CC10/CC/CC30</text>
+<text x="350.0" y="132.0" font-size="11" text-anchor="middle" fill="#000">17.2/h · 34.8 m · 599</text>
+<path d="M252.0,191.6 C361.0,191.6 361.0,220.0 470.0,220.0 L470.0,323.2 C361.0,323.2 361.0,294.8 252.0,294.8 Z" fill="#c62828" fill-opacity="0.35" stroke="#000" stroke-width="0.6"/>
+<text x="355.0" y="262.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">TR-CYL</text>
+<text x="355.0" y="276.0" font-size="11" text-anchor="middle" fill="#000">34.4/h · 26.8 m · 922</text>
+<path d="M252.0,294.8 C361.0,294.8 361.0,380.0 470.0,380.0 L470.0,431.6 C361.0,431.6 361.0,346.4 252.0,346.4 Z" fill="#c62828" fill-opacity="0.35" stroke="#000" stroke-width="0.6"/>
+<text x="350.0" y="405.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">TR-CS</text>
+<text x="350.0" y="419.0" font-size="11" text-anchor="middle" fill="#000">17.2/h · 16.8 m · 289</text>
+<rect x="700.0" y="170.0" width="22.0" height="206.4" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="711.0" y="150.0" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Pump assembly</text>
+<text x="711.0" y="164.0" font-size="11" text-anchor="middle" fill="#444">ASSY-01 (+ robot)</text>
+<path d="M492.0,110.0 C596.0,110.0 596.0,170.0 700.0,170.0 L700.0,221.6 C596.0,221.6 596.0,161.6 492.0,161.6 Z" fill="#9e9e9e" fill-opacity="0.45" stroke="#000" stroke-width="0.6"/>
+<text x="585.0" y="150.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">17.2/h · 28.0 m · 482</text>
+<path d="M492.0,220.0 C596.0,220.0 596.0,221.6 700.0,221.6 L700.0,324.8 C596.0,324.8 596.0,323.2 492.0,323.2 Z" fill="#9e9e9e" fill-opacity="0.45" stroke="#000" stroke-width="0.6"/>
+<text x="640.0" y="300.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">34.4/h · 16.0 m · 550</text>
+<path d="M492.0,380.0 C596.0,380.0 596.0,324.8 700.0,324.8 L700.0,376.4 C596.0,376.4 596.0,431.6 492.0,431.6 Z" fill="#9e9e9e" fill-opacity="0.45" stroke="#000" stroke-width="0.6"/>
+<text x="585.0" y="455.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">17.2/h · 26.0 m · 447</text>
+<text x="711.0" y="392.4" font-size="11" text-anchor="middle" fill="#444">4 parts → 1 pump</text>
+<rect x="860.0" y="247.4" width="22.0" height="51.6" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="871.0" y="227.4" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Test</text>
+<text x="871.0" y="241.4" font-size="11" text-anchor="middle" fill="#444">TEST-01/02</text>
+<path d="M722.0,247.4 C791.0,247.4 791.0,247.4 860.0,247.4 L860.0,299.0 C791.0,299.0 791.0,299.0 722.0,299.0 Z" fill="#9e9e9e" fill-opacity="0.45" stroke="#000" stroke-width="0.6"/>
+<text x="780.0" y="269.4" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">17.2/h</text>
+<text x="780.0" y="283.4" font-size="11" text-anchor="middle" fill="#000">18.8 m · 323</text>
+<rect x="1010.0" y="247.4" width="22.0" height="51.6" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="1021.0" y="227.4" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Paint</text>
+<text x="1021.0" y="241.4" font-size="11" text-anchor="middle" fill="#444">PAINT-01</text>
+<path d="M882.0,247.4 C946.0,247.4 946.0,247.4 1010.0,247.4 L1010.0,299.0 C946.0,299.0 946.0,299.0 882.0,299.0 Z" fill="#9e9e9e" fill-opacity="0.45" stroke="#000" stroke-width="0.6"/>
+<text x="935.0" y="269.4" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">17.2/h</text>
+<text x="935.0" y="283.4" font-size="11" text-anchor="middle" fill="#000">10.8 m · 185</text>
+<rect x="1160.0" y="247.4" width="22.0" height="154.8" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="1171.0" y="227.4" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Final assembly</text>
+<text x="1171.0" y="241.4" font-size="11" text-anchor="middle" fill="#444">FINAL-01</text>
+<path d="M1032.0,247.4 C1096.0,247.4 1096.0,247.4 1160.0,247.4 L1160.0,299.0 C1096.0,299.0 1096.0,299.0 1032.0,299.0 Z" fill="#9e9e9e" fill-opacity="0.45" stroke="#000" stroke-width="0.6"/>
+<text x="1085.0" y="269.4" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">17.2/h</text>
+<text x="1085.0" y="283.4" font-size="11" text-anchor="middle" fill="#000">20.5 m · 353</text>
+<path d="M252.0,660.0 C706.0,660.0 706.0,299.0 1160.0,299.0 L1160.0,350.6 C706.0,350.6 706.0,711.6 252.0,711.6 Z" fill="#9e9e9e" fill-opacity="0.45" stroke="#000" stroke-width="0.6"/>
+<text x="706.0" y="512.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">tanks 17.2/h · 13.6 m · 233</text>
+<path d="M252.0,711.6 C706.0,711.6 706.0,350.6 1160.0,350.6 L1160.0,402.2 C706.0,402.2 706.0,763.2 252.0,763.2 Z" fill="#9e9e9e" fill-opacity="0.45" stroke="#000" stroke-width="0.6"/>
+<text x="706.0" y="563.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">motors 17.2/h · 16.4 m · 282</text>
+<rect x="1300.0" y="299.0" width="22.0" height="51.6" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="1311.0" y="366.6" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Packing</text>
+<text x="1311.0" y="381.6" font-size="11" text-anchor="middle" fill="#444">PACK-01</text>
+<path d="M1182.0,299.0 C1241.0,299.0 1241.0,299.0 1300.0,299.0 L1300.0,350.6 C1241.0,350.6 1241.0,350.6 1182.0,350.6 Z" fill="#9e9e9e" fill-opacity="0.45" stroke="#000" stroke-width="0.6"/>
+<text x="1230.0" y="281.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">17.2/h</text>
+<text x="1230.0" y="295.0" font-size="11" text-anchor="middle" fill="#000">20.5 m · 353</text>
+<rect x="1430.0" y="299.0" width="22.0" height="51.6" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="1441.0" y="366.6" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">FG AS/RS</text>
+<text x="1441.0" y="381.6" font-size="11" text-anchor="middle" fill="#444">ASRS-FG</text>
+<path d="M1322.0,299.0 C1376.0,299.0 1376.0,299.0 1430.0,299.0 L1430.0,350.6 C1376.0,350.6 1376.0,350.6 1322.0,350.6 Z" fill="#c62828" fill-opacity="0.35" stroke="#000" stroke-width="0.6"/>
+<text x="1376.0" y="281.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">TR-FG</text>
+<text x="1376.0" y="295.0" font-size="11" text-anchor="middle" fill="#000">34.5 m · 593</text>
+<rect x="1550.0" y="299.0" width="22.0" height="51.6" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="1553.0" y="366.6" font-size="12" text-anchor="middle" fill="#000" font-weight="bold">Ship</text>
+<text x="1553.0" y="381.6" font-size="11" text-anchor="middle" fill="#444">truck</text>
+<path d="M1452.0,299.0 C1501.0,299.0 1501.0,299.0 1550.0,299.0 L1550.0,350.6 C1501.0,350.6 1501.0,350.6 1452.0,350.6 Z" fill="#9e9e9e" fill-opacity="0.45" stroke="#000" stroke-width="0.6"/>
+<text x="1500.0" y="379.0" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">17.2/h</text>
+<text x="1500.0" y="393.0" font-size="11" text-anchor="middle" fill="#000">dock n/a</text>
+<rect x="24.0" y="830.0" width="760.0" height="166.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<text x="34.0" y="850.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Transport intensity (from-to analysis, guide 03 §17)</text>
+<text x="34.0" y="874.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Total of all 13 moves</text>
+<text x="324.0" y="874.0" font-size="11" text-anchor="start" fill="#000">5 610 part-m/h</text>
+<text x="454.0" y="874.0" font-size="11" text-anchor="start" fill="#000">4 075 load-m/h</text>
+<text x="614.0" y="874.0" font-size="11" text-anchor="start" fill="#000">284 t·m/h (example masses)</text>
+<text x="34.0" y="898.0" font-size="11" text-anchor="start" fill="#000">AGV loops (4 red bands)</text>
+<text x="324.0" y="898.0" font-size="11" text-anchor="start" fill="#000">2 403 part-m/h</text>
+<text x="454.0" y="898.0" font-size="11" text-anchor="start" fill="#000">868 load-m/h</text>
+<text x="614.0" y="898.0" font-size="11" text-anchor="start" fill="#000">122 t·m/h</text>
+<text x="34.0" y="922.0" font-size="11" text-anchor="start" fill="#000">Largest by parts: Raw → cylinder line</text>
+<text x="324.0" y="922.0" font-size="11" text-anchor="start" fill="#000">922 part-m/h</text>
+<text x="454.0" y="922.0" font-size="11" text-anchor="start" fill="#000">77 load-m/h (12 per crate)</text>
+<text x="614.0" y="922.0" font-size="11" text-anchor="start" fill="#000">4.6 t·m/h</text>
+<text x="34.0" y="946.0" font-size="11" text-anchor="start" fill="#000">Largest by mass: Packing → FG AS/RS</text>
+<text x="324.0" y="946.0" font-size="11" text-anchor="start" fill="#000">593 part-m/h</text>
+<text x="454.0" y="946.0" font-size="11" text-anchor="start" fill="#000">593 load-m/h</text>
+<text x="614.0" y="946.0" font-size="11" text-anchor="start" fill="#000">94 t·m/h (159 kg per unit)</text>
+<text x="34.0" y="970.0" font-size="11" text-anchor="start" fill="#000">FG input moved to 5 m from packing</text>
+<text x="324.0" y="970.0" font-size="11" text-anchor="start" fill="#000">saves 507 part-m/h</text>
+<text x="454.0" y="970.0" font-size="11" text-anchor="start" fill="#000">saves 507 load-m/h</text>
+<text x="614.0" y="970.0" font-size="11" text-anchor="start" fill="#000">= about 0.5 AGV (§4.2)</text>
+<text x="800.0" y="860.0" font-size="11" text-anchor="start" fill="#000">How the distances were taken: AGV loops = Manhattan route through the main aisle (z = 12.3 m) as in</text>
+<text x="800.0" y="875.0" font-size="11" text-anchor="start" fill="#000">twin/handling.py; other moves = |Δx| + |Δz| between the station positions in config/factory.json.</text>
+<text x="800.0" y="890.0" font-size="11" text-anchor="start" fill="#000">Test = mean of TEST-01/02; tanks/motors = mix-weighted floor-store positions. Example masses.</text>
+<rect x="1116.0" y="922.0" width="470.0" height="74.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="1116.0" y1="946.0" x2="1586.0" y2="946.0" stroke="#000" stroke-width="1"/>
+<line x1="1116.0" y1="971.0" x2="1586.0" y2="971.0" stroke="#000" stroke-width="1"/>
+<line x1="1416.0" y1="946.0" x2="1416.0" y2="996.0" stroke="#000" stroke-width="1"/>
+<text x="1124.0" y="939.0" font-size="13" text-anchor="start" fill="#c62828" font-weight="bold">EXAMPLE – planning sketch</text>
+<text x="1124.0" y="963.0" font-size="11" text-anchor="start" fill="#000">Material flow Sankey – compressor factory</text>
+<text x="1424.0" y="963.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold">VC-LOG-DOC-0301</text>
+<text x="1124.0" y="988.0" font-size="11" text-anchor="start" fill="#000">Guide 03 – Material handling · Part B · 2026-11-12</text>
+<text x="1424.0" y="988.0" font-size="11" text-anchor="start" fill="#000">not to scale</text>
+</svg>

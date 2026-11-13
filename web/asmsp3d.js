@@ -324,7 +324,7 @@ const SCRIPTS = {
     const a1 = (U0[0][1] + 180) * Math.PI / 180, a2 = (U0[1][1] + 180) * Math.PI / 180, s1 = mkS(P.nutF, G.nutF, a1), s2 = mkS(P.nutR, G.nutR, a2), arr = cone(5, 0, 14, MT.red, 0, 0, 0, 8);
     arr.position.set((G.nutF.r1 + 9) * Math.sin(a1 - Math.PI), (G.nutF.x0 + G.nutF.x1) / 2, (G.nutF.r1 + 9) * Math.cos(a1 - Math.PI)); arr.rotation.order = "YXZ"; arr.rotation.y = a1 - Math.PI; arr.rotation.x = -Math.PI / 2; P.nutF.add(arr);
     const op = C.newOp(150, -560), sd = C.J(screwdriver()), st = { a: 0, w: 0 }, pS = V3(), c = V3(), tS = C.tag(s1, "", "val", 0, 0, 0); C.fitObjs = [sp];
-    return { upd: (u, t, dt) => { const live = C.live, meas = u < 0.3 || u > 0.66, wT = live && live.rpm != null ? live.rpm / 12000 * TAU * 3 : meas ? TAU * 2.2 : 0;
+    return { upd: (u, t, dt) => { const live = C.live, meas = u < 0.3 || u > 0.66, wT = live && live.rpm != null ? live.rpm / 10000 * TAU * 3 : meas ? TAU * 2.2 : 0;
       st.w += (wT - st.w) * Math.min(1, dt * 2.5); if (!meas && Math.abs(st.w) < 0.5) { let tgt = Math.PI / 2 - (u < 0.5 ? a1 : a2), d = ((tgt - st.a) % TAU + TAU * 1.5) % TAU - Math.PI; st.a += d * Math.min(1, dt * 4); } else st.a += st.w * dt; unit.rotation.y = st.a;
       s1.visible = u > 0.45; s2.visible = u > 0.6; arr.visible = u < 0.66; tS.on = false;
       const tl = belt; _v.set(xt, 560, 0); _w.set(260 - gL(C) + 20, ya + 25, 0); placeSeg(tl[0], _v, _w); _v.set(xt, 480, 0); _w.set(260 - gL(C) + 20, ya - 25, 0); placeSeg(tl[1], _v, _w);
@@ -453,7 +453,7 @@ function runTest(C, isTest) {
     if (!isTest) { const i = clamp(Math.floor(u * (ri.sp.length - 1)), 0, ri.sp.length - 1); rpm = ri.sp[i][1]; const dT = ri.tr[i][1]; Tf = 20 + dT; Tr = 20 + dT * 0.75; Ts = 20 + dT * 1.25; }
     else { rpm = u < 0.4 ? 30 : u < 0.65 ? 0 : M.nmax; Tf = 20 + 12 * ph(u, 0.65, 1); Tr = 20 + 9 * ph(u, 0.65, 1); Ts = 20 + 15 * ph(u, 0.65, 1); }
     if (live) { if (live.rpm != null) rpm = live.rpm; if (live.T) { if (live.T.front != null) Tf = live.T.front; if (live.T.rear != null) Tr = live.T.rear; if (live.T.stator != null) Ts = live.T.stator; } }
-    const w = isTest && u < 0.4 ? 0.8 : rpm / 12000 * TAU * 2.2; st.a += w * dt; unit.rotation.y = st.a;
+    const w = isTest && u < 0.4 ? 0.8 : rpm / 10000 * TAU * 2.2; st.a += w * dt; unit.rotation.y = st.a;
     zones.forEach((z) => { const T = z.n === "front" ? Tf : z.n === "rear" ? Tr : Ts; heatColor(T, col); z.m.color.copy(col); z.m.emissive.copy(col).multiplyScalar(0.45); z.tg.t = `${z.n} ${fx(T, 1)} °C`; });
     const vib = live && live.vib != null ? live.vib : isTest ? x.vib : 0.3 + 0.2 * rpm / M.nmax;
     pv.t = `${Math.round(rpm)} rpm · ΔT front ${fx(Tf - 20, 1)} K · ${fx(vib, 2)} mm/s${live ? " · LIVE" : ""}`;
@@ -472,7 +472,7 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&l
 export function create(el, getState0) {
   const Q = new URLSearchParams(location.search);
   let getState = getState0;
-  if (Q.has("as3live")) getState = () => { const s = getState0(); if (!s) return s; const tt = performance.now() / 1000; return { ...s, live: { rpm: 9000 + 500 * Math.sin(tt / 3), T: { front: 34 + Math.sin(tt / 5), rear: 29, stator: 41 }, vib: 0.44,
+  if (Q.has("as3live")) getState = () => { const s = getState0(); if (!s) return s; const tt = performance.now() / 1000; return { ...s, live: { rpm: 7500 + 500 * Math.sin(tt / 3), T: { front: 34 + Math.sin(tt / 5), rear: 29, stator: 41 }, vib: 0.44,
     devices: { "IH-01": { state: "online", last: { temp_c: 71.8 } }, "TQ-01": { state: "online", last: { torque_nm: 125.2 } }, "IND-01": { state: "offline", last: {} }, "RUN-01": { state: "online", last: { rpm: 9000 } }, "FG-01": { state: "sim", last: { force_kn: 2.9 } } } } }; };
   if (Q.has("as3nocut")) { const cb = document.getElementById("as3dCut"); if (cb) cb.checked = false; }
   const W0 = el.clientWidth || 900, H0 = el.clientHeight || 520;

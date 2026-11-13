@@ -137,7 +137,7 @@
 <text x="42.0" y="636.0" font-size="12" text-anchor="start" fill="#000">Holding force (maker value, e.g. 2–4 × pull-in) = the pull the locked balls carry before the stud lifts – use it for the tilt check</text>
 <text x="42.0" y="660.0" font-size="12" text-anchor="start" fill="#000">Lift-off check: cutting moment 1 200 N·m over pitch 0.4 m → 1 500 N per pair (750 N per module) ≪ 20 kN pull-in → no gap</text>
 <text x="42.0" y="684.0" font-size="12" text-anchor="start" fill="#000">Seating air (slit flow) Q = w·h³·Δp/(12·η·L): h 5 µm → 0.11 L/min, 20 µm → 6.9 L/min, 50 µm → 108 L/min</text>
-<text x="42.0" y="708.0" font-size="12" text-anchor="start" fill="#000">Release pressure ≤ maker's max. and ≤ 0.9 · p_system; feed through a reducing valve (2V2, 5 MPa) when the HPU runs at 6–7.5 MPa</text>
+<text x="42.0" y="708.0" font-size="12" text-anchor="start" fill="#000">Release pressure ≤ maker's max. and ≤ 0.9 · p_system; feed through a reducing valve (2V2, 5 MPa) – the HPU runs at 10–11.5 MPa</text>
 <text x="42.0" y="732.0" font-size="12" text-anchor="start" fill="#000">Cleanliness: oil ISO 4406 17/15/12 (modules + rotary union), air ISO 8573-1 per catalogue (≤ 5 µm, dry, oil-free)</text>
 <text x="42.0" y="756.0" font-size="12" text-anchor="start" fill="#000">Drawn piston stroke 10 mm for clarity – real modules move ≈ 2–3 mm (see datasheet).</text>
 <rect x="880.0" y="520.0" width="508.0" height="360.0" rx="0" stroke="#000" stroke-width="1.2" fill="#fff"/>

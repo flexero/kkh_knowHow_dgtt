@@ -1,7 +1,7 @@
 # 19 – Assembly: Motor Spindle – Assembly Twin and Real Assembly Instruction
 
-> **All numbers in this guide are example values from the twin.** They are typical for a 12 000 rpm
-> HSK-A63 motor spindle of a 500 mm pallet class HMC (front 4 × 7014 hybrid angular-contact bearings
+> **All numbers in this guide are example values from the twin.** They are typical for a 10 000 rpm / 18 kW S1
+> (115 N·m S1 up to 1 500 rpm, S6-40 %: 22 kW / 140 N·m – decided 2026-11-12) HSK-A63 motor spindle of a 500 mm pallet class HMC (front 4 × 7014 hybrid angular-contact bearings
 > in TBT arrangement, rear 2 × 7012 DB floating, built-in synchronous motor, disc-spring drawbar).
 > Before you assemble a real spindle, replace them with the values from **your drawings**, the
 > **catalogues and mounting manuals of your bearing, lock-nut, motor, clamping-set and seal suppliers**, and
@@ -321,7 +321,7 @@ Theory, stiffness and worked examples: chapter 20; measuring and lapping the spa
 
 ### 4.2 Speed factor
 
-n·dm = 12 000 × 90 = **1.08·10⁶ mm/min** (dm = (70 + 110)/2 = 90). Hybrid bearings with grease are often
+n·dm = 10 000 × 90 = **0.90·10⁶ mm/min** (dm = (70 + 110)/2 = 90). Hybrid bearings with grease are often
 allowed up to ≈ 1.2–1.4·10⁶ (**check catalogue**). OK.
 
 ### 4.3 Grease quantity
@@ -375,8 +375,8 @@ clamping-set stroke and spring data.**
 
 ### 4.7 Balancing (spCalc)
 
-Uper = 9549 · G · m / n = 9549 × 1.0 × 16 / 12 000 = **12.7 g·mm**, per plane ≈ **6.4 g·mm**.
-Mass centre offset e = U / m = 12.7 / 16 000 g = **0.8 µm**.
+Uper = 9549 · G · m / n = 9549 × 1.0 × 16 / 10 000 = **15.3 g·mm**, per plane ≈ **7.6 g·mm**.
+Mass centre offset e = U / m = 15.3 / 16 000 g = **0.95 µm**.
 Correction mass in the nut at r = 38 mm: initial 71 g·mm → m = 71 / 38 = **1.88 g**, placed 180°
 opposite the heavy spot (or remove the same mass at the heavy spot).
 
@@ -385,7 +385,7 @@ opposite the heavy spot (or remove the same mass at the heavy spot).
 * rear end: α·L·ΔT = 11.5·10⁻⁶ × 455 × 15 = **0.079 mm** → floating rear set
 * nose (shaft only): 11.5·10⁻⁶ × 25 × 15 = **4.3 µm** (+ housing growth; limit at the test 15 µm, example)
 * cooling water: ΔT_w = P_loss / (ṁ · c) = 1 600 / (4/60 × 4 186) = **5.7 K**
-* first bending critical speed (simple beam model) ≈ 49 000 rpm ≥ 1.3 × 12 000 → OK (rough – a real rotor-dynamics calculation is needed)
+* first bending critical speed (simple beam model) ≈ 49 000 rpm ≥ 1.3 × 10 000 = 13 000 → OK (rough – a real rotor-dynamics calculation is needed)
 * axial deflection at 2 kN: 2 000 / 160 = 12.5 µm (cax = 160 N/µm)
 
 ### 4.9 Lock-nut torque (example estimate)
@@ -410,7 +410,7 @@ at 25 K, cool to 12 K, continue. Step change when |slope| < 0.06 K/min (min 15 m
 30 min hold. This is a teaching model – use the program of the bearing maker / your own experience.
 
 > **Two run-in models in the project:** this Assembly page (`web/asmsp.js`) uses the simple model above. The **spindle
-> test station** (guide 20 §8 and §24, `twin/spstation.py`) uses a more detailed 8-step program (1 500 … 12 000 rpm,
+> test station** (guide 20 §8 and §24, `twin/spstation.py`) uses a more detailed 8-step program (1 250 … 10 000 rpm in steps of 1 250 rpm,
 > dwells 10/10/10/10/15/15/15/30 min, step-up at |rate| < 0.06 K/min, last step < 0.1 K/min, max 60 min per step,
 > ramps 50 / 200 rpm/s; about 1.95 h). For a real station follow guide 20 and the bearing maker.
 
@@ -551,7 +551,7 @@ record with the gauge ID, mark every tightened screw. Times are twin examples.
 * **Procedure:** front bearing housing in cradle 1, J7 sleeve over the rear set in cradle 2 – the rotor
   turns in its own bearings; measure the initial unbalance in plane 1 (front nut) and plane 2 (rear nut);
   correct (m = U / r, 180° opposite); repeat; lock the screws (thread locker).
-* **Limit:** residual per plane ≤ 6.4 g·mm (G1, 4.7).
+* **Limit:** residual per plane ≤ 7.6 g·mm (G1 at 10 000 rpm, 4.7).
 * **Record:** initial + residual unbalance with angle, correction masses. **Time:** 90 min.
 
 ### Step 13 – Stator + cooling sleeve into the motor housing (Housing)
@@ -612,7 +612,7 @@ record with the gauge ID, mark every tightened screw. Times are twin examples.
 ### Step 19 – Run-in program (Test)
 
 * **Equipment:** E20 run-in stand, E22, E23. **Jig:** J12 cradle.
-* **Procedure:** cooling 20 °C, sealing air on; steps 2 000 / 4 000 / 6 000 / 8 000 / 10 000 / 12 000 rpm;
+* **Procedure:** cooling 20 °C, sealing air on; steps 2 000 / 4 000 / 6 000 / 8 000 / 10 000 rpm (10 000 = nmax);
   hold each step until stable; stop at 25 K, cool to 12 K, repeat; end 30 min at nmax.
 * **Limits (examples – check bearing maker):** stop limit 25 K rise; stable rise at nmax ≤ 20 K; no
   irregular noise.
@@ -633,7 +633,7 @@ record with the gauge ID, mark every tightened screw. Times are twin examples.
 | Radial stiffness at the nose | load steps | ≥ 170 N/µm (example design value) |
 | Thermal growth at the nose | axial probe, 60 min at nmax | ≤ 15 µm |
 | Vibration velocity at nmax | housing, RMS 10–1000 Hz | ≤ 1.0 mm/s |
-| Unbalance change after run-in | trim balancing instrument | ≤ 6.4 g·mm |
+| Unbalance change after run-in | trim balancing instrument | ≤ 7.6 g·mm |
 | Noise at 1 m | dB(A) | ≤ 75 dB(A) |
 | Clamping force re-check | E18 | in 16.2–20.7 kN |
 
@@ -661,7 +661,7 @@ record with the gauge ID, mark every tightened screw. Times are twin examples.
 | 9 | Rotor | 60 × 2 | 0.045–0.075 mm |
 | 10 | Rear set | 60 × 1 | ≤ 2 µm |
 | 11 | Spring pack | 60 × 2 | L0 ±0.5, ≥ 6.9 kN |
-| 12 | Balance | 90 × 1 | ≤ 6.4 g·mm / plane |
+| 12 | Balance | 90 × 1 | ≤ 7.6 g·mm / plane |
 | 13 | Stator | 90 × 2 | ≤ 0.1 bar drop |
 | 14 | Insert | 75 × 2 | even air gap |
 | 15 | Covers | 60 × 1 | 0.20–0.30 mm |
@@ -806,8 +806,8 @@ Non-linear, degressive spring (Almen–László). In parallel the friction betwe
 
 ### 10.5 Unbalance
 
-F = U · ω² (U in kg·m): at 12 000 rpm, ω = 1 257 1/s; U = 12.7 g·mm = 12.7·10⁻⁶ kg·m →
-F = 12.7·10⁻⁶ × 1 257² = **20 N** – small compared to the 400 N preload, but it makes vibration and marks on
+F = U · ω² (U in kg·m): at 10 000 rpm, ω = 2π · 10 000 / 60 = 1 047 1/s; U = 15.3 g·mm = 15.3·10⁻⁶ kg·m →
+F = 15.3·10⁻⁶ × 1 047² = **17 N** – small compared to the 400 N preload, but it makes vibration and marks on
 the workpiece.
 
 ### 10.6 Thermal expansion
@@ -861,7 +861,7 @@ traceably (ISO/IEC 17025) where stated.
 
 Sizes derived from the example spindle (nose Ø120, housing Ø230, shaft L 480, bearings 70/110, 60/95,
 rotor Ø65 bore / Ø148 OD, unit mass ≈ 16 kg rotating + ≈ 10 kg front bearing housing – **check CAD**).
-Drawing numbers `VC-ASM-JIG-02nn-A`, physical IDs `FIX-02nn` (proposal, chapter 12). General tolerance
+Drawing numbers `VC-ASM-JIG-02nn-A`, physical IDs `FIX-02nn` (guide 15 §8a, chapter 12). General tolerance
 ISO 2768-mK; surfaces touching precision parts in PA / brass / PU or ground and chamfered; lifting
 accessories (J4 tongs, J8 lifting adapter) marked with WLL, proof tested, inspected per local law.
 
@@ -963,19 +963,19 @@ Two half-shells Ø230 H7, clamp screws, base plate ≥ 200 kg (vibration-free), 
 
 ## 12. Identification and numbering
 
-All formats follow guide 15. New codes are marked **(proposal)** – the coordinator adds them to guide
-15 §8a when accepted.
+All formats follow guide 15. The codes first proposed here were accepted into guide
+15 §8a (decisions D-17, D-19, D-24, D-25).
 
 ### 12.1 The spindle and its parts
 
 | Item | Format | Example |
 |---|---|---|
-| Motor spindle assembly **(proposal)** | `SPU-<YYWW>-<nnnnn>` | `SPU-2546-00001` (type plate + DataMatrix) |
-| Spindle shaft **(proposal – align with the spindle manufacturing twin)** | `SPS-<YYWW>-<nnnnn>` | `SPS-2546-00001` |
-| Front bearing housing **(proposal)** | `SBH-<YYWW>-<nnnnn>` | `SBH-2546-00001` |
-| Motor housing **(proposal)** | `SMH-<YYWW>-<nnnnn>` | `SMH-2546-00001` (not `HSG` – that is the rotary-table housing) |
-| Cooling sleeve **(proposal)** | `SCS-<YYWW>-<nnnnn>` | `SCS-2546-00001` |
-| Ground spacer pair **(proposal)** | `SPC-<YYWW>-<nnnnn>` | `SPC-2546-00001` (both spacers, marked inner / outer) |
+| Motor spindle assembly | `SPU-<YYWW>-<nnnnn>` | `SPU-2546-00001` (type plate + DataMatrix) |
+| Spindle shaft (same code as the spindle manufacturing twin) | `SPS-<YYWW>-<nnnnn>` | `SPS-2546-00001` |
+| Front bearing housing | `SBH-<YYWW>-<nnnnn>` | `SBH-2546-00001` |
+| Motor housing | `SMH-<YYWW>-<nnnnn>` | `SMH-2546-00001` (not `HSG` – that is the rotary-table housing) |
+| Cooling sleeve | `SCS-<YYWW>-<nnnnn>` | `SCS-2546-00001` |
+| Ground spacer pair | `SPC-<YYWW>-<nnnnn>` | `SPC-2546-00001` (both spacers, marked inner / outer) |
 | Bought parts | `B-<class>-<5 digits>` + supplier serial / set number; classes `BRG`, `NUT`, `MOT`, `CLS` (clamping set), `CYL`, `SEN` (check against guide 15) | `B-BRG-00041 set 023417` |
 
 ### 12.2 Jigs, equipment, gauges
@@ -983,10 +983,10 @@ All formats follow guide 15. New codes are marked **(proposal)** – the coordin
 | Item | Format | Example |
 |---|---|---|
 | Jig drawing | `VC-ASM-JIG-02nn-<rev>` | `VC-ASM-JIG-0206-A` (J6) |
-| Jig physical ID **(proposal: range `FIX-02nn` for spindle assembly jigs)** | `FIX-0201` … `FIX-0212` | `FIX-0203` = J3 |
-| New gauge types **(proposal)** | `GA-HSK` clamping-force gauge, `GA-BAL` balancing instrument, `GA-CAP` capacitive probe, `GA-VIB` vibration meter, `GA-SLM` sound level meter, `GA-TMD` test mandrel (not `MDR` = setting mandrel), `GA-BMS` bearing measuring stand, `GA-SCL` scale, `GA-INS` insulation tester + 4 digits | `GA-HSK-0001` |
+| Jig physical ID (range `FIX-02nn` for spindle assembly jigs, guide 15 D-25) | `FIX-0201` … `FIX-0212` | `FIX-0203` = J3 |
+| New gauge types (guide 15 §8a) | `GA-HSK` clamping-force gauge, `GA-BAL` balancing instrument, `GA-CAP` capacitive probe, `GA-VIB` vibration meter, `GA-SLM` sound level meter, `GA-TMD` test mandrel (not `MDR` = setting mandrel), `GA-BMS` bearing measuring stand, `GA-SCL` scale, `GA-INS` insulation tester + 4 digits | `GA-HSK-0001` |
 | Existing gauge types | `GA-TQW`, `GA-DIA`, `GA-MIC`, `GA-PRS`, `GA-THM` | `GA-TQW-0011` |
-| Equipment **(proposal)** | `ASSY-SP1` vertical stand area, `BAL-01` balancing machine, `RUN-01` run-in stand (guide 15 §3.9 style) | `RUN-01` |
+| Equipment (guide 15 §8a, D-24) | `ASSY-SP1` vertical stand area, `BAL-01` balancing machine, `RUN-01` run-in stand (guide 15 §3.9 style) | `RUN-01` |
 
 ### 12.3 Documents
 
@@ -994,7 +994,7 @@ All formats follow guide 15. New codes are marked **(proposal)** – the coordin
 |---|---|---|
 | Work instruction (21 steps) | `VC-ASM-WI-0201-<rev>` | `VC-ASM-WI-0201-A` |
 | Work card of a step | `VC-ASM-WI-0201-A-S<nn>` | `…-S07` (nut runout) |
-| Run-in program | `VC-HMC-TP-0004-<rev>` (proposal) | `VC-HMC-TP-0004-A` |
+| Run-in program | `VC-HMC-TP-0004-<rev>` (guide 15 §8a) | `VC-HMC-TP-0004-A` |
 | Final test report | `VC-HMC-REP-<nnnn>-<rev>` | – |
 | Risk assessment (J4, J8, oven, run-in stand) | `VC-ASM-RA-0201-<rev>` | – |
 | NCR, work order | `NCR-<YYWW>-<nnnn>`, `WO-<YYWW>-<nnnn>` | `NCR-2546-0007` |
@@ -1239,7 +1239,7 @@ Without `st.live` everything is simulated from the assembly record (as before).
 
 Part A (chapters 1–16) tells you **what to do** in the 21 steps. Part B gives the **theory, the design values,
 the formulas with worked examples, the drawings and the catalogue examples** behind the steps. All numbers are
-again the example spindle of the twin (12 000 rpm, HSK-A63, front 4 × 7014 C hybrid TBT, rear 2 × 7012 C DB,
+again the example spindle of the twin (10 000 rpm / 18 kW, HSK-A63, front 4 × 7014 C hybrid TBT, rear 2 × 7012 C DB,
 light preload 400 N per bearing, 18 kN clamping force). Every number in Part B was re-calculated with a
 Python script (stdlib only). Values marked **"check"** depend on the maker or on the standard edition.
 
@@ -1307,7 +1307,7 @@ sleeve 18 is the **floating bearing**: the rear end grows 0.079 mm at +15 K (4.8
 
 ### 18.1 Why so clean – the numbers
 
-* A spindle bearing at 12 000 rpm has a lubricant film of ≈ 0.1–0.5 µm (order of size – depends on speed and
+* A spindle bearing at 10 000 rpm has a lubricant film of ≈ 0.1–0.5 µm (order of size – depends on speed and
   oil viscosity). A hard particle of **5 µm** is 10–50 × bigger than the film: it is rolled into the raceway and
   makes a dent → noise, vibration, start of fatigue (ISO 15243 "indentation from particles", chapter 30).
 * Fits are 2–8 µm. A 10 µm chip under a bearing face tilts the ring: a 10 µm step under one side of the
@@ -1460,7 +1460,7 @@ table of your bearing**). With the model above:
 | M medium | 800 N | 12.7 µm | 94 N/µm (+26 %) | 2 × |
 | H heavy | 1 600 N | 20.2 µm | 119 N/µm (+59 %) | 4 × |
 
-**Lesson:** 4 × the preload gives only 1.59 × the stiffness. For a 12 000 rpm grease spindle **light** is the
+**Lesson:** 4 × the preload gives only 1.59 × the stiffness. For a 10 000 rpm grease spindle **light** is the
 normal choice; stiffness comes from the TBT arrangement.
 
 ### 20.3 TBT set with rigid preload – worked example
@@ -1621,7 +1621,7 @@ Sign rule of this guide (and the twin): **e > 0 = less preload than nominal**.
 | Fill f | Volume | Mass | Comment |
 |---|---|---|---|
 | 10 % | 1.70 cm³ | 1.53 g | very high speed |
-| **15 % (twin)** | **2.54 cm³** | **2.29 g** | n·dm = 1.08·10⁶ |
+| **15 % (twin)** | **2.54 cm³** | **2.29 g** | n·dm = 0.90·10⁶ |
 | 20 % | 3.39 cm³ | 3.05 g | lower speed |
 | 30 % | 5.09 cm³ | 4.58 g | too much for this speed → long run-in |
 
@@ -1662,13 +1662,13 @@ element.
 
 | Effect | Formula | Example value |
 |---|---|---|
-| Torque transmission (T_max 120 N·m × safety 2) | p_need = 2 T / (μ π d² L) = 2 × 240 000 / (0.15 × π × 65² × 160) | 1.51 MPa → i ≈ **2.9 µm** |
-| Rotation loosens the fit (rotor bore grows more than the hollow shaft) | disc model (plane stress), rotor Ø65/Ø148 as a solid disc, shaft Ø65/Ø41 at 12 000 rpm | bore +17.9 µm, shaft +2.0 µm → loss **15.9 µm** on Ø |
+| Torque transmission (T_max = 140 N·m S6-40 % × safety 2) | p_need = 2 T / (μ π d² L) = 2 × 280 000 / (0.15 × π × 65² × 160) | 1.76 MPa → i ≈ **3.4 µm** |
+| Rotation loosens the fit (rotor bore grows more than the hollow shaft) | disc model (plane stress), rotor Ø65/Ø148 as a solid disc, shaft Ø65/Ø41 at 10 000 rpm (growth ~ n²) | bore +12.4 µm, shaft +1.4 µm → loss **11.0 µm** on Ø |
 | Rotor warmer than the shaft in operation (20 K) | α · d · ΔT = 11.5·10⁻⁶ × 65 × 20 | **15.0 µm** |
 | Smoothing of the surfaces | ≈ 0.8 · (Rz_shaft + Rz_bore) = 0.8 × (2.5 + 4) | **5.2 µm** |
-| **Sum = minimum interference** | | **≈ 39 µm** |
+| **Sum = minimum interference** | 3.4 + 11.0 + 15.0 + 5.2 | **≈ 35 µm** |
 
-The drawing value 0.060 ±0.015 mm (0.045 … 0.075) is above 39 µm → OK. The twin fault `rotor` (0.028 mm) is below:
+The drawing value 0.060 ±0.015 mm (0.045 … 0.075) is above 35 µm → OK. The twin fault `rotor` (0.028 mm) is below:
 the rotor can slip at speed → unbalance shift 28 g·mm (7.1). (Model: a laminated rotor with magnets is not a
 solid disc – the motor maker gives the real minimum.)
 
@@ -1815,14 +1815,14 @@ what is special at assembly step 12.
 
 ### 25.1 Permissible residual unbalance and plane allocation
 
-U_per = 9 549 · G · m / n = 9 549 × 1.0 × 16 / 12 000 = **12.73 g·mm** (4.7). ISO 21940-11 allocates U_per to
+U_per = 9 549 · G · m / n = 9 549 × 1.0 × 16 / 10 000 = **15.28 g·mm** (4.7). ISO 21940-11 allocates U_per to
 the bearing planes A and B with the position of the mass centre (for planes near the bearings):
 
   **U_A = U_per · (L_B / L)**,  **U_B = U_per · (L_A / L)**
 
 Bearing centres x_A = 72.5 mm, x_B = 399 mm (L = 326.5 mm); mass centre assumed at x = 230 mm (check CAD):
-U_A = 12.73 × (399 − 230)/326.5 = **6.59 g·mm**, U_B = 12.73 × (230 − 72.5)/326.5 = **6.14 g·mm**. The twin's
-equal split (6.37 g·mm per plane) is close – with a real mass centre use the formula.
+U_A = 15.28 × (399 − 230)/326.5 = **7.91 g·mm**, U_B = 15.28 × (230 − 72.5)/326.5 = **7.37 g·mm**. The twin's
+equal split (7.64 g·mm per plane) is close – with a real mass centre use the formula.
 
 ### 25.2 Correction mass and splitting into two holes
 
@@ -1842,9 +1842,9 @@ check: the resultant is 1.87 g at 220.0° ✓. Choose the nearest balancing scre
 * The unit turns in its **own bearings** (front bearing housing in cradle 1, J7 sleeve on the rear set) – the
   bearing runout is then part of the measurement, as in service.
 * Balancing speed: low (e.g. 600–1 500 rpm on the machine – check the machine; rigid rotor: n_crit ≈ 48 800 rpm
-  ≫ 12 000, guide 20 §26.2).
+  ≫ 10 000, guide 20 §26.2).
 * Lock correction screws (medium thread locker, guide 17 §22), record mass + angle + radius.
-* After the run-in: **trim balancing** on the test station (guide 20 §26.5), limit 6.37 g·mm shift.
+* After the run-in: **trim balancing** on the test station (guide 20 §26.5), limit 7.64 g·mm shift.
 * The balancing machine needs a proof-rotor test (ISO 21940-21) – minimum achievable residual unbalance U_mar
   ≤ 1 g·mm for this rotor size (spec E16).
 
@@ -1987,8 +1987,8 @@ oil or the maker's grease, fitting sleeve over the grooves. Cut O-ring = twin fa
 ### 28.4 Safety: a permanent-magnet motor is a generator
 
 When the shaft of a synchronous (PM) spindle turns, the winding produces a voltage – also when the spindle is
-**not connected**. Rough estimate for the example: base speed n_b = P / T_max = 15 000 / 120 N·m → **1 194 rpm**;
-if the back-EMF reaches ≈ 380 V at base speed, then at 12 000 rpm it would be ≈ 380 × 12 000 / 1 194 ≈ **3.8 kV**
+**not connected**. Rough estimate for the example: base speed n_b = P / T_S1 = 18 000 W / 115 N·m = 156.5 1/s → **≈ 1 500 rpm**;
+if the back-EMF reaches ≈ 380 V at base speed, then at 10 000 rpm it would be ≈ 380 × 10 000 / 1 500 ≈ **2.5 kV**
 (simplified, linear). Rules: never spin the spindle fast with open terminals; at the run-in stand the drive must
 have back-EMF protection (e.g. a voltage protection module – guide 20 §37.3); short or insulate the terminals
 during transport; turning by hand (≤ 60 rpm) is safe but do not touch the bare pins.

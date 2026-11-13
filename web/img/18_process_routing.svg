@@ -90,7 +90,7 @@
 <text x="240.0" y="378.0" font-size="11" text-anchor="start" fill="#000">BAL-01 E10</text>
 <text x="240.0" y="398.0" font-size="12" text-anchor="start" fill="#000">20 min · $25</text>
 <line x1="230.0" y1="414.0" x2="398.0" y2="414.0" stroke="#1565c0" stroke-width="1.2"/>
-<text x="240.0" y="432.0" font-size="11" text-anchor="start" fill="#1565c0">≤ 4.4 g·mm / plane</text>
+<text x="240.0" y="432.0" font-size="11" text-anchor="start" fill="#1565c0">≤ 5.2 g·mm / plane</text>
 <rect x="40.0" y="320.0" width="168.0" height="132.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.4"/>
 <text x="50.0" y="340.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Op 140</text>
 <text x="50.0" y="360.0" font-size="12" text-anchor="start" fill="#000">Inspect + mark</text>

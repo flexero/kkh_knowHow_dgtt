@@ -1,13 +1,13 @@
 /* Shared design model of the HMC MOTOR SPINDLE (used by the spindle manufacturing twin = HMC item 4 and the spindle
    assembly twin = Assembly item 2).  Design inputs, calculations with formulas, shaft profile (outside + inside), bearing
-   arrangement, housing bores, part list.  All values are EXAMPLES for a 12 000 rpm HSK-A63 motor spindle of an HMC -
+   arrangement, housing bores, part list.  All values are EXAMPLES for a 10 000 rpm / 18 kW HSK-A63 motor spindle of an HMC (decided 2026-11-12) -
    replace with the data of the real bearings, motor, clamping set and drawings.  Offline, no libraries. */
 
 export const SP_GROUPS = [
   ["Performance", [
-    ["nmax", "Max. speed", "rpm", 12000, "HMC 40-taper class 10 000–15 000"],
-    ["P", "Motor power S1", "kW", 15, "S6-40 % ≈ 22 kW"],
-    ["Tmax", "Max. torque (S6)", "N·m", 120, "built-in synchronous motor"],
+    ["nmax", "Max. speed", "rpm", 10000, "HMC 40-taper class 10 000–15 000"],
+    ["P", "Motor power S1", "kW", 18, "constant from the base speed to nmax; S6-40 % = 22 kW"],
+    ["Tmax", "Torque S1 (constant up to the base speed)", "N·m", 115, "built-in synchronous motor; S6-40 % = 140 N·m"],
     ["Fclamp", "Tool clamping force HSK-A63", "kN", 18, "check the clamping-set catalogue"],
     ["iClamp", "Force ratio clamping set (tool : drawbar)", "", 3, "collet wedge"]]],
   ["Bearings (hybrid angular contact, ceramic balls)", [

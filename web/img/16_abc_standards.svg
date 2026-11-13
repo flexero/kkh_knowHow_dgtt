@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 880" width="1400" height="880" font-family="Arial, Helvetica, sans-serif">
+<title>A, B and C type machinery safety standards</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="880" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="17" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Type-A / type-B / type-C machinery safety standards (ISO 12100) – with the standards used in this project</text>
+<text x="24.0" y="56.0" font-size="12" text-anchor="start" fill="#555" xml:space="preserve">Use the C-standard of the machine first; for hazards it does not cover, use ISO 12100 + B-standards. If a C-standard deviates from A or B, the C-standard wins.</text>
+<polygon points="480.0,100.0 578.7,280.0 381.3,280.0" fill="#fff" stroke="#c62828" stroke-width="2.5"/>
+<polygon points="381.3,280.0 578.7,280.0 699.4,500.0 260.6,500.0" fill="none" stroke="#000" stroke-width="2.0"/>
+<polygon points="260.6,500.0 699.4,500.0 820.0,720.0 140.0,720.0" fill="none" stroke="#000" stroke-width="2.0"/>
+<line x1="480.0" y1="280.0" x2="480.0" y2="500.0" stroke="#000" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="480.0" y="205.0" font-size="40" text-anchor="middle" fill="#c62828" font-weight="bold" xml:space="preserve">A</text>
+<text x="480.0" y="230.0" font-size="13" text-anchor="middle" fill="#000" xml:space="preserve">basic</text>
+<text x="480.0" y="252.0" font-size="13" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">ISO 12100</text>
+<text x="405.0" y="385.0" font-size="30" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">B1</text>
+<text x="405.0" y="410.0" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">safety aspects</text>
+<text x="555.0" y="385.0" font-size="30" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">B2</text>
+<text x="555.0" y="410.0" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">safeguards</text>
+<text x="480.0" y="600.0" font-size="40" text-anchor="middle" fill="#000" font-weight="bold" xml:space="preserve">C</text>
+<text x="480.0" y="628.0" font-size="13" text-anchor="middle" fill="#000" xml:space="preserve">machine-type standards</text>
+<text x="480.0" y="650.0" font-size="12" text-anchor="middle" fill="#000" xml:space="preserve">(one per machine family)</text>
+<line x1="40.0" y1="690.0" x2="40.0" y2="130.0" stroke="#000" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="52.0" y="135.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">more general</text>
+<text x="52.0" y="690.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">more specific</text>
+<text x="52.0" y="153.0" font-size="11" text-anchor="start" fill="#555" xml:space="preserve">(all machines)</text>
+<text x="52.0" y="708.0" font-size="11" text-anchor="start" fill="#555" xml:space="preserve">(one type)</text>
+<rect x="860.0" y="110.0" width="500.0" height="120.0" rx="0" fill="#fff" stroke="#c62828" stroke-width="1.3"/>
+<rect x="860.0" y="110.0" width="500.0" height="22.0" rx="0" fill="#f2f2f2" stroke="#c62828" stroke-width="1.3"/>
+<text x="868.0" y="126.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">TYPE A – basic safety standard</text>
+<text x="868.0" y="149.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">ISO 12100:2010</text>
+<text x="868.0" y="166.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">terms, risk assessment method (limits → hazards →</text>
+<text x="868.0" y="183.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">estimation → evaluation), 3-step risk reduction:</text>
+<text x="868.0" y="200.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">inherently safe design → safeguards → information</text>
+<line x1="545.8" y1="220.0" x2="860.0" y2="170.0" stroke="#c62828" stroke-width="1.3"/>
+<rect x="860.0" y="250.0" width="500.0" height="125.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="860.0" y="250.0" width="500.0" height="22.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="868.0" y="266.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">TYPE B1 – safety aspects (used by all machines)</text>
+<text x="868.0" y="289.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">ISO 13849-1:2023 / -2 · IEC 62061 (control reliability)</text>
+<text x="868.0" y="306.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 13855:2024 (approach speeds, S = K·T + C)</text>
+<text x="868.0" y="323.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 13857 (reach distances) · ISO 13854 (gaps)</text>
+<text x="868.0" y="340.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 13732-1 (hot surfaces) · IEC 60204-1 (electrical)</text>
+<line x1="600.6" y1="320.0" x2="860.0" y2="312.0" stroke="#000" stroke-width="1.3"/>
+<rect x="860.0" y="395.0" width="500.0" height="125.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="860.0" y="395.0" width="500.0" height="22.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="868.0" y="411.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">TYPE B2 – safeguards (devices)</text>
+<text x="868.0" y="434.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">ISO 14119:2024 (interlocks) · ISO 14120 (guards)</text>
+<text x="868.0" y="451.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">IEC 61496-1/-2/-3 (light curtains, laser scanners)</text>
+<text x="868.0" y="468.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 13850 (E-stop) · ISO 13851 (two-hand control)</text>
+<text x="868.0" y="485.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 13856-3 (bumpers) · IEC 60947-5-8 (enabling)</text>
+<line x1="671.9" y1="450.0" x2="860.0" y2="457.0" stroke="#000" stroke-width="1.3"/>
+<rect x="860.0" y="540.0" width="500.0" height="200.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<rect x="860.0" y="540.0" width="500.0" height="22.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.3"/>
+<text x="868.0" y="556.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">TYPE C – machine types in this factory</text>
+<text x="868.0" y="579.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">ISO 16090-1 – machining centres (HMC, VMC, own APC)</text>
+<text x="868.0" y="596.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">ISO 10218-1 / -2:2025 – robots, robot cells (cobots)</text>
+<text x="868.0" y="613.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">ISO 3691-4:2023 – driverless trucks (AGV / AMR)</text>
+<text x="868.0" y="630.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">EN 1012-1 – air compressors (our product VC)</text>
+<text x="868.0" y="647.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">EN 528 – S/R machines · EN 619 – unit-load conveyors</text>
+<text x="868.0" y="664.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 16092-3 – hydraulic presses (press-fit station)</text>
+<text x="868.0" y="681.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 23125 – lathes · ISO 16089 – grinders</text>
+<text x="868.0" y="698.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">ISO 11161 – integrated manufacturing systems (cell)</text>
+<text x="868.0" y="715.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">No C-standard (test bench, assembly station): A + B only</text>
+<line x1="776.1" y1="640.0" x2="860.0" y2="640.0" stroke="#000" stroke-width="1.3"/>
+<rect x="140.0" y="750.0" width="680.0" height="46.0" rx="0" fill="#fff" stroke="#c62828" stroke-width="1.5"/>
+<text x="152.0" y="770.0" font-size="12" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">Rule: C-standard first. If C deviates from A/B → C applies for that machine type.</text>
+<text x="152.0" y="788.0" font-size="12" text-anchor="start" fill="#000" xml:space="preserve">Presumption of conformity only from the EN edition listed in the OJEU, for the hazards it covers.</text>
+<rect x="930.0" y="802.0" width="450.0" height="62.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<line x1="930.0" y1="824.0" x2="1380.0" y2="824.0" stroke="#000" stroke-width="1.3"/>
+<line x1="1230.0" y1="824.0" x2="1230.0" y2="864.0" stroke="#000" stroke-width="1.3"/>
+<text x="938.0" y="818.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold" xml:space="preserve">EXAMPLE – check the current edition of every standard</text>
+<text x="938.0" y="840.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">A/B/C standards pyramid with project examples</text>
+<text x="938.0" y="856.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">Guide 16 – standards register · 2026-11-12</text>
+<text x="1238.0" y="840.0" font-size="11" text-anchor="start" fill="#000" font-weight="bold" xml:space="preserve">VC-QA-DWG-1603</text>
+<text x="1238.0" y="856.0" font-size="11" text-anchor="start" fill="#000" xml:space="preserve">not legal advice</text>
+</svg>

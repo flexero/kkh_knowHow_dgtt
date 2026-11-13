@@ -2071,9 +2071,9 @@ version + release by quality (the "duplex" fault of the twin).
 | Tool | `T<family><nnn>`, physical assembly `-nn` | T7001 roughing tool, T7001-02 its sister tool; T9006 whirling ring; T8001 thread grinding wheel |
 | Gauge | `GA-<type>-<4 digits>` | GA-MIC-0012 micrometer; GA-RNG-0007 setting ring Ø25.006 for the air gauge; proposed new type codes (add them to guide 15): GA-AIR-0003 air gauge Ø25 k5, GA-WIR-0001 wire set Ø6.686, GA-HRD-0001 Rockwell/Vickers tester, GA-GMM-0001 gear measuring machine |
 | Heat number | exactly as on the EN 10204 3.1 certificate | H41137 (stamped on every blank at Op 10) |
-| Own material lot | `LOT-<item prefix>-<YYWW>-<3 digits>` | proposal for the bar item prefix: `LOT-BAR65-2546-001` (one delivery, one heat – confirm the prefix in guide 15) |
+| Own material lot | `LOT-<item prefix>-<YYWW>-<3 digits>` | bar item prefix `LOT-BAR<Ø>`: `LOT-BAR65-2546-001` (one delivery, one heat – guide 15 §8a) |
 | Work order (lot of 20 worms) | `WO-<YYWW>-<4 digits>` | WO-2546-0007 |
-| Furnace charge + coupon (proposal – not yet in guide 15) | `HT-<YYWW>-<4 digits>`, coupon `-C1` | HT-2546-0003, coupon HT-2546-0003-C1 |
+| Furnace charge + coupon (guide 15 §8a, D-26) | `HT-<YYWW>-<4 digits>`, coupon `-C1` | HT-2546-0003, coupon HT-2546-0003-C1 |
 
 Every measured value in the part record stores the **gauge ID**. If a gauge is later found out of
 tolerance, you know which worms to re-check.
@@ -3330,7 +3330,8 @@ a complete HMC 500.
 > machine data are chosen to match the other guides and the app: pallet 500 × 500 mm, 110 kg pallet + 400 kg
 > load, side cutting force 4 kN (Pallet changer tab, `web/apc.js`); travels ±365 / ±365 / −450…+200 mm,
 > rapid 50 m/min, max feed 20 m/min, tool change 2.5 s (`web/gcode.js`, guide 08 §4.1); motor spindle
-> HSK-A63, 12 000 rpm, 15 kW S1, 120 N·m S6, 18 kN clamping force (guides 18 / 19); moving column 1 800 kg at
+> HSK-A63, 10 000 rpm, 18 kW S1 (115 N·m S1 / 140 N·m S6-40 % up to the base speed 1 500 rpm), 18 kN clamping
+> force (guides 18 / 19, decided 2026-11-12); moving column 1 800 kg at
 > 0.6 g (guide 26 §A4.3); machine mass ≈ 12 000 kg, coolant tank 800 L (guide 28). Catalogue values (load
 > ratings, inertias, stiffness) are **typical example values – take the real ones from the datasheet** of
 > the part you buy. Every number was checked with a small Python script (stdlib only).
@@ -3391,7 +3392,7 @@ weight sits on the Z-axis close to the bed, and the chips fall freely down throu
 | Rapid traverse X / Y / Z | 50 m/min | guide 08 |
 | Max. cutting feed | 20 m/min | guide 08 |
 | Acceleration | 0.6 g = 5.89 m/s² | guide 26 |
-| Spindle | HSK-A63 motor spindle, 12 000 rpm, 15 kW S1, 120 N·m S6 | guides 18 / 19 |
+| Spindle | HSK-A63 motor spindle, 10 000 rpm, 18 kW S1 / 22 kW S6-40 %, 115 N·m S1 / 140 N·m S6 up to 1 500 rpm | guides 18 / 19 (decided 2026-11-12) |
 | Tool magazine | 60 pockets chain, tool Ø 80 mm (Ø 160 mm with empty neighbours), length 400 mm, 8 kg | M8 |
 | Tool change | 2.5 s chip-to-chip | guide 08 |
 | Coolant | flood 100 L/min at 4 bar, through-spindle 20 L/min at 70 bar, tank 800 L | M9, guide 28 |
@@ -3977,7 +3978,8 @@ on the hub sleeve) and a water-cooling jacket.
 
 The motor spindle is described in full in **guide 18** (manufacturing, `web/spdmfg.js`, `web/spd3d.js`),
 **guide 19** (assembly, `web/asmsp.js`) and **guide 20** (run-in test station and live twin, bearings, balancing,
-thermal). Data used here: HSK-A63, 12 000 rpm, 15 kW S1, 120 N·m S6, base speed 1 194 rpm, 4 × 7014 + 2 × 7012
+thermal). Data used here (decided 2026-11-12, example values): HSK-A63, 10 000 rpm, 18 kW S1 / 22 kW S6-40 %, 115 N·m S1 /
+140 N·m S6-40 %, base speed 1 500 rpm, 4 × 7014 + 2 × 7012
 hybrid bearings, 18 kN clamping force.
 
 #### M7.1 Does the spindle fit the work? – worked example
@@ -3993,9 +3995,10 @@ P  = kc · Q / 60·10⁶ = 1 100 · 128 900 / 60·10⁶ = 2.36 kW      → motor
 T  = P / ω = 2 363 / (2π · 796 / 60) = 28.4 N·m
 ```
 
-At 796 rpm the spindle is **below its base speed** (1 194 rpm): the motor gives its full torque (120 N·m S6) but
-only P = T · ω = 120 · 83.4 = 10 kW. 28.4 N·m is fine. Large drills, taps and boring bars at low speed are
-**torque-limited** – check T, not only P. (Guide 18, spindle data: base speed n_b = P / T_max = 1 194 rpm.)
+At 796 rpm the spindle is **below its base speed** (1 500 rpm): the motor gives its full torque but only
+P = T · ω = 115 · 83.4 = **9.6 kW S1** (140 · 83.4 = 11.7 kW for S6-40 %). 28.4 N·m is fine (25 % of 115 N·m).
+Large drills, taps and boring bars at low speed are **torque-limited** – check T, not only P. (Guide 18, spindle
+data: base speed n_b = P / T = 18 000 / 115 → 60 · 156.5 / (2π) ≈ 1 500 rpm.)
 
 #### M7.2 Tool interfaces
 
@@ -4151,7 +4154,7 @@ Cable carriers (energy chains) for X, Y, Z: bending radius ≥ the cable maker's
 |---|---|---|---|
 | B-axis table clamp | 5 MPa | 3 000 N·m holding (4.5) | this guide, Part 1; circuit guide 25 example 2 |
 | Pallet zero-point modules (release) | 5–6 MPa (spring clamping) | open the modules for the pallet change | guide 09, guide 25 |
-| APC lift / turn | 5–7 MPa | lift and swing the pallets | guide 09, guide 25 example 2 (2.5 L accumulator, 0.75 kW) |
+| APC lift / turn | 10–11.5 MPa | lift and swing the pallets | guide 09, guide 25 example 2 (Ø50/28, 4 L accumulator, 1.5 kW) |
 | Y counterbalance | 5 MPa + accumulator | 85 % of the head weight (M5.4) | M5.4, guide 25 accumulator |
 | Tool unclamp (drawbar) | hydraulic 5–8 MPa or pneumatic-hydraulic booster | release the disc spring pack (≈ 6.9 kN spring, guide 18 / 19) | guide 19 §4.6 |
 | Fixture clamping via rotary union | 5–25 MPa | clamp the parts on the pallet | guides 09, 29, 30 |
@@ -4259,7 +4262,7 @@ trapezoid vs S-curve profiles.
 
 | Consumer | kW |
 |---|---|
-| Spindle 15 kW S1 / 0.9 | 16.7 |
+| Spindle 18 kW S1 / 0.9 | 20.0 |
 | X / Y / Z / B axes (peak share) | 7.5 / 4 / 6 / 2 |
 | Magazine + ATC | 2 |
 | TSC pump 3.9 kW / 0.85 | 4.6 |
@@ -4269,7 +4272,7 @@ trapezoid vs S-curve profiles.
 | Chip conveyor | 0.4 |
 | Lubrication + lights + misc. | 1.5 |
 | CNC + cabinet cooling | 2 |
-| **Sum** | **51.8 kW → 61 kVA at cos φ 0.85; with simultaneity 0.7 ≈ 43 kVA** |
+| **Sum** | **55.2 kW → 65 kVA at cos φ 0.85; with simultaneity 0.7 ≈ 45 kVA** |
 
 Use the maker's value for the supply (often 40–60 kVA for this class); cable and fuse per guide 27.
 
@@ -4438,7 +4441,7 @@ equal). **Key data** only where we are confident; otherwise "see datasheet". **P
 | Z: T_0 ≈ 27 N·m | Fanuc **αiF / αiS** + αi-B amplifiers (with 31i-B5 / 0i-F Plus) | see datasheet / Fanuc sizing | €€ | amplifier current rating, FSSB |
 | Y: T_0 ≈ 20 N·m + holding brake | Heidenhain **QSY** motors + Heidenhain inverters (with TNC7) | see datasheet | €€ | brake holding torque ≥ 1.3 × gravity torque **without** counterbalance |
 | B (worm): 2.0–3.0 kW, T_n 6.4–9.6 N·m, brake | Mitsubishi **HG** series + **MDS-E** drives (with M80 / M800); or same family as above | see datasheet | € – €€ | same family as the CNC |
-| Spindle drive module 15 kW S1 (≥ 30 kW peak) | same family as the CNC | see datasheet | €€ | motor data match (from the spindle maker) |
+| Spindle drive module ≥ 18 kW S1 (≥ 30 kW peak) | same family as the CNC | see datasheet | €€ | motor data match (from the spindle maker) |
 | Line module / infeed with regenerative feedback | same family | see datasheet | €€ | DC-link power for all axes + spindle braking |
 
 #### M16.4 CNC controls (M12)
@@ -4475,7 +4478,7 @@ equal). **Key data** only where we are confident; otherwise "see datasheet". **P
 
 | Spec | Maker + series | Key data | Price class | What to check |
 |---|---|---|---|---|
-| Motor spindle HSK-A63, 12 000 rpm, 15 kW S1, 120 N·m S6 (buy instead of make, guides 18 / 19) | Kessler, Fischer (Fischer Precise), GMN, Step-Tec | power / torque curve: see datasheet | €€€ – €€€€ | S1 / S6 curve, bearings, cooling flow, sensors (vibration, temperature, clamping), service network |
+| Motor spindle HSK-A63, 10 000 rpm, 18 kW S1, 115 N·m S1 / 140 N·m S6-40 % (buy instead of make, guides 18 / 19) | Kessler, Fischer (Fischer Precise), GMN, Step-Tec | power / torque curve: see datasheet | €€€ – €€€€ | S1 / S6 curve, bearings, cooling flow, sensors (vibration, temperature, clamping), service network |
 | HSK-A63 clamping unit + drawbar | OTT-JAKOB (HSK clamping systems), Röhm (clamping units) | clamping force ≈ 18 kN class (guide 18) – see datasheet | €€ | clamping force, release stroke, sensor for clamp states |
 | Tool holders HSK-A63 (ISO 12164-1), or SK40 / BT40 | tool holder makers (many) | balance grade G 2.5 at speed | € each | balancing, coolant channel form (A / B) |
 | Spindle chiller | industrial chiller makers | cooling power ≥ spindle losses + margin | €€ | ±0.5 K control, fluid type, flow |
@@ -4498,7 +4501,7 @@ equal). **Key data** only where we are confident; otherwise "see datasheet". **P
 | Coolant tank 800 L + flood pump 100 L/min 4 bar + TSC 70 bar 20 L/min, 20 µm filter, chiller | coolant system makers; central system per guide 28 | see datasheet | €€ – €€€ | filter, pump type (screw pump for TSC), temperature control |
 | Mist extractor | oil-mist filter makers | airflow per enclosure volume | €€ | filter stages, noise |
 | Central lubrication (single-line, piston distributors, 2 L, level + pressure switch) | SKF (Lincoln / Vogel), Bijur Delimon | see datasheet | € – €€ | distributor sizes per point, oil grade, PLC signals |
-| Hydraulic unit (5–7 MPa, accumulator, 0.75 kW) – APC, clamp, counterbalance | Bosch Rexroth, HAWE, Parker, HYDAC – design guides 25 / 29 / 30 | see datasheet | €€ | p–Q diagram (guide 25), heat, filter ISO 4406 class |
+| Hydraulic unit (10–11.5 MPa, accumulator 4 L, 1.5 kW) – APC, clamp, counterbalance | Bosch Rexroth, HAWE, Parker, HYDAC – design guides 25 / 29 / 30 | see datasheet | €€ | p–Q diagram (guide 25), heat, filter ISO 4406 class |
 | Counterbalance cylinder + accumulator (Y) | hydraulic cylinder makers + HYDAC / Parker accumulators | A ≈ 1 000 mm², stroke 750 mm, V_oil 0.73 L | € – €€ | pressure change over stroke ±10 %, seal friction |
 
 #### M16.10 Structure, enclosure, safety
@@ -4535,7 +4538,7 @@ MAKE = made in the own shop (Parts 1–3, guides 18 / 19); BUY = bought. "Sectio
 | 12 | CNC + HMI + machine control panel + handwheel + safety options | 1 | 4–5 axes | BUY | M12, M16.4 |
 | 13 | Linear scales (sealed absolute) | 3 | 740 / 740 / 660 mm, ±3 / ±5 µm | BUY | M5.5 |
 | 14 | Rotary table B (Parts 1–3) incl. RCN angle encoder, YRT bearing, clamp, union, 4 zero-point modules | 1 | Ø580, 1:90 duplex worm | MAKE (or BUY complete) | Parts 1–3, M16.6 |
-| 15 | Motor spindle HSK-A63, 12 000 rpm, 15 kW (guides 18 / 19) | 1 | + clamping unit | MAKE (or BUY) | M7, M16.7 |
+| 15 | Motor spindle HSK-A63, 10 000 rpm, 18 kW (guides 18 / 19) | 1 | + clamping unit | MAKE (or BUY) | M7, M16.7 |
 | 16 | Spindle chiller | 1 | ≥ 3 kW | BUY | M9 |
 | 17 | Tool magazine 60 pockets + ATC arm | 1 | 2.5 s | BUY | M8 |
 | 18 | APC 2 pallets + 2 pallets 500 × 500 (guide 09) | 1 | hydraulic | MAKE / BUY | guide 09 |

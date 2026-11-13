@@ -48,8 +48,8 @@
 <text x="815.0" y="296.6" font-size="11" text-anchor="middle" fill="#000">(demodulation)</text>
 <rect x="920.0" y="240.0" width="150.0" height="78.0" rx="4" fill="#fff" stroke="#000" stroke-width="1.3"/>
 <text x="995.0" y="269.1" font-size="11" text-anchor="middle" fill="#000" font-weight="bold">Envelope FFT</text>
-<text x="995.0" y="282.9" font-size="11" text-anchor="middle" fill="#000">BPFO 1761, BPFI 2239,</text>
-<text x="995.0" y="296.6" font-size="11" text-anchor="middle" fill="#000">BSF 798, FTF 88 Hz</text>
+<text x="995.0" y="282.9" font-size="11" text-anchor="middle" fill="#000">BPFO 1468, BPFI 1865,</text>
+<text x="995.0" y="296.6" font-size="11" text-anchor="middle" fill="#000">BSF 665, FTF 73 Hz</text>
 <line x1="635.0" y1="188.0" x2="635.0" y2="240.0" stroke="#000" stroke-width="1.4" marker-end="url(#ar)"/>
 <line x1="710.0" y1="279.0" x2="740.0" y2="279.0" stroke="#000" stroke-width="1.4" marker-end="url(#ar)"/>
 <line x1="890.0" y1="279.0" x2="920.0" y2="279.0" stroke="#000" stroke-width="1.4" marker-end="url(#ar)"/>
@@ -123,7 +123,7 @@
 <text x="990.0" y="662.0" font-size="11" text-anchor="end" fill="#1565c0">rpm_set → reg. 100 (FC 6)</text>
 <text x="450.0" y="675.0" font-size="11" text-anchor="start" fill="#000">Rules of thumb (example):</text>
 <text x="450.0" y="692.0" font-size="11" text-anchor="start" fill="#000">• fs ≥ 2.56 × highest frequency of interest; anti-alias filter before the ADC</text>
-<text x="450.0" y="709.0" font-size="11" text-anchor="start" fill="#000">• Δf = fs / N; for side bands of ±200 Hz Δf ≤ 5 Hz is enough → N = 16 384 (0.32 s)</text>
+<text x="450.0" y="709.0" font-size="11" text-anchor="start" fill="#000">• Δf = fs / N; for side bands of ±167 Hz Δf ≤ 5 Hz is enough → N = 16 384 (0.32 s)</text>
 <text x="450.0" y="726.0" font-size="11" text-anchor="start" fill="#000">• store raw data only on events (alarm, end of run-in); send features every 1 s</text>
 <text x="450.0" y="743.0" font-size="11" text-anchor="start" fill="#000">• 4 ch × 51.2 kS/s × 24 bit ≈ 4.9 Mbit/s raw – do not send this to the twin</text>
 <text x="450.0" y="760.0" font-size="11" text-anchor="start" fill="#000">• time-stamp at the source; NTP / PTP clock in the cell</text>

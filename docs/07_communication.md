@@ -925,7 +925,7 @@ Use this decision table. It follows the twin; the choices are typical, not the o
 
 Practical rules:
 
-* **Write the protocol AND the version** in the specification (for example "VDA 5050 2.0", "OPC UA
+* **Write the protocol AND the version** in the specification (for example "VDA 5050 2.x (current 2.1.0 – check; 3.0 announced)", "OPC UA
   1.04 or later", "EDIFACT D.96A").
 * **Prefer one main protocol per layer link.** Every extra protocol is extra knowledge, extra gateways,
   extra failure points.
@@ -1019,7 +1019,7 @@ Rules:
 VDA 5050 is the interface between a fleet manager (VDA 5050 calls it *master control*) and AGVs, with JSON
 messages over MQTT. It lets you use AGVs from different suppliers with one fleet manager.
 
-1. **Fix the version** (the twin's example uses `"version": "2.0.0"`). Fleet manager and all AGVs must
+1. **Fix the version** (the twin's example uses `"version": "2.0.0"`; specify VDA 5050 2.x (current 2.1.0 – check; 3.0 announced)). Fleet manager and all AGVs must
    support it.
 2. **Topics** per AGV: `<interfaceName>/<majorVersion>/<manufacturer>/<serialNumber>/<topic>`, for example
    `uagv/v2/AcmeAGV/AGV-02/order`. Main topics: `order`, `instantActions`, `state`, `connection`,
@@ -1567,17 +1567,17 @@ from this list. Format and rules: doc 15 (3.9, 3.10, 3.13).
 | Tag machine name | `HMC01` | `LOADCC` | `TEST01` | `AGV01` |
 | Area / line | `MCH` / `L2` | `MCH` / `L2` | `TST` / `L1` | `LOG` / `L0` |
 | Tag prefix | `MCH_L2_HMC01` | `MCH_L2_LOADCC` | `TST_L1_TEST01` | `LOG_L0_AGV01` |
-| VLAN / IP | 51 / `10.51.0.51` (CNC) | 51 / `10.51.0.11` (PLC-01) | 53 / `10.53.0.12` (example) | 60 / `10.60.0.51` |
-| Host name | `vc-mch-hmc01-cnc` | `vc-mch-plc01` | `vc-tst-plc02` (example) | `vc-log-agv01` |
-| OPC UA endpoint | `opc.tcp://vc-mch-hmc01-cnc:4840` | `opc.tcp://vc-mch-plc01:4840` | `opc.tcp://vc-tst-plc02:4840` | – (VDA 5050) |
+| VLAN / IP | 51 / `10.51.0.51` (CNC) | 51 / `10.51.0.11` (PLC-01) | 53 / `10.53.0.14` (PLC-04) | 60 / `10.60.0.51` |
+| Host name | `vc-mch-hmc01-cnc` | `vc-mch-plc01` | `vc-asm-plc04` | `vc-log-agv01` |
+| OPC UA endpoint | `opc.tcp://vc-mch-hmc01-cnc:4840` | `opc.tcp://vc-mch-plc01:4840` | `opc.tcp://vc-asm-plc04:4840` | – (VDA 5050) |
 | ApplicationUri | `urn:vc:plant1:MCH:L2:HMC01` | `urn:vc:plant1:MCH:L2:LOADCC` | `urn:vc:plant1:TST:L1:TEST01` | – |
 | MQTT client id | `MCH_L2_HMC01` | `MCH_L2_LOADCC` | `TST_L1_TEST01` | `AGV-01` (VDA 5050 serialNumber, see 11.6) |
 | Physical serial | supplier's serial | – | supplier's serial | `AGV-2546-00001` (own build, doc 15) |
 | Supplier / model / firmware | from purchase order | | | |
 | Owner | OT team | OT team | quality + OT | logistics + OT |
 
-(The IP host numbers marked "example" follow the host ranges of doc 15 3.13 but are not yet assigned
-there. `PLC-01` = `10.51.0.11`, `HMC-01` CNC = `10.51.0.51` and `AGV-01` = `10.60.0.51` are doc 15 values.)
+(All values are doc 15 values (3.13, master IP and host-name plan). `PLC-01` = `10.51.0.11`, `HMC-01` CNC =
+`10.51.0.51`, `PLC-04` (controls TEST-01) = `10.53.0.14` and `AGV-01` = `10.60.0.51`.)
 
 ### 11.2 OPC UA server requirements (per machine / PLC)
 
@@ -1789,9 +1789,9 @@ Host ranges in each /24 (doc 15): `.1` gateway, `.2–.9` switches/APs, `.10–.
 robots, drives, AGVs, `.100–.149` HMIs/IPCs/servers, `.150–.199` I/O, cameras, printers, scanners, meters.
 No DHCP in OT cells.
 
-**Servers (example assignment, not yet in doc 15):** MES `10.30.0.100` (`vc-ops-mes01`), MQTT broker
+**Servers (doc 15 3.13, master IP and host-name plan):** MES `10.30.0.100` (`vc-ops-mes01`), MQTT broker
 `10.30.0.101`/`.102` (cluster), historian `10.30.0.103`, SCADA `10.40.0.100` (doc 15), fleet manager
-`10.40.0.101`, twin `10.40.0.102`, time server and B2MML gateway in the DMZ `10.20.0.100`/`.101`.
+`10.40.0.103`, twin `10.40.0.102`, time server and B2MML gateway in the DMZ `10.20.0.100`/`.101`.
 
 **Ports and protocols:**
 
@@ -1825,7 +1825,7 @@ No DHCP in OT cells.
 | FW-02 | B2MML gateway | MES `10.30.0.100` | TCP 443 / 5671 | |
 | FW-03 | MES, SCADA | cells 51–54 | TCP 4840 | OPC UA |
 | FW-04 | cells 51–54 | broker `10.30.0.101/102` | TCP 8883 | MQTT |
-| FW-05 | fleet manager `10.40.0.101` | broker | TCP 8883 | VDA 5050 |
+| FW-05 | fleet manager `10.40.0.103` | broker | TCP 8883 | VDA 5050 |
 | FW-06 | VLAN 60 (AGVs) | broker | TCP 8883 | VDA 5050 |
 | FW-07 | all OT | time server `10.20.0.100` | UDP 123 | NTP |
 | FW-08 | jump host (DMZ) | OT devices | TCP 22, 3389, 443 | remote service, per session approval |
@@ -1999,13 +1999,13 @@ The same order as guide 04 chapter 14: Delta Compressors, 23 × VC20-300, `SO-26
 | 7 | scanner 10.54.0.150 → MES (via PLC or directly, TCP) | GS1-128 text | `(00)095212345000000773(02)09521234000204(37)120(10)FA-L0009` | < 200 B |
 | 8 | MES 10.30.0.100 → PLC-ASRS-RAW 10.54.0.31:4840 (host number .31 as in the twin, 21.2) | OPC UA Call `LOG_L0_ASRSRAW_Store` | `("LOT-CC20-2646-003","CC20-CAST",120)` → Good, slot `ASRS-RAW-A01-L4-S02` (format doc 15) | ≈ 0.4 kB each way |
 | 9 | MES → PLC-01 10.51.0.11:4840 | OPC UA Call `MCH_L2_LOADCC_StartOrder` | `("WO-2646-0012","VC20-300","VC20_v1",23)` → Good, queuePos 1 | ≈ 0.4 kB each way |
-| 10 | fleet manager 10.40.0.101 → broker 10.30.0.101:8883 → AGV-01 10.60.0.51 | VDA 5050 order, topic `uagv/v2/<manufacturer>/AGV-01/order` | nodes `ASRS-RAW-OUT` (pick) → `LOAD-CC-IN` (drop) | ≈ 1 – 2 kB |
+| 10 | fleet manager 10.40.0.103 → broker 10.30.0.101:8883 → AGV-01 10.60.0.51 | VDA 5050 order, topic `uagv/v2/<manufacturer>/AGV-01/order` | nodes `ASRS-RAW-OUT` (pick) → `LOAD-CC-IN` (drop) | ≈ 1 – 2 kB |
 | 11 | PLC-01 → MES (OPC UA DataChange of `MCH_L2_LOADCC_UnitStarted`) and → broker (`vc/MCH/L2/LOADCC/unitStarted`) | OPC UA + MQTT | `{"serial":"VC20-2646-00123","wo":"WO-2646-0012","castingLot":"LOT-CC20-2645-007","seq":5821,"time":"2026-11-10T07:02:10.120Z"}` | ≈ 0.3 kB |
 | 12 | MES → HMC-02 CNC 10.51.0.52:4840 (example host) | OPC UA FileType Open/Write/Close + Write ActiveProgram | NC file `VC-PRD-CC-0020_OP20_HMC_C.nc` (name per doc 15), program `O2102` | file size + ≈ 1 kB |
 | 13 | PLC-01 → broker | MQTT `vc/MCH/L2/HMC02/telemetry` every 15 s (twin) / 1 s (real) | see 10.2 | ≈ 366 B incl. PUBACK |
 | 14 | HMC-02 CNC → SCADA/MES | OPC UA Alarms & Conditions | `HMC02_A5101`-type event, Severity 600, `Vib 7.3 > 7.1 mm/s` → `MWO-2646-0004` | ≈ 0.5 kB |
 | 15 | PLC-ASSY → MES | OPC UA DataChange `ASM_L1_ASSY01_Consumed` | serial `VC20-2646-00123`, `CYL-CAST` lot `LOT-CYL-2646-002` × 2, `CS-FORG` lot `LOT-CS-2645-011` × 1 | ≈ 0.4 kB |
-| 16 | test bench 10.53.0.12 → broker → MES | MQTT `vc/TST/L1/TEST01/result`, QoS 1 | payload 14.2 | ≈ 490 B incl. PUBACK |
+| 16 | test bench (PLC-04) 10.53.0.14 → broker → MES | MQTT `vc/TST/L1/TEST01/result`, QoS 1 | payload 14.2 | ≈ 490 B incl. PUBACK |
 | 17 | MES → ERP (via DMZ) | B2MML ProcessProductionPerformance (unit) | `WO-2646-0012`, `MaterialLotID VC20-2646-00123`, 1 EA, `ASRS-FG` | ≈ 2 kB |
 | 18 | ERP → MES (REST) and MES → PLC-ASRS-FG | HTTPS POST + OPC UA Call `LOG_L0_ASRSFG_Retrieve` | `{"shipment":"SHP-2646-0042","order":"SO-2646-0006","sku":"VC20-300","qty":23,"dock":"OUT-1"}` → 201 Created; 23 × Retrieve | ≈ 1 kB + 23 × 0.8 kB |
 | 19 | ERP → customer | EDIFACT DESADV + INVOIC | 23 × `GIN+BN+VC20-2646-…`, `MOA+77:33350` | ≈ 4 kB |
@@ -2635,13 +2635,13 @@ teaching network `192.168.10.x`. **The host number stays the same** in the real 
 | PLC-02 cylinder machining (S7-1513-1 PN) | 192.168.10.12 | 52 | 10.52.0.12 | `vc-mch-plc02` |
 | PLC-03 crankshaft machining (S7-1513-1 PN) | 192.168.10.13 | 52 | 10.52.0.13 | `vc-mch-plc03` |
 | PLC-04 assembly & test (S7-1516F) | 192.168.10.14 | 53 | 10.53.0.14 | `vc-asm-plc04` |
-| PLC-05 final assembly & packing (S7-1513-1 PN) | 192.168.10.15 | 53 | 10.53.0.15 | `vc-asm-plc05` |
-| PLC-ASRS-RAW (S7-1515F-2 PN) | 192.168.10.31 | 54 | 10.54.0.31 | `vc-log-plc31` |
-| PLC-ASRS-FG (S7-1515F-2 PN) | 192.168.10.32 | 54 | 10.54.0.32 | `vc-log-plc32` |
+| PLC-05 final assembly & packing (S7-1513-1 PN) | 192.168.10.15 | 53 | 10.53.0.15 | `vc-fin-plc05` |
+| PLC-ASRS-RAW (S7-1515F-2 PN) | 192.168.10.31 | 54 | 10.54.0.31 | `vc-log-plcasrsraw` |
+| PLC-ASRS-FG (S7-1515F-2 PN) | 192.168.10.32 | 54 | 10.54.0.32 | `vc-log-plcasrsfg` |
 
-(Host names other than `vc-mch-plc01` are proposals in the doc 15 style; enter them in `VC-ITS-NET-0001`.)
+(Host names as doc 15 3.13, master IP and host-name plan; enter them in `VC-ITS-NET-0001`.)
 
-**Filled IP list – VLAN 51, crankcase FMS cell (proposal, doc 15 host ranges):**
+**Filled IP list – VLAN 51, crankcase FMS cell (doc 15 3.13, master IP and host-name plan):**
 
 | Host | Device | Host name | Note |
 |---|---|---|---|
@@ -2669,8 +2669,9 @@ teaching network `192.168.10.x`. **The host number stays the same** in the real 
 | BOOTP | old, simple | some older devices |
 
 **DNS:** an internal DNS server (L3 or DMZ) with the host names of doc 15. OPC UA and TLS certificates check the
-host name – without DNS (or a maintained hosts file) certificate checks fail. Plan one DNS zone, e.g.
-`plant1.vc.local` (example; `.local` conflicts with mDNS – IT may prefer a real sub-domain like `ot.<company domain>`).
+host name – without DNS (or a maintained hosts file) certificate checks fail. Plan one DNS zone as a
+sub-domain of the company domain, e.g. `plant1.ot.<company domain>` (doc 15 3.13; do not use `.local` – it is
+reserved for multicast DNS, RFC 6762).
 
 ### 21.4 Time synchronisation – NTP and PTP in depth
 
@@ -3530,17 +3531,17 @@ requirements, remote access, hardening for SCADA. This chapter adds the network 
 
 Every rule has: **ID, conduit, source (zone + IP/group), destination, service/port, action, logging, reason,
 owner, review date**. Rules FW-01 … FW-08 and FW-99 are in 11.7. Additional rules for network services (addresses
-marked "example" are proposals, not yet in doc 15):
+as doc 15 3.13, master IP and host-name plan):
 
 | Rule | Conduit | From | To | Service | Action / log | Reason |
 |---|---|---|---|---|---|---|
-| FW-09 | L3 → cells | network management server `10.30.0.111` (example) | switches `.2 – .9` of every VLAN | SNMPv3 UDP 161 | allow / log | monitoring (30.3) |
+| FW-09 | L3 → cells | network management server `10.30.0.111` | switches `.2 – .9` of every VLAN | SNMPv3 UDP 161 | allow / log | monitoring (30.3) |
 | FW-10 | cells → L3 | switches | NMS `10.30.0.111` | SNMP traps UDP 162 | allow | alarms |
-| FW-11 | all OT → L3 | all OT devices | syslog server `10.30.0.110` (example) | UDP 514, TLS TCP 6514 | allow | central logs (FR 6) |
-| FW-12 | all OT → L3 | all OT devices | DNS `10.30.0.112` (example) | UDP/TCP 53 | allow | names for certificates (21.3) |
-| FW-13 | L3 → DMZ | historian `10.30.0.103` | historian mirror in DMZ (example `10.20.0.102`) | maker replication port | allow / log | reports for IT read from the mirror |
-| FW-14 | DMZ → L3/L2 | patch server (example `10.20.0.103`) | OT Windows servers and HMIs | HTTPS 443 | allow in patch window | updates |
-| FW-15 | L2 → cells | engineering station (example `10.40.0.110`) | PLCs of one cell | S7 TCP 102, PROFINET CM UDP 34964, HTTPS 443 | **disabled**; enabled per work order | programming (guide 06 27.2) |
+| FW-11 | all OT → L3 | all OT devices | syslog server `10.30.0.110` | UDP 514, TLS TCP 6514 | allow | central logs (FR 6) |
+| FW-12 | all OT → L3 | all OT devices | DNS `10.30.0.112` | UDP/TCP 53 | allow | names for certificates (21.3) |
+| FW-13 | L3 → DMZ | historian `10.30.0.103` | historian mirror in DMZ `10.20.0.102` | maker replication port | allow / log | reports for IT read from the mirror |
+| FW-14 | DMZ → L3/L2 | patch server `10.20.0.103` | OT Windows servers and HMIs | HTTPS 443 | allow in patch window | updates |
+| FW-15 | L2 → cells | engineering station `10.40.0.110` | PLCs of one cell | S7 TCP 102, PROFINET CM UDP 34964, HTTPS 443 | **disabled**; enabled per work order | programming (guide 06 27.2) |
 | FW-16 | cells → anything outside OT | any | internet | any | deny / log + alarm | indicator of compromise |
 
 ### 31.4 Switch and network hardening checklist

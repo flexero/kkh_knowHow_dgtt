@@ -74,6 +74,32 @@ HTTP API
                                 sim {on?, auto?, speed?, faults?} | runin {cmd: start|stop|ack} | ack {id}
                                 device {id, proto: sim|http|modbus|mqtt, addr?, enabled?}
   POST /api/spst/ingest         {"device": "TQ-01", "values": {"torque_nm": 125.3}} (or a list) - gateways
+  Ball screw + guide factory - item 4 communication (twin/bsf_comm.py, guide docs/43_bsf_communication_modbus_http.md)
+  Inert until started: no thread and no port opens before POST /api/bsf/control {"action": "start"}.
+  GET  /api/bsf/status | machines | machine?id=BS-TGR-03 | frames?n=40 | events?since=N&wait=20 | map | map.csv | control | api
+  GET  /api/bsf/stream          gateway status + changes every 1 s (Server-Sent Events)
+  POST /api/bsf/control         {"action": "start", "simPort": 1502} | stop | config | fault | netloss | probe
+  POST /api/bsf/command         {"id": "BS-TGR-03", "cmd": "order", "order": "WO-1", "part": "...", "qty": 20, "msgId": "..."}
+  POST /api/bsf/snapshot        twin snapshot from the browser (feeds the Modbus TCP simulator)
+  GET|POST /api/bsf/erp/... | agv/... | printer/...   business-layer demo APIs (twin/bsf_comm_api.py)
+  Ball screw + guide factory - item 6 MES (twin/bsf_mes.py, guide docs/45_bsf_mes.md), inert until used, SQLite bsf_mes.sqlite next to --db
+  written only after the first POST (env BSF_MES_DB overrides):
+  GET  /api/bsf/mes/health | api | workorders[/{id}] | lots[/{id}] | dispatch?machine= | confirmations | schedule | machines | downtime
+       | reasons | andon | oee | report | pareto | serials | trace?serial=|heat= | htloads | transport | kanban | fg | events
+  POST /api/bsf/mes/workorders (Idempotency-Key) | workorders/{id}/release|cancel | lots/{id}/hold|release | confirmations
+       | schedule | machines/{id}/download|spc | downtime | downtime/{id}/reason | andon/call|ack | serials | genealogy/link
+       | htloads | transport | kanban/{item}/scan | fg | twin | sync | eval | control
+  Ball screw + guide factory - item 7 ERP (twin/bsf_erp.py, guide docs/46_bsf_erp.md), inert until used, SQLite bsf_erp.sqlite next to --db
+  written only after the first POST (env BSF_ERP_DB overrides); also /api/bsf/v1/erp/...:
+  GET  /api/bsf/erp/health | api | customers | suppliers | materials[/{id}] | boms/{id} | routings/{id} | workcenters | quotations | salesorders[/{id}]
+       | deliveries | invoices | mrp?item= | plannedorders | purchaserequisitions | purchaseorders[/{id}] | inspections | goodsmovements | stock?material=
+       | inventory/valuation | analysis/abc | productionorders[/{id}] | confirmations | costing/{id} | variances | finance/pnl|cash|breakeven | kpi | log | events
+  POST /api/bsf/erp/configure | quotations (Idempotency-Key) | quotations/{id}/accept | salesorders | salesorders/{id}/confirm|deliver|invoice|cancel | atp
+       | invoices/{id}/pay | mrp/run | plannedorders/{id}/convert | purchaseorders | purchaseorders/{id}/send | goodsreceipts | inspections/{id}/decision
+       | goodsmovements | productionorders | productionorders/{id}/release|sync|settle (release -> MES work order) | confirmations | twin | eval | control
+  Ball screw + guide factory - item 5 quality (twin/bsf_qa.py, guide docs/44_bsf_quality_inspection.md), in-memory, inert until used:
+  GET  /api/bsf/qa/health | results?serial=&char=&n= | trace?serial= | spc?char=&n=5 | ncr | api
+  POST /api/bsf/qa/results (Idempotency-Key) | ncr | ncr/{id}/step | eval {"kind": "lead"|"capability"|"grr"}
 """
 
 from __future__ import annotations
@@ -172,6 +198,8 @@ class Handler(BaseHTTPRequestHandler):
                     return self._json(404, {"error": str(e)})
             if p.startswith("/api/spst"):
                 return self._spst_get(p, parse_qs(url.query))
+            if p.startswith("/api/bsf/"):
+                return self._bsf("GET", p, parse_qs(url.query))
             if p == "/api/export.csv":
                 return self._send(200, ENGINE.historian.export_csv(), "text/csv; charset=utf-8",
                                   {"Content-Disposition": "attachment; filename=twin_history.csv"})
@@ -208,6 +236,38 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(200, SPST.export_csv(), "text/csv; charset=utf-8",
                               {"Content-Disposition": "attachment; filename=spst_results.csv"})
         return self._json(404, {"error": "not found"})
+
+    def _bsf(self, method, p, q, body=None):
+        if p.startswith(("/api/bsf/mes/", "/api/bsf/v1/mes/")) or p in ("/api/bsf/mes", "/api/bsf/v1/mes"):
+            from twin import bsf_mes  # lazy import: item 6 MES, in-memory + SQLite only after the first POST, inert until used
+            code, obj, ctype = bsf_mes.handle(method, p, q, body, self.headers)
+            return self._send(code, json.dumps(obj), ctype)
+        if p.startswith(("/api/bsf/erp/", "/api/bsf/v1/erp/")) or p in ("/api/bsf/erp", "/api/bsf/v1/erp"):
+            from twin import bsf_erp  # lazy import: item 7 ERP, in-memory + SQLite only after the first POST, inert until used
+            code, obj, ctype = bsf_erp.handle(method, p, q, body, self.headers)
+            return self._send(code, json.dumps(obj), ctype)
+        if p.startswith(("/api/bsf/qa/", "/api/bsf/v1/qa/")) or p in ("/api/bsf/qa", "/api/bsf/v1/qa"):
+            from twin import bsf_qa  # lazy import: item 5 quality service, in-memory, inert until used
+            code, obj, ctype = bsf_qa.handle(method, p, q, body, self.headers)
+            return self._send(code, json.dumps(obj), ctype)
+        from twin import bsf_comm  # lazy import: item 4 stays inert until it is used
+        if method == "GET" and p in ("/api/bsf/stream", "/api/bsf/v1/stream"):
+            return self._bsf_stream(bsf_comm)
+        code, obj, ctype = bsf_comm.handle(method, p, q, body, self.headers)
+        return self._send(code, obj if isinstance(obj, str) else json.dumps(obj), ctype)
+
+    def _bsf_stream(self, mod):
+        self.send_response(200)
+        self.send_header("Content-Type", "text/event-stream")
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("Connection", "keep-alive")
+        self.end_headers()
+        try:
+            for block in mod.sse_lines():
+                self.wfile.write(block.encode("utf-8"))
+                self.wfile.flush()
+        except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError, OSError):
+            return
 
     def _spst_stream(self):
         self.send_response(200)
@@ -273,6 +333,8 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json(200, {"ok": True, "message": SPST.action(body)})
             if p == "/api/spst/ingest":
                 return self._json(200, {"ok": True, "message": SPST.ingest(body)})
+            if p.startswith("/api/bsf/"):
+                return self._bsf("POST", p, parse_qs(urlparse(self.path).query), body)
             self._json(404, {"error": "not found"})
         except (ValueError, KeyError, TypeError) as e:
             self._json(400, {"ok": False, "error": str(e)})

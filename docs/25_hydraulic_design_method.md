@@ -16,8 +16,8 @@ copying them.
 | | Example 1 – "the example job" | Example 2 – the HMC power unit of the twin |
 |---|---|---|
 | Actuators | 1 lift cylinder, vertical | APC lift cylinder + 4 zero-point modules + rotary-table clamp ring |
-| Load | F = 20 kN, stroke 200 mm, 2 s up / 2 s down, every 60 s | 13.4 kN lift (60 mm, 0.8 s), release 5 MPa, clamp 5 MPa / 3 000 N·m |
-| Result | Ø63/36, 18.7 L/min, 3 kW fixed pump **or** 0.75 kW + 5 L accumulator | 0.75 kW + 2.5 L accumulator, 6.0–7.5 MPa, two 5 MPa branches |
+| Load | F = 20 kN, stroke 200 mm, 2 s up / 2 s down, every 60 s | lift 13.4 kN page mass / 16.6 kN real mass (60 mm, 0.8 s), release 5 MPa, clamp 5 MPa / 3 000 N·m |
+| Result | Ø63/36, 18.7 L/min, 3 kW fixed pump **or** 0.75 kW + 5 L accumulator | lift Ø50/28 (decided 2026-11-12), 1.5 kW + 4 L accumulator, 10.0–11.5 MPa, two 5 MPa branches |
 | Where | §7 (12 steps) | §14 |
 
 **Drawings in this guide** (standalone SVG files in `docs/img/`, copies in `web/img/`):
@@ -415,8 +415,9 @@ s = 200 mm, dead volume per side 0.0985 L (1 m of ID 10 line = 0.0785 L + 20 cm�
 
 The simple formula is 30 % too optimistic here (it ignores dead volume and the smaller annulus). Use the exact one.
 
-**APC lift (example 2):** Ø63/36 × 60, 1 200 kg, 1.5 m lines ID 8 each side, mid stroke: c_h = 7.93e7 N/m →
-f0 = **40.9 Hz** (short stroke, small volume = stiff).
+**APC lift (example 2, decided 2026-11-12: Ø50/28):** Ø50/28 × 60, 1 200 kg, 1.5 m lines ID 8 each side (+ 20 cm³ ports),
+mid stroke: c_h = 3.84e7 N/m → f0 = **28.5 Hz** (25.6 Hz with the real lifted mass 1 480 kg; minimum over the stroke
+27.8 Hz near the top) – short stroke, small volume = stiff. (The old Ø63/36 gave 40.9 Hz.)
 
 What f0 means:
 
@@ -429,7 +430,7 @@ What f0 means:
 
 Peak pressure if a valve closes suddenly at full speed (no ramp, no damping, upper bound):
 Δp ≈ v · √(c_h · m) / A1 = 0.1 · √(3.71e7 · 2 039) / 31.17e-4 = **8.8 MPa** on top of the load pressure, the
-oil spring compresses by x = v/ω0 = 0.74 mm. For the APC lift (0.075 m/s, 1 200 kg, c 7.93e7): Δp ≈ **7.4 MPa**.
+oil spring compresses by x = v/ω0 = 0.74 mm. For the APC lift (Ø50/28, 0.075 m/s, 1 200 kg, c 3.84e7): Δp ≈ **8.2 MPa** (9.1 MPa with 1 480 kg).
 These peaks are why valves get soft-switching (ramp) options, why cylinders need cushions, and why every part must be
 rated above the relief setting.
 
@@ -448,7 +449,7 @@ Example – pressure line of the example job, valve 1V1 closes, v = 3.97 m/s:
 a = √(1.0e9 / 870) = **1 072 m/s** (1 269 m/s with β 1.4 GPa); t_c = 2 · 3 / 1 072 = **5.6 ms**.
 A solenoid valve switches in 20–50 ms > 5.6 ms → slower than t_c, the real peak is smaller than Joukowsky.
 If it were instant: Δp = 870 · 1 072 · 3.97 = **3.70 MPa** (4.38 MPa with 1.4 GPa).
-APC pressure line (3.68 m/s): Δp_max ≈ 3.4 MPa.
+APC pressure line (Ø50/28 lift, 8.8 L/min in 12×1.5 → 2.31 m/s): Δp_max ≈ 2.2 MPa.
 
 Remedies: lower line speed (pressure line ≤ 4–5 m/s), soft-switching valves or ramps, accumulator / hose near the
 valve as a damper, valve near the actuator (short L), no air pockets. In a pump-and-accumulator system the
@@ -1339,7 +1340,7 @@ itself (current edition) for the exact requirements. The risk assessment follows
 | strength test of piping and manifolds (shop / FAT) | 1.5 × max working pressure (p_max = relief setting), hold ≥ 5–10 min, no leak, no permanent deformation | isolate parts with lower ratings (accumulator, sensors, filters, cylinders if not rated) |
 | leak test of the whole system | 1.1 × working pressure (= relief setting) | after flushing, with the real oil |
 | example job | relief 10 MPa (option A) → piping test 15 MPa; option C relief 11 MPa → 16.5 MPa – check that tube, fittings and valves are rated (ISO 6020-2 cylinder: 16 MPa nominal – test it separately to its own test pressure or isolate it) | |
-| example 2 | relief 8.5 MPa → piping test 12.8 MPa | rotary union and zero-point modules to their catalogue test pressure only |
+| example 2 | relief 13 MPa → piping test 19.5 MPa (ISO 6020-2 cylinder: test to its own 24 MPa test pressure or isolate; accumulator isolated) | rotary union and zero-point modules to their catalogue test pressure only |
 
 ---
 
@@ -1390,13 +1391,16 @@ The second worked example uses the twin's own machine data: APC lift (docs/09, `
 modules (docs/09), rotary-table clamp ring 5 MPa / 3 000 N·m (docs/12) and the app presets "apc" and "hmc"
 (`web/hydckt_size.js`). One HPU per HMC feeds all three circuits.
 
+**Decided 2026-11-12 (user):** the APC lift cylinder is **Ø50/28** in a **10 MPa accumulator system** (app preset "apc").
+This section was recalculated for that decision (before: Ø63/36 at 6.0–7.5 MPa). Verified with Python (stdlib).
+
 ![APC lift + zero-point release + table clamp circuit](img/25_apc_clamp_circuit.svg)
 
 ### 14.1 Step 1 – load list
 
 | Actuator | Data source | Load | Stroke / volume | Time | Holding need |
 |---|---|---|---|---|---|
-| 1A1 APC lift cylinder | docs/09 §4.4, apc.js | arm + 2 pallets 1 200 kg → F = m·g·(1 + a/g)·1.1 = **13.4 kN** (a = 4·s/t² = 0.375 m/s², 1.1 = guide friction) | 60 mm; 0.187 L up, 0.126 L down | 0.8 s up, 0.8 s down | arm must not fall (power or hose failure) |
+| 1A1 APC lift cylinder | docs/09 §4.4, §20.2, apc.js | page mass (arm + 2 pallets) 1 200 kg → F = m·g·(1 + a/g)·1.1 = 13.4 kN; **real lifted mass 1 480 kg** (carriage + rotor added, docs/09 §20.2) → **16.6 kN** (a = 4·s/t² = 0.375 m/s², 1.1 = guide friction) | 60 mm; 0.118 L up, 0.081 L down | 0.8 s up, 0.8 s down | arm must not fall (power or hose failure) |
 | 2A1–2A4 zero-point modules | docs/09 §4.13, preset "apc" | spring clamped 20 kN each; hydraulic **release 5 MPa** | ≈ 11.8 cm³ each (equivalent Ø100 × 6 mm = 47.1 cm³ for 4) – **see datasheet** | release 0.8 s | clamped without oil (fail-safe) |
 | 3A1 table clamp ring | docs/12 input table (Tcl 3 000 N·m, clamp ring 5 MPa), preset "hmc" | holding torque 3 000 N·m at **5 MPa** (equivalent piston 35 kN) | equivalent Ø125 × 3 mm = 36.8 cm³ per clamp – see datasheet | clamp 0.5 s | stays clamped at power loss (valve de-energised = clamp) |
 
@@ -1407,38 +1411,48 @@ pallet (example), cutting only with "clamped" signal.
 ### 14.2 Step 2 – pressures
 
 ```
-Lift needs            p = 13 444 N / (31.17e-4 m² · 0.95) = 4.54 MPa   (with 25 % margin: 5.68 MPa)
-Line + valve losses   pressure line 12×1.5, 4 m, 14 L/min: 0.23 MPa; valve 2 × 0.076; throttle ≈ 0.3 → ≈ 0.7 MPa
-→ minimum at the supply ≈ 4.54 + 0.68 = 5.2 MPa
-Reducing valves 5.0 MPa need ≥ ≈ 0.5 MPa inlet margin → ≥ 5.5 MPa
-Choose accumulator range: cut-in p1 = 6.0 MPa, cut-out p2 = 7.5 MPa (docs/09 §9.2 "with accumulator")
-Relief 0V1 ≥ 1.1 · 7.5 = 8.25 → 8.5 MPa (docs/09 example 8.3 MPa – both OK); safety block relief 10 MPa
-All parts rated ≥ 10 MPa
+Cylinder (decided)    Ø50/28: A1 = 19.635 cm², rod 6.158 cm², A2 = 13.477 cm²
+Lift needs (real)     p = 16 581 N / (19.635e-4 m² · 0.95) = 8.89 MPa   (page mass 13 444 N: 7.21 MPa)
+Line + valve losses   pressure line 12×1.5, 4 m, 8.8 L/min (laminar, ∝ Q): 0.146 MPa; valves 2 × 0.030 (∝ Q², 0.076 at 14 L/min);
+                      meter-out throttle ≈ 0.30 → 0.51 MPa
+→ minimum at the supply  8.89 + 0.51 = 9.40 MPa (page mass 7.71 MPa)
+Lowest working pressure  p_min = 10.0 MPa → reserve (10 − 0.51)·19.635e-4·0.95 / 16 581 − 1 = +7 %  (page mass +32 %)
+                      (25 % reserve would need 11.62 MPa at the supply – not chosen, see docs/09 §20.2 for the fixes)
+Reducing valves 5.0 MPa need ≥ ≈ 0.5 MPa inlet margin → ≥ 5.5 MPa ✓ (supply ≥ 10 MPa)
+Accumulator band      lowest 10.0, cut-in p_on = 10.8, cut-out p2 = 11.5 MPa; PLC start ≥ 10.7, alarm < 10.0 MPa
+Relief 0V1 ≥ 1.1 · 11.5 = 12.65 → 13.0 MPa; accumulator safety block relief 14.0 MPa (sealed)
+All parts rated ≥ 16 MPa (cylinder ISO 6020-2 16 MPa; NG6 valves 31.5 MPa class; transmitter 0–16 MPa)
 ```
 
 ### 14.3 Step 3 – actuators
 
-- Lift Ø63/36 (docs/09: minimum bore 59.7 mm for 16.8 kN at 6 MPa → Ø63). At 6.0 MPa the cylinder could give
-  6.0e6 · 31.17e-4 · 0.95 = 17.8 kN; after the 0.68 MPa line/valve losses 5.32 MPa → 15.7 kN ≥ 13.4 kN ✓ (17 % margin). Buckling: short stroke, even fixed–free (K = 2, L_k = 2 · (2·60 +
-  150) = 540 mm) gives λ = 60 → not critical (Euler 586 kN, Tetmajer ≈ 300 kN ≫ 13.4 kN). Lowering: the load pulls →
-  meter-out throttles 1V3 + pilot-operated checks 1V2 (opening pressure 3.78 MPa / 3 = 1.26 MPa with ratio 3:1,
-  static load pressure m·g/A1 = 11 772 / 31.17e-4 = 3.78 MPa).
+- Lift Ø50/28 (docs/09 page rule: minimum bore 46.3 mm for 16.8 kN page force with 25 % at 10 MPa → Ø50). At the lowest
+  working pressure 10.0 MPa, after the 0.51 MPa losses: 9.49e6 · 19.635e-4 · 0.95 = **17.7 kN ≥ 16.6 kN ✓ (+7 %)**; at the
+  typical minimum 11.25 MPa during a change (pump helping): 20.0 kN (+21 %). Buckling: short stroke, even fixed–free
+  (K = 2, L_k = 2 · (2·60 + 150) = 540 mm) gives λ = 4·540/28 = 77 → not critical (Euler 214 kN, Tetmajer 177 kN ≫ 16.6 kN).
+  Lowering: the load pulls → meter-out throttles 1V3 + pilot-operated checks 1V2 (opening pressure 7.39 MPa / 3 = 2.46 MPa
+  with ratio 3:1, static load pressure m·g/A1 = 14 519 / 19.635e-4 = 7.39 MPa real; 6.0 MPa page mass).
+- Rod-side intensification if 1V3 closes completely during the lift: p2 = (p·A1 − m·g)/A2. Lightest real case (no pallets,
+  ≈ 460 kg) at the relief 13 MPa: (13 · 1 963.5 − 460 · 9.81)/1 347.7 = **15.6 MPa ≤ 16 MPa ✓** (without any weight it would
+  be 13 · 1.457 = 18.9 MPa) – so never set 0V1 above 13 MPa with an ISO 6020-2 cylinder.
 - Zero-point modules: bought complete; the release pressure (5 MPa) and the maximum pressure come from the module
-  datasheet; never feed them with the full 7.5 MPa – reducing valve 2V2.
+  datasheet; never feed them with the full 10–11.5 MPa – reducing valve 2V2.
 - Clamp ring: bought or made to docs/12; holding torque proportional to pressure: at the switch point 4.5 MPa →
   3 000 · 4.5 / 5 = **2 700 N·m** (check that this still holds the cutting torque with safety).
-- Natural frequency of the lift: **40.9 Hz** (§4.10) → on/off control with throttles is fine; soft stops by throttle.
+- Natural frequency of the lift: **28.5 Hz** (page mass) / 25.6 Hz (real mass) (§4.10) → on/off control with throttles is
+  fine; soft stops by throttle.
 
 ### 14.4 Steps 4–5 – flows and duty
 
 ```
-Lift      Q = 31.17 cm² · 4.5 m/min / 10 = 14.0 L/min (v = 60 mm / 0.8 s = 75 mm/s); outflow rod side 9.45 L/min
-Lower     pump side 20.99 · 4.5 / 10 = 9.45 L/min; outflow cap side 14.0 L/min (return line!)
+Lift      Q = 19.635 cm² · 4.5 m/min / 10 = 8.84 L/min (v = 60 mm / 0.8 s = 75 mm/s); outflow rod side 6.06 L/min
+          (peak 150 mm/s with the accumulator, triangle profile: 17.7 L/min)
+Lower     pump side 13.477 · 4.5 / 10 = 6.06 L/min; outflow cap side 8.84 L/min (return line!)
 Release   47.1 cm³ / 0.8 s = 3.5 L/min
 Clamp     36.8 cm³ / 0.5 s = 4.4 L/min
-Pallet change consumption  0.047 + 0.187 + 0.126 + 0.037 = 0.397 L in ≈ 6 s
-Per pallet (343.5 s, docs/09 tcyc): change 0.397 L + 10 table clamps 0.368 L + leakage 0.15 L/min · 5.7 min 0.86 L = 1.62 L
-Average 1.62 L / 5.725 min = 0.28 L/min; peak 14.0 L/min → peak / average ≈ 50 → small pump + accumulator
+Pallet change consumption  0.047 + 0.118 + 0.081 + 0.037 = 0.283 L in ≈ 6 s
+Per pallet (343.5 s, docs/09 tcyc): change 0.283 L + 10 table clamps 0.368 L + leakage 0.15 L/min · 5.7 min 0.86 L = 1.51 L
+Average 1.51 L / 5.725 min = 0.26 L/min; peak 8.84 L/min → peak / average ≈ 33 → small pump + accumulator
 ```
 
 Leakage 0.15 L/min is an **estimate** (spool valves, two reducing valves with pilot flow, rotary union) – measure it at
@@ -1448,76 +1462,85 @@ commissioning (pump on-time per hour, §16).
 
 ```
 Pump          smallest gear pump 4 cm³/rev → 4 · 1 450 · 0.93 / 1 000 = 5.39 L/min
-Motor         peak at cut-out 75 bar · 5.39 / (600 · 0.85) = 0.79 kW (105 % of 0.75 kW for ≈ 5 s)
-              torque 4 · 75 / (20π · 0.9) = 5.3 N·m vs 0.75 kW 4-pole ≈ 5.1 N·m rated → 0.75 kW OK (1.1 kW for margin)
-Accumulator   worst draw without pump help = release + lift back to back = 0.047 + 0.187 = 0.234 L
-              p1 = 6.0 g → 6.1 abs; p2 = 7.5 g → 7.6 abs; p0 = 0.9 · 6.1 = 5.49 abs = 5.39 MPa gauge
-              factor (5.49/6.1)^0.714 − (5.49/7.6)^0.714 = 0.9275 − 0.7927 = 0.1348
-              V0 = 0.234 / 0.1348 = 1.74 L; + 25 % = 2.17 L → 2.5 L bladder (isothermal would say 1.32 L)
-              check p2/p0 = 7.6 / 5.49 = 1.38 ≤ 4 ✓
-              usable oil 2.5 L × 0.1348 = 0.337 L (fast) / 0.444 L (slow, isothermal)
-Pressure after release + lift, starting at 7.5 MPa: gas 1.982 → 2.216 L → 6.40 MPa g ≥ 6.0 ✓ (≥ 5.2 needed ✓)
-Refill        during the 2.5 s rotation the pump gives 5.39 · 2.5 / 60 = 0.225 L ≈ the release + lift volume ✓
-Holding       leakage 0.15 L/min: 0.444 L / 0.15 L/min ≈ 178 s between charges; charge 0.444 / (5.39 − 0.15) · 60 = 5.1 s
-              → ≈ 20 pump load cycles per hour (unloading valve – the motor runs on, no motor starts)
+Motor         peak at cut-out 115 bar · 5.39 / (600 · 0.85) = 1.22 kW (for ≈ 2–4 s per charge)
+              torque 4 · 115 / (20π · 0.9) = 8.1 N·m vs 1.1 kW 4-pole ≈ 7.3 N·m rated (111 %) → 1.5 kW (≈ 9.9 N·m)
+Accumulator   worst draw without pump help = release + lift back to back = 0.047 + 0.118 = 0.165 L
+              p_min = 10.0 g → 10.1 abs; p2 = 11.5 g → 11.6 abs; p0 = 0.9 · 10.1 = 9.09 abs = 8.99 MPa gauge
+              factor (9.09/10.1)^0.714 − (9.09/11.6)^0.714 = 0.9275 − 0.8402 = 0.0873
+              V0 = 0.165 / 0.0873 = 1.89 L; + 25 % = 2.36 L → 2.5 L would be the smallest size (isothermal: 1.42 L)
+              start window with 2.5 L: p_start ≥ 11.10 MPa (only 0.4 MPa below the cut-out) → choose 4 L:
+              p_start = p0·(V/(V·(p0/p_min)^0.714 − 0.165))^1.4 − 0.1 = 10.66 → start interlock ≥ 10.7 MPa
+              check p2/p0 = 11.6 / 9.09 = 1.28 ≤ 4 ✓
+              usable oil 4 L between 11.5 and 10.0 MPa: 0.349 L (fast) / 0.466 L (slow, isothermal)
+Pressure after release + lift, no pump help: from 11.5 → 10.75 MPa; from 10.7 → 10.03 MPa (≥ 10.0 ✓, ≥ 9.40 needed ✓)
+              with the pump loading during the change the minimum is ≈ 11.25 MPa (docs/09 §24.2 timing diagram)
+Refill        during the 2.5 s rotation the pump gives 5.39 · 2.5 / 60 = 0.225 L ≥ the release + lift volume 0.165 L ✓
+Holding       cut-in 10.8 / cut-out 11.5: 0.201 L (slow) / 0.15 L/min ≈ 80 s between charges; charge 0.201 / (5.39 − 0.15) · 60
+              = 2.3 s → ≈ 43 pump load cycles per hour (unloading valve – the motor runs on, no motor starts)
 ```
 
-Consistency: docs/09 §9.2 found 1.39 L (adiabatic) for the lift alone (0.187 L) and recommended ≥ 1.75 L, often 2 or
-2.5 L. With the release volume added this guide gets 1.74 L → **2.5 L**, the same as the app preset "apc".
+Consistency: docs/09 §4.4 / §9.2 / §27 use the same numbers (4 L, p0 8.99 MPa, band 10.0 / 10.8 / 11.5 MPa, start ≥ 10.7,
+alarm < 10.0). The app preset "apc" shows 2.5 L and 0.75 kW because it puts 10 MPa at the **top** of its band and uses a
+15 kN design load (see §14.8).
 
-**Control rule (same lesson as §7.8):** if a pallet change starts at the cut-in pressure 6.0 MPa, the 2.5 L accumulator
-is **empty** before the lift ends (gas would need 2.55 L > 2.5 L). The PLC must start the change only when 0B2 ≥ ≈ 7.3
-MPa (or charge first). Put it in the step chain as a start condition.
+**Control rule (same lesson as §7.8):** if a pallet change starts at 10.0 MPa, release + lift end at 9.40 MPa – exactly the
+pressure the real mass needs, no reserve. The PLC must start the change only when 0B2 ≥ 10.7 MPa (or charge first) and
+must recharge to the cut-out after every movement. Put it in the step chain as a start condition; alarm < 10.0 MPa.
 
-Without accumulator (docs/09 alternative): pump 14 L/min at 6 MPa, relief 6.6 MPa, 6.0 · 14.03 / (60 · 0.85) =
-1.65 kW → **2.2 kW** motor, running all the time with unloading – more heat and noise, but simpler.
+Without accumulator (docs/09 alternative): pump 8.84 L/min (8 cm³/rev) at 10 MPa, relief 11 MPa, 10 · 8.84 / (60 · 0.85) =
+1.73 kW → **2.2 kW** motor, running all the time with unloading – more heat and noise, but simpler.
 
 ### 14.6 Step 9 – valves and settings
 
 | Tag | Element | Setting (example) | Why |
 |---|---|---|---|
-| 0V1 | pilot-operated relief | 8.5 MPa | ≥ 1.1 × cut-out 7.5 MPa |
-| 0V5 | unloading 2/2 NO solenoid valve | on below 6.0 MPa, off at 7.5 MPa (from 0B2) | pump unloads in the pauses, motor keeps running |
+| 0V1 | pilot-operated relief | 13.0 MPa | ≥ 1.1 × cut-out 11.5 MPa; ≤ 13 MPa because of the rod-side intensification (§14.3) |
+| 0V5 | unloading 2/2 NO solenoid valve | on below 10.8 MPa and after every movement, off at 11.5 MPa (from 0B2) | pump unloads in the pauses, motor keeps running |
 | 0V2 | check valve | 0.05 MPa | holds the accumulator when the pump unloads |
-| 0V3 | accumulator safety block | relief 10 MPa (sealed), manual discharge, shut-off | EN ISO 4413, PED |
-| 0B2 | pressure transmitter 0–16 MPa, 4–20 mA | PLC thresholds 6.0 / 7.5 MPa, alarm < 5.5 MPa | diagnosis + pump control; better than a mechanical switch |
-| 1V1 | 4/3 NG6, centre P blocked, A + B → T | 24 V DC, Δp ≈ 0.08 MPa per path at 14 L/min | float centre for the pilot checks |
-| 1V2 | double pilot-operated check (sandwich) | ratio 3:1 → opens at ≈ 1.3 MPa | arm cannot fall |
-| 1V3 | double throttle check (sandwich), meter-out | set for 0.8 s and a soft stop | speed + cushioning |
+| 0V3 | accumulator safety block | relief 14 MPa (sealed), manual discharge, shut-off | EN ISO 4413, PED |
+| 0B2 | pressure transmitter 0–16 MPa, 4–20 mA | PLC thresholds cut-in 10.8 / cut-out 11.5 / start ≥ 10.7 MPa, alarm < 10.0 MPa | diagnosis + pump control; better than a mechanical switch |
+| 1V1 | 4/3 NG6, centre P blocked, A + B → T | 24 V DC, Δp ≈ 0.03 MPa per path at 8.8 L/min | float centre for the pilot checks |
+| 1V2 | double pilot-operated check (sandwich) | ratio 3:1 → opens at ≈ 2.5 MPa | arm cannot fall |
+| 1V3 | double throttle check (sandwich), meter-out | set for 0.8 s and a soft stop (lowering orifice ≈ 1.8 mm²) | speed + cushioning |
 | 2V2 / 3V2 | pressure reducing valves | 5.0 MPa each; drain free to tank | never more than the module / ring rating; 3-way (relieving) type takes thermal expansion |
 | 2V1 | 3/2 solenoid valve, spring return | de-energised = A → T = modules clamped | fail-safe clamp by springs |
 | 2S1 | pressure switch (or transmitter) | "unclamped" ≥ 4.5 MPa rising; "vented" ≤ 0.5 MPa | step chain condition; docs/09 uses two switches %I20.6 / %I20.7 |
 | 3V3 | check valve before 3V1 | – | holds the clamp pressure if the header drops |
 | 3V1 | 3/2 **seat** valve (leak-free), spring return | de-energised = P → A = clamped | holds pressure without leakage, clamps at power loss |
 | 3S1 | pressure switch | "clamped" ≥ 4.5 MPa (2 700 N·m) | PLC interlock: no cutting below it |
-| 0R1 | rotary union (B-axis) | oil 10 MPa + air passages (docs/09 §5) | brings release oil to the turning table |
+| 0R1 | rotary union (B-axis) | oil ≥ 10 MPa rating (sees 5 MPa after 2V2) + air passages (docs/09 §5) | brings release oil to the turning table |
 
 ### 14.7 Steps 10–12 – lines, tank, oil, filters
 
 | Line | Flow | Tube / hose | Velocity | Δp |
 |---|---|---|---|---|
-| pressure header | 14.0 L/min | 12×1.5 (ID 9), Barlow 10 · 12 / 3 = 40 MPa ≤ 60 ✓ | 3.68 m/s, Re 719 | 0.23 MPa / 4 m |
-| return header | 14.0 L/min (cap side when lowering) | 16×2 (ID 12) | 2.07 m/s | 0.074 MPa / 4 m |
+| pressure header | 8.84 L/min (17.7 peak) | 12×1.5 (ID 9), Barlow 13 · 12 / 3 = 52 MPa ≤ 60 ✓ | 2.31 m/s (4.6 peak), Re 452 | 0.146 MPa / 4 m |
+| return header | 8.84 L/min (cap side when lowering) | 16×2 (ID 12) | 1.30 m/s | 0.047 MPa / 4 m |
 | suction | 5.4 L/min | 16×2 (ID 12) | 0.79 m/s | 0.004 MPa |
 | clamp / release branches | 4.4 L/min | 8×1 (ID 6) | 2.61 m/s | 0.56 MPa / 6 m – only while moving; at hold the full 5 MPa |
 
-Heat: the pump is loaded ≈ 5 % of the time; average loss ≈ 0.07 kW → 25 L tank (A 0.556 m², 0.20 kW cooling at
-ΔT 30 K) gives ΔT ≈ 10 K → **no cooler**. Oil: ISO VG 32 or 46 as the clamp and rotary union makers specify (docs/12).
-Cleanliness target **17/15/12** (zero-point modules, rotary union) → return filter 10 µm β10(c) ≥ 200, breather 3 µm,
-filling through a filter; flush the branches before connecting the modules (docs/09 §5 step 7).
+Cold oil (10 °C, ν ≈ 200 mm²/s) raises the pressure-header loss to ≈ 0.63 MPa → the real mass then needs ≈ 9.9 MPa →
+oil ≥ 20 °C as a start condition (docs/09 §24.2). Heat: the pump is loaded ≈ 5 % of the time; average loss ≈ 0.09 kW → 25 L
+tank (A 0.556 m², 0.20 kW cooling at ΔT 30 K) gives ΔT ≈ 13 K → **no cooler**. Oil: ISO VG 32 or 46 as the clamp and
+rotary union makers specify (docs/12). Cleanliness target **17/15/12** (zero-point modules, rotary union) → return filter
+10 µm β10(c) ≥ 200, breather 3 µm, filling through a filter; flush the branches before connecting the modules (docs/09 §5
+step 7).
 
 ### 14.8 Result – compared with the app presets
 
-| Item | This guide (example 2) | App preset "apc" (docs/30 §6) | docs/09 |
-|---|---|---|---|
-| pressure | 6.0–7.5 MPa accumulator, relief 8.5 | p_sys 10 MPa | 6 MPa (no acc.) / 7.5 + relief 8.3 (with acc.) |
-| lift cylinder | Ø63/36 (docs/09 mechanics, 1 200 kg incl. accel.) | Ø50/28 (load 15 kN at 10 MPa) | Ø63/36 |
-| pump / motor | 4 cm³/rev, 0.75 kW | 4 cm³/rev, 0.75 kW | 14 L/min, 2.2 kW (no acc.) |
-| accumulator | 2.5 L, p0 5.39 MPa | 2.5 L | 1.4 L (corrected ≥ 1.75 L) |
-| tank / cooler | 25 L, none | 25 L, none | 56 L, cooler listed |
+| Item | This guide (example 2) = docs/09 (decided 2026-11-12) | App preset "apc" (docs/30 §6) |
+|---|---|---|
+| pressure | 10.0 (lowest) / 10.8 / 11.5 MPa accumulator, relief 13, safety block 14 | p_sys 10 MPa = top of the band (bottom ≈ 9.0 from the load), relief 11 |
+| lift cylinder | **Ø50/28** (real mass 1 480 kg, 16.6 kN, reserve +7 % at 10 MPa) | **Ø50/28** (load 15 kN) |
+| pump / motor | 4 cm³/rev, **1.5 kW** | 4 cm³/rev, 0.75 kW |
+| accumulator | **4 L**, p0 8.99 MPa (start ≥ 10.7 MPa) | 2.5 L |
+| tank / cooler | 25 L, none | 25 L, none |
 
-The preset uses 10 MPa and so gets a smaller bore; this guide follows the machine design of docs/09 (6 MPa class,
-Ø63). Both are valid – the lower pressure means less leakage and noise at the machine-tool clamps.
+Same cylinder and pressure class in the guide, docs/09 and the preset. The preset is the sizing method with a simpler
+band and the page force; the machine (docs/09 §27) needs the band above 10 MPa, the 4 L accumulator and the 1.5 kW motor
+because of the real lifted mass. Note: with 16.6 kN typed into the preset, its flat 15 % loss allowance would select Ø63
+(A_req 20.6 cm² → Ø51.2) – the calculated losses here are only 0.51 MPa (5 %), which is why Ø50 is valid with the band of
+§14.2.
 
 ---
 
@@ -1530,12 +1553,12 @@ The preset uses 10 MPa and so gets a smaller bore; this guide follows the machin
 | 1 | visual check | circuit vs. drawing, tags, hose routing, clamps, whip restraints, no open ports | check list |
 | 2 | flushing | §10.5 – turbulent, sensitive parts bypassed, until target class (18/16/13 / 17/15/12) | flushing report |
 | 3 | fill oil | through a 10 µm filter cart; oil type on the nameplate; level between marks | oil batch no. |
-| 4 | pre-charge accumulator | nitrogen, oil side at 0 MPa: example 1: 6.97 MPa g, example 2: 5.39 MPa g (at 20 °C; correct for temperature) | value + date |
+| 4 | pre-charge accumulator | nitrogen, oil side at 0 MPa: example 1: 6.97 MPa g, example 2: 8.99 MPa g (at 20 °C; correct for temperature) | value + date |
 | 5 | electrical checks | motor direction (jog!), solenoid voltages 24 V DC, sensor signals to the PLC | I/O check list |
 | 6 | first start | relief fully open (backed off), pump unloaded, jog motor, listen; pump must deliver within seconds (fill the pump case of piston pumps first!) | – |
 | 7 | venting | move every actuator slowly over the full stroke several times with low pressure; open bleed screws at the high points; until movements are smooth (no air = no sponginess, §4.9) | – |
-| 8 | set the relief | raise slowly to the setting with the flow blocked (valve centre / actuator at end stop): ex. 1 10 MPa (C: 11 MPa), ex. 2 8.5 MPa; seal and label | set value |
-| 9 | set pump controls | compensator / pressure switch / transmitter thresholds: ex. 1 cut-out 10.0 / cut-in 8.1; ex. 2 7.5 / 6.0 MPa | values |
+| 8 | set the relief | raise slowly to the setting with the flow blocked (valve centre / actuator at end stop): ex. 1 10 MPa (C: 11 MPa), ex. 2 13 MPa; seal and label | set value |
+| 9 | set pump controls | compensator / pressure switch / transmitter thresholds: ex. 1 cut-out 10.0 / cut-in 8.1; ex. 2 cut-out 11.5 / cut-in 10.8, start ≥ 10.7, alarm < 10.0 MPa | values |
 | 10 | set reducing valves | ex. 2: 2V2, 3V2 = 5.0 MPa (read at the test point downstream, with flow then without) | values |
 | 11 | set holding valves | counterbalance (if used) 8.3 MPa; check that the load holds 10 min at the top with the pump off (drift < limit) | drift test |
 | 12 | set speeds | throttles 1V3 for 2 s / 0.8 s strokes and soft stops; cushions | stroke times |
@@ -1578,8 +1601,8 @@ The preset uses 10 MPa and so gets a smaller bore; this guide follows the machin
 |---|---|---|---|
 | oil temperature | PT100 / switch in the tank | 40–55 °C | > 60 °C alarm, > 70 °C stop – unloading not working, cooler dirty |
 | filter Δp | electric clogging indicator / Δp transmitter | indicator off | switching → change element; trend shows the dirt ingression rate |
-| system pressure | transmitter 0B2 | ex. 2: 6.0–7.5 MPa cycling | slow pressure decay = internal leakage rising |
-| pump load cycles per hour | PLC counter (0V5 / pump on-time) | ex. 2: ≈ 20 / h (leakage 0.15 L/min) | 40 / h → leakage doubled (worn valve, rotary union) |
+| system pressure | transmitter 0B2 | ex. 2: 10.8–11.5 MPa cycling (≥ 11.2 MPa during a change) | slow pressure decay = internal leakage rising; < 10.0 MPa = alarm (real lift mass needs 9.4 MPa) |
+| pump load cycles per hour | PLC counter (0V5 / pump on-time) | ex. 2: ≈ 43 / h (leakage 0.15 L/min, band 10.8–11.5 MPa, 4 L) | ≈ 85 / h → leakage doubled (worn valve, rotary union) |
 | stroke times | PLC timers | 0.8 s lift | + 20 % → pressure low, pump worn, throttle shifted |
 | case drain flow (piston pumps) | flow meter in the drain line (test) | new pump: e.g. 1–3 % of the max flow – see datasheet; A10VSO 18 has 26.1 L/min geometric flow → ≈ 0.3–0.8 L/min | 2 × the new value → plan the pump overhaul |
 | motor current / power | drive / power meter | baseline per cycle | rising → mechanical friction, cold oil |
@@ -1625,7 +1648,7 @@ yes/no. The app generates a parts list from the sizing (guide 30 §5 "Parts list
 
 For each actuator: what it does, start conditions (interlocks), step sequence, valve states per step, signals and
 time-outs, behaviour at emergency stop and power loss, manual mode. Example (example 2, step "lift"): start condition
-"2S1 unclamped AND 0B2 ≥ 7.3 MPa AND operator outside"; action 1Y1 on; end condition "1B1 arm up" within 1.5 s, else
+"2S1 unclamped AND 0B2 ≥ 10.7 MPa AND operator outside"; action 1Y1 on; end condition "1B1 arm up" within 1.5 s, else
 alarm "lift time-out"; power loss: 1V2 holds the arm, 2V1 off → modules clamp (the pallet is lifted – no harm).
 
 ### 17.4 Further documents
@@ -1650,8 +1673,8 @@ How to read these tables:
 
 | Spec (from the guide) | Maker + model (examples) | Key data (class) | Price class | Check in the datasheet |
 |---|---|---|---|---|
-| E2: 0.75 kW, 5.4 L/min, 7.5 MPa, 25 L, accumulator 2.5 L, 3 circuits | **HAWE** compact hydraulic power packs (e.g. types HK / HC / KA / MP families) with HAWE valve banks | compact units for machine tools and clamping, small motors, tank from a few litres – see datasheet | medium–high | pump size, tank volume, accumulator option, pressure switch, valve bank fits our 3 circuits |
-| E1 option D / E2: compact unit with variable-speed drive | **Bosch Rexroth CytroPac** (compact unit with frequency-controlled pump drive, integrated cooling) | small tank (≈ 20 L class), motor power and max pressure – see datasheet | high | power vs our 0.75–3 kW, pressure, noise dB(A), integrated sensors, IO-Link / fieldbus |
+| E2: 1.5 kW, 5.4 L/min, 11.5 MPa cut-out (relief 13), 25 L, accumulator 4 L, 3 circuits | **HAWE** compact hydraulic power packs (e.g. types HK / HC / KA / MP families) with HAWE valve banks | compact units for machine tools and clamping, small motors, tank from a few litres – see datasheet | medium–high | pump size, tank volume, accumulator option, pressure switch, valve bank fits our 3 circuits |
+| E1 option D / E2: compact unit with variable-speed drive | **Bosch Rexroth CytroPac** (compact unit with frequency-controlled pump drive, integrated cooling) | small tank (≈ 20 L class), motor power and max pressure – see datasheet | high | power vs our 0.75–3 kW (E2 1.5 kW), pressure, noise dB(A), integrated sensors, IO-Link / fieldbus |
 | E1 option A: 3 kW, 18.9 L/min, 10 MPa, 63 L | **Bosch Rexroth ABPAC** (modular standard power units) | standard tank sizes, motor-pump groups, add-on valve plates – see datasheet | high | tank size, pump type, cooler, filter, valve plate pattern NG6 |
 | any: standard / custom units | **Parker** hydraulic power units (compact and standard), **Hydac** power units (standard and custom) | see datasheet | medium–very high | as above + documentation package (ISO 1219, EN ISO 4413, PED) |
 
@@ -1669,7 +1692,7 @@ How to read these tables:
 
 | Spec | Maker + model (examples) | Key data (class) | Price class | Check |
 |---|---|---|---|---|
-| E1-C / E2: **0.75 kW**, frame 80M, B5 / B35 (V1 vertical on the lid) | **Siemens SIMOTICS GP / SD** (1LE1 series), **ABB** process / general performance (M3AA / M3BP families), **WEG W22** | IE3 η ≥ 82.5 % (IEC 60034-30-1), ≈ 1 400 rpm, 400 V Δ / 690 V Y or 230/400 V | low | mounting (B5 flange for the bell housing, V1 position allowed?), thermistor (PTC), protection IP55, duty S1 / S3 |
+| E1-C: **0.75 kW**, frame 80M; E2: **1.5 kW**, frame 90L (peak 8.1 N·m at 11.5 MPa); B5 / B35 (V1 vertical on the lid) | **Siemens SIMOTICS GP / SD** (1LE1 series), **ABB** process / general performance (M3AA / M3BP families), **WEG W22** | IE3 η ≥ 82.5 % (IEC 60034-30-1), ≈ 1 400 rpm, 400 V Δ / 690 V Y or 230/400 V | low | mounting (B5 flange for the bell housing, V1 position allowed?), thermistor (PTC), protection IP55, duty S1 / S3 |
 | E1-A: **3 kW**, frame 100L | same series | IE3 η ≥ 87.7 %, ≈ 1 430 rpm, rated torque ≈ 20 N·m | low | as above; starting current, soft starter or star-delta |
 | D: servo motor for a servo pump | Siemens SIMOTICS S, Bosch Rexroth MS2N, etc. | torque at low speed, cooling | high | standstill torque (pressure holding), encoder, drive |
 
@@ -1686,7 +1709,7 @@ How to read these tables:
 
 | Spec | Maker + model (examples) | Key data (class) | Price class | Check |
 |---|---|---|---|---|
-| 0V1 relief: E1 10 / 11 MPa, E2 8.5 MPa, ≥ 20 L/min | **Bosch Rexroth DBDS** (direct operated, inline / cartridge), Rexroth DB / DBW (pilot operated, DBW with unloading solenoid), **Sun Hydraulics** RDDA (direct) / RPEC (pilot) cartridges | direct: fast, small flow; pilot: flat p–Q curve; spring ranges in steps (e.g. up to 5 / 10 / 20 / 31.5 MPa) – see datasheet | low | spring range containing our setting, override (p–Q curve), sealable adjustment |
+| 0V1 relief: E1 10 / 11 MPa, E2 13 MPa, ≥ 20 L/min | **Bosch Rexroth DBDS** (direct operated, inline / cartridge), Rexroth DB / DBW (pilot operated, DBW with unloading solenoid), **Sun Hydraulics** RDDA (direct) / RPEC (pilot) cartridges | direct: fast, small flow; pilot: flat p–Q curve; spring ranges in steps (e.g. up to 5 / 10 / 20 / 31.5 MPa) – see datasheet | low | spring range containing our setting, override (p–Q curve), sealable adjustment |
 | 2V2 / 3V2 reducing 5.0 MPa, ≤ 5 L/min | **Bosch Rexroth DR6DP** (NG6 sandwich / subplate, direct operated), Rexroth DR (pilot), **Sun** PRDB (reducing / relieving cartridge), HAWE CDK / ADM types | 3-way (relieving) types protect against thermal rise – see datasheet | low | reducing **and relieving** function, drain (Y) to tank, pilot flow (adds to the leakage!), outlet range |
 | E2 0V5 unloading / accumulator charging | Rexroth DA (pilot-operated unloading valve with check), HAWE accumulator charging valves (see catalogue), or a 2/2 solenoid valve + pressure transmitter (as drawn) | switching hysteresis fixed or adjustable – see datasheet | low–medium | hysteresis (cut-in / cut-out) range, integrated check valve |
 | pressure switches 2S1 / 3S1 / 0S2 | **Hydac EDS 3000** (electronic pressure switch with display), mechanical piston switches (Rexroth HED, Hydac EDS / mechanical types) | switching points + hysteresis adjustable, PNP outputs, IO-Link options – see datasheet | low | switching accuracy, hysteresis, max pressure, connector M12 |
@@ -1711,7 +1734,7 @@ How to read these tables:
 | Spec | Maker + model (examples) | Key data (class) | Price class | Check |
 |---|---|---|---|---|
 | E1-C 0Z5: bladder **5 L**, p0 6.97 MPa, ≥ 16 MPa | **Hydac SB330** (bladder, sizes ≈ 0.5–50 L, 33 MPa class), **Parker / Olaer** EHV bladder accumulators, **Bosch Rexroth HAB** | max pressure (e.g. 33 MPa), max pressure ratio (≈ 4:1 for bladders), max flow of the oil valve – see datasheet | medium | PED category + declaration, gas valve type, bladder material for our oil (NBR for HLP), mounting clamps |
-| E2: bladder **2.5 L**, p0 5.39 MPa | Hydac SB330-2.5, Olaer EHV 2.5, Rexroth HAB 2.5 | as above | low–medium | as above |
+| E2: bladder **4 L**, p0 8.99 MPa | Hydac SB330-4, Olaer EHV 4, Rexroth HAB 4 | as above | low–medium | as above |
 | small volumes (≤ 1–2 L), clamping circuits | **Hydac SBO** diaphragm accumulators, Parker / Rexroth diaphragm types | welded diaphragm types, high pressure ratio – see datasheet | low | not refillable / refillable gas side |
 | 0V3 safety + shut-off block | **Hydac SAF** (SAF10 / SAF20 / SAF32 sizes); equivalent blocks from Rexroth / Parker (see catalogue) | shut-off ball valve, safety relief (TÜV / PED type-tested), manual + optional solenoid discharge – see datasheet | low–medium | relief setting ≤ accumulator max, type test certificate, solenoid discharge NO for auto-discharge |
 | charging and gauging unit | Hydac FPU, Parker / Olaer charging kits | for nitrogen pre-charge checks | low | thread of the gas valve |
@@ -1739,7 +1762,7 @@ How to read these tables:
 | 0B2 pressure transmitter 0–16 MPa, 4–20 mA | **Hydac HDA 4000** series (HDA 4400 / 4700), **WIKA** S-20 / A-10, **Parker SensoControl** SCP sensors, ifm PT series | accuracy ≈ ± 0.25–1 % FS by type, overload ≥ 2 × range – see datasheet | low | accuracy class, overload / burst, pressure peaks (snubber), connector, IO-Link |
 | pressure switches | Hydac EDS 3000, ifm PN, WIKA PSD | see §18.5 | low | – |
 | temperature + level | Hydac ENS / ETS level and temperature sensors, Hydac FSA/FSK sight glasses | switching points, PT100 output – see datasheet | low | tank wall / lid mounting, length |
-| gauges | WIKA 213.53 / 232.50 (glycerine filled), Hydac / Stauff gauges | class 1.0–1.6, range ≈ 1.5–2 × working pressure | low | range 0–16 MPa (E1), 0–10 MPa (E2), snubber, gauge isolator |
+| gauges | WIKA 213.53 / 232.50 (glycerine filled), Hydac / Stauff gauges | class 1.0–1.6, range ≈ 1.5–2 × working pressure | low | range 0–16 MPa (E1), 0–16 MPa (E2, 10–11.5 MPa working), snubber, gauge isolator |
 | test points | M16×2 test couplings (Minimess-style: Hydrotechnik, Stauff, Parker, Hydac) | ≈ 40–63 MPa class – see datasheet | low | thread to the port, protective caps |
 | cylinder position sensors | inductive proximity switches (end positions), magnetostrictive in-cylinder sensors (MTS Temposonics, Balluff BTL) | see datasheet | low–high | pressure rating of the sensor tube, output |
 
@@ -1780,23 +1803,23 @@ All items "example – check the supplier's catalogue"; price class "estimate �
 | Pos | Tag | Qty | Item | Spec (from §14) | Example series (§18) | Price class |
 |---|---|---|---|---|---|---|
 | 1 | 0Z1 | 1 | tank / compact power pack | 25 L, baffle, lid, drain, clean-out | HAWE / Rexroth / Hydac compact unit | medium–high (complete unit) |
-| 2 | 0M1 | 1 | electric motor | 0.75 kW 4-pole IE3, B5 V1, PTC | Siemens SIMOTICS GP, ABB, WEG W22 | low |
-| 3 | 0P1 | 1 | gear pump | 4 cm³/rev, ≥ 10 MPa continuous | Rexroth AZPF, Casappa, Marzocchi, Parker PGP | low |
-| 4 | – | 1 | bell housing + elastic coupling + damping ring | for frame 80 / pump flange | KTR / R+W / Raja-Lovejoy type | low |
-| 5 | 0V1 | 1 | pressure relief, pilot operated | 8.5 MPa, ≥ 10 L/min, sealed | Rexroth DB / Sun RPEC | low |
+| 2 | 0M1 | 1 | electric motor | 1.5 kW 4-pole IE3 (frame 90L), B5 V1, PTC | Siemens SIMOTICS GP, ABB, WEG W22 | low |
+| 3 | 0P1 | 1 | gear pump | 4 cm³/rev, ≥ 13 MPa continuous | Rexroth AZPF, Casappa, Marzocchi, Parker PGP | low |
+| 4 | – | 1 | bell housing + elastic coupling + damping ring | for frame 90 / pump flange | KTR / R+W / Raja-Lovejoy type | low |
+| 5 | 0V1 | 1 | pressure relief, pilot operated | 13 MPa, ≥ 10 L/min, sealed | Rexroth DB / Sun RPEC | low |
 | 6 | 0V2 | 1 | check valve | 0.05 MPa | Rexroth S / Sun CXxx | low |
 | 7 | 0V5 | 1 | unloading 2/2 solenoid valve NO | NG6 / cartridge, 24 V DC | Rexroth / HAWE / Sun | low |
 | 8 | 0B2 | 1 | pressure transmitter | 0–16 MPa, 4–20 mA | Hydac HDA 4400, WIKA S-20 | low |
-| 9 | 0Z5 | 1 | bladder accumulator | 2.5 L, p0 5.39 MPa g, PED | Hydac SB330-2.5, Olaer EHV, Rexroth HAB | low–medium |
-| 10 | 0V3 | 1 | safety + shut-off block | relief 10 MPa sealed, manual + solenoid discharge | Hydac SAF10 | low–medium |
+| 9 | 0Z5 | 1 | bladder accumulator | 4 L, p0 8.99 MPa g, PED | Hydac SB330-4, Olaer EHV, Rexroth HAB | low–medium |
+| 10 | 0V3 | 1 | safety + shut-off block | relief 14 MPa sealed, manual + solenoid discharge | Hydac SAF10 | low–medium |
 | 11 | 0Z3 | 1 | return filter + electric indicator | ≈ 40 L/min, 10 µm β10(c) ≥ 200, bypass 0.3 MPa | Hydac RFM, Argo-Hytos, Parker, Donaldson | low |
 | 12 | 0Z4 | 1 | breather / filler | 3 µm | Hydac ELF / BF | low |
 | 13 | 0S3 | 1 | level + temperature sensor, sight glass | min level, 60 °C alarm | Hydac ENS / FSK | low |
-| 14 | 0S1, 0X1 | 1 + 4 | gauge 0–10 MPa + test points M16×2 | class 1.6 | WIKA 213.53, Minimess-style | low |
+| 14 | 0S1, 0X1 | 1 + 4 | gauge 0–16 MPa + test points M16×2 | class 1.6 | WIKA 213.53, Minimess-style | low |
 | 15 | 1V1 | 1 | 4/3 solenoid valve NG6, centre P blocked / A, B → T | 24 V DC, LED plugs | Rexroth 4WE6 (symbol "J" – check), Parker D1VW, Atos DHI | low |
 | 16 | 1V2 | 1 | double pilot-operated check, sandwich NG6 | ratio ≈ 3:1 | Rexroth Z2S 6 | low |
 | 17 | 1V3 | 1 | double throttle check, sandwich NG6 | meter-out | Rexroth Z2FS 6 | low |
-| 18 | 1A1 | 1 | lift cylinder (if not part of the APC supply) | Ø63/36 × 60, cushions both ends, ISO 6020-2 | cylinder makers (Rexroth CDT3/CDH, Parker, Hänchen …) | medium |
+| 18 | 1A1 | 1 | lift cylinder (if not part of the APC supply) | **Ø50/28 × 60** (decided 2026-11-12), cushions both ends, ISO 6020-2 16 MPa, cap-side test port | cylinder makers (Rexroth CDT3 – CDH1 25 MPa only if the band is raised, docs/09 §20.2; Parker HMI, Hänchen …) | medium |
 | 19 | 1B1/1B2 | 2 | inductive sensors arm up / down | PNP, M12 | ifm, Balluff, Sick | low |
 | 20 | 2V2, 3V2 | 2 | pressure reducing (relieving) valves | 5.0 MPa, drain to T | Rexroth DR6DP, Sun PRDB | low |
 | 21 | 2V1 | 1 | 3/2 solenoid valve, spring return (off = A → T) | NG6 / cartridge, 24 V DC | Rexroth / HAWE | low |
@@ -1806,7 +1829,7 @@ All items "example – check the supplier's catalogue"; price class "estimate �
 | 25 | – | 1 | manifold / subplates for the NG6 stacks + cartridges | aluminium or steel, ISO 4401-03 | supplier | medium |
 | 26 | – | set | tubes 12×1.5, 16×2, 8×1 + 24° fittings L series | EN 10305-4, ISO 8434-1 | Parker EO-2, Voss | low |
 | 27 | – | set | hoses to the machine + whip restraints | 2SN DN 6 / 10 / 12, 4:1 | Parker, Manuli, Gates | low |
-| 28 | 0R1 | 1 | rotary union (if not in the HMC table supply) | oil 10 MPa + air passages | rotary union makers (Deublin, GAT, Kadant …) | medium–high |
+| 28 | 0R1 | 1 | rotary union (if not in the HMC table supply) | oil ≥ 10 MPa (sees 5 MPa after 2V2) + air passages | rotary union makers (Deublin, GAT, Kadant …) | medium–high |
 | 29 | – | 30 L | hydraulic oil HLP 32 or 46 (as clamp maker specifies) | DIN 51524-2 | Shell Tellus S2 MX, Mobil DTE 24/25, Fuchs Renolin B | low |
 | 30 | – | – | flushing service + oil sample + documents | 17/15/12 report, ISO 1219-2, PED, EN ISO 4413 list | supplier | medium |
 | – | 2A1–2A4, 3A1 | – | zero-point modules and table clamp ring | bought with the APC / table (docs/09, docs/12) | – | – |
@@ -1949,10 +1972,10 @@ All checked with Python (stdlib) scripts in the scratchpad of this task.
 | 4 | old guide 25 step 7 / 11 | option names: "B" = pump + accumulator | in guide 30 and in the app **B = variable pump, C = pump + accumulator** | naming note added |
 | 5 | app `web/hydckt_size.js` (accumulator option) and guide 30 §5 step 6 | relief R.relief = p_sys = 10 MPa **and** accumulator cut-out p2 = 10 MPa | a relief at the cut-out pressure opens before the pump can unload (relief cracking is below the setting) → relief ≥ 1.1 × cut-out = **11 MPa** (all parts ≥ 16 MPa), or keep the relief at 10 MPa and set cut-out ≈ 9 MPa (then re-size the accumulator). The app check only compares the relief with 1.1 × the working pressure (8.53 MPa) | **lead: change the app check and guide 30 §5 step 6** |
 | 6 | guide 30 §5 step 4 | "78 bar · 18.9 / 510 = 2.87 kW" | 78 · 18.9 / 510 = 2.89 kW; the app uses 77.5 bar (6.75 + 1.0 MPa) → 77.5 · 18.88 / 510 = 2.87 kW ✓ | write "77.5 bar" in guide 30 (cosmetic) |
-| 7 | app accumulator logic (duty-cycle simulation in this guide) | V0 sized for one stroke from p2, pressure switch with hysteresis 10 / 8.1 MPa | with a plain hysteresis the extend can start at ≈ 8.6 MPa and ends at **7.10–7.49 MPa < 7.75 needed** (7.10 without, 7.49 with the pump flow) every second cycle → the PLC must charge to cut-out after every movement (or the cut-in must be ≥ the pressure that still gives ΔV). Same for docs/09 / example 2 (start the pallet change only at ≥ ≈ 7.3 MPa) | rule added §7.8, §14.5, §17.3; **done 2026-11-12: docs/09 §9.2 item 4 + app sizing settings (relief 11 MPa, PLC charging logic)** |
-| 8 | docs/09 §4.12 / §5.7 (already noted in docs/09 §9.2) | relief p + 10 % = 6.6 MPa with an accumulator charged to 7.5 MPa | relief ≥ 1.1 × 7.5 → 8.3–8.5 MPa | docs/09 §9.2 has it; this guide uses 8.5 MPa |
-| 9 | docs/09 §4.4 accumulator 1.4 L | isothermal, lift only | adiabatic lift only 1.39 L (verified: 1.386 L); with the zero-point release volume 0.234 L → 1.74 L → **2.5 L** (+25 %) | §14.5 |
-| 10 | app preset "apc" vs docs/09 | preset: Ø50/28 at 10 MPa; docs/09: Ø63/36 at 6 MPa | both valid at their pressure; this guide follows docs/09 (machine design) and shows both in §14.8 | lead may align the preset to docs/09 (p 7.5 MPa, Ø63/36, F 13.4 kN) |
+| 7 | app accumulator logic (duty-cycle simulation in this guide) | V0 sized for one stroke from p2, pressure switch with hysteresis 10 / 8.1 MPa | with a plain hysteresis the extend can start at ≈ 8.6 MPa and ends at **7.10–7.49 MPa < 7.75 needed** (7.10 without, 7.49 with the pump flow) every second cycle → the PLC must charge to cut-out after every movement (or the cut-in must be ≥ the pressure that still gives ΔV). Same for docs/09 / example 2 (start the pallet change only at ≥ 10.7 MPa since the 2026-11-12 decision Ø50/28 at 10 MPa; before ≥ 7.3 MPa) | rule added §7.8, §14.5, §17.3; **done 2026-11-12: docs/09 §9.2 item 4 + app sizing settings (relief 11 MPa, PLC charging logic)** |
+| 8 | docs/09 §4.12 / §5.7 (already noted in docs/09 §9.2) | relief p + 10 % = 6.6 MPa with an accumulator charged to 7.5 MPa | relief ≥ 1.1 × cut-out | superseded 2026-11-12: band 10.0–11.5 MPa → relief 13 MPa in docs/09 and §14 |
+| 9 | docs/09 §4.4 accumulator 1.4 L | isothermal, lift only | superseded 2026-11-12 (Ø50/28 at 10 MPa): release + lift 0.165 L, adiabatic V0 1.89 L → 2.5 L minimum, **4 L** chosen for the start window (≥ 10.7 MPa); `web/apc3d.js` now uses this method | §14.5 |
+| 10 | app preset "apc" vs docs/09 | preset: Ø50/28 at 10 MPa; docs/09: Ø63/36 at 6 MPa | **decided 2026-11-12 by the user: Ø50/28 at 10 MPa** everywhere (docs/09, §14, apc.js default 10 MPa); the preset stays as it is (same bore and pressure class; simpler band, 15 kN) – §14.8 | **done** |
 | 11 | guide 29 §3, 25 old | "Re = 870" | exact Re = 863 (v 3.97 m/s); λ 0.0742, Δp 0.153 MPa – rounding only | – |
 
 No error found in the guide 29 key-formula table (all 23 values re-computed: pump 18.68 L/min, 2.86 kW, motor 378.8 N·m,
@@ -1982,7 +2005,7 @@ Euler 47.3 / 115.6 kN, accumulator 4.15 / 3.17 L, orifice 13.1 L/min / 3.57 mm, 
 | ISO 8434-1 | 24° cone connectors (metal tube fittings) | §7.10 |
 | ISO 1179 / ISO 6149 | Ports and stud ends (G thread / metric with O-ring) | §7.10 |
 | ISO 6162 | SAE flange connections | guide 29 §14.4 |
-| EN 853 / EN 856 / EN 857, ISO 18752 | Rubber hoses (wire braided / spiral) | §7.10 |
+| EN 853 / EN 856 / EN 857, ISO 18752 | Rubber hoses (wire braided / spiral) – being replaced by EN ISO 1436 / ISO 3862 – check | §7.10 |
 | DIN 20066 | Hose assemblies – dimensions, requirements (incl. use period guidance) | §16.1 |
 | EN 10305-4 | Seamless cold-drawn tubes for hydraulic systems | §7.10 |
 | ISO 3448 | Viscosity grades (ISO VG) | §4.4 |

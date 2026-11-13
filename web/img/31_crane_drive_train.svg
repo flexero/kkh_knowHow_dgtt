@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>Stacker crane drive trains – travel and hoist</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="818" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="24.0" y="30.0" font-size="12.5" text-anchor="start" font-weight="bold" fill="#000">Travel drive (one driven wheel)</text>
+<rect x="40.0" y="120.0" width="70.0" height="80.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="75.0" y="156.0" font-size="11.5" text-anchor="middle" fill="#000">encoder</text>
+<rect x="120.0" y="120.0" width="120.0" height="80.0" rx="0" fill="#eef3fb" stroke="#000" stroke-width="1.2"/>
+<text x="180.0" y="156.0" font-size="11.5" text-anchor="middle" fill="#000">motor 7.5 kW</text>
+<text x="180.0" y="171.0" font-size="11.5" text-anchor="middle" fill="#000">1 450 rpm</text>
+<rect x="270.0" y="120.0" width="120.0" height="80.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="330.0" y="156.0" font-size="11.5" text-anchor="middle" fill="#000">brake</text>
+<text x="330.0" y="171.0" font-size="11.5" text-anchor="middle" fill="#000">(spring-applied)</text>
+<rect x="400.0" y="120.0" width="120.0" height="80.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="460.0" y="156.0" font-size="11.5" text-anchor="middle" fill="#000">helical-bevel</text>
+<text x="460.0" y="171.0" font-size="11.5" text-anchor="middle" fill="#000">gear i ≈ 10</text>
+<line x1="110.0" y1="160.0" x2="120.0" y2="160.0" stroke="#000" stroke-width="2"/>
+<line x1="240.0" y1="160.0" x2="270.0" y2="160.0" stroke="#000" stroke-width="2"/>
+<line x1="390.0" y1="160.0" x2="400.0" y2="160.0" stroke="#000" stroke-width="2"/>
+<line x1="520.0" y1="160.0" x2="560.0" y2="160.0" stroke="#000" stroke-width="3"/>
+<circle cx="620.0" cy="170.0" r="60.0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<circle cx="620.0" cy="170.0" r="6.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<text x="620.0" y="260.0" font-size="11.5" text-anchor="middle" fill="#000">steel wheel Ø400 · 143 rpm</text>
+<rect x="540.0" y="230.0" width="160.0" height="14.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1"/>
+<text x="710.0" y="242.0" font-size="11.5" text-anchor="start" fill="#000">rail</text>
+<text x="40.0" y="230.0" font-size="11.5" text-anchor="start" fill="#000">Inverter in the crane cabinet (shared DC link with the hoist).</text>
+<text x="40.0" y="248.0" font-size="11.5" text-anchor="start" fill="#1f6fd1">F = m·a·k_rot + w·m·g = 4 500 × 0.5 × 1.05 + 0.01 × 4 500 × 9.81 = 2 362 + 441 = 2 804 N</text>
+<text x="40.0" y="266.0" font-size="11.5" text-anchor="start" fill="#1f6fd1">P_peak = F·v/η = 2 804 × 3 / 0.9 = 9.35 kW → motor 7.5 kW (9.35 / 1.5 = 6.2 kW ≤ 7.5)</text>
+<text x="40.0" y="284.0" font-size="11.5" text-anchor="start" fill="#1f6fd1">wheel torque = F·D/2 = 2 804 × 0.2 = 561 N·m; i = 1 450 / 143 = 10.1</text>
+<text x="24.0" y="330.0" font-size="12.5" text-anchor="start" font-weight="bold" fill="#000">Hoist drive (no counterweight) – rope over the mast-top pulley</text>
+<rect x="60.0" y="650.0" width="110.0" height="70.0" rx="0" fill="#eef3fb" stroke="#000" stroke-width="1.2"/>
+<text x="115.0" y="682.0" font-size="11.5" text-anchor="middle" fill="#000">motor 11 kW</text>
+<text x="115.0" y="697.0" font-size="11.5" text-anchor="middle" fill="#000">+ brake + enc.</text>
+<rect x="190.0" y="650.0" width="110.0" height="70.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="245.0" y="682.0" font-size="11.5" text-anchor="middle" fill="#000">gear i ≈ 19</text>
+<line x1="170.0" y1="685.0" x2="190.0" y2="685.0" stroke="#000" stroke-width="2"/>
+<line x1="300.0" y1="685.0" x2="330.0" y2="685.0" stroke="#000" stroke-width="3"/>
+<rect x="330.0" y="650.0" width="120.0" height="70.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1.3"/>
+<text x="390.0" y="740.0" font-size="11.5" text-anchor="middle" fill="#000">drum Ø250 · 76 rpm</text>
+<rect x="600.0" y="360.0" width="60.0" height="340.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.2"/>
+<circle cx="630.0" cy="360.0" r="26.0" fill="#fff" stroke="#000" stroke-width="1.3"/>
+<circle cx="630.0" cy="360.0" r="4.0" fill="#000" stroke="#000" stroke-width="1.2"/>
+<line x1="450.0" y1="660.0" x2="604.0" y2="362.0" stroke="#000" stroke-width="1.2" stroke-dasharray="4 2"/>
+<line x1="656.0" y1="362.0" x2="690.0" y2="362.0" stroke="#000" stroke-width="1.2"/>
+<line x1="690.0" y1="362.0" x2="690.0" y2="520.0" stroke="#000" stroke-width="1.2"/>
+<rect x="665.0" y="520.0" width="150.0" height="60.0" rx="0" fill="#eef3fb" stroke="#1f6fd1" stroke-width="1.4"/>
+<text x="740.0" y="545.0" font-size="11.5" text-anchor="middle" fill="#000">carriage + fork</text>
+<text x="740.0" y="562.0" font-size="11.5" text-anchor="middle" fill="#000">600 kg + load 300 kg</text>
+<line x1="740.0" y1="600.0" x2="740.0" y2="650.0" stroke="#1f6fd1" stroke-width="1.2" marker-end="url(#ea)"/>
+<text x="750.0" y="640.0" font-size="11.5" text-anchor="start" fill="#1f6fd1">m·g = 8 829 N</text>
+<text x="670.0" y="350.0" font-size="11.5" text-anchor="start" fill="#000">pulley D/d ≥ 20 · slack-rope + overload switch</text>
+<text x="40.0" y="760.0" font-size="11.5" text-anchor="start" fill="#1f6fd1">P = m·g·v/η = 900 × 9.81 × 1.0 / 0.85 = 10.4 kW (continuous while lifting) → 11 kW;  rope force with a = 900 × (9.81 + 0.5) = 9 279 N</text>
+<text x="40.0" y="778.0" font-size="11.5" text-anchor="start" fill="#1f6fd1">2 ropes, minimum breaking force 40 kN each → Z_p = 80 000 / 9 279 = 8.6  (check the required factor with the crane maker / EN 528)</text>
+<text x="850.0" y="90.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Design rules (example)</text>
+<text x="850.0" y="112.0" font-size="11.5" text-anchor="start" fill="#000">Brakes: spring-applied, fail-safe,</text>
+<text x="850.0" y="129.0" font-size="11.5" text-anchor="start" fill="#000">  tested each shift (brake test).</text>
+<text x="850.0" y="146.0" font-size="11.5" text-anchor="start" fill="#000">Encoders: motor encoder for speed,</text>
+<text x="850.0" y="163.0" font-size="11.5" text-anchor="start" fill="#000">  absolute laser / BPS for position.</text>
+<text x="850.0" y="180.0" font-size="11.5" text-anchor="start" fill="#000">Overspeed + end-of-aisle slowdown:</text>
+<text x="850.0" y="197.0" font-size="11.5" text-anchor="start" fill="#000">  monitored by the safety PLC.</text>
+<text x="850.0" y="214.0" font-size="11.5" text-anchor="start" fill="#000">Regenerative braking: shared DC link,</text>
+<text x="850.0" y="231.0" font-size="11.5" text-anchor="start" fill="#000">  feed-back unit or braking resistor.</text>
+<text x="850.0" y="248.0" font-size="11.5" text-anchor="start" fill="#000">Gearbox oil: change ≈ 10 000 h</text>
+<text x="850.0" y="265.0" font-size="11.5" text-anchor="start" fill="#000">  (maker's table).</text>
+<text x="850.0" y="282.0" font-size="11.5" text-anchor="start" fill="#000">Rope: inspect per ISO 4309,</text>
+<text x="850.0" y="299.0" font-size="11.5" text-anchor="start" fill="#000">  discard criteria = broken wires.</text>
+<rect x="774" y="764" width="414" height="54" fill="#fff" stroke="#000" stroke-width="1.2"/><line x1="774" y1="786" x2="1188" y2="786" stroke="#000" stroke-width="0.8"/><text x="782" y="780" font-size="12" font-weight="bold" fill="#000">Stacker crane drive trains – travel and hoist</text><text x="782" y="801" font-size="11.5" font-weight="bold" fill="#b00000">EXAMPLE – check the AS/RS supplier's documentation</text><text x="782" y="814" font-size="11" fill="#000">Digital twin · ASRS-RAW · guide 31 · dimensions in mm unless stated</text>
+</svg>

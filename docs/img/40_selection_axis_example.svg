@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>Selection example – HMC X axis</title>
+<defs>
+<marker id="ek" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#000"/></marker>
+<marker id="sk" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#000"/></marker>
+<marker id="ea" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="sa" viewBox="0 0 10 10" refX="0.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,1.5 L0,5 L10,8.5 Z" fill="#1f6fd1"/></marker>
+<marker id="eab" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1 L10,5 L0,9 Z" fill="#1f6fd1"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatch2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect width="7" height="7" fill="#fff"/><line x1="0" y1="0" x2="0" y2="7" stroke="#777" stroke-width="1"/></pattern>
+<pattern id="hatchA" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#eaf1fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#1f6fd1" stroke-width="0.9"/></pattern>
+</defs>
+<rect x="0" y="0" width="1200" height="830" fill="#fff"/>
+<rect x="6" y="6" width="1188" height="818" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="20.0" y="30.0" font-size="14" text-anchor="start" fill="#000" font-weight="bold">Selection example – machining-centre X axis: 600 kg, rapid 30 m/min, 3 m/s², cutting force 4 kN (all values examples)</text>
+<rect x="40.0" y="400.0" width="560.0" height="30.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1.2"/>
+<text x="46.0" y="446.0" font-size="11.5" text-anchor="start" fill="#000">bed</text>
+<rect x="80.0" y="380.0" width="500.0" height="20.0" rx="0" fill="url(#hatch2)" stroke="#000" stroke-width="1.2"/>
+<text x="586.0" y="394.0" font-size="11.5" text-anchor="start" fill="#000">rail size 25</text>
+<rect x="155.0" y="318.0" width="350.0" height="40.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<text x="499.0" y="334.0" font-size="11.5" text-anchor="end" fill="#000">table</text>
+<rect x="209.0" y="358.0" width="42.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="409.0" y="358.0" width="42.0" height="22.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="245.0" y="230.0" width="170.0" height="88.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1.2"/>
+<text x="330.0" y="280.0" font-size="11.5" text-anchor="middle" fill="#000">pallet + fixture</text>
+<rect x="280.0" y="150.0" width="100.0" height="80.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="330.0" y="194.0" font-size="11.5" text-anchor="middle" fill="#000">workpiece</text>
+<rect x="55.0" y="384.0" width="475.0" height="10.0" rx="6,3" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="45.0" y="376.0" width="24.0" height="26.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1"/>
+<rect x="525.0" y="378.0" width="18.0" height="22.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1"/>
+<rect x="15.0" y="364.0" width="34.0" height="46.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="32.0" y="424.0" font-size="11.5" text-anchor="middle" fill="#000">motor</text>
+<line x1="51.0" y1="402.0" x2="51.0" y2="474.0" stroke="#000" stroke-width="0.8"/>
+<line x1="529.5" y1="402.0" x2="529.5" y2="474.0" stroke="#000" stroke-width="0.8"/>
+<line x1="51.0" y1="470.0" x2="529.5" y2="470.0" stroke="#000" stroke-width="1" marker-end="url(#ek)" marker-start="url(#sk)"/>
+<text x="290.2" y="465.0" font-size="11.5" text-anchor="middle" fill="#000">bearing span Lb = 900 (fixed – supported)</text>
+<circle cx="330.0" cy="260.0" r="6.0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<circle cx="330.0" cy="260.0" r="2.0" fill="#000" stroke="#000" stroke-width="0.5"/>
+<line x1="330.0" y1="260.0" x2="330.0" y2="310.0" stroke="#1f6fd1" stroke-width="2.6" marker-end="url(#eab)"/>
+<text x="338.0" y="304.0" font-size="12" text-anchor="start" fill="#1f6fd1" font-weight="bold">m·g = 5 886 N</text>
+<line x1="330.0" y1="260.0" x2="240.0" y2="260.0" stroke="#1f6fd1" stroke-width="2.6" marker-end="url(#eab)"/>
+<text x="236.0" y="252.0" font-size="12" text-anchor="end" fill="#1f6fd1" font-weight="bold">m·a = 1 800 N</text>
+<circle cx="378.0" cy="170.0" r="8.0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<circle cx="378.0" cy="170.0" r="2.5" fill="#000" stroke="#000" stroke-width="0.5"/>
+<line x1="386.0" y1="170.0" x2="476.0" y2="170.0" stroke="#1f6fd1" stroke-width="2.6" marker-end="url(#eab)"/>
+<text x="480.0" y="174.0" font-size="12" text-anchor="start" fill="#1f6fd1" font-weight="bold">F_x = 4 000 N (cutting, along X)</text>
+<text x="394.0" y="154.0" font-size="11.5" text-anchor="start" fill="#1f6fd1">tool contact, F_L = 3 000 N out of the page</text>
+<line x1="375.0" y1="380.0" x2="126.0" y2="380.0" stroke="#000" stroke-width="0.8"/>
+<line x1="375.0" y1="170.0" x2="126.0" y2="170.0" stroke="#000" stroke-width="0.8"/>
+<line x1="130.0" y1="380.0" x2="130.0" y2="170.0" stroke="#000" stroke-width="1" marker-end="url(#ek)" marker-start="url(#sk)"/>
+<text x="124.0" y="279.0" font-size="11.5" text-anchor="end" fill="#000">h = 350</text>
+<line x1="335.0" y1="380.0" x2="524.0" y2="380.0" stroke="#000" stroke-width="0.8"/>
+<line x1="335.0" y1="260.0" x2="524.0" y2="260.0" stroke="#000" stroke-width="0.8"/>
+<line x1="520.0" y1="380.0" x2="520.0" y2="260.0" stroke="#000" stroke-width="1" marker-end="url(#ek)" marker-start="url(#sk)"/>
+<text x="526.0" y="324.0" font-size="11.5" text-anchor="start" fill="#000">hg = 200</text>
+<line x1="230.0" y1="380.0" x2="230.0" y2="434.0" stroke="#000" stroke-width="0.8"/>
+<line x1="430.0" y1="380.0" x2="430.0" y2="434.0" stroke="#000" stroke-width="0.8"/>
+<line x1="230.0" y1="430.0" x2="430.0" y2="430.0" stroke="#000" stroke-width="1" marker-end="url(#ek)" marker-start="url(#sk)"/>
+<text x="330.0" y="425.0" font-size="11.5" text-anchor="middle" fill="#000">b = 400</text>
+<text x="20.0" y="494.0" font-size="11" text-anchor="start" fill="#000" font-style="italic">Vertical scale of heights × 1.2 (drawn 1 : 2 × 1.2). Screw Ø32 × 10 under the table (dashed), nut in the table centre.</text>
+<rect x="640.0" y="60.0" width="170.0" height="400.0" rx="0" fill="none" stroke="#000" stroke-width="0.8"/>
+<text x="648.0" y="78.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">front view</text>
+<rect x="650.0" y="400.0" width="150.0" height="20.0" rx="0" fill="url(#hatch)" stroke="#000" stroke-width="1.2"/>
+<rect x="664.0" y="388.0" width="12.0" height="12.0" rx="0" fill="url(#hatch2)" stroke="#000" stroke-width="1"/>
+<rect x="658.0" y="376.0" width="24.0" height="12.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<rect x="764.0" y="388.0" width="12.0" height="12.0" rx="0" fill="url(#hatch2)" stroke="#000" stroke-width="1"/>
+<rect x="758.0" y="376.0" width="24.0" height="12.0" rx="0" fill="#fff" stroke="#000" stroke-width="1"/>
+<rect x="652.0" y="356.0" width="146.0" height="20.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="690.0" y="280.0" width="70.0" height="76.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="1"/>
+<line x1="726.0" y1="300.0" x2="690.0" y2="300.0" stroke="#1f6fd1" stroke-width="2.4" marker-end="url(#eab)"/>
+<text x="732.0" y="305.0" font-size="12" text-anchor="start" fill="#1f6fd1" font-weight="bold">F_L</text>
+<line x1="670.0" y1="420.0" x2="670.0" y2="442.0" stroke="#000" stroke-width="0.8"/>
+<line x1="770.0" y1="420.0" x2="770.0" y2="442.0" stroke="#000" stroke-width="0.8"/>
+<line x1="670.0" y1="438.0" x2="770.0" y2="438.0" stroke="#000" stroke-width="1" marker-end="url(#ek)" marker-start="url(#sk)"/>
+<text x="720.0" y="433.0" font-size="11.5" text-anchor="middle" fill="#000">a = 500</text>
+<rect x="20.0" y="506.0" width="790.0" height="17.5" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="517.5" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Check</text>
+<line x1="160.0" y1="506.0" x2="160.0" y2="523.5" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="517.5" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Formula with numbers</text>
+<line x1="460.0" y1="506.0" x2="460.0" y2="523.5" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="517.5" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Result</text>
+<line x1="552.0" y1="506.0" x2="552.0" y2="523.5" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="517.5" font-size="11" text-anchor="start" fill="#000" font-weight="bold">Limit</text>
+<line x1="762.0" y1="506.0" x2="762.0" y2="523.5" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="517.5" font-size="11" text-anchor="start" fill="#000" font-weight="bold"></text>
+<rect x="20.0" y="523.5" width="790.0" height="17.5" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="535.0" font-size="11" text-anchor="start" fill="#000">Speed + DN</text>
+<line x1="160.0" y1="523.5" x2="160.0" y2="541.0" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="535.0" font-size="11" text-anchor="start" fill="#000">n = 30 000/10 = 3 000 rpm; DN = 33·3 000</text>
+<line x1="460.0" y1="523.5" x2="460.0" y2="541.0" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="535.0" font-size="11" text-anchor="start" fill="#000">99 000</text>
+<line x1="552.0" y1="523.5" x2="552.0" y2="541.0" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="535.0" font-size="11" text-anchor="start" fill="#000">≤ 120 000 (high-speed nut)</text>
+<line x1="762.0" y1="523.5" x2="762.0" y2="541.0" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="535.0" font-size="11" text-anchor="start" fill="#000">OK</text>
+<rect x="20.0" y="541.0" width="790.0" height="17.5" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="552.5" font-size="11" text-anchor="start" fill="#000">Mean load</text>
+<line x1="160.0" y1="541.0" x2="160.0" y2="558.5" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="552.5" font-size="11" text-anchor="start" fill="#000">Fm = (Σ F³·n·t / Σ n·t)^(1/3), nm = 800 rpm</text>
+<line x1="460.0" y1="541.0" x2="460.0" y2="558.5" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="552.5" font-size="11" text-anchor="start" fill="#000">1 745 N</text>
+<line x1="552.0" y1="541.0" x2="552.0" y2="558.5" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="552.5" font-size="11" text-anchor="start" fill="#000">(with preload 1 956 N)</text>
+<line x1="762.0" y1="541.0" x2="762.0" y2="558.5" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="552.5" font-size="11" text-anchor="start" fill="#000">–</text>
+<rect x="20.0" y="558.5" width="790.0" height="17.5" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="570.0" font-size="11" text-anchor="start" fill="#000">Screw life</text>
+<line x1="160.0" y1="558.5" x2="160.0" y2="576.0" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="570.0" font-size="11" text-anchor="start" fill="#000">L10 = (38 000/(1.2·1 745))³·10⁶ / (60·800)</text>
+<line x1="460.0" y1="558.5" x2="460.0" y2="576.0" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="570.0" font-size="11" text-anchor="start" fill="#000">124 573 h</text>
+<line x1="552.0" y1="558.5" x2="552.0" y2="576.0" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="570.0" font-size="11" text-anchor="start" fill="#000">≥ 20 000 h</text>
+<line x1="762.0" y1="558.5" x2="762.0" y2="576.0" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="570.0" font-size="11" text-anchor="start" fill="#000">OK</text>
+<rect x="20.0" y="576.0" width="790.0" height="17.5" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="587.5" font-size="11" text-anchor="start" fill="#000">Buckling</text>
+<line x1="160.0" y1="576.0" x2="160.0" y2="593.5" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="587.5" font-size="11" text-anchor="start" fill="#000">Fk = 10·26.4⁴/900²·10⁴ vs 4 069 N</text>
+<line x1="460.0" y1="576.0" x2="460.0" y2="593.5" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="587.5" font-size="11" text-anchor="start" fill="#000">59 970 N</text>
+<line x1="552.0" y1="576.0" x2="552.0" y2="593.5" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="587.5" font-size="11" text-anchor="start" fill="#000">&gt; F max 4 069 N</text>
+<line x1="762.0" y1="576.0" x2="762.0" y2="593.5" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="587.5" font-size="11" text-anchor="start" fill="#000">OK</text>
+<rect x="20.0" y="593.5" width="790.0" height="17.5" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="605.0" font-size="11" text-anchor="start" fill="#000">Critical speed</text>
+<line x1="160.0" y1="593.5" x2="160.0" y2="611.0" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="605.0" font-size="11" text-anchor="start" fill="#000">nc = 15.1·26.4/900²·10⁷</text>
+<line x1="460.0" y1="593.5" x2="460.0" y2="611.0" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="605.0" font-size="11" text-anchor="start" fill="#000">4 921 rpm</text>
+<line x1="552.0" y1="593.5" x2="552.0" y2="611.0" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="605.0" font-size="11" text-anchor="start" fill="#000">&gt; 3 000 rpm</text>
+<line x1="762.0" y1="593.5" x2="762.0" y2="611.0" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="605.0" font-size="11" text-anchor="start" fill="#000">OK</text>
+<rect x="20.0" y="611.0" width="790.0" height="17.5" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="622.5" font-size="11" text-anchor="start" fill="#000">Static safety (screw)</text>
+<line x1="160.0" y1="611.0" x2="160.0" y2="628.5" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="622.5" font-size="11" text-anchor="start" fill="#000">C0a / F max = 76 000 / 4 069</text>
+<line x1="460.0" y1="611.0" x2="460.0" y2="628.5" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="622.5" font-size="11" text-anchor="start" fill="#000">18.7</text>
+<line x1="552.0" y1="611.0" x2="552.0" y2="628.5" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="622.5" font-size="11" text-anchor="start" fill="#000">≥ 2 – 3</text>
+<line x1="762.0" y1="611.0" x2="762.0" y2="628.5" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="622.5" font-size="11" text-anchor="start" fill="#000">OK</text>
+<rect x="20.0" y="628.5" width="790.0" height="17.5" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="640.0" font-size="11" text-anchor="start" fill="#000">Motor torque (cut)</text>
+<line x1="160.0" y1="628.5" x2="160.0" y2="646.0" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="640.0" font-size="11" text-anchor="start" fill="#000">4 069·0.01/(2π·0.9) + Tp 0.29 + Tb 0.2</text>
+<line x1="460.0" y1="628.5" x2="460.0" y2="646.0" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="640.0" font-size="11" text-anchor="start" fill="#000">7.69 N·m</text>
+<line x1="552.0" y1="628.5" x2="552.0" y2="646.0" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="640.0" font-size="11" text-anchor="start" fill="#000">motor rated ≥ 8 N·m</text>
+<line x1="762.0" y1="628.5" x2="762.0" y2="646.0" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="640.0" font-size="11" text-anchor="start" fill="#000">check</text>
+<rect x="20.0" y="646.0" width="790.0" height="17.5" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="657.5" font-size="11" text-anchor="start" fill="#000">Motor torque (accel)</text>
+<line x1="160.0" y1="646.0" x2="160.0" y2="663.5" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="657.5" font-size="11" text-anchor="start" fill="#000">(J_load + J_m)·α + friction, α = 1 885 rad/s²</text>
+<line x1="460.0" y1="646.0" x2="460.0" y2="663.5" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="657.5" font-size="11" text-anchor="start" fill="#000">10.28 N·m</text>
+<line x1="552.0" y1="646.0" x2="552.0" y2="663.5" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="657.5" font-size="11" text-anchor="start" fill="#000">motor peak ≥ 13 N·m</text>
+<line x1="762.0" y1="646.0" x2="762.0" y2="663.5" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="657.5" font-size="11" text-anchor="start" fill="#000">check</text>
+<rect x="20.0" y="663.5" width="790.0" height="17.5" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="675.0" font-size="11" text-anchor="start" fill="#000">Inertia ratio</text>
+<line x1="160.0" y1="663.5" x2="160.0" y2="681.0" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="675.0" font-size="11" text-anchor="start" fill="#000">J_load / J_m = 2.43 / 2.70 (10⁻³ kg·m²)</text>
+<line x1="460.0" y1="663.5" x2="460.0" y2="681.0" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="675.0" font-size="11" text-anchor="start" fill="#000">0.90</text>
+<line x1="552.0" y1="663.5" x2="552.0" y2="681.0" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="675.0" font-size="11" text-anchor="start" fill="#000">≤ 3 – 5</text>
+<line x1="762.0" y1="663.5" x2="762.0" y2="681.0" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="675.0" font-size="11" text-anchor="start" fill="#000">OK</text>
+<rect x="20.0" y="681.0" width="790.0" height="17.5" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="692.5" font-size="11" text-anchor="start" fill="#000">Axial rigidity</text>
+<line x1="160.0" y1="681.0" x2="160.0" y2="698.5" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="692.5" font-size="11" text-anchor="start" fill="#000">1/K = 1/161 + 1/669 + 1/750 (N/µm)</text>
+<line x1="460.0" y1="681.0" x2="460.0" y2="698.5" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="692.5" font-size="11" text-anchor="start" fill="#000">111 N/µm</text>
+<line x1="552.0" y1="681.0" x2="552.0" y2="698.5" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="692.5" font-size="11" text-anchor="start" fill="#000">δ = 36.8 µm at 4 kN</text>
+<line x1="762.0" y1="681.0" x2="762.0" y2="698.5" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="692.5" font-size="11" text-anchor="start" fill="#000">note</text>
+<rect x="20.0" y="698.5" width="790.0" height="17.5" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="710.0" font-size="11" text-anchor="start" fill="#000">Guide worst block</text>
+<line x1="160.0" y1="698.5" x2="160.0" y2="716.0" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="710.0" font-size="11" text-anchor="start" fill="#000">1 472 + 1 050 + 1 750 + 750</text>
+<line x1="460.0" y1="698.5" x2="460.0" y2="716.0" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="710.0" font-size="11" text-anchor="start" fill="#000">5 022 N</text>
+<line x1="552.0" y1="698.5" x2="552.0" y2="716.0" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="710.0" font-size="11" text-anchor="start" fill="#000">cutting phase</text>
+<line x1="762.0" y1="698.5" x2="762.0" y2="716.0" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="710.0" font-size="11" text-anchor="start" fill="#000">–</text>
+<rect x="20.0" y="716.0" width="790.0" height="17.5" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="727.5" font-size="11" text-anchor="start" fill="#000">Guide life</text>
+<line x1="160.0" y1="716.0" x2="160.0" y2="733.5" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="727.5" font-size="11" text-anchor="start" fill="#000">L = (34 900/(1.5·2 266))³·50 km, vm 8 m/min</text>
+<line x1="460.0" y1="716.0" x2="460.0" y2="733.5" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="727.5" font-size="11" text-anchor="start" fill="#000">112 776 h</text>
+<line x1="552.0" y1="716.0" x2="552.0" y2="733.5" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="727.5" font-size="11" text-anchor="start" fill="#000">≥ 20 000 h</text>
+<line x1="762.0" y1="716.0" x2="762.0" y2="733.5" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="727.5" font-size="11" text-anchor="start" fill="#000">OK</text>
+<rect x="20.0" y="733.5" width="790.0" height="17.5" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="25.0" y="745.0" font-size="11" text-anchor="start" fill="#000">Guide static safety</text>
+<line x1="160.0" y1="733.5" x2="160.0" y2="751.0" stroke="#000" stroke-width="0.8"/>
+<text x="165.0" y="745.0" font-size="11" text-anchor="start" fill="#000">C0 / P0 = 52 800 / 5 022</text>
+<line x1="460.0" y1="733.5" x2="460.0" y2="751.0" stroke="#000" stroke-width="0.8"/>
+<text x="465.0" y="745.0" font-size="11" text-anchor="start" fill="#000">10.5</text>
+<line x1="552.0" y1="733.5" x2="552.0" y2="751.0" stroke="#000" stroke-width="0.8"/>
+<text x="557.0" y="745.0" font-size="11" text-anchor="start" fill="#000">≥ 3 (machine tool)</text>
+<line x1="762.0" y1="733.5" x2="762.0" y2="751.0" stroke="#000" stroke-width="0.8"/>
+<text x="767.0" y="745.0" font-size="11" text-anchor="start" fill="#000">OK</text>
+<text x="840.0" y="62.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Inputs (examples)</text>
+<rect x="840.0" y="72.0" width="350.0" height="21.0" rx="0" fill="#f2f2f2" stroke="#000" stroke-width="0.8"/>
+<text x="845.0" y="87.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Input</text>
+<line x1="1010.0" y1="72.0" x2="1010.0" y2="93.0" stroke="#000" stroke-width="0.8"/>
+<text x="1015.0" y="87.0" font-size="11.5" text-anchor="start" fill="#000" font-weight="bold">Value</text>
+<rect x="840.0" y="93.0" width="350.0" height="21.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="845.0" y="108.0" font-size="11.5" text-anchor="start" fill="#000">moving mass m</text>
+<line x1="1010.0" y1="93.0" x2="1010.0" y2="114.0" stroke="#000" stroke-width="0.8"/>
+<text x="1015.0" y="108.0" font-size="11.5" text-anchor="start" fill="#000">600 kg</text>
+<rect x="840.0" y="114.0" width="350.0" height="21.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="845.0" y="129.0" font-size="11.5" text-anchor="start" fill="#000">rapid v</text>
+<line x1="1010.0" y1="114.0" x2="1010.0" y2="135.0" stroke="#000" stroke-width="0.8"/>
+<text x="1015.0" y="129.0" font-size="11.5" text-anchor="start" fill="#000">30 m/min</text>
+<rect x="840.0" y="135.0" width="350.0" height="21.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="845.0" y="150.0" font-size="11.5" text-anchor="start" fill="#000">acceleration a</text>
+<line x1="1010.0" y1="135.0" x2="1010.0" y2="156.0" stroke="#000" stroke-width="0.8"/>
+<text x="1015.0" y="150.0" font-size="11.5" text-anchor="start" fill="#000">3.0 m/s²</text>
+<rect x="840.0" y="156.0" width="350.0" height="21.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="845.0" y="171.0" font-size="11.5" text-anchor="start" fill="#000">cutting force F_x</text>
+<line x1="1010.0" y1="156.0" x2="1010.0" y2="177.0" stroke="#000" stroke-width="0.8"/>
+<text x="1015.0" y="171.0" font-size="11.5" text-anchor="start" fill="#000">4 000 N (axial)</text>
+<rect x="840.0" y="177.0" width="350.0" height="21.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="845.0" y="192.0" font-size="11.5" text-anchor="start" fill="#000">lateral force F_L</text>
+<line x1="1010.0" y1="177.0" x2="1010.0" y2="198.0" stroke="#000" stroke-width="0.8"/>
+<text x="1015.0" y="192.0" font-size="11.5" text-anchor="start" fill="#000">3 000 N at h 350</text>
+<rect x="840.0" y="198.0" width="350.0" height="21.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="845.0" y="213.0" font-size="11.5" text-anchor="start" fill="#000">CoG height hg</text>
+<line x1="1010.0" y1="198.0" x2="1010.0" y2="219.0" stroke="#000" stroke-width="0.8"/>
+<text x="1015.0" y="213.0" font-size="11.5" text-anchor="start" fill="#000">200 mm</text>
+<rect x="840.0" y="219.0" width="350.0" height="21.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="845.0" y="234.0" font-size="11.5" text-anchor="start" fill="#000">guide friction μ</text>
+<line x1="1010.0" y1="219.0" x2="1010.0" y2="240.0" stroke="#000" stroke-width="0.8"/>
+<text x="1015.0" y="234.0" font-size="11.5" text-anchor="start" fill="#000">0.005 + seals 40 N</text>
+<rect x="840.0" y="240.0" width="350.0" height="21.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="845.0" y="255.0" font-size="11.5" text-anchor="start" fill="#000">rail spacing a / blocks b</text>
+<line x1="1010.0" y1="240.0" x2="1010.0" y2="261.0" stroke="#000" stroke-width="0.8"/>
+<text x="1015.0" y="255.0" font-size="11.5" text-anchor="start" fill="#000">500 / 400 mm</text>
+<rect x="840.0" y="261.0" width="350.0" height="21.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="845.0" y="276.0" font-size="11.5" text-anchor="start" fill="#000">duty rapid / acc / dec</text>
+<line x1="1010.0" y1="261.0" x2="1010.0" y2="282.0" stroke="#000" stroke-width="0.8"/>
+<text x="1015.0" y="276.0" font-size="11.5" text-anchor="start" fill="#000">20 / 5 / 5 %</text>
+<rect x="840.0" y="282.0" width="350.0" height="21.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="845.0" y="297.0" font-size="11.5" text-anchor="start" fill="#000">duty cut (1 m/min) / idle</text>
+<line x1="1010.0" y1="282.0" x2="1010.0" y2="303.0" stroke="#000" stroke-width="0.8"/>
+<text x="1015.0" y="297.0" font-size="11.5" text-anchor="start" fill="#000">50 / 20 %</text>
+<rect x="840.0" y="303.0" width="350.0" height="21.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="845.0" y="318.0" font-size="11.5" text-anchor="start" fill="#000">load factor screw / guide</text>
+<line x1="1010.0" y1="303.0" x2="1010.0" y2="324.0" stroke="#000" stroke-width="0.8"/>
+<text x="1015.0" y="318.0" font-size="11.5" text-anchor="start" fill="#000">fw 1.2 / 1.5</text>
+<rect x="840.0" y="324.0" width="350.0" height="21.0" rx="0" fill="#fff" stroke="#000" stroke-width="0.8"/>
+<text x="845.0" y="339.0" font-size="11.5" text-anchor="start" fill="#000">motor J_m (example)</text>
+<line x1="1010.0" y1="324.0" x2="1010.0" y2="345.0" stroke="#000" stroke-width="0.8"/>
+<text x="1015.0" y="339.0" font-size="11.5" text-anchor="start" fill="#000">2.7·10⁻³ kg·m²</text>
+<text x="840.0" y="360.0" font-size="11.5" text-anchor="start" fill="#000">Result: screw Ø32 × 10 C5, fixed – supported,</text>
+<text x="840.0" y="377.5" font-size="11.5" text-anchor="start" fill="#000">high-speed nut (DN 120 000), P1 preload;</text>
+<text x="840.0" y="395.0" font-size="11.5" text-anchor="start" fill="#000">2 rails size 25, 4 blocks, Z1, class H.</text>
+<text x="840.0" y="412.5" font-size="11.5" text-anchor="start" fill="#000"></text>
+<text x="840.0" y="430.0" font-size="11.5" text-anchor="start" fill="#000">Why lead 10 (not 20): half the motor torque</text>
+<text x="840.0" y="447.5" font-size="11.5" text-anchor="start" fill="#000">for the cutting force, 4× less reflected table</text>
+<text x="840.0" y="465.0" font-size="11.5" text-anchor="start" fill="#000">inertia, finer resolution. Lead 20 would</text>
+<text x="840.0" y="482.5" font-size="11.5" text-anchor="start" fill="#000">only need 1 500 rpm (DN 49 500) – choose it</text>
+<text x="840.0" y="500.0" font-size="11.5" text-anchor="start" fill="#000">if the nut DN limit is only 70 000.</text>
+<text x="840.0" y="517.5" font-size="11.5" text-anchor="start" fill="#000"></text>
+<text x="840.0" y="535.0" font-size="11.5" text-anchor="start" fill="#000">Elastic deflection 37 µm at 4 kN: use a linear</text>
+<text x="840.0" y="552.5" font-size="11.5" text-anchor="start" fill="#000">scale (closed loop) or fixed – fixed with</text>
+<text x="840.0" y="570.0" font-size="11.5" text-anchor="start" fill="#000">pre-tension for higher accuracy.</text>
+<rect x="812.0" y="742.0" width="382.0" height="82.0" rx="0" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="812.0" y1="768.0" x2="1194.0" y2="768.0" stroke="#000" stroke-width="0.8"/>
+<line x1="812.0" y1="792.0" x2="1194.0" y2="792.0" stroke="#000" stroke-width="0.8"/>
+<line x1="1002.0" y1="792.0" x2="1002.0" y2="824.0" stroke="#000" stroke-width="0.8"/>
+<text x="820.0" y="760.0" font-size="13" text-anchor="start" fill="#000" font-weight="bold">Selection example – HMC X axis</text>
+<text x="820.0" y="785.0" font-size="12" text-anchor="start" fill="#1f6fd1" font-weight="bold">EXAMPLE – check the maker's catalogue</text>
+<text x="820.0" y="812.0" font-size="11.5" text-anchor="start" fill="#000">Drawing 40-13</text>
+<text x="1010.0" y="806.0" font-size="11" text-anchor="start" fill="#000">Scale: 1 : 2 (heights × 1.2)</text>
+<text x="1010.0" y="819.0" font-size="11" text-anchor="start" fill="#000">guide 40 §17</text>
+</svg>
