@@ -1,0 +1,91 @@
+id,decision,reason,sq,note
+W4411342719,I,,SQ3;SQ4,DT for SMS design and ramp-up in SMEs; virtual commissioning case studies
+W7159771420,I,,SQ1;SQ4,PRISMA review of brownfield CNC DT architectures; SME retrofit roadmap
+W7221567553,I,,SQ2;SQ4,DT Monte Carlo under stochastic availability; MSME CNC cluster
+W7171513417,I,,SQ3;SQ4,DT/DES methodology for planned FMS; conventional to automated transition
+W4386834891,E,E4,,Special issue announcement
+W4387757785,E,E3,,Camera placement optimization in one cell; single device focus
+W7172482181,E,E5,,Robot perception sensor fusion review; no SQ angle
+W7221762230,U,,SQ2,Self-evolving DT with Bayesian parameter updating; object domain unclear
+W7133754076,I,,SQ2;SQ3;SQ4,DES plus GPR under uncertainty for SME layout selection
+W7134042473,E,E1,,Critical infrastructure safety risk; not discrete manufacturing
+W7133287428,E,E1,,Duplicate critical infrastructure safety risk paper (Ukrainian)
+W7216181886,E,E3,,FEM plus AI risk review; process physics not system DT
+W4411253665,U,,SQ3,DT self-learning before deployment in commissioning; single robot tasks
+W4414713285,E,E1,,Biogas energy opinion
+W4390670954,I,,SQ2;SQ3,BN learning from queueing and DES models before factory operational; uncertainty propagation
+W4404164857,I,,SQ3,DT of FMS from design through commissioning; virtual commissioning case
+W4303579130,I,,SQ1;SQ3,Low-cost DT of FMS with sensors and ERP; validated vs physical
+W3210045257,E,E3,,Milling stability uncertainty; single process physics
+W7164736062,E,E1,,AM defect prediction process physics
+W7170351635,I,,SQ3,PLC virtual commissioning of flexible production line via DT
+W7204035775,I,,SQ2;SQ3,DES optimization of stochastic manufacturing system; adaptive replication for variability
+W7203868727,E,E1,,Membrane distillation wastewater
+W7225609456,U,,SQ1;SQ2,Broad industrial intelligence review; legacy and uncertainty; domain unclear
+W7213969580,E,E3,,Tool wear prediction review; single process
+W7222846909,E,E1,,Pharmaceutical RTRT
+W7214915618,I,,SQ3;SQ4,Review CAD-DES convergence; virtual commissioning; developing economies
+W7160563017,E,E3,,Single CNC tool condition monitoring DT; educational
+W7107877382,E,E4,,Zenodo whitepaper; not peer reviewed
+W4400368686,U,,SQ2,DT scheduling of FMS with stochastic machine availability; mainly scheduling
+W4400576884,E,E1,,AM special section editorial
+W4403499207,E,E3,,Servomechanism test rig; single component
+W4285217283,I,,SQ2,Input uncertainty in DES-based DT; bootstrapping; lab system
+W4220693283,I,,SQ3,DT-driven variant design and reconfiguration of assembly line
+W3217095010,I,,SQ3;SQ4,DES capacity planning for production system development in SME
+W3126049348,U,,SQ1;SQ3,LinuxCNC open-source DT control with virtual commissioning; single machine
+W2799347500,I,,SQ3,DT-driven design of automated flow-shop with legacy machines
+W2801992174,I,,SQ3,FMS training center DT for virtual commissioning
+W2512320909,I,,SQ3;SQ4,DES of dynamic cellular manufacturing implementation in SME network
+W7162860591,U,,SQ2,DT scheduling with probabilistic quality uncertainty and real-time feedback
+W7202091652,E,E3,,Compliant mechanism design surrogate
+W7164318628,I,,SQ1,Review of machine tool DT architectures; ISO 23247; OPC UA; MTConnect
+W7170170544,E,E1,,Nanocomposite process industry review
+W7214027896,U,,SQ2;SQ3,DES plus Bayesian inference for lean tool evaluation; SQ link unclear
+W7222949010,E,E1,,Building materials circular manufacturing
+W7164819359,E,E3,,CNC tool setting theory; single machine
+W7136397066,E,E3,,Smart CMM review; single metrology machine
+W7162861370,E,E5,,LCA data uncertainty scoring in DT; not SQ topics
+W7214685404,E,E1,,AM trustworthy AI review
+W7159965261,E,E1,,High-hazard facility safety AI monograph; Zenodo
+W7214501182,E,E4,,Zenodo poster; not peer reviewed
+W7158874068,U,,SQ1;SQ4,Decentralised FOSS manufacturing CPS with node DTs for SMEs; analytical only
+W7169835060,E,E3,,Topology optimization of compliant mechanisms
+W7213295311,E,E1,,Hydrogen refueling infrastructure
+W7131278121,I,,SQ1,Legacy NC dialect transpiling for DT synchronization and interoperability
+W4412056726,E,E3,,Roll-to-roll tension control; single process
+W4415435461,E,E5,,Calibration engineering survey; no DT/DES of system
+W4415751799,E,E1,,Oil and gas production
+W7109549415,E,E1,,Oil and gas production duplicate
+W4413022521,U,,SQ2,DES with Bayesian updating of process times in battery heat treatment
+W4410493743,I,,SQ2;SQ3,DT and DES for ramp-up planning under uncertainty
+W4415815833,E,E5,,DDMRP buffer simulation; supply planning not SQ
+W7221444324,E,E1,,AM AI review
+W7220929224,E,E1,,Enterprise risk twin; not manufacturing
+W7117429130,E,E1,,Animal nutrition symposium
+W4408305379,I,,SQ1;SQ3,DT behavioural model for virtual commissioning of Festo system
+W4406115982,I,,SQ1,Legacy modular production system retrofit with DT architecture
+W4413377735,I,,SQ1;SQ4,Lightweight open-source OPC UA CNC DT for SMEs
+W7162215516,E,E1,,Hydrocarbon reservoir
+W4404824246,I,,SQ3;SQ4,DES improvement scenarios in SME casting production
+W4283757729,E,E4,,Editorial
+W4221033747,I,,SQ3,DT definition for design and VC of collaborative assembly workplace
+W3145490369,I,,SQ1,Sensor retrofit of standalone rolling mill into CPPS architecture
+W3134902376,I,,SQ1;SQ3,Virtual commissioning methodology to integrate DT into existing flow shop
+W3007927281,I,,SQ3,Virtual factory design approach reducing ramp-up and design times
+W3136127029,I,,SQ1,Low-cost camera retrofit of PLC line for real-time DT
+W3111020272,I,,SQ1;SQ4,Cloud DT manufacturing system with interoperable data schema for SMEs
+W3023844331,U,,SQ1,Machine tool calibration data architecture with edge; single machine
+W2984140096,I,,SQ2;SQ3,DES in early production system design; input data uncertainty; legacy transformation
+W2955681680,E,E4,,Persian-language article
+W2898146417,E,E4,,Thesis; not peer-reviewed article
+W4249001680,I,,SQ2;SQ3;SQ4,Stochastic DES for SME production redesign under demand uncertainty
+W7171793410,E,E3,,No abstract; single five-axis CNC form accuracy
+W7161695192,E,E3,,Tool wear DT; single process
+W7160274908,E,E1,,Financial ERP controls
+W7163711323,E,E3,,Spindle bearing fault dynamics
+W7124435356,E,E3,,Single robot robust control and cybersecurity
+W7210260674,E,E5,,HRC ergonomics analytics
+W7214003272,E,E3,,Infrared thermography welding and AM
+W7167724406,E,E1,,Metal AM AI review
+W7154831599,E,E2,,Conceptual circular control architecture

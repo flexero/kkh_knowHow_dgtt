@@ -26,6 +26,8 @@
 <link rel="stylesheet" href="bsferp.css">
 <link rel="stylesheet" href="bsfplc.css">
 <link rel="stylesheet" href="am.css">
+<link rel="stylesheet" href="mt.css">
+<link rel="stylesheet" href="ai.css">
 <script src="theme.js"></script>
 </head>
 <body>
@@ -56,6 +58,9 @@
     <button class="tab" data-tab="hyd">Hydraulics</button>
     <button class="tab" data-tab="bsf">Ball screw + guide factory</button>
     <button class="tab" data-tab="am">Additive manufacturing</button>
+    <button class="tab" data-tab="mt">Machine tools</button>
+    <button class="tab" data-tab="std">Standards</button>
+    <button class="tab" data-tab="ai">AI in industry</button>
     <button class="tab" data-tab="comm">Communication</button>
     <button class="tab" data-tab="whatif">What-if simulation</button>
     <button class="tab" data-tab="learn">How it works</button>
@@ -1317,6 +1322,72 @@
     <div id="amItem3" hidden></div>
   </section>
 
+  <!-- ============================== MACHINE TOOLS ============================== -->
+  <section id="tab-mt" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>Modern machine tools – types, principles and trends in the world</h2>
+        <span class="sub">typical public values of current machine classes · maker names = examples · check the supplier's data sheet · offline</span></div>
+      <div class="mx-nav" role="group" aria-label="Machine tools item">
+        <button class="mx-el active" data-mtitem="1">1 · Machine types – purpose, principle (animated sketch), components, values, makers</button>
+        <button class="mx-el" data-mtitem="2">2 · Trends – digital twin, connectivity, AI, automation, multitasking, hybrid, energy, cybersecurity …</button>
+        <button class="mx-el" data-mtitem="3">3 · For your factory – machines per compressor part + buying checklist</button>
+      </div>
+      <p class="intro" id="mtIntro1">The <b>modern machine-tool types</b> used in factories today: 5-axis and horizontal machining centres, mill-turn (done-in-one),
+        turning centres, Swiss-type, vertical lathes, grinding and honing, gear skiving, fibre and ultrashort-pulse lasers, EDM, waterjet, hybrid additive machines,
+        ultrasonic and ultra-precision machines, robot / parallel-kinematic machining, friction stir welding. For each: <b>purpose, principle</b> (animated sketch),
+        key components, typical values, typical parts, makers and what it means for your compressor factory. All values are examples.</p>
+      <p class="intro" id="mtIntro2" hidden>The <b>trends</b> that change machine tools now: digital twin + virtual commissioning, OPC UA / umati connectivity,
+        AI and adaptive control, automation and lights-out, multitasking, hybrid additive, linear and torque motors, thermal compensation, in-process measurement,
+        energy efficiency, MQL / cryogenic cooling, cybersecurity, smart HMIs and remote service – what it is, the principle, the typical gain, examples and
+        <b>what to ask the supplier</b>.</p>
+      <p class="intro" id="mtIntro3" hidden>Which <b>machine types fit each compressor part</b> (crankcase, cylinder, crankshaft, connecting rod, piston, head / valve plate,
+        air tank, pulley): typical modern route, key quality features and why. Plus a <b>buying checklist</b> (accuracy tests, capability, spindle, control,
+        connectivity, automation, safety, cybersecurity, energy, service, total cost).</p>
+    </div>
+    <div id="mtItem1"></div>
+    <div id="mtItem2" hidden></div>
+    <div id="mtItem3" hidden></div>
+  </section>
+
+  <!-- ============================== STANDARDS ============================== -->
+  <section id="tab-std" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>Standards library – every standard and law used in this project, explained simply</h2>
+        <span class="sub">offline · summaries in our own words, not the official texts · buy the current edition for design and contracts</span></div>
+      <p class="intro">The guides and tabs mention many standards (ISO, IEC, EN, ASTM, VDI …) and EU laws. Here you can <b>search all of them</b> and read
+        <b>what each one is, what it requires</b> (key values) and <b>where it is used</b> in the twin. The key standards have a longer explainer (★):
+        main content, key numbers and how to apply them in your factory. Start with "Standards in 1 minute", then use the search.</p>
+    </div>
+    <div id="stdHost"></div>
+  </section>
+
+  <!-- ============================== AI ============================== -->
+  <section id="tab-ai" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>AI in industry – what it really is, where it helps in this factory, and how to start</h2>
+        <span class="sub">plain language · real use cases linked to the twin tabs · live AI labs that run offline in the browser · benefits = typical ranges, not promises</span></div>
+      <div class="mx-nav" role="group" aria-label="AI item">
+        <button class="mx-el active" data-aiitem="1">1 · AI explained – the 6 kinds, what it can / cannot do, is AI right for my problem?</button>
+        <button class="mx-el" data-aiitem="2">2 · Use-case map – 20 AI use cases for machining, quality, robots, AGV, MES / ERP, energy, hydraulics, AM, documents</button>
+        <button class="mx-el" data-aiitem="3">3 · Live AI labs – predictive maintenance, visual inspection, optimisation, forecasting, assistant (runs offline)</button>
+        <button class="mx-el" data-aiitem="4">4 · How to start – roadmap, offline data architecture, team, cost, risks, EU AI Act</button>
+      </div>
+      <p class="intro" id="aiIntro1"><b>Artificial intelligence (AI)</b> here means computer programs that <b>learn patterns from data</b> instead of following only rules written by people.
+        In a factory it does six jobs: <b>predict</b> (failures, quality), <b>inspect</b> (defects with cameras), <b>optimise</b> (settings, schedules), <b>automate</b> (robots that see),
+        <b>plan</b> (forecasts) and <b>assist people</b> (answers from documents). This item explains it without maths and helps you decide if AI is the right tool.</p>
+      <p class="intro" id="aiIntro2" hidden>For every area we built in this twin – HMC machining, grinding / honing, assembly and test, robots, AGVs and AS/RS, FMS / MES / ERP, energy, hydraulics,
+        additive manufacturing, engineering documents – the <b>realistic AI use cases</b>: what they do, data needed, method, typical benefit, maturity, effort, pitfalls and a link to the tab.</p>
+      <p class="intro" id="aiIntro3" hidden>Real small AI algorithms that <b>run offline in your browser</b> on simulated factory data: watch a model learn bearing damage from vibration, find defects in images,
+        search the best cutting data with fewer test cuts, forecast orders, and search the standards library like an assistant. Each lab shows the formula, the result and the honest limits.</p>
+      <p class="intro" id="aiIntro4" hidden>How to bring AI into the real factory step by step: pick the problem, check the data, connect, start simple, pilot, run, scale. Architecture that works <b>without internet</b>,
+        team and cost of a first pilot, success measures, risks and the EU rules (AI Act, Machinery Regulation).</p>
+    </div>
+    <div id="aiItem1"></div>
+    <div id="aiItem2" hidden></div>
+    <div id="aiItem3" hidden></div>
+    <div id="aiItem4" hidden></div>
+  </section>
+
   <section id="tab-comm" class="tabpane">
     <div class="cm-modes">
       <div class="seg" role="group" aria-label="Communication view">
@@ -1682,6 +1753,9 @@
 <script type="module" src="am.js"></script>
 <script type="module" src="amlpbf.js"></script>
 <script type="module" src="amind.js"></script>
+<script type="module" src="mt.js"></script>
+<script type="module" src="std.js"></script>
+<script type="module" src="ai.js"></script>
 <script type="module" src="hydlad.js"></script>
 <script type="module" src="hydref.js"></script>
 <script type="module" src="machref.js"></script>

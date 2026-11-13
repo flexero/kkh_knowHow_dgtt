@@ -1,0 +1,89 @@
+id,decision,reason,sq,note
+W7155485922,E,E2,,Executive-level integration framework; conceptual governance discussion; no model or case
+W4411358433,U,,SQ3,Digital factory planning of electrolyzer assembly; VSM; virtual factory simulation only future step
+W4406869079,E,E5,,Human-machine interaction dataset for WAAM machine; not SQ1-SQ4
+W4399693572,E,E5,,AM order dispatching; no abstract; scheduling topic off SQs
+W4392356356,E,E1,,Open-pit mining shovel allocation
+W4404877232,E,E5,,DRL scheduling of shipbuilding welding with DES environment; pure scheduling
+W4405832412,E,E5,,Human digital twin review; human-centric; not SQ1-SQ4
+W4400016411,I,,SQ3;SQ2,DES-based manufacturing system design balancing cycle time and availability
+W4394779872,E,E2,,Russian concept of parallel engineering with DT; concept only
+W4367043571,E,E3,,DT fault diagnosis of composite faults; component-level; no abstract
+W4387250463,E,E1,,Subsea production control system (oil and gas)
+W7165370556,E,E1,,Petroleum reservoir DT review
+W4384818206,U,,SQ3,3D geometry simplification for DT-driven manufacturing system design; no abstract
+W4389082672,E,E2,,Vision of cooperating DTs in urban planning; position paper
+W4386892322,U,,SQ3,SMS design framework with augmented DT validated in four companies; human-centric focus
+W4382048029,E,E3,,Milling robot machining motion DT; single machine
+W4309076398,E,E1,,Radioisotope cyclotron target DT
+W7171369440,E,E3,,Embedded adaptive control of mechatronic systems; no manufacturing system view
+W4214547639,I,,SQ3,DT-driven flexibility evaluation of production system design schemes; case enterprise
+W4285117727,E,E2,,Challenges of aircraft production project iMOD; position paper
+W3164356889,U,,SQ3,Review of DT-based smart manufacturing system design; no abstract; highly relevant title
+W3021321491,U,,SQ3,DT-based design of flow-type smart manufacturing system; no abstract
+W2912186003,U,,SQ3,Hybrid simulation framework for manufacturing system design; no abstract
+W2956063938,I,,SQ3,VE plus DES predicts energy KPIs at early design; battery assembly case
+W2991817166,U,,SQ1,Six-layer DT architecture with manufacturing case; no abstract
+W2904692930,I,,SQ3,Hybrid cellular manufacturing design with MINLP and DES evaluation
+W2888770548,E,E3,,Robot reducers design; component level
+W2767548768,I,,SQ3;SQ2,DES study of synchronization; processing time variability in system design
+W2895284765,U,,SQ3,Manufacturing system layout design with digital factory and simulation; vague abstract
+W2517175300,E,E5,,DES for worker health work margins; ergonomics
+W2512885723,I,,SQ3,DES to verify production system capability in early design; automotive case
+W872834364,U,,SQ3,Strategic planning and design of virtual factory; no abstract
+W7166541399,E,E1,,Food manufacturing energy optimization; process industry
+W7203626038,E,E1,,Drying of porous materials CFD surrogate; process industry
+W7133183260,E,E5,,DT Q-learning production planning and inventory control
+W7154608148,E,E3,,Welding robot precision degradation; single machine
+W7166130601,U,,SQ2,Closed-loop DT updating demand and downtime parameters from live data; scheduling focus
+W7127282905,E,E5,,Review of smart industrial robots; not system DT
+W7202357450,E,E1,,AI in pharmaceutical manufacturing
+W7214654821,E,E3,,AI in additive manufacturing process; no abstract
+W7204119352,E,E5,,AI-AMR material flow review; DT marginal; no SQ focus
+W7204939181,E,E1,,Soilless horticulture
+W4410084074,E,E1,,Winter wheat growth DT
+W4414411981,E,E3,,Aircraft structure shape sensing
+W4406256848,E,E1,,Subsea umbilical cable response
+W4409563320,E,E1,,Wastewater treatment models
+W4411298082,I,,SQ3,DT for factory and production planning; enablers challenges and framework
+W7113708863,E,E4,,Doctoral dissertation; not peer-reviewed article
+W4404558278,U,,SQ3,DT-based 3D layout optimisation for reconfigurable manufacturing; no abstract
+W4398130879,U,,SQ2,DT robust scheduling under equipment degradation; no abstract; uncertainty angle possible
+W4403572742,E,E1,,Agricultural machinery settings
+W4405189815,E,E5,,DT projection AR assistance for workers
+W4400617274,E,E5,,Meta-inventory theoretical model; no DT
+W4405385385,U,,SQ2,DT hybrid modeling in hybrid production systems; no abstract
+W4403818661,U,,SQ3,DT decision-making for customizing production platforms; no abstract
+W4321381797,E,E3,,Hybrid learning DT for a manufacturing process; process level
+W4319600092,E,E3,,Robot fractional order controller DT
+W4378450700,E,E5,,Assembly monitoring DT for part verification; quality monitoring
+W4386902759,E,E5,,Stochastic scheduling of semiconductor batch processes
+W4389067413,E,E3,,AM material property prediction
+W4387462844,U,,SQ2,SLR on process planning and scheduling with DT under uncertainty; mostly scheduling
+W4385324205,E,E5,,Human digital twin Industry 5.0
+W4388302346,U,,SQ1,Cloud-based DT for robotic assembly system; architecture; no abstract
+W4387326546,E,E5,,Reconfiguration optimization for sustainability; no DT or DES evident
+W4220852995,E,E5,,DT fault tolerance in CPPS operation
+W4311276446,U,,SQ3,Credibility of manufacturing DTs; validation; no abstract
+W4313301396,E,E5,,DT real-time resource allocation; scheduling
+W4206616245,E,E1,,Open supply chain management outside factory
+W4221057367,E,E5,,Operator 5.0 extended reality survey
+W4306767802,E,E5,,Cognitive manufacturing framework
+W4310750487,E,E5,,Meta-inventory; off topic
+W3149002212,E,E3,,LPBF gas flow DT; process physics
+W4200142898,U,,SQ1;SQ3,Digital triad for lifecycle information integration of manufacturing systems; no abstract
+W4206650538,E,E5,,DES of remanufacturing order variance; inventory policy
+W3120767325,U,,SQ2;SQ3,Data-driven hybrid DT emulator of modular production system; no abstract
+W7137523081,E,E4,,Open-access book; not article
+W3021806049,E,E5,,DES maintenance policy optimization
+W3107786415,I,,SQ2;SQ3,Simulation DT of hybrid layout under stochastic disruptions for strategic decisions
+W3024951897,E,E5,,Maintenance and operations decisions; no DT system angle
+W3024395861,E,E5,,Digital DNA quality control; quality
+W7149628790,E,E2,,Supply chain resilience discussion; conceptual
+W2995759464,U,,SQ1,DT-enabled system for fixed-position assembly islands; no abstract
+W2991471391,E,E5,,DT control of synchronized production operations
+W2913961714,U,,SQ1,Service-oriented DT and enterprise performance; no abstract
+W2810038631,E,E5,,DT for order management decision support; conceptual
+W2767711562,E,E5,,Production planning optimization of failure-prone system
+W2579722716,E,E5,,Production planning parameter setting
+W1873267608,E,E5,,Simulation-based optimization noise handling in production planning

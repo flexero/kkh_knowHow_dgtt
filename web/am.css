@@ -99,3 +99,18 @@
 .am-cases { display: grid; gap: 8px; } .am-case { display: grid; grid-template-columns: 56px 1fr; gap: 10px; padding: 8px; background: var(--surface-2); border-radius: 8px; font-size: 13px; }
 .am-cy { font-weight: 700; font-size: 15px; color: var(--text); }
 tr.am-click { cursor: pointer; } tr.am-click:hover td { background: var(--surface-2); }
+/* style.css sets th, td { white-space: nowrap } globally - long text cells in AM / machine-tool tables must wrap */
+.am-tab td, .am-kv td { white-space: normal; }
+/* Standards tab (#std) – std.js */
+.std-intro { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.std-ib { background: var(--surface-2); border-radius: 8px; padding: 10px 12px; } .std-ib h4 { margin: 0 0 4px; font-size: 13px; } .std-ib p { margin: 0; font-size: 12.5px; color: var(--text-2); }
+.std-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, 1fr); gap: 16px; align-items: start; }
+.std-list { max-height: 640px; overflow-y: auto; }
+.std-detail { position: sticky; top: 8px; max-height: calc(100vh - 16px); overflow-y: auto; }
+.std-h { font-size: 16px; } .std-part { margin: 12px 0 2px; font-size: 13px; }
+.std-exp { background: color-mix(in srgb, var(--accent) 8%, transparent); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; margin: 6px 0 10px; font-size: 13px; }
+.std-exp h4 { margin: 8px 0 2px; font-size: 12.5px; color: var(--text-2); } .std-exp p { margin: 4px 0; }
+.std-ex { color: var(--warning); }
+.std-b { display: inline-block; font-size: 11px; font-weight: 600; padding: 0 7px; border-radius: 999px; border: 1px solid var(--border); white-space: nowrap; }
+.std-law { color: var(--critical); border-color: var(--critical); } .std-harm { color: var(--series); border-color: var(--series); } .std-vol { color: var(--text-2); }
+@media (max-width: 1000px) { .std-grid { grid-template-columns: 1fr; } .std-detail { position: static; max-height: none; } }

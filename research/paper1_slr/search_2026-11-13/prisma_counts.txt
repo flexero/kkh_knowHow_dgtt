@@ -1,0 +1,17 @@
+Records screened (title/abstract): 448
+Missing decisions: 0 []
+Included (I): 132
+Unsure (U, to full text): 72
+Excluded (E): 244
+  DUP: 3
+  E1: 72
+  E2: 14
+  E3: 50
+  E4: 21
+  E5: 84
+To full-text assessment (I + U): 204
+Review questions among I+U:
+  SQ1: 60
+  SQ2: 61
+  SQ3: 140
+  SQ4: 24

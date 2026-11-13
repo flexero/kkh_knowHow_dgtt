@@ -1,0 +1,13 @@
+OpenAlex search 2026-11-13
+Filter tail: ,publication_year:2015-<this year>,type:article|review
+
+S1: hits 269, downloaded 269
+  title_and_abstract.search: ("digital twin" OR "digital shadow" OR "virtual factory" OR "discrete event simulation") AND ("flexible manufacturing" OR "manufacturing system" OR "production system" OR "machining line" OR CNC) AND (uncertainty OR bayesian OR calibration OR "parameter updating" OR "data assimilation" OR "live fitting")
+
+S2: hits 167, downloaded 167
+  title_and_abstract.search: ("digital twin" OR "digital shadow" OR "virtual factory" OR "discrete event simulation") AND ("flexible manufacturing" OR "manufacturing system" OR "production system" OR "machining line" OR CNC) AND ("ramp-up" OR "ramp up" OR commissioning OR "factory design" OR "system design" OR "factory planning")
+
+S3: hits 50, downloaded 50
+  title_and_abstract.search: ("digital twin" OR "digital shadow" OR "virtual factory" OR "discrete event simulation") AND ("flexible manufacturing" OR "manufacturing system" OR "production system" OR "machining line" OR CNC) AND (SME OR "small and medium" OR "emerging economies" OR "developing countries" OR "low-cost" OR legacy OR retrofit OR Modbus)
+
+Unique records after duplicate removal: 448

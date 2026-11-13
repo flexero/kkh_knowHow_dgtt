@@ -1,0 +1,4 @@
+# Large / third-party files – keep locally, do not commit
+research/sources/software/
+research/sources/papers/
+research/sources/fulltext/

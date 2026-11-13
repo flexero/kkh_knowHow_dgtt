@@ -1,0 +1,91 @@
+id,decision,reason,sq,note
+W4403280253,U,,SQ1,AAS/data-space DT architecture; steel industry value chain; scope unclear
+W4400604064,E,E1,,Precast concrete construction production
+W4392450155,E,E5,,UAV scheduling and task offloading; no SQ angle
+W4404338775,I,,SQ2;SQ3,DES with stochastic task times comparing SERU vs line design
+W4392983421,E,E3,,Single CNC trajectory error prediction
+W4392516676,E,E3,,Feed drive positioning uncertainty; machine physics
+W4404789625,I,,SQ2;SQ3,DES+GA for closed-loop production system planning under material uncertainty
+W4392864666,I,,SQ3,DT for laser cutting production system design and operation
+W4403279909,I,,SQ1;SQ3,Review of DT development for NC production systems incl. commissioning
+W4396649953,E,E1,,Subsea oil and gas
+W4403250223,I,,SQ3,Reuse of virtual commissioning models as DT in production
+W4403424228,I,,SQ3,SLR on simulation models for digital factory twin across lifecycle
+W4396805343,U,,SQ1;SQ3,DT challenges in aircraft production; production system development and retrofit
+W4388910665,I,,SQ1,Field-level real-time synchronization mechanism for manufacturing DT
+W4353027386,I,,SQ1;SQ3,DT-based CPPS architecture with AAS; battery production case; accuracy validated
+W4318305456,U,,SQ1,Digital shadow concept; cloud-edge architecture; production use cases
+W4368232900,E,E5,,MCDM selection of control engineering tools
+W4387818827,E,E5,,Human DT locomotion identification
+W4384789517,I,,SQ1;SQ3,Controller platform running virtual commissioning models online as DT
+W4385782573,U,,SQ3,AR-based production commissioning; no abstract
+W4386762057,I,,SQ1;SQ2;SQ4,DES-IIoT DT framework collecting input parameters; SME focus
+W4372782270,I,,SQ3;SQ4,Review of automated DES model generation; SME challenge
+W4366316372,I,,SQ1,Low-cost sensor IIoT DT for MPS assembly line
+W4292265798,U,,SQ1,Edge-cloud DT deployment architecture; mainly computing scheduling
+W4311626517,E,E5,,Reactive job shop scheduling with DES
+W4297236664,E,E5,,Production planning software review; no SQ focus
+W4307403841,I,,SQ3,Aircraft assembly system design framework with DES
+W4311350131,I,,SQ3,Mixed-reality-in-the-loop virtual commissioning latency compensation
+W4285128644,E,E4,,German-language article on VC model discrepancy compensation
+W4285306146,I,,SQ1;SQ3,Brownfield DT creation from PLC code for VC/reconfiguration
+W4304084349,E,E5,,LSS plus hybrid simulation improvement of existing factory
+W4285206287,U,,SQ1;SQ3,RTLS data acquisition framework feeding DT; learning factory
+W4225571508,E,E2,,ODIN project vision paper
+W3209257943,E,E1,,Construction project resource allocation
+W3120385703,E,E3,,Robot motion collision detection
+W3158797746,U,,SQ3,DT-based remote semi-physical commissioning; no abstract
+W3184664477,I,,SQ3,DT approach to optimize planning and commissioning; case studies
+W3143799685,U,,SQ3,DES-based design of manufacturing system; copper industry may be process
+W3136249174,I,,SQ3,DT-driven design of furniture production line
+W3096830763,I,,SQ2,Scrap rate and demand uncertainty estimated from data with DES
+W7105605819,E,E5,,Generic intelligent scheduling overview
+W2980020791,I,,SQ3,DES-based manufacturing system design with energy objectives
+W2954900697,E,E5,,DT carbon emission control of job shop
+W2954071361,E,E5,,Decision-making method for assembly; no SQ
+W2947805422,E,E5,,Simulation optimization sampling algorithm; no SQ angle
+W2921369916,I,,SQ3,Real-time co-simulation platform for virtual commissioning
+W2955774370,I,,SQ3,Review of virtual commissioning
+W2810441060,I,,SQ1;SQ3,Emulation DT for legacy machine reconditioning and commissioning
+W2891409699,I,,SQ3,DES methodology for plant design; automotive supplier case
+W2783595203,I,,SQ3,DES+3D for cell redesign; validated with real data
+W2895473427,E,E4,,Persian-language article
+W2780693037,I,,SQ3,DES use in production system design decisions under uncertainty
+W2763642922,E,E1,,Healthcare outpatient clinics
+W2773217790,I,,SQ2,Input data quality problems in manufacturing DES
+W2607234710,I,,SQ1;SQ3,DT data acquisition for production system planning
+W2345994938,E,E5,,Hedging policy optimization for failure-prone machines
+W2294514375,E,E1,,Construction uncertainty management
+W2330726455,U,,SQ3,Human factors DES for line design; validated; ergonomics focus
+W2063032990,E,E5,,Fuzzy CONWIP card control
+W7141647873,E,E3,,CNC thermal error compensation
+W7225017243,E,E3,,Single CNC machine DT model adaptation
+W7165542554,E,E5,,Generic AI-ML-DT control review
+W7165647731,E,E4,,Figshare preprint duplicate
+W7163654659,E,E1,,Precast concrete module production
+W7203906076,I,,SQ1;SQ3,DT-enabled metaverse architecture for production system design; automotive case
+W7165188590,U,,SQ3,Conceptual LLM-assisted DES model generation; repository venue
+W7165454456,E,E3,,Machine-tool-level CNC milling DT
+W7221156601,E,E5,,Scheduling and control performance measures; repository
+W7169838083,E,E2,,Generic conceptual AI DT framework
+W7163515593,E,E2,,Duplicate generic conceptual AI DT framework
+W7164306670,E,E5,,MBSE-DT-MOM conceptual synthesis; no SQ focus
+W7128537272,E,E5,,DT drivers and barriers ranking
+W7217710284,E,E2,,Theoretical LLM DT MES essay
+W7164000717,I,,SQ3,DES model for matrix production system design
+W7165729438,E,E2,,Executive-level integration essay
+W7224104605,I,,SQ2;SQ3,DES sensitivity to MTBF/MTTR for production system design
+W7169581166,E,E5,,General robotics Industry 4.0 review
+W7120041259,I,,SQ2;SQ3,Planning-phase DES with stochastic breakdowns and scrap
+W7154912263,E,E1,,Agriculture robotics
+W7201956903,E,E3,,CNC thermal compensation
+W4413878505,E,E3,,CNC feed system DT
+W4407683030,E,E5,,Bibliometric of DT in machining; no SQ
+W4409683780,I,,SQ2;SQ3,DT monitoring operation time changes triggering line reconfiguration
+W4407596301,I,,SQ2;SQ3,DES-based buffer/resource design under uncertainties
+W7134301287,E,E4,,Thesis; not peer-reviewed
+W4412374051,E,E5,,General aircraft manufacturing review
+W4414568195,I,,SQ3,DT prototype for factory and production planning
+W4408252165,E,E5,,Agents vs DT in IoT conceptual
+W4413948252,U,,SQ3,Pre-DT design of AGV fleet and buffers plus DT
+W4413291841,E,E5,,Sensor data recovery DT; no SQ

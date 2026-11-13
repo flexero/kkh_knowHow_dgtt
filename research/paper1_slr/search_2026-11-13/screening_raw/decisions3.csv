@@ -1,0 +1,91 @@
+id,decision,reason,sq,note
+W4393864587,E,E3,,Single CNC servo feedrate DT; machine-level physics only
+W7221545116,U,,SQ1,Narrative review with integrated DT architecture; weak venue; check full text
+W4402943962,E,E3,,Press hardening surrogate model of single process
+W4414302101,E,E5,,Quality control review of hybrid manufacturing; not SQ focus
+W4392137795,I,,SQ3,DES for dimensioning production system in factory planning and ramp-up
+W4404789666,I,,SQ2;SQ3,DES used to virtually commission job-shop toolchain with disturbances and scrap
+W4399241701,E,E1,,Lemon extract food process production; non-English title
+W4385633052,I,,SQ2;SQ3,DES DT of production system; validation accuracy and processing time robustness
+W4387844060,U,,SQ2,DES+GA textile factory with variable times and demand; mainly planning
+W4381951285,I,,SQ3,Review of manufacturing DT incl. commissioning and layout design
+W4366316623,I,,SQ1;SQ3,Evaluates virtual engineering/commissioning tools for manufacturing system DT
+W4389203396,I,,SQ3,DT and virtual commissioning of interlinked assembly system
+W4389613921,I,,SQ1;SQ3,Line DT with data toolchain; validates predictions against measurements
+W4386963198,E,E5,,Photogrammetry camera layout DRL; not SQ topics
+W4212946487,U,,SQ1,DES co-simulation DT of robot cell for fault diagnosis BN; IIoT testbed
+W4297546858,I,,SQ1,Layered DT architecture for smart shop floor incl. SCADA PLC
+W4313332011,E,E5,,Abnormal event diagnosis in workshop; no SQ angle
+W4292882782,U,,SQ3,Virtual commissioning of robotic system; mainly theoretical outline
+W4282821649,I,,SQ1,IIoT platform for factory DT instantiation and ramp-up
+W4306392963,I,,SQ3,Virtual engineering and commissioning across assembly system lifecycle
+W4312569829,I,,SQ1;SQ3,Open architecture IEC 61499 for virtual commissioning models
+W4295023783,I,,SQ2;SQ3,Error modelling to narrow reality gap in virtual commissioning
+W4311061967,E,E4,,Editorial news item on food
+W3169329178,U,,SQ2,No abstract; Bayesian network modeling of manufacturing system
+W3182165217,E,E5,,Multistage quality monitoring with HBN; DES only as test
+W3136749658,I,,SQ1,DT framework and implementation for pipe machining production line
+W3200915697,I,,SQ3,DT of robotic assembly cell enabling virtual commissioning
+W3200227970,E,E3,,Tool wear monitoring of single 5-axis machine
+W3082482163,I,,SQ3,DES procedure to build production DT of automated line
+W3092576499,E,E5,,Logistics vehicle routing in industrial park; operational only
+W3093230793,U,,SQ1,IIoT DT-enabled production management system; mainly planning focus
+W3117688083,U,,SQ3,Concept for simulation-based production system design using DT
+W3087948134,I,,SQ3,Synchronised DT after commissioning for reconfiguration; quantitative evaluation
+W3135215054,U,,SQ3,Virtual commissioning component library; Hungarian paper; check language
+W7162345072,E,E4,,Greek doctoral thesis in repository; not peer-reviewed article
+W3008022121,E,E5,,Real-time robotic execution reconfiguration; no SQ angle
+W2942063479,I,,SQ3,DES-based design of real metal industry manufacturing system
+W3004998292,I,,SQ1,Low-cost open-source microcontrollers for DT communication
+W2803813714,U,,SQ2,DES/SD performance model with live data; uncertainty in decisions
+W2897776890,I,,SQ2;SQ3,Sensor data enriches simulation for planning and commissioning of manual tasks
+W2799665398,I,,SQ3,Anchor-point method to sync DT with real system after commissioning
+W2891895880,U,,SQ4,DES tool for SME bottled water plant in emerging economy; process type unclear
+W2805097445,I,,SQ2;SQ3,DES to reduce uncertainty in production system design
+W2191106636,U,,SQ2;SQ3,DES of manufacturing cell under demand disturbances; design factors
+W2527209545,I,,SQ3,DES-based design of aerospace manufacturing cell
+W2203697710,E,E5,,Energy supply planning for assembly plant; not SQ topics
+W7125785523,E,E5,,Generic parametric DES of service system; no manufacturing case
+W7167475248,U,,SQ1;SQ2,No abstract; uncertainty-aware synchronization in manufacturing DT
+W7155861871,E,E5,,RL formulation framework for DT optimization; no SQ angle
+W7155498635,E,E5,,Adaptive CPPS control with LSTM; no SQ angle
+W7222959804,I,,SQ2,DT characterises uncertainties from data and updates lead times
+W7202090690,E,E1,,Poultry farming
+W7163867119,U,,SQ1;SQ2,Manufacturing DT review; notes uncertainty propagation gaps; sustainability focus
+W7219754634,E,E5,,PLM 5.0 concept review; not system DT SQ topics
+W7162875451,I,,SQ2;SQ3,DES configuration platform for disassembly with statistical uncertainties
+W7171866129,E,E5,,Meta-analysis on DT planning and scheduling
+W7213281315,E,E1,,Wastewater treatment
+W7170143989,E,E5,,Humanoid robot scheduling under DT uncertainty; scheduling only
+W7133650367,E,E3,,Additive manufacturing single-track process ML
+W7224272189,E,E5,,Review of ML scheduling optimisation
+W7204247354,U,,SQ2,No abstract; reliability assessment of production systems review
+W7215403497,E,E2,,Conceptual DT ecosystem framework only
+W7151896205,E,E3,,Tool wear prediction calibration single process
+W7203786344,E,E1,,Biopharmaceutical bioprocess
+W7141486517,E,E5,,Human-centric job shop scheduling DT
+W7214775469,E,E5,,NDE ML review; quality inspection unrelated
+W7220079611,E,E3,,Tape casting single process optimisation
+W7172339890,E,E3,,Springback single process review
+W7172483311,E,E1,,Aquaculture
+W7133231400,I,,SQ1;SQ3,Review of DT architectures and virtual commissioning in smart manufacturing
+W7207834086,U,,SQ3,Virtual commissioning of robot vision bin picking cell; single cell
+W7164574158,U,,SQ1;SQ3,No abstract; DT virtual commissioning robotic assembly in prefab construction
+W7215110773,I,,SQ1,Edge IIoT architecture IEC 61499 MQTT open-source testbed
+W7223675406,I,,SQ3,DES+RL stepwise development scenarios for tool manufacturing facility
+W4412544759,I,,SQ2;SQ3,Aleatory and epistemic uncertainty in DES during planning phase
+W4416767513,E,E5,,Fuzzy DT optimisation of waste and energy; no SQ angle
+W4405994732,E,E5,,Digital calibration certificates for sensors; not system DT
+W4407640780,E,E5,,DRL WIP control with DES; pure control
+W4410539439,E,E1,,Decentralized shared warehouse outside factory
+W7125207337,E,E1,,Agricultural systems
+W4415318555,E,E5,,GERT network resource distribution; no DT/DES of discrete system
+W4410303026,E,E1,,Green ammonia chemical process
+W7124249526,E,E2,,Conceptual economic-mathematical modeling article
+W7221578780,E,E4,,University repository review; not peer-reviewed
+W7128345293,E,E1,,Education indicators; not manufacturing system
+W4406244147,I,,SQ3,Software-defined value stream with DT for virtual planning and commissioning
+W4411362906,I,,SQ3;SQ4,DES of transition to AGV handling in developing country
+W4415955110,E,E5,,Push/pull control policy DES; operational only
+W4412087430,I,,SQ1;SQ4,Affordable data acquisition for simulation DT in SMEs incl. OPC UA
+W4400583487,I,,SQ2,Live fitting of processing time and scrap distributions in DT

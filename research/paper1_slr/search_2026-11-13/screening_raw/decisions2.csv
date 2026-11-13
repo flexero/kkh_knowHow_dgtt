@@ -1,0 +1,91 @@
+id,decision,reason,sq,note
+W7225315164,E,E1,,Industrial safety math methods; oil and gas context
+W7213271716,E,E1,,Architectural-scale non-planar 3D printing workshop
+W7213616715,E,E1,,Green industrial policy econometrics
+W7124763352,I,,SQ3,Method to transform virtual commissioning models into DTs of production systems
+W7130847697,I,,SQ3,GA scheduling validated by DES in commissioning-stage job-shop case
+W7172002124,E,E1,,Municipal governance policy study
+W7220358116,E,E5,,DT for digital product passport generation; no SQ angle
+W7220466999,E,E5,,ML-LLM surrogate control of single machines; no SQ angle
+W7223172881,I,,SQ1,DT and 5G framework for legacy CNC cell with physical-only interfaces
+W7225380508,E,E4,,Zenodo repository; no peer review
+W7149644658,I,,SQ3;SQ4,Plant Simulation DT layout redesign of CNC shop; SME; real data
+W4414567741,U,,SQ2,DT-driven dynamic scheduling under machine availability uncertainty; check SQ fit
+W4413265355,E,E3,,DT of single robotic EDM system; machine-level calibration
+W4411343290,E,E3,,CNC-controlled robot dynamics models; single machine
+W4407537598,I,,SQ3,DES multi-objective optimisation for FMS design
+W4403561599,E,E5,,RL scheduling on IIoT test bed; no SQ angle
+W4400964319,I,,SQ3,DT-based virtual commissioning of reconfigured assembly line; validated
+W4412906320,U,,SQ3,DT virtual commissioning for EV production; abstract vague possibly conceptual
+W4391836452,E,E3,,Open control and DT for single educational CNC machine
+W4405904069,U,,SQ1,FMS training platform with DT remote control; architecture unclear
+W4387885593,E,E5,,Fuzzy decision matrix for selecting control engineering tools
+W7124808158,U,,SQ2;SQ3,Generic DT design framework with data assimilation and commissioning; vague
+W4321459724,I,,SQ3,DT system design for multi-robot circuit breaker FMS
+W4390761926,I,,SQ3,DES multi-objective FMS design (duplicate of W4407537598)
+W4387178991,U,,SQ3,VC with dynamic models for production plant development; mostly robot level
+W4313145539,I,,SQ2,DT synchronisation with health models improves simulated makespan prediction
+W4297282530,E,E1,,Process industry optical fiber drawing
+W3185208125,E,E3,,Quantum DT of single CNC sensor network
+W4212797849,I,,SQ3,Data model for layout planning with DES of FMS
+W3167870516,I,,SQ3,Intelligent DT transfer learning from design to commissioning of CPPS
+W4287321891,I,,SQ3,FlexSim DES to design new robotized welding workshop test system
+W3011605088,I,,SQ3,DES of flexible furniture cell flow control design
+W2722925682,I,,SQ1;SQ4,Real-time data acquisition and simulation DT for SMEs in learning factory
+W7216647422,U,,SQ3;SQ4,Lean cell design supported by DES in Indian SME; thesis-like text
+W2767944692,E,E4,,Master thesis; not peer-reviewed
+W3176541861,U,,SQ3,Ramp-up oriented DES of production systems; likely German full text
+W2082483298,E,E5,,Order release and autonomous control DES; PPC only
+W7207850971,I,,SQ3,DES and optimisation for circular production system configuration
+W7137105356,E,E3,,Tool-health DT of single CNC tool
+W7203865338,E,E4,,Zenodo repository; no peer review
+W7162749591,U,,SQ2,Uncertainty management framework in DT; MDF factory PdM case
+W7213532105,I,,SQ2,Hybrid DT with online parameter calibration on assembly line model
+W7172178089,I,,SQ2;SQ3,Online validation and particle-filter calibration of DES-based DT
+W7203722706,E,E1,,Oil and gas production systems
+W7224078444,I,,SQ2;SQ3,DES layout design with sensitivity to process time and MTTR
+W7160169834,E,E4,,Figshare repository copy of IJPR article
+W7160191203,I,,SQ2;SQ3,CMS design with MINLP and DES under demand uncertainty
+W7201839285,E,E1,,Gas-oil separation plant
+W7128431978,I,,SQ1;SQ2,DT with Bayesian-calibrated stochastic simulation; edge layer; old equipment
+W7215193553,E,E4,,PhilPapers repository; not peer-reviewed
+W7204475010,U,,SQ1,Cloud-edge DT architecture of robots with CNC; mostly robot level
+W7136893632,I,,SQ2;SQ3,GAN plus DT metamodels for resilient manufacturing system design
+W7162864535,U,,SQ2,DES-based DT with stochastic inputs for energy control; conceptual
+W7223463450,E,E4,,Zenodo repository; no peer review
+W7172247175,U,,SQ1;SQ2,Multi-fidelity DT with OPC-UA shadow for AMR shop floor; scheduling focus
+W7118194003,I,,SQ3,Arena DES validated with industrial data for flexible system design
+W7204077160,E,E1,,3D concrete printing construction
+W7172273000,E,E3,,Review of CNC machine accuracy; single machine
+W7164912218,U,,SQ2;SQ3,Simulation for remanufacturing system design; uncertainty sources
+W7169786284,E,E4,,Zenodo repository; no peer review
+W7213344333,E,E1,,Food processing heat exchangers
+W7150747295,E,E1,,Generic sustainability computational math
+W7150784273,E,E1,,Library science / generic sustainability
+W7150861896,E,E1,,Library science / generic sustainability
+W7150918753,E,E1,,Calculus AI tools / generic
+W7133521754,E,E1,,Metal PBF additive process physics
+W7154913933,E,E1,,Lunar resource utilisation user study
+W7225884133,E,E1,,Coal mining geology
+W7168270150,E,E4,,Zenodo recovery architecture; no peer review
+W7172118474,E,E1,,Industrial energy transformation conceptual
+W7223940406,E,E1,,Multiphysics defensive publication
+W7203921545,U,,SQ3,DT-based robot-machine virtual commissioning; peer-review status unclear
+W7171292480,I,,SQ3;SQ4,Validated DES for garment SME bottleneck and capacity design
+W7131355410,I,,SQ1;SQ3,Assembly line DT with OPC UA and virtual commissioning
+W7154589380,I,,SQ3,Modular production line DT with SiL/MiL virtual commissioning
+W7212173488,E,E3,,CNC milling accuracy compensation subroutine
+W7213445683,E,E1,,Green chemistry manufacturing
+W7132825296,E,E1,,Rangeland agriculture
+W7223669080,I,,SQ1;SQ4,Self-hosted open-source Kubernetes DT for SME production line
+W7223467963,I,,SQ1;SQ4,AI-enabled DT of multi-station cell in Bangladesh SME
+W7166522065,E,E3,,Hybrid AM machine technology review
+W4414974387,E,E1,,Building construction projects
+W7212398232,E,E1,,Additive manufacturing process DT
+W7217444136,E,E5,,PdM and supply chain integration; no SQ angle
+W4408517763,E,E1,,Agriculture strawberry farm
+W7162350063,E,E4,,Greek diploma thesis
+W4411342740,E,E5,,Trend analysis of EV assembly; no DT model
+W7155487352,E,E2,,Conceptual digital-physical integration and executive decisions
+W4416367466,E,E5,,Single device maintenance and spare parts DES
+W4415319893,E,E5,,Ontology digital thread for aircraft design; no DT/DES

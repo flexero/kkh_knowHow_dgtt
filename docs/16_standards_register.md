@@ -1786,6 +1786,121 @@ or an SME subscription may be cheaper). Positions 1–10 alone ≈ € 2 000–3
 
 ---
 
+## 23. Standards tab in the twin + additions from guides 30–49 (2026-11-13)
+
+**Where:** tab **Standards** (`#std`) – an offline, searchable library of every row of the master table §16 plus the
+standards below, with plain-language summaries. Detail panel: simple title, official title, what it requires (key values),
+project requirements (§4), group, binding type, edition, status, guides that use it. The most important standards have a
+longer **explainer** (★): what it is, why it matters, main content, key numbers, how to apply it here.
+Deep links: `/?std=ISO%2013855#std`, `/?stdq=hydraulic#std`, `/?stdg=AM#std`.
+
+**How the data is made:** `python tools/build_standards.py` reads §16 (master table), §4 (detailed register) and §21
+(shopping list) of this guide and writes `web/std_data.js`. Run it after every change of this guide
+(`--missing` lists numbers cited in guides 31+ that are not in §16 yet). Hand-written rows and explainers are in
+`web/std_extra.js`. All texts are our own summaries for orientation – not the official text.
+
+**Rows added from guides 30–49 and the AM / machine-tool tabs** (94 rows, not yet merged into §16; group AM = additive
+manufacturing). Merge them into §16 at the next register review:
+
+| Standard | Group | Title (simple English) | Key content | Binding? | Used in |
+|---|---|---|---|---|---|
+| ISO/ASTM 52900 | AM | AM – terms and the 7 process families | vocabulary of additive manufacturing; defines the 7 process categories (PBF, DED, BJT, MEX, VPP, MJT, SHL) and terms like build platform, layer, support, feedstock | V | 48; AM tab |
+| ISO/ASTM 52907 | AM | AM – how to test metal powders | methods to characterise metal powder feedstock: particle size distribution, chemistry (O, N, H), flowability, apparent / tap density, morphology, sampling and handling | V | 48; AM item 2 (op 10) |
+| ISO/ASTM 52910 | AM | Design for AM – general guidelines | when a part suits AM, and design rules: orientation, overhangs and supports, minimum wall / hole sizes, residual stress, post-processing allowance | V | 48 |
+| ISO/ASTM 52911 | AM | Design for laser powder bed fusion (metals: part 1, polymers: part 2) | PBF-specific design rules: overhang angle, support design, minimum features, powder removal openings, machining allowance | V | 48 |
+| ISO/ASTM 52920 | AM | Qualification of industrial AM processes and production sites | requirements for an AM production site: quality management, competence of staff, process control along the chain (feedstock → build → post-processing → inspection), documentation; basis for site certification | V (cert.) | 48; AM tab |
+| ISO/ASTM 52930 | AM | Installation, operation and performance qualification (IQ / OQ / PQ) of LPBF | how to qualify a laser powder bed fusion machine: installation checks, operational checks (laser, gas, recoater), performance builds with test specimens | V | 48; AM item 2 |
+| ISO/ASTM 52904 | AM | Metal PBF for critical applications – process requirements | feedstock control, machine qualification, build records, witness specimens, inspection and testing for critical metal PBF parts | V | AM item 2 |
+| ISO/ASTM 52902 | AM | Test artefacts to check AM machine geometry | standard test parts (pins, holes, overhangs, thin walls, resolution features) to measure what a machine can build | V | AM item 2 |
+| ISO/ASTM 52941 | AM | Acceptance tests of laser PBF machines (aerospace) | acceptance tests for laser metal PBF machines: laser power and beam, scanner positioning, gas flow, build tests | V | AM item 3 |
+| ASTM F2924 | AM | Ti6Al4V made by powder bed fusion – material specification | chemistry, minimum tensile properties, heat treatment / HIP options and testing for PBF titanium grade 5 parts | V | 48; AM item 3 |
+| ASTM F3001 | AM | Ti6Al4V ELI made by powder bed fusion | as F2924 for the extra-low-interstitial grade used for implants | V | 48 |
+| ASTM F3055 | AM | Nickel alloy 718 made by powder bed fusion | chemistry, heat treatment (solution + ageing, HIP), minimum properties for PBF IN718 parts | V | 48 |
+| ASTM F3184 | AM | Stainless steel 316L made by powder bed fusion | chemistry, heat treatment and minimum properties for PBF 316L parts | V | AM item 2 |
+| ASTM F3302 | AM | Titanium alloys made by powder bed fusion – finished part properties | requirements for finished PBF titanium parts: material, process, properties, testing, certification | V | AM item 2 |
+| ASTM F3318 | AM | AlSi10Mg made by laser powder bed fusion | chemistry, thermal processing and minimum properties for PBF AlSi10Mg parts | V | AM item 2 |
+| SAE AMS 7003 | AM | Laser powder bed fusion process specification (aerospace) | process control for aerospace LPBF: machine and parameter qualification, feedstock control, build records, post-processing, inspection | V | 48; AM item 3 |
+| SAE AMS 7000 | AM | AMS 7000-series: material specs for LPBF parts | series of aerospace material specifications for LPBF parts and powders (AMS 7000 itself covers LPBF nickel alloy 625 parts) | V | 48 |
+| NASA-STD-6030 | AM | AM requirements for spaceflight hardware | classification of AM parts by risk, qualified material and part processes, controls for crewed spaceflight | V | 48; AM item 3 |
+| MSFC-SPEC-3717 | AM | NASA Marshall – LPBF process control | process control and qualification of laser powder bed fusion (companion of NASA-STD-6030) | V | 48 |
+| VDI 3405 | AM | German guideline series on additive manufacturing | terms, quality assurance, design rules, material data sheets and acceptance tests for AM processes (many parts) | V | 48; AM item 3 |
+| DIN SPEC 17071 | AM | Requirements for quality-assured AM processes | requirements along the whole AM process chain (staff, machines, feedstock, process, post-processing, testing) as a base for audits / certification | V (cert.) | 48 |
+| API 20S | AM | AM metallic parts for petroleum + natural gas | qualification and production controls for AM metal parts by specification level (feedstock, machine, procedure, testing) | V | 48; AM item 3 |
+| DNV-ST-B203 | AM | DNV – additive manufacturing of metallic parts | qualification and manufacturing of AM metal parts for oil + gas and maritime: AM categories, procedure qualification, testing, certification | V (cert.) | 48; AM item 3 |
+| ISO 13485 | QM | Quality management for medical devices | QMS requirements for medical device makers: design control, risk management, validation of processes (e.g. AM), traceability | V (cert.) / L via MDR | 48; AM item 3 |
+| ISO 10993 | QM | Biological evaluation of medical devices | biocompatibility testing (cytotoxicity, sensitisation, irritation …) of materials that touch the body | V / L via MDR | 48; AM item 3 |
+| ISO 22674 | MAT | Dental metallic materials | types 0–5 of dental alloys by strength, requirements and tests (crowns, bridges, frameworks) | V / L via MDR | 48; AM item 3 |
+| EN 45545 | SAF | Fire protection on railway vehicles | hazard levels HL1–HL3 and fire requirements (flame spread, smoke, toxicity) for materials and parts in trains – applies to printed spare parts too | H / V | 48; AM item 3 |
+| EN 1559 | MAT | Founding – technical conditions of delivery for castings | general delivery conditions for castings (order data, inspection, documents); material-specific parts follow | V | AM item 3 |
+| IEC 60079 | SAF | Explosive atmospheres – Ex equipment + zone classification | protection types of equipment for zones 0/1/2 (gas) and 20/21/22 (dust); part 10-2 = classification of dust zones (metal powder rooms) | H (ATEX) | AM item 2 |
+| ISO 13041 | MTM | Test conditions for CNC turning machines + turning centres | geometric tests, positioning accuracy of linear and rotary axes, thermal tests, machining test parts – used for acceptance (FAT / SAT) of lathes | V | 49; MT item 3 |
+| ISO 14955 | MTM | Environmental evaluation of machine tools (energy) | part 1: design methods for energy-efficient machine tools; further parts: how to measure energy use of machine types | V | 49; MT item 2 |
+| OPC 40501 | AUT | OPC UA for machine tools (umati companion specification) | standard data model for machine tools over OPC UA: identification, state, production jobs, monitoring, notifications – same names for all makers | V (free download) | 49; MT item 2 |
+| MTConnect | AUT | MTConnect (ANSI/MTC1.x) – machine-tool data standard | read-only standard vocabulary + XML/HTTP interface for machine-tool data (state, program, axes, alarms); common in the USA | V (free download) | 49 |
+| EN 10029 | MAT | Hot-rolled steel plates ≥ 3 mm – tolerances | tolerances on thickness (classes A–D), width, length, flatness and mass of hot-rolled plates | V | 38 |
+| EN 10164 | MAT | Steel with through-thickness properties (Z-quality) | Z15 / Z25 / Z35 classes (reduction of area in thickness direction) against lamellar tearing under welds | V | 38 |
+| EN 10228 | MAT | Non-destructive testing of steel forgings | MT, PT, UT methods and quality classes for steel forgings | V | 38 |
+| EN 10277 | MAT | Bright steel products (drawn / turned / ground bars) | technical delivery conditions, tolerances and steel grades of bright bars | V | 38 |
+| EN 12385 | MHD | Steel wire ropes – safety | requirements, terms, classification and testing of steel wire ropes | H (MD) | 38 |
+| EN 13001 | MHD | Cranes – general design | design of crane structures and mechanisms: load combinations, limit states, proof of static strength and fatigue (used for stacker-crane masts by analogy) | H (MD) | 31, 38, 39 |
+| EN 15095 | MHD | Power-operated mobile racking, carousels, storage lifts – safety | safety requirements for those systems – NOT for stacker cranes (those are EN 528) | H (MD) | 38 |
+| EN 16681 | MHD | Pallet racking – seismic design | principles for the seismic design of adjustable steel pallet racking (with Eurocode 8) | V / NL | 31 |
+| EN 1998 | BLD | Eurocode 8 – design of structures for earthquake resistance | seismic actions, ground types, behaviour factors, rules per structure type; national annexes set local values | NL | 31 |
+| EN 353 | SAF | Fall protection – guided type fall arresters | requirements for fall arresters on a rigid (part 1) or flexible (part 2) anchor line, e.g. on crane masts / ladders | H (PPE) | 38 |
+| ISO 11666 | MAT | Ultrasonic testing of welds – acceptance levels | acceptance levels 2 / 3 for indications found by UT of full-penetration welds | V | 38 |
+| ISO 14122 | SAF | Permanent means of access to machinery | dimensions of platforms, walkways, stairs, step ladders, fixed ladders and guard-rails (height 1 100 mm, toe board …) | H (MD) | 31, 38 |
+| ISO 14175 | MAT | Welding gases and gas mixtures | classification of shielding gases (e.g. M21 = Ar + 15–25 % CO2 for MAG) | V | 38 |
+| ISO 1461 | MAT | Hot-dip galvanised coatings on steel | requirements and minimum coating thickness by steel thickness, inspection | V | 38 |
+| ISO 14731 | MAT | Welding coordination – tasks and responsibilities | the welding coordinator's tasks and required knowledge (part of ISO 3834 quality system) | V | 38 |
+| ISO 15614 | MAT | Welding procedure qualification by test (WPQR) | how to qualify a welding procedure by test pieces and testing; range of approval | V | 38 |
+| ISO 16625 | MHD | Cranes – selection of wire ropes, drums and sheaves | minimum rope safety factor and D/d ratios by mechanism group (check edition) | V | 38 |
+| ISO 17636 | MAT | Radiographic testing of welds | X-ray / gamma techniques (film or digital) for fusion welds; testing classes | V | 38 |
+| ISO 17637 | MAT | Visual testing of fusion welds | how to do visual inspection of welds: conditions, tools, documentation | V | 38 |
+| ISO 17638 | MAT | Magnetic particle testing of welds | MT technique for welds in ferromagnetic steel | V | 38 |
+| ISO 17640 | MAT | Ultrasonic testing of welds – techniques | UT techniques, testing levels A–D for welds | V | 38 |
+| ISO 19840 | MAT | Paint dry-film thickness on rough surfaces | how to measure DFT and accept it (e.g. 80–20 rule) on blasted steel | V | 38 |
+| ISO 23278 | MAT | Magnetic particle testing of welds – acceptance levels | acceptance levels for MT indications | V | 38 |
+| ISO 4063 | MAT | Welding process numbers | reference numbers of welding processes (e.g. 111 MMA, 135 MAG, 141 TIG, 121 submerged arc) | V | 38 |
+| ISO 4309 | MHD | Cranes – wire ropes: care, inspection, discard | inspection intervals and discard criteria (broken wires, wear, corrosion, deformation) | V | 31, 38 |
+| ISO 8503 | MAT | Surface roughness of blast-cleaned steel | comparator method for the roughness profile before painting (fine / medium / coarse) | V | 38 |
+| ISO 9712 | MAT | Qualification of NDT personnel | levels 1–3 for NDT inspectors by method (UT, RT, MT, PT, VT, ET …) | V (cert.) | 38 |
+| EN 13218 | SAF | Safety of stationary grinding machines (check: being replaced by ISO 16089) | safety requirements for stationary grinding machines (guards, wheel speed, enclosures) | H (MD) | 41 |
+| AMS 2750 | MAT | Pyrometry for heat treatment (furnaces) | furnace classes by temperature uniformity, instrument types, temperature uniformity surveys (TUS), system accuracy tests (SAT) | V | 41; AM item 2 |
+| EN 746 | SAF | Industrial thermoprocessing equipment – safety | safety of furnaces and heat-treatment plants (combustion, atmospheres, electrical heating) | H (MD) | 42 |
+| EN 50519 | ELE | EMF exposure of workers at induction heating installations | how to assess electromagnetic field exposure of workers (with Directive 2013/35/EU) | V | 47 |
+| ISO 12090 | MEC | Profiled rail guides for linear rolling bearings | boundary dimensions and tolerances of profiled linear guides (rail + carriage) | V | 40, 41, 44 |
+| ISO 3290 | MEC | Rolling bearings – balls | steel balls: grades (G3, G5, G10 …), size and form tolerances | V | 40, 41, 44, 46 |
+| ISO 2904 | MEC | Metric trapezoidal screw threads – basic dimensions | basic dimensions of Tr threads (e.g. Tr 32 × 6) used in simple lead screws | V | 40 |
+| ISO 12181 | MEC | GPS – roundness | definitions and specification of roundness (filters, evaluation methods) | V | 44 |
+| ISO 4288 | MEC | Surface texture – rules for assessment (withdrawn) | rules and cut-off selection for profile roughness measurement; withdrawn, replaced by ISO 21920-3 (2021) | V | 44 |
+| ISO 5436 | MEC | Calibration standards for surface texture instruments | measurement standards (depth, roughness specimens) to calibrate roughness testers | V | 44 |
+| ISO 15549 | MAT | Eddy current testing – general principles | basic principles of eddy current NDT (cracks, hardness, coating thickness) | V | 44 |
+| ISO 6507 | MAT | Vickers hardness test | test method, loads (HV1, HV10 …), verification of testers | V | 41, 44 |
+| ISO 6508 | MAT | Rockwell hardness test | test method and scales (HRC, HRB …), verification of testers | V | 41, 44 |
+| ASTM E2587 | QM | Control charts in statistical process control | practice for X̄-R, X̄-s, individuals, p / np / c / u charts and control limits | V | 44 |
+| ISO/IEC 29158 | ID | Direct part marking (DPM) – print quality | quality grading of 2D codes marked directly on parts (dot peen, laser) | V | 44 |
+| ISO/IEC 15418 | ID | Data identifiers + GS1 application identifiers | the prefixes inside barcodes / 2D codes that say what a data field is (serial, batch, date …) | V | 45 |
+| EN 856 | FLU | Rubber hoses – wire spiral (4SP, 4SH, R12, R13) | construction, dimensions and pressure ratings of spiral-reinforced hydraulic hoses | V | 30 |
+| ISO 15171 | FLU | Hydraulic test points (gauge couplings) | connections for measuring pressure in hydraulic systems under pressure | V | 30 |
+| ISO 6022 | FLU | Mounting dimensions of single-rod cylinders, 25 MPa series | interchangeable mounting dimensions of heavy-duty 250 bar cylinders | V | 30 |
+| ISO 6149 | FLU | Ports + stud ends with metric thread and O-ring | metric port design for hydraulic components (O-ring seal, no thread sealant) | V | 30 |
+| IEC 60890 | ELE | Temperature-rise calculation of switchgear assemblies | method to verify by calculation that a control cabinet does not overheat (used with IEC 61439) | V | 37 |
+| IEC 60068 | ELE | Environmental testing (vibration, shock, climate) | test methods for equipment: temperature, humidity, vibration, shock – e.g. for devices on moving cranes / AGVs | V | 33 |
+| IEC 62682 | AUT | Management of alarm systems (process industries) | alarm philosophy, rationalisation, priorities, performance (e.g. ≤ 1 alarm per 10 min per operator as a target), lifecycle; same content as ISA-18.2 | V | 35 |
+| EN 16247 | ENV | Energy audits | how to perform energy audits (general, buildings, processes, transport) | V / NL | 42 |
+| EN 16798 | BLD | Energy performance of buildings – ventilation + indoor climate | indoor climate categories, ventilation rates, temperatures for design | V / NL | 42 |
+| EN 16931 | AUT | Electronic invoicing – semantic data model | core data model of an e-invoice (basis of XRechnung, ZUGFeRD / Factur-X, Peppol) | L (public buyers) / V | 46 |
+| EN 50173 | ELE | Generic cabling systems (structured cabling) | structured copper and fibre cabling for offices, industrial premises (part 3), data centres | V | 43 |
+| EN 50310 | ELE | Bonding networks for telecom in buildings | equipotential bonding and earthing for IT / network equipment | V | 43 |
+| VDI 2510 | MHD | Automated guided vehicle systems (AGVS) | German guideline on AGV systems: terms, planning, components, safety | V | 42 |
+| VDI 2516 | MHD | Energy efficiency of S/R machines (check) | cited with FEM 9.860 for energy per cycle of storage-retrieval machines – check that this number / edition exists before quoting it | V | 32 |
+| VDI 3581 | MHD | Availability of transport and storage systems | how to define and measure availability (fault time vs operating time) for guarantees | V | 32 |
+| VDI 3601 | MHD | Warehouse management systems | functions and selection of WMS | V | 34 |
+| VDI 4480 | MHD | Throughput of automated storage systems | how to calculate cycle times / throughput of AS/RS (series) | V | 34 |
+| VDI 5200 | BLD | Factory planning | factory planning procedure in phases (goals, basic evaluation, concept, detail, realisation, ramp-up) | V | 42 |
+
+---
+
 ## 22. Glossary
 
 | Term | Meaning |

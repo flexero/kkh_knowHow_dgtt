@@ -1,0 +1,21 @@
+/* Machine tools tab (#mt) – mt.js. Uses the theme variables of style.css (light + dark); shares am-* table / chart classes from am.css. */
+.mt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 8px; margin-bottom: 12px; }
+.mt-card { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); font: inherit; font-size: 12.5px; cursor: pointer; text-align: center; }
+.mt-card:hover { background: var(--surface-2); }
+.mt-card.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.mt-sk { width: 100%; max-width: 170px; height: auto; }
+.mt-sk text.mt-st { font-size: 8.5px; fill: var(--text-2); }
+.mt-dots { color: var(--series); letter-spacing: 1px; font-size: 11px; white-space: nowrap; }
+.mt-tr { color: var(--text-2); letter-spacing: 0; }
+.mt-dh { display: grid; grid-template-columns: 260px 1fr; gap: 16px; align-items: start; border-top: 1px solid var(--grid); padding-top: 12px; }
+.mt-big .mt-sk { max-width: 260px; background: var(--surface-2); border-radius: 8px; }
+.mt-dh p { margin: 6px 0; font-size: 13.5px; }
+.mt-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.mt-step { display: inline-block; background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px; margin: 2px 0; font-size: 12.5px; }
+.mt-arr { color: var(--muted); margin: 0 4px; }
+.mt-pgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin-top: 10px; }
+.mt-pgrid .mt-card .sub { font-size: 11px; }
+#tab-mt .grid2 > * { min-width: 0; }
+.mt-pt { cursor: pointer; }
+@media (max-width: 700px) { .mt-dh { grid-template-columns: 1fr; } }
+.am-tab td.mt-dots { white-space: nowrap; }
