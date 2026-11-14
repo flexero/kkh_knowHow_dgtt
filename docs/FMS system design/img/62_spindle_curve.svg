@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="900" height="480" style="font-family:Arial,Helvetica,sans-serif">
+<rect x="0" y="0" width="900" height="480" fill="#ffffff"/>
+<text x="450.0" y="24.0" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">Spindle power and torque curve: P_rated 18 kW, M_max 120 N·m, n_max 10 000 rpm (example)</text>
+<line x1="80.0" y1="390.0" x2="800.0" y2="390.0" stroke="#eee" stroke-width="1"/>
+<text x="72.0" y="394.0" font-size="11" text-anchor="end" fill="#2f6db5">0</text>
+<line x1="80.0" y1="324.0" x2="800.0" y2="324.0" stroke="#eee" stroke-width="1"/>
+<text x="72.0" y="328.0" font-size="11" text-anchor="end" fill="#2f6db5">4</text>
+<line x1="80.0" y1="258.0" x2="800.0" y2="258.0" stroke="#eee" stroke-width="1"/>
+<text x="72.0" y="262.0" font-size="11" text-anchor="end" fill="#2f6db5">8</text>
+<line x1="80.0" y1="192.0" x2="800.0" y2="192.0" stroke="#eee" stroke-width="1"/>
+<text x="72.0" y="196.0" font-size="11" text-anchor="end" fill="#2f6db5">12</text>
+<line x1="80.0" y1="126.0" x2="800.0" y2="126.0" stroke="#eee" stroke-width="1"/>
+<text x="72.0" y="130.0" font-size="11" text-anchor="end" fill="#2f6db5">16</text>
+<line x1="80.0" y1="60.0" x2="800.0" y2="60.0" stroke="#eee" stroke-width="1"/>
+<text x="72.0" y="64.0" font-size="11" text-anchor="end" fill="#2f6db5">20</text>
+<text x="808.0" y="394.0" font-size="11" text-anchor="start" fill="#e08a1e">0</text>
+<text x="808.0" y="311.5" font-size="11" text-anchor="start" fill="#e08a1e">40</text>
+<text x="808.0" y="229.0" font-size="11" text-anchor="start" fill="#e08a1e">80</text>
+<text x="808.0" y="146.5" font-size="11" text-anchor="start" fill="#e08a1e">120</text>
+<text x="808.0" y="64.0" font-size="11" text-anchor="start" fill="#e08a1e">160</text>
+<text x="80.0" y="406.0" font-size="11" text-anchor="middle" fill="#222">0</text>
+<line x1="80.0" y1="390.0" x2="80.0" y2="394.0" stroke="#444" stroke-width="1"/>
+<text x="224.0" y="406.0" font-size="11" text-anchor="middle" fill="#222">2000</text>
+<line x1="224.0" y1="390.0" x2="224.0" y2="394.0" stroke="#444" stroke-width="1"/>
+<text x="368.0" y="406.0" font-size="11" text-anchor="middle" fill="#222">4000</text>
+<line x1="368.0" y1="390.0" x2="368.0" y2="394.0" stroke="#444" stroke-width="1"/>
+<text x="512.0" y="406.0" font-size="11" text-anchor="middle" fill="#222">6000</text>
+<line x1="512.0" y1="390.0" x2="512.0" y2="394.0" stroke="#444" stroke-width="1"/>
+<text x="656.0" y="406.0" font-size="11" text-anchor="middle" fill="#222">8000</text>
+<line x1="656.0" y1="390.0" x2="656.0" y2="394.0" stroke="#444" stroke-width="1"/>
+<text x="800.0" y="406.0" font-size="11" text-anchor="middle" fill="#222">10000</text>
+<line x1="800.0" y1="390.0" x2="800.0" y2="394.0" stroke="#444" stroke-width="1"/>
+<line x1="80.0" y1="60.0" x2="80.0" y2="390.0" stroke="#444" stroke-width="1"/>
+<line x1="80.0" y1="390.0" x2="800.0" y2="390.0" stroke="#444" stroke-width="1"/>
+<line x1="800.0" y1="60.0" x2="800.0" y2="390.0" stroke="#444" stroke-width="1"/>
+<text x="440.0" y="426.0" font-size="12" text-anchor="middle" fill="#222">spindle speed n [rpm]</text>
+<text x="30.0" y="225.0" font-size="12" text-anchor="middle" fill="#2f6db5" transform="rotate(-90 30.0 225.0)">available power P_av [kW]</text>
+<text x="870.0" y="225.0" font-size="12" text-anchor="middle" fill="#e08a1e" transform="rotate(90 870.0 225.0)">available torque [N·m]</text>
+<polyline points="80.0,390.0 183.1,93.0 800.0,93.0" fill="none" stroke="#2f6db5" stroke-width="3"/>
+<polyline points="80.0,142.5 183.1,142.5 183.1,142.4 197.5,172.8 211.9,196.5 226.3,215.5 240.7,231.2 255.1,244.2 269.5,255.3 283.9,264.8 298.3,273.1 312.7,280.3 327.1,286.7 341.5,292.4 355.9,297.5 370.3,302.1 384.7,306.2 399.1,310.0 413.5,313.5 427.9,316.6 442.3,319.5 456.7,322.2 471.1,324.7 485.5,327.0 499.9,329.2 514.3,331.2 528.7,333.1 543.1,334.9 557.5,336.5 571.9,338.1 586.3,339.6 600.7,341.0 615.1,342.3 629.5,343.5 643.9,344.7 658.3,345.9 672.7,346.9 687.1,348.0 701.5,348.9 715.9,349.9 730.3,350.7 744.7,351.6 759.1,352.4 773.5,353.2 787.9,353.9" fill="none" stroke="#e08a1e" stroke-width="3" stroke-dasharray="7,4"/>
+<line x1="183.1" y1="60.0" x2="183.1" y2="390.0" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="187.1" y="74.0" font-size="11" text-anchor="start" fill="#222">base speed n_b = 1432.5 rpm</text>
+<circle cx="156.4" cy="324.7" r="5" fill="#3c9a5f" stroke="none"/>
+<text x="164.4" y="314.7" font-size="11" text-anchor="start" fill="#3c9a5f" font-weight="bold">Turning: needs 3.96 kW at 1061 rpm</text>
+<circle cx="125.8" cy="320.7" r="5" fill="#3c9a5f" stroke="none"/>
+<text x="133.8" y="336.7" font-size="11" text-anchor="start" fill="#3c9a5f" font-weight="bold">Milling: needs 4.20 kW at 637 rpm</text>
+<circle cx="309.2" cy="366.4" r="5" fill="#3c9a5f" stroke="none"/>
+<text x="317.2" y="356.4" font-size="11" text-anchor="start" fill="#3c9a5f" font-weight="bold">Drilling: needs 1.43 kW at 3183 rpm</text>
+<circle cx="125.8" cy="251.4" r="5" fill="#c8322f" stroke="none"/>
+<text x="157.8" y="241.4" font-size="11" text-anchor="start" fill="#c8322f" font-weight="bold">Milling ap 8 mm: needs 8.40 kW at 637 rpm</text>
+<text x="90.0" y="446.0" font-size="11" text-anchor="start" fill="#c8322f">P_av(n) = min(18, 120·n/9550).  At 637 rpm only 8.00 kW is available: the 8.40 kW cut (ap = 8 mm) is NOT possible – torque limits, not power.</text>
+<text x="90.0" y="464.0" font-size="11" text-anchor="start" fill="#444">Points show Pc/η (η = 0.8) for the JSON cutting examples (green = OK).</text>
+</svg>

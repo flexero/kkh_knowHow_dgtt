@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" font-family="Arial, Helvetica, sans-serif">
+<title>Annotated setter screen of the tool management web page /tools</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker></defs>
+<rect x="0" y="0" width="1200" height="800" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="17" text-anchor="start" fill="#111" font-weight="bold">Setter screen http://&lt;cell-PC&gt;:8090/tools – what each part means (fmsctl/web/tools.html, values from test_item3)</text>
+<rect x="20.0" y="50.0" width="1160.0" height="722.0" rx="8" fill="#f6f6f3" stroke="#999" stroke-width="1"/>
+<rect x="20.0" y="50.0" width="1160.0" height="40.0" rx="0" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+<text x="36.0" y="76.0" font-size="15" text-anchor="start" fill="#111" font-weight="bold">Tool management – crankcase HMCs</text>
+<text x="330.0" y="76.0" font-size="12" text-anchor="start" fill="#1565c0">← Cell controller</text>
+<text x="470.0" y="76.0" font-size="12" text-anchor="start" fill="#666">14:32:05</text>
+<rect x="36.0" y="104.0" width="560.0" height="190.0" rx="8" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48.0" y="126.0" font-size="13" text-anchor="start" fill="#111" font-weight="bold">Tool change requests (setter work list)</text>
+<text x="48.0" y="150.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">#</text>
+<text x="80.0" y="150.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Machine</text>
+<text x="160.0" y="150.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Pocket</text>
+<text x="220.0" y="150.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Tool</text>
+<text x="270.0" y="150.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Reason</text>
+<text x="460.0" y="150.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Mount</text>
+<text x="48.0" y="176.0" font-size="12" text-anchor="start" fill="#111">1</text>
+<text x="80.0" y="176.0" font-size="12" text-anchor="start" fill="#111">HMC-01</text>
+<text x="160.0" y="176.0" font-size="12" text-anchor="start" fill="#111">11</text>
+<text x="220.0" y="176.0" font-size="12" text-anchor="start" fill="#111">T10</text>
+<text x="270.0" y="176.0" font-size="12" text-anchor="start" fill="#111">life too low for the next job</text>
+<rect x="460.0" y="162.0" width="66.0" height="22.0" rx="4" fill="#fff" stroke="#bbb" stroke-width="1"/>
+<text x="465.0" y="178.0" font-size="11" text-anchor="start" fill="#111">T10-0101</text>
+<rect x="530.0" y="162.0" width="60.0" height="22.0" rx="4" fill="#fff" stroke="#888" stroke-width="1"/>
+<text x="535.0" y="178.0" font-size="11" text-anchor="start" fill="#111">Mounted</text>
+<text x="48.0" y="210.0" font-size="11" text-anchor="start" fill="#666">Mount a measured tool from the store: choose its serial and press "Mounted" –</text>
+<text x="48.0" y="226.0" font-size="11" text-anchor="start" fill="#666">life 100 % and the presetter offsets are written into the CNC (command 14).</text>
+<rect x="612.0" y="104.0" width="552.0" height="190.0" rx="8" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="624.0" y="126.0" font-size="13" text-anchor="start" fill="#111" font-weight="bold">Coming shift – tools reaching the warning limit within 20 parts (VC20)</text>
+<text x="624.0" y="150.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Machine</text>
+<text x="700.0" y="150.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Tool</text>
+<text x="860.0" y="150.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Now</text>
+<text x="920.0" y="150.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">After 20</text>
+<text x="1040.0" y="150.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Parts to warn</text>
+<text x="624.0" y="176.0" font-size="12" text-anchor="start" fill="#111">HMC-02</text>
+<text x="700.0" y="176.0" font-size="12" text-anchor="start" fill="#111">T10 Tap M8</text>
+<text x="860.0" y="176.0" font-size="12" text-anchor="start" fill="#111">30.0 %</text>
+<text x="920.0" y="176.0" font-size="12" text-anchor="start" fill="#111">8.7 %</text>
+<text x="1040.0" y="176.0" font-size="12" text-anchor="start" fill="#111">18</text>
+<text x="624.0" y="198.0" font-size="12" text-anchor="start" fill="#111">HMC-03</text>
+<text x="700.0" y="198.0" font-size="12" text-anchor="start" fill="#111">T01 Face mill</text>
+<text x="860.0" y="198.0" font-size="12" text-anchor="start" fill="#111">28.0 %</text>
+<text x="920.0" y="198.0" font-size="12" text-anchor="start" fill="#111">14.7 %</text>
+<text x="1040.0" y="198.0" font-size="12" text-anchor="start" fill="#111">19</text>
+<text x="624.0" y="240.0" font-size="11" text-anchor="start" fill="#666">example rows (illustrative): "Parts to warn" = (have − warn) / ΔL per part</text>
+<rect x="36.0" y="308.0" width="560.0" height="268.0" rx="8" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48.0" y="330.0" font-size="13" text-anchor="start" fill="#111" font-weight="bold">Presetter import</text>
+<text x="48.0" y="350.0" font-size="11" text-anchor="start" fill="#666">Paste the presetter's CSV export: serial;type;length mm;radius mm</text>
+<rect x="48.0" y="358.0" width="536.0" height="70.0" rx="0" fill="#fff" stroke="#bbb" stroke-width="1"/>
+<text x="56.0" y="376.0" font-size="12" text-anchor="start" fill="#333">serial;type;length;radius</text>
+<text x="56.0" y="394.0" font-size="12" text-anchor="start" fill="#333">T10-0101;T10;142.315;4.000</text>
+<text x="56.0" y="412.0" font-size="12" text-anchor="start" fill="#333">T10-0102;T10;141.982;4.000</text>
+<rect x="48.0" y="436.0" width="64.0" height="24.0" rx="4" fill="#fff" stroke="#888" stroke-width="1"/>
+<text x="56.0" y="453.0" font-size="12" text-anchor="start" fill="#111">Import</text>
+<text x="124.0" y="453.0" font-size="11" text-anchor="start" fill="#666">2 tools imported</text>
+<text x="48.0" y="492.0" font-size="13" text-anchor="start" fill="#111" font-weight="bold">Measured tools in store</text>
+<text x="48.0" y="514.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Serial</text>
+<text x="160.0" y="514.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Type</text>
+<text x="240.0" y="514.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">L mm</text>
+<text x="330.0" y="514.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">R mm</text>
+<text x="48.0" y="536.0" font-size="12" text-anchor="start" fill="#111">T10-0102</text>
+<text x="160.0" y="536.0" font-size="12" text-anchor="start" fill="#111">T10</text>
+<text x="240.0" y="536.0" font-size="12" text-anchor="start" fill="#111">141.982</text>
+<text x="330.0" y="536.0" font-size="12" text-anchor="start" fill="#111">4.000</text>
+<text x="48.0" y="556.0" font-size="12" text-anchor="start" fill="#111">T09-0201</text>
+<text x="160.0" y="556.0" font-size="12" text-anchor="start" fill="#111">T09</text>
+<text x="240.0" y="556.0" font-size="12" text-anchor="start" fill="#111">155.040</text>
+<text x="330.0" y="556.0" font-size="12" text-anchor="start" fill="#111">3.400</text>
+<rect x="612.0" y="308.0" width="552.0" height="448.0" rx="8" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="624.0" y="330.0" font-size="13" text-anchor="start" fill="#111" font-weight="bold">HMC-01 – magazine</text>
+<text x="624.0" y="354.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Pocket</text>
+<text x="680.0" y="354.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Tool</text>
+<text x="900.0" y="354.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Serial</text>
+<text x="990.0" y="354.0" font-size="12" text-anchor="start" fill="#666" font-weight="bold">Remaining life (CNC)</text>
+<text x="624.0" y="380.0" font-size="12" text-anchor="start" fill="#111">9</text>
+<text x="680.0" y="380.0" font-size="12" text-anchor="start" fill="#111">T09 Drill Ø6.8</text>
+<text x="900.0" y="380.0" font-size="12" text-anchor="start" fill="#111">–</text>
+<rect x="990.0" y="370.0" width="90.0" height="10.0" rx="4" fill="#ecebe6" stroke="none" stroke-width="0"/>
+<rect x="990.0" y="370.0" width="63.9" height="10.0" rx="4" fill="#1baf7a" stroke="none" stroke-width="0"/>
+<text x="1088.0" y="380.0" font-size="12" text-anchor="start" fill="#111">71.0 %</text>
+<text x="624.0" y="406.0" font-size="12" text-anchor="start" fill="#111">10</text>
+<text x="680.0" y="406.0" font-size="12" text-anchor="start" fill="#111">T09 Drill Ø6.8</text>
+<text x="900.0" y="406.0" font-size="12" text-anchor="start" fill="#111">–</text>
+<rect x="990.0" y="396.0" width="90.0" height="10.0" rx="4" fill="#ecebe6" stroke="none" stroke-width="0"/>
+<rect x="990.0" y="396.0" width="57.6" height="10.0" rx="4" fill="#1baf7a" stroke="none" stroke-width="0"/>
+<text x="1088.0" y="406.0" font-size="12" text-anchor="start" fill="#111">64.0 %</text>
+<text x="624.0" y="432.0" font-size="12" text-anchor="start" fill="#111">11</text>
+<text x="680.0" y="432.0" font-size="12" text-anchor="start" fill="#111">T10 Tap M8</text>
+<text x="900.0" y="432.0" font-size="12" text-anchor="start" fill="#111">T10-0101</text>
+<rect x="990.0" y="422.0" width="90.0" height="10.0" rx="4" fill="#ecebe6" stroke="none" stroke-width="0"/>
+<rect x="990.0" y="422.0" width="86.8" height="10.0" rx="4" fill="#1baf7a" stroke="none" stroke-width="0"/>
+<text x="1088.0" y="432.0" font-size="12" text-anchor="start" fill="#111">96.4 %</text>
+<text x="624.0" y="458.0" font-size="12" text-anchor="start" fill="#111">12</text>
+<text x="680.0" y="458.0" font-size="12" text-anchor="start" fill="#111">T10 Tap M8</text>
+<text x="900.0" y="458.0" font-size="12" text-anchor="start" fill="#111">–</text>
+<rect x="990.0" y="448.0" width="90.0" height="10.0" rx="4" fill="#ecebe6" stroke="none" stroke-width="0"/>
+<rect x="990.0" y="448.0" width="2.0" height="10.0" rx="4" fill="#e34948" stroke="none" stroke-width="0"/>
+<text x="1088.0" y="458.0" font-size="12" text-anchor="start" fill="#111">0.0 %</text>
+<text x="624.0" y="484.0" font-size="12" text-anchor="start" fill="#111">13</text>
+<text x="680.0" y="484.0" font-size="12" text-anchor="start" fill="#111">T11 Drill Ø8.5</text>
+<text x="900.0" y="484.0" font-size="12" text-anchor="start" fill="#111">–</text>
+<rect x="990.0" y="474.0" width="90.0" height="10.0" rx="4" fill="#ecebe6" stroke="none" stroke-width="0"/>
+<rect x="990.0" y="474.0" width="49.5" height="10.0" rx="4" fill="#1baf7a" stroke="none" stroke-width="0"/>
+<text x="1088.0" y="484.0" font-size="12" text-anchor="start" fill="#111">55.0 %</text>
+<text x="624.0" y="510.0" font-size="12" text-anchor="start" fill="#111">14</text>
+<text x="680.0" y="510.0" font-size="12" text-anchor="start" fill="#111">T12 Tap M10</text>
+<text x="900.0" y="510.0" font-size="12" text-anchor="start" fill="#111">–</text>
+<rect x="990.0" y="500.0" width="90.0" height="10.0" rx="4" fill="#ecebe6" stroke="none" stroke-width="0"/>
+<rect x="990.0" y="500.0" width="7.2" height="10.0" rx="4" fill="#eda100" stroke="none" stroke-width="0"/>
+<text x="1088.0" y="510.0" font-size="12" text-anchor="start" fill="#111">8.0 %</text>
+<text x="624.0" y="536.0" font-size="12" text-anchor="start" fill="#111">15</text>
+<text x="680.0" y="536.0" font-size="12" text-anchor="start" fill="#111">T12 Tap M10</text>
+<text x="900.0" y="536.0" font-size="12" text-anchor="start" fill="#111">–</text>
+<rect x="990.0" y="526.0" width="90.0" height="10.0" rx="4" fill="#ecebe6" stroke="none" stroke-width="0"/>
+<rect x="990.0" y="526.0" width="69.3" height="10.0" rx="4" fill="#1baf7a" stroke="none" stroke-width="0"/>
+<text x="1088.0" y="536.0" font-size="12" text-anchor="start" fill="#111">77.0 %</text>
+<text x="624.0" y="562.0" font-size="12" text-anchor="start" fill="#111">16</text>
+<text x="680.0" y="562.0" font-size="12" text-anchor="start" fill="#111">T13 Chamfer 90°</text>
+<text x="900.0" y="562.0" font-size="12" text-anchor="start" fill="#111">–</text>
+<rect x="990.0" y="552.0" width="90.0" height="10.0" rx="4" fill="#ecebe6" stroke="none" stroke-width="0"/>
+<rect x="990.0" y="552.0" width="42.3" height="10.0" rx="4" fill="#1baf7a" stroke="none" stroke-width="0"/>
+<text x="1088.0" y="562.0" font-size="12" text-anchor="start" fill="#111">47.0 %</text>
+<text x="624.0" y="600.0" font-size="11" text-anchor="start" fill="#666">green ≥ warning limit, amber &lt; warning (10 % / 15 %), red = 0 %</text>
+<text x="624.0" y="618.0" font-size="11" text-anchor="start" fill="#666">life values: pocket 11/12 from test_item3 after mounting; others illustrative</text>
+<line x1="330.0" y1="262.0" x2="300.0" y2="176.0" stroke="#c62828" stroke-width="1.5" marker-end="url(#ahr)"/>
+<circle cx="330.0" cy="262.0" r="13.0" fill="#c62828" stroke="#c62828" stroke-width="1"/>
+<text x="330.0" y="267.0" font-size="13" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+<line x1="600.0" y1="262.0" x2="560.0" y2="176.0" stroke="#c62828" stroke-width="1.5" marker-end="url(#ahr)"/>
+<circle cx="600.0" cy="262.0" r="13.0" fill="#c62828" stroke="#c62828" stroke-width="1"/>
+<text x="600.0" y="267.0" font-size="13" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+<line x1="860.0" y1="262.0" x2="880.0" y2="186.0" stroke="#c62828" stroke-width="1.5" marker-end="url(#ahr)"/>
+<circle cx="860.0" cy="262.0" r="13.0" fill="#c62828" stroke="#c62828" stroke-width="1"/>
+<text x="860.0" y="267.0" font-size="13" text-anchor="middle" fill="#fff" font-weight="bold">3</text>
+<line x1="240.0" y1="478.0" x2="112.0" y2="452.0" stroke="#c62828" stroke-width="1.5" marker-end="url(#ahr)"/>
+<circle cx="240.0" cy="478.0" r="13.0" fill="#c62828" stroke="#c62828" stroke-width="1"/>
+<text x="240.0" y="483.0" font-size="13" text-anchor="middle" fill="#fff" font-weight="bold">4</text>
+<line x1="1150.0" y1="490.0" x2="1030.0" y2="432.0" stroke="#c62828" stroke-width="1.5" marker-end="url(#ahr)"/>
+<circle cx="1150.0" cy="490.0" r="13.0" fill="#c62828" stroke="#c62828" stroke-width="1"/>
+<text x="1150.0" y="495.0" font-size="13" text-anchor="middle" fill="#fff" font-weight="bold">5</text>
+<line x1="1150.0" y1="540.0" x2="1040.0" y2="458.0" stroke="#c62828" stroke-width="1.5" marker-end="url(#ahr)"/>
+<circle cx="1150.0" cy="540.0" r="13.0" fill="#c62828" stroke="#c62828" stroke-width="1"/>
+<text x="1150.0" y="545.0" font-size="13" text-anchor="middle" fill="#fff" font-weight="bold">6</text>
+<rect x="36.0" y="590.0" width="560.0" height="166.0" rx="6" fill="#fff" stroke="#c62828" stroke-width="1"/>
+<text x="46.0" y="608.0" font-size="11" text-anchor="start" fill="#c62828">1 open request: machine, pocket, type, reason (raised by the tool check or the</text>
+<text x="60.0" y="622.0" font-size="11" text-anchor="start" fill="#c62828">forecast)</text>
+<text x="46.0" y="638.0" font-size="11" text-anchor="start" fill="#c62828">2 serial list = measured tools of the same type in store; "Mounted" → command 14 → CNC</text>
+<text x="60.0" y="652.0" font-size="11" text-anchor="start" fill="#c62828">life 100 %, offsets</text>
+<text x="46.0" y="668.0" font-size="11" text-anchor="start" fill="#c62828">3 forecast: work list for the coming shift – prepare these tools BEFORE they block a</text>
+<text x="60.0" y="682.0" font-size="11" text-anchor="start" fill="#c62828">job</text>
+<text x="46.0" y="698.0" font-size="11" text-anchor="start" fill="#c62828">4 presetter CSV: serial;type;length;radius, "," or ";" accepted, header optional</text>
+<text x="46.0" y="714.0" font-size="11" text-anchor="start" fill="#c62828">5 bar = CNC registers 310–339 (polled), not a calculation in the PC</text>
+<text x="46.0" y="730.0" font-size="11" text-anchor="start" fill="#c62828">6 pocket 12 at 0 % stays in the magazine – its sister 11 carries the group (CNC</text>
+<text x="60.0" y="744.0" font-size="11" text-anchor="start" fill="#c62828">switches)</text>
+</svg>

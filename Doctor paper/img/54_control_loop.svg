@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1100" height="720" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c7a3f"/></marker>
+  </defs>
+  <text x="550" y="30" font-size="20" font-weight="bold" text-anchor="middle">Cell controller – threads, 50 ms control loop and the command handshake</text>
+
+  <!-- LEFT: loop -->
+  <text x="270" y="64" font-size="15" font-weight="bold" text-anchor="middle">Main thread CellController._run()</text>
+  <rect x="80" y="80" width="380" height="64" rx="6" fill="#eaf2fb" stroke="#1f5fa8" stroke-width="1.5"/>
+  <text x="270" y="104" font-size="14" font-weight="bold" text-anchor="middle">1  poll()</text>
+  <text x="270" y="122" font-size="12" text-anchor="middle">5 devices · 14 Modbus reads (FC03) · → self.live</text>
+  <text x="270" y="137" font-size="11" text-anchor="middle" fill="#555">OFFLINE / DOWN / back-online events</text>
+  <rect x="80" y="172" width="380" height="64" rx="6" fill="#eaf2fb" stroke="#1f5fa8" stroke-width="1.5"/>
+  <text x="270" y="196" font-size="14" font-weight="bold" text-anchor="middle">2  close_jobs()</text>
+  <text x="270" y="214" font-size="12" text-anchor="middle">job 'sent' + idDone = job id + BUSY off → 'done'</text>
+  <text x="270" y="229" font-size="11" text-anchor="middle" fill="#555">update pallet content, WO counters (started / done / scrap)</text>
+  <rect x="80" y="264" width="380" height="64" rx="6" fill="#eaf5ec" stroke="#2c7a3f" stroke-width="1.5"/>
+  <text x="270" y="288" font-size="14" font-weight="bold" text-anchor="middle">3  dispatch()   only if mode = auto</text>
+  <text x="270" y="306" font-size="12" text-anchor="middle">HMC jobs → load-station task → ONE shuttle move</text>
+  <text x="270" y="321" font-size="11" text-anchor="middle" fill="#555">each command through _send() → DeviceLink.command()</text>
+  <rect x="80" y="356" width="380" height="50" rx="6" fill="#f4f4f4" stroke="#777" stroke-width="1.5"/>
+  <text x="270" y="378" font-size="14" font-weight="bold" text-anchor="middle">4  sleep(0.05 s − time used)</text>
+  <text x="270" y="396" font-size="11" text-anchor="middle" fill="#555">loop = 0.05 s default (tests: 0.02 s)</text>
+  <line x1="270" y1="144" x2="270" y2="170" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="270" y1="236" x2="270" y2="262" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="270" y1="328" x2="270" y2="354" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M 80 381 L 50 381 L 50 112 L 78 112" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="44" y="250" font-size="12" text-anchor="middle" transform="rotate(-90 44 250)">repeat while running</text>
+  <text x="270" y="428" font-size="12" text-anchor="middle" fill="#a00">try / except: any exception → event 'error' "loop error", loop continues</text>
+
+  <!-- other threads -->
+  <rect x="80" y="452" width="380" height="58" rx="6" fill="#fff6e5" stroke="#b35c00" stroke-width="1.5"/>
+  <text x="270" y="474" font-size="14" font-weight="bold" text-anchor="middle">Thread _heartbeat()  every 1.0 s</text>
+  <text x="270" y="494" font-size="12" text-anchor="middle">hb + 1 → register 226 (FC06) of every ONLINE device</text>
+  <rect x="80" y="524" width="380" height="58" rx="6" fill="#f3eefa" stroke="#6a4c9c" stroke-width="1.5"/>
+  <text x="270" y="546" font-size="14" font-weight="bold" text-anchor="middle">HTTP threads (ThreadingHTTPServer :8090)</text>
+  <text x="270" y="566" font-size="12" text-anchor="middle">GET /api/cell → snapshot() · POST → create_wo, set_mode, ack</text>
+  <rect x="80" y="596" width="380" height="58" rx="6" fill="#f4f4f4" stroke="#777" stroke-width="1.5"/>
+  <text x="270" y="618" font-size="14" font-weight="bold" text-anchor="middle">SQLite cell.db (one connection + RLock)</text>
+  <text x="270" y="638" font-size="12" text-anchor="middle">pallet · wo · job · event · kv – shared by all threads</text>
+  <text x="270" y="680" font-size="12" text-anchor="middle" fill="#333">self.live is protected by self.lock (RLock); the DB by DB.lock</text>
+
+  <!-- RIGHT: sequence -->
+  <text x="790" y="64" font-size="15" font-weight="bold" text-anchor="middle">Command handshake (example: HMC-01 job, code 10)</text>
+  <rect x="580" y="78" width="150" height="40" rx="5" fill="#eaf5ec" stroke="#2c7a3f"/>
+  <text x="655" y="103" font-size="13" font-weight="bold" text-anchor="middle">Cell controller</text>
+  <rect x="880" y="78" width="150" height="40" rx="5" fill="#eaf2fb" stroke="#1f5fa8"/>
+  <text x="955" y="103" font-size="13" font-weight="bold" text-anchor="middle">HMC-01 PLC</text>
+  <line x1="655" y1="118" x2="655" y2="690" stroke="#999" stroke-dasharray="5 4"/>
+  <line x1="955" y1="118" x2="955" y2="690" stroke="#999" stroke-dasharray="5 4"/>
+  <g font-size="12">
+    <text x="560" y="146" fill="#555">DB: INSERT job status 'sent'</text>
+    <line x1="655" y1="166" x2="953" y2="166" stroke="#2c7a3f" stroke-width="1.5" marker-end="url(#g)"/>
+    <text x="664" y="160">① 400–401 job.id = 52031 (FC16)</text>
+    <line x1="655" y1="200" x2="953" y2="200" stroke="#2c7a3f" stroke-width="1.5" marker-end="url(#g)"/>
+    <text x="664" y="194">② 402–406 pallet 3, O1020, variant 2, qty 1, fixture 3</text>
+    <line x1="655" y1="234" x2="953" y2="234" stroke="#2c7a3f" stroke-width="1.5" marker-end="url(#g)"/>
+    <text x="664" y="228">③ 200 cmd.code = 10 · 201 cmd.seq = ackSeq + 1</text>
+    <line x1="655" y1="268" x2="953" y2="268" stroke="#2c7a3f" stroke-width="2.5" marker-end="url(#g)"/>
+    <text x="664" y="262" font-weight="bold">④ 202 bit0 REQ flipped – ALWAYS LAST</text>
+    <rect x="965" y="280" width="128" height="64" fill="#fff" stroke="#1f5fa8"/>
+    <text x="972" y="298" font-size="11">checks: auto mode,</text>
+    <text x="972" y="312" font-size="11">no alarm, not busy,</text>
+    <text x="972" y="326" font-size="11">pallet 3 at loc. 14,</text>
+    <text x="972" y="340" font-size="11">program ≠ 0</text>
+    <line x1="953" y1="360" x2="657" y2="360" stroke="#1f5fa8" stroke-width="1.5" marker-end="url(#b)"/>
+    <text x="664" y="354">⑤ 8 bit0 ACK = REQ · 9 ackSeq = seq · 10 result 0 · bit1 BUSY</text>
+    <text x="560" y="384" fill="#555">(polled every 20 ms, timeout 5 s;</text>
+    <text x="560" y="399" fill="#555"> result ≠ 0 → job 'rejected', retry after 1 s)</text>
+    <rect x="895" y="414" width="120" height="70" fill="#d6e4f5" stroke="#1f5fa8"/>
+    <text x="955" y="440" font-size="12" text-anchor="middle" font-weight="bold">machining</text>
+    <text x="955" y="458" font-size="11" text-anchor="middle">345 s VC20</text>
+    <text x="955" y="474" font-size="11" text-anchor="middle">[design]</text>
+    <line x1="655" y1="430" x2="853" y2="430" stroke="#2c7a3f" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#g)"/>
+    <line x1="853" y1="440" x2="657" y2="440" stroke="#1f5fa8" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#b)"/>
+    <text x="664" y="460" fill="#555">every loop: poll FAST 0–11 + job 390–395</text>
+    <line x1="953" y1="520" x2="657" y2="520" stroke="#1f5fa8" stroke-width="1.5" marker-end="url(#b)"/>
+    <text x="664" y="514">⑥ 390 idDone = 52031 · 392 result 0/1/2 · 394 cycle_s</text>
+    <line x1="953" y1="554" x2="657" y2="554" stroke="#1f5fa8" stroke-width="1.5" marker-end="url(#b)"/>
+    <text x="664" y="548">⑦ bit1 BUSY off · bit2 DONE toggles · bit4 READY</text>
+    <rect x="560" y="574" width="290" height="96" fill="#f7f7f7" stroke="#888"/>
+    <text x="570" y="594" font-weight="bold">⑧ close_jobs() next loop:</text>
+    <text x="570" y="612">job → 'done', done_t, result</text>
+    <text x="570" y="630">pallet 3 content → 'machined' (0) / 'nok'</text>
+    <text x="570" y="648">tool manager: on_job_done()</text>
+    <text x="570" y="664">shuttle rule (a) may now empty loc. 14</text>
+  </g>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="1200" height="760" font-family="Arial, Helvetica, sans-serif">
+<title>V-model of an FMS project with phases P0 to P10 and gates; left side specifies, right side verifies</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1200" height="760" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="18" text-anchor="start" fill="#111" font-weight="bold">The FMS project pipeline as a V-model (after VDI 2206): specify on the left, verify on the right</text>
+<text x="24.0" y="54.0" font-size="12" text-anchor="start" fill="#444">Box = phase P0–P10, yellow diamond = gate (3 YES/NO questions). Dashed line = which earlier document the later test proves.</text>
+<rect x="40.0" y="80.0" width="200.0" height="60.0" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+<text x="50.0" y="102.0" font-size="14" text-anchor="start" fill="#2563eb" font-weight="bold">P0  Need &amp; idea</text>
+<text x="50.0" y="124.0" font-size="12" text-anchor="start" fill="#111">Problem statement</text>
+<rect x="100.0" y="165.0" width="200.0" height="60.0" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+<text x="110.0" y="187.0" font-size="14" text-anchor="start" fill="#2563eb" font-weight="bold">P1  Requirements</text>
+<text x="110.0" y="209.0" font-size="12" text-anchor="start" fill="#111">Questionnaire, data</text>
+<rect x="160.0" y="250.0" width="200.0" height="60.0" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+<text x="170.0" y="272.0" font-size="14" text-anchor="start" fill="#2563eb" font-weight="bold">P2  Concept</text>
+<text x="170.0" y="294.0" font-size="12" text-anchor="start" fill="#111">2–3 variants, ROI</text>
+<rect x="220.0" y="335.0" width="200.0" height="60.0" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+<text x="230.0" y="357.0" font-size="14" text-anchor="start" fill="#2563eb" font-weight="bold">P3  Specification</text>
+<text x="230.0" y="379.0" font-size="12" text-anchor="start" fill="#111">URS + FDS</text>
+<rect x="280.0" y="420.0" width="200.0" height="60.0" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+<text x="290.0" y="442.0" font-size="14" text-anchor="start" fill="#2563eb" font-weight="bold">P4  Tender &amp; contract</text>
+<text x="290.0" y="464.0" font-size="12" text-anchor="start" fill="#111">Contract, scope matrix</text>
+<rect x="340.0" y="505.0" width="200.0" height="60.0" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+<text x="350.0" y="527.0" font-size="14" text-anchor="start" fill="#2563eb" font-weight="bold">P5  Detailed design</text>
+<text x="350.0" y="549.0" font-size="12" text-anchor="start" fill="#111">Drawings, circuits, code</text>
+<rect x="500.0" y="600.0" width="200.0" height="60.0" rx="8" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<text x="510.0" y="622.0" font-size="14" text-anchor="start" fill="#475569" font-weight="bold">P6  Build + virtual comm.</text>
+<text x="510.0" y="644.0" font-size="12" text-anchor="start" fill="#111">Modules, VC report</text>
+<rect x="700.0" y="420.0" width="200.0" height="60.0" rx="8" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+<text x="710.0" y="442.0" font-size="14" text-anchor="start" fill="#059669" font-weight="bold">P7  FAT</text>
+<text x="710.0" y="464.0" font-size="12" text-anchor="start" fill="#111">FAT report, punch list</text>
+<rect x="770.0" y="335.0" width="200.0" height="60.0" rx="8" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+<text x="780.0" y="357.0" font-size="14" text-anchor="start" fill="#059669" font-weight="bold">P8  Installation + SAT</text>
+<text x="780.0" y="379.0" font-size="12" text-anchor="start" fill="#111">SAT report, CE</text>
+<rect x="840.0" y="250.0" width="200.0" height="60.0" rx="8" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+<text x="850.0" y="272.0" font-size="14" text-anchor="start" fill="#059669" font-weight="bold">P9  Ramp-up &amp; handover</text>
+<text x="850.0" y="294.0" font-size="12" text-anchor="start" fill="#111">Final acceptance</text>
+<rect x="910.0" y="165.0" width="200.0" height="60.0" rx="8" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+<text x="920.0" y="187.0" font-size="14" text-anchor="start" fill="#059669" font-weight="bold">P10  Operation</text>
+<text x="920.0" y="209.0" font-size="12" text-anchor="start" fill="#111">KPI reports, lessons</text>
+<line x1="100.0" y1="140.0" x2="160.0" y2="165.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M144,144 L153,152 L144,162 L135,152 z" fill="#fde68a" stroke="#b45309"/>
+<line x1="160.0" y1="225.0" x2="220.0" y2="250.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M204,228 L213,238 L204,246 L195,238 z" fill="#fde68a" stroke="#b45309"/>
+<line x1="220.0" y1="310.0" x2="280.0" y2="335.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M264,314 L273,322 L264,332 L255,322 z" fill="#fde68a" stroke="#b45309"/>
+<line x1="280.0" y1="395.0" x2="340.0" y2="420.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M324,398 L333,408 L324,416 L315,408 z" fill="#fde68a" stroke="#b45309"/>
+<line x1="340.0" y1="480.0" x2="400.0" y2="505.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M384,484 L393,492 L384,502 L375,492 z" fill="#fde68a" stroke="#b45309"/>
+<line x1="440.0" y1="565.0" x2="500.0" y2="630.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M470,588 L479,598 L470,606 L461,598 z" fill="#fde68a" stroke="#b45309"/>
+<line x1="700.0" y1="630.0" x2="760.0" y2="480.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M730,546 L739,555 L730,564 L721,555 z" fill="#fde68a" stroke="#b45309"/>
+<line x1="840.0" y1="420.0" x2="910.0" y2="395.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M861,398 L870,408 L861,416 L852,408 z" fill="#fde68a" stroke="#b45309"/>
+<line x1="910.0" y1="335.0" x2="980.0" y2="310.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M931,314 L940,322 L931,332 L922,322 z" fill="#fde68a" stroke="#b45309"/>
+<line x1="980.0" y1="250.0" x2="1050.0" y2="225.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M1001,228 L1010,238 L1001,246 L992,238 z" fill="#fde68a" stroke="#b45309"/>
+<line x1="304.0" y1="195.0" x2="906.0" y2="195.0" stroke="#888" stroke-width="1.2" stroke-dasharray="6,4"/>
+<text x="605.0" y="189.0" font-size="12" text-anchor="middle" fill="#555">Operation proves the requirements were right</text>
+<line x1="364.0" y1="280.0" x2="836.0" y2="280.0" stroke="#888" stroke-width="1.2" stroke-dasharray="6,4"/>
+<text x="600.0" y="274.0" font-size="12" text-anchor="middle" fill="#555">Final acceptance proves the concept and business case</text>
+<line x1="424.0" y1="365.0" x2="766.0" y2="365.0" stroke="#888" stroke-width="1.2" stroke-dasharray="6,4"/>
+<text x="595.0" y="359.0" font-size="12" text-anchor="middle" fill="#555">SAT proves the URS</text>
+<line x1="484.0" y1="450.0" x2="696.0" y2="450.0" stroke="#888" stroke-width="1.2" stroke-dasharray="6,4"/>
+<text x="590.0" y="444.0" font-size="12" text-anchor="middle" fill="#555">FAT proves the FDS and the contract</text>
+<text x="40.0" y="700.0" font-size="13" text-anchor="start" fill="#2563eb" font-weight="bold">OWNER leads: P0, P1, URS in P3, P4, witnessing and acceptance in P7–P9, P10</text>
+<text x="40.0" y="722.0" font-size="13" text-anchor="start" fill="#059669" font-weight="bold">INTEGRATOR leads: concept offer in P2, FDS in P3, P5, P6, execution of P7–P8, support in P9</text>
+<text x="1170.0" y="746.0" font-size="11" text-anchor="end" fill="#444">Rule of ten: an error found one phase later costs about ten times more to fix.</text>
+</svg>

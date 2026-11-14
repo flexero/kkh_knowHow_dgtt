@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 660" width="1100" height="660" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<title>Castings kanban loop at the load station</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a78d6"/></marker><marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1b8a5a"/></marker><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="arx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888"/></marker></defs>
+<rect x="0" y="0" width="1100" height="660" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start" font-weight="bold" fill="#222">Castings kanban loop (fmsctl kanban(), reorder point 2, box 6 / 4 / 3) and the stock curve of one variant</text>
+<rect x="40" y="70" width="230" height="70" rx="8" fill="#e6f2ea" stroke="#666"/>
+<text x="155.0" y="98.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">Load station buffer</text>
+<text x="155.0" y="120.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#222">node 2, per variant</text>
+<rect x="300" y="70" width="230" height="70" rx="8" fill="#fff3d6" stroke="#666"/>
+<text x="415.0" y="98.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">kanban() check</text>
+<text x="415.0" y="120.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#222">qty + on_way &lt;= ROP ?</text>
+<rect x="560" y="70" width="230" height="70" rx="8" fill="#e6eff4" stroke="#666"/>
+<text x="675.0" y="98.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">WMS: oldest box (FIFO)</text>
+<text x="675.0" y="120.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#222">status reserved, on_way += C</text>
+<rect x="820" y="70" width="230" height="70" rx="8" fill="#e8ecf0" stroke="#666"/>
+<text x="935.0" y="98.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">Crane retrieve (cmd 31)</text>
+<text x="935.0" y="120.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#222">to I/O node 1, ~50 s</text>
+<rect x="820" y="220" width="230" height="70" rx="8" fill="#e6eff4" stroke="#666"/>
+<text x="935.0" y="248.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">AGV transport (cmd 20)</text>
+<text x="935.0" y="270.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#222">1 to 2: 59 s + empty leg (19–43 s)</text>
+<rect x="560" y="220" width="230" height="70" rx="8" fill="#e6f2ea" stroke="#666"/>
+<text x="675.0" y="248.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">Delivery closed</text>
+<text x="675.0" y="270.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#222">qty += C, on_way -= C</text>
+<rect x="300" y="220" width="230" height="70" rx="8" fill="#f5efe2" stroke="#666"/>
+<text x="415.0" y="248.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">Cell controller</text>
+<text x="415.0" y="270.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#222">take_casting() before task</text>
+<rect x="40" y="220" width="230" height="70" rx="8" fill="#f5efe2" stroke="#666"/>
+<text x="155.0" y="248.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#222">Operator loads casting</text>
+<text x="155.0" y="270.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#222">on fixture pallet (cmd 12)</text>
+<line x1="270" y1="105" x2="298" y2="105" stroke="#333" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="530" y1="105" x2="558" y2="105" stroke="#333" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="790" y1="105" x2="818" y2="105" stroke="#333" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="935" y1="140" x2="935" y2="218" stroke="#333" stroke-width="2" marker-end="url(#ar)"/>
+<text x="945.0" y="185.0" font-size="11" text-anchor="start" font-weight="normal" fill="#222">wait_job done</text>
+<line x1="820" y1="255" x2="792" y2="255" stroke="#333" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="560" y1="255" x2="532" y2="255" stroke="#333" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="300" y1="255" x2="272" y2="255" stroke="#333" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="155" y1="218" x2="155" y2="142" stroke="#333" stroke-width="2" marker-end="url(#ar)"/>
+<text x="165.0" y="185.0" font-size="11" text-anchor="start" font-weight="normal" fill="#222">qty - 1 per load</text>
+<text x="415.0" y="160.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#666">no: wait 50 ms, check again</text>
+<rect x="90" y="360" width="900" height="220" fill="#fcfcfc" stroke="#999"/>
+<line x1="90" y1="580.0" x2="990" y2="580.0" stroke="#eee"/>
+<text x="82.0" y="584.0" font-size="11" text-anchor="end" font-weight="normal" fill="#222">0</text>
+<line x1="90" y1="525.0" x2="990" y2="525.0" stroke="#eee"/>
+<text x="82.0" y="529.0" font-size="11" text-anchor="end" font-weight="normal" fill="#222">2</text>
+<line x1="90" y1="470.0" x2="990" y2="470.0" stroke="#eee"/>
+<text x="82.0" y="474.0" font-size="11" text-anchor="end" font-weight="normal" fill="#222">4</text>
+<line x1="90" y1="415.0" x2="990" y2="415.0" stroke="#eee"/>
+<text x="82.0" y="419.0" font-size="11" text-anchor="end" font-weight="normal" fill="#222">6</text>
+<line x1="90" y1="360.0" x2="990" y2="360.0" stroke="#eee"/>
+<text x="82.0" y="364.0" font-size="11" text-anchor="end" font-weight="normal" fill="#222">8</text>
+<text x="90.0" y="596.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#222">0 min</text>
+<text x="240.0" y="596.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#222">10 min</text>
+<text x="390.0" y="596.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#222">20 min</text>
+<text x="540.0" y="596.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#222">30 min</text>
+<text x="690.0" y="596.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#222">40 min</text>
+<text x="840.0" y="596.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#222">50 min</text>
+<text x="990.0" y="596.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#222">60 min</text>
+<line x1="90" y1="525.0" x2="990" y2="525.0" stroke="#c0392b" stroke-dasharray="6 4" stroke-width="2"/>
+<text x="986.0" y="519.0" font-size="12" text-anchor="end" font-weight="bold" fill="#c0392b">reorder point ROP = 2</text>
+<path d="M90.0,415.0 L150.0,415.0 L150.0,442.5 L210.0,442.5 L210.0,470.0 L270.0,470.0 L270.0,497.5 L330.0,497.5 L330.0,525.0 L362.0,525.0 L362.0,415.0 L390.0,415.0 L390.0,442.5 L450.0,442.5 L450.0,470.0 L510.0,470.0 L510.0,497.5 L570.0,497.5 L570.0,525.0 L602.0,525.0 L602.0,415.0 L630.0,415.0 L630.0,442.5 L690.0,442.5 L690.0,470.0 L750.0,470.0 L750.0,497.5 L810.0,497.5 L810.0,525.0 L842.0,525.0 L842.0,415.0 L870.0,415.0 L870.0,442.5 L930.0,442.5 L930.0,470.0 L990.0,470.0 L990.0,497.5 L990.0,497.5" fill="none" stroke="#2a78d6" stroke-width="2.5"/>
+<line x1="330.0" y1="527.0" x2="330.0" y2="578" stroke="#c47f00" stroke-width="1.5"/>
+<line x1="570.0" y1="527.0" x2="570.0" y2="578" stroke="#c47f00" stroke-width="1.5"/>
+<line x1="810.0" y1="527.0" x2="810.0" y2="578" stroke="#c47f00" stroke-width="1.5"/>
+<line x1="330.0" y1="550" x2="362.0" y2="550" stroke="#c47f00" stroke-width="2" marker-end="url(#ar)"/>
+<text x="334.0" y="568.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c47f00">L = 128 s</text>
+<text x="90.0" y="350.0" font-size="12" text-anchor="start" font-weight="bold" fill="#222">Castings of VC20 in the load-station buffer during a VC20 batch (cell 15 /h = 1 casting per 240 s, box C = 4) – calculated example</text>
+<text x="90.0" y="620.0" font-size="12" text-anchor="start" font-weight="normal" fill="#222">The box arrives 128 s after the trigger, when 1–2 castings are still left: no stock-out. Maximum in buffer = ROP + C = 6 (VC10: 8, VC30: 5).</text>
+<text x="90.0" y="638.0" font-size="12" text-anchor="start" font-weight="normal" fill="#222">ROP 2 covers a lead time of up to 2 × 240 s = 480 s = 8 min. A goods receipt with put-away priority (code today) can block the crane longer.</text>
+</svg>

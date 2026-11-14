@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1100" height="800" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+  </defs>
+  <text x="550" y="30" font-size="20" font-weight="bold" text-anchor="middle">dispatch() – decision order in one 50 ms loop (mode = auto)</text>
+  <text x="550" y="52" font-size="13" text-anchor="middle" fill="#555">fmsctl/cell/controller.py · step 0: PPS-1 offline → return (nothing moves without the pallet system)</text>
+
+  <!-- column 1: HMC -->
+  <rect x="20" y="70" width="330" height="420" rx="8" fill="#f5f9fd" stroke="#1f5fa8" stroke-width="1.5"/>
+  <text x="185" y="96" font-size="15" font-weight="bold" text-anchor="middle">Step 1 – HMC jobs (for each HMC)</text>
+  <g font-size="12">
+    <rect x="40" y="110" width="290" height="104" rx="5" fill="#fff" stroke="#888"/>
+    <text x="50" y="130">All true?</text>
+    <text x="60" y="148">• pallet at its changer (loc. 14/15/16)</text>
+    <text x="60" y="164">• content = raw, pallet not busy</text>
+    <text x="60" y="180">• HMC online, READY, not BUSY</text>
+    <text x="60" y="196">• no 'sent' job for this HMC</text>
+    <line x1="185" y1="214" x2="185" y2="240" stroke="#333" marker-end="url(#a)"/>
+    <text x="192" y="232">yes</text>
+    <rect x="40" y="242" width="290" height="58" rx="5" fill="#fff" stroke="#888"/>
+    <text x="50" y="262">Tool check (item 3): ToolManager.check(</text>
+    <text x="50" y="278">HMC, NC program, 1) – enough life in all</text>
+    <text x="50" y="294">tool groups + 2 % reserve?  no → skip</text>
+    <line x1="185" y1="300" x2="185" y2="326" stroke="#333" marker-end="url(#a)"/>
+    <text x="192" y="318">yes</text>
+    <rect x="40" y="328" width="290" height="80" rx="5" fill="#eaf2fb" stroke="#1f5fa8"/>
+    <text x="50" y="348" font-weight="bold">send code 10 "run job"</text>
+    <text x="50" y="366">job.palletId, job.programNo = NC_PROGRAM</text>
+    <text x="50" y="382">(VC10 → 1010, VC20 → 1020, VC30 → 1030),</text>
+    <text x="50" y="398">job.variant, job.qty = 1, job.fixtureId</text>
+    <text x="40" y="436" fill="#555">All 3 HMCs are checked in every loop;</text>
+    <text x="40" y="452" fill="#555">several HMC jobs may start in the same loop.</text>
+    <text x="40" y="476" fill="#555">Order: HMC-01, HMC-02, HMC-03.</text>
+  </g>
+
+  <!-- column 2: load station -->
+  <rect x="370" y="70" width="330" height="420" rx="8" fill="#fffaf2" stroke="#b35c00" stroke-width="1.5"/>
+  <text x="535" y="96" font-size="15" font-weight="bold" text-anchor="middle">Step 2 – load-station task</text>
+  <g font-size="12">
+    <rect x="390" y="110" width="290" height="72" rx="5" fill="#fff" stroke="#888"/>
+    <text x="400" y="130">Pallet at loc. 13, not busy; LOAD-CC</text>
+    <text x="400" y="146">online + READY, no 'sent' job?</text>
+    <text x="400" y="166">wos = open WOs for the pallet's fixture</text>
+    <text x="400" y="178" font-size="11" fill="#555">(EDD or FIFO, casting in the buffer)</text>
+    <line x1="535" y1="182" x2="535" y2="206" stroke="#333" marker-end="url(#a)"/>
+    <rect x="390" y="208" width="290" height="40" rx="5" fill="#fff" stroke="#888"/>
+    <text x="400" y="233">content = machined or nok ?</text>
+    <line x1="460" y1="248" x2="460" y2="272" stroke="#333" marker-end="url(#a)"/>
+    <text x="400" y="266">yes</text>
+    <line x1="640" y1="248" x2="640" y2="358" stroke="#333" marker-end="url(#a)"/>
+    <text x="648" y="300">no</text>
+    <rect x="390" y="274" width="200" height="70" rx="5" fill="#fff6e5" stroke="#b35c00"/>
+    <text x="400" y="292">wos not empty →</text>
+    <text x="400" y="308" font-weight="bold">task 3 unload + load wos[0]</text>
+    <text x="400" y="326">else → <tspan font-weight="bold">task 2 unload</tspan></text>
+    <rect x="530" y="360" width="160" height="70" rx="5" fill="#fff6e5" stroke="#b35c00"/>
+    <text x="540" y="378">content = empty and</text>
+    <text x="540" y="394">wos not empty →</text>
+    <text x="540" y="412" font-weight="bold">task 1 load wos[0]</text>
+    <text x="390" y="456" fill="#555">Code 12 parameters: task.type, task.palletId,</text>
+    <text x="390" y="472" fill="#555">task.variant; the WO id is stored in job.params.</text>
+  </g>
+
+  <!-- column 3: shuttle -->
+  <rect x="720" y="70" width="360" height="700" rx="8" fill="#f6fbf7" stroke="#2c7a3f" stroke-width="1.5"/>
+  <text x="900" y="96" font-size="15" font-weight="bold" text-anchor="middle">Step 3 – ONE shuttle move</text>
+  <g font-size="12">
+    <rect x="740" y="108" width="320" height="40" rx="5" fill="#fff" stroke="#888"/>
+    <text x="750" y="124">shuttle not moving, no 'sent' move, PPS READY?</text>
+    <text x="750" y="140" fill="#555">no → end of loop</text>
+    <line x1="900" y1="148" x2="900" y2="166" stroke="#333" marker-end="url(#a)"/>
+    <rect x="740" y="168" width="320" height="110" rx="5" fill="#eaf5ec" stroke="#2c7a3f"/>
+    <text x="750" y="188" font-weight="bold">(a) empty a finished machine</text>
+    <text x="750" y="206">pallet at HMC with machined / nok / empty,</text>
+    <text x="750" y="222">HMC not BUSY →</text>
+    <text x="760" y="240">• to loc. 13 if free (not for empty pallets)</text>
+    <text x="760" y="256">• else to the FIRST free rack location</text>
+    <text x="750" y="272" fill="#555">move sent → return</text>
+    <line x1="900" y1="278" x2="900" y2="296" stroke="#333" marker-end="url(#a)"/>
+    <rect x="740" y="298" width="320" height="126" rx="5" fill="#eaf5ec" stroke="#2c7a3f"/>
+    <text x="750" y="318" font-weight="bold">(b) feed an idle machine</text>
+    <text x="750" y="336">idle = online, not DOWN, not BUSY, changer empty</text>
+    <text x="750" y="352">raw pallets in rack or at loc. 13, not busy,</text>
+    <text x="750" y="368">sorted by WO due date (EDD) or created (FIFO);</text>
+    <text x="750" y="384">first pallet with an idle HMC whose tools fit →</text>
+    <text x="750" y="400">move to the first fitting HMC (01 before 02 …)</text>
+    <text x="750" y="416" fill="#555">move sent → return</text>
+    <line x1="900" y1="424" x2="900" y2="442" stroke="#333" marker-end="url(#a)"/>
+    <rect x="740" y="444" width="320" height="126" rx="5" fill="#eaf5ec" stroke="#2c7a3f"/>
+    <text x="750" y="464" font-weight="bold">(c) serve the load station (loc. 13 free)</text>
+    <text x="750" y="482">1. machined / nok pallet in the rack →</text>
+    <text x="764" y="498">first one to loc. 13</text>
+    <text x="750" y="516">2. else for each open WO (EDD / FIFO):</text>
+    <text x="764" y="532">empty pallet with FIXTURE_FOR[variant] →</text>
+    <text x="764" y="548">to loc. 13</text>
+    <text x="750" y="564" fill="#555">move sent → return</text>
+    <line x1="900" y1="570" x2="900" y2="588" stroke="#333" marker-end="url(#a)"/>
+    <rect x="740" y="590" width="320" height="104" rx="5" fill="#eaf5ec" stroke="#2c7a3f"/>
+    <text x="750" y="610" font-weight="bold">(d) clear the load station</text>
+    <text x="750" y="628">pallet at loc. 13 not busy, a rack location free,</text>
+    <text x="750" y="644">content raw (no idle HMC took it in b) OR</text>
+    <text x="750" y="660">content empty and no open WO for its fixture</text>
+    <text x="750" y="678">→ to the first free rack location</text>
+    <text x="740" y="720" fill="#a00">At most one move per loop; the next loop</text>
+    <text x="740" y="736" fill="#a00">(50 ms later) decides again with fresh data.</text>
+    <text x="740" y="756" fill="#555">(a) before (b): a finished machine is emptied first.</text>
+  </g>
+
+  <!-- bottom note -->
+  <rect x="20" y="510" width="680" height="260" rx="8" fill="#fafafa" stroke="#bbb"/>
+  <text x="36" y="536" font-size="14" font-weight="bold">Why this order?</text>
+  <g font-size="12">
+    <text x="36" y="560">1. HMC jobs first: the machines are the most expensive resource – a READY HMC with a raw</text>
+    <text x="50" y="576">pallet must start in the same loop (no shuttle needed).</text>
+    <text x="36" y="600">2. Load-station task second: the operator should never wait for a decision.</text>
+    <text x="36" y="624">3. Shuttle last, only one move: the move with the highest priority wins; (a) frees an HMC</text>
+    <text x="50" y="640">location so that (b) can feed it in the next loop.</text>
+    <text x="36" y="664" font-weight="bold" fill="#a00">Known weaknesses (measured on the virtual plant, chapter 27):</text>
+    <text x="36" y="684">• (c)1 "machined pallets first" + task 3 re-loads the SAME fixture → VC30 orders (fixture B)</text>
+    <text x="50" y="700">never start while the load station is saturated (starvation, EDD violated).</text>
+    <text x="36" y="720">• "first free rack location" stores pallets far from loc. 13 → longer moves (≈ 50 s per exchange).</text>
+    <text x="36" y="740">• "first fitting HMC" loads HMC-01/02 and leaves HMC-03 almost idle (6 % busy at 12 pallets).</text>
+    <text x="36" y="760">• A raw pallet at an OFFLINE / DOWN HMC is never moved away (not in rule a).</text>
+  </g>
+</svg>

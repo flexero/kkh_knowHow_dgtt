@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 960" width="1400" height="960" font-family="Arial, Helvetica, sans-serif">
+<title>Network topology – one VLAN per zone, IP plan 10.70.&lt;zone&gt;.&lt;host&gt; – drawing 53-02</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e65100"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6a1b9a"/></marker></defs>
+<rect x="0" y="0" width="1400" height="960" fill="#fff"/>
+<rect x="6" y="6" width="1388" height="948" fill="none" stroke="#000" stroke-width="1"/>
+<text x="24" y="36" font-size="20" text-anchor="start" font-weight="bold" fill="#000">Network topology – one VLAN per zone, IP plan 10.70.&lt;zone&gt;.&lt;host&gt;</text>
+<text x="24" y="58" font-size="13" text-anchor="start" font-weight="normal" fill="#000">Example design: managed L2 cell switches, L3 core + firewall, no internet · VLAN id = 700 + zone (example) · Modbus TCP port 502 only from 10.70.1.10</text>
+<rect x="1100" y="914" width="288" height="34" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1108" y="927" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Guide 53 · drawing 53-02</text>
+<text x="1108" y="942" font-size="11" text-anchor="start" font-weight="normal" fill="#000">compressor FMS · item 1 · values = examples</text>
+<rect x="560" y="85" width="280" height="70" rx="0" fill="#f3e5f5" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="108.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Office / ERP network</text>
+<text x="700.0" y="124.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">separate zone, HTTP only via firewall</text>
+<text x="700.0" y="140.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">NO internet route from OT</text>
+<rect x="560" y="185" width="280" height="70" rx="0" fill="#ffebee" stroke="#c62828" stroke-width="1.2"/>
+<text x="700.0" y="216.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Firewall (IEC 62443 conduits)</text>
+<text x="700.0" y="232.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">deny all · allow listed flows · log</text>
+<line x1="700" y1="155" x2="700" y2="185" stroke="#000" stroke-width="2"/>
+<rect x="560" y="290" width="280" height="60" rx="0" fill="#f5f5f5" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="316.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Core switch L3 (redundant pair)</text>
+<text x="700.0" y="332.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">inter-VLAN routing only via firewall</text>
+<line x1="700" y1="255" x2="700" y2="290" stroke="#000" stroke-width="2"/>
+<rect x="990" y="90" width="380" height="250" rx="0" fill="#e3f2fd" stroke="#000" stroke-width="1.2"/>
+<text x="1005" y="113" font-size="13" text-anchor="start" font-weight="bold" fill="#000">VLAN 701 · 10.70.1.0/24 · servers</text>
+<text x="1005" y="140" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.1.10  FMS control PC (fmsctl) – Modbus client</text>
+<text x="1005" y="165" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.1.11  standby PC (cold, same image) [example]</text>
+<text x="1005" y="190" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.1.20  engineering station (TIA / ISPSoft)</text>
+<text x="1005" y="215" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.1.30  MES / historian PC (item 5)</text>
+<text x="1005" y="240" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.1.1   gateway = core switch SVI</text>
+<text x="1005" y="265" font-size="12" text-anchor="start" font-weight="normal" fill="#000">UPS-backed, NTP server for the OT zone</text>
+<line x1="840" y1="320" x2="990" y2="250" stroke="#000" stroke-width="2"/>
+<line x1="700" y1="350" x2="166.0" y2="430" stroke="#1565c0" stroke-width="2"/>
+<rect x="80" y="430" width="172" height="46" rx="0" fill="#f5f5f5" stroke="#000" stroke-width="1.2"/>
+<text x="166.0" y="449.35" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">cell switch SW-10</text>
+<text x="166.0" y="464.35" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">managed L2, IGMP off</text>
+<rect x="40" y="495" width="252" height="300" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="50" y="517" font-size="13" text-anchor="start" font-weight="bold" fill="#000">VLAN 710 · 10.70.10.0/24</text>
+<text x="50" y="536" font-size="12" text-anchor="start" font-weight="normal" font-style="italic" fill="#000">FMS crankcase cell</text>
+<text x="54" y="562" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.10.10 PPS-1 pallet pool</text>
+<text x="54" y="586" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.10.11 LOAD-CC load station</text>
+<text x="54" y="610" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.10.21 HMC-01</text>
+<text x="54" y="634" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.10.22 HMC-02</text>
+<text x="54" y="658" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.10.23 HMC-03</text>
+<text x="54" y="682" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.10.31 WASH-01</text>
+<line x1="166.0" y1="476" x2="166.0" y2="495" stroke="#000" stroke-width="1.5"/>
+<line x1="700" y1="350" x2="438.0" y2="430" stroke="#1565c0" stroke-width="2"/>
+<rect x="352" y="430" width="172" height="46" rx="0" fill="#f5f5f5" stroke="#000" stroke-width="1.2"/>
+<text x="438.0" y="449.35" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">cell switch SW-11</text>
+<text x="438.0" y="464.35" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">managed L2, IGMP off</text>
+<rect x="312" y="495" width="252" height="300" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="322" y="517" font-size="13" text-anchor="start" font-weight="bold" fill="#000">VLAN 711 · 10.70.11.0/24</text>
+<text x="322" y="536" font-size="12" text-anchor="start" font-weight="normal" font-style="italic" fill="#000">cylinder + crankshaft</text>
+<text x="326" y="562" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.11.21 VMC-01</text>
+<text x="326" y="586" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.11.22 HONE-01</text>
+<text x="326" y="610" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.11.23 LATHE-01</text>
+<text x="326" y="634" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.11.24 GRIND-01</text>
+<line x1="438.0" y1="476" x2="438.0" y2="495" stroke="#000" stroke-width="1.5"/>
+<line x1="700" y1="350" x2="710.0" y2="430" stroke="#1565c0" stroke-width="2"/>
+<rect x="624" y="430" width="172" height="46" rx="0" fill="#f5f5f5" stroke="#000" stroke-width="1.2"/>
+<text x="710.0" y="449.35" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">cell switch SW-12</text>
+<text x="710.0" y="464.35" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">managed L2, IGMP off</text>
+<rect x="584" y="495" width="252" height="300" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="594" y="517" font-size="13" text-anchor="start" font-weight="bold" fill="#000">VLAN 712 · 10.70.12.0/24</text>
+<text x="594" y="536" font-size="12" text-anchor="start" font-weight="normal" font-style="italic" fill="#000">assembly + test</text>
+<text x="598" y="562" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.12.21 ASSY-01</text>
+<text x="598" y="586" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.12.22 ROBOT-01</text>
+<text x="598" y="610" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.12.31 TEST-01</text>
+<text x="598" y="634" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.12.32 TEST-02</text>
+<line x1="710.0" y1="476" x2="710.0" y2="495" stroke="#000" stroke-width="1.5"/>
+<line x1="700" y1="350" x2="982.0" y2="430" stroke="#1565c0" stroke-width="2"/>
+<rect x="896" y="430" width="172" height="46" rx="0" fill="#f5f5f5" stroke="#000" stroke-width="1.2"/>
+<text x="982.0" y="449.35" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">cell switch SW-13</text>
+<text x="982.0" y="464.35" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">managed L2, IGMP off</text>
+<rect x="856" y="495" width="252" height="300" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="866" y="517" font-size="13" text-anchor="start" font-weight="bold" fill="#000">VLAN 713 · 10.70.13.0/24</text>
+<text x="866" y="536" font-size="12" text-anchor="start" font-weight="normal" font-style="italic" fill="#000">paint, final, packing</text>
+<text x="870" y="562" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.13.21 PAINT-01</text>
+<text x="870" y="586" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.13.22 FINAL-01</text>
+<text x="870" y="610" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.13.23 PACK-01</text>
+<line x1="982.0" y1="476" x2="982.0" y2="495" stroke="#000" stroke-width="1.5"/>
+<line x1="700" y1="350" x2="1254.0" y2="430" stroke="#1565c0" stroke-width="2"/>
+<rect x="1168" y="430" width="172" height="46" rx="0" fill="#f5f5f5" stroke="#000" stroke-width="1.2"/>
+<text x="1254.0" y="449.35" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">cell switch SW-20</text>
+<text x="1254.0" y="464.35" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">managed L2, IGMP off</text>
+<rect x="1128" y="495" width="252" height="300" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="1138" y="517" font-size="13" text-anchor="start" font-weight="bold" fill="#000">VLAN 720 · 10.70.20.0/24</text>
+<text x="1138" y="536" font-size="12" text-anchor="start" font-weight="normal" font-style="italic" fill="#000">material handling</text>
+<text x="1142" y="562" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.20.41 AGV-01 (Wi-Fi)</text>
+<text x="1142" y="586" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.20.42 AGV-02 (Wi-Fi)</text>
+<text x="1142" y="610" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.20.51 ASRS-RAW</text>
+<text x="1142" y="634" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.20.52 ASRS-FG</text>
+<text x="1142" y="658" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10.70.20.61 / .62 Wi-Fi AP 1 / 2</text>
+<line x1="1254.0" y1="476" x2="1254.0" y2="495" stroke="#000" stroke-width="1.5"/>
+<path d="M1188 745 q 15 -15 30 0 M1180 737 q 23 -23 46 0 M1172 729 q 31 -31 62 0" stroke="#1565c0" stroke-width="1.5" fill="none"/>
+<text x="1248" y="742" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">AGV roaming AP1 to AP2</text>
+<text x="1248" y="757" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">handover &lt; 50 ms (design)</text>
+<rect x="40" y="815" width="1320" height="90" rx="0" fill="#fffde7" stroke="#000" stroke-width="1.2"/>
+<text x="55" y="838" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Rules (example design): static IPs, no DHCP for machines · one VLAN = one subnet = one zone · machines only answer TCP 502 (+ engineering</text>
+<text x="55" y="858" font-size="12" text-anchor="start" font-weight="normal" fill="#000">protocol from 10.70.1.20 during a maintenance window) · port security / unused ports shut · LLDP on · fibre between core and cell</text>
+<text x="55" y="878" font-size="12" text-anchor="start" font-weight="normal" fill="#000">switches &gt; 90 m or across the hall, Cat6A S/FTP for copper · AGVs are Modbus servers on Wi-Fi (WPA2/3-Enterprise or PSK, separate SSID, hidden).</text>
+</svg>

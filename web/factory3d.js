@@ -11,6 +11,7 @@
  */
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/OrbitControls.js";
+import { attachGLB, animGLB, glbEnabled } from "./glbmodel.js";   // CAD models (GLB) - docs/55
 
 const STATE_HEX = {
   RUNNING: 0x0ca30c, SETUP: 0x1590a8, STARVED: 0xfab219, BLOCKED: 0xec835a, DOWN: 0xd03b3b,
@@ -646,6 +647,7 @@ export function createFactory3D(container, config, ui) {
     tag.scale.set(1.1, 0.42, 1); tag.position.set(x, Math.min(built.height, 3.2) - 0.4, z); tag.renderOrder = 5; tag.visible = false;
     scene.add(tag);
     stations[s.id] = { cfg: s, g, ctx, built, lamps: ctx.lamps, kind, label: lbl, snap: null, labelY: built.height + 0.6, tag };
+    if (s.glb && glbEnabled) attachGLB(stations[s.id], (st) => tint(st));   // swap boxes for the CAD model when loaded
   });
 
   /* ---------- buffers: conveyors, raw material pallets, warehouse */
@@ -823,7 +825,7 @@ export function createFactory3D(container, config, ui) {
     let hex = 0x000000, k = 0;
     if (colorMode === "state") { hex = STATE_HEX[m.state]; k = 0.55; }
     if (colorMode === "health") { hex = HEALTH_HEX[m.health.level]; k = 0.55; }
-    [st.ctx.body, st.ctx.accent].forEach((mt) => { mt.emissive.setHex(hex); mt.emissiveIntensity = k; });
+    [st.ctx.body, st.ctx.accent, ...(st.glb ? st.glb.paint : [])].forEach((mt) => { mt.emissive.setHex(hex); mt.emissiveIntensity = k; });
   }
   function setColorMode(m) { colorMode = m; Object.values(stations).forEach(tint); }
   function setLabels(on) { showLabels = on; labelLayer.style.display = on ? "" : "none"; }
@@ -885,7 +887,8 @@ export function createFactory3D(container, config, ui) {
       const state = m ? m.state : "OFFLINE";
       const run = state === "RUNNING" && !(snap && snap.paused);
       const hasPart = state === "RUNNING" || state === "BLOCKED" || state === "SETUP";
-      st.built.anim(t, dt, run, hasPart, m ? m.progress : 0);
+      if (st.glb) animGLB(st, t, dt, run, hasPart, m ? m.progress : 0, m, (st.ctx.model && PROD[st.ctx.model] && PROD[st.ctx.model].size) || 1);
+      else st.built.anim(t, dt, run, hasPart, m ? m.progress : 0);
       setAndon(st.lamps, state, t);
       if (showLabels) {
         v.set(st.g.position.x, st.labelY, st.g.position.z).project(camera);

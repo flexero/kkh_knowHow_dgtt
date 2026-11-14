@@ -1,0 +1,22 @@
+﻿device,type,IP address,port,unit id,register map,description
+LOAD-CC,LOAD,10.70.10.11,502,1,V1.2 regmap_LOAD.csv,Fixture load / unload station of the crankcase FMS
+PPS-1,PALLET,10.70.10.10,502,1,V1.2 regmap_PALLET.csv,"Linear pallet pool system: 12 rack locations, shuttle, serves load station + 3 HMC"
+HMC-01,CNC,10.70.10.21,502,1,V1.2 regmap_CNC.csv,"Horizontal machining centre 1 (crankcase), pallet changer"
+HMC-02,CNC,10.70.10.22,502,1,V1.2 regmap_CNC.csv,"Horizontal machining centre 2 (crankcase), pallet changer"
+HMC-03,CNC,10.70.10.23,502,1,V1.2 regmap_CNC.csv,"Horizontal machining centre 3 (crankcase), pallet changer"
+WASH-01,STATION,10.70.10.31,502,1,V1.2 regmap_STATION.csv,Crankcase washer
+VMC-01,CNC,10.70.11.21,502,1,V1.2 regmap_CNC.csv,Vertical machining centre (cylinders)
+HONE-01,CNC,10.70.11.22,502,1,V1.2 regmap_CNC.csv,Honing machine (cylinder bores)
+LATHE-01,CNC,10.70.11.23,502,1,V1.2 regmap_CNC.csv,CNC lathe (crankshaft)
+GRIND-01,CNC,10.70.11.24,502,1,V1.2 regmap_CNC.csv,Cylindrical grinder (crankshaft journals)
+ASSY-01,STATION,10.70.12.21,502,1,V1.2 regmap_STATION.csv,Pump assembly station
+ROBOT-01,STATION,10.70.12.22,502,1,V1.2 regmap_STATION.csv,Robot station (valve plate / head bolting)
+TEST-01,TEST,10.70.12.31,502,1,V1.2 regmap_TEST.csv,"Performance test bench 1 (ISO 1217 FAD, power, noise, leak)"
+TEST-02,TEST,10.70.12.32,502,1,V1.2 regmap_TEST.csv,Performance test bench 2
+PAINT-01,STATION,10.70.13.21,502,1,V1.2 regmap_STATION.csv,Paint booth + oven
+FINAL-01,STATION,10.70.13.22,502,1,V1.2 regmap_STATION.csv,"Final assembly (tank, motor, pressure switch)"
+PACK-01,STATION,10.70.13.23,502,1,V1.2 regmap_STATION.csv,Packing station
+AGV-01,AGV,10.70.20.41,502,1,V1.2 regmap_AGV.csv,"Automated guided vehicle 1 (Wi-Fi, Modbus TCP)"
+AGV-02,AGV,10.70.20.42,502,1,V1.2 regmap_AGV.csv,Automated guided vehicle 2
+ASRS-RAW,ASRS,10.70.20.51,502,1,V1.2 regmap_ASRS.csv,Raw material AS/RS crane (392 locations)
+ASRS-FG,ASRS,10.70.20.52,502,1,V1.2 regmap_ASRS.csv,Finished goods AS/RS crane

@@ -1,0 +1,505 @@
+// =====================================================================================================================
+// Standard machine interface – register map V1.2 – Siemens S7-1200 / S7-1500 (TIA Portal, SCL external source)
+// Compressor FMS · guide docs/53_fms_control_system.md, chapter 16 · contract: fmsctl/spec/regmap.py (MAP_VERSION 0x0102)
+//
+// Import: TIA Portal > External source files > Add new external file > this file > "Generate blocks from source".
+// Contents (in this order, because each block uses the ones above it):
+//   1  UDT  "typFmsRingEntry"   one event-ring entry (state + time ms) = 3 registers
+//   2  UDT  "typFmsMapV12"      the complete register image, 450 words = 900 bytes, registers 0 - 449
+//   3  DB   "FMS_HR"            NON-OPTIMIZED data block of type "typFmsMapV12" = MB_HOLD_REG of MB_SERVER
+//   4  FC   "FC_FmsPutReal"     REAL  -> two words, high word first ("ABCD")
+//   5  FC   "FC_FmsGetReal"     two words -> REAL
+//   6  FB   "FB_FmsIf_V12"      header, heartbeat, status word + state code, counters, energy, event block,
+//                               toggle-bit command handshake with validation + result codes, gateway watchdog (226),
+//                               job result block 390 - 395
+//   7  FB   "FB_FmsType_CNC"    example of a device-type block (CNC, registers 300 - 345) + type check of commands 10 / 14
+//   8  FB   "FB_FmsComm"        MB_SERVER call for the FMS controller connection (TCON_IP_v4 in the instance)
+// OB1 call order (every scan):  "FB_FmsComm" -> "FB_FmsType_CNC" (TypeCheck) -> "FB_FmsIf_V12" -> machine sequence.
+//
+// ALL VALUES ARE EXAMPLES. Points marked "CHECK" depend on the CPU type / firmware / TIA version – verify them in the
+// TIA Portal help and test them at the FAT (guide 53, chapter 21.3). This source was written for the guide and has not
+// been compiled in this project – compile it, fix any syntax your TIA version needs, then run the FAT test list.
+// =====================================================================================================================
+
+TYPE "typFmsRingEntry"
+VERSION : 1.2
+   STRUCT
+      state : UInt;     // register 108 + 3k : state code 0 - 6
+      t_ms  : UDInt;    // registers 109 + 3k / 110 + 3k : PLC time ms, high word first (S7 = big-endian)
+   END_STRUCT;
+END_TYPE
+
+TYPE "typFmsMapV12"
+VERSION : 1.2
+   STRUCT
+      // ---------------- FAST 0 - 11 (V1.1, unchanged)
+      hdr_mapVersion  : UInt;                  // 0    0x0102 = 258
+      hdr_typeCode    : UInt;                  // 1    1 CNC 2 PALLET 3 LOAD 4 STATION 5 TEST 6 AGV 7 ASRS
+      hdr_unitId      : UInt;                  // 2
+      hdr_heartbeat   : UInt;                  // 3    +1 per second, 65535 -> 0
+      std_status      : Word;                  // 4    bit0 run 1 idle 2 set-up 3 alarm 4 e-stop copy 5 blocked 6 starved 7 no shift
+      std_mode        : UInt;                  // 5    0 manual 1 auto 2 set-up 3 maintenance
+      std_stateCode   : UInt;                  // 6    0 OFF 1 IDLE 2 RUN 3 SETUP 4 DOWN 5 BLOCKED 6 STARVED
+      std_alarm       : UInt;                  // 7
+      hs_status       : Word;                  // 8    bit0 ACK 1 BUSY 2 DONE 3 REJECT 4 READY
+      hs_ackSeq       : UInt;                  // 9
+      hs_result       : UInt;                  // 10   0 OK 1 unknown 2 not ready 3 bad data 4 busy
+      hs_lotDone      : UInt;                  // 11
+      res12           : Array[12..19] of Word; // 12 - 19 reserved (read 0)
+      // ---------------- COUNTERS 20 - 45 (V1.1)
+      std_good        : UDInt;                 // 20 - 21
+      std_scrap       : UDInt;                 // 22 - 23
+      std_lastCycle_s : Real;                  // 24 - 25
+      std_order       : Array[0..19] of Char;  // 26 - 35
+      std_part        : Array[0..19] of Char;  // 36 - 45
+      res46           : Array[46..99] of Word; // 46 - 99 reserved (process values of a type may go here in V1.3)
+      // ---------------- ENERGY 100 - 103 (V1.1)
+      std_power_kW    : Real;                  // 100 - 101
+      std_energy_kWh  : Real;                  // 102 - 103
+      // ---------------- EVENT 104 - 131 (V1.2)
+      evt_counter     : UDInt;                 // 104 - 105
+      evt_tLast_ms    : UDInt;                 // 106 - 107
+      evt_ring        : Array[0..7] of "typFmsRingEntry";  // 108 - 131, entry 0 = newest
+      res132          : Array[132..199] of Word;
+      // ---------------- COMMAND 200 - 226 (V1.1, written by the FMS controller)
+      cmd_code        : UInt;                  // 200
+      cmd_seq         : UInt;                  // 201
+      cmd_ctl         : Word;                  // 202  bit0 = REQ toggle (written LAST by the controller)
+      cmd_order       : Array[0..19] of Char;  // 203 - 212
+      cmd_part        : Array[0..19] of Char;  // 213 - 222
+      cmd_recipe      : UInt;                  // 223
+      cmd_lotQty      : UDInt;                 // 224 - 225
+      cmd_gwHeartbeat : UInt;                  // 226  +1 per second by the controller (FC06)
+      res227          : Array[227..299] of Word;
+      // ---------------- TYPE STATUS 300 - 389 (V1.2) – filled by the device-type FB
+      typ             : Array[300..389] of Word;
+      // ---------------- JOB RESULT 390 - 399 (V1.2)
+      job_idDone      : UDInt;                 // 390 - 391
+      job_result      : UInt;                  // 392  0 OK 1 NOK / scrap 2 aborted 3 rejected
+      res393          : Word;                  // 393
+      job_cycle_s     : Real;                  // 394 - 395
+      res396          : Array[396..399] of Word;
+      // ---------------- JOB PARAMETERS 400 - 449 (V1.2, written by the FMS controller)
+      job_id          : UDInt;                 // 400 - 401
+      jpar            : Array[402..409] of Word; // 402 - 409 type-specific parameters (overlay per command code)
+      job_text        : Array[0..19] of Char;  // 410 - 419 serial no. / item code
+      res420          : Array[420..449] of Word;
+   END_STRUCT;
+END_TYPE
+
+DATA_BLOCK "FMS_HR"
+{ S7_Optimized_Access := 'FALSE' }    // MUST be non-optimized: register n = byte offset 2 * n (CHECK after compiling: DBW452 = register 226)
+VERSION : 1.2
+NON_RETAIN
+"typFmsMapV12"
+BEGIN
+END_DATA_BLOCK
+
+FUNCTION "FC_FmsPutReal" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.2
+   VAR_INPUT
+      v : Real;
+   END_VAR
+   VAR_OUTPUT
+      hi : Word;     // register n     = bytes A B
+      lo : Word;     // register n + 1 = bytes C D
+   END_VAR
+   VAR_TEMP
+      dw : DWord;
+   END_VAR
+BEGIN
+   // REAL -> DWORD copies the bit pattern unchanged (TIA conversion rule for bit strings – CHECK in your TIA help;
+   // FAT test: v = 345.0 must give hi = 16#43AC, lo = 16#8000).
+   #dw := REAL_TO_DWORD(#v);
+   #hi := DWORD_TO_WORD(SHR(IN := #dw, N := 16));
+   #lo := DWORD_TO_WORD(#dw);
+END_FUNCTION
+
+FUNCTION "FC_FmsGetReal" : Real
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.2
+   VAR_INPUT
+      hi : Word;
+      lo : Word;
+   END_VAR
+BEGIN
+   #FC_FmsGetReal := DWORD_TO_REAL(SHL(IN := WORD_TO_DWORD(#hi), N := 16) OR WORD_TO_DWORD(#lo));
+END_FUNCTION
+
+FUNCTION_BLOCK "FB_FmsIf_V12"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.2
+   VAR_INPUT
+      TypeCode    : UInt := 1;       // 1 CNC 2 PALLET 3 LOAD 4 STATION 5 TEST 6 AGV 7 ASRS
+      UnitId      : UInt := 1;       // unit id of this plant = 1 for every device
+      AllowedCmds : DWord;           // bit n = command code n is known (n = 0 - 31), e.g. CNC: 4, 10, 14 = 16#0000_4410
+      ShiftOn     : Bool;            // key switch / shift active (else status bit 7, state 0 OFF)
+      AutoMode    : Bool;            // mode selector AUTO
+      SetupMode   : Bool;            // mode selector SET-UP
+      MaintMode   : Bool;            // maintenance mode
+      InCycle     : Bool;            // machine is in its cycle (RUN)
+      PartDone    : Bool;            // ONE-scan pulse per finished piece
+      PartOk      : Bool;            // piece is good (else scrap), valid with PartDone
+      Alarm       : Bool;            // any machine alarm
+      AlarmCode   : UInt;            // 0 = none
+      EStopCopy   : Bool;            // e-stop chain open – DISPLAY COPY ONLY, the safety relay does the safety
+      Blocked     : Bool;            // finished part cannot leave
+      Starved     : Bool;            // no part / no material
+      Power_kW    : Real;            // electrical power (meter or calculated)
+      TypeCheck   : UInt;            // 0 OK, 3 bad data – result of the device-type FB for the CURRENT parameters (called before)
+      JobEnd      : Bool;            // ONE-scan pulse: the accepted job is finished or aborted
+      JobResult   : UInt;            // 0 OK, 1 NOK / scrap, 2 aborted (valid with JobEnd)
+   END_VAR
+   VAR_OUTPUT
+      NewJob      : Bool;            // ONE-scan pulse: command >= 10 accepted -> start the job with the latched data
+      NewCmd      : Bool;            // ONE-scan pulse: V1.1 command 1, 2, 3 or 5 accepted (handled by the machine program)
+      JobCode     : UInt;            // code of the accepted command
+      JobId       : UDInt;           // latched job id (400 - 401)
+      JobPar      : Array[402..409] of Word;  // latched type parameters
+      JobText     : Array[0..19] of Char;     // latched serial / item text
+      AckAlarm    : Bool;            // ONE-scan pulse: command 4 (acknowledge alarm)
+      Busy        : Bool;            // job running (= hs.status bit 1)
+      Ready       : Bool;            // may receive a job (= hs.status bit 4)
+      GwOk        : Bool;            // FMS controller alive (226 changed within 5 s)
+      MsNow       : UDInt;           // PLC time in ms since start (the event-block clock)
+   END_VAR
+   VAR_IN_OUT
+      HR          : "typFmsMapV12";  // pass "FMS_HR"
+   END_VAR
+   VAR
+      firstDone   : Bool;
+      lastTck     : Time;
+      msClock     : UDInt;
+      lastSecMs   : UDInt;
+      hb          : UInt;
+      ackT        : Bool;            // internal master copies – the image is rewritten from them every scan
+      busyT       : Bool;
+      doneT       : Bool;
+      rejectT     : Bool;
+      lotDone     : UInt;
+      jobStartMs  : UDInt;
+      cycStartMs  : UDInt;
+      inCycleOld  : Bool;
+      lastState   : UInt;
+      evtCounter  : UDInt;
+      evtTLast    : UDInt;
+      ring        : Array[0..7] of "typFmsRingEntry";
+      gwHbOld     : UInt;
+      tofGw       : TOF_TIME;
+      jobIdDone   : UDInt;
+      jobResult   : UInt;
+      jobCycle    : Real;
+   END_VAR
+   VAR RETAIN
+      goodCnt     : UDInt;           // retentive counters (CHECK: "Retain" ticked in the instance DB)
+      scrapCnt    : UDInt;
+      lastCycle   : Real;
+      energyWh    : LReal;           // LREAL accumulator: a REAL kWh counter would lose small increments (guide 53 ch. 6.6)
+   END_VAR
+   VAR_TEMP
+      tck         : Time;
+      dtMs        : UDInt;
+      newReq      : Bool;
+      code        : UInt;
+      res         : UInt;
+      st          : UInt;
+      sw          : Word;
+      k           : Int;
+   END_VAR
+BEGIN
+   // ---------------------------------------------------------------- 0 pulses reset
+   #NewJob := FALSE; #NewCmd := FALSE; #AckAlarm := FALSE;
+
+   // ---------------------------------------------------------------- 1 clock (ms since start) and heartbeat
+   #tck := TIME_TCK();                                  // CHECK: TIME_TCK available on your CPU (else RUNTIME)
+   IF NOT #firstDone THEN
+      #lastTck := #tck; #msClock := 0; #lastSecMs := 0;
+   END_IF;
+   #dtMs := DINT_TO_UDINT(TIME_TO_DINT(#tck - #lastTck)); // TIME difference wraps correctly (two's complement)
+   #lastTck := #tck;
+   #msClock := #msClock + #dtMs;                        // UDINT wraps after 49.7 days – clients use differences mod 2^32
+   #MsNow := #msClock;
+   IF #msClock - #lastSecMs >= 1000 THEN
+      #lastSecMs := #lastSecMs + 1000;
+      IF #hb = 65535 THEN #hb := 0; ELSE #hb := #hb + 1; END_IF;
+   END_IF;
+
+   // ---------------------------------------------------------------- 2 gateway watchdog (register 226, 5 s)
+   #tofGw(IN := (#HR.cmd_gwHeartbeat <> #gwHbOld), PT := T#5S);
+   #gwHbOld := #HR.cmd_gwHeartbeat;
+   #GwOk := #tofGw.Q;
+
+   // ---------------------------------------------------------------- 3 state code + status word (priority from top)
+   IF NOT #ShiftOn THEN #st := 0;                       // OFF
+   ELSIF #Alarm OR #EStopCopy THEN #st := 4;            // DOWN
+   ELSIF #SetupMode OR #MaintMode THEN #st := 3;        // SETUP
+   ELSIF #InCycle THEN #st := 2;                        // RUN
+   ELSIF #Blocked THEN #st := 5;                        // BLOCKED
+   ELSIF #Starved THEN #st := 6;                        // STARVED
+   ELSE #st := 1;                                       // IDLE
+   END_IF;
+   #sw := 16#0000;
+   CASE #st OF
+      0: #sw.%X7 := TRUE;
+      1: #sw.%X1 := TRUE;
+      2: #sw.%X0 := TRUE;
+      3: #sw.%X2 := TRUE;
+      4: #sw.%X3 := TRUE;
+      5: #sw.%X5 := TRUE;
+      6: #sw.%X6 := TRUE;
+   END_CASE;
+   #sw.%X4 := #EStopCopy;                               // copy for display only
+
+   // ---------------------------------------------------------------- 4 event block (counter, time stamp, 8-entry ring)
+   IF (#st <> #lastState) OR NOT #firstDone THEN        // the first scan counts as the first event (same as the virtual plant)
+      #evtCounter := #evtCounter + 1;                   // UDINT wraps 4 294 967 295 -> 0
+      #evtTLast := #msClock;
+      FOR #k := 7 TO 1 BY -1 DO
+         #ring[#k] := #ring[#k - 1];
+      END_FOR;
+      #ring[0].state := #st;
+      #ring[0].t_ms := #msClock;
+      #lastState := #st;
+   END_IF;
+
+   // ---------------------------------------------------------------- 5 counters, cycle time, lot pieces
+   IF #InCycle AND NOT #inCycleOld THEN #cycStartMs := #msClock; END_IF;
+   #inCycleOld := #InCycle;
+   IF #PartDone THEN
+      IF #PartOk THEN #goodCnt := #goodCnt + 1; ELSE #scrapCnt := #scrapCnt + 1; END_IF;
+      #lastCycle := UDINT_TO_REAL(#msClock - #cycStartMs) / 1000.0;
+      IF #busyT AND #lotDone < 65535 THEN #lotDone := #lotDone + 1; END_IF;
+   END_IF;
+   #energyWh := #energyWh + REAL_TO_LREAL(#Power_kW) * UDINT_TO_LREAL(#dtMs) / 3600.0;   // kW * ms / 3600 = Wh
+
+   // ---------------------------------------------------------------- 6 job end (BEFORE the handshake, same scan)
+   IF #JobEnd AND #busyT THEN
+      #jobIdDone := #JobId;
+      #jobResult := #JobResult;
+      #jobCycle := UDINT_TO_REAL(#msClock - #jobStartMs) / 1000.0;
+      #busyT := FALSE;
+      #doneT := NOT #doneT;                             // DONE toggles – a lost poll never loses the end of a job
+   END_IF;
+
+   // ---------------------------------------------------------------- 7 toggle-bit command handshake
+   #Ready := #ShiftOn AND #AutoMode AND NOT #SetupMode AND NOT #MaintMode AND NOT #Alarm AND NOT #EStopCopy
+             AND NOT #busyT AND #GwOk;
+   #newReq := #HR.cmd_ctl.%X0 <> #ackT;                // REQ differs from ACK = a NEW command
+   IF #newReq AND #firstDone THEN
+      #code := #HR.cmd_code;
+      IF #code > 31 THEN
+         #res := 1;                                     // unknown command
+      ELSIF (SHR(IN := #AllowedCmds, N := #code) AND 16#0000_0001) = 0 THEN
+         #res := 1;                                     // not a command of this device type
+      ELSIF #code = 4 THEN
+         #res := 0; #AckAlarm := TRUE;                  // acknowledge alarm – allowed also while busy
+      ELSIF #busyT THEN
+         #res := 4;                                     // busy
+      ELSIF NOT (#ShiftOn AND #AutoMode AND NOT #SetupMode AND NOT #MaintMode AND NOT #Alarm AND NOT #EStopCopy) THEN
+         #res := 2;                                     // not ready
+      ELSIF #TypeCheck <> 0 THEN
+         #res := #TypeCheck;                            // bad data (3) from the device-type check
+      ELSE
+         #res := 0;
+         #JobCode := #code;
+         IF #code >= 10 THEN                            // V1.2 job: latch the parameters NOW (the controller may overwrite 400-419 later)
+            #JobId := #HR.job_id;
+            #JobPar := #HR.jpar;
+            #JobText := #HR.job_text;
+            #busyT := TRUE;
+            #lotDone := 0;
+            #jobStartMs := #msClock;
+            #NewJob := TRUE;
+         ELSE
+            #NewCmd := TRUE;                            // V1.1 commands 1, 2, 3, 5 – see guide 47 for their handling
+         END_IF;
+      END_IF;
+      #HR.hs_ackSeq := #HR.cmd_seq;                     // copy the sequence number
+      #HR.hs_result := #res;
+      #rejectT := (#res <> 0);
+      #ackT := #HR.cmd_ctl.%X0;                         // ACK := REQ – LAST action of the handshake
+   ELSIF NOT #firstDone THEN
+      #ackT := #HR.cmd_ctl.%X0;                         // after a restart: do NOT execute an old REQ, just mirror it
+   END_IF;
+   #Busy := #busyT;
+
+   // ---------------------------------------------------------------- 8 write the complete read-only image (every scan)
+   #HR.hdr_mapVersion := 16#0102;
+   #HR.hdr_typeCode := #TypeCode;
+   #HR.hdr_unitId := #UnitId;
+   #HR.hdr_heartbeat := #hb;
+   #HR.std_status := #sw;
+   IF #MaintMode THEN #HR.std_mode := 3;
+   ELSIF #SetupMode THEN #HR.std_mode := 2;
+   ELSIF #AutoMode THEN #HR.std_mode := 1;
+   ELSE #HR.std_mode := 0;
+   END_IF;
+   #HR.std_stateCode := #st;
+   #HR.std_alarm := #AlarmCode;
+   #HR.hs_status := 16#0000;
+   #HR.hs_status.%X0 := #ackT;
+   #HR.hs_status.%X1 := #busyT;
+   #HR.hs_status.%X2 := #doneT;
+   #HR.hs_status.%X3 := #rejectT;
+   #HR.hs_status.%X4 := #Ready;
+   #HR.hs_lotDone := #lotDone;
+   #HR.std_good := #goodCnt;
+   #HR.std_scrap := #scrapCnt;
+   #HR.std_lastCycle_s := #lastCycle;
+   #HR.std_order := #JobText;                           // current job text (the V1.1 lot order uses cmd_order instead)
+   #HR.std_power_kW := #Power_kW;
+   #HR.std_energy_kWh := LREAL_TO_REAL(#energyWh / 1000.0);
+   #HR.evt_counter := #evtCounter;
+   #HR.evt_tLast_ms := #evtTLast;
+   #HR.evt_ring := #ring;
+   #HR.job_idDone := #jobIdDone;
+   #HR.job_result := #jobResult;
+   #HR.job_cycle_s := #jobCycle;
+   // reserved registers read 0 – a foreign write is overwritten within one scan (MB_SERVER cannot refuse writes)
+   FOR #k := 12 TO 19 DO #HR.res12[#k] := 0; END_FOR;
+   FOR #k := 46 TO 99 DO #HR.res46[#k] := 0; END_FOR;
+   FOR #k := 132 TO 199 DO #HR.res132[#k] := 0; END_FOR;
+   FOR #k := 227 TO 299 DO #HR.res227[#k] := 0; END_FOR;
+   #HR.res393 := 0;
+   FOR #k := 396 TO 399 DO #HR.res396[#k] := 0; END_FOR;
+
+   #firstDone := TRUE;
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK "FB_FmsType_CNC"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.2
+// Device type 1 = CNC (HMC, VMC, hone, lathe, grinder). Fills registers 300 - 345 and checks commands 10 and 14.
+// For the other types copy this FB and use the tables of guide 53 chapter 13 (PALLET, LOAD, STATION, TEST, AGV, ASRS).
+   VAR_INPUT
+      ProgramNo       : UInt;                    // running NC program (O-number) from the CNC (PMC / NC variable)
+      PalletWork      : UInt;                    // pallet id in the working area (0 = none)
+      PalletSetup     : UInt;                    // pallet id at the pallet-changer set-up side (0 = none / no APC)
+      ToolNo          : UInt;                    // tool in the spindle
+      SpindleLoad_pct : Real;
+      FeedOverride_pct: UInt;
+      ToolLife        : Array[1..30] of UInt;    // remaining life of pockets 1 - 30 in 0.1 % (0 - 1000)
+      ProgramExists   : Bool;                    // the CNC confirms: program HR.jpar[403] is stored (lookup in the PMC)
+      HasApc          : Bool;                    // machine with automatic pallet changer (HMC)
+      ToolEchoPocket  : UInt;                    // echo of the last command 14 (after the CNC has written the offsets)
+      ToolEchoLen_mm  : Real;
+      ToolEchoRad_mm  : Real;
+   END_VAR
+   VAR_OUTPUT
+      TypeCheck       : UInt;                    // 0 OK, 3 bad data -> input TypeCheck of "FB_FmsIf_V12"
+   END_VAR
+   VAR_IN_OUT
+      HR              : "typFmsMapV12";
+   END_VAR
+   VAR_TEMP
+      i       : Int;
+      hi      : Word;
+      lo      : Word;
+      pocket  : UInt;
+      lifeSet : UInt;
+   END_VAR
+BEGIN
+   // ---------------- status 300 - 345
+   #HR.typ[300] := UINT_TO_WORD(#ProgramNo);
+   #HR.typ[301] := UINT_TO_WORD(#PalletWork);
+   #HR.typ[302] := UINT_TO_WORD(#PalletSetup);
+   #HR.typ[303] := UINT_TO_WORD(#ToolNo);
+   "FC_FmsPutReal"(v := #SpindleLoad_pct, hi => #hi, lo => #lo);
+   #HR.typ[304] := #hi; #HR.typ[305] := #lo;
+   #HR.typ[306] := UINT_TO_WORD(#FeedOverride_pct);
+   FOR #i := 307 TO 309 DO #HR.typ[#i] := 0; END_FOR;
+   FOR #i := 1 TO 30 DO
+      #HR.typ[309 + #i] := UINT_TO_WORD(#ToolLife[#i]);   // pocket 1 -> register 310
+   END_FOR;
+   #HR.typ[340] := UINT_TO_WORD(#ToolEchoPocket);
+   #HR.typ[341] := 0;
+   "FC_FmsPutReal"(v := #ToolEchoLen_mm, hi => #hi, lo => #lo);
+   #HR.typ[342] := #hi; #HR.typ[343] := #lo;
+   "FC_FmsPutReal"(v := #ToolEchoRad_mm, hi => #hi, lo => #lo);
+   #HR.typ[344] := #hi; #HR.typ[345] := #lo;
+   FOR #i := 346 TO 389 DO #HR.typ[#i] := 0; END_FOR;
+
+   // ---------------- type check of the CURRENT parameters (evaluated every scan, used by FB_FmsIf_V12 at a new REQ)
+   #TypeCheck := 0;
+   CASE #HR.cmd_code OF
+      10:  // run job: 402 palletId, 403 programNo, 404 variant, 405 qty, 406 fixtureId
+         IF WORD_TO_UINT(#HR.jpar[403]) = 0 OR NOT #ProgramExists THEN
+            #TypeCheck := 3;                                         // NC program unknown
+         ELSIF WORD_TO_UINT(#HR.jpar[404]) < 1 OR WORD_TO_UINT(#HR.jpar[404]) > 3 THEN
+            #TypeCheck := 3;                                         // variant not 1 - 3
+         ELSIF WORD_TO_UINT(#HR.jpar[405]) < 1 OR WORD_TO_UINT(#HR.jpar[405]) > 100 THEN
+            #TypeCheck := 3;                                         // quantity out of range [example limit 100]
+         ELSIF #HasApc AND (WORD_TO_UINT(#HR.jpar[402]) = 0 OR WORD_TO_UINT(#HR.jpar[402]) <> #PalletSetup) THEN
+            #TypeCheck := 3;                                         // pallet not at this machine's pallet changer
+         END_IF;
+      14:  // tool data: 402 pocket, 404-405 length REAL, 406-407 radius REAL, 408 life
+         #pocket := WORD_TO_UINT(#HR.jpar[402]);
+         #lifeSet := WORD_TO_UINT(#HR.jpar[408]);
+         IF #pocket < 1 OR #pocket > 30 OR #lifeSet > 1000 THEN
+            #TypeCheck := 3;
+         END_IF;
+   END_CASE;
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK "FB_FmsComm"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.2
+// One MB_SERVER instance = ONE client connection. The FMS controller 10.70.1.10 is the only Modbus client (guide 53 ch. 11).
+// Optional second instance (ID 2) for a commissioning laptop – remove it after the SAT.
+   VAR_OUTPUT
+      Ndr     : Bool;      // new data written (one scan)
+      Dr      : Bool;      // data read (one scan)
+      Error   : Bool;
+      Status  : Word;      // show on the HMI – e.g. "no resources", "port in use" (see the MB_SERVER help)
+   END_VAR
+   VAR
+      conn : TCON_IP_v4;
+      srv  : MB_SERVER;
+      init : Bool;
+   END_VAR
+BEGIN
+   IF NOT #init THEN
+      #conn.InterfaceId := 64;          // hardware identifier of the PROFINET interface – CHECK in the device configuration
+      #conn.ID := 1;                    // unique connection id in this CPU
+      #conn.ConnectionType := 16#0B;    // TCP
+      #conn.ActiveEstablished := FALSE; // the PLC is the passive partner (server)
+      #conn.RemoteAddress.ADDR[1] := 10; // accept only the FMS controller 10.70.1.10 (0.0.0.0 = any client)
+      #conn.RemoteAddress.ADDR[2] := 70;
+      #conn.RemoteAddress.ADDR[3] := 1;
+      #conn.RemoteAddress.ADDR[4] := 10;
+      #conn.RemotePort := 0;
+      #conn.LocalPort := 502;
+      #init := TRUE;
+   END_IF;
+   // MB_HOLD_REG: the whole non-optimized DB "FMS_HR" (450 words). CHECK the MB_SERVER version: older versions need an
+   // ANY pointer P#DB<n>.DBX0.0 WORD 450 to a non-optimized DB.
+   #srv(DISCONNECT := FALSE,
+        MB_HOLD_REG := "FMS_HR",
+        CONNECT := #conn,
+        NDR => #Ndr,
+        DR => #Dr,
+        ERROR => #Error,
+        STATUS => #Status);
+   // NOTE: MB_SERVER maps FC04 to the process-image input words (%IW), NOT to "FMS_HR" – the FMS controller uses FC03 only.
+   // NOTE: MB_SERVER accepts FC06 / FC16 to every register of "FMS_HR" – FB_FmsIf_V12 rewrites all read-only registers
+   //       every scan; the firewall allows TCP 502 only from 10.70.1.10.
+END_FUNCTION_BLOCK
+
+// ---------------------------------------------------------------------------------------------------------------------
+// OB1 example (HMC-01, unit 1, type 1). Tag names of the machine program are examples.
+//
+//   "IDB_FmsComm"();
+//   "IDB_FmsType_CNC"(ProgramNo := "CNC_ProgNo", PalletWork := "APC_PalWork", PalletSetup := "APC_PalSetup",
+//                     ToolNo := "CNC_Tool", SpindleLoad_pct := "CNC_SpLoad", FeedOverride_pct := "CNC_Feed",
+//                     ToolLife := "TL_Life", ProgramExists := "CNC_ProgOk", HasApc := TRUE,
+//                     ToolEchoPocket := "TL_EchoPk", ToolEchoLen_mm := "TL_EchoL", ToolEchoRad_mm := "TL_EchoR",
+//                     HR := "FMS_HR");
+//   "IDB_FmsIf"(TypeCode := 1, UnitId := 1, AllowedCmds := 16#0000_4410,
+//               ShiftOn := "S_ON", AutoMode := "S_AUTO", SetupMode := "S_SETUP", MaintMode := FALSE,
+//               InCycle := "M_INCYC", PartDone := "M_PDONE", PartOk := "M_POK", Alarm := "M_ALM", AlarmCode := "ALM_CODE",
+//               EStopCopy := NOT "ES_OK", Blocked := FALSE, Starved := NOT "B_PART", Power_kW := "P_KW",
+//               TypeCheck := "IDB_FmsType_CNC".TypeCheck, JobEnd := "M_JOBEND", JobResult := "JOB_RES",
+//               HR := "FMS_HR");
+//   // machine sequence: start the pallet / NC program with "IDB_FmsIf".NewJob, "IDB_FmsIf".JobPar[402..406]
+// ---------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 840" width="1400" height="840" font-family="Arial, Helvetica, sans-serif">
+<title>The eight flexibility types of Browne et al. 1984 around an FMS, with the indicator used to measure each</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1400" height="840" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="18" text-anchor="start" fill="#111" font-weight="bold">The 8 flexibility types (Browne et al., 1984) and how to measure each</text>
+<text x="24.0" y="54.0" font-size="12" text-anchor="start" fill="#444">Blue = basic (element) flexibility, green = system flexibility, purple = aggregate flexibility. The indicator is what you write into the URS.</text>
+<circle cx="700" cy="440" r="100" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+<text x="700.0" y="430.0" font-size="24" text-anchor="middle" fill="#111" font-weight="bold">FMS</text>
+<text x="700.0" y="454.0" font-size="12" text-anchor="middle" fill="#111">machines + handling</text>
+<text x="700.0" y="470.0" font-size="12" text-anchor="middle" fill="#111">+ storage + computer</text>
+<line x1="700.0" y1="336.0" x2="700.0" y2="177.0" stroke="#999" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="540.0" y="89.0" width="320.0" height="82.0" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+<text x="550.0" y="111.0" font-size="14" text-anchor="start" fill="#2563eb" font-weight="bold">1. Machine flexibility</text>
+<text x="550.0" y="133.0" font-size="12" text-anchor="start" fill="#111">Set-up time between two operations</text>
+<text x="550.0" y="155.0" font-size="11" text-anchor="start" fill="#444">Measure: t_setup [min], tools in magazine</text>
+<text x="852.0" y="111.0" font-size="10" text-anchor="end" fill="#666">basic</text>
+<line x1="773.5" y1="366.5" x2="933.8" y2="267.8" stroke="#999" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="879.4" y="179.8" width="320.0" height="82.0" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+<text x="889.4" y="201.8" font-size="14" text-anchor="start" fill="#2563eb" font-weight="bold">2. Operation flexibility</text>
+<text x="889.4" y="223.8" font-size="12" text-anchor="start" fill="#111">Alternative sequences of operations</text>
+<text x="889.4" y="245.8" font-size="11" text-anchor="start" fill="#444">Measure: feasible operation orders per part</text>
+<text x="1191.4" y="201.8" font-size="10" text-anchor="end" fill="#666">basic</text>
+<line x1="804.0" y1="440.0" x2="1030.6" y2="440.0" stroke="#999" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="1020.0" y="399.0" width="320.0" height="82.0" rx="8" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+<text x="1030.0" y="421.0" font-size="14" text-anchor="start" fill="#059669" font-weight="bold">3. Process flexibility</text>
+<text x="1030.0" y="443.0" font-size="12" text-anchor="start" fill="#111">Different parts without new set-up</text>
+<text x="1030.0" y="465.0" font-size="11" text-anchor="start" fill="#444">Measure: part numbers runnable without set-up</text>
+<text x="1332.0" y="421.0" font-size="10" text-anchor="end" fill="#666">system</text>
+<line x1="773.5" y1="513.5" x2="933.8" y2="612.2" stroke="#999" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="879.4" y="618.2" width="320.0" height="82.0" rx="8" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+<text x="889.4" y="640.2" font-size="14" text-anchor="start" fill="#059669" font-weight="bold">4. Routing flexibility</text>
+<text x="889.4" y="662.2" font-size="12" text-anchor="start" fill="#111">Alternative machines for an operation</text>
+<text x="889.4" y="684.2" font-size="11" text-anchor="start" fill="#444">Measure: output kept with 1 machine down [%]</text>
+<text x="1191.4" y="640.2" font-size="10" text-anchor="end" fill="#666">system</text>
+<line x1="700.0" y1="544.0" x2="700.0" y2="703.0" stroke="#999" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="540.0" y="709.0" width="320.0" height="82.0" rx="8" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+<text x="550.0" y="731.0" font-size="14" text-anchor="start" fill="#059669" font-weight="bold">5. Product flexibility</text>
+<text x="550.0" y="753.0" font-size="12" text-anchor="start" fill="#111">Time and cost to bring in a new part</text>
+<text x="550.0" y="775.0" font-size="11" text-anchor="start" fill="#444">Measure: t_NPI [weeks], cost per new part [EUR]</text>
+<text x="852.0" y="731.0" font-size="10" text-anchor="end" fill="#666">system</text>
+<line x1="626.5" y1="513.5" x2="466.2" y2="612.2" stroke="#999" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="200.6" y="618.2" width="320.0" height="82.0" rx="8" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+<text x="210.6" y="640.2" font-size="14" text-anchor="start" fill="#059669" font-weight="bold">6. Volume flexibility</text>
+<text x="210.6" y="662.2" font-size="12" text-anchor="start" fill="#111">Profitable over a range of output</text>
+<text x="210.6" y="684.2" font-size="11" text-anchor="start" fill="#444">Measure: lowest profitable load [% of capacity]</text>
+<text x="512.6" y="640.2" font-size="10" text-anchor="end" fill="#666">system</text>
+<line x1="596.0" y1="440.0" x2="369.4" y2="440.0" stroke="#999" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="60.0" y="399.0" width="320.0" height="82.0" rx="8" fill="#ffffff" stroke="#9333ea" stroke-width="2"/>
+<text x="70.0" y="421.0" font-size="14" text-anchor="start" fill="#9333ea" font-weight="bold">7. Expansion flexibility</text>
+<text x="70.0" y="443.0" font-size="12" text-anchor="start" fill="#111">Capacity can be added in steps</text>
+<text x="70.0" y="465.0" font-size="11" text-anchor="start" fill="#444">Measure: cost and weeks per added machine</text>
+<text x="372.0" y="421.0" font-size="10" text-anchor="end" fill="#666">aggregate</text>
+<line x1="626.5" y1="366.5" x2="466.2" y2="267.8" stroke="#999" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="200.6" y="179.8" width="320.0" height="82.0" rx="8" fill="#ffffff" stroke="#9333ea" stroke-width="2"/>
+<text x="210.6" y="201.8" font-size="14" text-anchor="start" fill="#9333ea" font-weight="bold">8. Production flexibility</text>
+<text x="210.6" y="223.8" font-size="12" text-anchor="start" fill="#111">All parts the system could make</text>
+<text x="210.6" y="245.8" font-size="11" text-anchor="start" fill="#444">Measure: part numbers possible without new capital</text>
+<text x="512.6" y="201.8" font-size="10" text-anchor="end" fill="#666">aggregate</text>
+<text x="24.0" y="824.0" font-size="11" text-anchor="start" fill="#444">Indicators are examples of how to quantify each type; chapter A2 of guide 61 gives the formulas and worked numbers.</text>
+</svg>

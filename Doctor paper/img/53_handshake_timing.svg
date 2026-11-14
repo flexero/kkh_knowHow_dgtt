@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" font-family="Arial, Helvetica, sans-serif">
+<title>Toggle-bit job handshake – timing diagram (HMC-01, command 10, pallet 3, O1020) – drawing 53-05</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e65100"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6a1b9a"/></marker></defs>
+<rect x="0" y="0" width="1400" height="900" fill="#fff"/>
+<rect x="6" y="6" width="1388" height="888" fill="none" stroke="#000" stroke-width="1"/>
+<text x="24" y="36" font-size="20" text-anchor="start" font-weight="bold" fill="#000">Toggle-bit job handshake – timing diagram (HMC-01, command 10, pallet 3, O1020)</text>
+<text x="24" y="58" font-size="13" text-anchor="start" font-weight="normal" fill="#000">Times = design example: E[RTT] 6.3 ms, PLC scan 10 ms, controller ACK poll 20 ms (device.py), FAST poll 0.5 s · time axis broken between 0.1 s and 345 s</text>
+<rect x="1100" y="854" width="288" height="34" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1108" y="867" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Guide 53 · drawing 53-05</text>
+<text x="1108" y="882" font-size="11" text-anchor="start" font-weight="normal" fill="#000">compressor FMS · item 1 · values = examples</text>
+<text x="40" y="132" font-size="12" text-anchor="start" font-weight="bold" fill="#1565c0">FC16 400-406 job params</text>
+<line x1="300" y1="150" x2="1340" y2="150" stroke="#ccc" stroke-width="1"/>
+<text x="40" y="194" font-size="12" text-anchor="start" font-weight="bold" fill="#1565c0">FC16 200-201 code 10, seq</text>
+<line x1="300" y1="212" x2="1340" y2="212" stroke="#ccc" stroke-width="1"/>
+<text x="40" y="256" font-size="12" text-anchor="start" font-weight="bold" fill="#1565c0">202.0 REQ (controller)</text>
+<line x1="300" y1="274" x2="1340" y2="274" stroke="#ccc" stroke-width="1"/>
+<text x="40" y="318" font-size="12" text-anchor="start" font-weight="bold" fill="#2e7d32">8.0 ACK (PLC)</text>
+<line x1="300" y1="336" x2="1340" y2="336" stroke="#ccc" stroke-width="1"/>
+<text x="40" y="380" font-size="12" text-anchor="start" font-weight="bold" fill="#2e7d32">9 ackSeq / 10 result</text>
+<line x1="300" y1="398" x2="1340" y2="398" stroke="#ccc" stroke-width="1"/>
+<text x="40" y="442" font-size="12" text-anchor="start" font-weight="bold" fill="#2e7d32">8.1 BUSY (PLC)</text>
+<line x1="300" y1="460" x2="1340" y2="460" stroke="#ccc" stroke-width="1"/>
+<text x="40" y="504" font-size="12" text-anchor="start" font-weight="bold" fill="#2e7d32">8.4 READY (PLC)</text>
+<line x1="300" y1="522" x2="1340" y2="522" stroke="#ccc" stroke-width="1"/>
+<text x="40" y="566" font-size="12" text-anchor="start" font-weight="bold" fill="#2e7d32">6 stateCode</text>
+<line x1="300" y1="584" x2="1340" y2="584" stroke="#ccc" stroke-width="1"/>
+<text x="40" y="628" font-size="12" text-anchor="start" font-weight="bold" fill="#2e7d32">8.2 DONE toggle (PLC)</text>
+<line x1="300" y1="646" x2="1340" y2="646" stroke="#ccc" stroke-width="1"/>
+<text x="40" y="690" font-size="12" text-anchor="start" font-weight="bold" fill="#2e7d32">390 job.idDone</text>
+<line x1="300" y1="708" x2="1340" y2="708" stroke="#ccc" stroke-width="1"/>
+<text x="40" y="752" font-size="12" text-anchor="start" font-weight="bold" fill="#1565c0">controller sees</text>
+<line x1="300" y1="770" x2="1340" y2="770" stroke="#ccc" stroke-width="1"/>
+<line x1="822" y1="100" x2="838" y2="790" stroke="#757575" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="852" y1="100" x2="868" y2="790" stroke="#757575" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="850.0" y="95" font-size="11" text-anchor="middle" font-weight="normal" fill="#757575">≈ 345 s machining</text>
+<rect x="300.0" y="124" width="32.8" height="26" rx="0" fill="#ffffff" stroke="#1565c0" stroke-width="1.5"/>
+<text x="304.0" y="120" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">FC16 7 regs, t = 0 … 6.3 ms</text>
+<rect x="332.8" y="186" width="32.8" height="26" rx="0" fill="#ffffff" stroke="#1565c0" stroke-width="1.5"/>
+<text x="336.76" y="182" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">FC16 2 regs</text>
+<path d="M300.0 274 L365.5 274 L365.5 274 L398.3 274 L398.3 248 L1340 248" stroke="#1565c0" stroke-width="2" fill="none"/>
+<text x="403.28" y="244" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">FC06 202 = 1 written LAST (t = 18.9 ms)</text>
+<path d="M300.0 336 L450.3 336 L450.3 310 L1340 310" stroke="#2e7d32" stroke-width="2" fill="none"/>
+<text x="455.28" y="306" font-size="11" text-anchor="start" font-weight="normal" fill="#2e7d32">ACK := REQ at the end of the next scan (≤ 10 ms)</text>
+<rect x="450.3" y="372" width="369.2" height="26" rx="0" fill="#ffffff" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="454.28" y="368" font-size="11" text-anchor="start" font-weight="normal" fill="#2e7d32">ackSeq := seq, result := 0 (same scan, before ACK)</text>
+<path d="M300.0 460 L450.3 460 L450.3 434 L880.0 434 L880.0 434 L887.7 434 L887.7 460 L1340 460" stroke="#2e7d32" stroke-width="2" fill="none"/>
+<path d="M300.0 496 L450.3 496 L450.3 522 L887.7 522 L887.7 496 L1340 496" stroke="#2e7d32" stroke-width="2" fill="none"/>
+<text x="326.0" y="576" font-size="12" text-anchor="start" font-weight="normal" fill="#2e7d32">1 IDLE</text>
+<text x="508.0" y="576" font-size="12" text-anchor="start" font-weight="normal" fill="#2e7d32">2 RUN (event block: counter +1, ring entry)</text>
+<text x="903.0" y="576" font-size="12" text-anchor="start" font-weight="normal" fill="#2e7d32">1 IDLE (counter +1)</text>
+<path d="M300.0 646 L887.7 646 L887.7 620 L1340 620" stroke="#2e7d32" stroke-width="2" fill="none"/>
+<text x="892.6666666666666" y="616" font-size="11" text-anchor="start" font-weight="normal" fill="#2e7d32">DONE toggles 0 → 1 (scan of job end)</text>
+<rect x="880.0" y="682" width="7.7" height="26" rx="0" fill="#ffffff" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="884.0" y="678" font-size="11" text-anchor="start" font-weight="normal" fill="#2e7d32"></text>
+<text x="889.2" y="678" font-size="11" text-anchor="start" font-weight="normal" fill="#2e7d32">idDone := 52031, result, cycle_s (same scan, before BUSY = 0)</text>
+<rect x="456.0" y="744" width="78.0" height="26" rx="0" fill="#ffffff" stroke="#1565c0" stroke-width="1.5"/>
+<text x="460.0" y="740" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">ACK seen at the next 20 ms poll: t ≈ 40 ms</text>
+<rect x="887.7" y="744" width="383.3" height="26" rx="0" fill="#ffffff" stroke="#1565c0" stroke-width="1.5"/>
+<text x="891.6666666666666" y="740" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">job closed at the next FAST poll (≤ 0.5 s)</text>
+<line x1="300.0" y1="790" x2="300.0" y2="798" stroke="#000" stroke-width="1.2"/>
+<text x="300.0" y="815" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">0 ms</text>
+<line x1="404.0" y1="790" x2="404.0" y2="798" stroke="#000" stroke-width="1.2"/>
+<text x="404.0" y="815" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">20 ms</text>
+<line x1="508.0" y1="790" x2="508.0" y2="798" stroke="#000" stroke-width="1.2"/>
+<text x="508.0" y="815" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">40 ms</text>
+<line x1="612.0" y1="790" x2="612.0" y2="798" stroke="#000" stroke-width="1.2"/>
+<text x="612.0" y="815" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">60 ms</text>
+<line x1="716.0" y1="790" x2="716.0" y2="798" stroke="#000" stroke-width="1.2"/>
+<text x="716.0" y="815" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">80 ms</text>
+<line x1="820.0" y1="790" x2="820.0" y2="798" stroke="#000" stroke-width="1.2"/>
+<text x="820.0" y="815" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">100 ms</text>
+<line x1="880.0" y1="790" x2="880.0" y2="798" stroke="#000" stroke-width="1.2"/>
+<text x="880.0" y="815" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">345.0 s</text>
+<line x1="1033.3333333333333" y1="790" x2="1033.3333333333333" y2="798" stroke="#000" stroke-width="1.2"/>
+<text x="1033.3333333333333" y="815" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">345.2 s</text>
+<line x1="1186.6666666666665" y1="790" x2="1186.6666666666665" y2="798" stroke="#000" stroke-width="1.2"/>
+<text x="1186.6666666666665" y="815" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">345.4 s</text>
+<line x1="1340.0" y1="790" x2="1340.0" y2="798" stroke="#000" stroke-width="1.2"/>
+<text x="1340.0" y="815" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">345.6 s</text>
+<text x="40" y="850" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Rule: data first, REQ last · PLC writes ackSeq + result BEFORE ACK in the same scan · PLC writes job.idDone + job.result BEFORE clearing BUSY / toggling DONE.</text>
+<text x="40" y="870" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Timeouts (fmsctl): Modbus 0.5 s per request + 1 retry with reconnect · ACK wait 5 s (DeviceLink.command) · job wait per command (wait_done, default 120 s).</text>
+</svg>

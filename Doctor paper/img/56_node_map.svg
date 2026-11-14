@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800" width="1100" height="800" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<title>AGV node map of the compressor FMS (fmsctl/spec/plant.py)</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a78d6"/></marker><marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1b8a5a"/></marker><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="arx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888"/></marker></defs>
+<rect x="0" y="0" width="1100" height="800" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="17" text-anchor="start" font-weight="bold" fill="#222">AGV node map – nodes of fmsctl/spec/plant.py (x, z in metres), flows of item 4</text>
+<rect x="77.0" y="99.0" width="105.0" height="336.0" fill="#e8ecf0" stroke="#bbb"/>
+<text x="81.0" y="113.0" font-size="11" text-anchor="start" font-weight="normal" fill="#666">RAW AS/RS</text>
+<rect x="203.0" y="71.7" width="273.0" height="157.5" fill="#e6f2ea" stroke="#bbb"/>
+<text x="207.0" y="85.7" font-size="11" text-anchor="start" font-weight="normal" fill="#666">CRANKCASE CELL (FMS)</text>
+<rect x="203.0" y="240.8" width="273.0" height="89.2" fill="#e6eff4" stroke="#bbb"/>
+<text x="207.0" y="254.8" font-size="11" text-anchor="start" font-weight="normal" fill="#666">CYLINDER MACHINING</text>
+<rect x="203.0" y="345.8" width="273.0" height="94.5" fill="#eeebf5" stroke="#bbb"/>
+<text x="207.0" y="359.8" font-size="11" text-anchor="start" font-weight="normal" fill="#666">CRANKSHAFT</text>
+<rect x="518.0" y="214.5" width="199.5" height="147.0" fill="#f5efe2" stroke="#bbb"/>
+<text x="522.0" y="228.5" font-size="11" text-anchor="start" font-weight="normal" fill="#666">PUMP ASSEMBLY</text>
+<rect x="728.0" y="193.5" width="94.5" height="178.5" fill="#f5e6e6" stroke="#bbb"/>
+<text x="732.0" y="207.5" font-size="11" text-anchor="start" font-weight="normal" fill="#666">TEST</text>
+<rect x="833.0" y="235.5" width="115.5" height="105.0" fill="#e6eef5" stroke="#bbb"/>
+<text x="837.0" y="249.5" font-size="11" text-anchor="start" font-weight="normal" fill="#666">PAINT</text>
+<rect x="906.5" y="209.2" width="147.0" height="372.8" fill="#f5efe2" stroke="#bbb"/>
+<text x="910.5" y="223.2" font-size="11" text-anchor="start" font-weight="normal" fill="#666">FINAL ASSEMBLY</text>
+<rect x="575.8" y="502.2" width="168.0" height="44.1" fill="#e8ecf0" stroke="#bbb"/>
+<text x="579.8" y="516.2" font-size="11" text-anchor="start" font-weight="normal" fill="#666">FG AS/RS</text>
+<rect x="56.0" y="67.5" width="1008.0" height="525.0" fill="none" stroke="#555" stroke-width="2"/>
+<line x1="98.0" y1="459.1" x2="1022.0" y2="459.1" stroke="#bbb" stroke-width="10" stroke-opacity="0.5"/>
+<text x="497.0" y="463.1" font-size="11" text-anchor="start" font-weight="normal" fill="#666">main aisle z = 12.3 m (config agv.aisle_z)</text>
+<line x1="139.9" y1="419.7" x2="211.6" y2="221.1" stroke="#2a78d6" stroke-width="3"  marker-end="url(#arb)"/>
+<line x1="891.3" y1="433.9" x2="678.1" y2="508.1" stroke="#1b8a5a" stroke-width="3"  marker-end="url(#arg)"/>
+<line x1="201.0" y1="215.1" x2="129.3" y2="413.7" stroke="#888" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arx)"/>
+<line x1="680.2" y1="520.1" x2="893.4" y2="445.9" stroke="#888" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arx)"/>
+<line x1="651.2" y1="516.7" x2="145.3" y2="433.4" stroke="#888" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arx)"/>
+<line x1="224.7" y1="208.4" x2="891.3" y2="430.0" stroke="#888" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arx)"/>
+<circle cx="129.5" cy="430.8" r="12" fill="#fff" stroke="#2a78d6" stroke-width="3"/>
+<text x="129.5" y="435.8" font-size="13" text-anchor="middle" font-weight="bold" fill="#2a78d6">1</text>
+<text x="129.5" y="412.8" font-size="11" text-anchor="middle" font-weight="normal" fill="#222">raw AS/RS I/O (-41, 9.6)</text>
+<circle cx="211.4" cy="204.0" r="12" fill="#fff" stroke="#2a78d6" stroke-width="3"/>
+<text x="211.4" y="209.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#2a78d6">2</text>
+<text x="227.4" y="190.0" font-size="11" text-anchor="start" font-weight="normal" fill="#222">load station buffer (-33.2, -12)</text>
+<circle cx="476.0" cy="288.0" r="12" fill="#fff" stroke="#777" stroke-width="3"/>
+<text x="476.0" y="293.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#777">3</text>
+<text x="462.0" y="272.0" font-size="11" text-anchor="end" font-weight="normal" fill="#222">machining out (-8, -4)</text>
+<circle cx="518.0" cy="288.0" r="12" fill="#fff" stroke="#777" stroke-width="3"/>
+<text x="518.0" y="293.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#777">4</text>
+<text x="532.0" y="314.0" font-size="11" text-anchor="start" font-weight="normal" fill="#222">assembly in (-4, -4)</text>
+<circle cx="728.0" cy="288.0" r="12" fill="#fff" stroke="#777" stroke-width="3"/>
+<text x="728.0" y="293.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#777">5</text>
+<text x="728.0" y="270.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#222">test in (16, -4)</text>
+<circle cx="833.0" cy="288.0" r="12" fill="#fff" stroke="#777" stroke-width="3"/>
+<text x="833.0" y="293.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#777">6</text>
+<text x="833.0" y="270.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#222">paint in (26, -4)</text>
+<circle cx="906.5" cy="435.0" r="12" fill="#fff" stroke="#1b8a5a" stroke-width="3"/>
+<text x="906.5" y="440.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#1b8a5a">7</text>
+<text x="906.5" y="417.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#222">final out (33, 10)</text>
+<circle cx="665.0" cy="519.0" r="12" fill="#fff" stroke="#1b8a5a" stroke-width="3"/>
+<text x="665.0" y="524.0" font-size="13" text-anchor="middle" font-weight="bold" fill="#1b8a5a">8</text>
+<text x="649.0" y="505.0" font-size="11" text-anchor="end" font-weight="normal" fill="#222">FG AS/RS I/O (10, 18)</text>
+<circle cx="381.5" cy="493.8" r="12" fill="#fff" stroke="#c47f00" stroke-width="3"/>
+<text x="381.5" y="498.8" font-size="13" text-anchor="middle" font-weight="bold" fill="#c47f00">9</text>
+<text x="367.5" y="519.8" font-size="11" text-anchor="end" font-weight="normal" fill="#222">charger 1 (-17, 15.6)</text>
+<circle cx="406.7" cy="493.8" r="12" fill="#fff" stroke="#c47f00" stroke-width="3"/>
+<text x="406.7" y="498.8" font-size="13" text-anchor="middle" font-weight="bold" fill="#c47f00">10</text>
+<text x="420.7" y="519.8" font-size="11" text-anchor="start" font-weight="normal" fill="#222">charger 2 (-14.6, 15.6)</text>
+<rect x="20" y="638" width="1050" height="120" fill="#fafafa" stroke="#ccc"/>
+<line x1="30" y1="660" x2="80" y2="660" stroke="#2a78d6" stroke-width="3" marker-end="url(#arb)"/>
+<text x="90.0" y="664.0" font-size="12" text-anchor="start" font-weight="normal" fill="#222">kanban castings box: node 1 (raw I/O) to node 2 (load station) – 22.97 m straight = 19.1 s at 1.2 m/s</text>
+<line x1="30" y1="684" x2="80" y2="684" stroke="#1b8a5a" stroke-width="3" marker-end="url(#arg)"/>
+<text x="90.0" y="688.0" font-size="12" text-anchor="start" font-weight="normal" fill="#222">finished compressor: node 7 (final out) to node 8 (FG AS/RS I/O) – 24.35 m straight = 20.3 s</text>
+<line x1="30" y1="708" x2="80" y2="708" stroke="#888" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arx)"/>
+<text x="90.0" y="712.0" font-size="12" text-anchor="start" font-weight="normal" fill="#222">empty legs (example): 2 to 1 = 22.97 m, 8 to 7 = 24.35 m, 8 to 1 = 51.69 m, 2 to 7 = 69.76 m</text>
+<text x="30.0" y="738.0" font-size="12" text-anchor="start" font-weight="normal" fill="#222">Nodes 9 / 10 = chargers (config agv.chargers). Nodes 3–6 exist in the map but no item-4 flow uses them yet. Distances are straight lines</text>
+<text x="30.0" y="754.0" font-size="12" text-anchor="start" font-weight="normal" fill="#222">as in the code (math.dist); a real path along aisles is 1.13–1.42 times longer (Manhattan). Scale: 10 m = 105 px. Values: example layout.</text>
+<line x1="938.0" y1="566.2" x2="1043.0" y2="566.2" stroke="#222" stroke-width="3"/>
+<text x="990.0" y="560.2" font-size="11" text-anchor="middle" font-weight="normal" fill="#222">10 m</text>
+</svg>

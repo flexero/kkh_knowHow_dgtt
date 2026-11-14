@@ -79,11 +79,11 @@ Rule for the whole thesis: every number has a label – *measured*, *calculated*
 | 1 ✅ | Ch 4 model + derivations; code of the Bayesian updating library | `thesis/ch04_model.md` (done 2026-11-13), `thesis/code/bayes.py` |
 | 2 ✅ | Ch 6 algorithm + virtual ramp-up experiments (real computations) | `ch06_bayesian_twin.md` (done 2026-11-13), `data/`, `figures/` |
 | 3 ✅ | Ch 5 architecture + calculations + lab measurement (Modbus/HTTP on this PC) | `ch05_architecture.md` (done 2026-11-13), `data/comm_runs.jsonl`, `http_bench.json` |
-| 4 | Ch 7 optimisation + experiments | `ch07_staging_optimisation.md` |
-| 5 | Ch 8 implementation + Ch 9 cases (with your design data) | `ch08`, `ch09` |
-| 6 | Ch 2 state of the art (expanded from paper 1) + Ch 3 methodology | `ch02`, `ch03` |
-| 7 | Ch 1, 10, 11, abstract, front matter, appendices, references | complete thesis |
-| 8 | Assembly into one Word / PDF document, figures, numbering, formatting check | `thesis.docx` / `thesis.pdf` |
+| 4 ✅ | Ch 7 optimisation + experiments | `ch07_staging_optimisation.md` (done 2026-11-13), `data/staging_b*.csv`, tab item 5 |
+| 5 ✅ | Ch 8 implementation + Ch 9 reference design cases (no company data available → reference estimates, labelled) | `ch08_implementation.md`, `ch09_cases.md`, `data/case_study.json`, `data/case1_P0.json`, tab item 6 |
+| 6 ✅ | Ch 2 state of the art (expanded from paper 1) + Ch 3 methodology | `ch02_state_of_the_art.md`, `ch03_methodology.md` (done 2026-11-14) |
+| 7 ✅ | Ch 1, 10, 11, abstract, front matter, appendices, references | `ch01`, `ch10`, `ch11`, `00_front_matter.md`, `references.md`, `appendices.md` (done 2026-11-14) |
+| 8 ✅ | Assembly into one Word / PDF document, figures, numbering, formatting check | `build/thesis.pdf` (109 pages), `build/thesis.docx` (done 2026-11-14) |
 
 ## 6. What Kenzo provides during the work
 - University rules: template, citation style, language, page format, number of papers required.

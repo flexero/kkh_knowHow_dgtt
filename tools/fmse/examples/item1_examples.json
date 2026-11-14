@@ -1,0 +1,763 @@
+{
+ "_note": "Shared worked-example inputs for FMS engineering item 1 (guide docs/61, tools/fmse/*.py, web/fmse1x*.js). All values are EXAMPLES. Every consumer must use exactly these inputs and the formulas in _formulas so the numbers match.",
+ "_formulas": {
+  "crf": "CRF = i(1+i)^n / ((1+i)^n - 1)",
+  "units": "units = ceil(Q_total / cap_per_unit)",
+  "annual_cost": "C = units*I*CRF + units*F + Q_total*v + N_changeovers*c_ch",
+  "cost_per_part": "C / Q_total",
+  "npv": "NPV = -I0 + sum_{t=1..n} CF_t/(1+r)^t + residual/(1+r)^n",
+  "irr": "r where NPV(r) = 0 (bisection between -0.99 and 1.0, tolerance 1e-7)",
+  "payback": "first year where cumulative undiscounted CF >= I0, linear interpolation inside the year",
+  "discounted_payback": "same with discounted CF",
+  "availability_acceptance": "A = (T_run - T_owner - T_supplier) / (T_run - T_owner)",
+  "cpm": "forward pass ES = max(EF of predecessors), EF = ES + d; backward pass LF = min(LS of successors), LS = LF - d; float = LS - ES; critical = float 0",
+  "risk_score": "score = P * I (1..25); high >= 15, medium 8..14, low <= 7"
+ },
+ "economics": {
+  "i": 0.08,
+  "n_years": 8,
+  "scenarios": [
+   {
+    "id": "A",
+    "name": "Medium variety, medium volume",
+    "variety": 12,
+    "q_per_part": 1500,
+    "orders_per_part_year": 10
+   },
+   {
+    "id": "B",
+    "name": "High variety, low volume",
+    "variety": 150,
+    "q_per_part": 40,
+    "orders_per_part_year": 3
+   },
+   {
+    "id": "C",
+    "name": "Low variety, high volume",
+    "variety": 2,
+    "q_per_part": 120000,
+    "orders_per_part_year": 4
+   }
+  ],
+  "types": [
+   {
+    "k": "cnc",
+    "name": "Stand-alone CNC cell (3 machines, manual)",
+    "I_MEUR": 0.9,
+    "F_MEUR": 0.06,
+    "v_EUR": 38.0,
+    "cap_per_unit": 30000,
+    "c_ch_EUR": 180
+   },
+   {
+    "k": "fmc",
+    "name": "FMC (1 HMC + 12-pallet rack)",
+    "I_MEUR": 0.85,
+    "F_MEUR": 0.05,
+    "v_EUR": 22.0,
+    "cap_per_unit": 14000,
+    "c_ch_EUR": 40
+   },
+   {
+    "k": "fms",
+    "name": "FMS (3 HMC + pallet pool + cell controller)",
+    "I_MEUR": 2.6,
+    "F_MEUR": 0.12,
+    "v_EUR": 14.0,
+    "cap_per_unit": 42000,
+    "c_ch_EUR": 15
+   },
+   {
+    "k": "ftl",
+    "name": "Flexible transfer line",
+    "I_MEUR": 4.5,
+    "F_MEUR": 0.15,
+    "v_EUR": 8.0,
+    "cap_per_unit": 300000,
+    "c_ch_EUR": 2500
+   }
+  ]
+ },
+ "business_case": {
+  "I0_MEUR": 2.9,
+  "years": 8,
+  "rate": 0.08,
+  "residual_MEUR": 0.29,
+  "annual_saving_MEUR": 0.62,
+  "ramp": [
+   0.5,
+   0.85,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "extra_opex_MEUR": 0.08,
+  "_cf": "CF_t = annual_saving*ramp_t - extra_opex",
+  "sensitivity": {
+   "saving_pct": [
+    -20,
+    -10,
+    0,
+    10,
+    20
+   ],
+   "invest_pct": [
+    -10,
+    0,
+    10,
+    20
+   ]
+  }
+ },
+ "acceptance_run": {
+  "T_run_h": 72,
+  "T_owner_h": 1.2,
+  "T_supplier_h": 3.1,
+  "target": 0.95,
+  "cycle_check": {
+   "guaranteed_min": 57.6,
+   "measured_min": [
+    56.9,
+    57.4,
+    58.1,
+    57.0,
+    57.3,
+    57.8,
+    56.8,
+    57.5,
+    57.2,
+    57.9
+   ],
+   "_unit": "minutes per 10-part test batch on one HMC (= 5.76 min per part, close to the twin's 345 s HMC cycle); 10 batches measured"
+  }
+ },
+ "cpm_project": {
+  "unit": "weeks",
+  "tasks": [
+   [
+    "T01",
+    "Need statement + baseline KPIs",
+    2,
+    []
+   ],
+   [
+    "T02",
+    "Requirements questionnaire + part data",
+    4,
+    [
+     "T01"
+    ]
+   ],
+   [
+    "T03",
+    "Capacity study + system type",
+    3,
+    [
+     "T02"
+    ]
+   ],
+   [
+    "T04",
+    "Layout variants + simulation",
+    4,
+    [
+     "T03"
+    ]
+   ],
+   [
+    "T05",
+    "Business case + budget approval",
+    2,
+    [
+     "T04"
+    ]
+   ],
+   [
+    "T06",
+    "URS (owner)",
+    4,
+    [
+     "T05"
+    ]
+   ],
+   [
+    "T07",
+    "Tender: RFQ, offers, comparison",
+    6,
+    [
+     "T06"
+    ]
+   ],
+   [
+    "T08",
+    "Contract + scope matrix",
+    2,
+    [
+     "T07"
+    ]
+   ],
+   [
+    "T09",
+    "FDS + interface sheets (integrator)",
+    6,
+    [
+     "T08"
+    ]
+   ],
+   [
+    "T10",
+    "Machine tools manufacturing (long lead)",
+    30,
+    [
+     "T08"
+    ]
+   ],
+   [
+    "T11",
+    "Pallet pool + stacker manufacturing",
+    22,
+    [
+     "T09"
+    ]
+   ],
+   [
+    "T12",
+    "Electrical design + IO lists",
+    8,
+    [
+     "T09"
+    ]
+   ],
+   [
+    "T13",
+    "PLC / cell controller software",
+    14,
+    [
+     "T12"
+    ]
+   ],
+   [
+    "T14",
+    "MES interface development",
+    10,
+    [
+     "T09"
+    ]
+   ],
+   [
+    "T15",
+    "Virtual commissioning with the twin",
+    4,
+    [
+     "T13",
+     "T14"
+    ]
+   ],
+   [
+    "T16",
+    "Site preparation (foundations, power, air, network)",
+    10,
+    [
+     "T09"
+    ]
+   ],
+   [
+    "T17",
+    "Cabinet build + panel tests",
+    6,
+    [
+     "T12"
+    ]
+   ],
+   [
+    "T18",
+    "FAT machine tools",
+    2,
+    [
+     "T10"
+    ]
+   ],
+   [
+    "T19",
+    "FAT pallet pool + cell (with VC software)",
+    3,
+    [
+     "T11",
+     "T15",
+     "T17"
+    ]
+   ],
+   [
+    "T20",
+    "Shipping + installation",
+    4,
+    [
+     "T18",
+     "T19",
+     "T16"
+    ]
+   ],
+   [
+    "T21",
+    "Commissioning (IO check, safety, sequences)",
+    5,
+    [
+     "T20"
+    ]
+   ],
+   [
+    "T22",
+    "MES / ERP integration test",
+    2,
+    [
+     "T21",
+     "T14"
+    ]
+   ],
+   [
+    "T23",
+    "SAT + availability run",
+    2,
+    [
+     "T22"
+    ]
+   ],
+   [
+    "T24",
+    "Training operators + maintenance",
+    3,
+    [
+     "T21"
+    ]
+   ],
+   [
+    "T25",
+    "Ramp-up to full output",
+    12,
+    [
+     "T23",
+     "T24"
+    ]
+   ]
+  ]
+ },
+ "risks": [
+  [
+   "R01",
+   "Machine delivery late (long lead)",
+   3,
+   5,
+   "Order early (letter of intent), penalty clause, weekly supplier report"
+  ],
+  [
+   "R02",
+   "Part data / volumes wrong or missing",
+   4,
+   4,
+   "Questionnaire signed by owner, 5-year volume review gate P1"
+  ],
+  [
+   "R03",
+   "Interfaces between suppliers unclear",
+   4,
+   4,
+   "Interface sheets per module, signed; one integrator responsible"
+  ],
+  [
+   "R04",
+   "Cycle time not reached",
+   3,
+   4,
+   "Test cut before order, guaranteed time in contract, time study at FAT"
+  ],
+  [
+   "R05",
+   "Software (cell controller / MES) late or buggy",
+   4,
+   4,
+   "Module library, virtual commissioning, early MES test system"
+  ],
+  [
+   "R06",
+   "Foundation / site not ready",
+   2,
+   4,
+   "Site plan with dates, owner checklist, weekly site meeting"
+  ],
+  [
+   "R07",
+   "Operators not trained / not accepted",
+   3,
+   3,
+   "Involve operators from P2, training plan, super-users"
+  ],
+  [
+   "R08",
+   "Safety concept changes late (CE)",
+   2,
+   5,
+   "Risk assessment from P3, safety engineer reviews at 30/60/90 %"
+  ],
+  [
+   "R09",
+   "Budget overrun",
+   3,
+   4,
+   "Contingency 10-15 %, change-order process, monthly cost report"
+  ],
+  [
+   "R10",
+   "Network / IT security rules block integration",
+   3,
+   3,
+   "IT department in P3, zone model agreed early (item 6)"
+  ],
+  [
+   "R11",
+   "Fixture design not robot / pallet ready",
+   3,
+   3,
+   "Fixture standard in URS, design review with pallet supplier"
+  ],
+  [
+   "R12",
+   "Tool magazine too small for unmanned shifts",
+   2,
+   3,
+   "Pocket calculation (item 3) in FDS"
+  ],
+  [
+   "R13",
+   "Key person leaves the project",
+   2,
+   4,
+   "Deputy for each role, documentation in shared folder"
+  ],
+  [
+   "R14",
+   "Supplier insolvency",
+   1,
+   5,
+   "Financial check in tender, bank guarantees, escrow of source code"
+  ],
+  [
+   "R15",
+   "Ramp-up longer than planned",
+   4,
+   3,
+   "Ramp-up plan with weekly targets, supplier support on site in contract"
+  ]
+ ],
+ "requirements_sample": [
+  [
+   "URS-PRD-001",
+   "Products",
+   "The system shall machine crankcases VC10, VC20 and VC30 (drawings CC10-D rev C, CC20-D rev D, CC30-D rev B).",
+   "Inspection of first parts against drawing (CMM report)"
+  ],
+  [
+   "URS-CAP-001",
+   "Capacity",
+   "The system shall produce at least 14 crankcases per hour in the product mix 40/35/25 %.",
+   "8 h capacity run at FAT and 72 h at SAT, count of good parts"
+  ],
+  [
+   "URS-AVL-001",
+   "Availability",
+   "Technical availability caused by the supplier shall be at least 95 % during the 72 h acceptance run.",
+   "Formula A = (T_run - T_owner - T_supplier)/(T_run - T_owner)"
+  ],
+  [
+   "URS-QUA-001",
+   "Quality",
+   "Bore A diameter 52 H7 shall reach Cpk >= 1.33 over 50 consecutive parts.",
+   "CMM measurement of 50 parts, Cpk calculation"
+  ],
+  [
+   "URS-UNM-001",
+   "Unmanned",
+   "The system shall run 8 h unmanned without operator action.",
+   "8 h unmanned test run at SAT"
+  ],
+  [
+   "URS-INT-001",
+   "Interfaces",
+   "Every module shall provide the standard data block (guide 66 section 8) via Modbus TCP.",
+   "Read / write test of all words with a Modbus client at FAT"
+  ],
+  [
+   "URS-SAF-001",
+   "Safety",
+   "The system shall comply with the EU Machinery Regulation (EU) 2023/1230; safety functions with PL as per risk assessment.",
+   "Risk assessment, PL verification report, CE declaration"
+  ],
+  [
+   "URS-DOC-001",
+   "Documentation",
+   "Documentation in English and the local language: manuals, circuit diagrams (EPLAN PDF + native), PLC sources, spare parts list.",
+   "Check of delivered documents against list"
+  ]
+ ],
+ "kits": {
+  "fms": [
+   "M01",
+   "M02",
+   "M03",
+   "M04",
+   "M06",
+   "M08",
+   "M09",
+   "M10",
+   "M11",
+   "M12",
+   "M17",
+   "M18",
+   "M19",
+   "M20",
+   "M21",
+   "M22"
+  ],
+  "fmc": [
+   "M01",
+   "M02",
+   "M03",
+   "M04",
+   "M09",
+   "M12",
+   "M17",
+   "M18",
+   "M19",
+   "M20",
+   "M21",
+   "M22"
+  ],
+  "asm": [
+   "M04",
+   "M06",
+   "M07",
+   "M12",
+   "M13",
+   "M14",
+   "M18",
+   "M19",
+   "M20",
+   "M21",
+   "M22"
+  ],
+  "weld": [
+   "M04",
+   "M05",
+   "M06",
+   "M12",
+   "M15",
+   "M17",
+   "M18",
+   "M19",
+   "M20",
+   "M21",
+   "M22"
+  ],
+  "sheet": [
+   "M03",
+   "M05",
+   "M06",
+   "M08",
+   "M12",
+   "M16",
+   "M17",
+   "M18",
+   "M19",
+   "M20",
+   "M21",
+   "M22"
+  ]
+ },
+ "_kits_note": "Same kits as web/fmse_data.js KIT/DOMKIT (fms, fmc, asm = Assembly, weld = Robot welding, sheet = Sheet metal).",
+ "interfaces": [
+  [
+   "M01",
+   "M02",
+   "mech+signal",
+   "Pallet hand-over on the machine table: locating cones, clamp; signals PalletAtMachine, ChangeRequest, ChangeDone, DoorClosed"
+  ],
+  [
+   "M02",
+   "M03",
+   "mech+signal",
+   "Pallet transfer APC set-up station <-> stacker fork: transfer height, centring; signals ReadyToGive/ReadyToTake, TransferDone"
+  ],
+  [
+   "M03",
+   "M04",
+   "mech+signal",
+   "Pallet transfer stacker <-> load station; signals PalletPresent, OperatorRelease, SafeToEnter"
+  ],
+  [
+   "M03",
+   "M10",
+   "mech+signal",
+   "Pallet / part transfer to washer; signals ReadyToTake, WashProgram, WashDone"
+  ],
+  [
+   "M03",
+   "M11",
+   "mech+signal",
+   "Pallet / part to measuring station; temperature equalisation; signals MeasProgram, ResultOK/NOK"
+  ],
+  [
+   "M03",
+   "M08",
+   "mech+signal",
+   "Load transfer pallet pool <-> AS/RS P&D station"
+  ],
+  [
+   "M06",
+   "M04",
+   "mech+signal",
+   "AGV docking at load station: guides, transfer height; handshake ReadyToGive/Take, TransferActive, TransferDone"
+  ],
+  [
+   "M06",
+   "M07",
+   "mech+signal",
+   "AGV docking at conveyor entry / exit"
+  ],
+  [
+   "M06",
+   "M08",
+   "mech+signal",
+   "AGV docking at AS/RS P&D station"
+  ],
+  [
+   "M05",
+   "M01",
+   "mech+signal",
+   "Robot loads machine through door: door open, ReadyForLoad, RobotOutOfMachine, clamp/unclamp"
+  ],
+  [
+   "M05",
+   "M07",
+   "mech+signal",
+   "Robot picks / places on conveyor stop position"
+  ],
+  [
+   "M05",
+   "M13",
+   "mech+signal",
+   "Robot feeds assembly station"
+  ],
+  [
+   "M05",
+   "M15",
+   "mech+signal",
+   "Robot + welding power source + positioner: job number, arc on, table index"
+  ],
+  [
+   "M07",
+   "M13",
+   "mech+signal",
+   "Carrier stop + lift-and-locate at assembly station; CarrierPresent, IdRead, Release"
+  ],
+  [
+   "M07",
+   "M14",
+   "mech+signal",
+   "Carrier at test station; result to carrier RFID / MES"
+  ],
+  [
+   "M12",
+   "M04",
+   "signal+data",
+   "Pallet RFID read / serial marking at load station"
+  ],
+  [
+   "M12",
+   "M07",
+   "signal+data",
+   "Carrier RFID read / write at conveyor read points"
+  ],
+  [
+   "M09",
+   "M01",
+   "data",
+   "Tool ID, length, radius, remaining life -> CNC tool table"
+  ],
+  [
+   "M17",
+   "M01",
+   "utility+signal",
+   "Coolant, chips, air; CoolantOK, ChipConveyorFault -> feed hold"
+  ],
+  [
+   "M17",
+   "M10",
+   "utility+signal",
+   "Wash water / extraction; level and temperature alarms"
+  ],
+  [
+   "M18",
+   "*physical",
+   "safety",
+   "Hard-wired / safety-bus: E-stop chain, door locks, light curtains, safe stop of every module with moving parts"
+  ],
+  [
+   "M11",
+   "M01",
+   "data",
+   "Measured deviations -> tool / work offset correction in the CNC (closed loop), only inside limits, every correction logged"
+  ],
+  [
+   "M17",
+   "M15",
+   "utility+signal",
+   "Fume extraction + torch cooling water; ExtractionOK interlock -> no arc start"
+  ],
+  [
+   "M05",
+   "M16",
+   "mech+signal",
+   "Robot loads / unloads press brake or punch: PartPresent, RamAtTop, RobotClear, BendProgram"
+  ],
+  [
+   "M08",
+   "M16",
+   "mech+signal",
+   "Sheet tower / AS/RS supplies sheets to the laser / punch table: SheetType, LoadDone, SkeletonOut"
+  ],
+  [
+   "M17",
+   "M16",
+   "utility+signal",
+   "Laser fume / dust extraction, compressed air; FilterOK -> no cut"
+  ],
+  [
+   "M19",
+   "*",
+   "data",
+   "Standard data block (guide 66 section 8): PackML state, commands, handshake bits, counters, job, heartbeat"
+  ],
+  [
+   "M20",
+   "M19",
+   "data",
+   "Overview, alarms, operator commands (via cell controller)"
+  ],
+  [
+   "M21",
+   "M19",
+   "data",
+   "Jobs down, confirmations / quality / OEE up"
+  ],
+  [
+   "M22",
+   "*networked",
+   "network",
+   "Switch port, VLAN, IP address, firewall conduit"
+  ]
+ ],
+ "_interfaces_note": "'*' = every module of the kit except control modules M19-M22; '*physical' = every module with moving parts (all except M09, M19-M22); '*networked' = every module with a controller (all except M02 which is wired into M01, and M18 which also has a network port – include M18).",
+ "_interfaces_changelog": "2026-11-14 (item 3 redo): added M11-M01, M17-M15, M05-M16, M08-M16, M17-M16."
+}

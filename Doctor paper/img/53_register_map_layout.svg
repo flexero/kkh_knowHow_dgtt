@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" font-family="Arial, Helvetica, sans-serif">
+<title>Register map V1.2 – layout of the 450 holding registers (0 – 449) – drawing 53-03</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e65100"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6a1b9a"/></marker></defs>
+<rect x="0" y="0" width="1400" height="900" fill="#fff"/>
+<rect x="6" y="6" width="1388" height="888" fill="none" stroke="#000" stroke-width="1"/>
+<text x="24" y="36" font-size="20" text-anchor="start" font-weight="bold" fill="#000">Register map V1.2 – layout of the 450 holding registers (0 – 449)</text>
+<text x="24" y="58" font-size="13" text-anchor="start" font-weight="normal" fill="#000">V1.1 blocks unchanged (black frame) + V1.2 additions (blue frame) · R = read only, RW = written by the FMS controller · gaps read 0</text>
+<rect x="1100" y="854" width="288" height="34" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1108" y="867" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Guide 53 · drawing 53-03</text>
+<text x="1108" y="882" font-size="11" text-anchor="start" font-weight="normal" fill="#000">compressor FMS · item 1 · values = examples</text>
+<rect x="60.0" y="120" width="34.1" height="70" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="77.06666666666666" y="152" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">FAST</text>
+<text x="77.06666666666666" y="170" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R</text>
+<rect x="94.1" y="120" width="22.8" height="70" rx="0" fill="#f5f5f5" stroke="#757575" stroke-width="1.2"/>
+<rect x="116.9" y="120" width="74.0" height="70" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="153.86666666666667" y="152" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">COUNTERS</text>
+<text x="153.86666666666667" y="170" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R</text>
+<rect x="190.8" y="120" width="153.6" height="70" rx="0" fill="#f5f5f5" stroke="#757575" stroke-width="1.2"/>
+<text x="267.64444444444445" y="152" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">reserved</text>
+<text x="267.64444444444445" y="170" font-size="11" text-anchor="middle" font-weight="normal" fill="#000"></text>
+<rect x="344.4" y="120" width="11.4" height="70" rx="0" fill="#fff3e0" stroke="#000" stroke-width="1.2"/>
+<rect x="355.8" y="120" width="79.6" height="70" rx="0" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+<text x="395.6444444444445" y="152" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">EVENT</text>
+<text x="395.6444444444445" y="170" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R</text>
+<rect x="435.5" y="120" width="193.4" height="70" rx="0" fill="#f5f5f5" stroke="#757575" stroke-width="1.2"/>
+<text x="532.1777777777778" y="152" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">reserved</text>
+<text x="532.1777777777778" y="170" font-size="11" text-anchor="middle" font-weight="normal" fill="#000"></text>
+<rect x="628.9" y="120" width="76.8" height="70" rx="0" fill="#fffde7" stroke="#000" stroke-width="1.2"/>
+<text x="667.2888888888889" y="152" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">COMMAND</text>
+<text x="667.2888888888889" y="170" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">RW</text>
+<rect x="705.7" y="120" width="207.6" height="70" rx="0" fill="#f5f5f5" stroke="#757575" stroke-width="1.2"/>
+<text x="809.5111111111112" y="152" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">reserved</text>
+<text x="809.5111111111112" y="170" font-size="11" text-anchor="middle" font-weight="normal" fill="#000"></text>
+<rect x="913.3" y="120" width="256.0" height="70" rx="0" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+<text x="1041.3333333333335" y="152" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">TYPE STATUS</text>
+<text x="1041.3333333333335" y="170" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">R</text>
+<rect x="1169.3" y="120" width="17.1" height="70" rx="0" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+<rect x="1186.4" y="120" width="11.4" height="70" rx="0" fill="#f5f5f5" stroke="#757575" stroke-width="1.2"/>
+<rect x="1197.8" y="120" width="142.2" height="70" rx="0" fill="#fffde7" stroke="#1565c0" stroke-width="2"/>
+<text x="1268.888888888889" y="152" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">JOB PARAMS</text>
+<text x="1268.888888888889" y="170" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">RW</text>
+<line x1="60.0" y1="190" x2="60.0" y2="204" stroke="#000" stroke-width="1.2"/>
+<text x="60.0" y="218" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<line x1="116.9" y1="190" x2="116.9" y2="204" stroke="#000" stroke-width="1.2"/>
+<text x="116.9" y="218" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">20</text>
+<line x1="344.4" y1="190" x2="344.4" y2="204" stroke="#000" stroke-width="1.2"/>
+<text x="344.4" y="218" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">100</text>
+<line x1="628.9" y1="190" x2="628.9" y2="204" stroke="#000" stroke-width="1.2"/>
+<text x="628.9" y="218" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">200</text>
+<line x1="705.7" y1="190" x2="705.7" y2="204" stroke="#000" stroke-width="1.2"/>
+<text x="705.7" y="218" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">227</text>
+<line x1="913.3" y1="190" x2="913.3" y2="204" stroke="#000" stroke-width="1.2"/>
+<text x="913.3" y="218" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">300</text>
+<line x1="1169.3" y1="190" x2="1169.3" y2="204" stroke="#000" stroke-width="1.2"/>
+<text x="1169.3" y="218" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">390</text>
+<line x1="1197.8" y1="190" x2="1197.8" y2="204" stroke="#000" stroke-width="1.2"/>
+<text x="1197.8" y="218" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">400</text>
+<line x1="1340.0" y1="190" x2="1340.0" y2="204" stroke="#000" stroke-width="1.2"/>
+<text x="1340.0" y="218" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">450</text>
+<text x="348.7111111111111" y="112" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">ENERGY 100-103</text>
+<text x="1177.8666666666668" y="112" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">JOB RESULT 390-395</text>
+<text x="60" y="240" font-size="13" text-anchor="start" font-weight="bold" fill="#000">V1.1 = 0 – 226 (227 registers) ·  V1.2 = 0 – 449 (450 registers), map version register 0 = 0x0102 (258)</text>
+<rect x="60" y="270" width="300" height="330" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="72" y="293" font-size="13" text-anchor="start" font-weight="bold" fill="#000">FAST 0 – 11 (poll 500 ms)</text>
+<text x="72" y="320" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">0  hdr.mapVersion = 0x0102</text>
+<text x="72" y="344" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">1  hdr.typeCode 1 … 7</text>
+<text x="72" y="368" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">2  hdr.unitId</text>
+<text x="72" y="392" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">3  hdr.heartbeat +1/s</text>
+<text x="72" y="416" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">4  std.status (bits)</text>
+<text x="72" y="440" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">5  std.mode</text>
+<text x="72" y="464" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">6  std.stateCode 0 … 6</text>
+<text x="72" y="488" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">7  std.alarm</text>
+<text x="72" y="512" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">8  hs.status ACK BUSY DONE REJ RDY</text>
+<text x="72" y="536" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">9  hs.ackSeq</text>
+<text x="72" y="560" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">10 hs.result 0 … 4</text>
+<text x="72" y="584" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">11 hs.lotDone</text>
+<rect x="380" y="270" width="300" height="330" rx="0" fill="#e3f2fd" stroke="#000" stroke-width="1.2"/>
+<text x="392" y="293" font-size="13" text-anchor="start" font-weight="bold" fill="#000">COUNTERS 20 – 45 · ENERGY · EVENT</text>
+<text x="392" y="320" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">20-21 std.good  UINT32</text>
+<text x="392" y="344" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">22-23 std.scrap UINT32</text>
+<text x="392" y="368" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">24-25 std.lastCycle_s REAL</text>
+<text x="392" y="392" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">26-35 std.order ASCII20</text>
+<text x="392" y="416" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">36-45 std.part ASCII20</text>
+<text x="392" y="440" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">100-101 std.power_kW REAL</text>
+<text x="392" y="464" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">102-103 std.energy_kWh REAL</text>
+<text x="392" y="488" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">104-105 evt.counter UINT32</text>
+<text x="392" y="512" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">106-107 evt.tLast_ms UINT32</text>
+<text x="392" y="536" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">108-131 ring 8 × (state, t_ms)</text>
+<text x="392" y="560" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">  entry k at 108 + 3k (newest k = 0)</text>
+<rect x="700" y="270" width="300" height="330" rx="0" fill="#fffde7" stroke="#000" stroke-width="1.2"/>
+<text x="712" y="293" font-size="13" text-anchor="start" font-weight="bold" fill="#000">COMMAND 200 – 226 (RW)</text>
+<text x="712" y="320" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">200 cmd.code</text>
+<text x="712" y="344" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">201 cmd.seq</text>
+<text x="712" y="368" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">202 cmd.ctl bit0 = REQ (LAST)</text>
+<text x="712" y="392" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">203-212 cmd.order ASCII20</text>
+<text x="712" y="416" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">213-222 cmd.part ASCII20</text>
+<text x="712" y="440" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">223 cmd.recipe</text>
+<text x="712" y="464" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">224-225 cmd.lotQty UINT32</text>
+<text x="712" y="488" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">226 cmd.gwHeartbeat (1 s, FC06)</text>
+<text x="712" y="512" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000"></text>
+<text x="712" y="536" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">writes elsewhere → exception 02</text>
+<text x="712" y="560" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">(fmsctl server; real PLCs: see ch. 15)</text>
+<rect x="1020" y="270" width="300" height="330" rx="0" fill="#e3f2fd" stroke="#000" stroke-width="1.2"/>
+<text x="1032" y="293" font-size="13" text-anchor="start" font-weight="bold" fill="#000">TYPE 300 – 389 · JOB 390 – 449</text>
+<text x="1032" y="320" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">300-389 type status (per type)</text>
+<text x="1032" y="344" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">  e.g. CNC 310-339 tool life</text>
+<text x="1032" y="368" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">390-391 job.idDone UINT32</text>
+<text x="1032" y="392" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">392 job.result 0 … 3</text>
+<text x="1032" y="416" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">394-395 job.cycle_s REAL</text>
+<text x="1032" y="440" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">400-401 job.id UINT32 (RW)</text>
+<text x="1032" y="464" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">402-409 type params (RW,</text>
+<text x="1032" y="488" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">   overlay per command code)</text>
+<text x="1032" y="512" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">410-419 job.text ASCII20 (RW)</text>
+<text x="1032" y="536" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">420-449 reserved (RW area)</text>
+<rect x="60" y="625" width="1260" height="160" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="75" y="650" font-size="13" text-anchor="start" font-weight="bold" fill="#000">Recommended FC03 polls per device (design example, chapter 10.6):</text>
+<text x="75" y="680" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">FC03  0 / 12    FAST             every 0.5 s   response 33 bytes</text>
+<text x="75" y="706" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">FC03  104 / 28  EVENT            every 0.5 s   response 65 bytes</text>
+<text x="75" y="732" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">FC03  20 / 26   COUNTERS         every 1 s     response 61 bytes</text>
+<text x="705" y="680" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">FC03  300 / 96  TYPE + JOB RESULT every 1 s     response 201 bytes</text>
+<text x="705" y="706" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">FC03  100 / 4   ENERGY           every 10 s    response 17 bytes</text>
+<text x="705" y="732" font-size="12" text-anchor="start" font-weight="normal" font-family="Consolas, Courier New, monospace" fill="#000">FC06  226       gateway heartbeat every 1 s    12 / 12 bytes</text>
+<text x="60" y="815" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Rules: holding registers, 0-based (register n = 4xxxx 40001 + n) · UINT32 / REAL high word first, REAL IEEE 754 "ABCD" · ASCII20 = 10 registers, high byte first,</text>
+<text x="60" y="835" font-size="12" text-anchor="start" font-weight="normal" fill="#000">0x00 padded · 32-bit values on even offsets (exception: ring time stamps at 109 + 3k, see ch. 7.4) · max 125 registers per FC03 → 300 / 96 is one request.</text>
+</svg>

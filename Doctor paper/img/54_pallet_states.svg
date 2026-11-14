@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 680" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1100" height="680" fill="#ffffff"/>
+  <style>.h{paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round}</style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b02a2a"/></marker>
+  </defs>
+  <text x="550" y="30" font-size="20" font-weight="bold" text-anchor="middle">Pallet content state machine (column pallet.content, set only in close_jobs())</text>
+  <text x="550" y="52" font-size="13" text-anchor="middle" fill="#555">The location is NOT a state of the database – it is read every loop from PPS-1 (pal.slot01…16). PLC copy: pal.stateNN 0 empty · 1 raw · 2 machined · 3 NOK</text>
+
+  <!-- states -->
+  <g text-anchor="middle">
+    <ellipse cx="160" cy="300" rx="110" ry="52" fill="#f2f2f2" stroke="#555" stroke-width="2"/>
+    <text x="160" y="295" font-size="18" font-weight="bold">empty</text>
+    <text x="160" y="316" font-size="12">fixture only, variant 0, wo ''</text>
+    <ellipse cx="540" cy="150" rx="110" ry="52" fill="#eaf2fb" stroke="#1f5fa8" stroke-width="2"/>
+    <text x="540" y="145" font-size="18" font-weight="bold">raw</text>
+    <text x="540" y="166" font-size="12">casting clamped, variant, wo</text>
+    <ellipse cx="920" cy="300" rx="110" ry="52" fill="#eaf5ec" stroke="#2c7a3f" stroke-width="2"/>
+    <text x="920" y="295" font-size="18" font-weight="bold">machined</text>
+    <text x="920" y="316" font-size="12">good part on the pallet</text>
+    <ellipse cx="540" cy="470" rx="110" ry="52" fill="#fbeaea" stroke="#b02a2a" stroke-width="2"/>
+    <text x="540" y="465" font-size="18" font-weight="bold">nok</text>
+    <text x="540" y="486" font-size="12">scrap or aborted job</text>
+  </g>
+
+  <!-- transitions -->
+  <path d="M 220 256 C 290 190, 360 160, 428 152" fill="none" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+
+  <path d="M 645 168 C 760 190, 850 220, 890 248" fill="none" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+
+  <path d="M 540 202 L 540 416" fill="none" stroke="#b02a2a" stroke-width="2" marker-end="url(#r)"/>
+
+  <path d="M 830 330 C 760 380, 700 260, 640 185" fill="none" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+
+  <path d="M 450 440 C 400 380, 420 260, 470 196" fill="none" stroke="#b02a2a" stroke-width="2" marker-end="url(#r)"/>
+  
+
+  <path d="M 900 352 C 860 600, 260 620, 170 354" fill="none" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+
+  <path d="M 432 480 C 330 470, 240 420, 190 352" fill="none" stroke="#b02a2a" stroke-width="2" marker-end="url(#r)"/>
+
+  <!-- notes -->
+  <rect x="40" y="600" width="1020" height="66" fill="#fafafa" stroke="#bbb"/>
+  <text x="54" y="622" font-size="12"><tspan font-weight="bold">Busy flag:</tspan> a pallet is "busy" while any job in status 'sent' names it (job.palletId, move.palletId or task.palletId) – _pallet_busy(); a busy pallet is never given a second job.</text>
+  <text x="54" y="642" font-size="12"><tspan font-weight="bold">Scrap replacement:</tspan> a work order stays open while started − scrap &lt; qty, so every NOK part starts one more casting (T5 / T7 then T1 or T4).</text>
+  <text x="54" y="660" font-size="12"><tspan font-weight="bold">Not modelled yet:</tspan> fixture change (task 4), "pallet blocked / quarantine", "re-work" – see the gap list (chapter 29).</text>
+
+  <text class="h" x="200" y="190" font-size="12" font-weight="bold">T1 load (task 1) at loc. 13</text>
+  <text class="h" x="200" y="206" font-size="12">variant, wo set · WO.started + 1</text>
+  <text class="h" x="730" y="172" font-size="12" font-weight="bold">T2 HMC job done, result 0</text>
+  <text class="h" x="730" y="188" font-size="12">at loc. 14–16 · O1010/1020/1030</text>
+  <text class="h" x="550" y="300" font-size="12" font-weight="bold" fill="#b02a2a">T3 HMC job done,</text>
+  <text class="h" x="550" y="316" font-size="12" fill="#b02a2a">result 1 (scrap) or 2 (aborted)</text>
+  <text class="h" x="700" y="390" font-size="12" font-weight="bold">T4 unload + load (task 3)</text>
+  <text class="h" x="700" y="406" font-size="12">old WO.done + 1 · new WO.started + 1</text>
+  <text class="h" x="740" y="560" font-size="12" font-weight="bold">T6 unload only (task 2): WO.done + 1</text>
+  <text class="h" x="740" y="576" font-size="12">no open order for this fixture, or no casting</text>
+  <text class="h" x="415" y="232" font-size="12" font-weight="bold" fill="#b02a2a" text-anchor="end">T5 unload + load (task 3)</text>
+  <text class="h" x="415" y="248" font-size="12" fill="#b02a2a" text-anchor="end">old WO.scrap + 1</text>
+  <text class="h" x="415" y="264" font-size="12" fill="#b02a2a" text-anchor="end">new WO.started + 1</text>
+  <text class="h" x="230" y="432" font-size="12" font-weight="bold" fill="#b02a2a">T7 unload only (task 2)</text>
+  <text class="h" x="230" y="448" font-size="12" fill="#b02a2a">WO.scrap + 1</text>
+  <text class="h" x="230" y="464" font-size="12" fill="#b02a2a">(part to the scrap box)</text>
+</svg>

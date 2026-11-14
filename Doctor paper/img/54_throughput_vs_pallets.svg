@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" font-family="Arial, Helvetica, sans-serif">
+<rect width="1100" height="640" fill="#ffffff"/>
+<text x="550.0" y="30" font-size="20" font-weight="bold" text-anchor="middle">Cell throughput X versus number of pallets N – MVA models and virtual-plant measurements</text>
+<text x="550.0" y="52" font-size="13" text-anchor="middle" fill="#555">3 HMCs, 1 load station, 1 shuttle · design data of chapter 2 · calculated with mva.py (stdlib) · measured with fmsctl on the virtual plant</text>
+<line x1="90" y1="560.0" x2="760" y2="560.0" stroke="#e3e3e3"/>
+<text x="80" y="564.0" font-size="12" text-anchor="end">0</text>
+<line x1="90" y1="501.2" x2="760" y2="501.2" stroke="#e3e3e3"/>
+<text x="80" y="505.2" font-size="12" text-anchor="end">4</text>
+<line x1="90" y1="442.5" x2="760" y2="442.5" stroke="#e3e3e3"/>
+<text x="80" y="446.5" font-size="12" text-anchor="end">8</text>
+<line x1="90" y1="383.8" x2="760" y2="383.8" stroke="#e3e3e3"/>
+<text x="80" y="387.8" font-size="12" text-anchor="end">12</text>
+<line x1="90" y1="325.0" x2="760" y2="325.0" stroke="#e3e3e3"/>
+<text x="80" y="329.0" font-size="12" text-anchor="end">16</text>
+<line x1="90" y1="266.2" x2="760" y2="266.2" stroke="#e3e3e3"/>
+<text x="80" y="270.2" font-size="12" text-anchor="end">20</text>
+<line x1="90" y1="207.5" x2="760" y2="207.5" stroke="#e3e3e3"/>
+<text x="80" y="211.5" font-size="12" text-anchor="end">24</text>
+<line x1="90" y1="148.8" x2="760" y2="148.8" stroke="#e3e3e3"/>
+<text x="80" y="152.8" font-size="12" text-anchor="end">28</text>
+<line x1="90" y1="90.0" x2="760" y2="90.0" stroke="#e3e3e3"/>
+<text x="80" y="94.0" font-size="12" text-anchor="end">32</text>
+<line x1="90.0" y1="560" x2="90.0" y2="565" stroke="#333"/>
+<text x="90.0" y="580" font-size="12" text-anchor="middle">0</text>
+<line x1="145.8" y1="560" x2="145.8" y2="565" stroke="#333"/>
+<text x="145.8" y="580" font-size="12" text-anchor="middle">1</text>
+<line x1="201.7" y1="560" x2="201.7" y2="565" stroke="#333"/>
+<text x="201.7" y="580" font-size="12" text-anchor="middle">2</text>
+<line x1="257.5" y1="560" x2="257.5" y2="565" stroke="#333"/>
+<text x="257.5" y="580" font-size="12" text-anchor="middle">3</text>
+<line x1="313.3" y1="560" x2="313.3" y2="565" stroke="#333"/>
+<text x="313.3" y="580" font-size="12" text-anchor="middle">4</text>
+<line x1="369.2" y1="560" x2="369.2" y2="565" stroke="#333"/>
+<text x="369.2" y="580" font-size="12" text-anchor="middle">5</text>
+<line x1="425.0" y1="560" x2="425.0" y2="565" stroke="#333"/>
+<text x="425.0" y="580" font-size="12" text-anchor="middle">6</text>
+<line x1="480.8" y1="560" x2="480.8" y2="565" stroke="#333"/>
+<text x="480.8" y="580" font-size="12" text-anchor="middle">7</text>
+<line x1="536.7" y1="560" x2="536.7" y2="565" stroke="#333"/>
+<text x="536.7" y="580" font-size="12" text-anchor="middle">8</text>
+<line x1="592.5" y1="560" x2="592.5" y2="565" stroke="#333"/>
+<text x="592.5" y="580" font-size="12" text-anchor="middle">9</text>
+<line x1="648.3" y1="560" x2="648.3" y2="565" stroke="#333"/>
+<text x="648.3" y="580" font-size="12" text-anchor="middle">10</text>
+<line x1="704.2" y1="560" x2="704.2" y2="565" stroke="#333"/>
+<text x="704.2" y="580" font-size="12" text-anchor="middle">11</text>
+<line x1="760.0" y1="560" x2="760.0" y2="565" stroke="#333"/>
+<text x="760.0" y="580" font-size="12" text-anchor="middle">12</text>
+<rect x="90" y="90" width="670" height="470" fill="none" stroke="#333"/>
+<text x="425.0" y="604" font-size="14" text-anchor="middle">number of pallets N in circulation</text>
+<text x="30" y="325.0" font-size="14" text-anchor="middle" transform="rotate(-90 30 325.0)">throughput X [parts per hour]</text>
+<line x1="90" y1="125.8" x2="760" y2="125.8" stroke="#7a1fa2" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="754" y="119.8" font-size="12" text-anchor="end" fill="#7a1fa2">static design capacity 9 754 / 330 h = 29.6 /h</text>
+<line x1="90" y1="200.3" x2="760" y2="200.3" stroke="#b35c00" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="754" y="214.3" font-size="12" text-anchor="end" fill="#b35c00"></text>
+<text x="352.4" y="216.3" font-size="12" fill="#b35c00">load-station bound 3600 / 147 s = 24.5 /h (product form)</text>
+<line x1="90.0" y1="560.0" x2="375.6" y2="90.0" stroke="#999" stroke-dasharray="3 3"/>
+<text x="104.0" y="163.4" font-size="12" fill="#777">N / D = N × 6.26 /h (no queueing)</text>
+<path d="M 145.8 468.1 L 201.7 389.9 L 257.5 326.9 L 313.3 287.8 L 369.2 262.9 L 425.0 246.2 L 480.8 234.7 L 536.7 226.6 L 592.5 220.6 L 648.3 216.1 L 704.2 212.7 L 760.0 210.2" fill="none" stroke="#1f5fa8" stroke-width="2.5"/>
+<circle cx="145.8" cy="468.1" r="3" fill="#1f5fa8"/>
+<circle cx="201.7" cy="389.9" r="3" fill="#1f5fa8"/>
+<circle cx="257.5" cy="326.9" r="3" fill="#1f5fa8"/>
+<circle cx="313.3" cy="287.8" r="3" fill="#1f5fa8"/>
+<circle cx="369.2" cy="262.9" r="3" fill="#1f5fa8"/>
+<circle cx="425.0" cy="246.2" r="3" fill="#1f5fa8"/>
+<circle cx="480.8" cy="234.7" r="3" fill="#1f5fa8"/>
+<circle cx="536.7" cy="226.6" r="3" fill="#1f5fa8"/>
+<circle cx="592.5" cy="220.6" r="3" fill="#1f5fa8"/>
+<circle cx="648.3" cy="216.1" r="3" fill="#1f5fa8"/>
+<circle cx="704.2" cy="212.7" r="3" fill="#1f5fa8"/>
+<circle cx="760.0" cy="210.2" r="3" fill="#1f5fa8"/>
+<path d="M 145.8 471.6 L 201.7 401.6 L 257.5 352.4 L 313.3 330.0 L 369.2 318.0 L 425.0 310.8 L 480.8 306.4 L 536.7 303.5 L 592.5 301.6 L 648.3 300.3 L 704.2 299.5 L 760.0 298.9" fill="none" stroke="#2c7a3f" stroke-width="2.5"/>
+<circle cx="145.8" cy="471.6" r="3" fill="#2c7a3f"/>
+<circle cx="201.7" cy="401.6" r="3" fill="#2c7a3f"/>
+<circle cx="257.5" cy="352.4" r="3" fill="#2c7a3f"/>
+<circle cx="313.3" cy="330.0" r="3" fill="#2c7a3f"/>
+<circle cx="369.2" cy="318.0" r="3" fill="#2c7a3f"/>
+<circle cx="425.0" cy="310.8" r="3" fill="#2c7a3f"/>
+<circle cx="480.8" cy="306.4" r="3" fill="#2c7a3f"/>
+<circle cx="536.7" cy="303.5" r="3" fill="#2c7a3f"/>
+<circle cx="592.5" cy="301.6" r="3" fill="#2c7a3f"/>
+<circle cx="648.3" cy="300.3" r="3" fill="#2c7a3f"/>
+<circle cx="704.2" cy="299.5" r="3" fill="#2c7a3f"/>
+<circle cx="760.0" cy="298.9" r="3" fill="#2c7a3f"/>
+<path d="M 145.8 461.7 L 201.7 364.5 L 257.5 273.9 L 313.3 214.1 L 369.2 183.0 L 425.0 164.3 L 480.8 152.1 L 536.7 143.6 L 592.5 137.6 L 648.3 133.0 L 704.2 129.7 L 760.0 127.2" fill="none" stroke="#7a1fa2" stroke-width="1.8" stroke-dasharray="7 4"/>
+<circle cx="145.8" cy="461.7" r="3" fill="#7a1fa2"/>
+<circle cx="201.7" cy="364.5" r="3" fill="#7a1fa2"/>
+<circle cx="257.5" cy="273.9" r="3" fill="#7a1fa2"/>
+<circle cx="313.3" cy="214.1" r="3" fill="#7a1fa2"/>
+<circle cx="369.2" cy="183.0" r="3" fill="#7a1fa2"/>
+<circle cx="425.0" cy="164.3" r="3" fill="#7a1fa2"/>
+<circle cx="480.8" cy="152.1" r="3" fill="#7a1fa2"/>
+<circle cx="536.7" cy="143.6" r="3" fill="#7a1fa2"/>
+<circle cx="592.5" cy="137.6" r="3" fill="#7a1fa2"/>
+<circle cx="648.3" cy="133.0" r="3" fill="#7a1fa2"/>
+<circle cx="704.2" cy="129.7" r="3" fill="#7a1fa2"/>
+<circle cx="760.0" cy="127.2" r="3" fill="#7a1fa2"/>
+<path d="M 145.8 464.5 L 201.7 382.9 L 257.5 317.2 L 313.3 285.5 L 369.2 266.7 L 425.0 254.5 L 480.8 245.8 L 536.7 239.4 L 592.5 234.4 L 648.3 230.4 L 704.2 227.2 L 760.0 224.4" fill="none" stroke="#b35c00" stroke-width="1.8" stroke-dasharray="7 4"/>
+<circle cx="145.8" cy="464.5" r="3" fill="#b35c00"/>
+<circle cx="201.7" cy="382.9" r="3" fill="#b35c00"/>
+<circle cx="257.5" cy="317.2" r="3" fill="#b35c00"/>
+<circle cx="313.3" cy="285.5" r="3" fill="#b35c00"/>
+<circle cx="369.2" cy="266.7" r="3" fill="#b35c00"/>
+<circle cx="425.0" cy="254.5" r="3" fill="#b35c00"/>
+<circle cx="480.8" cy="245.8" r="3" fill="#b35c00"/>
+<circle cx="536.7" cy="239.4" r="3" fill="#b35c00"/>
+<circle cx="592.5" cy="234.4" r="3" fill="#b35c00"/>
+<circle cx="648.3" cy="230.4" r="3" fill="#b35c00"/>
+<circle cx="704.2" cy="227.2" r="3" fill="#b35c00"/>
+<circle cx="760.0" cy="224.4" r="3" fill="#b35c00"/>
+<rect x="139.8" y="453.3" width="12" height="12" fill="#ffffff" stroke="#c0392b" stroke-width="2.5"/>
+<rect x="195.7" y="390.3" width="12" height="12" fill="#ffffff" stroke="#c0392b" stroke-width="2.5"/>
+<rect x="251.5" y="314.8" width="12" height="12" fill="#ffffff" stroke="#c0392b" stroke-width="2.5"/>
+<rect x="251.5" y="306.4" width="12" height="12" fill="#ffffff" stroke="#c0392b" stroke-width="2.5"/>
+<rect x="251.5" y="302.2" width="12" height="12" fill="#ffffff" stroke="#c0392b" stroke-width="2.5"/>
+<rect x="251.5" y="310.6" width="12" height="12" fill="#ffffff" stroke="#c0392b" stroke-width="2.5"/>
+<rect x="251.5" y="310.6" width="12" height="12" fill="#ffffff" stroke="#c0392b" stroke-width="2.5"/>
+<path d="M 313.3 287.6 L 321.3 301.6 L 305.3 301.6 z" fill="#c0392b"/>
+<path d="M 145.8 468.1 L 201.7 389.9 L 257.5 326.9 L 313.3 298.9 L 369.2 298.9 L 425.0 298.9 L 480.8 298.9 L 536.7 298.9 L 592.5 298.9 L 648.3 298.9 L 704.2 298.9 L 760.0 298.9" fill="none" stroke="#111" stroke-width="2" stroke-dasharray="2 3"/>
+<line x1="790" y1="96" x2="820" y2="96" stroke="#1f5fa8" stroke-width="2.5"/>
+<text x="828" y="100" font-size="12">Model A: product-form MVA (exact multi-server)</text>
+<line x1="790" y1="120" x2="820" y2="120" stroke="#2c7a3f" stroke-width="2.5"/>
+<text x="828" y="124" font-size="12">Model B: blocking-aware MVA (single</text>
+<text x="828" y="148" font-size="12">      location at L and HMC, shuttle wait W)</text>
+<rect x="799" y="162" width="12" height="12" fill="#fff" stroke="#c0392b" stroke-width="2.5"/>
+<text x="828" y="172" font-size="12">measured x50, plotted at the number</text>
+<text x="828" y="196" font-size="12">      of pallets that really circulated</text>
+<path d="M 805 208 L 813 222 L 797 222 z" fill="#c0392b"/>
+<text x="828" y="220" font-size="12">measured x20 (12 pallets, 4 circulated)</text>
+<line x1="790" y1="240" x2="820" y2="240" stroke="#111" stroke-width="2" stroke-dasharray="2 3"/>
+<text x="828" y="244" font-size="12">estimate min(Model A, Model B ceiling)</text>
+<line x1="790" y1="264" x2="820" y2="264" stroke="#b35c00" stroke-width="1.8" stroke-dasharray="7 4"/>
+<text x="828" y="268" font-size="12">what-if W4: two-position load station</text>
+<line x1="790" y1="288" x2="820" y2="288" stroke="#7a1fa2" stroke-width="1.8" stroke-dasharray="7 4"/>
+<text x="828" y="292" font-size="12">what-if W8: 2 load stations + 2-position</text>
+<text x="828" y="316" font-size="12">      HMC changers + nearest-rack rule</text>
+<text x="790" y="356" font-size="13" font-weight="bold">Values [parts/h]</text>
+<text x="790" y="378" font-size="12" font-weight="bold">N</text>
+<text x="840" y="378" font-size="12" font-weight="bold">A</text>
+<text x="910" y="378" font-size="12" font-weight="bold">B</text>
+<text x="980" y="378" font-size="12" font-weight="bold">meas. (N used)</text>
+<text x="790" y="400" font-size="12">1</text>
+<text x="840" y="400" font-size="12">6.3</text>
+<text x="910" y="400" font-size="12">6.0</text>
+<text x="980" y="400" font-size="12">6.9 (1)</text>
+<text x="790" y="422" font-size="12">2</text>
+<text x="840" y="422" font-size="12">11.6</text>
+<text x="910" y="422" font-size="12">10.8</text>
+<text x="980" y="422" font-size="12">11.1 (2)</text>
+<text x="790" y="444" font-size="12">3</text>
+<text x="840" y="444" font-size="12">15.9</text>
+<text x="910" y="444" font-size="12">14.1</text>
+<text x="980" y="444" font-size="12">16.3 (3)</text>
+<text x="790" y="466" font-size="12">4</text>
+<text x="840" y="466" font-size="12">18.5</text>
+<text x="910" y="466" font-size="12">15.7</text>
+<text x="980" y="466" font-size="12">16.9 (3)</text>
+<text x="790" y="488" font-size="12">6</text>
+<text x="840" y="488" font-size="12">21.4</text>
+<text x="910" y="488" font-size="12">17.0</text>
+<text x="980" y="488" font-size="12">17.1 (3)</text>
+<text x="790" y="510" font-size="12">8</text>
+<text x="840" y="510" font-size="12">22.7</text>
+<text x="910" y="510" font-size="12">17.5</text>
+<text x="980" y="510" font-size="12">16.6 (3)</text>
+<text x="790" y="532" font-size="12">12</text>
+<text x="840" y="532" font-size="12">23.8</text>
+<text x="910" y="532" font-size="12">17.8</text>
+<text x="980" y="532" font-size="12">16.6 (3), 18.0 (4)</text>
+<text x="790" y="560" font-size="11" fill="#555">N = pallets placed; (N used) = pallets that circulated</text>
+</svg>

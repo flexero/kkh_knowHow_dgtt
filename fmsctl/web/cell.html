@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FMS cell controller</title>
+<style>
+:root { --bg: #f6f6f3; --card: #ffffff; --ink: #1f1f1e; --ink2: #5f5e57; --line: #dddcd6; --run: #1baf7a; --idle: #2a78d6; --down: #e34948; --warn: #eda100; --empty: #ecebe6; }
+@media (prefers-color-scheme: dark) { :root { --bg: #161615; --card: #1f1f1e; --ink: #f0efec; --ink2: #b4b3ab; --line: #3a3a37; --empty: #2c2c2a; } }
+* { box-sizing: border-box; } body { margin: 0; font: 14px/1.4 system-ui, Segoe UI, Arial, sans-serif; background: var(--bg); color: var(--ink); }
+header { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 10px 16px; background: var(--card); border-bottom: 1px solid var(--line); }
+header h1 { font-size: 17px; margin: 0 12px 0 0; } .pill { padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); }
+button, input, select { font: inherit; padding: 5px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); color: var(--ink); }
+button.on { background: var(--run); color: #fff; border-color: var(--run); }
+main { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 12px; padding: 12px 16px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px; min-width: 0; }
+.card h2 { font-size: 14px; margin: 0 0 8px; } table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+td, th { text-align: left; padding: 3px 5px; border-bottom: 1px solid var(--line); } th { color: var(--ink2); font-weight: 600; }
+.rack { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; } .slot { border: 1px solid var(--line); border-radius: 6px; padding: 6px; min-height: 56px; font-size: 12px; background: var(--empty); }
+.slot b { display: block; font-size: 13px; } .c-raw { border-left: 5px solid var(--idle); } .c-machined { border-left: 5px solid var(--run); } .c-nok { border-left: 5px solid var(--down); } .c-empty { border-left: 5px solid var(--line); }
+.st { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; } .s2 { background: var(--run); } .s1 { background: var(--idle); } .s4 { background: var(--down); } .soff { background: #888; } .s3, .s5, .s6 { background: var(--warn); }
+.ev-alarm, .ev-error { color: var(--down); } .ev-warn { color: var(--warn); } .sub { color: var(--ink2); font-size: 12px; }
+.bar { height: 8px; background: var(--empty); border-radius: 4px; overflow: hidden; } .bar i { display: block; height: 100%; background: var(--run); }
+</style></head>
+<body>
+<header><h1>FMS cell controller – crankcase cell</h1>
+  <span class="pill" id="mode">–</span>
+  <button id="auto">Automatic</button><button id="manual">Manual</button>
+  <a href="/tools" style="color:inherit">Tool management →</a> <a href="/logistics" style="color:inherit">Logistics →</a> <span class="sub" id="clock"></span></header>
+<main>
+  <section class="card"><h2>Machines</h2><table id="mach"></table></section>
+  <section class="card"><h2>Pallet pool – 12 rack locations, load station, 3 HMC pallet changers</h2><div class="rack" id="rack"></div>
+    <p class="sub">Left colour: blue = raw part, green = machined, red = NOK, grey = empty fixture. Fixture A = VC10 / VC20, B = VC30.</p></section>
+  <section class="card"><h2>Work orders</h2><table id="wo"></table>
+    <p><input id="wid" placeholder="WO-1001" size="9"> <select id="wv"><option value="1">VC10</option><option value="2" selected>VC20</option><option value="3">VC30</option></select>
+      <input id="wq" type="number" value="6" min="1" style="width:70px"> pcs, due in <input id="wd" type="number" value="24" style="width:60px"> h <button id="wadd">Create + release</button></p></section>
+  <section class="card"><h2>Jobs</h2><table id="jobs"></table></section>
+  <section class="card"><h2>Events and alarms</h2><table id="ev"></table></section>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const ST = { 0: "OFF", 1: "IDLE", 2: "RUN", 3: "SETUP", 4: "DOWN", 5: "BLOCKED", 6: "STARVED" };
+const VN = { 0: "–", 1: "VC10", 2: "VC20", 3: "VC30" };
+const CODE = { 4: "ack", 10: "machine", 11: "move", 12: "operator task" };
+const post = (u, b) => fetch(u, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(b) }).then((r) => r.json());
+$("auto").onclick = () => post("/api/mode", { mode: "auto" }); $("manual").onclick = () => post("/api/mode", { mode: "manual" });
+$("wadd").onclick = () => { const id = $("wid").value || "WO-" + Date.now() % 100000; post("/api/wo", { id, variant: +$("wv").value, qty: +$("wq").value, due_h: +$("wd").value }).then((r) => r.error && alert(r.error)); $("wid").value = ""; };
+function render(s) {
+  $("mode").textContent = "mode: " + s.mode + " · rule " + s.rule; $("auto").className = s.mode === "auto" ? "on" : ""; $("clock").textContent = new Date().toLocaleTimeString();
+  const D = s.devices;
+  $("mach").innerHTML = "<tr><th>Device</th><th>State</th><th>Job / info</th><th></th></tr>" + Object.entries(D).map(([id, d]) => {
+    const st = d.online ? d.state : "off";
+    const info = !d.online ? "OFFLINE" : id.startsWith("HMC") ? `O${d.program || "–"} · pallet ${d.palletWork || "–"} · tool life min ${d.toolLifeMin ?? "–"} %` : id === "PPS-1" ? (d.shuttleBusy ? "shuttle moving" : "shuttle ready") : (d.busy ? "operator task running" : "ready");
+    return `<tr><td>${id}</td><td><span class="st s${st}"></span>${d.online ? ST[d.state] : "OFFLINE"}${d.alarm ? " · alarm " + d.alarm : ""}</td><td>${esc(info)}</td><td>${d.online && d.state === 4 ? `<button onclick="post('/api/ack',{device:'${id}'})">Ack</button>` : ""}</td></tr>`;
+  }).join("");
+  const P = Object.fromEntries(s.pallets.map((p) => [p.location, p]));
+  const name = (l) => l <= 12 ? "rack " + l : l === 13 ? "LOAD STATION" : "HMC-0" + (l - 13);
+  $("rack").innerHTML = Array.from({ length: 16 }, (_, i) => i + 1).map((l) => { const p = P[l]; return `<div class="slot ${p ? "c-" + p.content : ""}"><span class="sub">${name(l)}</span>${p ? `<b>P${p.id} · ${p.fixture}</b>${p.content}${p.variant ? " " + VN[p.variant] : ""}${p.wo ? "<br>" + esc(p.wo) : ""}` : ""}</div>`; }).join("");
+  $("wo").innerHTML = "<tr><th>WO</th><th>Variant</th><th>Qty</th><th>Started</th><th>Good</th><th>Scrap</th><th>Progress</th></tr>" + s.wos.map((w) => `<tr><td>${esc(w.id)}</td><td>${VN[w.variant]}</td><td>${w.qty}</td><td>${w.started}</td><td>${w.done}</td><td>${w.scrap}</td><td><div class="bar"><i style="width:${Math.min(100, 100 * w.done / w.qty)}%"></i></div></td></tr>`).join("");
+  $("jobs").innerHTML = "<tr><th>Job</th><th>Device</th><th>Type</th><th>Status</th><th>Info</th></tr>" + s.jobs.map((j) => `<tr><td>${j.id}</td><td>${j.device}</td><td>${CODE[j.code] || j.code}</td><td>${j.status}${j.result ? " (" + j.result + ")" : ""}</td><td>${esc(j.info)}</td></tr>`).join("");
+  $("ev").innerHTML = s.events.map((e) => `<tr class="ev-${e.level}"><td>${new Date(e.t * 1000).toLocaleTimeString()}</td><td>${e.device}</td><td>${esc(e.text)}</td></tr>`).join("");
+}
+async function tick() { try { render(await (await fetch("/api/cell")).json()); } catch (e) { $("clock").textContent = "no connection to the cell controller"; } setTimeout(tick, 1000); }
+tick();
+</script>
+</body></html>

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" font-family="Arial, Helvetica, sans-serif">
+<title>Control hierarchy of the compressor FMS – who does what, over which protocol – drawing 53-01</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e65100"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6a1b9a"/></marker></defs>
+<rect x="0" y="0" width="1400" height="900" fill="#fff"/>
+<rect x="6" y="6" width="1388" height="888" fill="none" stroke="#000" stroke-width="1"/>
+<text x="24" y="36" font-size="20" text-anchor="start" font-weight="bold" fill="#000">Control hierarchy of the compressor FMS – who does what, over which protocol</text>
+<text x="24" y="58" font-size="13" text-anchor="start" font-weight="normal" fill="#000">ISA-95 / IEC 62264 levels, ISO 23247 entities · only Ethernet, Modbus TCP and HTTP · safety never over the network</text>
+<rect x="1100" y="854" width="288" height="34" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1108" y="867" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Guide 53 · drawing 53-01</text>
+<text x="1108" y="882" font-size="11" text-anchor="start" font-weight="normal" fill="#000">compressor FMS · item 1 · values = examples</text>
+<rect x="40" y="95" width="150" height="90" rx="0" fill="#f3e5f5" stroke="#000" stroke-width="1.2"/>
+<text x="115" y="130" font-size="15" text-anchor="middle" font-weight="bold" fill="#000">Level 4</text>
+<text x="115" y="150" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">Business planning</text>
+<rect x="220" y="110" width="820" height="60" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="630.0" y="144.55" font-size="13" text-anchor="middle" font-weight="normal" fill="#000">ERP (item 6): orders, BOM, stock, cost</text>
+<rect x="40" y="205" width="150" height="90" rx="0" fill="#f3e5f5" stroke="#000" stroke-width="1.2"/>
+<text x="115" y="240" font-size="15" text-anchor="middle" font-weight="bold" fill="#000">Level 3</text>
+<text x="115" y="260" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">Manufacturing operations</text>
+<rect x="220" y="220" width="820" height="60" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="630.0" y="254.55" font-size="13" text-anchor="middle" font-weight="normal" fill="#000">MES (item 5): work orders, serial numbers, OEE, test records</text>
+<rect x="40" y="315" width="150" height="200" rx="0" fill="#e3f2fd" stroke="#000" stroke-width="1.2"/>
+<text x="115" y="350" font-size="15" text-anchor="middle" font-weight="bold" fill="#000">Level 2</text>
+<text x="115" y="370" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">Supervisory control</text>
+<rect x="40" y="560" width="150" height="150" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="115" y="595" font-size="15" text-anchor="middle" font-weight="bold" fill="#000">Level 1</text>
+<text x="115" y="615" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">Basic control</text>
+<rect x="40" y="760" width="150" height="90" rx="0" fill="#fff3e0" stroke="#000" stroke-width="1.2"/>
+<text x="115" y="795" font-size="15" text-anchor="middle" font-weight="bold" fill="#000">Level 0</text>
+<text x="115" y="815" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">Process</text>
+<rect x="220" y="775" width="820" height="60" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="630.0" y="809.55" font-size="13" text-anchor="middle" font-weight="normal" fill="#000">motors, valves, sensors, axes, clamps, AGV drives, crane drives</text>
+<rect x="220" y="325" width="820" height="180" rx="0" fill="#e3f2fd" stroke="#000" stroke-width="1.2"/>
+<text x="240" y="348" font-size="13" text-anchor="start" font-weight="bold" fill="#000">FMS control PC 10.70.1.10 (fmsctl, Python stdlib, offline) – the ONLY Modbus client</text>
+<rect x="240" y="362" width="185" height="62" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="332.5" y="381.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">Cell controller</text>
+<text x="332.5" y="396.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">item 2 · guide 54</text>
+<text x="332.5" y="411.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">dispatch, pallets</text>
+<rect x="437" y="362" width="185" height="62" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="529.5" y="381.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">Tool management</text>
+<text x="529.5" y="396.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">item 3 · guide 55</text>
+<text x="529.5" y="411.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">tool check, cmd 14</text>
+<rect x="634" y="362" width="185" height="62" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="726.5" y="381.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">Logistics</text>
+<text x="726.5" y="396.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">item 4 · guide 56</text>
+<text x="726.5" y="411.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">AGV fleet, AS/RS</text>
+<rect x="831" y="362" width="190" height="62" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="926.0" y="381.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">HTTP server</text>
+<text x="926.0" y="396.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">REST + JSON</text>
+<text x="926.0" y="411.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">operator screens</text>
+<rect x="240" y="436" width="781" height="56" rx="0" fill="#fffde7" stroke="#000" stroke-width="1.2"/>
+<text x="630.5" y="460.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">ITEM 1 (this guide): register map V1.2 · Modbus TCP driver (core/modbus.py) · DeviceLink + toggle-bit handshake</text>
+<text x="630.5" y="476.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">(core/device.py) · device list + IP plan (spec/plant.py) · virtual plant (sim/virtual_plant.py)</text>
+<rect x="220" y="570" width="820" height="130" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="240" y="592" font-size="13" text-anchor="start" font-weight="bold" fill="#000">21 Modbus TCP servers (port 502, unit id 1) – each runs the standard interface FB V1.2</text>
+<rect x="232" y="605" width="108" height="82" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="286.0" y="634.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">CNC ×7</text>
+<text x="286.0" y="649.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">HMC 1-3, VMC,</text>
+<text x="286.0" y="664.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">hone, lathe, grind.</text>
+<rect x="347" y="605" width="108" height="82" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="401.0" y="634.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">PALLET ×1</text>
+<text x="401.0" y="649.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">PPS-1 pallet</text>
+<text x="401.0" y="664.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">pool, shuttle</text>
+<rect x="462" y="605" width="108" height="82" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="516.0" y="634.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">LOAD ×1</text>
+<text x="516.0" y="649.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">LOAD-CC</text>
+<text x="516.0" y="664.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">operator station</text>
+<rect x="577" y="605" width="108" height="82" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="631.0" y="634.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">STATION ×7</text>
+<text x="631.0" y="649.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">washer, assembly,</text>
+<text x="631.0" y="664.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">robot, paint …</text>
+<rect x="692" y="605" width="108" height="82" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="746.0" y="634.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">TEST ×2</text>
+<text x="746.0" y="649.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">test benches</text>
+<text x="746.0" y="664.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">ISO 1217</text>
+<rect x="807" y="605" width="108" height="82" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="861.0" y="634.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">AGV ×2</text>
+<text x="861.0" y="649.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">Wi-Fi</text>
+<text x="861.0" y="664.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">zone 20</text>
+<rect x="922" y="605" width="108" height="82" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="976.0" y="634.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#000">ASRS ×2</text>
+<text x="976.0" y="649.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">raw + FG</text>
+<text x="976.0" y="664.85" font-size="11" text-anchor="middle" font-weight="normal" fill="#000">cranes</text>
+<line x1="630" y1="185" x2="630" y2="220" stroke="#6a1b9a" stroke-width="2" marker-end="url(#av)" marker-start="url(#av)"/>
+<text x="642" y="206.5" font-size="12" text-anchor="start" font-weight="bold" fill="#6a1b9a">HTTP / JSON</text>
+<line x1="630" y1="295" x2="630" y2="325" stroke="#6a1b9a" stroke-width="2" marker-end="url(#av)" marker-start="url(#av)"/>
+<text x="642" y="314.0" font-size="12" text-anchor="start" font-weight="bold" fill="#6a1b9a">HTTP / JSON</text>
+<line x1="630" y1="505" x2="630" y2="570" stroke="#1565c0" stroke-width="2" marker-end="url(#ab)" marker-start="url(#ab)"/>
+<text x="642" y="541.5" font-size="12" text-anchor="start" font-weight="bold" fill="#1565c0">Modbus TCP (FC03/04/06/16)</text>
+<line x1="630" y1="700" x2="630" y2="775" stroke="#2e7d32" stroke-width="2" marker-end="url(#ag)" marker-start="url(#ag)"/>
+<text x="642" y="741.5" font-size="12" text-anchor="start" font-weight="bold" fill="#2e7d32">hard-wired I/O, drives, fieldbus inside the machine</text>
+<rect x="1080" y="95" width="290" height="110" rx="0" fill="#f5f5f5" stroke="#000" stroke-width="1.2"/>
+<text x="1225.0" y="130.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Digital twin (separate)</text>
+<text x="1225.0" y="146.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">reads HTTP snapshots</text>
+<text x="1225.0" y="162.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">simulates – never commands</text>
+<text x="1225.0" y="178.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">the real machines</text>
+<line x1="1080" y1="150" x2="1040" y2="400" stroke="#6a1b9a" stroke-width="1.5" marker-end="url(#av)" stroke-dasharray="6 4"/>
+<text x="1050" y="270" font-size="12" text-anchor="start" font-weight="normal" fill="#6a1b9a">HTTP</text>
+<rect x="1080" y="230" width="290" height="120" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1225.0" y="262.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Responsibilities</text>
+<text x="1225.0" y="278.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">L3/L4: what and when (orders)</text>
+<text x="1225.0" y="294.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">L2: which pallet, which machine,</text>
+<text x="1225.0" y="310.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">which program, which tool</text>
+<text x="1225.0" y="326.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">L1: how – motion, interlocks</text>
+<rect x="1080" y="380" width="290" height="400" rx="0" fill="#ffebee" stroke="#c62828" stroke-width="2"/>
+<text x="1225" y="410" font-size="15" text-anchor="middle" font-weight="bold" fill="#c62828">SAFETY – hard-wired</text>
+<text x="1225" y="440" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">e-stop chains, guard doors,</text>
+<text x="1225" y="462" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">light curtains, STO,</text>
+<text x="1225" y="484" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">safety relays / F-CPU per machine</text>
+<text x="1225" y="506" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">(ISO 13849-1, IEC 60204-1)</text>
+<text x="1225" y="528" font-size="12" text-anchor="middle" font-weight="normal" fill="#000"></text>
+<text x="1225" y="550" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">NEVER over Modbus or HTTP.</text>
+<text x="1225" y="572" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">Register 4 bit 4 = e-stop COPY</text>
+<text x="1225" y="594" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">for display only.</text>
+<text x="1225" y="616" font-size="12" text-anchor="middle" font-weight="normal" fill="#000"></text>
+<text x="1225" y="638" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">A lost network = no new jobs,</text>
+<text x="1225" y="660" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">running cycles finish safely,</text>
+<text x="1225" y="682" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">PLC watchdog on register 226</text>
+<text x="1225" y="704" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">(5 s) – never a hazard.</text>
+<line x1="1080" y1="640" x2="1040" y2="640" stroke="#c62828" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="40" y="880" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Item numbers: 1 interface (this guide), 2 cell controller, 3 tool management, 4 AGV + AS/RS, 5 MES, 6 ERP – see the overview table in chapter 1.</text>
+</svg>

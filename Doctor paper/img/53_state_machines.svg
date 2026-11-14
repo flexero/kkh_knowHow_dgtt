@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" font-family="Arial, Helvetica, sans-serif">
+<title>State machines of the job handshake – PLC side and controller side – drawing 53-06</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e65100"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6a1b9a"/></marker></defs>
+<rect x="0" y="0" width="1400" height="900" fill="#fff"/>
+<rect x="6" y="6" width="1388" height="888" fill="none" stroke="#000" stroke-width="1"/>
+<text x="24" y="36" font-size="20" text-anchor="start" font-weight="bold" fill="#000">State machines of the job handshake – PLC side and controller side</text>
+<text x="24" y="58" font-size="13" text-anchor="start" font-weight="normal" fill="#000">Left: standard interface FB V1.2 in every PLC (chapter 16/17) · right: DeviceLink.command() + wait_done() in fmsctl (chapter 19)</text>
+<rect x="1100" y="854" width="288" height="34" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1108" y="867" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Guide 53 · drawing 53-06</text>
+<text x="1108" y="882" font-size="11" text-anchor="start" font-weight="normal" fill="#000">compressor FMS · item 1 · values = examples</text>
+<text x="40" y="95" font-size="15" text-anchor="start" font-weight="bold" fill="#2e7d32">PLC (Modbus server) – evaluated every scan</text>
+<rect x="60" y="120" width="240" height="150" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="180.0" y="175.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">IDLE / READY</text>
+<text x="180.0" y="191.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">ACK = REQ</text>
+<text x="180.0" y="207.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">READY = auto ∧ no alarm</text>
+<text x="180.0" y="223.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">∧ not BUSY ∧ GwOk</text>
+<rect x="360" y="120" width="240" height="150" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="480.0" y="167.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">CHECK (1 scan)</text>
+<text x="480.0" y="183.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">REQ ≠ ACK detected</text>
+<text x="480.0" y="199.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">code allowed? 1</text>
+<text x="480.0" y="215.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">busy? 4 · ready? 2</text>
+<text x="480.0" y="231.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">type check? 3</text>
+<rect x="360" y="330" width="240" height="150" rx="0" fill="#ffebee" stroke="#000" stroke-width="1.2"/>
+<text x="480.0" y="377.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">REJECT</text>
+<text x="480.0" y="393.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">result 1 … 4</text>
+<text x="480.0" y="409.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">REJECT bit = 1</text>
+<text x="480.0" y="425.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">ackSeq := seq</text>
+<text x="480.0" y="441.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">ACK := REQ (last)</text>
+<rect x="60" y="330" width="240" height="150" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="180.0" y="377.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">BUSY / RUNNING</text>
+<text x="180.0" y="393.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">params latched</text>
+<text x="180.0" y="409.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">ackSeq, result 0</text>
+<text x="180.0" y="425.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">ACK := REQ (last)</text>
+<text x="180.0" y="441.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">stateCode 2 RUN</text>
+<rect x="60" y="540" width="240" height="150" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="180.0" y="587.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">JOB END (1 scan)</text>
+<text x="180.0" y="603.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">job.idDone, result,</text>
+<text x="180.0" y="619.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">cycle_s written</text>
+<text x="180.0" y="635.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">BUSY := 0</text>
+<text x="180.0" y="651.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">DONE := NOT DONE</text>
+<line x1="300" y1="195" x2="360" y2="195" stroke="#2e7d32" stroke-width="2" marker-end="url(#ag)"/>
+<text x="305" y="185" font-size="11" text-anchor="start" font-weight="normal" fill="#2e7d32">REQ</text>
+<line x1="480" y1="270" x2="480" y2="330" stroke="#c62828" stroke-width="2" marker-end="url(#ar)"/>
+<text x="488" y="305" font-size="11" text-anchor="start" font-weight="normal" fill="#c62828">result ≠ 0</text>
+<path d="M360 240 L330 240 L330 400 L300 400" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#ag)"/>
+<text x="205" y="300" font-size="11" text-anchor="start" font-weight="normal" fill="#000"></text>
+<text x="306" y="282" font-size="11" text-anchor="start" font-weight="normal" fill="#2e7d32">result 0</text>
+<path d="M600 405 L640 405 L640 106 L180 106 L180 120" stroke="#c62828" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<text x="645" y="250" font-size="11" text-anchor="start" font-weight="normal" fill="#c62828">next scan</text>
+<line x1="180" y1="480" x2="180" y2="540" stroke="#2e7d32" stroke-width="2" marker-end="url(#ag)"/>
+<text x="188" y="515" font-size="11" text-anchor="start" font-weight="normal" fill="#2e7d32">job finished / aborted</text>
+<path d="M60 615 L30 615 L30 195 L60 195" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#ag)"/>
+<text x="34" y="420" font-size="11" text-anchor="start" font-weight="normal" fill="#000"></text>
+<rect x="330" y="560" width="300" height="130" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="480.0" y="597.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Parallel rungs (every scan)</text>
+<text x="480.0" y="613.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">heartbeat +1 / s (reg 3)</text>
+<text x="480.0" y="629.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">status word + state code</text>
+<text x="480.0" y="645.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">event block on state change</text>
+<text x="480.0" y="661.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">watchdog: 226 unchanged 5 s → GwOk = 0</text>
+<rect x="60" y="720" width="570" height="90" rx="0" fill="#fffde7" stroke="#000" stroke-width="1.2"/>
+<text x="345.0" y="753.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Command 4 (acknowledge alarm)</text>
+<text x="345.0" y="769.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">accepted also while BUSY; no job start; result 0; resets alarms whose cause is gone.</text>
+<text x="345.0" y="785.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">Repeated REQ with the same value = no change = no action (idempotent).</text>
+<text x="720" y="95" font-size="15" text-anchor="start" font-weight="bold" fill="#1565c0">FMS controller (Modbus client) – fmsctl DeviceLink</text>
+<rect x="720" y="120" width="260" height="120" rx="0" fill="#e3f2fd" stroke="#000" stroke-width="1.2"/>
+<text x="850.0" y="168.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">FREE</text>
+<text x="850.0" y="184.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">previous ACK = REQ</text>
+<text x="850.0" y="200.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">device ONLINE, READY</text>
+<rect x="1050" y="120" width="260" height="120" rx="0" fill="#e3f2fd" stroke="#000" stroke-width="1.2"/>
+<text x="1180.0" y="160.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">WRITE DATA</text>
+<text x="1180.0" y="176.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">job.id (400-401)</text>
+<text x="1180.0" y="192.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">type params 402-419</text>
+<text x="1180.0" y="208.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">code 200, seq 201</text>
+<rect x="1050" y="290" width="260" height="120" rx="0" fill="#e3f2fd" stroke="#000" stroke-width="1.2"/>
+<text x="1180.0" y="338.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">TOGGLE REQ</text>
+<text x="1180.0" y="354.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">read 202, REQ := NOT REQ</text>
+<text x="1180.0" y="370.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">FC06 202 (own frame)</text>
+<rect x="1050" y="460" width="260" height="120" rx="0" fill="#e3f2fd" stroke="#000" stroke-width="1.2"/>
+<text x="1180.0" y="500.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">WAIT ACK</text>
+<text x="1180.0" y="516.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">poll 8 + 9 every 20 ms</text>
+<text x="1180.0" y="532.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">ACK = REQ ∧ ackSeq = seq</text>
+<text x="1180.0" y="548.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">timeout 5 s</text>
+<rect x="720" y="460" width="260" height="120" rx="0" fill="#e3f2fd" stroke="#000" stroke-width="1.2"/>
+<text x="850.0" y="500.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">WAIT DONE</text>
+<text x="850.0" y="516.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">poll job.idDone = id</text>
+<text x="850.0" y="532.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">∧ BUSY = 0</text>
+<text x="850.0" y="548.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">timeout per job</text>
+<rect x="720" y="630" width="260" height="120" rx="0" fill="#e3f2fd" stroke="#000" stroke-width="1.2"/>
+<text x="850.0" y="670.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">CLOSED</text>
+<text x="850.0" y="686.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">read job.result,</text>
+<text x="850.0" y="702.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">job.cycle_s → DB</text>
+<text x="850.0" y="718.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">next job may start</text>
+<rect x="1050" y="630" width="260" height="120" rx="0" fill="#ffebee" stroke="#000" stroke-width="1.2"/>
+<text x="1180.0" y="670.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">ERROR</text>
+<text x="1180.0" y="686.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">rejected (result) /</text>
+<text x="1180.0" y="702.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">ACK timeout / offline</text>
+<text x="1180.0" y="718.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">→ log, retry later</text>
+<line x1="980" y1="180" x2="1050" y2="180" stroke="#1565c0" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="1180" y1="240" x2="1180" y2="290" stroke="#1565c0" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="1180" y1="410" x2="1180" y2="460" stroke="#1565c0" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="1050" y1="520" x2="980" y2="520" stroke="#1565c0" stroke-width="2" marker-end="url(#ab)"/>
+<text x="990" y="510" font-size="11" text-anchor="start" font-weight="normal" fill="#1565c0">result 0</text>
+<line x1="1180" y1="580" x2="1180" y2="630" stroke="#c62828" stroke-width="2" marker-end="url(#ar)"/>
+<text x="1188" y="610" font-size="11" text-anchor="start" font-weight="normal" fill="#c62828">result ≠ 0 / 5 s</text>
+<line x1="850" y1="580" x2="850" y2="630" stroke="#1565c0" stroke-width="2" marker-end="url(#ab)"/>
+<path d="M720 690 L695 690 L695 180 L720 180" stroke="#1565c0" stroke-width="2" fill="none" marker-end="url(#ab)"/>
+<path d="M980 560 L1010 560 L1010 660 L1050 660" stroke="#c62828" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<text x="1015" y="600" font-size="11" text-anchor="start" font-weight="normal" fill="#c62828">timeout</text>
+<rect x="720" y="770" width="590" height="70" rx="0" fill="#fffde7" stroke="#000" stroke-width="1.2"/>
+<text x="1015.0" y="801.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Never write REQ while a previous REQ ≠ ACK (command open).</text>
+<text x="1015.0" y="817.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">Retry of a WRITE frame is harmless – only the REQ change starts a job.</text>
+</svg>

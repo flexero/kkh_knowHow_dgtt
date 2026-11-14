@@ -1,0 +1,26 @@
+﻿id;name;d;pred;ES;EF;LS;LF;TF;FF;crit;start;finish
+T01;Need statement + baseline KPIs;2;;0;2;0;2;0;0;YES;2027-01-04;2027-01-17
+T02;Requirements questionnaire + part data;4;T01;2;6;2;6;0;0;YES;2027-01-18;2027-02-14
+T03;Capacity study + system type;3;T02;6;9;6;9;0;0;YES;2027-02-15;2027-03-07
+T04;Layout variants + simulation;4;T03;9;13;9;13;0;0;YES;2027-03-08;2027-04-04
+T05;Business case + budget approval;2;T04;13;15;13;15;0;0;YES;2027-04-05;2027-04-18
+T06;URS (owner);4;T05;15;19;15;19;0;0;YES;2027-04-19;2027-05-16
+T07;Tender: RFQ, offers, comparison;6;T06;19;25;19;25;0;0;YES;2027-05-17;2027-06-27
+T08;Contract + scope matrix;2;T07;25;27;25;27;0;0;YES;2027-06-28;2027-07-11
+T09;FDS + interface sheets (integrator);6;T08;27;33;27;33;0;0;YES;2027-07-12;2027-08-22
+T10;Machine tools manufacturing (long lead);30;T08;27;57;30;60;3;0;;2027-07-12;2028-02-06
+T11;Pallet pool + stacker manufacturing;22;T09;33;55;37;59;4;4;;2027-08-23;2028-01-23
+T12;Electrical design + IO lists;8;T09;33;41;33;41;0;0;YES;2027-08-23;2027-10-17
+T13;PLC / cell controller software;14;T12;41;55;41;55;0;0;YES;2027-10-18;2028-01-23
+T14;MES interface development;10;T09;33;43;45;55;12;12;;2027-08-23;2027-10-31
+T15;Virtual commissioning with the twin;4;T13,T14;55;59;55;59;0;0;YES;2028-01-24;2028-02-20
+T16;Site preparation (foundations, power, air, network);10;T09;33;43;52;62;19;19;;2027-08-23;2027-10-31
+T17;Cabinet build + panel tests;6;T12;41;47;53;59;12;12;;2027-10-18;2027-11-28
+T18;FAT machine tools;2;T10;57;59;60;62;3;3;;2028-02-07;2028-02-20
+T19;FAT pallet pool + cell (with VC software);3;T11,T15,T17;59;62;59;62;0;0;YES;2028-02-21;2028-03-12
+T20;Shipping + installation;4;T18,T19,T16;62;66;62;66;0;0;YES;2028-03-13;2028-04-09
+T21;Commissioning (IO check, safety, sequences);5;T20;66;71;66;71;0;0;YES;2028-04-10;2028-05-14
+T22;MES / ERP integration test;2;T21,T14;71;73;71;73;0;0;YES;2028-05-15;2028-05-28
+T23;SAT + availability run;2;T22;73;75;73;75;0;0;YES;2028-05-29;2028-06-11
+T24;Training operators + maintenance;3;T21;71;74;72;75;1;1;;2028-05-15;2028-06-04
+T25;Ramp-up to full output;12;T23,T24;75;87;75;87;0;0;YES;2028-06-12;2028-09-03

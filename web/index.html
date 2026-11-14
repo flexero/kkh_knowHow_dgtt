@@ -27,7 +27,13 @@
 <link rel="stylesheet" href="bsfplc.css">
 <link rel="stylesheet" href="am.css">
 <link rel="stylesheet" href="mt.css">
+<link rel="stylesheet" href="mpc.css">
 <link rel="stylesheet" href="ai.css">
+<link rel="stylesheet" href="phd.css">
+<link rel="stylesheet" href="fmse.css">
+<link rel="stylesheet" href="fmse1x.css">
+<link rel="stylesheet" href="fmse2x.css">
+<link rel="stylesheet" href="fmse3x.css">
 <script src="theme.js"></script>
 </head>
 <body>
@@ -57,10 +63,13 @@
     <button class="tab" data-tab="inst">Installation</button>
     <button class="tab" data-tab="hyd">Hydraulics</button>
     <button class="tab" data-tab="bsf">Ball screw + guide factory</button>
+    <button class="tab" data-tab="fmse">FMS engineering</button>
     <button class="tab" data-tab="am">Additive manufacturing</button>
     <button class="tab" data-tab="mt">Machine tools</button>
     <button class="tab" data-tab="std">Standards</button>
     <button class="tab" data-tab="ai">AI in industry</button>
+    <button class="tab" data-tab="phd">Doctoral research</button>
+    <button class="tab" data-tab="mpc">M_P_C tools</button>
     <button class="tab" data-tab="comm">Communication</button>
     <button class="tab" data-tab="whatif">What-if simulation</button>
     <button class="tab" data-tab="learn">How it works</button>
@@ -1349,6 +1358,33 @@
     <div id="mtItem3" hidden></div>
   </section>
 
+  <!-- ============================== M_P_C TOOLS ============================== -->
+  <section id="tab-mpc" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>M_P_C tools – machine + program software + control system design</h2>
+        <span class="sub">calculation programs of the folder "machine+program_software+control_system design" · theory + program combined · same Python code as the command line · offline · example values</span></div>
+      <div class="mx-nav" role="group" aria-label="M_P_C tools item">
+        <button class="mx-el active" data-mpcitem="1">1 · M1 Design method – calculators (GCI, reliability, fatigue, stack-up, optimisation)</button>
+        <button class="mx-el" data-mpcitem="2">2 · M2 Crank mechanism – V-twin compressor (cycle, torque, flywheel, balancing, loads)</button>
+        <button class="mx-el" data-mpcitem="3">3 · M2b Four-bar linkage – analysis, animation, dynamics</button>
+        <button class="mx-el" data-mpcitem="4">4 · M2b Path generation – required track → linkage</button>
+        <button class="mx-el" data-mpcitem="6">6 · M3 Shaft design – loads, deflection, critical speed, DIN 743 proof, key, press fit</button>
+        <button class="mx-el" data-mpcitem="5">5 · Guides + self-test</button>
+        <button class="mx-el" disabled>Field 2 Program software (later)</button>
+        <button class="mx-el" disabled>Field 3 Control system design (later)</button>
+      </div>
+      <p class="intro">Each item runs the programs of the design folder on the twin server (<code>/api/mpc/...</code>, <code>twin/mpc_tools.py</code>). The numbers are identical to
+        <code>python crank.py run</code>, <code>python fourbar.py run / path</code> and <code>python dm_toolkit.py</code>. The guides (item 5) explain every formula next to its code.
+        All inputs are example values – change them and press Calculate.</p>
+    </div>
+    <div id="mpcItem1"></div>
+    <div id="mpcItem2" hidden></div>
+    <div id="mpcItem3" hidden></div>
+    <div id="mpcItem4" hidden></div>
+    <div id="mpcItem5" hidden></div>
+    <div id="mpcItem6" hidden></div>
+  </section>
+
   <!-- ============================== STANDARDS ============================== -->
   <section id="tab-std" class="tabpane">
     <div class="card">
@@ -1362,6 +1398,58 @@
   </section>
 
   <!-- ============================== AI ============================== -->
+  <!-- ============================== FMS ENGINEERING (general method) ============================== -->
+  <section id="tab-fmse" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>FMS engineering – a general method to design, control and implement any flexible manufacturing system</h2>
+        <span class="sub">14 items, built one by one · all process domains · both roles (factory owner's engineer + integrator) · modular circuits and programs · offline</span></div>
+      <div class="mx-nav" role="group" aria-label="FMS engineering item">
+        <button class="mx-el active" data-feitem="1">1 · FMS types, project pipeline, requirements, module standard</button>
+        <button class="mx-el" data-feitem="2">2 · Product → process → machines (all domains), part families, machine count</button>
+        <button class="mx-el" data-feitem="3">3 · Typical elements catalogue – machines, pallets, APC, pools, robots, AGV, AS/RS, tools, washers, CMM</button>
+        <button class="mx-el" data-feitem="4">4 · Capacity, layout, simulation – OEE, bottleneck, Little's law, pallets, AGVs, buffers</button>
+        <button class="mx-el" data-feitem="5">5 · Control architecture – ISA-95 levels, ISA-88 / PackML states, who decides what</button>
+        <button class="mx-el" data-feitem="6">6 · Communication – Profinet, EtherCAT, EtherNet/IP, Modbus TCP, OPC UA, MTConnect, MQTT, IP plan</button>
+        <button class="mx-el" data-feitem="7" disabled>7 · Electrical &amp; safety principles – power, 24 V control, safety PLC, ISO 13849 / 13855 (next)</button>
+        <button class="mx-el" data-feitem="8" disabled>8 · Module library: complete circuits per module (diagrams, IO lists) (next)</button>
+        <button class="mx-el" data-feitem="9" disabled>9 · PLC programming principles – IEC 61131-3, state machines, handshakes, FB standard (next)</button>
+        <button class="mx-el" data-feitem="10" disabled>10 · Module library: complete PLC programs per module + cell controller (next)</button>
+        <button class="mx-el" data-feitem="11" disabled>11 · MES theory + generic MES design for any FMS (next)</button>
+        <button class="mx-el" data-feitem="12" disabled>12 · ERP theory + ERP ⇄ MES integration (next)</button>
+        <button class="mx-el" data-feitem="13" disabled>13 · Implementation in real factories – owner and integrator: URS / FDS, tender, FAT / SAT, ramp-up, ROI (next)</button>
+        <button class="mx-el" data-feitem="14" disabled>14 · Design kit – complete cases: machining, assembly, welding, sheet metal, moulding (next)</button>
+      </div>
+      <p class="intro" id="feIntro1">The <b>general method</b> behind every FMS, whatever the product: <b>1A</b> which kind of system fits (volume–variety chart: transfer line, flexible transfer line, FMS, FMC, stand-alone CNC, reconfigurable system), <b>1B</b> what "flexible" means in machining, assembly, welding, sheet metal, moulding, electronics and painting, <b>1C</b> the project pipeline in 11 phases with gates – tasks of the <b>factory owner's engineer</b> and of the <b>integrator</b> side by side, <b>1D</b> the 40-question requirements questionnaire for any factory (fill, save, export), <b>1E</b> the <b>module standard</b>: every FMS is built from 22 standard modules, each with the same 9 faces (mechanics, circuits, safety, state model, PLC block, handshake, communication, HMI, documents) that items 3–10 fill. All numbers are typical ranges / examples.</p>
+      <p class="intro" id="feIntro2" hidden>From the <b>product</b> to the <b>machines</b>, for any domain: <b>2A</b> part families with production flow analysis (part × machine matrix, rank order clustering, similarity cells, grouping efficacy, what to do with exceptional parts), <b>2B</b> process selection – which process reaches your tolerance (ISO 286 IT grade) and surface (Ra), process chains, joining / assembly / test processes, <b>2C</b> cycle-time estimators with formulas (turning, milling, drilling with power + torque check, robot welding, laser cutting, assembly station), <b>2D</b> capacity → number of machines, set-up hours, takt time, bottleneck (examples: machining FMS, assembly line, welding cells, sheet metal – all editable), <b>2E</b> machine selection checklist and weighted scoring. All numbers are typical values / examples.</p>
+      <p class="intro" id="feIntro3" hidden>The <b>building blocks</b> of every flexible system and how to choose and size them: machine tools, pallets &amp; fixtures, pallet changer, pallet pool + stacker, load stations, robots, AGV / AMR / RGV, conveyors &amp; carriers, AS/RS, tool management, washers, measuring, marking &amp; ID, grippers &amp; clamps, welding positioners, sheet towers, chips &amp; coolant. For each: types with strengths / weaknesses, key parameters, selection rules, a <b>sizing calculator</b> (pallets by Little's law, stacker load, AGV fleet, AS/RS cycles FEM 9.851, sister tools, robot moment, gripper force, DataMatrix size …), the interface to its module, typical mistakes. Plus a transport comparison and a <b>hand-over tolerance stack</b> (worst case vs RSS, coarse-to-fine catching). All numbers are typical values / examples.</p>
+      <p class="intro" id="feIntro4" hidden><b>How much the system really makes, and why:</b> <b>4A</b> OEE with the six big losses as a waterfall (availability, performance, quality, TEEP), <b>4B</b> queueing – why waiting time explodes above 85 % utilisation and why frequent short stops are better than rare long ones (Kingman / Sakasegawa, breakdown variability), <b>4C</b> buffer size between two machines (simulated), <b>4D</b> layout types and a from-to matrix that improves itself (Σ flow × distance, pairwise exchange), <b>4E</b> a <b>discrete-event simulation of a generic FMS</b> (machines with breakdowns, pallets, load stations, vehicles, part mix): throughput, utilisations, queues, Gantt chart, and the throughput-vs-pallets curve with best case, practical worst case and critical WIP. All numbers are examples.</p>
+      <p class="intro" id="feIntro5" hidden><b>How the control of any FMS is organised:</b> <b>5A</b> the ISA-95 levels 0–4 (process, PLC / CNC, cell controller + SCADA, MES, ERP) – what each level does, how fast, which data goes up and down – and a "who decides what" matrix with a quiz, <b>5B</b> the equipment hierarchy (enterprise → site → area → cell → unit → equipment module → control module) and a tag-name builder, <b>5C</b> a live <b>PackML state machine</b> – the standard states, commands, modes and PackTags every module of the library will use, <b>5D</b> one pallet through all levels as an animated message sequence with real message text, <b>5E</b> architecture variants for the cell logic. Examples only.</p>
+      <p class="intro" id="feIntro6" hidden><b>How the modules talk:</b> <b>6A</b> 16 protocols by level and job (IO-Link, PROFINET, EtherCAT, EtherNet/IP, Modbus TCP, CC-Link IE, safety layers, OPC UA, umati, MTConnect, MQTT / Sparkplug, REST, B2MML, Euromap 77, IPC-CFX), <b>6B</b> a selector that recommends a protocol for every link from your factory's conditions (PLC brand, "only Modbus TCP + HTTP" rule, motion, safety, CNC brands, cloud, ERP), <b>6C</b> calculators (PROFINET load, EtherCAT cycle, Modbus TCP poll cycle, historian / MQTT volume), <b>6D</b> an IP / VLAN plan builder with CSV export, <b>6E</b> zones and conduits after IEC 62443 with a flow tester, <b>6F</b> the <b>standard module data block</b> (PackML state, commands, handshake bits, counters, job, heartbeat) mapped to Modbus registers, PROFINET bytes, OPC UA nodes and MQTT Sparkplug topics. Typical values / examples.</p>
+      <p class="intro" id="feIntro7" hidden>Electrical &amp; safety principles – power, 24 V control, safety PLC, ISO 13849 / 13855 – coming in a next step.</p>
+      <p class="intro" id="feIntro8" hidden>Module library: complete circuits per module (diagrams, IO lists) – coming in a next step.</p>
+      <p class="intro" id="feIntro9" hidden>PLC programming principles – IEC 61131-3, state machines, handshakes, FB standard – coming in a next step.</p>
+      <p class="intro" id="feIntro10" hidden>Module library: complete PLC programs per module + cell controller – coming in a next step.</p>
+      <p class="intro" id="feIntro11" hidden>MES theory + generic MES design for any FMS – coming in a next step.</p>
+      <p class="intro" id="feIntro12" hidden>ERP theory + ERP ⇄ MES integration – coming in a next step.</p>
+      <p class="intro" id="feIntro13" hidden>Implementation in real factories – owner and integrator: URS / FDS, tender, FAT / SAT, ramp-up, ROI – coming in a next step.</p>
+      <p class="intro" id="feIntro14" hidden>Design kit – complete cases: machining, assembly, welding, sheet metal, moulding – coming in a next step.</p>
+    </div>
+    <div id="feItem1"></div>
+    <div id="feItem2" hidden></div>
+    <div id="feItem3" hidden></div>
+    <div id="feItem4" hidden></div>
+    <div id="feItem5" hidden></div>
+    <div id="feItem6" hidden></div>
+    <div id="feItem7" hidden></div>
+    <div id="feItem8" hidden></div>
+    <div id="feItem9" hidden></div>
+    <div id="feItem10" hidden></div>
+    <div id="feItem11" hidden></div>
+    <div id="feItem12" hidden></div>
+    <div id="feItem13" hidden></div>
+    <div id="feItem14" hidden></div>
+  </section>
+
   <section id="tab-ai" class="tabpane">
     <div class="card">
       <div class="card-head"><h2>AI in industry – what it really is, where it helps in this factory, and how to start</h2>
@@ -1386,6 +1474,40 @@
     <div id="aiItem2" hidden></div>
     <div id="aiItem3" hidden></div>
     <div id="aiItem4" hidden></div>
+  </section>
+
+  <!-- ============================== DOCTORAL RESEARCH ============================== -->
+  <section id="tab-phd" class="tabpane">
+    <div class="card">
+      <div class="card-head"><h2>Doctoral research – the thesis calculation systems, live</h2>
+        <span class="sub">same formulas and models as the thesis code (thesis/code) · runs offline in the browser · every number labelled design / calculated / simulated / measured</span></div>
+      <div class="mx-nav" role="group" aria-label="Doctoral research item">
+        <button class="mx-el active" data-phditem="1">1 · Thesis map – chapters, progress, contributions, hypotheses, paper 1</button>
+        <button class="mx-el" data-phditem="2">2 · Chapter 4 – capacity &amp; bottleneck calculator, Bayesian updating (failures, repairs, cycle time, scrap)</button>
+        <button class="mx-el" data-phditem="3">3 · Chapter 6 – virtual ramp-up: thesis results + live lab with a hidden true factory</button>
+        <button class="mx-el" data-phditem="4">4 · Chapter 5 – Modbus TCP + HTTP sizing calculator and measured campaign</button>
+        <button class="mx-el" data-phditem="5">5 · Chapter 7 – stepwise FMS introduction: results + investment-plan calculator</button>
+        <button class="mx-el" data-phditem="6">6 · Chapters 8–9 – reference design cases: compressor FMS + ball screw line</button>
+      </div>
+      <p class="intro" id="phdIntro1">The doctoral thesis builds on this twin: <b>can a low-cost digital twin, updated with real data, make the step from standalone CNC machines to an FMS safer?</b>
+        This item shows the structure, what is finished, the four contributions and the status of the hypotheses.</p>
+      <p class="intro" id="phdIntro2" hidden>Chapter 4 of the thesis: the <b>static capacity</b> of every station (find the bottleneck before simulating) and <b>Bayesian updating</b> – how a design value
+        (e.g. "MTBF 30 h") and its confidence become a probability distribution that real shop-floor data then correct. Change the numbers and watch the result.</p>
+      <p class="intro" id="phdIntro3" hidden>Chapter 6: a <b>virtual ramp-up</b>. A hidden "true factory" behaves differently from the design; the twin sees only machine data and must learn.
+        Left: the thesis results over 30 factories. Below: run one factory yourself and compare the design model, the Bayesian twin and the twin with discrepancy learning.</p>
+      <p class="intro" id="phdIntro4" hidden>Chapter 5: with only <b>Ethernet, Modbus TCP and HTTP</b>, how many machines can one gateway poll, how fast are state changes seen, how many short events are lost –
+        and how the <b>event block</b> (change counter + time stamp + 8-event ring in the PLC) removes the loss. Calculator + measured results.</p>
+      <p class="intro" id="phdIntro5" hidden>Chapter 7: from standalone CNC machines to an FMS <b>step by step</b>. Six investment options over four half-years – all at once, a plan fixed at design time,
+        or re-decided every half-year with the Bayesian twin? Thesis results over 40 hidden factories, and a calculator to test your own plan.</p>
+      <p class="intro" id="phdIntro6" hidden>Chapter 9: the method applied to the <b>compressor FMS</b> and the <b>ball screw shaft line</b> as reference design cases – frozen design prediction,
+        robustness of the first investment steps, capacity and bottlenecks, transfer test of the Bayesian twin and the data path for 25 and 73 machines.</p>
+    </div>
+    <div id="phdItem1"></div>
+    <div id="phdItem2" hidden></div>
+    <div id="phdItem3" hidden></div>
+    <div id="phdItem4" hidden></div>
+    <div id="phdItem5" hidden></div>
+    <div id="phdItem6" hidden></div>
   </section>
 
   <section id="tab-comm" class="tabpane">
@@ -1754,8 +1876,11 @@
 <script type="module" src="amlpbf.js"></script>
 <script type="module" src="amind.js"></script>
 <script type="module" src="mt.js"></script>
+<script type="module" src="mpc.js"></script>
 <script type="module" src="std.js"></script>
 <script type="module" src="ai.js"></script>
+<script type="module" src="phd.js"></script>
+<script type="module" src="fmse.js"></script>
 <script type="module" src="hydlad.js"></script>
 <script type="module" src="hydref.js"></script>
 <script type="module" src="machref.js"></script>

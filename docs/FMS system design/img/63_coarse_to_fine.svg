@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="Arial, Helvetica, sans-serif">
+<title>Coarse-to-fine catching: three stages reduce the hand-over error from about 15 mm to 0.02 mm</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1200" height="560" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="18" text-anchor="start" fill="#111" font-weight="bold">Coarse-to-fine catching – each stage must catch the error left by the stage before</text>
+<text x="24.0" y="54.0" font-size="12" text-anchor="start" fill="#444">Example AGV → station (JSON stack): worst case ± 15.5 mm, RSS ± 8.96 mm arrive at stage 1. Values are typical design values (examples).</text>
+<rect x="40.0" y="90.0" width="360.0" height="420.0" rx="8" fill="#059669" stroke="#059669" stroke-width="1" fill-opacity="0.06"/>
+<rect x="40.0" y="90.0" width="360.0" height="420.0" rx="8" fill="none" stroke="#059669" stroke-width="1"/>
+<text x="220.0" y="118.0" font-size="15" text-anchor="middle" fill="#059669" font-weight="bold">Stage 1 – coarse</text>
+<text x="220.0" y="140.0" font-size="12" text-anchor="middle" fill="#111">guide rails / funnel rollers / lead-in plates</text>
+<path d="M70,180 L190,300 L190,340 M370,180 L250,300 L250,340" fill="none" stroke="#059669" stroke-width="4"/>
+<line x1="220.0" y1="170.0" x2="370.0" y2="170.0" stroke="#333" stroke-width="1" marker-end="url(#ah)"/>
+<line x1="220.0" y1="170.0" x2="70.0" y2="170.0" stroke="#333" stroke-width="1" marker-end="url(#ah)"/>
+<text x="220.0" y="162.0" font-size="12" text-anchor="middle" fill="#111">capture ± 16 mm (≥ worst case 15.5)</text>
+<rect x="193.0" y="314.0" width="54.0" height="22.0" rx="0" fill="#059669" stroke="#059669" stroke-width="1" fill-opacity="0.5"/>
+<text x="220.0" y="364.0" font-size="13" text-anchor="middle" fill="#059669" font-weight="bold">leaves ± 2–3 mm</text>
+<text x="60.0" y="400.0" font-size="11" text-anchor="start" fill="#444">error in (log scale)</text>
+<text x="60.0" y="450.0" font-size="11" text-anchor="start" fill="#444">error out</text>
+<rect x="60.0" y="408.0" width="262.1" height="18.0" rx="0" fill="#94a3b8" stroke="none" stroke-width="1"/>
+<text x="326.1" y="422.0" font-size="11" text-anchor="start" fill="#111">± 16 mm</text>
+<rect x="60.0" y="458.0" width="196.1" height="18.0" rx="0" fill="#059669" stroke="none" stroke-width="1"/>
+<text x="260.1" y="472.0" font-size="11" text-anchor="start" fill="#111">± 2.5 mm</text>
+<line x1="402.0" y1="300.0" x2="423.0" y2="300.0" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="425.0" y="90.0" width="360.0" height="420.0" rx="8" fill="#d97706" stroke="#d97706" stroke-width="1" fill-opacity="0.06"/>
+<rect x="425.0" y="90.0" width="360.0" height="420.0" rx="8" fill="none" stroke="#d97706" stroke-width="1"/>
+<text x="605.0" y="118.0" font-size="15" text-anchor="middle" fill="#d97706" font-weight="bold">Stage 2 – medium</text>
+<text x="605.0" y="140.0" font-size="12" text-anchor="middle" fill="#111">cones / tapered pins / V-blocks</text>
+<path d="M455,180 L575,300 L575,340 M755,180 L635,300 L635,340" fill="none" stroke="#d97706" stroke-width="4"/>
+<line x1="605.0" y1="170.0" x2="755.0" y2="170.0" stroke="#333" stroke-width="1" marker-end="url(#ah)"/>
+<line x1="605.0" y1="170.0" x2="455.0" y2="170.0" stroke="#333" stroke-width="1" marker-end="url(#ah)"/>
+<text x="605.0" y="162.0" font-size="12" text-anchor="middle" fill="#111">capture ± 3–5 mm</text>
+<rect x="578.0" y="314.0" width="54.0" height="22.0" rx="0" fill="#d97706" stroke="#d97706" stroke-width="1" fill-opacity="0.5"/>
+<text x="605.0" y="364.0" font-size="13" text-anchor="middle" fill="#d97706" font-weight="bold">leaves ± 0.1–0.2 mm</text>
+<text x="445.0" y="400.0" font-size="11" text-anchor="start" fill="#444">error in (log scale)</text>
+<text x="445.0" y="450.0" font-size="11" text-anchor="start" fill="#444">error out</text>
+<rect x="445.0" y="408.0" width="212.8" height="18.0" rx="0" fill="#94a3b8" stroke="none" stroke-width="1"/>
+<text x="661.8" y="422.0" font-size="11" text-anchor="start" fill="#111">± 4 mm</text>
+<rect x="445.0" y="458.0" width="96.2" height="18.0" rx="0" fill="#d97706" stroke="none" stroke-width="1"/>
+<text x="545.2" y="472.0" font-size="11" text-anchor="start" fill="#111">± 0.15 mm</text>
+<line x1="787.0" y1="300.0" x2="808.0" y2="300.0" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="810.0" y="90.0" width="360.0" height="420.0" rx="8" fill="#c62828" stroke="#c62828" stroke-width="1" fill-opacity="0.06"/>
+<rect x="810.0" y="90.0" width="360.0" height="420.0" rx="8" fill="none" stroke="#c62828" stroke-width="1"/>
+<text x="990.0" y="118.0" font-size="15" text-anchor="middle" fill="#c62828" font-weight="bold">Stage 3 – fine</text>
+<text x="990.0" y="140.0" font-size="12" text-anchor="middle" fill="#111">locating pins / zero-point / Hirth, clamped</text>
+<path d="M840,180 L960,300 L960,340 M1140,180 L1020,300 L1020,340" fill="none" stroke="#c62828" stroke-width="4"/>
+<line x1="990.0" y1="170.0" x2="1140.0" y2="170.0" stroke="#333" stroke-width="1" marker-end="url(#ah)"/>
+<line x1="990.0" y1="170.0" x2="840.0" y2="170.0" stroke="#333" stroke-width="1" marker-end="url(#ah)"/>
+<text x="990.0" y="162.0" font-size="12" text-anchor="middle" fill="#111">capture ± 0.2–1 mm (chamfer)</text>
+<rect x="963.0" y="314.0" width="54.0" height="22.0" rx="0" fill="#c62828" stroke="#c62828" stroke-width="1" fill-opacity="0.5"/>
+<text x="990.0" y="364.0" font-size="13" text-anchor="middle" fill="#c62828" font-weight="bold">final ± 0.01–0.02 mm</text>
+<text x="830.0" y="400.0" font-size="11" text-anchor="start" fill="#444">error in (log scale)</text>
+<text x="830.0" y="450.0" font-size="11" text-anchor="start" fill="#444">error out</text>
+<rect x="830.0" y="408.0" width="139.0" height="18.0" rx="0" fill="#94a3b8" stroke="none" stroke-width="1"/>
+<text x="973.0" y="422.0" font-size="11" text-anchor="start" fill="#111">± 0.5 mm</text>
+<rect x="830.0" y="458.0" width="24.6" height="18.0" rx="0" fill="#c62828" stroke="none" stroke-width="1"/>
+<text x="858.6" y="472.0" font-size="11" text-anchor="start" fill="#111">± 0.02 mm</text>
+<text x="40.0" y="540.0" font-size="12" text-anchor="start" fill="#444">Rule: capture range of stage n ≥ error left by stage n−1 (with margin). Precision never comes from the vehicle – it comes from the station.</text>
+</svg>

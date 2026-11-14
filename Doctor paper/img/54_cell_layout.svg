@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1100" height="640" fill="#ffffff"/>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+    </marker>
+    <marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/>
+    </marker>
+    <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2c7a3f"/>
+    </marker>
+    <marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b35c00"/>
+    </marker>
+  </defs>
+  <text x="550" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#222">Crankcase FMS cell – 16 pallet locations, 12 pallets, 1 shuttle (example layout)</text>
+  <text x="550" y="52" font-size="13" text-anchor="middle" fill="#555">Location numbers = Modbus register pal.slotNN (300 + NN − 1) of PPS-1. Move time [example] = 12 s + 2 s × |source − destination|</text>
+
+  <!-- rack locations 1..12 -->
+  <g font-size="13" text-anchor="middle">
+    <text x="365" y="88" font-size="14" font-weight="bold" fill="#333">Pallet rack (locations 1–12)</text>
+    <g fill="#f2f2f2" stroke="#666" stroke-width="1.2">
+      <rect x="40" y="100" width="52" height="70"/><rect x="96" y="100" width="52" height="70"/><rect x="152" y="100" width="52" height="70"/>
+      <rect x="208" y="100" width="52" height="70"/><rect x="264" y="100" width="52" height="70"/><rect x="320" y="100" width="52" height="70"/>
+      <rect x="376" y="100" width="52" height="70"/><rect x="432" y="100" width="52" height="70"/><rect x="488" y="100" width="52" height="70"/>
+      <rect x="544" y="100" width="52" height="70"/><rect x="600" y="100" width="52" height="70"/><rect x="656" y="100" width="52" height="70"/>
+    </g>
+    <g fill="#222" font-weight="bold">
+      <text x="66" y="124">1</text><text x="122" y="124">2</text><text x="178" y="124">3</text><text x="234" y="124">4</text>
+      <text x="290" y="124">5</text><text x="346" y="124">6</text><text x="402" y="124">7</text><text x="458" y="124">8</text>
+      <text x="514" y="124">9</text><text x="570" y="124">10</text><text x="626" y="124">11</text><text x="682" y="124">12</text>
+    </g>
+    <g fill="#555" font-size="11">
+      <text x="66" y="145">P1·A</text><text x="122" y="145">P2·A</text><text x="178" y="145">P3·A</text><text x="234" y="145">P4·A</text>
+      <text x="290" y="145">P5·A</text><text x="346" y="145">P6·A</text><text x="402" y="145">P7·A</text><text x="458" y="145">P8·A</text>
+      <text x="514" y="145">P9·B</text><text x="570" y="145">P10·B</text><text x="626" y="145">P11·B</text><text x="682" y="145">P12·B</text>
+      
+    </g>
+  </g>
+
+  <!-- shuttle rail -->
+  <rect x="40" y="200" width="1000" height="34" fill="#e6e6e6" stroke="#555"/>
+  <line x1="40" y1="217" x2="1040" y2="217" stroke="#888" stroke-dasharray="8 6"/>
+  <rect x="470" y="196" width="80" height="42" rx="4" fill="#ffffff" stroke="#222" stroke-width="2"/>
+  <text x="510" y="214" font-size="12" text-anchor="middle" font-weight="bold">shuttle</text>
+  <text x="510" y="229" font-size="11" text-anchor="middle">1 pallet</text>
+  <text x="90" y="256" font-size="12" fill="#333">Shuttle rail (linear, one move at a time) – PPS-1, IP 10.70.10.10 [example]. At start-up pallet N stands in rack location N.</text>
+
+  <!-- load station + HMCs -->
+  <g text-anchor="middle">
+    <rect x="740" y="270" width="70" height="80" fill="#fff6e5" stroke="#b35c00" stroke-width="2"/>
+    <text x="775" y="292" font-size="14" font-weight="bold">13</text>
+    <text x="775" y="310" font-size="11">LOAD</text>
+    <text x="775" y="324" font-size="11">station</text>
+    <text x="775" y="338" font-size="11">LOAD-CC</text>
+    <rect x="830" y="270" width="64" height="80" fill="#eaf2fb" stroke="#1f5fa8" stroke-width="2"/>
+    <text x="862" y="292" font-size="14" font-weight="bold">14</text>
+    <text x="862" y="312" font-size="11">changer</text>
+    <text x="862" y="326" font-size="11">HMC-01</text>
+    <rect x="904" y="270" width="64" height="80" fill="#eaf2fb" stroke="#1f5fa8" stroke-width="2"/>
+    <text x="936" y="292" font-size="14" font-weight="bold">15</text>
+    <text x="936" y="312" font-size="11">changer</text>
+    <text x="936" y="326" font-size="11">HMC-02</text>
+    <rect x="978" y="270" width="64" height="80" fill="#eaf2fb" stroke="#1f5fa8" stroke-width="2"/>
+    <text x="1010" y="292" font-size="14" font-weight="bold">16</text>
+    <text x="1010" y="312" font-size="11">changer</text>
+    <text x="1010" y="326" font-size="11">HMC-03</text>
+    <!-- machines -->
+    <rect x="830" y="370" width="64" height="90" fill="#d6e4f5" stroke="#1f5fa8"/>
+    <rect x="904" y="370" width="64" height="90" fill="#d6e4f5" stroke="#1f5fa8"/>
+    <rect x="978" y="370" width="64" height="90" fill="#d6e4f5" stroke="#1f5fa8"/>
+    <text x="862" y="404" font-size="12" font-weight="bold">HMC-01</text><text x="862" y="420" font-size="11">.21</text>
+    <text x="936" y="404" font-size="12" font-weight="bold">HMC-02</text><text x="936" y="420" font-size="11">.22</text>
+    <text x="1010" y="404" font-size="12" font-weight="bold">HMC-03</text><text x="1010" y="420" font-size="11">.23</text>
+    <text x="936" y="480" font-size="12">270 / 345 / 450 s per VC10 / VC20 / VC30 [design]</text>
+    <!-- operator -->
+    <circle cx="775" cy="388" r="10" fill="#fff" stroke="#b35c00" stroke-width="2"/>
+    <line x1="775" y1="398" x2="775" y2="425" stroke="#b35c00" stroke-width="2"/>
+    <line x1="760" y1="408" x2="790" y2="408" stroke="#b35c00" stroke-width="2"/>
+    <text x="775" y="445" font-size="12" font-weight="bold">operator</text>
+    <text x="775" y="460" font-size="11">at LOAD-CC</text>
+  </g>
+  <line x1="775" y1="270" x2="775" y2="236" stroke="#b35c00" stroke-width="2"/>
+  <line x1="862" y1="270" x2="862" y2="236" stroke="#1f5fa8" stroke-width="2"/>
+  <line x1="936" y1="270" x2="936" y2="236" stroke="#1f5fa8" stroke-width="2"/>
+  <line x1="1010" y1="270" x2="1010" y2="236" stroke="#1f5fa8" stroke-width="2"/>
+  <g stroke="#666"><line x1="66" y1="170" x2="66" y2="200"/><line x1="682" y1="170" x2="682" y2="200"/><line x1="374" y1="170" x2="374" y2="200"/></g>
+
+  <!-- flows -->
+  <path d="M 790 268 C 800 250, 840 250, 850 268" fill="none" stroke="#2c7a3f" stroke-width="2.5" marker-end="url(#arg)"/>
+  <text x="815" y="246" font-size="12" font-weight="bold" fill="#2c7a3f" text-anchor="middle">1</text>
+  <path d="M 936 268 C 900 180, 560 180, 545 172" fill="none" stroke="#1f5fa8" stroke-width="2.5" marker-end="url(#arb)"/>
+  <text x="745" y="190" font-size="11" fill="#1f5fa8">2</text>
+  <path d="M 600 172 C 640 190, 740 190, 760 268" fill="none" stroke="#b35c00" stroke-width="2.5" marker-end="url(#aro)"/>
+  <text x="652" y="196" font-size="11" fill="#b35c00">3</text>
+
+  <!-- legend box -->
+  <rect x="40" y="290" width="660" height="330" fill="#fafafa" stroke="#bbb"/>
+  <text x="56" y="314" font-size="14" font-weight="bold">Typical pallet cycle when the load station is busy (3 moves per part)</text>
+  <g font-size="12" fill="#222">
+    <text x="56" y="340"><tspan fill="#2c7a3f" font-weight="bold">Move 1</tspan>  load station 13 → HMC changer 14/15/16 with a raw casting: 12 + 2 × (1…3) = 14…18 s, mean 16 s</text>
+    <text x="56" y="362"><tspan fill="#1f5fa8" font-weight="bold">Move 2</tspan>  finished HMC → first free rack location (load station occupied): mean 29 s [calculated, mean rack 6.5]</text>
+    <text x="56" y="384"><tspan fill="#b35c00" font-weight="bold">Move 3</tspan>  rack → load station when it becomes free: mean 25 s</text>
+    <text x="56" y="406">Shortcut (2 moves): if the load station is free, the finished pallet goes HMC → 13 directly (16 s).</text>
+    <text x="56" y="436" font-weight="bold">Fixed design data [example, fmsctl/cell/controller.py]</text>
+    <text x="56" y="458">• Pallets 1–8: fixture A (VC10, VC20) · pallets 9–12: fixture B (VC30) – FIXTURE_OF_PALLET</text>
+    <text x="56" y="480">• 16 locations, 12 pallets → at least 4 locations are always free (deadlock margin, chapter 7)</text>
+    <text x="56" y="502">• Each HMC changer is ONE location: the machine waits while the shuttle exchanges its pallet</text>
+    <text x="56" y="524">• Load station tasks (one operator): load 90 s, unload 60 s, unload + load 140 s,</text>
+    <text x="70" y="542">fixture change 600 s, each × U(0.8, 1.3) in the virtual plant [example]</text>
+    <text x="56" y="564">• Modbus TCP devices: PPS-1 .10, LOAD-CC .11, HMC-01..03 .21–.23 in VLAN 10.70.10.0/24</text>
+    <text x="56" y="586">• Cell controller PC 10.70.1.10 = the only Modbus client; operator screen by HTTP, port 8090</text>
+    <text x="56" y="608" fill="#555">Real layout: the supplier decides the rack geometry (often 2 levels); keep the location numbers.</text>
+  </g>
+  <text x="870" y="520" font-size="12" fill="#333" text-anchor="middle">Move example: 13 → 15</text>
+  <text x="870" y="538" font-size="12" fill="#333" text-anchor="middle">t = 12 + 2 × |13 − 15| = 16 s</text>
+  <text x="870" y="566" font-size="12" fill="#333" text-anchor="middle">Move example: 16 → 1</text>
+  <text x="870" y="584" font-size="12" fill="#333" text-anchor="middle">t = 12 + 2 × 15 = 42 s (longest)</text>
+</svg>

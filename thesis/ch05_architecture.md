@@ -45,17 +45,8 @@ time-stamp error (5.5), and (iv) a laboratory measurement campaign that tests th
 ### 5.3.1 Layers
 The architecture has five layers, aligned with the ISA-95 / IEC 62264 levels used in the factory design:
 
-```
- L4  ERP (HTTP/JSON)          L3  MES (HTTP/JSON)          Twin + Bayesian updater (HTTP/JSON, SQLite historian)
-                     \                 |                   /
-                      +------ HTTP/JSON API of the gateway / twin server (offline PC) ------+
-                                       |
- L2  Gateway: Modbus TCP client, multi-rate polling, event reconstruction, quality flags, heartbeat
-                                       |  Modbus TCP (one client connection per machine), VLAN per zone
- L1  Machine PLC / CNC: Modbus TCP server with the standard register map V1.1 + event block
- L0  Sensors, drives, safety (hard-wired, not on the network)
-```
-**Figure 5.1** Layers of the low-cost twin architecture (to be redrawn as vector graphic).
+![Figure 5.1](figures/fig5_1_layers.svg)
+**Figure 5.1** Layers of the low-cost twin architecture.
 
 ### 5.3.2 Design rules
 1. **One client.** The gateway is the only Modbus client on the machine network. MES, ERP, browser and twin never talk
@@ -238,6 +229,12 @@ them**: the loss was 0.00 % in every run, including 160 machines polled only eve
 identical to the logged truth, because the emulated PLC writes exact time stamps; real PLCs add their scan-time
 resolution (Section 5.8). State-only polling of the same data reported only 63–71 % of the changes at $P$ = 1 s,
 89–91 % at 0.25 s and 98 % at 0.1 s.
+
+![Figure 5.2](figures/fig5_2_loss.svg)
+**Figure 5.2** Share of state changes not captured: state-only polling at three periods versus the event block [measured].
+
+![Figure 5.3](figures/fig5_3_cycle.svg)
+**Figure 5.3** Poll cycle time versus number of machines: sequential (measured and Eq. 5.4) and parallel gateway, PLC scan 10 ms [measured / calculated].
 
 **Comparison with the formulas of Section 5.5.**
 - *Sequential capacity (Eq. 5.4).* The measured RTT (median 6.5 ms; the mean is slightly higher because sleeps

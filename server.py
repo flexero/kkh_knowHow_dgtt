@@ -74,6 +74,9 @@ HTTP API
                                 sim {on?, auto?, speed?, faults?} | runin {cmd: start|stop|ack} | ack {id}
                                 device {id, proto: sim|http|modbus|mqtt, addr?, enabled?}
   POST /api/spst/ingest         {"device": "TQ-01", "values": {"torque_nm": 125.3}} (or a list) - gateways
+  M_P_C tools tab (twin/mpc_tools.py; programs in "machine+program_software+control_system design"), lazy:
+  GET  /api/mpc/catalog | guide?id=M1|M2|M2b | selftest
+  POST /api/mpc/dm | crank | fourbar | path | path3      (see twin/mpc_tools.py)
   Ball screw + guide factory - item 4 communication (twin/bsf_comm.py, guide docs/43_bsf_communication_modbus_http.md)
   Inert until started: no thread and no port opens before POST /api/bsf/control {"action": "start"}.
   GET  /api/bsf/status | machines | machine?id=BS-TGR-03 | frames?n=40 | events?since=N&wait=20 | map | map.csv | control | api
@@ -112,6 +115,8 @@ import sys
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
+
+mimetypes.add_type("model/gltf-binary", ".glb")   # CAD models for the 3D view (docs/55)
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ROOT)
@@ -200,6 +205,8 @@ class Handler(BaseHTTPRequestHandler):
                 return self._spst_get(p, parse_qs(url.query))
             if p.startswith("/api/bsf/"):
                 return self._bsf("GET", p, parse_qs(url.query))
+            if p.startswith("/api/mpc"):
+                return self._mpc("GET", p, parse_qs(url.query))
             if p == "/api/export.csv":
                 return self._send(200, ENGINE.historian.export_csv(), "text/csv; charset=utf-8",
                                   {"Content-Disposition": "attachment; filename=twin_history.csv"})
@@ -236,6 +243,13 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(200, SPST.export_csv(), "text/csv; charset=utf-8",
                               {"Content-Disposition": "attachment; filename=spst_results.csv"})
         return self._json(404, {"error": "not found"})
+
+    def _mpc(self, method, p, q, body=None):
+        from twin import mpc_tools  # lazy import: M_P_C tools tab (calculation programs of the design folder)
+        code, obj, ctype = mpc_tools.handle(method, p, q, body)
+        if ctype == "json":
+            return self._json(code, obj)
+        return self._send(code, obj, ctype)
 
     def _bsf(self, method, p, q, body=None):
         if p.startswith(("/api/bsf/mes/", "/api/bsf/v1/mes/")) or p in ("/api/bsf/mes", "/api/bsf/v1/mes"):
@@ -335,6 +349,8 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json(200, {"ok": True, "message": SPST.ingest(body)})
             if p.startswith("/api/bsf/"):
                 return self._bsf("POST", p, parse_qs(urlparse(self.path).query), body)
+            if p.startswith("/api/mpc"):
+                return self._mpc("POST", p, parse_qs(urlparse(self.path).query), body)
             self._json(404, {"error": "not found"})
         except (ValueError, KeyError, TypeError) as e:
             self._json(400, {"ok": False, "error": str(e)})

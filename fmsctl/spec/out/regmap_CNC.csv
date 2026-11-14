@@ -1,0 +1,91 @@
+﻿address (0-based),Modbus 4xxxx,registers,name,type,unit,access,meaning
+0,40001,1,hdr.mapVersion,UINT16,,R,map version 0x0102 = V1.2 (V1.1 + event block + type blocks)
+1,40002,1,hdr.typeCode,UINT16,,R,"device type: 1 CNC, 2 pallet system, 3 load station, 4 station, 5 test bench, 6 AGV, 7 AS/RS"
+2,40003,1,hdr.unitId,UINT16,,R,unit id (plausibility: wrong IP / cable)
+3,40004,1,hdr.heartbeat,UINT16,,R,"+1 every second, wraps 65535 -> 0; frozen = PLC program stopped"
+4,40005,1,std.status,UINT16,,R,"bit0 run, bit1 idle, bit2 set-up, bit3 alarm, bit4 e-stop (copy), bit5 blocked, bit6 starved, bit7 no shift"
+5,40006,1,std.mode,UINT16,,R,"0 manual, 1 auto, 2 set-up, 3 maintenance"
+6,40007,1,std.stateCode,UINT16,,R,0 OFF 1 IDLE 2 RUN 3 SETUP 4 DOWN 5 BLOCKED 6 STARVED
+7,40008,1,std.alarm,UINT16,,R,"alarm code, 0 = none"
+8,40009,1,hs.status,UINT16,,R,"bit0 ACK toggle (= REQ when accepted), bit1 BUSY, bit2 DONE toggle, bit3 REJECT, bit4 READY"
+9,40010,1,hs.ackSeq,UINT16,,R,sequence number of the last accepted / rejected command
+10,40011,1,hs.result,UINT16,,R,"0 OK, 1 unknown command, 2 not ready, 3 bad data, 4 busy"
+11,40012,1,hs.lotDone,UINT16,pcs,R,pieces done of the current job
+20,40021,2,std.good,UINT32,pcs,R,good parts counter
+22,40023,2,std.scrap,UINT32,pcs,R,scrap counter
+24,40025,2,std.lastCycle_s,REAL,s,R,last cycle time
+26,40027,10,std.order,ASCII20,,R,current job / work order
+36,40037,10,std.part,ASCII20,,R,current part code
+100,40101,2,std.power_kW,REAL,kW,R,electrical power
+102,40103,2,std.energy_kWh,REAL,kWh,R,energy counter
+104,40105,2,evt.counter,UINT32,,R,"number of state changes since power-on (event block, thesis Table 5.2)"
+106,40107,2,evt.tLast_ms,UINT32,ms,R,PLC time of the last state change
+108,40109,1,evt.ring0,UINT16,,R,"event ring entry 0 (newest first): state code; followed by time ms (UINT32, 2 registers)"
+111,40112,1,evt.ring1,UINT16,,R,"event ring entry 1 (newest first): state code; followed by time ms (UINT32, 2 registers)"
+114,40115,1,evt.ring2,UINT16,,R,"event ring entry 2 (newest first): state code; followed by time ms (UINT32, 2 registers)"
+117,40118,1,evt.ring3,UINT16,,R,"event ring entry 3 (newest first): state code; followed by time ms (UINT32, 2 registers)"
+120,40121,1,evt.ring4,UINT16,,R,"event ring entry 4 (newest first): state code; followed by time ms (UINT32, 2 registers)"
+123,40124,1,evt.ring5,UINT16,,R,"event ring entry 5 (newest first): state code; followed by time ms (UINT32, 2 registers)"
+126,40127,1,evt.ring6,UINT16,,R,"event ring entry 6 (newest first): state code; followed by time ms (UINT32, 2 registers)"
+129,40130,1,evt.ring7,UINT16,,R,"event ring entry 7 (newest first): state code; followed by time ms (UINT32, 2 registers)"
+200,40201,1,cmd.code,UINT16,,RW,"1 load order, 2 start, 3 stop, 4 ack alarm, 5 recipe; 10 run job, 11 move pallet, 12 operator task, 13 start test, 14 tool data, 20 transport, 21 charge, 30 store, 31 retrieve"
+201,40202,1,cmd.seq,UINT16,,RW,"message counter (+1 per command), copied to hs.ackSeq"
+202,40203,1,cmd.ctl,UINT16,,RW,bit0 REQ toggle – write LAST; device answers ACK = REQ
+203,40204,10,cmd.order,ASCII20,,RW,work order for command 1
+213,40214,10,cmd.part,ASCII20,,RW,part code for command 1
+223,40224,1,cmd.recipe,UINT16,,RW,recipe / NC program no. for commands 1 and 5
+224,40225,2,cmd.lotQty,UINT32,pcs,RW,lot quantity for command 1
+226,40227,1,cmd.gwHeartbeat,UINT16,,W,"gateway heartbeat (+1 per second, FC06); PLC watchdog 5 s"
+300,40301,1,cnc.programNo,UINT16,,R,running NC program (O-number)
+301,40302,1,cnc.palletWork,UINT16,,R,pallet id in the working area (0 = none)
+302,40303,1,cnc.palletSetup,UINT16,,R,pallet id at the pallet-changer set-up side (0 = none / no APC)
+303,40304,1,cnc.toolNo,UINT16,,R,tool in the spindle
+304,40305,2,cnc.spindleLoad_pct,REAL,%,R,spindle load
+306,40307,1,cnc.feedOverride_pct,UINT16,%,R,feed override
+310,40311,1,cnc.toolLife01,UINT16,0.1 %,R,remaining life of tool pocket 1 (0-1000 = 0-100 %)
+311,40312,1,cnc.toolLife02,UINT16,0.1 %,R,remaining life of tool pocket 2 (0-1000 = 0-100 %)
+312,40313,1,cnc.toolLife03,UINT16,0.1 %,R,remaining life of tool pocket 3 (0-1000 = 0-100 %)
+313,40314,1,cnc.toolLife04,UINT16,0.1 %,R,remaining life of tool pocket 4 (0-1000 = 0-100 %)
+314,40315,1,cnc.toolLife05,UINT16,0.1 %,R,remaining life of tool pocket 5 (0-1000 = 0-100 %)
+315,40316,1,cnc.toolLife06,UINT16,0.1 %,R,remaining life of tool pocket 6 (0-1000 = 0-100 %)
+316,40317,1,cnc.toolLife07,UINT16,0.1 %,R,remaining life of tool pocket 7 (0-1000 = 0-100 %)
+317,40318,1,cnc.toolLife08,UINT16,0.1 %,R,remaining life of tool pocket 8 (0-1000 = 0-100 %)
+318,40319,1,cnc.toolLife09,UINT16,0.1 %,R,remaining life of tool pocket 9 (0-1000 = 0-100 %)
+319,40320,1,cnc.toolLife10,UINT16,0.1 %,R,remaining life of tool pocket 10 (0-1000 = 0-100 %)
+320,40321,1,cnc.toolLife11,UINT16,0.1 %,R,remaining life of tool pocket 11 (0-1000 = 0-100 %)
+321,40322,1,cnc.toolLife12,UINT16,0.1 %,R,remaining life of tool pocket 12 (0-1000 = 0-100 %)
+322,40323,1,cnc.toolLife13,UINT16,0.1 %,R,remaining life of tool pocket 13 (0-1000 = 0-100 %)
+323,40324,1,cnc.toolLife14,UINT16,0.1 %,R,remaining life of tool pocket 14 (0-1000 = 0-100 %)
+324,40325,1,cnc.toolLife15,UINT16,0.1 %,R,remaining life of tool pocket 15 (0-1000 = 0-100 %)
+325,40326,1,cnc.toolLife16,UINT16,0.1 %,R,remaining life of tool pocket 16 (0-1000 = 0-100 %)
+326,40327,1,cnc.toolLife17,UINT16,0.1 %,R,remaining life of tool pocket 17 (0-1000 = 0-100 %)
+327,40328,1,cnc.toolLife18,UINT16,0.1 %,R,remaining life of tool pocket 18 (0-1000 = 0-100 %)
+328,40329,1,cnc.toolLife19,UINT16,0.1 %,R,remaining life of tool pocket 19 (0-1000 = 0-100 %)
+329,40330,1,cnc.toolLife20,UINT16,0.1 %,R,remaining life of tool pocket 20 (0-1000 = 0-100 %)
+330,40331,1,cnc.toolLife21,UINT16,0.1 %,R,remaining life of tool pocket 21 (0-1000 = 0-100 %)
+331,40332,1,cnc.toolLife22,UINT16,0.1 %,R,remaining life of tool pocket 22 (0-1000 = 0-100 %)
+332,40333,1,cnc.toolLife23,UINT16,0.1 %,R,remaining life of tool pocket 23 (0-1000 = 0-100 %)
+333,40334,1,cnc.toolLife24,UINT16,0.1 %,R,remaining life of tool pocket 24 (0-1000 = 0-100 %)
+334,40335,1,cnc.toolLife25,UINT16,0.1 %,R,remaining life of tool pocket 25 (0-1000 = 0-100 %)
+335,40336,1,cnc.toolLife26,UINT16,0.1 %,R,remaining life of tool pocket 26 (0-1000 = 0-100 %)
+336,40337,1,cnc.toolLife27,UINT16,0.1 %,R,remaining life of tool pocket 27 (0-1000 = 0-100 %)
+337,40338,1,cnc.toolLife28,UINT16,0.1 %,R,remaining life of tool pocket 28 (0-1000 = 0-100 %)
+338,40339,1,cnc.toolLife29,UINT16,0.1 %,R,remaining life of tool pocket 29 (0-1000 = 0-100 %)
+339,40340,1,cnc.toolLife30,UINT16,0.1 %,R,remaining life of tool pocket 30 (0-1000 = 0-100 %)
+340,40341,1,tool.lastPocket,UINT16,,R,pocket of the last tool-data command (echo)
+342,40343,2,tool.lastLength_mm,REAL,mm,R,length offset written last (echo)
+344,40345,2,tool.lastRadius_mm,REAL,mm,R,radius offset written last (echo)
+390,40391,2,job.idDone,UINT32,,R,id of the last finished job
+392,40393,1,job.result,UINT16,,R,"0 OK, 1 NOK / scrap, 2 aborted, 3 rejected"
+394,40395,2,job.cycle_s,REAL,s,R,duration of the last job
+400,40401,2,job.id,UINT32,,RW,job id from the cell controller (commands >= 10)
+402,40403,1,job.palletId,UINT16,,RW,pallet to machine
+402,40403,1,tool.pocket,UINT16,,RW,command 14 (tool data): magazine pocket 1-30
+403,40404,1,job.programNo,UINT16,,RW,NC program (O-number) – must exist in the CNC memory
+404,40405,2,tool.length_mm,REAL,mm,RW,command 14: tool length offset from the presetter
+404,40405,1,job.variant,UINT16,,RW,"1 VC10, 2 VC20, 3 VC30"
+405,40406,1,job.qty,UINT16,pcs,RW,parts on the pallet / in the job
+406,40407,2,tool.radius_mm,REAL,mm,RW,command 14: tool radius offset from the presetter
+406,40407,1,job.fixtureId,UINT16,,RW,fixture on the pallet (plausibility check)
+408,40409,1,tool.lifeSet,UINT16,0.1 %,RW,command 14: remaining life to set (1000 = new tool)
+410,40411,10,job.text,ASCII20,,RW,serial no. / item code of the job

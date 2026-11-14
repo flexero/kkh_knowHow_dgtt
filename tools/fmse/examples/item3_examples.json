@@ -1,0 +1,35 @@
+{
+  "_note": "Shared worked-example inputs for FMS engineering item 3 (elements of an FMS): guide docs/FMS system design/63_fms_elements_catalogue.md, tools/fmse/*.py, web/fmse3x*.js. All values are EXAMPLES. The 17 basic sizing calculators use EXACTLY the inputs and formulas of the existing web calculators in web/fmse3.js (object CALC, function run) – read them there; this file adds the deeper calculations below. Every consumer uses exactly these inputs and formulas so the numbers match.",
+  "basic_calculators": {
+    "_source": "web/fmse3.js CALC – keys cycle, pallets, apc, pool, loadst, robot, agv, conv, asrs, tools, wash, meas, dmc, grip, posit, tower, chips; default inputs = the third field of each inp entry. Do not change them.",
+    "_g": 9.81
+  },
+  "_formulas": {
+    "agv_battery": "E_trip_Wh = (P_drive_kW*t_drive_s + P_lift_kW*t_lift_s)/3.6 ; busy_s = trips_per_h*(t_drive_s + t_lift_s + t_other_s) ; E_h_Wh = trips_per_h*E_trip_Wh + P_idle_kW*1000*(3600 - busy_s)/3600 ; usable_Wh = V*Ah*DoD ; runtime_h = usable_Wh/E_h_Wh ; charge_h = usable_Wh/(P_charge_kW*1000*eta_charge) ; availability_swap_free = runtime_h/(runtime_h + charge_h)  (charging stops the vehicle) ; opportunity charging: charge share needed = E_h_Wh/(P_charge_kW*1000*eta_charge) [h of charging per h of work]",
+    "robot_inertia": "load = gripper (point mass at e_g) + part (cuboid a x b x c, rotation about the wrist axis parallel to c, CoG at e_p): J = m_g*e_g^2 + m_p*(a^2+b^2)/12 + m_p*e_p^2 [kg m2]; M = (m_g*e_g + m_p*e_p)*g [N m]; use = J/J_allow, M/M_allow; rule <= 0.8",
+    "screw_preload": "F_preload = T/(K*d)  (T N m, d m, K = nut factor)",
+    "press_fit": "solid shaft in a hub, same material: p = E*delta/(2*d) * (1 - (d/D)^2) [MPa, delta and d in mm] ; F_press = p*pi*d*L*mu [N]",
+    "leak_test": "Q = V*dp/dt [mbar l/s, V in l, dp in mbar, dt in s] ; Q_cm3_min = Q*60 (1 mbar l/s ~ 1 cm3/s at 1 bar) ; temperature error dp_T = p_abs*dT/T_abs [mbar, p_abs in mbar]",
+    "vision": "pixel_mm = FOV_mm/pixels (worst of x and y) ; px_per_defect = defect_mm/pixel_mm ; rule >= 3 px for detection ; measurement repeatability ~ pixel_mm/10 (sub-pixel, good lighting)",
+    "transport_score": "score_option = sum_k w_k*s_k / sum_k w_k ; s = star count 1..5 from the table; for 'investment' use 6 - stars (cheap = good)",
+    "stack": "worst case = sum |t_i| ; RSS = sqrt(sum t_i^2) ; verdict: capture >= WC safe, RSS <= capture < WC risk, capture < RSS not OK",
+    "conveyor_drive": "F = m_total*g*mu_roll + m_total*a ; P = F*v/eta [W]",
+    "stacker_energy": "not used"
+  },
+  "agv_battery": {"V": 48, "Ah": 100, "DoD": 0.8, "P_drive_kW": 1.2, "t_drive_s": 220, "P_lift_kW": 0.8, "t_lift_s": 20, "t_other_s": 20, "trips_per_h": 8, "P_idle_kW": 0.15, "P_charge_kW": 3.0, "eta_charge": 0.9},
+  "robot_inertia": {"m_g": 8, "e_g": 0.10, "m_p": 12, "a": 0.30, "b": 0.20, "c": 0.15, "e_p": 0.20, "J_allow": 1.6, "M_allow": 50, "g": 9.81},
+  "screw_preload": {"T_Nm": 25, "K": 0.2, "d_mm": 8, "proof_load_N": 23500, "_note": "M8 8.8: proof load ~ 23 kN class (check ISO 898-1)"},
+  "press_fit": {"d_mm": 20, "D_mm": 40, "L_mm": 25, "delta_mm": 0.02, "E_MPa": 210000, "mu": 0.12},
+  "leak_test": {"V_l": 0.5, "dp_mbar": 2.0, "dt_s": 10, "p_abs_mbar": 7013, "dT_K": 0.1, "T_K": 293.15},
+  "vision": {"fov_x_mm": 120, "fov_y_mm": 90, "px_x": 2448, "px_y": 2048, "defect_mm": 0.3},
+  "conveyor_drive": {"m_total_kg": 600, "mu_roll": 0.03, "a": 0.3, "v": 0.3, "eta": 0.8, "g": 9.81},
+  "transport_select": {
+    "criteria": ["Route flexibility", "Throughput", "Stop accuracy", "Investment"],
+    "options": [["Forklift AGV", [4, 2, 3, 3]], ["AGV with roller deck", [4, 3, 3, 3]], ["AMR", [5, 2, 2, 2]], ["RGV on rail", [2, 4, 5, 3]], ["Roller / chain conveyor", [1, 4, 4, 2]], ["Stacker crane (pallet pool)", [2, 3, 4, 4]]],
+    "_scores": "star counts copied from web/fmse3_data.js TRANS (route flexibility, throughput, investment) + stop accuracy stars: ±50 mm 1, ±10-30 mm 2, ±5-10 mm 3, ±1-3 mm 4, ≤ ±1 mm 5",
+    "needs": [["FMS pallet pool, 3 machines, fixed line", [2, 4, 5, 3]], ["Kitting to 8 assembly stations, layout changes yearly", [5, 2, 2, 4]], ["Warehouse to lines, Euro pallets, 150 m", [4, 2, 2, 3]]],
+    "_needs": "weights 1..5 per criterion"
+  },
+  "stack": {"contributors": [["AGV stop position (navigation)", 8], ["Floor unevenness effect", 3], ["Load position on the AGV deck", 2], ["Pallet / carrier tolerance", 1], ["Station installation error", 1.5]], "capture_mm": 12, "final_mm": 0.02},
+  "new_elements": ["M13 assembly stations (screwdriving, press-fit, dispensing)", "M14 test stations (leak, function)", "Vision systems (inspection, guidance, code reading)"]
+}

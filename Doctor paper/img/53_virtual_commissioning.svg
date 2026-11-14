@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 860" width="1400" height="860" font-family="Arial, Helvetica, sans-serif">
+<title>Virtual commissioning – the same fmsctl code against the virtual plant, a real PLC (FAT) and the real plant (SAT) – drawing 53-08</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e65100"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker><marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6a1b9a"/></marker></defs>
+<rect x="0" y="0" width="1400" height="860" fill="#fff"/>
+<rect x="6" y="6" width="1388" height="848" fill="none" stroke="#000" stroke-width="1"/>
+<text x="24" y="36" font-size="20" text-anchor="start" font-weight="bold" fill="#000">Virtual commissioning – the same fmsctl code against the virtual plant, a real PLC (FAT) and the real plant (SAT)</text>
+<text x="24" y="58" font-size="13" text-anchor="start" font-weight="normal" fill="#000">Only the device table changes: device_table(virtual=True) → 127.0.0.1:15100+n ; device_table(virtual=False) → 10.70.&lt;zone&gt;.&lt;host&gt;:502</text>
+<rect x="1100" y="814" width="288" height="34" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1108" y="827" font-size="11" text-anchor="start" font-weight="bold" fill="#000">Guide 53 · drawing 53-08</text>
+<text x="1108" y="842" font-size="11" text-anchor="start" font-weight="normal" fill="#000">compressor FMS · item 1 · values = examples</text>
+<rect x="40" y="90" width="420" height="640" rx="0" fill="#e3f2fd" stroke="#000" stroke-width="1.2"/>
+<text x="250" y="118" font-size="14" text-anchor="middle" font-weight="bold" fill="#000">Phase 1 – virtual plant (office PC)</text>
+<rect x="80" y="140" width="340" height="90" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="250.0" y="173.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">fmsctl (items 1 – 4)</text>
+<text x="250.0" y="189.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">cell controller, tools, logistics</text>
+<text x="250.0" y="205.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">Python stdlib · HTTP :8090</text>
+<line x1="250" y1="230" x2="250" y2="330" stroke="#1565c0" stroke-width="2.5" marker-end="url(#ab)" marker-start="url(#ab)"/>
+<text x="260" y="285" font-size="12" text-anchor="start" font-weight="bold" fill="#1565c0">Modbus TCP</text>
+<text x="260" y="302" font-size="12" text-anchor="start" font-weight="normal" fill="#1565c0">register map V1.2</text>
+<rect x="80" y="330" width="340" height="170" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="250.0" y="387.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">virtual_plant.py</text>
+<text x="250.0" y="403.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">21 simulated PLCs</text>
+<text x="250.0" y="419.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">127.0.0.1 : 15100 … 15120</text>
+<text x="250.0" y="435.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">speed ×20 … ×200</text>
+<text x="250.0" y="451.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">MTBF/MTTR, scrap, tool wear</text>
+<rect x="60" y="640" width="380" height="60" rx="0" fill="#fffde7" stroke="#000" stroke-width="1.2"/>
+<text x="250.0" y="674.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">test_item1 … item4: 17 + 13 + 8 + 12 checks</text>
+<rect x="490" y="90" width="420" height="640" rx="0" fill="#fff3e0" stroke="#000" stroke-width="1.2"/>
+<text x="700" y="118" font-size="14" text-anchor="middle" font-weight="bold" fill="#000">Phase 2 – FAT at the supplier (hybrid)</text>
+<rect x="530" y="140" width="340" height="90" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="173.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">fmsctl on a laptop</text>
+<text x="700.0" y="189.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">same version as phase 1</text>
+<text x="700.0" y="205.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">Python stdlib · HTTP :8090</text>
+<line x1="700" y1="230" x2="700" y2="330" stroke="#1565c0" stroke-width="2.5" marker-end="url(#ab)" marker-start="url(#ab)"/>
+<text x="710" y="285" font-size="12" text-anchor="start" font-weight="bold" fill="#1565c0">Modbus TCP</text>
+<text x="710" y="302" font-size="12" text-anchor="start" font-weight="normal" fill="#1565c0">register map V1.2</text>
+<rect x="530" y="330" width="340" height="170" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="387.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">real PLC / CNC of the machine</text>
+<text x="700.0" y="403.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">e.g. HMC-01 at 10.70.10.21:502</text>
+<text x="700.0" y="419.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">+ 20 devices still virtual</text>
+<text x="700.0" y="435.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">test switch on the bench</text>
+<text x="700.0" y="451.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">Wireshark mirror port</text>
+<rect x="510" y="640" width="380" height="60" rx="0" fill="#fffde7" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="674.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">FAT procedure ch. 21.3: 25 steps, 17 checks of test_item1</text>
+<rect x="940" y="90" width="420" height="640" rx="0" fill="#e8f5e9" stroke="#000" stroke-width="1.2"/>
+<text x="1150" y="118" font-size="14" text-anchor="middle" font-weight="bold" fill="#000">Phase 3 – SAT / production (factory)</text>
+<rect x="980" y="140" width="340" height="90" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1150.0" y="173.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">fmsctl on 10.70.1.10</text>
+<text x="1150.0" y="189.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">device_table(virtual=False)</text>
+<text x="1150.0" y="205.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">Python stdlib · HTTP :8090</text>
+<line x1="1150" y1="230" x2="1150" y2="330" stroke="#1565c0" stroke-width="2.5" marker-end="url(#ab)" marker-start="url(#ab)"/>
+<text x="1160" y="285" font-size="12" text-anchor="start" font-weight="bold" fill="#1565c0">Modbus TCP</text>
+<text x="1160" y="302" font-size="12" text-anchor="start" font-weight="normal" fill="#1565c0">register map V1.2</text>
+<rect x="980" y="330" width="340" height="170" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1150.0" y="387.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">21 real devices</text>
+<text x="1150.0" y="403.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">10.70.10.x … 10.70.20.x : 502</text>
+<text x="1150.0" y="419.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">VLANs, firewall</text>
+<text x="1150.0" y="435.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">real cycle times</text>
+<text x="1150.0" y="451.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">event block on real scan</text>
+<rect x="960" y="640" width="380" height="60" rx="0" fill="#fffde7" stroke="#000" stroke-width="1.2"/>
+<text x="1150.0" y="674.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">SAT ch. 21.4: run-in 72 h, KPIs, thesis data</text>
+<line x1="462" y1="415" x2="486" y2="415" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="912" y1="415" x2="936" y2="415" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="80" y="530" width="340" height="90" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="250.0" y="555.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Device models (per type)</text>
+<text x="250.0" y="571.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">CNC · PALLET · LOAD · STATION</text>
+<text x="250.0" y="587.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">TEST · AGV · ASRS</text>
+<text x="250.0" y="603.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">shared pallet table (slots, states)</text>
+<rect x="530" y="530" width="340" height="90" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="700.0" y="555.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Checked against the contract</text>
+<text x="700.0" y="571.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">header, heartbeat, handshake,</text>
+<text x="700.0" y="587.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">result codes, event block,</text>
+<text x="700.0" y="603.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">write protection, 226 watchdog</text>
+<rect x="980" y="530" width="340" height="90" rx="0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1150.0" y="555.2" font-size="12" text-anchor="middle" font-weight="bold" fill="#000">Real-plant extras</text>
+<text x="1150.0" y="571.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">network faults, Wi-Fi roaming,</text>
+<text x="1150.0" y="587.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">real scan time, clock drift,</text>
+<text x="1150.0" y="603.2" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">operator behaviour</text>
+<rect x="40" y="750" width="1320" height="60" rx="0" fill="#f5f5f5" stroke="#000" stroke-width="1.2"/>
+<text x="55" y="775" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Principle: the virtual plant implements the SAME register map and the SAME handshake as the real PLC function block. A difference found in</text>
+<text x="55" y="795" font-size="12" text-anchor="start" font-weight="normal" fill="#000">phase 2 is either a supplier error (fix the PLC) or a model error (fix virtual_plant.py) – never patched in the controller code.</text>
+</svg>

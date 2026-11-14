@@ -1,0 +1,52 @@
+﻿no;module_A;name_A;module_B;name_B;letters;types;content
+1;M01;Machine tool (CNC) interface;M02;Automatic pallet changer (APC);MS;mech+signal;"Pallet hand-over on the machine table: locating cones, clamp; signals PalletAtMachine, ChangeRequest, ChangeDone, DoorClosed"
+2;M02;Automatic pallet changer (APC);M03;Pallet rack / pallet pool + stacker;MS;mech+signal;"Pallet transfer APC set-up station <-> stacker fork: transfer height, centring; signals ReadyToGive/ReadyToTake, TransferDone"
+3;M03;Pallet rack / pallet pool + stacker;M04;Load / unload station;MS;mech+signal;"Pallet transfer stacker <-> load station; signals PalletPresent, OperatorRelease, SafeToEnter"
+4;M03;Pallet rack / pallet pool + stacker;M08;AS/RS (automatic storage);MS;mech+signal;Load transfer pallet pool <-> AS/RS P&D station
+5;M03;Pallet rack / pallet pool + stacker;M10;Washing / cleaning machine;MS;mech+signal;"Pallet / part transfer to washer; signals ReadyToTake, WashProgram, WashDone"
+6;M03;Pallet rack / pallet pool + stacker;M11;Measuring station (CMM / gauging / vision);MS;mech+signal;"Pallet / part to measuring station; temperature equalisation; signals MeasProgram, ResultOK/NOK"
+7;M06;AGV / AMR interface;M04;Load / unload station;MS;mech+signal;"AGV docking at load station: guides, transfer height; handshake ReadyToGive/Take, TransferActive, TransferDone"
+8;M06;AGV / AMR interface;M08;AS/RS (automatic storage);MS;mech+signal;AGV docking at AS/RS P&D station
+9;M09;Tool management;M01;Machine tool (CNC) interface;D;data;Tool ID, length, radius, remaining life -> CNC tool table
+10;M11;Measuring station (CMM / gauging / vision);M01;Machine tool (CNC) interface;D;data;Measured deviations -> tool / work offset correction in the CNC (closed loop), only inside limits, every correction logged
+11;M12;Marking & identification;M04;Load / unload station;SD;signal+data;Pallet RFID read / serial marking at load station
+12;M17;Utilities (air, coolant, chips, extraction);M01;Machine tool (CNC) interface;SU;utility+signal;"Coolant, chips, air; CoolantOK, ChipConveyorFault -> feed hold"
+13;M17;Utilities (air, coolant, chips, extraction);M10;Washing / cleaning machine;SU;utility+signal;"Wash water / extraction; level and temperature alarms"
+14;M18;Cell safety controller;M01;Machine tool (CNC) interface;F;safety;Hard-wired / safety-bus: E-stop chain, door locks, light curtains, safe stop of every module with moving parts
+15;M18;Cell safety controller;M02;Automatic pallet changer (APC);F;safety;Hard-wired / safety-bus: E-stop chain, door locks, light curtains, safe stop of every module with moving parts
+16;M18;Cell safety controller;M03;Pallet rack / pallet pool + stacker;F;safety;Hard-wired / safety-bus: E-stop chain, door locks, light curtains, safe stop of every module with moving parts
+17;M18;Cell safety controller;M04;Load / unload station;F;safety;Hard-wired / safety-bus: E-stop chain, door locks, light curtains, safe stop of every module with moving parts
+18;M18;Cell safety controller;M06;AGV / AMR interface;F;safety;Hard-wired / safety-bus: E-stop chain, door locks, light curtains, safe stop of every module with moving parts
+19;M18;Cell safety controller;M08;AS/RS (automatic storage);F;safety;Hard-wired / safety-bus: E-stop chain, door locks, light curtains, safe stop of every module with moving parts
+20;M18;Cell safety controller;M10;Washing / cleaning machine;F;safety;Hard-wired / safety-bus: E-stop chain, door locks, light curtains, safe stop of every module with moving parts
+21;M18;Cell safety controller;M11;Measuring station (CMM / gauging / vision);F;safety;Hard-wired / safety-bus: E-stop chain, door locks, light curtains, safe stop of every module with moving parts
+22;M18;Cell safety controller;M12;Marking & identification;F;safety;Hard-wired / safety-bus: E-stop chain, door locks, light curtains, safe stop of every module with moving parts
+23;M18;Cell safety controller;M17;Utilities (air, coolant, chips, extraction);F;safety;Hard-wired / safety-bus: E-stop chain, door locks, light curtains, safe stop of every module with moving parts
+24;M19;Cell controller (line PLC / cell computer);M01;Machine tool (CNC) interface;D;data;Standard data block (guide 66 section 8): PackML state, commands, handshake bits, counters, job, heartbeat
+25;M19;Cell controller (line PLC / cell computer);M02;Automatic pallet changer (APC);D;data;Standard data block (guide 66 section 8): PackML state, commands, handshake bits, counters, job, heartbeat
+26;M19;Cell controller (line PLC / cell computer);M03;Pallet rack / pallet pool + stacker;D;data;Standard data block (guide 66 section 8): PackML state, commands, handshake bits, counters, job, heartbeat
+27;M19;Cell controller (line PLC / cell computer);M04;Load / unload station;D;data;Standard data block (guide 66 section 8): PackML state, commands, handshake bits, counters, job, heartbeat
+28;M19;Cell controller (line PLC / cell computer);M06;AGV / AMR interface;D;data;Standard data block (guide 66 section 8): PackML state, commands, handshake bits, counters, job, heartbeat
+29;M19;Cell controller (line PLC / cell computer);M08;AS/RS (automatic storage);D;data;Standard data block (guide 66 section 8): PackML state, commands, handshake bits, counters, job, heartbeat
+30;M19;Cell controller (line PLC / cell computer);M09;Tool management;D;data;Standard data block (guide 66 section 8): PackML state, commands, handshake bits, counters, job, heartbeat
+31;M19;Cell controller (line PLC / cell computer);M10;Washing / cleaning machine;D;data;Standard data block (guide 66 section 8): PackML state, commands, handshake bits, counters, job, heartbeat
+32;M19;Cell controller (line PLC / cell computer);M11;Measuring station (CMM / gauging / vision);D;data;Standard data block (guide 66 section 8): PackML state, commands, handshake bits, counters, job, heartbeat
+33;M19;Cell controller (line PLC / cell computer);M12;Marking & identification;D;data;Standard data block (guide 66 section 8): PackML state, commands, handshake bits, counters, job, heartbeat
+34;M19;Cell controller (line PLC / cell computer);M17;Utilities (air, coolant, chips, extraction);D;data;Standard data block (guide 66 section 8): PackML state, commands, handshake bits, counters, job, heartbeat
+35;M19;Cell controller (line PLC / cell computer);M18;Cell safety controller;D;data;Standard data block (guide 66 section 8): PackML state, commands, handshake bits, counters, job, heartbeat
+36;M20;SCADA / HMI system;M19;Cell controller (line PLC / cell computer);D;data;Overview, alarms, operator commands (via cell controller)
+37;M21;MES / ERP connector;M19;Cell controller (line PLC / cell computer);D;data;Jobs down, confirmations / quality / OEE up
+38;M22;Network & IT/OT infrastructure;M01;Machine tool (CNC) interface;N;network;Switch port, VLAN, IP address, firewall conduit
+39;M22;Network & IT/OT infrastructure;M03;Pallet rack / pallet pool + stacker;N;network;Switch port, VLAN, IP address, firewall conduit
+40;M22;Network & IT/OT infrastructure;M04;Load / unload station;N;network;Switch port, VLAN, IP address, firewall conduit
+41;M22;Network & IT/OT infrastructure;M06;AGV / AMR interface;N;network;Switch port, VLAN, IP address, firewall conduit
+42;M22;Network & IT/OT infrastructure;M08;AS/RS (automatic storage);N;network;Switch port, VLAN, IP address, firewall conduit
+43;M22;Network & IT/OT infrastructure;M09;Tool management;N;network;Switch port, VLAN, IP address, firewall conduit
+44;M22;Network & IT/OT infrastructure;M10;Washing / cleaning machine;N;network;Switch port, VLAN, IP address, firewall conduit
+45;M22;Network & IT/OT infrastructure;M11;Measuring station (CMM / gauging / vision);N;network;Switch port, VLAN, IP address, firewall conduit
+46;M22;Network & IT/OT infrastructure;M12;Marking & identification;N;network;Switch port, VLAN, IP address, firewall conduit
+47;M22;Network & IT/OT infrastructure;M17;Utilities (air, coolant, chips, extraction);N;network;Switch port, VLAN, IP address, firewall conduit
+48;M22;Network & IT/OT infrastructure;M18;Cell safety controller;N;network;Switch port, VLAN, IP address, firewall conduit
+49;M22;Network & IT/OT infrastructure;M19;Cell controller (line PLC / cell computer);N;network;Switch port, VLAN, IP address, firewall conduit
+50;M22;Network & IT/OT infrastructure;M20;SCADA / HMI system;N;network;Switch port, VLAN, IP address, firewall conduit
+51;M22;Network & IT/OT infrastructure;M21;MES / ERP connector;N;network;Switch port, VLAN, IP address, firewall conduit

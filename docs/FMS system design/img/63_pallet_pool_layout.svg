@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 700" width="1300" height="700" font-family="Arial, Helvetica, sans-serif">
+<title>Plan view of a linear pallet pool FMS with 3 HMCs, load stations, washer, CMM, rail stacker, AS/RS and AGV</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1300" height="700" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="18" text-anchor="start" fill="#111" font-weight="bold">Linear pallet pool FMS – plan view (example: 3 HMC, 27 pallets, 29 places, rail stacker, 1 + 1 load stations, washer, CMM)</text>
+<text x="24.0" y="54.0" font-size="12" text-anchor="start" fill="#444">Not to scale. Calculator values (web 3A): pallets 27 · places 29 · stacker 12 moves/h = 15 % · load station 0.75 station-hours/h → 1 needed (2nd = reserve / set-up).</text>
+<rect x="160.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="188.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">1/2</text>
+<text x="188.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="220.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="248.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">3/4</text>
+<text x="248.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="280.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="308.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">5/6</text>
+<text x="308.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="340.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="368.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">7/8</text>
+<text x="368.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="400.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="428.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">9/10</text>
+<text x="428.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="460.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="488.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">11/12</text>
+<text x="488.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="520.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="548.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">13/14</text>
+<text x="548.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="580.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="608.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">15/16</text>
+<text x="608.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="640.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="668.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">17/18</text>
+<text x="668.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="700.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="728.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">19/20</text>
+<text x="728.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="760.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="788.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">21/22</text>
+<text x="788.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="820.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="848.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">23/24</text>
+<text x="848.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="880.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="908.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">25/26</text>
+<text x="908.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="940.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="968.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">27/28</text>
+<text x="968.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<rect x="1000.0" y="96.0" width="56.0" height="60.0" rx="0" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/>
+<text x="1028.0" y="122.0" font-size="10" text-anchor="middle" fill="#111">29/30</text>
+<text x="1028.0" y="140.0" font-size="9" text-anchor="middle" fill="#444">2 levels</text>
+<text x="160.0" y="88.0" font-size="12" text-anchor="start" fill="#0891b2" font-weight="bold">Rack: 15 columns × 2 levels = 30 slots (29 places used = 27 pallets + 2 free; 1 spare slot)</text>
+<rect x="120.0" y="190.0" width="1060.0" height="40.0" rx="0" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+<text x="700.0" y="215.0" font-size="12" text-anchor="middle" fill="#111">Rail + stacker / RGV (M03, POOL01) – stops ± 1–3 mm, fine centring by cones at every transfer point</text>
+<rect x="130.0" y="184.0" width="90.0" height="52.0" rx="0" fill="#d97706" stroke="#92400e" stroke-width="1" fill-opacity="0.75"/>
+<text x="175.0" y="215.0" font-size="11" text-anchor="middle" fill="#fff" font-weight="bold">stacker</text>
+<rect x="160.0" y="280.0" width="150.0" height="30.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+<text x="235.0" y="300.0" font-size="10" text-anchor="middle" fill="#111">transfer pos.</text>
+<rect x="160.0" y="316.0" width="150.0" height="140.0" rx="0" fill="#2563eb" stroke="#2563eb" stroke-width="1" fill-opacity="0.12"/>
+<rect x="160.0" y="316.0" width="150.0" height="140.0" rx="0" fill="none" stroke="#2563eb" stroke-width="1"/>
+<text x="235.0" y="346.0" font-size="14" text-anchor="middle" fill="#2563eb" font-weight="bold">HMC 1</text>
+<text x="235.0" y="366.0" font-size="11" text-anchor="middle" fill="#111">M01 + M02</text>
+<text x="235.0" y="390.0" font-size="10" text-anchor="middle" fill="#444">APC set-up side</text>
+<text x="235.0" y="406.0" font-size="10" text-anchor="middle" fill="#444">+ machine table</text>
+<rect x="330.0" y="280.0" width="150.0" height="30.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+<text x="405.0" y="300.0" font-size="10" text-anchor="middle" fill="#111">transfer pos.</text>
+<rect x="330.0" y="316.0" width="150.0" height="140.0" rx="0" fill="#2563eb" stroke="#2563eb" stroke-width="1" fill-opacity="0.12"/>
+<rect x="330.0" y="316.0" width="150.0" height="140.0" rx="0" fill="none" stroke="#2563eb" stroke-width="1"/>
+<text x="405.0" y="346.0" font-size="14" text-anchor="middle" fill="#2563eb" font-weight="bold">HMC 2</text>
+<text x="405.0" y="366.0" font-size="11" text-anchor="middle" fill="#111">M01 + M02</text>
+<text x="405.0" y="390.0" font-size="10" text-anchor="middle" fill="#444">APC set-up side</text>
+<text x="405.0" y="406.0" font-size="10" text-anchor="middle" fill="#444">+ machine table</text>
+<rect x="500.0" y="280.0" width="150.0" height="30.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+<text x="575.0" y="300.0" font-size="10" text-anchor="middle" fill="#111">transfer pos.</text>
+<rect x="500.0" y="316.0" width="150.0" height="140.0" rx="0" fill="#2563eb" stroke="#2563eb" stroke-width="1" fill-opacity="0.12"/>
+<rect x="500.0" y="316.0" width="150.0" height="140.0" rx="0" fill="none" stroke="#2563eb" stroke-width="1"/>
+<text x="575.0" y="346.0" font-size="14" text-anchor="middle" fill="#2563eb" font-weight="bold">HMC 3</text>
+<text x="575.0" y="366.0" font-size="11" text-anchor="middle" fill="#111">M01 + M02</text>
+<text x="575.0" y="390.0" font-size="10" text-anchor="middle" fill="#444">APC set-up side</text>
+<text x="575.0" y="406.0" font-size="10" text-anchor="middle" fill="#444">+ machine table</text>
+<rect x="670.0" y="280.0" width="110.0" height="30.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+<text x="725.0" y="300.0" font-size="10" text-anchor="middle" fill="#111">transfer pos.</text>
+<rect x="670.0" y="316.0" width="110.0" height="90.0" rx="0" fill="#2563eb" stroke="#2563eb" stroke-width="1" fill-opacity="0.12"/>
+<rect x="670.0" y="316.0" width="110.0" height="90.0" rx="0" fill="none" stroke="#2563eb" stroke-width="1"/>
+<text x="725.0" y="346.0" font-size="14" text-anchor="middle" fill="#2563eb" font-weight="bold">Washer</text>
+<text x="725.0" y="366.0" font-size="11" text-anchor="middle" fill="#111">M10</text>
+<rect x="800.0" y="280.0" width="110.0" height="30.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+<text x="855.0" y="300.0" font-size="10" text-anchor="middle" fill="#111">transfer pos.</text>
+<rect x="800.0" y="316.0" width="110.0" height="90.0" rx="0" fill="#c62828" stroke="#c62828" stroke-width="1" fill-opacity="0.12"/>
+<rect x="800.0" y="316.0" width="110.0" height="90.0" rx="0" fill="none" stroke="#c62828" stroke-width="1"/>
+<text x="855.0" y="346.0" font-size="14" text-anchor="middle" fill="#c62828" font-weight="bold">CMM</text>
+<text x="855.0" y="366.0" font-size="11" text-anchor="middle" fill="#111">M11 (climate)</text>
+<rect x="930.0" y="280.0" width="90.0" height="30.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+<text x="975.0" y="300.0" font-size="10" text-anchor="middle" fill="#111">transfer pos.</text>
+<rect x="930.0" y="316.0" width="90.0" height="90.0" rx="0" fill="#d97706" stroke="#d97706" stroke-width="1" fill-opacity="0.12"/>
+<rect x="930.0" y="316.0" width="90.0" height="90.0" rx="0" fill="none" stroke="#d97706" stroke-width="1"/>
+<text x="975.0" y="346.0" font-size="14" text-anchor="middle" fill="#d97706" font-weight="bold">LS 1</text>
+<text x="975.0" y="366.0" font-size="11" text-anchor="middle" fill="#111">M04</text>
+<line x1="930.0" y1="420.0" x2="1020.0" y2="420.0" stroke="#c62828" stroke-width="2" stroke-dasharray="3 3"/>
+<text x="975.0" y="436.0" font-size="9" text-anchor="middle" fill="#c62828">light curtain</text>
+<rect x="1040.0" y="280.0" width="90.0" height="30.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+<text x="1085.0" y="300.0" font-size="10" text-anchor="middle" fill="#111">transfer pos.</text>
+<rect x="1040.0" y="316.0" width="90.0" height="90.0" rx="0" fill="#d97706" stroke="#d97706" stroke-width="1" fill-opacity="0.12"/>
+<rect x="1040.0" y="316.0" width="90.0" height="90.0" rx="0" fill="none" stroke="#d97706" stroke-width="1"/>
+<text x="1085.0" y="346.0" font-size="14" text-anchor="middle" fill="#d97706" font-weight="bold">LS 2</text>
+<text x="1085.0" y="366.0" font-size="11" text-anchor="middle" fill="#111">M04</text>
+<line x1="1040.0" y1="420.0" x2="1130.0" y2="420.0" stroke="#c62828" stroke-width="2" stroke-dasharray="3 3"/>
+<text x="1085.0" y="436.0" font-size="9" text-anchor="middle" fill="#c62828">light curtain</text>
+<rect x="1200.0" y="90.0" width="80.0" height="360.0" rx="0" fill="#cffafe" stroke="#0891b2" stroke-width="1"/>
+<text x="1244.0" y="270.0" font-size="12" text-anchor="middle" fill="#0891b2" font-weight="bold" transform="rotate(-90 1244 270)">AS/RS raw castings (M08)</text>
+<rect x="1150.0" y="480.0" width="110.0" height="40.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+<text x="1205.0" y="505.0" font-size="11" text-anchor="middle" fill="#111">AS/RS P&amp;D</text>
+<rect x="1000.0" y="570.0" width="100.0" height="46.0" rx="0" fill="#059669" stroke="#065f46" stroke-width="1" fill-opacity="0.7"/>
+<text x="1050.0" y="598.0" font-size="11" text-anchor="middle" fill="#fff" font-weight="bold">AGV (M06)</text>
+<path d="M1100,593 C1160,593 1200,570 1205,522" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M1000,593 C960,593 975,500 985,430" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="520.0" y="650.0" font-size="12" text-anchor="start" fill="#059669">AGV path: castings AS/RS P&amp;D → load station (interfaces M06 → M08 and M06 → M04 of guide 61)</text>
+<text x="24.0" y="684.0" font-size="11.5" text-anchor="start" fill="#444">Fence around rail and rack; maintenance door per machine. Expansion: rail + rack extended to the left for HMC 4 (URS-CAP-002 of guide 61).</text>
+</svg>

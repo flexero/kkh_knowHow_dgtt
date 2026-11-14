@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" font-family="Arial, Helvetica, sans-serif">
+<title>Pressure decay leak test: leak 2 mbar in 10 s versus temperature effect 2.39 mbar</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1200" height="640" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="18" text-anchor="start" fill="#111" font-weight="bold">Pressure-decay leak test – the temperature trap (JSON "leak_test": V 0.5 l, 6 bar gauge, limit 2 mbar in 10 s)</text>
+<text x="24.0" y="54.0" font-size="12" text-anchor="start" fill="#444">Left: test cycle phases (schematic). Right: pressure drop in the measuring window. A tight part that cools by only 0.1 K drops 2.39 mbar – more than the reject limit.</text>
+<line x1="80.0" y1="560.0" x2="530.0" y2="560.0" stroke="#333" stroke-width="1" marker-end="url(#ah)"/>
+<line x1="80.0" y1="560.0" x2="80.0" y2="110.0" stroke="#333" stroke-width="1" marker-end="url(#ah)"/>
+<text x="300.0" y="600.0" font-size="12" text-anchor="middle" fill="#111">time [s]</text>
+<text x="30.0" y="340.0" font-size="12" text-anchor="middle" fill="#111" transform="rotate(-90 30 340.0)">test pressure [bar gauge]</text>
+<text x="80.0" y="578.0" font-size="11" text-anchor="middle" fill="#111">0</text>
+<text x="153.3" y="578.0" font-size="11" text-anchor="middle" fill="#111">5</text>
+<text x="226.7" y="578.0" font-size="11" text-anchor="middle" fill="#111">10</text>
+<text x="300.0" y="578.0" font-size="11" text-anchor="middle" fill="#111">15</text>
+<text x="373.3" y="578.0" font-size="11" text-anchor="middle" fill="#111">20</text>
+<text x="446.7" y="578.0" font-size="11" text-anchor="middle" fill="#111">25</text>
+<text x="520.0" y="578.0" font-size="11" text-anchor="middle" fill="#111">30</text>
+<text x="72.0" y="564.0" font-size="11" text-anchor="end" fill="#111">0</text>
+<text x="72.0" y="501.1" font-size="11" text-anchor="end" fill="#111">1</text>
+<text x="72.0" y="438.3" font-size="11" text-anchor="end" fill="#111">2</text>
+<text x="72.0" y="375.4" font-size="11" text-anchor="end" fill="#111">3</text>
+<text x="72.0" y="312.6" font-size="11" text-anchor="end" fill="#111">4</text>
+<text x="72.0" y="249.7" font-size="11" text-anchor="end" fill="#111">5</text>
+<text x="72.0" y="186.9" font-size="11" text-anchor="end" fill="#111">6</text>
+<text x="72.0" y="124.0" font-size="11" text-anchor="end" fill="#111">7</text>
+<path d="M80.0,560.0 L124.0,173.4 L270.7,182.9 L417.3,183.0 L446.7,560.0 L520.0,560.0" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+<rect x="80.0" y="120.0" width="44.0" height="22.0" rx="0" fill="#e0f2fe" stroke="#94a3b8" stroke-width="1"/>
+<text x="102.0" y="135.0" font-size="11" text-anchor="middle" fill="#111">fill</text>
+<rect x="124.0" y="120.0" width="146.7" height="22.0" rx="0" fill="#fef3c7" stroke="#94a3b8" stroke-width="1"/>
+<text x="197.3" y="135.0" font-size="11" text-anchor="middle" fill="#111">stabilise</text>
+<rect x="270.7" y="120.0" width="146.7" height="22.0" rx="0" fill="#dcfce7" stroke="#94a3b8" stroke-width="1"/>
+<text x="344.0" y="135.0" font-size="11" text-anchor="middle" fill="#111">measure</text>
+<rect x="417.3" y="120.0" width="29.3" height="22.0" rx="0" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+<text x="432.0" y="135.0" font-size="11" text-anchor="middle" fill="#111">vent</text>
+<text x="197.3" y="166.9" font-size="11" text-anchor="middle" fill="#444">air heats on filling, then settles</text>
+<line x1="660.0" y1="560.0" x2="1150.0" y2="560.0" stroke="#333" stroke-width="1" marker-end="url(#ah)"/>
+<line x1="660.0" y1="560.0" x2="660.0" y2="180.0" stroke="#333" stroke-width="1" marker-end="url(#ah)"/>
+<text x="900.0" y="600.0" font-size="12" text-anchor="middle" fill="#111">time in the measuring window [s]</text>
+<text x="616.0" y="380.0" font-size="12" text-anchor="middle" fill="#111" transform="rotate(-90 616 380.0)">pressure drop Δp [mbar]</text>
+<text x="660.0" y="578.0" font-size="11" text-anchor="middle" fill="#111">0</text>
+<text x="756.0" y="578.0" font-size="11" text-anchor="middle" fill="#111">2</text>
+<text x="852.0" y="578.0" font-size="11" text-anchor="middle" fill="#111">4</text>
+<text x="948.0" y="578.0" font-size="11" text-anchor="middle" fill="#111">6</text>
+<text x="1044.0" y="578.0" font-size="11" text-anchor="middle" fill="#111">8</text>
+<text x="1140.0" y="578.0" font-size="11" text-anchor="middle" fill="#111">10</text>
+<text x="652.0" y="564.0" font-size="11" text-anchor="end" fill="#111">0</text>
+<text x="652.0" y="504.0" font-size="11" text-anchor="end" fill="#111">0.5</text>
+<text x="652.0" y="444.0" font-size="11" text-anchor="end" fill="#111">1</text>
+<text x="652.0" y="384.0" font-size="11" text-anchor="end" fill="#111">1.5</text>
+<text x="652.0" y="324.0" font-size="11" text-anchor="end" fill="#111">2</text>
+<text x="652.0" y="264.0" font-size="11" text-anchor="end" fill="#111">2.5</text>
+<text x="652.0" y="204.0" font-size="11" text-anchor="end" fill="#111">3</text>
+<line x1="660.0" y1="320.0" x2="1140.0" y2="320.0" stroke="#c62828" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="668.0" y="312.0" font-size="11" text-anchor="start" fill="#c62828" font-weight="bold">reject limit 2 mbar in 10 s (= 0.1 mbar·l/s = 6 cm³/min)</text>
+<line x1="660.0" y1="560.0" x2="1140.0" y2="320.0" stroke="#7c3aed" stroke-width="2.5"/>
+<text x="956.0" y="442.0" font-size="11" text-anchor="start" fill="#7c3aed">real leak 0.1 mbar·l/s: 2.00 mbar</text>
+<line x1="660.0" y1="560.0" x2="1140.0" y2="272.9" stroke="#d97706" stroke-width="2.5"/>
+<text x="670.0" y="230.0" font-size="11.5" text-anchor="start" fill="#d97706" font-weight="bold">tight part cooling 0.1 K: 2.39 mbar → false reject</text>
+<line x1="660.0" y1="560.0" x2="1140.0" y2="531.3" stroke="#059669" stroke-width="2.5"/>
+<text x="1136.0" y="523.3" font-size="11" text-anchor="end" fill="#059669">after settling / compensation (0.01 K): 0.24 mbar</text>
+<text x="660.0" y="92.0" font-size="12.5" text-anchor="start" fill="#111" font-weight="bold">Δp_T = p_abs·ΔT / T = 7013·0.1 / 293.15 = 2.39 mbar</text>
+<text x="660.0" y="112.0" font-size="12" text-anchor="start" fill="#111">Fixes: equalise part temperature (wash → buffer), longer stabilisation,</text>
+<text x="660.0" y="128.0" font-size="12" text-anchor="start" fill="#111">differential test against a reference volume, temperature compensation,</text>
+<text x="660.0" y="144.0" font-size="12" text-anchor="start" fill="#111">master part + calibrated leak at every shift start.</text>
+</svg>

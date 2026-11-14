@@ -1,0 +1,97 @@
+{
+  "_note": "Shared worked-example inputs for FMS engineering item 2 (product -> process -> machines): guide docs/62, tools/fmse/*.py, web/fmse2x*.js. All values are EXAMPLES. Every consumer uses exactly these inputs and the formulas in _formulas so the numbers match.",
+  "_formulas": {
+    "abc": "sort parts by annual volume (or revenue = volume*price if basis='revenue') descending; cumulative share; class A while cumulative share BEFORE adding the part < 80 %, B while < 95 %, else C",
+    "jaccard": "s_jk = a/(a+b+c): a = parts using machine j AND k, b+c = parts using only one of them",
+    "slca": "single linkage: join machines j,k when s_jk >= T (and s_jk > 0); cells = connected components; each part goes to the cell where it has most operations (tie -> lowest cell index)",
+    "roc": "King's rank order clustering: rows read as binary numbers (leftmost column = highest bit), sort rows descending (stable); then columns read as binary (top row = highest bit), sort descending; repeat until no change (max 20 iterations)",
+    "efficacy": "Gamma = (e - e_exc)/(e + e_void)",
+    "efficiency": "eta = q*eta1 + (1-q)*eta2, q = 0.5; eta1 = ones inside blocks / cells inside blocks; eta2 = zeros outside blocks / cells outside blocks",
+    "it_grade": "use the ISO 286-1 table it_table_um (size range by nominal D: lower < D <= upper; D <= 3 -> first range); required grade = largest k with IT_k <= tolerance width",
+    "allowance": "per-side nominal allowance of step i: z_i = z_min_i + T_(i-1)/2  (T in mm on the diameter, T_(i-1) = tolerance of the step before; for i=1 the raw-part tolerance); diameter before step i: D_(i-1) = D_i - 2*z_i (bore) ; start from the mid-tolerance final diameter",
+    "turning": "n = 1000*vc/(pi*D); vf = f*n; t_c = passes*L/vf; Pc = kc*ap*f*vc/60000 kW; M = 9550*Pc/n",
+    "milling": "n = 1000*vc/(pi*Dc); vf = fz*z*n; t_c = passes*(L + Dc)/vf; Q = ap*ae*vf/1000 cm3/min; Pc = ap*ae*vf*kc/(60e6) kW; M = 9550*Pc/n",
+    "drilling": "n = 1000*vc/(pi*D); t_hole = (H + 0.3*D)/(f*n); Pc = f*vc*D*kc/240000 kW",
+    "tapping": "n = 1000*vc/(pi*D); t = 2*(H + 2*P)/(P*n)  (in + out at the same speed)",
+    "spindle_curve": "available power P_av(n) = min(P_rated, M_max*n/9550); base speed n_b = 9550*P_rated/M_max; check Pc/eta <= P_av(n), eta = 0.8",
+    "taylor": "v*T^n = C  -> T = (C/v)^(1/n)",
+    "taylor_econ": "T_min_cost = (1/n - 1)*(t_ct + K_t/(M/60)); T_max_prod = (1/n - 1)*t_ct; v = C/T^n  (M = machine+labour rate EUR/h, K_t = tool cost per edge EUR, t_ct = tool change time min)",
+    "cooling_time": "t_cool = s^2/(pi^2*alpha) * ln( (8/pi^2) * (T_m - T_w)/(T_e - T_w) )  [s; s in mm, alpha in mm2/s]",
+    "clamp_force": "F = p_cav * A_proj * safety  (bar*cm2 -> kN: 1 bar*cm2 = 0.01 kN)",
+    "mould_cycle": "t_cycle = t_inject + t_hold + t_cool + t_open_eject_close",
+    "bending": "t = n_bends*t_bend + t_handling",
+    "welding_arc": "t_arc = L_weld/v_weld",
+    "available_hours": "days = 365 - weekend_days - holidays - shutdown_days; h = days*shifts*(shift_h - break_h); h_avail = h*(1 - planned_maint)",
+    "load": "L_g = sum Q_i*t_ig/60 + sum ceil(Q_i/lot_i)*t_setup_g/60 ; machines = ceil(L_g/(h_avail*OEE)) ; util = L_g/(machines*h_avail*OEE)",
+    "eoq": "Q* = sqrt(2*D*S/H); S = t_setup_h*rate + admin; H = holding_rate*unit_value; total cost = D/Q*S + Q/2*H",
+    "takt": "takt = h_avail*3600/demand  [s]",
+    "line_balance_rpw": "positional weight = own time + times of all (transitive) successors; assign tasks in descending weight (tie -> lower id) to the current station if all predecessors assigned and fits in takt, else open a new station; efficiency = sum t/(stations*takt); balance delay = 1 - efficiency; min stations = ceil(sum t/takt)",
+    "ahp": "weights = normalised geometric means of the rows of the pairwise matrix; lambda_max = mean over i of (A w)_i / w_i; CI = (lambda_max - n)/(n - 1); CR = CI/RI(n); RI = {1:0,2:0,3:0.58,4:0.90,5:1.12,6:1.24,7:1.32}; CR < 0.10 acceptable; score_alt = sum w_k * s_alt,k",
+    "lcc": "LCC = purchase + installation + sum_{t=1..years} (energy_t + maintenance_t + tooling_t)/(1+r)^t - residual/(1+r)^years ; energy_t = kW_avg*hours*price; maintenance_t = maint_pct*purchase"
+  },
+  "pq_parts": {
+    "basis": "volume",
+    "parts": [["P01 Crankcase VC20", 3000, 180], ["P02 Crankcase VC10", 4000, 150], ["P03 Crankcase VC30", 2000, 230], ["P04 Cylinder", 18000, 40], ["P05 Cylinder head", 9000, 55], ["P06 Crankshaft", 9000, 70], ["P07 Con-rod", 18000, 12], ["P08 Valve plate", 9000, 9], ["P09 Cover", 9000, 6], ["P10 Flywheel", 9000, 25], ["P11 Bracket", 2500, 14], ["P12 Pipe flange", 6000, 4], ["P13 Spacer", 1200, 2], ["P14 Oil sight glass holder", 800, 3], ["P15 Service part kit", 300, 30]]
+  },
+  "pfa": {
+    "machines": ["LATHE", "HMC", "HONE", "DRILL", "GRIND", "VMC", "SAW", "WASH"],
+    "parts": ["P01 crankcase A", "P02 shaft S1", "P03 cylinder C1", "P04 crankcase B", "P05 shaft S2", "P06 cylinder C2", "P07 cover K", "P08 pin", "P09 cylinder C3", "P10 bracket"],
+    "m": [[0,1,0,1,0,0,0,1],[1,0,0,0,1,0,1,0],[0,0,1,1,0,1,0,0],[0,1,0,1,0,0,0,1],[1,0,0,0,1,0,1,0],[0,0,1,0,0,1,0,0],[0,1,0,1,1,0,0,1],[1,0,0,0,0,0,1,0],[0,0,1,0,0,1,0,0],[0,1,0,0,0,0,0,1]],
+    "T": 0.30,
+    "_expected_from_item2_web": "3 cells, e = 27, exceptional 2 (P03->DRILL, P07->GRIND), voids 2, Gamma = 86.2 %"
+  },
+  "opitz_example": {
+    "_note": "Simplified Opitz-style form code (5 digits, rotational parts). Always check the original Opitz tables; this example only shows the method.",
+    "part": "Compressor crankshaft blank, L = 320 mm, D = 60 mm, stepped to both ends with thread, centre holes only, one keyway, two radial oil holes not on a pattern",
+    "digits": [["1 part class", "L/D = 5.33 >= 3 -> rotational, long", 2], ["2 external shape", "stepped to both ends, with screw thread", 5], ["3 internal shape", "no bore (centre holes do not count)", 0], ["4 plane surface machining", "external groove / slot (keyway)", 3], ["5 auxiliary holes / teeth", "radial holes, not related by a pattern", 3]],
+    "code": "25033"
+  },
+  "it_table_um": {
+    "ranges_mm": [[0,3],[3,6],[6,10],[10,18],[18,30],[30,50],[50,80],[80,120],[120,180],[180,250],[250,315],[315,400],[400,500]],
+    "grades": [5,6,7,8,9,10,11,12,13],
+    "values": [[4,6,10,14,25,40,60,100,140],[5,8,12,18,30,48,75,120,180],[6,9,15,22,36,58,90,150,220],[8,11,18,27,43,70,110,180,270],[9,13,21,33,52,84,130,210,330],[11,16,25,39,62,100,160,250,390],[13,19,30,46,74,120,190,300,460],[15,22,35,54,87,140,220,350,540],[18,25,40,63,100,160,250,400,630],[20,29,46,72,115,185,290,460,720],[23,32,52,81,130,210,320,520,810],[25,36,57,89,140,230,360,570,890],[27,40,63,97,155,250,400,630,970]],
+    "_source": "ISO 286-1 standard tolerance grades (µm). Check against your copy of the standard."
+  },
+  "process_chain": {
+    "feature": "Bore A Ø52 H7 (52.000 / +0.030), Ra 0.8, cast iron EN-GJL-250, length 60 mm",
+    "final_D": 52.015, "raw_tol_mm": 2.0,
+    "steps": [["Rough boring", 11, 0.30, 6.3], ["Semi-finish boring", 9, 0.10, 3.2], ["Fine boring", 7, 0.05, 0.8]],
+    "_steps_cols": "name, IT grade reached, z_min per side [mm], Ra reached [µm]; tolerance T of each step = IT value for D 52 (range 50-80) from it_table_um, in mm"
+  },
+  "cutting": {
+    "materials": [["Steel C45 / 42CrMo4", 1900], ["Cast iron EN-GJL-250", 1100], ["Stainless 1.4301", 2300], ["Aluminium AlSi10Mg", 750]],
+    "turning": {"mat": 0, "D": 60, "L": 120, "ap": 2, "f": 0.25, "vc": 200, "passes": 3},
+    "milling": {"mat": 1, "Dc": 80, "z": 6, "fz": 0.2, "vc": 160, "ap": 4, "ae": 60, "L": 300, "passes": 2},
+    "drilling": {"mat": 1, "D": 10, "H": 30, "f": 0.25, "vc": 100, "holes": 12},
+    "tapping": {"D": 10, "P": 1.5, "H": 20, "vc": 12, "holes": 12},
+    "spindle": {"P_rated_kW": 18, "M_max_Nm": 120, "n_max": 10000, "eta": 0.8}
+  },
+  "taylor": {"n": 0.25, "C": 400, "rate_EUR_h": 90, "K_t_EUR": 6.0, "t_ct_min": 1.0},
+  "moulding": {"s_mm": 2.5, "alpha_mm2_s": 0.09, "T_m": 230, "T_w": 40, "T_e": 90, "A_proj_cm2": 180, "p_cav_bar": 350, "safety": 1.2, "t_inject_s": 1.5, "t_hold_s": 4.0, "t_open_s": 5.0},
+  "bending": {"n_bends": 6, "t_bend_s": 9, "t_handling_s": 20},
+  "welding": {"L_weld_mm": 1800, "v_weld_m_min": 0.6},
+  "calendar": {"weekend_days": 104, "holidays": 10, "shutdown_days": 10, "shifts": 2, "shift_h": 8.0, "break_h": 0.5, "planned_maint": 0.03},
+  "capacity": {
+    "groups": [["HMC", 0.75, 20], ["VMC", 0.75, 30], ["Lathe", 0.75, 25], ["Grinder", 0.70, 40], ["Washer", 0.85, 0]],
+    "_groups_cols": "name, OEE, set-up min per lot",
+    "parts": [["Crankcase VC20", 3000, 30, [36, 0, 0, 0, 2]], ["Crankcase VC10", 4000, 40, [28, 0, 0, 0, 2]], ["Crankcase VC30", 2000, 20, [44, 0, 0, 0, 2]], ["Cylinder", 18000, 120, [0, 6, 0, 0, 1.5]], ["Crankshaft", 9000, 60, [0, 4, 9, 7, 1.5]], ["Flywheel", 9000, 90, [0, 3, 5, 0, 1]]],
+    "_parts_cols": "name, annual volume, lot size, minutes per part on each group (same order as groups)"
+  },
+  "eoq": {"D": 4000, "t_setup_h": 0.333333, "rate_EUR_h": 90, "admin_EUR": 20, "holding_rate": 0.25, "unit_value_EUR": 180},
+  "line_balance": {
+    "demand_per_year": 120000, "hours": 3840,
+    "tasks": [["A", "Place housing on carrier", 45, []], ["B", "Press bearing 1", 30, ["A"]], ["C", "Insert crankshaft", 50, ["A"]], ["D", "Press bearing 2", 25, ["B"]], ["E", "Fit con-rods", 40, ["B", "C"]], ["F", "Insert pistons", 35, ["C"]], ["G", "Torque con-rod bolts", 60, ["D", "E"]], ["H", "Fit cylinders", 20, ["E", "F"]], ["I", "Fit valve plates", 45, ["G"]], ["J", "Fit heads", 30, ["H"]], ["K", "Torque head bolts", 55, ["I", "J"]], ["L", "Leak test + label", 25, ["K"]]]
+  },
+  "ahp": {
+    "criteria": ["Technical fit", "Accuracy", "Local service", "Life-cycle cost"],
+    "pairwise": [[1, 2, 3, 1], [0.5, 1, 2, 0.5], [0.333333, 0.5, 1, 0.333333], [1, 2, 3, 1]],
+    "alternatives": [["Machine A", [8, 7, 6, 7]], ["Machine B", [9, 8, 9, 5]], ["Machine C", [7, 6, 8, 9]]],
+    "_scores": "1..10 per criterion"
+  },
+  "lcc": {
+    "years": 10, "rate": 0.08,
+    "candidates": [["Machine A", 520000, 40000, 14, 0.035, 12000, 52000], ["Machine B", 610000, 45000, 12, 0.025, 11000, 70000], ["Machine C", 450000, 35000, 17, 0.05, 15000, 36000]],
+    "_cols": "name, purchase EUR, installation EUR, average power kW, maintenance share of purchase per year, tooling EUR/year, residual EUR after 10 years",
+    "hours_per_year": 4500, "energy_EUR_kWh": 0.18
+  }
+}

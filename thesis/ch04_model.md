@@ -26,13 +26,8 @@ into posterior distributions of the parameter vector θ. The discrete-event simu
 distributions into predictive distributions of performance. The staging optimisation of Chapter 7 uses these
 predictions to decide the next investment step.
 
-```
- Physical FMS ──events──▶ Gateway (Ch.5) ──observations D_k──▶ Bayesian update (4.6) ──p(θ | D_1..k)──▶
-     ▲                                                                                                 │
-     │                                                                                                 ▼
- Investment step x_s (Ch.7) ◀──decision── Staging optimisation (4.9, Ch.7) ◀──predictive p(Y | D)── DES twin (4.7)
-```
-**Figure 4.1** Information loop of the uncertainty-aware twin (to be redrawn as vector graphic).
+![Figure 4.1](figures/fig4_1_loop.svg)
+**Figure 4.1** Information loop of the uncertainty-aware twin.
 
 ## 4.2 Notation
 
@@ -97,6 +92,58 @@ AGVs and buffers.
 The mix-weighted mean cycle time is $\bar t_m = \sum_{p} \pi_p\, t_{pm}$; for the HMC,
 $\bar t_{HMC} = 0.3 \cdot 270 + 0.5 \cdot 345 + 0.2 \cdot 450 = 343.5$ s.
 
+### 4.3.3 Layout, material flow and the crankcase FMS cell
+Figure 4.2 shows the planned hall (96 m × 50 m) of the case factory. Raw castings and forgings arrive at the goods-in
+dock and are stored in a raw-material automated storage and retrieval system (AS/RS: 28 bays × 7 levels × 2 sides =
+392 unit-load locations, one stacker crane). Two automated guided vehicles (AGVs) run along the main aisle and connect
+the AS/RS input/output point with the load station of the crankcase cell, the assembly area and, at the end of the
+line, the finished-goods AS/RS at the shipping dock. The three part lines (crankcase, cylinder, crankshaft) are
+machined in parallel areas on the left; pump assembly, the robot station for the cylinder heads, two performance test
+benches, paint, final assembly and packing follow from left to right. A utility annex outside the north wall holds the
+transformer, the compressed-air station, the central coolant system and the server / OT room in which the control PC
+of Chapter 8 is installed.
+
+![Figure 4.2 landscape](figures/fig4_2_factory_layout.svg)
+**Figure 4.2** Planned layout of the compressor factory: areas, stations (device names), part flow and AGV route
+[design example; positions from the factory configuration, not to scale for construction].
+
+Figure 4.3 gives the routing of each part family with operation numbers and VC20 cycle times. The crankcase (grey cast
+iron EN-GJL-250) is the only part that is machined in a pallet-based flexible cell: it is clamped on a fixture pallet at
+the load station (OP10), machined complete on one of the three HMCs (OP20/30: faces, cylinder bores, bearing bores,
+threads; 345 s plus 15 s pallet change for VC20), washed (OP40) and checked for leaks before it meets the cylinders and
+the crankshaft at the kit check of pump assembly (OP60). The cylinder and crankshaft lines are dedicated flow lines that
+deliver into kanban supermarkets; this decouples them from assembly so that the crankcase cell, which follows the
+work-order sequence (earliest due date), is the only part line that needs real-time scheduling. The VC20 work content
+of one compressor is 2 485 s (41.4 min) over 13 operations [design estimate].
+
+![Figure 4.3 landscape](figures/fig4_3_process_flow.svg)
+**Figure 4.3** Part routings of the compressor FMS with operation numbers, stations and VC20 cycle times; diamonds are
+inspections [design estimate].
+
+The crankcase cell (Figure 4.4) is the flexible core of the factory and the part of the system that the term FMS
+refers to in the narrow sense (Section 2.2.1): three identical HMCs, each with a two-position pallet changer that offers
+one transfer location to the cell, share a common pool of 12 fixture pallets. A rail-guided shuttle moves one pallet at a
+time between 16 numbered locations: rack locations 1 – 12, the load station (location 13) and the changers of HMC-01 to
+HMC-03 (locations 14 – 16). Eight pallets carry fixture type A (VC10 and VC20 crankcases, same clamping concept) and
+four carry fixture type B (VC30). One operator at the load station unloads machined crankcases and clamps raw
+castings; the load station therefore serves every part twice, which makes it a candidate bottleneck even though its
+static capacity in Table 4.3 (89 s per load) looks ample. With a move time of 12 s + 2 s per location distance
+[example], a typical part needs three shuttle moves when the load station is busy (load station → HMC, HMC → rack,
+rack → load station), or two when it is free. Each HMC holds a tool magazine of 18 tools with sister tools for the
+fast-wearing taps and drills; tool life is managed by the CNC and supervised by the tool management of Section 8.9.
+Every device of the cell — the pallet system with its shuttle, the load station and the three HMCs — is a Modbus TCP
+server with the standard interface of Chapter 5, so that the same signals serve the real-time control (Chapter 8) and
+the Bayesian updating of the twin (Section 4.6).
+
+![Figure 4.4 landscape](figures/fig4_4_crankcase_cell.svg)
+**Figure 4.4** The crankcase FMS cell: 12 fixture pallets, 16 numbered locations, shuttle moves of a typical pallet
+cycle and design data [design example].
+
+The cell is a closed system with respect to pallets: its work-in-process can never exceed $N_{pal} = 12$, and the
+relation between the number of pallets and the throughput is non-linear (Section 9.2.5). The static model of
+Section 4.4.1 treats the cell as one station type with $c_{HMC} = 3$; the process-level analysis of Section 9.2.5
+quantifies what this simplification misses.
+
 ## 4.4 Performance measures
 
 ### 4.4.1 Static capacity and bottleneck
@@ -126,6 +173,9 @@ Table 4.3 results.
 
 Example (HMC): $A = 30 / (30 + 0.333) = 0.9890$;
 $C = 3 \cdot 0.9890 \cdot 3600 \cdot 330 / (343.5 + 15) \cdot (1 - 0.008) = 9\,754$ parts per month.
+
+![Figure 4.5](figures/fig4_2_capacity.svg)
+**Figure 4.5** Static monthly capacity per station type; the three most loaded stations are highlighted [calculated].
 
 The static bottleneck is FINAL (5 667 parts/month), followed closely by ASSY (5 945) and GRIND (6 164). Three
 observations motivate the rest of this chapter. First, the margin between the three most loaded stations is small

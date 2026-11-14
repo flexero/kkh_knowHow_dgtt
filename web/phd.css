@@ -1,0 +1,44 @@
+/* Doctoral research tab (#phd) – phd.js. Theme variables only (light + dark). Series palette: reference categorical slots 1–4. */
+:root { --phd-s1: #2a78d6; --phd-s2: #eb6834; --phd-s3: #1baf7a; --phd-s4: #eda100; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --phd-s1: #3987e5; --phd-s2: #d95926; --phd-s3: #199e70; --phd-s4: #c98500; } }
+:root[data-theme="dark"] { --phd-s1: #3987e5; --phd-s2: #d95926; --phd-s3: #199e70; --phd-s4: #c98500; }
+
+.phd-chart { width: 100%; height: auto; display: block; }
+.phd-grid { stroke: var(--border); stroke-width: 1; }
+.phd-tick { font-size: 11px; fill: var(--muted); }
+.phd-axis { font-size: 12px; fill: var(--text-2); }
+.phd-leg { font-size: 12px; fill: var(--text); }
+.phd-s0 { stroke: var(--text); } .phd-f0 { fill: var(--text); }
+.phd-s1 { stroke: var(--phd-s1); } .phd-s2 { stroke: var(--phd-s2); } .phd-s3 { stroke: var(--phd-s3); } .phd-s4 { stroke: var(--phd-s4); }
+.phd-f1 { fill: var(--phd-s1); } .phd-f2 { fill: var(--phd-s2); } .phd-f3 { fill: var(--phd-s3); } .phd-f4 { fill: var(--phd-s4); }
+circle.phd-f0, circle.phd-f1, circle.phd-f2, circle.phd-f3, circle.phd-f4 { stroke: var(--surface); stroke-width: 2; }
+.phd-area1 { fill: var(--phd-s1); fill-opacity: .28; stroke: var(--phd-s1); stroke-width: 1.5; }
+.phd-area2 { fill: var(--phd-s2); fill-opacity: .28; stroke: var(--phd-s2); stroke-width: 1.5; }
+
+.phd-flow { display: flex; flex-wrap: wrap; gap: 6px; align-items: stretch; }
+.phd-fs { flex: 1 1 170px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; }
+.phd-fa { align-self: center; color: var(--muted); }
+.phd-kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; margin: 6px 0 10px; }
+.phd-kpi { background: var(--surface-2); border-radius: 8px; padding: 8px 10px; }
+.phd-kpi b { display: block; font-size: 20px; color: var(--text); }
+.phd-kpi span { font-size: 12px; color: var(--text-2); }
+.phd-st { font-size: 12px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); white-space: nowrap; }
+.phd-st-ok { border-color: var(--phd-s3); } .phd-st-next { border-color: var(--phd-s1); } .phd-st-part { border-color: var(--phd-s4); } .phd-st-open { color: var(--text-2); }
+.phd-lbl { font-size: 11px; padding: 1px 6px; border-radius: 4px; border: 1px solid var(--border); color: var(--text-2); white-space: nowrap; }
+.phd-eq { font-family: Georgia, "Times New Roman", serif; font-size: 14px; background: var(--surface-2); padding: 6px 10px; border-radius: 6px; display: inline-block; }
+.phd-row { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin: 8px 0; font-size: 13px; }
+.phd-row input[type=number] { width: 80px; }
+.phd-scroll { overflow-x: auto; }
+#phdCapTbl input { width: 64px; }
+#phdCapTbl tr.phd-bn td { background: var(--surface-2); font-weight: 600; }
+.phd-res { font-size: 13.5px; }
+.phd-bars { display: grid; gap: 3px; max-width: 760px; }
+.phd-bar { display: grid; grid-template-columns: 60px 1fr 60px; align-items: center; gap: 8px; font-size: 12px; }
+.phd-bar i { display: block; height: 12px; background: var(--phd-s1); border-radius: 0 4px 4px 0; }
+.phd-bar.phd-bnbar i { background: var(--phd-s2); }
+.phd-bar.phd-bnbar span, .phd-bar.phd-bnbar em { font-weight: 600; color: var(--text); }
+.phd-bar em { font-style: normal; color: var(--text-2); text-align: right; }
+.phd-ok { color: var(--phd-s3); font-weight: 600; } .phd-no { color: var(--phd-s2); font-weight: 600; }
+tr.phd-best td { font-weight: 600; }
+#tab-phd .grid2 > * { min-width: 0; }
+@media (max-width: 700px) { .phd-row input[type=number] { width: 70px; } }

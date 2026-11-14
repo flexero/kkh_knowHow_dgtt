@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tool management</title>
+<style>
+:root { --bg: #f6f6f3; --card: #ffffff; --ink: #1f1f1e; --ink2: #5f5e57; --line: #dddcd6; --ok: #1baf7a; --warn: #eda100; --bad: #e34948; --empty: #ecebe6; }
+@media (prefers-color-scheme: dark) { :root { --bg: #161615; --card: #1f1f1e; --ink: #f0efec; --ink2: #b4b3ab; --line: #3a3a37; --empty: #2c2c2a; } }
+* { box-sizing: border-box; } body { margin: 0; font: 14px/1.4 system-ui, Segoe UI, Arial, sans-serif; background: var(--bg); color: var(--ink); }
+header { display: flex; gap: 14px; align-items: center; padding: 10px 16px; background: var(--card); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+header h1 { font-size: 17px; margin: 0; } a { color: inherit; }
+main { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 12px; padding: 12px 16px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px; min-width: 0; }
+.card h2 { font-size: 14px; margin: 0 0 8px; } table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+td, th { text-align: left; padding: 3px 5px; border-bottom: 1px solid var(--line); vertical-align: middle; } th { color: var(--ink2); font-weight: 600; }
+td:last-child { white-space: nowrap; }
+.bar { width: 90px; height: 9px; background: var(--empty); border-radius: 4px; overflow: hidden; display: inline-block; vertical-align: middle; }
+.bar i { display: block; height: 100%; } .ok { background: var(--ok); } .warn { background: var(--warn); } .bad { background: var(--bad); }
+textarea { width: 100%; height: 90px; font: 12px Consolas, monospace; } button, select, input { font: inherit; padding: 4px 9px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); color: var(--ink); }
+.sub { color: var(--ink2); font-size: 12px; }
+</style></head>
+<body>
+<header><h1>Tool management – crankcase HMCs</h1><a href="/">← Cell controller</a><span class="sub" id="clock"></span></header>
+<main>
+  <section class="card"><h2>Tool change requests (setter work list)</h2><table id="req"></table>
+    <p class="sub">Mount a measured tool from the store: choose its serial and press "Mounted" – life 100 % and the presetter offsets are written into the CNC (command 14).</p></section>
+  <section class="card"><h2>Coming shift – tools reaching the warning limit within 20 parts (VC20)</h2><table id="fc"></table></section>
+  <section class="card"><h2>Presetter import</h2><p class="sub">Paste the presetter's CSV export: serial;type;length mm;radius mm</p>
+    <textarea id="csv">serial;type;length;radius
+T10-0101;T10;142.315;4.000
+T10-0102;T10;141.982;4.000</textarea><p><button id="imp">Import</button> <span id="impres" class="sub"></span></p>
+    <h2>Measured tools in store</h2><table id="store"></table></section>
+  <div id="mags" style="display:contents"></div>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const post = (u, b) => fetch(u, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(b) }).then((r) => r.json());
+let S = null;
+$("imp").onclick = () => post("/api/tools/import", { csv: $("csv").value }).then((r) => { $("impres").textContent = r.error || r.imported + " tools imported"; });
+window.mount = (id) => { const sel = $("s" + id); if (!sel || !sel.value) return alert("No measured tool of this type in store – import from the presetter first."); post("/api/tools/complete", { id, serial: sel.value }).then((r) => r.error && alert(r.error)); };
+const bar = (p, w) => `<span class="bar"><i class="${p <= 0 ? "bad" : p < w ? "warn" : "ok"}" style="width:${Math.max(2, Math.min(100, p))}%"></i></span> ${p ?? "–"} %`;
+function render(s) {
+  S = s; $("clock").textContent = new Date().toLocaleTimeString();
+  $("req").innerHTML = "<tr><th>#</th><th>Machine</th><th>Pocket</th><th>Tool</th><th>Reason</th><th>Mount</th></tr>" + (s.requests.length ? s.requests.map((r) => {
+    const opts = s.store.filter((t) => t.type === r.type).map((t) => `<option>${esc(t.serial)}</option>`).join("");
+    return `<tr><td>${r.id}</td><td>${r.machine}</td><td>${r.pocket}</td><td>${r.type}</td><td>${esc(r.reason)}</td><td><select id="s${r.id}">${opts}</select> <button onclick="mount(${r.id})">Mounted</button></td></tr>`;
+  }).join("") : '<tr><td colspan="6" class="sub">no open requests</td></tr>');
+  $("fc").innerHTML = "<tr><th>Machine</th><th>Tool</th><th>Now</th><th>After 20 parts</th><th>Parts to warning</th></tr>" + (s.forecast.length ? s.forecast.map((f) => `<tr><td>${f.machine}</td><td>${f.type} ${esc(f.name)}</td><td>${f.now_pct} %</td><td>${f.after_pct} %</td><td>${f.parts_left}</td></tr>`).join("") : '<tr><td colspan="5" class="sub">no tool reaches its warning limit</td></tr>');
+  $("store").innerHTML = "<tr><th>Serial</th><th>Type</th><th>L mm</th><th>R mm</th></tr>" + s.store.map((t) => `<tr><td>${esc(t.serial)}</td><td>${t.type}</td><td>${t.length.toFixed(3)}</td><td>${t.radius.toFixed(3)}</td></tr>`).join("");
+  $("mags").innerHTML = Object.entries(s.magazines).map(([m, rows]) => `<section class="card"><h2>${m} – magazine</h2><table><tr><th>Pocket</th><th>Tool</th><th>Serial</th><th>Remaining life (CNC)</th></tr>${rows.map((r) => `<tr><td>${r.pocket}</td><td>${r.type} <span class="sub">${esc(r.name)}</span></td><td>${esc(r.serial) || "–"}</td><td>${bar(r.life_pct, r.warn_pct)}</td></tr>`).join("")}</table></section>`).join("");
+}
+async function tick() { try { render(await (await fetch("/api/tools")).json()); } catch (e) { $("clock").textContent = "no connection"; } setTimeout(tick, 2000); }
+tick();
+</script>
+</body></html>

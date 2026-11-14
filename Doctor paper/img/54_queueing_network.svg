@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1100" height="640" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+  </defs>
+  <text x="550" y="30" font-size="20" font-weight="bold" text-anchor="middle">Closed queueing network of the cell – N pallets circulate, one part per pallet cycle</text>
+  <text x="550" y="52" font-size="13" text-anchor="middle" fill="#555">Service demands D = visits × mean service time per part [design values, mix VC10/VC20/VC30 = 0.3/0.5/0.2]</text>
+
+  <!-- queue L -->
+  <g>
+    <rect x="80" y="130" width="90" height="44" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <line x1="110" y1="130" x2="110" y2="174" stroke="#333"/><line x1="140" y1="130" x2="140" y2="174" stroke="#333"/>
+    <circle cx="215" cy="152" r="40" fill="#fff6e5" stroke="#b35c00" stroke-width="2.5"/>
+    <text x="215" y="148" font-size="14" font-weight="bold" text-anchor="middle">L</text>
+    <text x="215" y="165" font-size="11" text-anchor="middle">1 server</text>
+    <text x="160" y="214" font-size="13" font-weight="bold" text-anchor="middle">Load station (operator)</text>
+    <text x="160" y="232" font-size="12" text-anchor="middle">D_L = 140 s × 1.05 = 147 s</text>
+    <text x="160" y="248" font-size="11" text-anchor="middle" fill="#555">unload + load, × E[U(0.8, 1.3)]</text>
+  </g>
+  <!-- queue S -->
+  <g>
+    <rect x="390" y="130" width="90" height="44" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <line x1="420" y1="130" x2="420" y2="174" stroke="#333"/><line x1="450" y1="130" x2="450" y2="174" stroke="#333"/>
+    <circle cx="525" cy="152" r="40" fill="#eaf5ec" stroke="#2c7a3f" stroke-width="2.5"/>
+    <text x="525" y="148" font-size="14" font-weight="bold" text-anchor="middle">S</text>
+    <text x="525" y="165" font-size="11" text-anchor="middle">1 server</text>
+    <text x="470" y="214" font-size="13" font-weight="bold" text-anchor="middle">Shuttle</text>
+    <text x="470" y="232" font-size="12" text-anchor="middle">D_S = 16 + 29 + 25 = 70 s</text>
+    <text x="470" y="248" font-size="11" text-anchor="middle" fill="#555">3 moves per part, 12 s + 2 s × distance</text>
+  </g>
+  <!-- queue H -->
+  <g>
+    <rect x="700" y="130" width="90" height="44" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <line x1="730" y1="130" x2="730" y2="174" stroke="#333"/><line x1="760" y1="130" x2="760" y2="174" stroke="#333"/>
+    <circle cx="840" cy="100" r="30" fill="#eaf2fb" stroke="#1f5fa8" stroke-width="2.5"/>
+    <circle cx="840" cy="166" r="30" fill="#eaf2fb" stroke="#1f5fa8" stroke-width="2.5"/>
+    <circle cx="840" cy="232" r="30" fill="#eaf2fb" stroke="#1f5fa8" stroke-width="2.5"/>
+    <text x="840" y="105" font-size="12" font-weight="bold" text-anchor="middle">H1</text>
+    <text x="840" y="171" font-size="12" font-weight="bold" text-anchor="middle">H2</text>
+    <text x="840" y="237" font-size="12" font-weight="bold" text-anchor="middle">H3</text>
+    <line x1="790" y1="152" x2="810" y2="104" stroke="#333"/><line x1="790" y1="152" x2="810" y2="166" stroke="#333"/><line x1="790" y1="152" x2="810" y2="228" stroke="#333"/>
+    <text x="990" y="140" font-size="13" font-weight="bold" text-anchor="middle">HMC group</text>
+    <text x="990" y="158" font-size="12" text-anchor="middle">c = 3 servers</text>
+    <text x="990" y="176" font-size="12" text-anchor="middle">D_H = 343.5 + 15</text>
+    <text x="990" y="194" font-size="12" text-anchor="middle">= 358.5 s</text>
+  </g>
+  <!-- arrows -->
+  <line x1="255" y1="152" x2="388" y2="152" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="565" y1="152" x2="698" y2="152" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M 870 100 L 890 100 M 870 166 L 890 166 M 870 232 L 890 232 M 890 100 L 890 300 L 40 300 L 40 152 L 78 152" fill="none" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+  <text x="550" y="292" font-size="12" text-anchor="middle" fill="#333">pallet returns with a machined part → unloaded and re-loaded (N constant = closed network)</text>
+  <text x="320" y="144" font-size="11" text-anchor="middle">raw pallet</text>
+
+  <!-- formulas -->
+  <rect x="30" y="330" width="520" height="290" fill="#fafafa" stroke="#bbb"/>
+  <text x="46" y="354" font-size="14" font-weight="bold">Exact MVA recursion (Reiser and Lavenberg 1980)</text>
+  <g font-size="13">
+    <text x="46" y="380">start: Q_k(0) = 0 for every station k</text>
+    <text x="46" y="404">for n = 1 … N:</text>
+    <text x="66" y="428">single server:  R_k(n) = D_k × [1 + Q_k(n − 1)]</text>
+    <text x="66" y="452">c servers:  R_k(n) = (D_k / c) × [1 + Q_k(n − 1)</text>
+    <text x="196" y="474">+ Σ_j (c − 1 − j) × p_k(j | n − 1)],  j = 0 … c − 2</text>
+    <text x="66" y="498">X(n) = n / Σ_k R_k(n)            (Little, whole cycle)</text>
+    <text x="66" y="522">Q_k(n) = X(n) × R_k(n)            (Little, per station)</text>
+    <text x="66" y="546">p_k(j | n) = X(n) × D_k / min(j, c) × p_k(j − 1 | n − 1)</text>
+    <text x="66" y="570">U_k(n) = X(n) × D_k / c</text>
+    <text x="46" y="600" fill="#555">Units: D, R in s; X in parts/s (× 3600 → parts/h); Q in pallets.</text>
+  </g>
+  <rect x="570" y="330" width="500" height="290" fill="#fafafa" stroke="#bbb"/>
+  <text x="586" y="354" font-size="14" font-weight="bold">Two simplifications and one correction</text>
+  <g font-size="12">
+    <text x="586" y="380" font-weight="bold">Seidmann approximation (multi-server):</text>
+    <text x="586" y="398">c-server station D → single server D / c (119.5 s)</text>
+    <text x="586" y="416">+ pure delay D × (c − 1) / c (239 s). Simple, slightly</text>
+    <text x="586" y="434">pessimistic at small N (N = 3: 14.80 instead of 15.87 /h).</text>
+    <text x="586" y="462" font-weight="bold">Product form assumes:</text>
+    <text x="586" y="480">FCFS, exponential-like service, infinite buffers, a server</text>
+    <text x="586" y="498">never blocked. In the real cell L and every HMC changer are</text>
+    <text x="586" y="516">ONE location: they stay occupied during the shuttle exchange.</text>
+    <text x="586" y="544" font-weight="bold">Model B (blocking-aware, this guide):</text>
+    <text x="586" y="562">D_L' = 147 + 41 + 2W s  (exchange: 13 → HMC 16 s, rack → 13 25 s)</text>
+    <text x="586" y="580">D_H' = 358.5 + 45 + 2W s  (HMC → rack 29 s, 13 → HMC 16 s)</text>
+    <text x="586" y="598">W = shuttle waiting (M/G/1, fixed point with X); S not a station.</text>
+  </g>
+</svg>

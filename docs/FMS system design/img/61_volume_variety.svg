@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Arial, Helvetica, sans-serif">
+<title>Volume-variety chart: system types by number of part numbers and annual volume per part number (example zones)</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1200" height="830" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="18" text-anchor="start" fill="#111" font-weight="bold">Volume–variety chart: which system type fits? (log–log, zones = typical ranges, they overlap on purpose)</text>
+<text x="24.0" y="54.0" font-size="12" text-anchor="start" fill="#444">x = variety (number of part numbers), y = annual volume per part number. Points A, B, C = the three example scenarios of chapter A4.</text>
+<rect x="120.0" y="90.0" width="1030.0" height="640.0" rx="0" fill="#fafafa" stroke="#999" stroke-width="1"/>
+<line x1="120.0" y1="90.0" x2="120.0" y2="730.0" stroke="#ddd" stroke-width="1"/>
+<text x="120.0" y="750.0" font-size="12" text-anchor="middle" fill="#111">1</text>
+<line x1="377.5" y1="90.0" x2="377.5" y2="730.0" stroke="#ddd" stroke-width="1"/>
+<text x="377.5" y="750.0" font-size="12" text-anchor="middle" fill="#111">10</text>
+<line x1="635.0" y1="90.0" x2="635.0" y2="730.0" stroke="#ddd" stroke-width="1"/>
+<text x="635.0" y="750.0" font-size="12" text-anchor="middle" fill="#111">100</text>
+<line x1="892.5" y1="90.0" x2="892.5" y2="730.0" stroke="#ddd" stroke-width="1"/>
+<text x="892.5" y="750.0" font-size="12" text-anchor="middle" fill="#111">1 000</text>
+<line x1="1150.0" y1="90.0" x2="1150.0" y2="730.0" stroke="#ddd" stroke-width="1"/>
+<text x="1150.0" y="750.0" font-size="12" text-anchor="middle" fill="#111">10 000</text>
+<line x1="120.0" y1="730.0" x2="1150.0" y2="730.0" stroke="#ddd" stroke-width="1"/>
+<text x="112.0" y="734.0" font-size="12" text-anchor="end" fill="#111">1</text>
+<line x1="120.0" y1="631.2" x2="1150.0" y2="631.2" stroke="#ddd" stroke-width="1"/>
+<text x="112.0" y="635.2" font-size="12" text-anchor="end" fill="#111">10</text>
+<line x1="120.0" y1="532.4" x2="1150.0" y2="532.4" stroke="#ddd" stroke-width="1"/>
+<text x="112.0" y="536.4" font-size="12" text-anchor="end" fill="#111">100</text>
+<line x1="120.0" y1="433.6" x2="1150.0" y2="433.6" stroke="#ddd" stroke-width="1"/>
+<text x="112.0" y="437.6" font-size="12" text-anchor="end" fill="#111">1 000</text>
+<line x1="120.0" y1="334.8" x2="1150.0" y2="334.8" stroke="#ddd" stroke-width="1"/>
+<text x="112.0" y="338.8" font-size="12" text-anchor="end" fill="#111">10 000</text>
+<line x1="120.0" y1="236.0" x2="1150.0" y2="236.0" stroke="#ddd" stroke-width="1"/>
+<text x="112.0" y="240.0" font-size="12" text-anchor="end" fill="#111">100 000</text>
+<line x1="120.0" y1="137.1" x2="1150.0" y2="137.1" stroke="#ddd" stroke-width="1"/>
+<text x="112.0" y="141.1" font-size="12" text-anchor="end" fill="#111">1 000 000</text>
+<rect x="120.0" y="107.4" width="122.9" height="158.3" fill="#64748b" fill-opacity="0.13" stroke="#64748b" stroke-width="2"/>
+<rect x="197.5" y="188.8" width="180.0" height="146.0" fill="#9333ea" fill-opacity="0.13" stroke="#9333ea" stroke-width="2"/>
+<rect x="242.9" y="206.2" width="314.6" height="158.3" fill="#db2777" fill-opacity="0.13" stroke="#db2777" stroke-width="2"/>
+<rect x="300.0" y="305.0" width="457.9" height="197.6" fill="#d97706" fill-opacity="0.13" stroke="#d97706" stroke-width="2"/>
+<rect x="455.0" y="386.4" width="437.5" height="215.0" fill="#059669" fill-opacity="0.13" stroke="#059669" stroke-width="2"/>
+<rect x="635.0" y="485.2" width="515.0" height="244.8" fill="#2563eb" fill-opacity="0.13" stroke="#2563eb" stroke-width="2"/>
+<text x="129.5" y="125.9" font-size="13" text-anchor="start" fill="#64748b" font-weight="bold">Transfer / dedicated line</text>
+<text x="204.3" y="202.1" font-size="13" text-anchor="start" fill="#9333ea" font-weight="bold">Flexible transfer line (FTL)</text>
+<text x="257.5" y="353.2" font-size="13" text-anchor="start" fill="#db2777" font-weight="bold">Reconfigurable system (RMS)</text>
+<text x="314.6" y="320.3" font-size="13" text-anchor="start" fill="#d97706" font-weight="bold">FMS</text>
+<text x="469.7" y="403.8" font-size="13" text-anchor="start" fill="#059669" font-weight="bold">FMC</text>
+<text x="649.7" y="509.6" font-size="13" text-anchor="start" fill="#2563eb" font-weight="bold">Stand-alone CNC</text>
+<circle cx="397.9" cy="416.2" r="8" fill="#111"/>
+<text x="409.9" y="421.2" font-size="13" text-anchor="start" fill="#111" font-weight="bold">A (12 part numbers  1 500 / part)</text>
+<circle cx="680.3" cy="571.7" r="8" fill="#111"/>
+<text x="692.3" y="576.7" font-size="13" text-anchor="start" fill="#111" font-weight="bold">B (150 part numbers  40 / part)</text>
+<circle cx="197.5" cy="228.1" r="8" fill="#111"/>
+<text x="209.5" y="233.1" font-size="13" text-anchor="start" fill="#111" font-weight="bold">C (2 part numbers  120 000 / part)</text>
+<text x="635.0" y="778.0" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">Variety = number of different part numbers (log scale)</text>
+<text x="34" y="410" font-size="14" font-weight="bold" text-anchor="middle" transform="rotate(-90 34 410)" fill="#111">Volume per part number per year (log scale)</text>
+<text x="1150.0" y="806.0" font-size="11" text-anchor="end" fill="#444">Zones from web/fmse_data.js TYPES (examples). Rule: if a point lies in two zones, study both variants in phase P2.</text>
+</svg>

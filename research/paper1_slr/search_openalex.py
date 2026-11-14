@@ -1,6 +1,6 @@
 """Supplementary SLR search in OpenAlex (free, open database) - stdlib only.
 
-Runs search strings S1-S3 of docs/51_slr_protocol.md (OpenAlex syntax), removes duplicates,
+Runs search strings S1-S3 of Doctor paper/51_slr_protocol.md (OpenAlex syntax), removes duplicates,
 and writes into an output folder:
   records.ris       -> import into Zotero (File > Import)
   screening.csv     -> open in Excel / LibreOffice, fill 'decision' and 'reason'

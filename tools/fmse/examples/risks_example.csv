@@ -1,0 +1,16 @@
+﻿rank;id;risk;P;I;score;class;mitigation
+1;R02;Part data / volumes wrong or missing;4;4;16;HIGH;Questionnaire signed by owner, 5-year volume review gate P1
+2;R03;Interfaces between suppliers unclear;4;4;16;HIGH;"Interface sheets per module, signed; one integrator responsible"
+3;R05;Software (cell controller / MES) late or buggy;4;4;16;HIGH;Module library, virtual commissioning, early MES test system
+4;R01;Machine delivery late (long lead);3;5;15;HIGH;Order early (letter of intent), penalty clause, weekly supplier report
+5;R15;Ramp-up longer than planned;4;3;12;MEDIUM;Ramp-up plan with weekly targets, supplier support on site in contract
+6;R04;Cycle time not reached;3;4;12;MEDIUM;Test cut before order, guaranteed time in contract, time study at FAT
+7;R09;Budget overrun;3;4;12;MEDIUM;Contingency 10-15 %, change-order process, monthly cost report
+8;R08;Safety concept changes late (CE);2;5;10;MEDIUM;Risk assessment from P3, safety engineer reviews at 30/60/90 %
+9;R07;Operators not trained / not accepted;3;3;9;MEDIUM;Involve operators from P2, training plan, super-users
+10;R10;Network / IT security rules block integration;3;3;9;MEDIUM;IT department in P3, zone model agreed early (item 6)
+11;R11;Fixture design not robot / pallet ready;3;3;9;MEDIUM;Fixture standard in URS, design review with pallet supplier
+12;R06;Foundation / site not ready;2;4;8;MEDIUM;Site plan with dates, owner checklist, weekly site meeting
+13;R13;Key person leaves the project;2;4;8;MEDIUM;Deputy for each role, documentation in shared folder
+14;R12;Tool magazine too small for unmanned shifts;2;3;6;LOW;Pocket calculation (item 3) in FDS
+15;R14;Supplier insolvency;1;5;5;LOW;Financial check in tender, bank guarantees, escrow of source code

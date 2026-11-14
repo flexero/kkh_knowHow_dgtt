@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 600" width="1250" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>AS/RS rack elevation with FEM 9.851 reference points P1 and P2 and cycle times</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker></defs>
+<rect x="0" y="0" width="1250" height="600" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="18" text-anchor="start" fill="#111" font-weight="bold">AS/RS cycle time with the FEM 9.851 reference points (web calculator defaults: rack 40 × 12 m)</text>
+<text x="24.0" y="54.0" font-size="12" text-anchor="start" fill="#444">Travel 3 m/s, 0.5 m/s² · hoist 0.8 m/s, 0.5 m/s² · fork 8 s one way · dead time 4 s. X and Y move at the same time – the slower axis decides.</text>
+<rect x="90.0" y="136.0" width="720.0" height="384.0" rx="0" fill="#f0f9ff" stroke="#0891b2" stroke-width="1"/>
+<line x1="90.0" y1="520.0" x2="90.0" y2="136.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="162.0" y1="520.0" x2="162.0" y2="136.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="234.0" y1="520.0" x2="234.0" y2="136.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="306.0" y1="520.0" x2="306.0" y2="136.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="378.0" y1="520.0" x2="378.0" y2="136.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="450.0" y1="520.0" x2="450.0" y2="136.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="522.0" y1="520.0" x2="522.0" y2="136.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="594.0" y1="520.0" x2="594.0" y2="136.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="666.0" y1="520.0" x2="666.0" y2="136.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="738.0" y1="520.0" x2="738.0" y2="136.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="810.0" y1="520.0" x2="810.0" y2="136.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="90.0" y1="520.0" x2="810.0" y2="520.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="90.0" y1="456.0" x2="810.0" y2="456.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="90.0" y1="392.0" x2="810.0" y2="392.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="90.0" y1="328.0" x2="810.0" y2="328.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="90.0" y1="264.0" x2="810.0" y2="264.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="90.0" y1="200.0" x2="810.0" y2="200.0" stroke="#bae6fd" stroke-width="1"/>
+<line x1="90.0" y1="136.0" x2="810.0" y2="136.0" stroke="#bae6fd" stroke-width="1"/>
+<text x="450.0" y="544.0" font-size="12" text-anchor="middle" fill="#111">rack length L = 40 m</text>
+<text x="60.0" y="328.0" font-size="12" text-anchor="middle" fill="#111" transform="rotate(-90 60 328.0)">height H = 12 m</text>
+<circle cx="90.0" cy="520.0" r="7" fill="#d97706" stroke="#92400e" stroke-width="1"/>
+<text x="100.0" y="510.0" font-size="11" text-anchor="start" fill="#111">I/O point (P&amp;D)</text>
+<circle cx="234.0" cy="264.0" r="8" fill="#c62828" stroke="#7f1d1d" stroke-width="1"/>
+<text x="246.0" y="254.0" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">P1 (L/5, 2H/3) = (8.0, 8.0) m</text>
+<circle cx="570.0" cy="443.2" r="8" fill="#c62828" stroke="#7f1d1d" stroke-width="1"/>
+<text x="582.0" y="433.2" font-size="12" text-anchor="start" fill="#c62828" font-weight="bold">P2 (2L/3, H/5) = (26.7, 2.4) m</text>
+<line x1="90.0" y1="520.0" x2="234.0" y2="264.0" stroke="#2563eb" stroke-width="2" marker-end="url(#ahb)"/>
+<line x1="234.0" y1="264.0" x2="570.0" y2="443.2" stroke="#2563eb" stroke-width="2" marker-end="url(#ahb)" stroke-dasharray="6 4"/>
+<line x1="570.0" y1="443.2" x2="96.0" y2="517.0" stroke="#2563eb" stroke-width="2" marker-end="url(#ahb)"/>
+<text x="860.0" y="110.0" font-size="12" text-anchor="start" fill="#111" font-weight="bold">Move</text>
+<text x="970.0" y="110.0" font-size="12" text-anchor="start" fill="#111" font-weight="bold">x [s]</text>
+<text x="1040.0" y="110.0" font-size="12" text-anchor="start" fill="#111" font-weight="bold">y [s]</text>
+<text x="1110.0" y="110.0" font-size="12" text-anchor="start" fill="#111" font-weight="bold">t = max</text>
+<text x="860.0" y="134.0" font-size="12" text-anchor="start" fill="#111">I/O → P1</text>
+<text x="970.0" y="134.0" font-size="12" text-anchor="start" fill="#111">8.00</text>
+<text x="1040.0" y="134.0" font-size="12" text-anchor="start" fill="#111">11.60</text>
+<text x="1110.0" y="134.0" font-size="12" text-anchor="start" fill="#111">11.60</text>
+<text x="860.0" y="158.0" font-size="12" text-anchor="start" fill="#111">I/O → P2</text>
+<text x="970.0" y="158.0" font-size="12" text-anchor="start" fill="#111">14.89</text>
+<text x="1040.0" y="158.0" font-size="12" text-anchor="start" fill="#111">4.60</text>
+<text x="1110.0" y="158.0" font-size="12" text-anchor="start" fill="#111">14.89</text>
+<text x="860.0" y="182.0" font-size="12" text-anchor="start" fill="#111">P1 → P2</text>
+<text x="970.0" y="182.0" font-size="12" text-anchor="start" fill="#111">12.22</text>
+<text x="1040.0" y="182.0" font-size="12" text-anchor="start" fill="#111">8.60</text>
+<text x="1110.0" y="182.0" font-size="12" text-anchor="start" fill="#111">12.22</text>
+<text x="860.0" y="220.0" font-size="12.5" text-anchor="start" fill="#111" font-weight="bold">Single cycle (store or retrieve):</text>
+<text x="860.0" y="242.0" font-size="12" text-anchor="start" fill="#111">t_sc = 11.60 + 14.89 + 2·8 + 4 = 46.5 s</text>
+<text x="860.0" y="264.0" font-size="12" text-anchor="start" fill="#111">→ 3600 / 46.5 = 77 moves/h</text>
+<text x="860.0" y="286.0" font-size="12" text-anchor="start" fill="#111"></text>
+<text x="860.0" y="308.0" font-size="12.5" text-anchor="start" fill="#111" font-weight="bold">Double cycle (store + retrieve):</text>
+<text x="860.0" y="330.0" font-size="12" text-anchor="start" fill="#111">t_dc = 11.60 + 12.22 + 14.89 + 4·8 + 4 = 74.7 s</text>
+<text x="860.0" y="352.0" font-size="12" text-anchor="start" fill="#111">→ 2·3600 / 74.7 = 96 moves/h</text>
+<text x="860.0" y="374.0" font-size="12" text-anchor="start" fill="#111"></text>
+<text x="860.0" y="396.0" font-size="12.5" text-anchor="start" fill="#111" font-weight="bold">Motion time over distance s:</text>
+<text x="860.0" y="418.0" font-size="12" text-anchor="start" fill="#111">s &gt; v²/a: t = s/v + v/a (trapezoid)</text>
+<text x="860.0" y="440.0" font-size="12" text-anchor="start" fill="#111">s ≤ v²/a: t = 2·√(s/a) (triangle)</text>
+<text x="860.0" y="462.0" font-size="12" text-anchor="start" fill="#111">v²/a: travel 18 m, hoist 1.28 m</text>
+</svg>

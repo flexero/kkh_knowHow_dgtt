@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logistics – AGV + AS/RS</title>
+<style>
+:root { --bg: #f6f6f3; --card: #ffffff; --ink: #1f1f1e; --ink2: #5f5e57; --line: #dddcd6; --ok: #1baf7a; --warn: #eda100; --bad: #e34948; --blue: #2a78d6; --empty: #ecebe6; }
+@media (prefers-color-scheme: dark) { :root { --bg: #161615; --card: #1f1f1e; --ink: #f0efec; --ink2: #b4b3ab; --line: #3a3a37; --empty: #2c2c2a; } }
+* { box-sizing: border-box; } body { margin: 0; font: 14px/1.4 system-ui, Segoe UI, Arial, sans-serif; background: var(--bg); color: var(--ink); }
+header { display: flex; gap: 14px; align-items: center; padding: 10px 16px; background: var(--card); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+header h1 { font-size: 17px; margin: 0; } a { color: inherit; }
+main { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 12px; padding: 12px 16px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px; min-width: 0; }
+.card h2 { font-size: 14px; margin: 0 0 8px; } table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+td, th { text-align: left; padding: 3px 5px; border-bottom: 1px solid var(--line); } th { color: var(--ink2); font-weight: 600; } td:last-child { white-space: nowrap; }
+.bar { width: 80px; height: 9px; background: var(--empty); border-radius: 4px; overflow: hidden; display: inline-block; vertical-align: middle; } .bar i { display: block; height: 100%; }
+.sub { color: var(--ink2); font-size: 12px; } button, select, input { font: inherit; padding: 4px 9px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); color: var(--ink); }
+</style></head>
+<body>
+<header><h1>Logistics – AGV fleet + AS/RS</h1><a href="/">← Cell controller</a><a href="/tools">Tools</a><span class="sub" id="clock"></span></header>
+<main>
+  <section class="card"><h2>AGVs and AS/RS cranes</h2><table id="dev"></table></section>
+  <section class="card"><h2>Castings at the load station (kanban, reorder point 2)</h2><table id="buf"></table>
+    <h2 style="margin-top:12px">Goods receipt → raw AS/RS</h2>
+    <p><select id="item"><option value="RAW_CC10|6">VC10 crankcase castings (box of 6)</option><option value="RAW_CC|4" selected>VC20 crankcase castings (box of 4)</option><option value="RAW_CC30|3">VC30 crankcase castings (box of 3)</option></select>
+      boxes <input id="boxes" type="number" value="2" min="1" style="width:60px"> <button id="rec">Receive</button></p>
+    <p>Finished compressor at final assembly: <input id="ser" placeholder="VC20-000123" size="12"> <button id="fg">Send to FG AS/RS</button></p></section>
+  <section class="card"><h2>Inventory</h2><table id="inv"></table></section>
+  <section class="card"><h2>Transport orders</h2><table id="tr"></table></section>
+  <section class="card"><h2>Stored handling units</h2><table id="hu"></table></section>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const post = (u, b) => fetch(u, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(b) }).then((r) => r.json());
+const VN = { 1: "VC10", 2: "VC20", 3: "VC30" }, AS = { 0: "idle", 1: "moving", 2: "loading", 3: "charging", 4: "error" };
+const NODE = { 1: "raw AS/RS I/O", 2: "load station", 3: "machining out", 4: "assembly in", 5: "test in", 6: "paint in", 7: "final out", 8: "FG AS/RS I/O", 9: "charger 1", 10: "charger 2" };
+$("rec").onclick = () => { const [item, qty] = $("item").value.split("|"); post("/api/logistics/receive", { item, qty: +qty, boxes: +$("boxes").value }); };
+$("fg").onclick = () => { if ($("ser").value) post("/api/logistics/fg", { serial: $("ser").value }); $("ser").value = ""; };
+function render(s) {
+  $("clock").textContent = new Date().toLocaleTimeString();
+  $("dev").innerHTML = "<tr><th>Device</th><th>State</th><th>Position</th><th>Battery</th></tr>" + Object.entries(s.devices).map(([id, d]) => {
+    if (!d.online) return `<tr><td>${id}</td><td>OFFLINE</td><td></td><td></td></tr>`;
+    if (id.startsWith("AGV")) { const b = d.battery; return `<tr><td>${id}</td><td>${AS[d.agv_state]}${d.loaded ? " · loaded" : ""}</td><td>${NODE[d.node] || d.node}${d.agv_state === 1 ? " → " + (NODE[d.target] || d.target) : ""}</td><td><span class="bar"><i style="width:${b}%;background:${b < 25 ? "var(--bad)" : b < 50 ? "var(--warn)" : "var(--ok)"}"></i></span> ${b} %</td></tr>`; }
+    return `<tr><td>${id}</td><td>${d.busy ? "working" : "ready"}</td><td>bay ${d.bay} · level ${d.level}</td><td></td></tr>`;
+  }).join("");
+  $("buf").innerHTML = "<tr><th>Variant</th><th>Castings at the cell</th><th>On the way</th></tr>" + s.buffer.map((b) => `<tr><td>${VN[b.variant]}</td><td>${b.qty}</td><td>${b.on_way}</td></tr>`).join("");
+  $("inv").innerHTML = "<tr><th>AS/RS</th><th>Item</th><th>Boxes</th><th>Pieces</th></tr>" + s.inventory.map((i) => `<tr><td>${i.asrs}</td><td>${esc(i.item)}</td><td>${i.boxes}</td><td>${i.qty}</td></tr>`).join("") + `<tr><td colspan="4" class="sub">free locations: raw ${s.free["ASRS-RAW"]} / 392 · FG ${s.free["ASRS-FG"]} / 392</td></tr>`;
+  $("tr").innerHTML = "<tr><th>#</th><th>Purpose</th><th>From → to</th><th>Unit</th><th>AGV</th><th>Status</th></tr>" + s.transports.map((t) => `<tr><td>${t.id}</td><td>${t.purpose}</td><td>${NODE[t.frm]} → ${NODE[t.too]}</td><td>${esc(t.hu)}</td><td>${t.agv || "–"}</td><td>${t.status}</td></tr>`).join("");
+  $("hu").innerHTML = "<tr><th>Unit</th><th>Item</th><th>Qty</th><th>AS/RS</th><th>Bay / level / side</th></tr>" + s.stored.map((h) => `<tr><td>${esc(h.id)}</td><td>${esc(h.item)}</td><td>${h.qty}</td><td>${h.asrs}</td><td>${h.bay} / ${h.level} / ${h.side}</td></tr>`).join("");
+}
+async function tick() { try { render(await (await fetch("/api/logistics")).json()); } catch (e) { $("clock").textContent = "no connection"; } setTimeout(tick, 1500); }
+tick();
+</script>
+</body></html>

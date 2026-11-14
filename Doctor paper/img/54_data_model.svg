@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1100" height="700" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+  </defs>
+  <text x="550" y="30" font-size="20" font-weight="bold" text-anchor="middle">Data model of the cell controller – SQLite file fmsctl/data/cell.db (fmsctl/cell/db.py)</text>
+  <text x="550" y="52" font-size="13" text-anchor="middle" fill="#555">PK = primary key · dashed lines = logical references (no FOREIGN KEY constraint in SQLite schema) · REAL times = Unix seconds</text>
+
+  <!-- pallet -->
+  <g font-size="12">
+    <rect x="30" y="80" width="300" height="30" fill="#1f5fa8"/>
+    <text x="52" y="100" font-size="14" font-weight="bold" fill="#fff">pallet (12 rows)</text>
+    <rect x="30" y="110" width="300" height="140" fill="#f5f9fd" stroke="#1f5fa8"/>
+    <text x="52" y="132"><tspan font-weight="bold">id</tspan> INTEGER PK · 1…12</text>
+    <text x="52" y="152">fixture TEXT · 'A' or 'B'</text>
+    <text x="52" y="172">variant INTEGER · 0, 1 VC10, 2 VC20, 3 VC30</text>
+    <text x="52" y="192">content TEXT · empty / raw / machined / nok</text>
+    <text x="52" y="212">wo TEXT · work order of the part ('' = none)</text>
+    <text x="52" y="236" fill="#a00">NO location column – PLC is the truth</text>
+
+    <!-- wo -->
+    <rect x="420" y="80" width="270" height="30" fill="#2c7a3f"/>
+    <text x="432" y="100" font-size="14" font-weight="bold" fill="#fff">wo (work orders)</text>
+    <rect x="420" y="110" width="270" height="250" fill="#f6fbf7" stroke="#2c7a3f"/>
+    <text x="432" y="132"><tspan font-weight="bold">id</tspan> TEXT PK · e.g. 'WO-1001'</text>
+    <text x="432" y="152">variant INTEGER · 1 / 2 / 3</text>
+    <text x="432" y="172">qty INTEGER · good parts required</text>
+    <text x="432" y="192">due REAL · due date (EDD key)</text>
+    <text x="432" y="212">created REAL · creation time (FIFO key)</text>
+    <text x="432" y="232">released INTEGER · 0 / 1</text>
+    <text x="432" y="252">started INTEGER · castings loaded</text>
+    <text x="432" y="272">done INTEGER · good parts unloaded</text>
+    <text x="432" y="292">scrap INTEGER · NOK parts unloaded</text>
+    <text x="432" y="312">finished REAL · NULL = open</text>
+    <text x="432" y="340" fill="#555">open ⇔ released = 1, finished NULL,</text>
+    <text x="432" y="354" fill="#555">started − scrap &lt; qty (for new loads)</text>
+
+    <!-- job -->
+    <rect x="800" y="80" width="270" height="30" fill="#b35c00"/>
+    <text x="812" y="100" font-size="14" font-weight="bold" fill="#fff">job (every command)</text>
+    <rect x="800" y="110" width="270" height="250" fill="#fffaf2" stroke="#b35c00"/>
+    <text x="812" y="132"><tspan font-weight="bold">id</tspan> INTEGER PK · = job.id in the PLC</text>
+    <text x="812" y="152">device TEXT · PPS-1, LOAD-CC, HMC-0x</text>
+    <text x="812" y="172">code INTEGER · 4 ack, 10, 11, 12</text>
+    <text x="812" y="192">params TEXT · JSON of the parameters</text>
+    <text x="812" y="212">status TEXT · sent / done / rejected</text>
+    <text x="812" y="232">created REAL · command sent</text>
+    <text x="812" y="252">done_t REAL · completion detected</text>
+    <text x="812" y="272">result INTEGER · 0 OK, 1 NOK, 2 aborted</text>
+    <text x="812" y="292">cycle_s REAL · (column exists, not filled)</text>
+    <text x="812" y="312">info TEXT · readable text / error</text>
+    <text x="812" y="340" fill="#555">id counter persisted in kv 'job_id'</text>
+
+    <!-- event -->
+    <rect x="40" y="420" width="250" height="30" fill="#6a4c9c"/>
+    <text x="52" y="440" font-size="14" font-weight="bold" fill="#fff">event (log, alarms)</text>
+    <rect x="40" y="450" width="250" height="130" fill="#f8f5fc" stroke="#6a4c9c"/>
+    <text x="52" y="472"><tspan font-weight="bold">seq</tspan> INTEGER PK AUTOINCREMENT</text>
+    <text x="52" y="492">t REAL · time</text>
+    <text x="52" y="512">level TEXT · info / warn / alarm / error</text>
+    <text x="52" y="532">device TEXT · CELL, PPS-1, LOAD-CC …</text>
+    <text x="52" y="552">text TEXT · message</text>
+    <text x="52" y="572" fill="#555">append only, never deleted (grows)</text>
+
+    <!-- kv -->
+    <rect x="420" y="420" width="270" height="30" fill="#555"/>
+    <text x="432" y="440" font-size="14" font-weight="bold" fill="#fff">kv (key / value, JSON)</text>
+    <rect x="420" y="450" width="270" height="90" fill="#f4f4f4" stroke="#555"/>
+    <text x="432" y="472"><tspan font-weight="bold">k</tspan> TEXT PK · v TEXT (JSON)</text>
+    <text x="432" y="494">'mode' → "auto" / "manual"</text>
+    <text x="432" y="516">'job_id' → last job number used</text>
+
+    <!-- PLC -->
+    <rect x="800" y="420" width="270" height="160" fill="#fff" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="7 4"/>
+    <text x="812" y="444" font-size="14" font-weight="bold">PLC registers (not in the DB)</text>
+    <text x="812" y="466">PPS-1 300–315 pal.slot01…16 → location</text>
+    <text x="812" y="486">PPS-1 330–345 pal.state01…16</text>
+    <text x="812" y="506">every device 0–11 FAST, 390–395 job result</text>
+    <text x="812" y="526">HMC 300–339 program, pallet, tool life</text>
+    <text x="812" y="550" fill="#555">copied each loop into self.live;</text>
+    <text x="812" y="566" fill="#555">snapshot() merges location into pallet rows</text>
+  </g>
+
+  <!-- relations -->
+  <line x1="330" y1="212" x2="418" y2="140" stroke="#555" stroke-dasharray="6 4" marker-end="url(#a)"/>
+  <text x="300" y="272" font-size="12" fill="#333">pallet.wo → wo.id (0..1)</text>
+  <line x1="798" y1="192" x2="692" y2="152" stroke="#555" stroke-dasharray="6 4" marker-end="url(#a)"/>
+  <text x="700" y="190" font-size="11" fill="#333">params.wo</text>
+  <path d="M 812 360 C 700 400, 400 390, 200 252" fill="none" stroke="#555" stroke-dasharray="6 4" marker-end="url(#a)"/>
+  <text x="430" y="394" font-size="12" fill="#333">params job.palletId / move.palletId / task.palletId → pallet.id</text>
+  <path d="M 800 500 C 600 620, 300 640, 165 252" fill="none" stroke="#1f5fa8" stroke-dasharray="3 3" marker-end="url(#a)"/>
+  <text x="330" y="630" font-size="12" fill="#1f5fa8">pal.slotNN value = pallet.id at location NN</text>
+  <text x="550" y="680" font-size="12" text-anchor="middle" fill="#555">Item 3 adds tool_item, magazine, tool_req; item 4 adds the logistics tables – in the same file, same connection.</text>
+</svg>
