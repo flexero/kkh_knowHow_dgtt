@@ -1,0 +1,57 @@
+{
+  "_note": "Shared worked-example inputs for FMS engineering item 4 (capacity, layout, simulation): guide docs/FMS system design/64_capacity_layout_simulation.md, tools/fmse/*.py, web/fmse4x*.js. All values are EXAMPLES. Analytic results must match EXACTLY between guide, tools and web. Discrete-event simulation (DES) results cannot match bit by bit (different random generators / math libraries): they are compared STATISTICALLY (means of 10 replications with 95 % confidence intervals must overlap). The existing web item 4 (web/fmse4.js: OEE waterfall, queueing chart, 2-machine buffer simulation, layout pairwise exchange, generic FMS simulation) keeps its inputs; this file repeats them and adds the deeper models.",
+  "_formulas": {
+    "oee": "run = plan - down - setup ; A = run/plan ; P = ideal*total/run ; Q = good/total ; OEE = A*P*Q ; TEEP = OEE*plan/cal ; speed loss = run - ideal*total - minor (>= 0) ; quality loss time = ideal*(total - good)",
+    "mtbf_mttr": "failures = events with type 'failure' ; MTTR = mean duration of failures ; MTBF = (production_time_h*60 - sum failure durations)/failures [min] ; A_inherent = MTBF/(MTBF + MTTR) ; Pareto of all stop minutes by reason, descending",
+    "mm1": "rho = lambda/mu ; Lq = rho^2/(1-rho) ; Wq = Lq/lambda ; W = Wq + 1/mu ; L = lambda*W",
+    "mmm_erlang_c": "a = lambda/mu ; rho = a/m ; P0 = 1/( sum_{k=0}^{m-1} a^k/k! + a^m/(m!*(1-rho)) ) ; C = a^m/(m!*(1-rho)) * P0 ; Lq = C*rho/(1-rho) ; Wq = Lq/lambda ; W = Wq + 1/mu ; L = lambda*W",
+    "kingman_sakasegawa": "Wq = ((ca^2 + ce^2)/2) * (u^(sqrt(2(m+1)) - 1)/(m(1-u))) * te ; CT = Wq + te ; WIP = ra*CT with ra = u*m/te",
+    "breakdown_variability": "A = MTTF/(MTTF+MTTR) ; te = t0/A ; ce^2 = c0^2 + (1 + cr^2)*A*(1-A)*MTTR/t0",
+    "setup_variability": "setup of mean ts and variance sigma_s^2 every Ns parts: te = t0 + ts/Ns ; sigma_e^2 = sigma0^2 + sigma_s^2/Ns + (Ns-1)/Ns^2 * ts^2 ; ce^2 = sigma_e^2/te^2  (Hopp & Spearman, Factory Physics)",
+    "closed_laws": "rb = min over stations of servers/D_k (per visit-weighted demand) ; T0 = sum of D_k ; W0 = rb*T0 ; TH_best(N) = min(N/T0, rb) ; TH_pwc(N) = N/(W0 + N - 1)*rb ; TH_worst(N) = 1/T0",
+    "mva_seidmann": "exact Mean Value Analysis for a closed network; a station with m servers and demand D is replaced (Seidmann) by a single-server queue with demand D/m plus a pure delay D*(m-1)/m. Start Q_k(0) = 0. For n = 1..N: R_k(n) = D_k*(1 + Q_k(n-1)) for queueing stations, R_d = D_d for delays ; X(n) = n/(sum R_k + sum R_d) ; Q_k(n) = X(n)*R_k(n). Units: minutes; report X in pallets per hour (*60)",
+    "replications": "R replications with seeds 1..R ; mean ; sample std s ; half width = t_{R-1,0.975}*s/sqrt(R) with t_9 = 2.262 ; CI = mean ± half width",
+    "welch": "warm-up: moving average of the replication-averaged output series with window w; warm-up ends where the curve becomes flat (visual; tools print the moving average)",
+    "layout_cost": "C = sum_i sum_j f_ij * d_ij ; d_ij = (|dx| + |dy|) * pitch (slot grid, rectilinear)",
+    "pairwise_exchange": "steepest descent: in each iteration evaluate every pair of slots (i<j, slot order), take the swap with the largest strict cost reduction (first found on ties), repeat until no swap reduces C",
+    "slp_score": "closeness rating values A 16, E 8, I 4, O 2, U 0, X -64 ; adjacency = rectilinear slot distance 1 ; score = sum over adjacent department pairs of the rating value",
+    "aisle": "one-way aisle = w_vehicle_or_load + 2*c ; two-way aisle = 2*w + 3*c ; AGV with personnel: + 0.5 m protective clearance each side where people walk (ISO 3691-4 idea)",
+    "space": "department area = machines*(footprint + operator & service area)*(1 + allowance) ; total = sum + aisles share"
+  },
+  "oee": {"cal": 10080, "plan": 4500, "down": 270, "setup": 360, "minor": 150, "ideal": 2.0, "total": 1650, "good": 1610},
+  "stop_log": {
+    "production_time_h": 160,
+    "events": [
+      ["failure", 45, "Spindle overload / tool breakage"], ["minor", 4, "Chip jam"], ["failure", 120, "Pallet clamp hydraulic leak"], ["setup", 35, "Fixture change VC10 -> VC30"],
+      ["minor", 3, "Chip jam"], ["failure", 25, "Coolant level low"], ["minor", 5, "Probe error"], ["failure", 60, "Tool magazine chain fault"],
+      ["setup", 30, "Fixture change VC30 -> VC20"], ["failure", 18, "Door interlock switch"], ["minor", 4, "Chip jam"], ["failure", 90, "Axis drive fault (X)"],
+      ["minor", 2, "Probe error"], ["failure", 15, "Coolant level low"], ["setup", 40, "Program prove-out new part"]
+    ]
+  },
+  "mm1": {"lambda_per_h": 5.0, "te_min": 10.0},
+  "mmm": {"lambda_per_h": 10.0, "te_min": 15.0, "m": 3},
+  "queue": {"u": 0.85, "t0": 10, "c0": 0.5, "ca": 1.0, "mttf": 600, "mttr": 60, "m": 1, "cr": 1.0},
+  "setup_var": {"t0": 10, "sigma0": 5, "ts": 60, "sigma_s": 20, "Ns_values": [5, 10, 20, 40]},
+  "buffer_line": {"t1": 1, "t2": 1, "cv": 0.3, "mttf": 100, "mttr": 10, "T_min": 30000, "B_values": [0, 1, 2, 3, 5, 8, 10, 15, 20], "seeds": [11, 23], "_note": "simulation – compare statistically; rule of thumb buffer ~ MTTR/cycle"},
+  "layout": {
+    "depts": ["Receiving", "Saw / prep", "Turning", "Milling", "Heat treat", "Grinding", "Assembly", "Shipping"],
+    "flow": [[0,30,0,20,0,0,0,0],[0,0,25,5,0,0,0,0],[0,0,0,0,15,10,5,0],[0,0,0,0,5,5,15,0],[0,0,0,0,0,20,0,0],[0,0,0,0,0,0,30,0],[0,0,0,0,0,0,0,50],[0,0,0,0,0,0,0,0]],
+    "slots": [[0,0],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]], "start": [6,0,5,1,7,4,2,3], "pitch_m": 20,
+    "_expected_from_item4_web": "start cost 8 900 load·m/day; pairwise exchange 3 swaps -> 5 600 (-37 %)",
+    "rel": [["Receiving","Saw / prep","A"],["Receiving","Shipping","E"],["Saw / prep","Turning","A"],["Saw / prep","Milling","I"],["Turning","Heat treat","E"],["Turning","Grinding","I"],["Milling","Assembly","E"],["Heat treat","Grinding","A"],["Grinding","Assembly","A"],["Assembly","Shipping","A"],["Heat treat","Assembly","X"],["Grinding","Saw / prep","X"],["Heat treat","Shipping","O"]],
+    "_rel": "pairs not listed = U"
+  },
+  "space": {"_cols": "dept, machines, footprint m2, operator & service m2 per machine, allowance", "depts": [["Turning", 4, 12, 10, 0.3], ["Milling", 3, 18, 12, 0.3], ["Grinding", 3, 14, 10, 0.3], ["Heat treat", 1, 40, 20, 0.2], ["Assembly", 6, 8, 8, 0.4]], "aisle_share": 0.25},
+  "aisle": {"forklift_w": 1.2, "load_w": 1.2, "c": 0.5, "agv_w": 1.0, "agv_people_clearance": 0.5},
+  "fms_sim": {
+    "m": 3, "N": 10, "L": 1, "V": 1, "load": 12, "loadCv": 0.3, "move": 1.5, "mttf": 1200, "mttr": 60, "rule": "FIFO", "days": 14,
+    "parts": [["Crankcase A (4 per tombstone)", 40, 56, 0.15], ["Crankcase B (4 per tombstone)", 35, 72, 0.15], ["Cylinder C (6 per pallet)", 25, 40, 0.15]],
+    "replications": 10, "seeds_from": 1, "t_975_9": 2.262,
+    "_expected_from_item4_web": "seed 7, 14 days, N 10: TH 2.91 pallets/h; long runs 2.97-2.98; bottleneck rate 2.98; T0 75.5 min; W0 3.7"
+  },
+  "mva": {
+    "_note": "closed network of the same FMS for MVA (exact for exponential times): stations with demand per pallet loop in minutes",
+    "stations": [["Load station", 1, 12.0], ["Vehicle (2 moves)", 1, 3.0], ["Machines (3 HMC, incl. breakdowns: 57.6 / A, A = 1200/1260)", 3, 60.48]],
+    "N_max": 15
+  }
+}

@@ -21,10 +21,10 @@ export function mount(el) {
       <span class="sub">ISA-95 / ISA-88 role-based model · the same tree is used in PLC, SCADA, MES and the documents</span></div>
     <div class="grid2 eq"><div id="fe5Tree" class="fe-tree"></div>
       <div><h3 class="fe-h3">Tag name builder</h3>
-        <table class="am-kv fe-calc"><tbody>${[["site", "Site", "PLT1"], ["area", "Area", "MACH"], ["cell", "Cell / line", "FMS1"], ["unit", "Unit (module)", "HMC02"], ["eq", "Equipment module", "APC"], ["sig", "Signal", "ClampOK"]].map(([k, n, d]) => `<tr><td>${n}</td><td><input type="text" id="fe5T_${k}" value="${d}" style="width:140px"></td></tr>`).join("")}</tbody></table>
+        <table class="am-kv fe-calc"><tbody>${[["site", "Site", "PLT1"], ["area", "Area", "MACH"], ["cell", "Cell / line", "FMS1"], ["unit", "Unit (module)", "MC02"], ["eq", "Equipment module", "APC"], ["sig", "Signal", "ClampOK"]].map(([k, n, d]) => `<tr><td>${n}</td><td><input type="text" id="fe5T_${k}" value="${d}" style="width:140px"></td></tr>`).join("")}</tbody></table>
         <p class="fe-big"><code id="fe5Tag"></code></p>
         <ul class="am-ul sub"><li>Same name everywhere: PLC variable, SCADA tag, MES equipment ID, circuit diagram (item 8), FAT list.</li>
-          <li>Only A–Z, 0–9 and one separator; fixed length codes (HMC02 not HMC2) so lists sort correctly.</li>
+          <li>Rule (item 5 standard): exactly 6 parts, A–Z a–z 0–9 (one "_" only before a unit suffix), max 48 characters; fixed-length codes (MC02 not MC2) so lists sort correctly.</li>
           <li>Unit codes = module codes of the module standard (M01…M22) + number; signals in English, positive logic (ClampOK, not NotClamped).</li></ul></div></div>
   </div>
 
@@ -52,6 +52,9 @@ export function mount(el) {
   </div>`;
 
   initLevels(); initTree(); initPack(); initSeq();
+  // 5F–5M: deep sections (guides + programs) live in fmse5x.js; 5H reuses nextState() exported below
+  const deepEl = document.createElement("div"); deepEl.id = "feItem5x"; el.appendChild(deepEl);
+  import("./fmse5x.js").then((m) => m.mount(deepEl)).catch((e) => { deepEl.innerHTML = `<div class="card"><p class="fe-no">Sections 5F–5M could not load: ${esc(e.message)}</p></div>`; });
 }
 
 /* ================================================================== 5A */
@@ -98,7 +101,7 @@ function initTree() {
 const P = { st: "Stopped", mode: "Production", timer: null, log: [], cmd: 0 };
 const ACT = ["Resetting", "Starting", "Completing", "Holding", "Unholding", "Suspending", "Unsuspending", "Stopping", "Aborting", "Clearing"];
 const STOP_SCOPE = (s) => !["Stopped", "Stopping", "Aborting", "Aborted", "Clearing"].includes(s);
-function nextState(st, cmd) {
+export function nextState(st, cmd) {   // reused by 5H (fmse5x.js)
   if (cmd === "Abort") return st !== "Aborting" && st !== "Aborted" ? "Aborting" : null;
   if (cmd === "Stop") return STOP_SCOPE(st) ? "Stopping" : null;
   const e = EDGES.find(([a, , c]) => a === st && c === cmd); return e ? e[1] : null;

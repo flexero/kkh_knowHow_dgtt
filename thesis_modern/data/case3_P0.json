@@ -1,0 +1,14 @@
+{
+ "record": "P0 – frozen design-stage prediction of the Roots line (thesis section 9.4.4)",
+ "created": "2026-11-15",
+ "model": "thesis/code/case3_roots.py, reduced-order flow line, shared cell as flow-equivalent station",
+ "priors": "Table 4.4 worths: failures 10 x MTBF hours, repairs 5, cycles 10 (+-10 %), scrap 250 parts",
+ "hours_per_month": 330.0,
+ "deterministic_design_B0_mean": 464,
+ "P0_mean": 459,
+ "P0_p05": 436,
+ "P0_p50": 459,
+ "P0_p95": 482,
+ "P_ge_demand": 1.0,
+ "note": "Reference design case: no Roots blower production data exist. Replace by P0 v2 with the final design data."
+}

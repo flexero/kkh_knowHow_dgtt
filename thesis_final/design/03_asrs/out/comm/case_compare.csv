@@ -1,0 +1,4 @@
+case,cpu,modules,comm_EUR,backplane_W,W_avail,tcp_worst_ms,firewall_at_plc
+A,S7-1515F-2PN,-,0,0.0,10.0,218.0,no
+B1,S7-1515F-2PN,CP1543-1 + CM1542-1 + CM_PtP_RS485_HF + PS60W,4270,13.7,70.0,226.0,yes
+B2,AS332P,AS-FEN02 + AS-FCOPM + EXT-FW,2150,2.0,10.0,218.0,yes

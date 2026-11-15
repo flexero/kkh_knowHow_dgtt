@@ -1,0 +1,104 @@
+{
+ "date": "2026-11-15 06:32",
+ "tests": {
+  "test_item1": {
+   "passed": 20,
+   "checks": 20,
+   "exit": 0,
+   "wall_s": 16.4,
+   "lines": [
+    "PASS | 21 devices answer, map V1.2 and type code correct",
+    "PASS | heartbeat increments on every device",
+    "PASS | pallet system rejects move of a pallet that is not at the source | PPS-1: command 11 rejected \u2013 bad data",
+    "PASS | move pallet 1 rack 1 -> load station | {'result': 0, 'cycle_s': 36.1}",
+    "PASS | operator loads raw VC20 casting on pallet 1 | {'result': 0, 'cycle_s': 83.3}, pallet state 1",
+    "PASS | HMC-01 rejects a job for a pallet that is not at its pallet changer | HMC-01: command 10 rejected \u2013 bad data",
+    "PASS | move pallet 1 load station -> HMC-01 pallet changer | {'result': 0, 'cycle_s': 14.0}",
+    "PASS | HMC-01 rejects a second job while busy | HMC-01: command 10 rejected \u2013 busy",
+    "PASS | HMC-01 machines pallet 1 (program O1020, VC20) | {'result': 0, 'cycle_s': 323.8}, simulated cycle 323.8 s (design 345 s), pallet state 2",
+    "PASS | event block counted the state changes (counter + ring) | counter 1 -> 3, newest ring state 1",
+    "PASS | move machined pallet back to rack location 1 | {'result': 0, 'cycle_s': 38.1}",
+    "PASS | complete pallet cycle on the virtual plant | 2.6 s wall time at speed x200",
+    "PASS | test bench tests VC20-000123 | FAD 20.28 m3/h, 3.98 kW, 70.8 dB(A), verdict 1",
+    "PASS | AGV-01 transports a casting box raw AS/RS -> load station buffer | {'result': 0, 'cycle_s': 80.3}, battery 88 %",
+    "PASS | ASRS-FG stores a compressor at bay 12 / level 3 | {'result': 0, 'cycle_s': 48.4}",
+    "PASS | write to a read-only register is refused (exception 02) | exception (exception 2: illegal data address)",
+    "PASS | unknown command for the device type is rejected | WASH-01: command 13 rejected \u2013 unknown command",
+    "PASS | read of 126 registers is refused with exception 03 (quantity) | exception (exception 3: illegal data value)",
+    "PASS | job parameters are latched when the job is accepted | serial VC20-000777",
+    "PASS | gateway watchdog: frozen heartbeat (register 226) -> READY off, job refused; heartbeat back -> job accepted | refused while frozen: True, READY off: True, after recovery {'result': 0, 'cycle_s': 51.5}"
+   ],
+   "stderr_tail": ""
+  },
+  "test_item2": {
+   "passed": 15,
+   "checks": 15,
+   "exit": 0,
+   "wall_s": 77.5,
+   "lines": [
+    "PASS | three work orders finished automatically (12 crankcases) | WO-A: 6 good / 0 scrap, WO-B: 3 good / 0 scrap, WO-C: 3 good / 0 scrap",
+    "PASS | throughput plausible with 2 HMCs (load station + shuttle limit \u2248 15 / h, 2 HMCs \u2264 20 / h) | 12 good in 0.80 simulated h = 15.0 / h (57.7 s wall)",
+    "PASS | EDD rule: first loading is for WO-B (earliest due date) | load VC30 for WO-B",
+    "PASS | HMC-03 detected OFFLINE and given no job | alarm logged",
+    "PASS | production ran on the two available machines | machines used: ['HMC-01', 'HMC-02']",
+    "PASS | no loop errors",
+    "PASS | commands rejected by the plant (logic errors) | 0 rejected of 85 jobs",
+    "PASS | all 12 pallets located by the pallet system | locations [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]",
+    "PASS | no pallet left with an unfinished part | contents {'empty'}",
+    "PASS | fixture rule respected (VC30 only on fixture B) | 0 violations",
+    "PASS | HTTP API: snapshot, new work order, operator screen | 5 devices, 12 pallets in snapshot",
+    "PASS | restart: safe start in MANUAL mode, work orders recovered from the database",
+    "PASS | lost job result (PLC restart): job set to unknown + alarm, operator resolves it, production continues | job 2075186 (empty pallet 6 (fixture A, none in circulation) -> load station) not finished afte",
+    "PASS | restart: WO-D (created before the restart) completed by the new controller instance | 2 good",
+    "PASS | input check: work order with variant 4 is refused | variant must be one of [1, 2, 3] (VC10, VC20, VC30)"
+   ],
+   "stderr_tail": ""
+  },
+  "test_item3": {
+   "passed": 11,
+   "checks": 11,
+   "exit": 0,
+   "wall_s": 100.5,
+   "lines": [
+    "PASS | A (no tool check): worn tap group causes an aborted job | 1 aborted, HMC-01 DOWN alarm 201, WO-A 2 good / 1 scrap",
+    "PASS | presetter CSV import | 3 tools measured into store",
+    "PASS | B: tool check blocked the job before the tap group expired | tool check blocks O1020: T10 Tap M8: 3.0 % left in group, job needs 3.1 %",
+    "PASS | B: change request raised and completed by the setter | mounted [(11, 'T10-0101')]",
+    "PASS | B: command 14 wrote life 100 % and presetter offsets into the CNC | pocket 11: L 142.315 R 4.000, life 96.4 %",
+    "PASS | B: work order finished with no aborted job | 4 good / 0 scrap, aborted 0",
+    "PASS | tool booked into the magazine only after the CNC echo (registers 340-345) matched | tool T10-0101 mounted in pocket 11 \u2013 life 100 %, L 142.315 R 4.000 confirmed by the CNC echo",
+    "PASS | presetter re-import of a tool that is in a machine is refused | status machine, L 142.315",
+    "PASS | uses booked only to the sister tool that worked (no double counting) | uses per pocket {11: 64} (pocket 12 has no tracked serial or did not work)",
+    "PASS | tool snapshot: 3 magazines \u00d7 18 pockets, store, forecast | store 2 tools, forecast 0 warnings",
+    "PASS | HTTP: /api/tools and the setter screen"
+   ],
+   "stderr_tail": ""
+  },
+  "test_item4": {
+   "passed": 15,
+   "checks": 15,
+   "exit": 0,
+   "wall_s": 68.3,
+   "lines": [
+    "PASS | goods receipt: 6 boxes stored by the raw AS/RS crane | locations (bay/level/side) [(1, 1, 1), (1, 1, 2), (1, 2, 1), (1, 2, 2), (2, 1, 1), (2, 1, 2)]",
+    "PASS | put-away strategy: nearest free locations to the I/O point, all different",
+    "PASS | production finished with castings supplied by kanban (no manual feeding) | WO-L1: 6 good / 0 scrap, WO-L2: 3 good / 0 scrap",
+    "PASS | kanban triggered retrievals from the raw AS/RS | kanban RAW_CC: buffer 0 \u2264 2 -> retrieve HU1001 (4 pcs, oldest)",
+    "PASS | FIFO: the oldest VC20 box was retrieved first | first VC20 box ['HU1001'], oldest received ['HU1001']",
+    "PASS | material balance: delivered = loaded + left in buffer | VC20 delivered 8 = loaded 6 + buffer 2; VC30 delivered 3 = 3 + 0",
+    "PASS | AGV-02 with 20 % battery went charging first | low battery 20 % \u2013 going to charger node 10",
+    "PASS | AGV-02 got no transport while charging; transports went to available AGVs | AGVs used for kanban: ['AGV-01'], AGV-02 charged still charging",
+    "PASS | 4 finished compressors transported by AGV and stored in the FG AS/RS | locations [(1, 1, 1), (1, 1, 2), (1, 2, 1), (1, 2, 2)]",
+    "PASS | traffic rule: no two AGVs sent to the same dock at the same time | 7 transports, 0 conflicts",
+    "PASS | no rejected logistics commands, no loop errors (before fault tests)",
+    "PASS | shipping: the 2 oldest FG units retrieved FIFO | shipped ['VC20-000200', 'VC20-000201']",
+    "PASS | retrievals have priority over put-away at the I/O point | S VC20-000201 -> S VC20-000202 -> S VC20-000203 -> R VC20-000200 -> R VC20-000201 -> S VC20-000300",
+    "PASS | crane fault: unit set to fault + alarm; after resolve it is stored again | store of HU1007 failed (result 2, load on fork 1) \u2013 check the crane, then resolve the unit",
+    "PASS | HTTP: /api/logistics and the logistics screen | inventory [{'asrs': 'ASRS-FG', 'item': 'FG_VC20', 'boxes': 4, 'qty': 4}, {'asrs': 'ASRS-RAW', 'item': 'RAW_CC', 'boxes': 2, 'qty': 8}, {'asrs': 'ASRS-RAW', 'item': 'RAW_CC10', 'boxes': 1, 'qty': 6}, {'asrs': 'ASRS-RAW', 'item': 'RAW_CC30', 'boxes': 1, 'qty': 3}]"
+   ],
+   "stderr_tail": ""
+  }
+ },
+ "total_passed": 61,
+ "total_checks": 61
+}

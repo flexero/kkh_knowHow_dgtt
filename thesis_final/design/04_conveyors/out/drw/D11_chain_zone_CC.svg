@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#ffffff"/>
+<text x="30.00" y="20.00" font-family="Arial" font-size="3.00" text-anchor="start" font-weight="bold" fill="#000">SIDE VIEW (from -y) 1:15</text>
+<rect x="50.00" y="66.00" width="80.00" height="10.67" fill="#dde7f3" stroke="#000" stroke-width="0.35"/>
+<rect x="56.00" y="65.33" width="68.00" height="1.07" fill="#cccccc" stroke="#000" stroke-width="0.25"/>
+<rect x="56.00" y="71.44" width="68.00" height="1.07" fill="#cccccc" stroke="#000" stroke-width="0.25"/>
+<circle cx="56.00" cy="68.92" r="3.45" fill="none" stroke="#000" stroke-width="0.30"/>
+<circle cx="56.00" cy="68.92" r="1.00" fill="#888888" stroke="#000" stroke-width="0.30"/>
+<circle cx="124.00" cy="68.92" r="3.45" fill="none" stroke="#000" stroke-width="0.30"/>
+<circle cx="124.00" cy="68.92" r="1.00" fill="#888888" stroke="#000" stroke-width="0.30"/>
+<rect x="50.00" y="76.67" width="5.33" height="35.33" fill="none" stroke="#000" stroke-width="0.30"/>
+<rect x="47.33" y="111.33" width="10.67" height="0.67" fill="none" stroke="#000" stroke-width="0.30"/>
+<line x1="40.00" y1="112.00" x2="140.00" y2="112.00" stroke="#000" stroke-width="0.35"/>
+<rect x="63.33" y="25.33" width="53.33" height="40.00" fill="none" stroke="#000" stroke-width="0.25" stroke-dasharray="2 1"/>
+<text x="90.00" y="45.33" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">crate 800-leading (ghost)</text>
+<line x1="50.00" y1="112.00" x2="50.00" y2="121.50" stroke="#000" stroke-width="0.18"/>
+<line x1="130.00" y1="112.00" x2="130.00" y2="121.50" stroke="#000" stroke-width="0.18"/>
+<line x1="50.00" y1="120.00" x2="130.00" y2="120.00" stroke="#000" stroke-width="0.18"/>
+<polygon points="50.00,120.00 52.20,120.70 52.20,119.30" fill="#000"/>
+<polygon points="130.00,120.00 127.80,119.30 127.80,120.70" fill="#000"/>
+<text x="90.00" y="119.20" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">1200</text>
+<line x1="56.00" y1="68.92" x2="56.00" y2="128.50" stroke="#000" stroke-width="0.18"/>
+<line x1="124.00" y1="68.92" x2="124.00" y2="128.50" stroke="#000" stroke-width="0.18"/>
+<line x1="56.00" y1="127.00" x2="124.00" y2="127.00" stroke="#000" stroke-width="0.18"/>
+<polygon points="56.00,127.00 58.20,127.70 58.20,126.30" fill="#000"/>
+<polygon points="124.00,127.00 121.80,126.30 121.80,127.70" fill="#000"/>
+<text x="90.00" y="126.20" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">1020 (sprocket centres)</text>
+<line x1="130.00" y1="112.00" x2="143.50" y2="112.00" stroke="#000" stroke-width="0.18"/>
+<line x1="130.00" y1="65.33" x2="143.50" y2="65.33" stroke="#000" stroke-width="0.18"/>
+<line x1="142.00" y1="112.00" x2="142.00" y2="65.33" stroke="#000" stroke-width="0.18"/>
+<polygon points="142.00,65.33 141.30,67.53 142.70,67.53" fill="#000"/>
+<polygon points="142.00,112.00 142.70,109.80 141.30,109.80" fill="#000"/>
+<text x="141.20" y="88.67" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000" transform="rotate(-90 141.20 88.67)">700 top of chain</text>
+<line x1="50.00" y1="112.00" x2="38.50" y2="112.00" stroke="#000" stroke-width="0.18"/>
+<line x1="50.00" y1="68.92" x2="38.50" y2="68.92" stroke="#000" stroke-width="0.18"/>
+<line x1="40.00" y1="112.00" x2="40.00" y2="68.92" stroke="#000" stroke-width="0.18"/>
+<polygon points="40.00,68.92 39.30,71.12 40.70,71.12" fill="#000"/>
+<polygon points="40.00,112.00 40.70,109.80 39.30,109.80" fill="#000"/>
+<text x="39.20" y="90.46" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000" transform="rotate(-90 39.20 90.46)">646.2</text>
+<line x1="76.67" y1="71.33" x2="76.67" y2="87.33" stroke="#000" stroke-width="0.18"/>
+<circle cx="76.67" cy="87.33" r="3.00" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<text x="76.67" y="88.33" font-family="Arial" font-size="2.40" text-anchor="middle" font-weight="bold" fill="#000">C1</text>
+<line x1="96.67" y1="65.87" x2="94.00" y2="53.87" stroke="#000" stroke-width="0.18"/>
+<circle cx="94.00" cy="53.87" r="3.00" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<text x="94.00" y="54.87" font-family="Arial" font-size="2.40" text-anchor="middle" font-weight="bold" fill="#000">C2</text>
+<line x1="106.67" y1="67.20" x2="106.67" y2="53.87" stroke="#000" stroke-width="0.18"/>
+<circle cx="106.67" cy="53.87" r="3.00" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<text x="106.67" y="54.87" font-family="Arial" font-size="2.40" text-anchor="middle" font-weight="bold" fill="#000">C3</text>
+<line x1="124.00" y1="66.25" x2="134.00" y2="50.92" stroke="#000" stroke-width="0.18"/>
+<circle cx="134.00" cy="50.92" r="3.00" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<text x="134.00" y="51.92" font-family="Arial" font-size="2.40" text-anchor="middle" font-weight="bold" fill="#000">C4</text>
+<line x1="52.67" y1="98.67" x2="43.67" y2="98.67" stroke="#000" stroke-width="0.18"/>
+<circle cx="43.67" cy="98.67" r="3.00" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<text x="43.67" y="99.67" font-family="Arial" font-size="2.40" text-anchor="middle" font-weight="bold" fill="#000">C9</text>
+<line x1="113.33" y1="67.00" x2="107.33" y2="86.67" stroke="#000" stroke-width="0.18"/>
+<circle cx="107.33" cy="86.67" r="3.00" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<text x="107.33" y="87.67" font-family="Arial" font-size="2.40" text-anchor="middle" font-weight="bold" fill="#000">C10</text>
+<text x="30.00" y="140.00" font-family="Arial" font-size="3.00" text-anchor="start" font-weight="bold" fill="#000">TOP VIEW 1:15</text>
+<rect x="50.00" y="243.67" width="80.00" height="4.33" fill="#dde7f3" stroke="#000" stroke-width="0.30"/>
+<rect x="56.00" y="229.17" width="68.00" height="1.67" fill="#cccccc" stroke="#000" stroke-width="0.25"/>
+<rect x="50.00" y="152.00" width="80.00" height="4.33" fill="#dde7f3" stroke="#000" stroke-width="0.30"/>
+<rect x="56.00" y="169.17" width="68.00" height="1.67" fill="#cccccc" stroke="#000" stroke-width="0.25"/>
+<rect x="55.00" y="151.00" width="2.00" height="98.00" fill="#888888" stroke="#000" stroke-width="0.25"/>
+<rect x="51.20" y="244.13" width="9.60" height="2.67" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<rect x="51.20" y="153.20" width="9.60" height="2.67" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<rect x="123.00" y="151.00" width="2.00" height="98.00" fill="#888888" stroke="#000" stroke-width="0.25"/>
+<rect x="121.00" y="244.13" width="6.00" height="2.67" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<rect x="121.00" y="153.20" width="6.00" height="2.67" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<rect x="119.00" y="144.93" width="10.00" height="8.00" fill="#f8cbad" stroke="#000" stroke-width="0.30"/>
+<rect x="104.33" y="145.27" width="14.67" height="7.33" fill="#f8cbad" stroke="#000" stroke-width="0.30"/>
+<line x1="50.00" y1="230.00" x2="40.50" y2="230.00" stroke="#000" stroke-width="0.18"/>
+<line x1="50.00" y1="170.00" x2="40.50" y2="170.00" stroke="#000" stroke-width="0.18"/>
+<line x1="42.00" y1="230.00" x2="42.00" y2="170.00" stroke="#000" stroke-width="0.18"/>
+<polygon points="42.00,170.00 41.30,172.20 42.70,172.20" fill="#000"/>
+<polygon points="42.00,230.00 42.70,227.80 41.30,227.80" fill="#000"/>
+<text x="41.20" y="200.00" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000" transform="rotate(-90 41.20 200.00)">900 gauge</text>
+<line x1="50.00" y1="243.67" x2="32.50" y2="243.67" stroke="#000" stroke-width="0.18"/>
+<line x1="50.00" y1="156.33" x2="32.50" y2="156.33" stroke="#000" stroke-width="0.18"/>
+<line x1="34.00" y1="243.67" x2="34.00" y2="156.33" stroke="#000" stroke-width="0.18"/>
+<polygon points="34.00,156.33 33.30,158.53 34.70,158.53" fill="#000"/>
+<polygon points="34.00,243.67 34.70,241.47 33.30,241.47" fill="#000"/>
+<text x="33.20" y="200.00" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000" transform="rotate(-90 33.20 200.00)">1310 inside frames</text>
+<line x1="124.00" y1="200.00" x2="138.00" y2="208.00" stroke="#000" stroke-width="0.18"/>
+<circle cx="138.00" cy="208.00" r="3.00" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<text x="138.00" y="209.00" font-family="Arial" font-size="2.40" text-anchor="middle" font-weight="bold" fill="#000">C5</text>
+<line x1="56.00" y1="200.00" x2="70.00" y2="208.00" stroke="#000" stroke-width="0.18"/>
+<circle cx="70.00" cy="208.00" r="3.00" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<text x="70.00" y="209.00" font-family="Arial" font-size="2.40" text-anchor="middle" font-weight="bold" fill="#000">C6</text>
+<line x1="56.00" y1="245.47" x2="44.00" y2="255.47" stroke="#000" stroke-width="0.18"/>
+<circle cx="44.00" cy="255.47" r="3.00" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<text x="44.00" y="256.47" font-family="Arial" font-size="2.40" text-anchor="middle" font-weight="bold" fill="#000">C7</text>
+<line x1="117.33" y1="148.93" x2="103.33" y2="140.93" stroke="#000" stroke-width="0.18"/>
+<circle cx="103.33" cy="140.93" r="3.00" fill="#ffffff" stroke="#000" stroke-width="0.25"/>
+<text x="103.33" y="141.93" font-family="Arial" font-size="2.40" text-anchor="middle" font-weight="bold" fill="#000">C8</text>
+<text x="54.00" y="256.67" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">take-up 54 mm</text>
+<rect x="228.00" y="20.00" width="12.00" height="4.60" fill="#eeeeee" stroke="#000" stroke-width="0.18"/>
+<text x="229.00" y="23.40" font-family="Arial" font-size="2.10" text-anchor="start" font-weight="bold" fill="#000">Pos</text>
+<rect x="240.00" y="20.00" width="128.00" height="4.60" fill="#eeeeee" stroke="#000" stroke-width="0.18"/>
+<text x="241.00" y="23.40" font-family="Arial" font-size="2.10" text-anchor="start" font-weight="bold" fill="#000">Description</text>
+<rect x="368.00" y="20.00" width="12.00" height="4.60" fill="#eeeeee" stroke="#000" stroke-width="0.18"/>
+<text x="369.00" y="23.40" font-family="Arial" font-size="2.10" text-anchor="start" font-weight="bold" fill="#000">Qty</text>
+<rect x="228.00" y="24.60" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="229.00" y="28.00" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">C1</text>
+<rect x="240.00" y="24.60" width="128.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="241.00" y="28.00" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">side frame C 160 x 65 x 5 cold-formed (S355), 1200 mm</text>
+<rect x="368.00" y="24.60" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="369.00" y="28.00" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">2</text>
+<rect x="228.00" y="29.20" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="229.00" y="32.60" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">C2</text>
+<rect x="240.00" y="29.20" width="128.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="241.00" y="32.60" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">roller chain ISO 606 12B-1, 142 links</text>
+<rect x="368.00" y="29.20" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="369.00" y="32.60" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">2</text>
+<rect x="228.00" y="33.80" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="229.00" y="37.20" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">C3</text>
+<rect x="240.00" y="33.80" width="128.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="241.00" y="37.20" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">chain guide C-profile + UHMW-PE wear strip, top + return</text>
+<rect x="368.00" y="33.80" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="369.00" y="37.20" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">4</text>
+<rect x="228.00" y="38.40" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="229.00" y="41.80" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">C4</text>
+<rect x="240.00" y="38.40" width="128.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="241.00" y="41.80" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">sprocket 12B-1 z=15 (drive) + z=15 (idler, take-up)</text>
+<rect x="368.00" y="38.40" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="369.00" y="41.80" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">4</text>
+<rect x="228.00" y="43.00" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="229.00" y="46.40" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">C5</text>
+<rect x="240.00" y="43.00" width="128.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="241.00" y="46.40" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">drive shaft d 30 C45E+N with 2 keyways</text>
+<rect x="368.00" y="43.00" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="369.00" y="46.40" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">1</text>
+<rect x="228.00" y="47.60" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="229.00" y="51.00" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">C6</text>
+<rect x="240.00" y="47.60" width="128.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="241.00" y="51.00" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">idler shaft d 30</text>
+<rect x="368.00" y="47.60" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="369.00" y="51.00" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">1</text>
+<rect x="228.00" y="52.20" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="229.00" y="55.60" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">C7</text>
+<rect x="240.00" y="52.20" width="128.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="241.00" y="55.60" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">insert bearing unit UCP206 (drive) + take-up units (idler)</text>
+<rect x="368.00" y="52.20" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="369.00" y="55.60" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">4</text>
+<rect x="228.00" y="56.80" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="229.00" y="60.20" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">C8</text>
+<rect x="240.00" y="56.80" width="128.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="241.00" y="60.20" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">helical-bevel hollow-shaft gear motor 0.18 kW i = 34, torque arm</text>
+<rect x="368.00" y="56.80" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="369.00" y="60.20" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">1</text>
+<rect x="228.00" y="61.40" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="229.00" y="64.80" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">C9</text>
+<rect x="240.00" y="61.40" width="128.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="241.00" y="64.80" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">legs 80x80 + base plate + 2 anchors M12, height adjust +-25</text>
+<rect x="368.00" y="61.40" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="369.00" y="64.80" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">2</text>
+<rect x="228.00" y="66.00" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="229.00" y="69.40" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">C10</text>
+<rect x="240.00" y="66.00" width="128.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="241.00" y="69.40" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">photoelectric sensors (slow-down, stop)</text>
+<rect x="368.00" y="66.00" width="12.00" height="4.60" fill="none" stroke="#000" stroke-width="0.18"/>
+<text x="369.00" y="69.40" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">2</text>
+<text x="228.00" y="78.60" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">- Chain ISO 606 12B-1, p = 19.05, sprockets z = 15, d0 = 91.6</text>
+<text x="228.00" y="83.60" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">- Drive shaft d 30 C45E+N, bearings UCP206; gear motor 0.18 kW, i = 34</text>
+<text x="228.00" y="88.60" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">- Chain top = conveyor top 700 +-2 (adjust with the leg screws +-25)</text>
+<text x="228.00" y="93.60" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">- Wear strip UHMW-PE (PE 1000) on C guide, top and return strand</text>
+<text x="228.00" y="98.60" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">- Crate travels 800-leading: the 2 runners cross both chains</text>
+<rect x="0.30" y="0.30" width="419.40" height="296.40" fill="none" stroke="#000" stroke-width="0.20"/>
+<rect x="20.00" y="10.00" width="390.00" height="277.00" fill="none" stroke="#000" stroke-width="0.70"/>
+<line x1="210.00" y1="0.00" x2="210.00" y2="10.00" stroke="#000" stroke-width="0.70"/>
+<line x1="210.00" y1="287.00" x2="210.00" y2="297.00" stroke="#000" stroke-width="0.70"/>
+<line x1="10.00" y1="148.50" x2="20.00" y2="148.50" stroke="#000" stroke-width="0.70"/>
+<line x1="410.00" y1="148.50" x2="420.00" y2="148.50" stroke="#000" stroke-width="0.70"/>
+<text x="44.38" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">1</text>
+<text x="93.12" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">2</text>
+<text x="141.88" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">3</text>
+<text x="190.62" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">4</text>
+<text x="239.38" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">5</text>
+<text x="288.12" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">6</text>
+<text x="336.88" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">7</text>
+<text x="385.62" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">8</text>
+<text x="15.00" y="33.08" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">A</text>
+<text x="15.00" y="79.25" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">B</text>
+<text x="15.00" y="125.42" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">C</text>
+<text x="15.00" y="171.58" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">D</text>
+<text x="15.00" y="217.75" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">E</text>
+<text x="15.00" y="263.92" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">F</text>
+<rect x="230.00" y="231.00" width="180.00" height="56.00" fill="none" stroke="#000" stroke-width="0.70"/>
+<rect x="230.00" y="231.00" width="90.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="233.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Company / owner</text>
+<text x="231.00" y="239.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">[company name - fill in]</text>
+<rect x="320.00" y="231.00" width="90.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="321.00" y="233.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Project</text>
+<text x="321.00" y="239.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">Combined FMS VC20 + RB - item F4.2 conveyors</text>
+<rect x="230.00" y="241.00" width="180.00" height="12.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="243.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Title</text>
+<text x="231.00" y="251.00" font-family="Arial" font-size="3.20" text-anchor="start" font-weight="bold" fill="#000">CC chain zone 1.2 m - side view, top view, parts</text>
+<rect x="230.00" y="253.00" width="50.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Drawing no.</text>
+<text x="231.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" font-weight="bold" fill="#000">F4-CONV-D11</text>
+<rect x="280.00" y="253.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="281.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Scale</text>
+<text x="281.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">1:15</text>
+<rect x="310.00" y="253.00" width="20.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="311.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Size</text>
+<text x="311.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">A3</text>
+<rect x="330.00" y="253.00" width="20.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="331.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Sheet</text>
+<text x="331.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">1/1</text>
+<rect x="350.00" y="253.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="351.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Date</text>
+<text x="351.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">2026-11-15</text>
+<rect x="380.00" y="253.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="381.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Rev.</text>
+<text x="381.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">0</text>
+<rect x="230.00" y="263.00" width="60.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Material</text>
+<text x="231.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">see parts list</text>
+<rect x="290.00" y="263.00" width="40.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="291.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">General tolerance</text>
+<text x="291.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">ISO 2768-mK</text>
+<rect x="330.00" y="263.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="331.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Drawn</text>
+<text x="331.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">conv_3d.py</text>
+<rect x="360.00" y="263.00" width="50.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="361.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Checked / released</text>
+<text x="361.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">- / -</text>
+<rect x="230.00" y="273.00" width="40.00" height="14.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="275.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Projection ISO 5456-2</text>
+<polygon points="238.00,279.90 247.00,278.30 247.00,284.70 238.00,283.10" fill="none" stroke="#000" stroke-width="0.30"/>
+<line x1="237.00" y1="281.50" x2="248.00" y2="281.50" stroke="#000" stroke-width="0.15" stroke-dasharray="1.5 0.6 0.3 0.6"/>
+<circle cx="255.00" cy="281.50" r="3.20" fill="none" stroke="#000" stroke-width="0.30"/>
+<circle cx="255.00" cy="281.50" r="1.60" fill="none" stroke="#000" stroke-width="0.30"/>
+<line x1="250.80" y1="281.50" x2="259.20" y2="281.50" stroke="#000" stroke-width="0.15" stroke-dasharray="1.5 0.6 0.3 0.6"/>
+<line x1="255.00" y1="277.30" x2="255.00" y2="285.70" stroke="#000" stroke-width="0.15" stroke-dasharray="1.5 0.6 0.3 0.6"/>
+<rect x="270.00" y="273.00" width="140.00" height="14.00" fill="#fff2cc" stroke="#000" stroke-width="0.25"/>
+<text x="272.00" y="279.00" font-family="Arial" font-size="2.80" text-anchor="start" font-weight="bold" fill="#000">DESIGN - to be checked and released by the responsible engineer</text>
+<text x="272.00" y="284.00" font-family="Arial" font-size="2.00" text-anchor="start" fill="#000">Generated from module_specs.json (F4.2). Do not scale - use the dimensions.</text>
+</svg>

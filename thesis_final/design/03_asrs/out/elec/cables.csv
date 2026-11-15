@@ -1,0 +1,27 @@
+cable,from,to,type,cores,length_m,route,emc
+W0001,sub-distribution -FC0,+GC -QB1,NYY-J / H07RN-F,5G6,40.0,cable tray,-
+W0002,+GC -QB2,rail feed point -WD1 (end),H07RN-F,5G4,5.0,tray,-
+W0003,-XD10 collector,+CC -QA10,H07RN-F,5G4,3.0,crane,-
+W0011,+CC -TA11,-MA11 travel motor,shielded motor cable (2YSLCY-JB),4G1.5 + 2x1.5 (brake),4.0,crane,360 deg shield both ends (EMC glands)
+W0012,-BG11 encoder,+CC -TA11,encoder cable shielded,4x2x0.25,4.0,crane,shield both ends
+W0013,+CC -TA13,-MA13 hoist motor,shielded motor cable,4G2.5 + 2x1.5,4.0,crane,360 deg shield
+W0014,-BG13 encoder,+CC -TA13,encoder cable shielded,4x2x0.25,4.0,crane,shield both ends
+W0015,+CC -TA13,-MB15 second brake,shielded,3G1.5,4.0,crane,-
+W0016,+CC -TA14,-MA14 fork motor (carriage),chain-flex shielded motor cable,4G1.5 + 2x1.0,15.6,drag chain on mast,"360 deg shield, chain-approved"
+W0017,+CC -KF31/34,carriage junction box -XD20,chain-flex control cable,25G0.75,16.1,drag chain on mast,-
+W0018,+CC -KF30,carriage -BG45 / -BW35,PROFINET chain cable,4x2xAWG22,16.1,drag chain on mast,separate from power in chain
+W0019,+CC -KF30,-BG15 laser,PROFINET cable,4xAWG22,3.0,crane,-
+W0020,+CC -RA11,+CC -TA10 chopper,shielded,2x2.5 + PE,2.0,crane,"short, twisted"
+W0021,+CC -KF30,-KF71 data light barrier,PROFINET cable,4xAWG22,3.0,crane,-
+W0022,+CC -KF23/24,limit switches + E-stops crane,control cable,12G1.0,14.0,crane,-
+W0101,+GC -KF2,-KF70 data light barrier (aisle end),PROFINET cable,4xAWG22,6.0,tray,-
+W0102,+GC -KF21/28,aisle door -BG56/-BG57/-MB56/-SF52,control cable,12G1.0,8.0,tray,-
+W0103,+GC -KF28,light curtains -BG81/-BG83/-BG85,M12 sensor cable,8x0.25 shielded,12.0,tray,-
+W0104,+GC -TA81,-MA81 CV1,shielded motor cable,4G1.5 + 2x1.0,12.0,tray,360 deg shield
+W0105,+GC -TA82,-MA82 CV2,shielded motor cable,4G1.5 + 2x1.0,10.0,tray,360 deg shield
+W0106,+GC -TA83,-MA83 CV3,shielded motor cable,4G1.5 + 2x1.0,14.0,tray,360 deg shield
+W0107,+GC -KF25,I/O sensors junction box -XD80,control cable,25G0.75,12.0,tray,-
+W0108,+GC -KF27,scale -BW92 summing box,load-cell cable shielded,6x0.5,12.0,tray,shield one end
+W0109,+GC -KF90,"scanners -BG110/-BG111, pick-to-light",PROFINET / Cat6A,4xAWG22,15.0,tray,-
+W0110,+GC -KF90,"factory network VLAN 720 (cell controller, WMS)",fibre or Cat6A,2 fibres / 4x2,60.0,tray,-
+W0111,+GC -FC5,aisle light + service socket,NYM-J,3G2.5,46.675,aisle,-

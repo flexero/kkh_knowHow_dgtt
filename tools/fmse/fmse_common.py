@@ -17,6 +17,14 @@ What is here:
   - G                : 9.81 m/s2, the same value as the web page (web/fmse3.js)
   - t_move()         : motion time over a distance (trapezoid / triangle profile) = web tMove
   - fmt_web()        : number text exactly like the web page (toLocaleString "en", half away from zero)
+  - ITEM4_EXAMPLES   : path of the item-4 example file (examples/item4_examples.json)
+  - T_975            : two-sided 95 % Student t quantiles t_{df,0.975} (df 1..30)
+  - mean_ci()        : mean, sample std, half width and CI of replication results
+  - Mulberry32       : the seeded random generator of web/fmse4.js rng() (32-bit integer arithmetic)
+  - expo(), logn()   : exponential and lognormal (Box-Muller) samples exactly like web/fmse4.js
+  - with_failures()  : processing with time-based failures = web/fmse4.js withFailures
+  - ITEM5_EXAMPLES   : path of the item-5 example file (examples/item5_examples.json)
+  - read_js_const()  : read one `export const NAME = ...;` value of a web data file (JSON-like JS)
 """
 
 import csv
@@ -29,6 +37,8 @@ HERE = Path(__file__).resolve().parent
 DEFAULT_EXAMPLES = HERE / "examples" / "item1_examples.json"
 ITEM2_EXAMPLES = HERE / "examples" / "item2_examples.json"   # item 2: product -> process -> machines
 ITEM3_EXAMPLES = HERE / "examples" / "item3_examples.json"   # item 3: elements of an FMS
+ITEM4_EXAMPLES = HERE / "examples" / "item4_examples.json"   # item 4: capacity, layout, simulation
+ITEM5_EXAMPLES = HERE / "examples" / "item5_examples.json"   # item 5: control architecture
 G = 9.81                                                       # same g as web/fmse3.js
 
 
@@ -198,6 +208,174 @@ def fmt_web(x, nd=1, thousands=True):
     if d == 0:
         d = abs(d)
     return f"{d:,.{max(nd, 0)}f}" if thousands else f"{d:.{max(nd, 0)}f}"
+
+
+# ----------------------------------------------------------------------------- item 4: statistics + simulation helpers
+# two-sided 95 % Student t quantiles t_{df, 0.975}; df 9 = 2.262 as in item4_examples.json
+T_975 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365, 8: 2.306, 9: 2.262, 10: 2.228,
+         11: 2.201, 12: 2.179, 13: 2.160, 14: 2.145, 15: 2.131, 16: 2.120, 17: 2.110, 18: 2.101, 19: 2.093,
+         20: 2.086, 21: 2.080, 22: 2.074, 23: 2.069, 24: 2.064, 25: 2.060, 26: 2.056, 27: 2.052, 28: 2.048,
+         29: 2.045, 30: 2.042}
+
+
+def t975(df):
+    """t_{df,0.975}; table for df <= 30, normal value 1.96 beyond (df >= 31 differs by < 2.5 %)."""
+    if df < 1:
+        return float("nan")
+    return T_975.get(df, 1.96 if df > 120 else 2.0)
+
+
+def mean_ci(values):
+    """Replication statistics: dict(mean, s, hw, lo, hi, n). hw = t_{n-1,0.975}*s/sqrt(n); n = 1 -> hw nan."""
+    v = [x for x in values if x == x]          # drop NaN
+    n = len(v)
+    if n == 0:
+        return {"mean": float("nan"), "s": float("nan"), "hw": float("nan"), "lo": float("nan"),
+                "hi": float("nan"), "n": 0}
+    m = sum(v) / n
+    if n == 1:
+        return {"mean": m, "s": float("nan"), "hw": float("nan"), "lo": m, "hi": m, "n": 1}
+    s = math.sqrt(sum((x - m) ** 2 for x in v) / (n - 1))
+    hw = t975(n - 1) * s / math.sqrt(n)
+    return {"mean": m, "s": s, "hw": hw, "lo": m - hw, "hi": m + hw, "n": n}
+
+
+def fmt_ci(st, nd=2):
+    """'2.91 ± 0.01' from a mean_ci() dict."""
+    if st["n"] == 0:
+        return "-"
+    if st["hw"] != st["hw"]:
+        return f"{st['mean']:.{nd}f}"
+    return f"{st['mean']:.{nd}f} ± {st['hw']:.{nd}f}"
+
+
+_M32 = 0xFFFFFFFF
+
+
+class Mulberry32:
+    """Seeded uniform generator in [0, 1) = web/fmse4.js rng(seed) (mulberry32).
+
+    JavaScript:  a = (a + 0x6D2B79F5) >>> 0; t = a; t = Math.imul(t ^ (t >>> 15), t | 1);
+                 t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    Here every value is kept as an unsigned 32-bit pattern. Math.imul = low 32 bits of the product,
+    ToInt32 of the sum in 't ^= t + ...' = the sum modulo 2^32, so the bit patterns (and the numbers)
+    are identical for the same seed. Call the object like the JS closure: R().
+    """
+
+    __slots__ = ("a",)
+
+    def __init__(self, seed):
+        self.a = int(seed) & _M32
+
+    def __call__(self):
+        a = (self.a + 0x6D2B79F5) & _M32
+        self.a = a
+        t = ((a ^ (a >> 15)) * (a | 1)) & _M32
+        t ^= (t + (((t ^ (t >> 7)) * (t | 61)) & _M32)) & _M32
+        return (t ^ (t >> 14)) / 4294967296.0
+
+
+def expo(R, mean):
+    """Exponential sample with this mean = web expo: -mean*ln(1 - R())."""
+    return -mean * math.log(1.0 - R())
+
+
+def logn(R, mean, cv):
+    """Lognormal sample with this mean and coefficient of variation = web logn (Box-Muller, 2 uniforms)."""
+    if not cv:
+        return mean
+    s2 = math.log(1 + cv * cv)
+    mu = math.log(mean) - s2 / 2
+    z = math.sqrt(-2 * math.log(1 - R())) * math.cos(2 * math.pi * R())   # same order as JS: first, then second
+    return math.exp(mu + math.sqrt(s2) * z)
+
+
+def with_failures(R, mc, p, mttf, mttr):
+    """Processing time p with time-based failures (clock runs only while working) = web withFailures.
+
+    mc is a dict with the remaining time to failure 'ttf' (carried from job to job).
+    Returns (duration incl. repairs, down time, segments [(dt, 'run'|'down'), ...]).
+    """
+    if not (mttf > 0):
+        return p, 0.0, [(p, "run")]
+    left, dur, down, segs = p, 0.0, 0.0, []
+    while mc["ttf"] < left:
+        if mc["ttf"] > 0:
+            segs.append((mc["ttf"], "run"))
+        dur += mc["ttf"]
+        left -= mc["ttf"]
+        r = expo(R, mttr)
+        segs.append((r, "down"))
+        dur += r
+        down += r
+        mc["ttf"] = expo(R, mttf)
+    mc["ttf"] -= left
+    dur += left
+    segs.append((left, "run"))
+    return dur, down, segs
+
+
+def read_js_const(path, name):
+    """Return the value of `export const NAME = ...;` in a web data file (web/fmse*_data.js).
+
+    Only for the simple data constants (objects / arrays of strings and numbers). The JS text is
+    turned into JSON: comments removed, unquoted keys quoted, trailing commas dropped. Used by the
+    self-tests to check that a tool's copy of a table still matches the web page.
+    """
+    import re
+    p = Path(path)
+    if not p.is_file():
+        raise InputError(f"File not found: {p}")
+    text = p.read_text(encoding="utf-8")
+    m = re.search(r"export const " + re.escape(name) + r"\s*=\s*", text)
+    if not m:
+        raise InputError(f"{p}: constant '{name}' not found")
+    i, depth, in_str, start = m.end(), 0, None, m.end()
+    while i < len(text):                       # find the end of the literal (bracket depth 0)
+        c = text[i]
+        if in_str:
+            if c == "\\":
+                i += 1
+            elif c == in_str:
+                in_str = None
+        elif c in "\"'`":
+            in_str = c
+        elif c in "[{":
+            depth += 1
+        elif c in "]}":
+            depth -= 1
+            if depth == 0:
+                i += 1
+                break
+        i += 1
+    lit = text[start:i]
+    out, k, in_str = [], 0, None              # remove // comments outside strings
+    while k < len(lit):
+        c = lit[k]
+        if in_str:
+            out.append(c)
+            if c == "\\":
+                out.append(lit[k + 1])
+                k += 1
+            elif c == in_str:
+                in_str = None
+        elif c == '"':
+            in_str = c
+            out.append(c)
+        elif lit.startswith("//", k):
+            while k < len(lit) and lit[k] != "\n":
+                k += 1
+            continue
+        else:
+            out.append(c)
+        k += 1
+    js = "".join(out)
+    js = re.sub(r'([{,]\s*)([A-Za-z_][A-Za-z0-9_]*)\s*:', r'\1"\2":', js)
+    js = re.sub(r",(\s*[\]}])", r"\1", js)
+    try:
+        return json.loads(js)
+    except json.JSONDecodeError as exc:
+        raise InputError(f"{p}: constant '{name}' could not be read as JSON ({exc.msg})")
 
 
 def run_main(main):

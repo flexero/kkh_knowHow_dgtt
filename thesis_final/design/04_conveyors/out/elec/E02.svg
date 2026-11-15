@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="990" viewBox="0 0 1400 990" font-family="Arial">
+<rect width="100%" height="100%" fill="#fff"/>
+<rect x="20" y="20" width="1360" height="950" fill="none" stroke="#000" stroke-width="2"/>
+<line x1="20.0" y1="20" x2="20.0" y2="36" stroke="#000"/>
+<text x="88.0" y="32" font-size="11" text-anchor="middle">0</text>
+<line x1="156.0" y1="20" x2="156.0" y2="36" stroke="#000"/>
+<text x="224.0" y="32" font-size="11" text-anchor="middle">1</text>
+<line x1="292.0" y1="20" x2="292.0" y2="36" stroke="#000"/>
+<text x="360.0" y="32" font-size="11" text-anchor="middle">2</text>
+<line x1="428.0" y1="20" x2="428.0" y2="36" stroke="#000"/>
+<text x="496.0" y="32" font-size="11" text-anchor="middle">3</text>
+<line x1="564.0" y1="20" x2="564.0" y2="36" stroke="#000"/>
+<text x="632.0" y="32" font-size="11" text-anchor="middle">4</text>
+<line x1="700.0" y1="20" x2="700.0" y2="36" stroke="#000"/>
+<text x="768.0" y="32" font-size="11" text-anchor="middle">5</text>
+<line x1="836.0" y1="20" x2="836.0" y2="36" stroke="#000"/>
+<text x="904.0" y="32" font-size="11" text-anchor="middle">6</text>
+<line x1="972.0" y1="20" x2="972.0" y2="36" stroke="#000"/>
+<text x="1040.0" y="32" font-size="11" text-anchor="middle">7</text>
+<line x1="1108.0" y1="20" x2="1108.0" y2="36" stroke="#000"/>
+<text x="1176.0" y="32" font-size="11" text-anchor="middle">8</text>
+<line x1="1244.0" y1="20" x2="1244.0" y2="36" stroke="#000"/>
+<text x="1312.0" y="32" font-size="11" text-anchor="middle">9</text>
+<line x1="20" y1="36" x2="1380" y2="36" stroke="#000"/>
+<rect x="20" y="880" width="1360" height="90" fill="#fafafa" stroke="#000" stroke-width="2"/>
+<line x1="420" y1="880" x2="420" y2="970" stroke="#000"/>
+<line x1="800" y1="880" x2="800" y2="970" stroke="#000"/>
+<line x1="1060" y1="880" x2="1060" y2="970" stroke="#000"/>
+<line x1="1230" y1="880" x2="1230" y2="970" stroke="#000"/>
+<text x="30" y="904" font-size="13" font-weight="bold">=CONV1 / =ASM1  F4 conveyors (VC20 + RB)</text>
+<text x="30" y="924" font-size="11">Final thesis item F4.5 - conv_elec_drw.py (generated)</text>
+<text x="30" y="946" font-size="11" fill="#b00000" font-weight="bold">DESIGN - to be checked and released by a qualified engineer</text>
+<text x="430" y="910" font-size="14" font-weight="bold">Network Case A: built-in PLC ports</text>
+<text x="430" y="932" font-size="11">IEC 60617 symbols (simplified), IEC 81346-2 tags, columns = current paths</text>
+<text x="430" y="950" font-size="11">cross-reference: /page.column</text>
+<text x="810" y="910" font-size="11">IEC 60204-1, ISO 13849-1, EN 619</text>
+<text x="810" y="932" font-size="11">Revision A  2026-11-15</text>
+<text x="1070" y="910" font-size="11">drawn: F4.5 prog.</text>
+<text x="1070" y="932" font-size="11">checked: ________</text>
+<text x="1070" y="952" font-size="11">released: ________</text>
+<text x="1240" y="910" font-size="13">page</text>
+<text x="1240" y="946" font-size="26" font-weight="bold">E02</text>
+<text x="1330" y="946" font-size="11">/ E08</text>
+<text x="60.0" y="70.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000">E02 - Network Case A: only the built-in ports (X1 = PROFINET IO, X2 = factory Modbus TCP)</text>
+<rect x="860.0" y="90.0" width="440.0" height="50.0" fill="#eeeeee" stroke="#000" stroke-width="1.5"/>
+<text x="865.0" y="105.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">VLAN 720 factory - L3 core firewall</text>
+<text x="865.0" y="120.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">fmsctl cell controller 10.70.1.10 (Modbus TCP client)</text>
+<line x1="100.0" y1="175.0" x2="1300.0" y2="175.0" stroke="#c06000" stroke-width="2.5"/>
+<text x="100.0" y="168.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c06000">X2 ports -&gt; VLAN 720 (zone boundary only at the core firewall)</text>
+<line x1="1080.0" y1="140.0" x2="1080.0" y2="175.0" stroke="#c06000" stroke-width="2.5"/>
+<text x="80.0" y="222.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">PLC-ASRS1 (F3)</text>
+<rect x="80.0" y="230.0" width="88.0" height="60.0" fill="#e6f0ff" stroke="#000" stroke-width="1.5"/>
+<text x="85.0" y="250.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">CPU 1515F</text>
+<text x="85.0" y="266.0" font-size="9" text-anchor="start" font-weight="normal" fill="#000">=ASRS1+GC-KF2 X1 X2</text>
+<line x1="144.0" y1="230.0" x2="144.0" y2="175.0" stroke="#c06000" stroke-width="2.0"/>
+<line x1="124.0" y1="290.0" x2="124.0" y2="360.0" stroke="#2a6fbb" stroke-width="2.5"/>
+<line x1="124.0" y1="360.0" x2="460.0" y2="360.0" stroke="#2a6fbb" stroke-width="2.5"/>
+<text x="130.0" y="352.0" font-size="10" text-anchor="start" font-weight="normal" fill="#2a6fbb">X1 PROFINET (line / MRP ring)</text>
+<text x="174.0" y="318.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">AS/RS front on X1 together with the crane (F3 Part B/C)</text>
+<text x="500.0" y="222.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">PLC-CONV1</text>
+<rect x="500.0" y="230.0" width="88.0" height="60.0" fill="#e6f0ff" stroke="#000" stroke-width="1.5"/>
+<text x="505.0" y="250.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">CPU 1515F</text>
+<text x="505.0" y="266.0" font-size="9" text-anchor="start" font-weight="normal" fill="#000">=CONV1+CC-KF1 X1 X2</text>
+<line x1="564.0" y1="230.0" x2="564.0" y2="175.0" stroke="#c06000" stroke-width="2.0"/>
+<line x1="544.0" y1="290.0" x2="544.0" y2="360.0" stroke="#2a6fbb" stroke-width="2.5"/>
+<line x1="544.0" y1="360.0" x2="880.0" y2="360.0" stroke="#2a6fbb" stroke-width="2.5"/>
+<text x="550.0" y="352.0" font-size="10" text-anchor="start" font-weight="normal" fill="#2a6fbb">X1 PROFINET (line / MRP ring)</text>
+<text x="594.0" y="318.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">P&amp;D stations + flow racks</text>
+<text x="500.0" y="545.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">89 PN devices, cyclic load 14.95 % (4 ms)</text>
+<text x="920.0" y="222.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">PLC-ASM1</text>
+<rect x="920.0" y="230.0" width="88.0" height="60.0" fill="#e6f0ff" stroke="#000" stroke-width="1.5"/>
+<text x="925.0" y="250.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">CPU 1515F</text>
+<text x="925.0" y="266.0" font-size="9" text-anchor="start" font-weight="normal" fill="#000">=ASM1+CC-KF1 X1 X2</text>
+<line x1="984.0" y1="230.0" x2="984.0" y2="175.0" stroke="#c06000" stroke-width="2.0"/>
+<line x1="964.0" y1="290.0" x2="964.0" y2="360.0" stroke="#2a6fbb" stroke-width="2.5"/>
+<line x1="964.0" y1="360.0" x2="1300.0" y2="360.0" stroke="#2a6fbb" stroke-width="2.5"/>
+<text x="970.0" y="352.0" font-size="10" text-anchor="start" font-weight="normal" fill="#2a6fbb">X1 PROFINET (line / MRP ring)</text>
+<text x="1014.0" y="318.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">assembly loop + spurs + test benches</text>
+<text x="920.0" y="545.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">90 PN devices, cyclic load 15.12 % (4 ms)</text>
+<text x="80.0" y="570.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">remote I/O stations: 2</text>
+<text x="80.0" y="586.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">decentralised drives: 23</text>
+<text x="80.0" y="602.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">AGV couplers: 3</text>
+<text x="80.0" y="618.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">DI 50 / DO 0 / F-DI 14 / F-DO 0 / AI 0</text>
+<text x="80.0" y="634.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">24 V PSU 5 A</text>
+<line x1="100.0" y1="360.0" x2="100.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="75.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="100.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">RIO</text>
+<line x1="170.0" y1="360.0" x2="170.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="145.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="170.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">TA</text>
+<line x1="240.0" y1="360.0" x2="240.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="215.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="240.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">TA</text>
+<line x1="310.0" y1="360.0" x2="310.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="285.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="310.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">cpl</text>
+<line x1="380.0" y1="360.0" x2="380.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="355.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="380.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">LC</text>
+<text x="500.0" y="570.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">remote I/O stations: 6</text>
+<text x="500.0" y="586.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">decentralised drives: 66</text>
+<text x="500.0" y="602.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">AGV couplers: 17</text>
+<text x="500.0" y="618.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">DI 198 / DO 19 / F-DI 62 / F-DO 0 / AI 0</text>
+<text x="500.0" y="634.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">24 V PSU 20 A</text>
+<line x1="520.0" y1="360.0" x2="520.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="495.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="520.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">RIO</text>
+<line x1="590.0" y1="360.0" x2="590.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="565.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="590.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">TA</text>
+<line x1="660.0" y1="360.0" x2="660.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="635.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="660.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">TA</text>
+<line x1="730.0" y1="360.0" x2="730.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="705.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="730.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">cpl</text>
+<line x1="800.0" y1="360.0" x2="800.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="775.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="800.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">LC</text>
+<text x="920.0" y="570.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">remote I/O stations: 11</text>
+<text x="920.0" y="586.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">decentralised drives: 79</text>
+<text x="920.0" y="602.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">AGV couplers: 0</text>
+<text x="920.0" y="618.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">DI 337 / DO 127 / F-DI 46 / F-DO 2 / AI 9</text>
+<text x="920.0" y="634.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">24 V PSU 40 A</text>
+<line x1="940.0" y1="360.0" x2="940.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="915.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="940.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">RIO</text>
+<line x1="1010.0" y1="360.0" x2="1010.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="985.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="1010.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">TA</text>
+<line x1="1080.0" y1="360.0" x2="1080.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="1055.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="1080.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">TA</text>
+<line x1="1150.0" y1="360.0" x2="1150.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="1125.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="1150.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">cpl</text>
+<line x1="1220.0" y1="360.0" x2="1220.0" y2="500.0" stroke="#2a6fbb" stroke-width="1.2"/>
+<rect x="1195.0" y="500.0" width="50.0" height="30.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="1220.0" y="519.0" font-size="9" text-anchor="middle" font-weight="normal" fill="#000">LC</text>
+<text x="60.0" y="680.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Case A properties:</text>
+<text x="80.0" y="702.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">+ cheapest: no expansion module (0 EUR extra)</text>
+<text x="80.0" y="720.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">- one PROFINET line per PLC: a cable fault can stop all devices behind it (use an MRP ring)</text>
+<text x="80.0" y="738.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">- the CPU X2 port sits directly on VLAN 720: the only conduit is the core firewall (IEC 62443 zone = whole VLAN)</text>
+<text x="80.0" y="756.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">- no serial port: energy meters / hydraulic units need gateways</text>
+<text x="80.0" y="774.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Bandwidth is not a limit in either case (cyclic load far below the 50 % planning limit).</text>
+</svg>

@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 502" width="1200" height="502" font-family="Arial, Helvetica, sans-serif">
+<title>D1 - 4-phase command echo between cell controller and module (FB_CmdIf test C1)</title>
+<rect x="0" y="0" width="1200" height="502" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">D1 - 4-phase command echo between cell controller and module (FB_CmdIf test C1)</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Blue = written by the cell controller (words 2-3), black = written by the module (word 4 bits 8/9, internal iCmdExec). Each command: (1) CC sets CntrlCmd + CmdChangeRequest in one FC16 write,</text>
+<text x="24" y="70" font-size="12" text-anchor="start" fill="#555">(2) module echoes CmdAck or CmdRej, (3) CC clears the request, (4) module clears the echo. iState / iMode come from the PackML core of the module.</text>
+<line x1="190.0" y1="84" x2="190.0" y2="396" stroke="#e6e6e6" stroke-width="1"/>
+<text x="190.0" y="412" font-size="11" text-anchor="middle" fill="#111">0</text>
+<line x1="353.3" y1="84" x2="353.3" y2="396" stroke="#e6e6e6" stroke-width="1"/>
+<text x="353.3" y="412" font-size="11" text-anchor="middle" fill="#111">5</text>
+<line x1="516.7" y1="84" x2="516.7" y2="396" stroke="#e6e6e6" stroke-width="1"/>
+<text x="516.7" y="412" font-size="11" text-anchor="middle" fill="#111">10</text>
+<line x1="680.0" y1="84" x2="680.0" y2="396" stroke="#e6e6e6" stroke-width="1"/>
+<text x="680.0" y="412" font-size="11" text-anchor="middle" fill="#111">15</text>
+<line x1="843.3" y1="84" x2="843.3" y2="396" stroke="#e6e6e6" stroke-width="1"/>
+<text x="843.3" y="412" font-size="11" text-anchor="middle" fill="#111">20</text>
+<line x1="1006.7" y1="84" x2="1006.7" y2="396" stroke="#e6e6e6" stroke-width="1"/>
+<text x="1006.7" y="412" font-size="11" text-anchor="middle" fill="#111">25</text>
+<line x1="1170.0" y1="84" x2="1170.0" y2="396" stroke="#e6e6e6" stroke-width="1"/>
+<text x="1170.0" y="412" font-size="11" text-anchor="middle" fill="#111">30</text>
+<text x="680.0" y="430" font-size="12" text-anchor="middle" fill="#111">tick k (x 100 ms)  -  events change inputs before the call of that tick</text>
+<text x="20" y="111.0" font-size="12" text-anchor="start" fill="#1f5fa8">CntrlCmd (w2)</text>
+<rect x="190.0" y="95" width="65.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="222.7" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="255.3" y="95" width="65.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="288.0" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">2</text>
+<rect x="320.7" y="95" width="65.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="353.3" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="386.0" y="95" width="65.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="418.7" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">1</text>
+<rect x="451.3" y="95" width="196.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="549.3" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="647.3" y="95" width="65.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="680.0" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">2</text>
+<rect x="712.7" y="95" width="130.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="778.0" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="843.3" y="95" width="65.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="876.0" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">4</text>
+<rect x="908.7" y="95" width="65.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="941.3" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="974.0" y="95" width="98.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1023.0" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">3</text>
+<rect x="1072.0" y="95" width="98.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1121.0" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<text x="20" y="145.0" font-size="12" text-anchor="start" fill="#1f5fa8">CmdChangeRequest (w3.0)</text>
+<polyline points="190.0,151 222.7,151 255.3,151 255.3,131 288.0,131 320.7,131 320.7,151 353.3,151 386.0,151 386.0,131 418.7,131 451.3,131 451.3,151 484.0,151 516.7,151 549.3,151 582.0,151 614.7,151 647.3,151 647.3,131 680.0,131 712.7,131 712.7,151 745.3,151 778.0,151 810.7,151 843.3,151 843.3,131 876.0,131 908.7,131 908.7,151 941.3,151 974.0,151 974.0,131 1006.7,131 1039.3,131 1072.0,131 1072.0,151 1104.7,151 1137.3,151 1170.0,151" fill="none" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="255.3" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="288.0" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="386.0" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="418.7" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="647.3" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="680.0" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="843.3" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="876.0" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="974.0" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1006.7" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1039.3" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="179.0" font-size="12" text-anchor="start" fill="#1f5fa8">iState</text>
+<rect x="190.0" y="163" width="326.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="353.3" y="179.0" font-size="10" text-anchor="middle" fill="#1f5fa8">2</text>
+<rect x="516.7" y="163" width="65.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="549.3" y="179.0" font-size="10" text-anchor="middle" fill="#1f5fa8">15</text>
+<rect x="582.0" y="163" width="98.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="631.0" y="179.0" font-size="10" text-anchor="middle" fill="#1f5fa8">4</text>
+<rect x="680.0" y="163" width="98.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="729.0" y="179.0" font-size="10" text-anchor="middle" fill="#1f5fa8">3</text>
+<rect x="778.0" y="163" width="392.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="974.0" y="179.0" font-size="10" text-anchor="middle" fill="#1f5fa8">6</text>
+<text x="20" y="213.0" font-size="12" text-anchor="start" fill="#1f5fa8">iMode</text>
+<rect x="190.0" y="197" width="588.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="484.0" y="213.0" font-size="10" text-anchor="middle" fill="#1f5fa8">1</text>
+<rect x="778.0" y="197" width="392.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="974.0" y="213.0" font-size="10" text-anchor="middle" fill="#1f5fa8">3</text>
+<text x="20" y="247.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">CmdAck (w4.8)</text>
+<polyline points="190.0,253 222.7,253 255.3,253 288.0,253 320.7,253 353.3,253 386.0,253 386.0,233 418.7,233 451.3,233 451.3,253 484.0,253 516.7,253 549.3,253 582.0,253 614.7,253 647.3,253 647.3,233 680.0,233 712.7,233 712.7,253 745.3,253 778.0,253 810.7,253 843.3,253 876.0,253 908.7,253 941.3,253 974.0,253 974.0,233 1006.7,233 1039.3,233 1072.0,233 1072.0,253 1104.7,253 1137.3,253 1170.0,253" fill="none" stroke="#111" stroke-width="2"/>
+<rect x="386.0" y="233" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="418.7" y="233" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="647.3" y="233" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="680.0" y="233" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="974.0" y="233" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="1006.7" y="233" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="1039.3" y="233" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="281.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">CmdRej (w4.9)</text>
+<polyline points="190.0,287 222.7,287 255.3,287 255.3,267 288.0,267 320.7,267 320.7,287 353.3,287 386.0,287 418.7,287 451.3,287 484.0,287 516.7,287 549.3,287 582.0,287 614.7,287 647.3,287 680.0,287 712.7,287 745.3,287 778.0,287 810.7,287 843.3,287 843.3,267 876.0,267 908.7,267 908.7,287 941.3,287 974.0,287 1006.7,287 1039.3,287 1072.0,287 1104.7,287 1137.3,287 1170.0,287" fill="none" stroke="#c0392b" stroke-width="2"/>
+<rect x="255.3" y="267" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="288.0" y="267" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="843.3" y="267" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="876.0" y="267" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="315.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">iCmdExec</text>
+<rect x="190.0" y="299" width="196.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="288.0" y="315.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="386.0" y="299" width="32.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="402.3" y="315.0" font-size="10" text-anchor="middle" fill="#1f5fa8">1</text>
+<rect x="418.7" y="299" width="228.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="533.0" y="315.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="647.3" y="299" width="32.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="663.7" y="315.0" font-size="10" text-anchor="middle" fill="#1f5fa8">2</text>
+<rect x="680.0" y="299" width="294.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="827.0" y="315.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="974.0" y="299" width="32.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="990.3" y="315.0" font-size="10" text-anchor="middle" fill="#1f5fa8">3</text>
+<rect x="1006.7" y="299" width="163.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1088.3" y="315.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<text x="20" y="349.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">iLastCmd</text>
+<rect x="190.0" y="333" width="65.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="222.7" y="349.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="255.3" y="333" width="130.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="320.7" y="349.0" font-size="10" text-anchor="middle" fill="#1f5fa8">2</text>
+<rect x="386.0" y="333" width="261.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="516.7" y="349.0" font-size="10" text-anchor="middle" fill="#1f5fa8">1</text>
+<rect x="647.3" y="333" width="196.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="745.3" y="349.0" font-size="10" text-anchor="middle" fill="#1f5fa8">2</text>
+<rect x="843.3" y="333" width="130.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="908.7" y="349.0" font-size="10" text-anchor="middle" fill="#1f5fa8">4</text>
+<rect x="974.0" y="333" width="196.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1072.0" y="349.0" font-size="10" text-anchor="middle" fill="#1f5fa8">3</text>
+<text x="20" y="383.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">iRejectCount</text>
+<rect x="190.0" y="367" width="65.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="222.7" y="383.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="255.3" y="367" width="588.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="549.3" y="383.0" font-size="10" text-anchor="middle" fill="#1f5fa8">1</text>
+<rect x="843.3" y="367" width="326.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1006.7" y="383.0" font-size="10" text-anchor="middle" fill="#1f5fa8">2</text>
+<text x="24" y="452" font-size="11" text-anchor="start" fill="#555">tick 2 Start in Stopped -&gt; rejected (WarningNo 2902 for M02) ; tick 6 Reset in Stopped -&gt; accepted, iCmdExec = 1 for one call ; tick 14 Start in Idle -&gt; accepted ;</text>
+<text x="24" y="470" font-size="11" text-anchor="start" fill="#555">tick 20 Hold in Execute but mode 3 Manual -&gt; rejected (Hold not allowed in Manual) ; tick 24 Stop in Execute/Manual -&gt; accepted. CmdAck/CmdRej fall one call after the request is cleared.</text>
+</svg>

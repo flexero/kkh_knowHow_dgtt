@@ -1,0 +1,443 @@
+{
+ "_note": "Final thesis item F3, Case B - expansion communication modules. Catalogue data = REFERENCE ESTIMATES (classes, 'or equal'). Every module name, port count, backplane power and price must be checked [verify] in the current catalogue of the supplier before ordering. Tool: asrs_comm.py. Guide: Doctor paper/60_final_asrs.md Part D.",
+ "version": "F3.B (2026-11-15)",
+ "cpus": {
+  "S7-1515F-2PN": {
+   "family": "S7-1500",
+   "ports": {
+    "PN_IO": 1,
+    "ETH": 1,
+    "RS485": 0,
+    "CAN": 0
+   },
+   "firewall": false,
+   "max_modules": 30,
+   "backplane_W": 10.0,
+   "price_EUR": 4200,
+   "note": "Case A CPU: X1 PROFINET IO controller, X2 Ethernet (no IO-controller use in this design)",
+   "max_comm_modules": 6
+  },
+  "AS332P": {
+   "family": "DeltaAS",
+   "ports": {
+    "PN_IO": 0,
+    "ETH": 1,
+    "RS485": 2,
+    "CAN": 0
+   },
+   "firewall": false,
+   "max_modules": 32,
+   "backplane_W": 10.0,
+   "price_EUR": 900,
+   "note": "Delta AS300 class: 1 Ethernet (Modbus TCP / EtherNet/IP), 2 x RS-485 built in [verify]",
+   "max_comm_modules": 8
+  }
+ },
+ "modules": {
+  "CP1543-1": {
+   "family": "S7-1500",
+   "provides": {
+    "ETH": 1
+   },
+   "firewall": true,
+   "slots": 1,
+   "W": 6.7,
+   "price_EUR": 1900,
+   "note": "communication processor Gigabit Ethernet, stateful firewall, VPN, separate IP subnet; MB_SERVER over the CP (InterfaceId = CP hardware id) [verify]"
+  },
+  "CM1542-1": {
+   "family": "S7-1500",
+   "provides": {
+    "PN_IO": 1
+   },
+   "firewall": false,
+   "slots": 1,
+   "W": 5.5,
+   "price_EUR": 1300,
+   "note": "communication module, additional PROFINET IO controller (2 ports) [verify]"
+  },
+  "CM_PtP_RS485_HF": {
+   "family": "S7-1500",
+   "provides": {
+    "RS485": 1
+   },
+   "firewall": false,
+   "slots": 1,
+   "W": 1.5,
+   "price_EUR": 650,
+   "note": "CM PtP RS422/485 HF: Modbus RTU master with Modbus_Comm_Load / Modbus_Master, up to 115.2 kbit/s [verify]"
+  },
+  "AS-FEN02": {
+   "family": "DeltaAS",
+   "provides": {
+    "ETH": 1
+   },
+   "firewall": false,
+   "slots": 0,
+   "card": true,
+   "W": 1.0,
+   "price_EUR": 250,
+   "note": "Delta AS function card, 2nd Ethernet interface (Modbus TCP) [verify]"
+  },
+  "AS-FCOPM": {
+   "family": "DeltaAS",
+   "provides": {
+    "CAN": 1
+   },
+   "firewall": false,
+   "slots": 0,
+   "card": true,
+   "W": 1.0,
+   "price_EUR": 300,
+   "note": "Delta AS function card CANopen master [verify]"
+  },
+  "AS00SCM-A": {
+   "family": "DeltaAS",
+   "provides": {
+    "RS485": 1
+   },
+   "firewall": false,
+   "slots": 1,
+   "W": 1.5,
+   "price_EUR": 280,
+   "note": "Delta AS serial communication module with one RS-485 function card (Modbus RTU master) [verify]"
+  },
+  "EXT-FW": {
+   "family": "any",
+   "provides": {},
+   "firewall": true,
+   "slots": 0,
+   "external": true,
+   "W": 0.0,
+   "price_EUR": 1600,
+   "note": "external industrial firewall / router between the machine zone and VLAN 720 (when no CP with firewall exists for the PLC family)"
+  },
+  "PS60W": {
+   "family": "S7-1500",
+   "provides": {},
+   "firewall": false,
+   "slots": 1,
+   "W": 0.0,
+   "supply_W": 60.0,
+   "price_EUR": 420,
+   "note": "system power supply PS 60 W 24/48/60 V DC in slot 0: needed when the CPU's backplane feed is not enough for the modules [verify]"
+  }
+ },
+ "max_cards_DeltaAS": 2,
+ "demand": {
+  "A": {
+   "desc": "Case A (built-in ports, as Part B/C): factory Modbus TCP on X2, one PROFINET IO network on X1, scale via AI module, no serial devices, zone boundary only at the L3 firewall",
+   "PN_IO": 1,
+   "ETH": 1,
+   "RS485": 0,
+   "CAN": 0,
+   "firewall_at_plc": false
+  },
+  "B1": {
+   "desc": "Case B1 (Siemens + expansion modules): factory link on a separate CP with firewall (IEC 62443 conduit at the machine), X2 kept for HMI/engineering inside the machine zone, 2nd PROFINET IO network for the F4 conveyors, RS-485 Modbus RTU line for energy meter + weighing terminal + 24 V UPS",
+   "PN_IO": 2,
+   "ETH": 2,
+   "RS485": 1,
+   "CAN": 0,
+   "firewall_at_plc": true
+  },
+  "B2": {
+   "desc": "Case B2 (Delta AS + expansion): crane PLC rides on the crane; factory Modbus TCP via the data light barrier on the CPU port, 2nd Ethernet card for ground remote I/O (conveyors), CANopen for the 3 crane drives, RS-485 Modbus RTU line (built in) for the energy meter + weighing terminal + UPS; external firewall for the zone boundary",
+   "PN_IO": 0,
+   "ETH": 2,
+   "RS485": 1,
+   "CAN": 1,
+   "firewall_at_plc": true
+  }
+ },
+ "case_cpu": {
+  "A": "S7-1515F-2PN",
+  "B1": "S7-1515F-2PN",
+  "B2": "AS332P"
+ },
+ "rtu": {
+  "_note": "RS-485 Modbus RTU line 1 in the ground cabinet +GC; 8E1 (11 bit per character). Slave response times = reference estimates from typical data sheets [verify per device].",
+  "baud": 19200,
+  "bits_per_char": 11,
+  "t_plc_ms": 10.0,
+  "timeout_ms": 200,
+  "retries": 2,
+  "offline_after": 3,
+  "line_length_m": 38,
+  "unit_loads_max": 32,
+  "slaves": [
+   {
+    "addr": 1,
+    "tag": "=ASRS1+GC-PG1",
+    "name": "energy meter main supply (after -QB1)",
+    "fc": 3,
+    "start": 0,
+    "n": 30,
+    "t_resp_ms": 20,
+    "every": 10,
+    "need_ms": 5000
+   },
+   {
+    "addr": 2,
+    "tag": "=ASRS1+GC-BW92T",
+    "name": "weighing terminal infeed scale (replaces the AI module -KF27)",
+    "fc": 3,
+    "start": 0,
+    "n": 4,
+    "t_resp_ms": 8,
+    "every": 1,
+    "need_ms": 200
+   },
+   {
+    "addr": 3,
+    "tag": "=ASRS1+GC-TB12",
+    "name": "24 V DC UPS (battery, mains fail)",
+    "fc": 3,
+    "start": 0,
+    "n": 6,
+    "t_resp_ms": 15,
+    "every": 5,
+    "need_ms": 2000
+   }
+  ]
+ },
+ "tcp": {
+  "_note": "end-to-end latency of a WMS command; reference estimates",
+  "poll_s": 0.2,
+  "net_ms": 1.0,
+  "ob1_ms": 8.0,
+  "cp_transfer_ms": 4.0,
+  "req_ms": 1000
+ },
+ "profinet": {
+  "_note": "cyclic frames per IO device and direction; 100 Mbit/s; frame = max(64, 26 + payload) bytes on the wire + 20 byte preamble/IFG; planning limit 50 % cyclic load [verify vs. the PI installation guideline]",
+  "update_ms": 4.0,
+  "limit_pct": 50.0,
+  "net1_crane": [
+   [
+    "crane IM155-6 (via DDLS)",
+    40,
+    20
+   ],
+   [
+    "travel drive",
+    28,
+    28
+   ],
+   [
+    "hoist drive",
+    28,
+    28
+   ],
+   [
+    "fork drive",
+    12,
+    12
+   ],
+   [
+    "laser -BG15",
+    8,
+    4
+   ],
+   [
+    "BPS -BG45",
+    12,
+    4
+   ],
+   [
+    "ground IM155-6",
+    40,
+    20
+   ]
+  ],
+  "net2_conv": [
+   [
+    "CV1 inverter",
+    12,
+    12
+   ],
+   [
+    "CV2 inverter",
+    12,
+    12
+   ],
+   [
+    "CV3 inverter",
+    12,
+    12
+   ],
+   [
+    "scanner -BG110",
+    64,
+    8
+   ],
+   [
+    "scanner -BG111",
+    64,
+    8
+   ],
+   [
+    "F4 conveyor IM (reserve)",
+    40,
+    20
+   ]
+  ]
+ },
+ "canopen": {
+  "_note": "Case B2 crane drives; CiA 301 bit-rate / length table (typical values); 8-byte PDO = 111 bit + worst-case stuffing 24 bit",
+  "bitrate_kbit": 500,
+  "length_m": 18,
+  "cycle_ms": 10.0,
+  "drives": 3,
+  "pdo_per_drive_each_dir": 2,
+  "sync": true,
+  "limit_pct": 50.0,
+  "length_table": [
+   [
+    1000,
+    25
+   ],
+   [
+    800,
+    50
+   ],
+   [
+    500,
+    100
+   ],
+   [
+    250,
+    250
+   ],
+   [
+    125,
+    500
+   ],
+   [
+    50,
+    1000
+   ]
+  ]
+ },
+ "ip_plan": [
+  [
+   "A",
+   "-KF2 X2 (CPU)",
+   "10.70.20.51/24",
+   "VLAN 720 factory",
+   "Modbus TCP server :502, web server off"
+  ],
+  [
+   "A",
+   "-KF2 X1 (CPU)",
+   "192.168.0.1/24",
+   "PROFINET IO (not routed)",
+   "IO controller crane + ground"
+  ],
+  [
+   "B1",
+   "-KF3 CP 1543-1",
+   "10.70.20.51/24",
+   "VLAN 720 factory",
+   "Modbus TCP server :502 via CP, firewall"
+  ],
+  [
+   "B1",
+   "-KF2 X2 (CPU)",
+   "192.168.10.1/24",
+   "machine zone (HMI, engineering)",
+   "HMI -PF100 192.168.10.55, ES port"
+  ],
+  [
+   "B1",
+   "-KF2 X1 (CPU)",
+   "192.168.0.1/24",
+   "PROFINET IO net 1 (crane)",
+   "not routed"
+  ],
+  [
+   "B1",
+   "-KF4 CM 1542-1",
+   "192.168.1.1/24",
+   "PROFINET IO net 2 (conveyors F4)",
+   "not routed"
+  ],
+  [
+   "B1",
+   "-KF5 CM PtP",
+   "RS-485 line 1",
+   "Modbus RTU 19.2 kbit/s 8E1",
+   "slaves 1 energy meter, 2 scale, 3 UPS"
+  ],
+  [
+   "B2",
+   "-KF2 CPU Ethernet",
+   "10.70.20.51/24",
+   "VLAN 720 via -KF90 + external firewall -KF91",
+   "Modbus TCP server :502 (over the data light barrier)"
+  ],
+  [
+   "B2",
+   "-KF2 AS-FEN02",
+   "192.168.0.1/24",
+   "ground remote I/O (conveyors)",
+   "Modbus TCP client to the remote I/O adapters"
+  ],
+  [
+   "B2",
+   "-KF2 AS-FCOPM",
+   "CANopen",
+   "crane drives nodes 1-3, 500 kbit/s",
+   "PDO 10 ms + SYNC"
+  ],
+  [
+   "B2",
+   "-KF2 COM1",
+   "RS-485 line 1",
+   "Modbus RTU 19.2 kbit/s 8E1",
+   "slaves 1 energy meter, 2 scale, 3 UPS"
+  ]
+ ],
+ "firewall_rules": [
+  [
+   "1",
+   "allow",
+   "10.70.1.10",
+   "10.70.20.51",
+   "TCP 502",
+   "fmsctl cell controller -> Modbus TCP server (V1.2b)"
+  ],
+  [
+   "2",
+   "allow",
+   "10.70.1.20",
+   "10.70.20.51",
+   "TCP 443",
+   "engineering / diagnostics HTTPS (time-limited, logged)"
+  ],
+  [
+   "3",
+   "allow",
+   "10.70.20.51",
+   "10.70.1.5",
+   "UDP 123",
+   "NTP time for event time stamps"
+  ],
+  [
+   "4",
+   "allow",
+   "10.70.20.51",
+   "10.70.1.6",
+   "UDP 514",
+   "syslog of firewall / CP events"
+  ],
+  [
+   "5",
+   "deny",
+   "any",
+   "any",
+   "any",
+   "default deny (log)"
+  ]
+ ]
+}

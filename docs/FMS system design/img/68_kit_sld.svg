@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" font-family="Arial, Helvetica, sans-serif">
+<title>Cell distribution board =FMS1 of the kit &quot;FMS (3 HMCs + pool + AGV)&quot; – one feeder per module</title>
+<rect x="0" y="0" width="1200" height="640" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">Cell distribution board =FMS1 of the kit &quot;FMS (3 HMCs + pool + AGV)&quot; – one feeder per module</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Breaker In = smallest rating ≥ I_inst; cable = smallest size with Iz ≥ In / (0.87 × 0.77). Designation =FMS1.&lt;unit&gt;-FC(n+1). Cell feeder from guide 67 B2 (250 A).</text>
+<rect x="500" y="72" width="200" height="46" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="600" y="90" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Cell feeder (guide 67)</text>
+<text x="600" y="106" font-size="11" text-anchor="middle" fill="#111">250 A, from MDB</text>
+<line x1="600" y1="118" x2="600" y2="150" stroke="#111" stroke-width="3"/>
+<line x1="60" y1="150" x2="1140" y2="150" stroke="#111" stroke-width="5"/>
+<text x="1060" y="142" font-size="11" text-anchor="start" fill="#111">busbar =FMS1</text>
+<line x1="90" y1="150" x2="90" y2="175" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="90" y1="175" x2="82" y2="190" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="90" y1="195" x2="90" y2="215" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="86" y1="171" x2="94" y2="179" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="94" y1="171" x2="86" y2="179" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="90" y1="215" x2="90" y2="300" stroke="#c0392b" stroke-width="2.5"/>
+<text x="84" y="290" font-size="11" fill="#c0392b" transform="rotate(-90 84 290)">80 A · 35 mm²</text>
+<rect x="62" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="90" y="318" font-size="11" text-anchor="middle" fill="#c0392b">MC01</text>
+<text x="94" y="450" font-size="11" fill="#555" transform="rotate(-90 94 450)">-FC2 · 64.63 A</text>
+<line x1="150" y1="150" x2="150" y2="175" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="150" y1="175" x2="142" y2="190" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="150" y1="195" x2="150" y2="215" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="146" y1="171" x2="154" y2="179" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="154" y1="171" x2="146" y2="179" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="150" y1="215" x2="150" y2="300" stroke="#c0392b" stroke-width="2.5"/>
+<text x="144" y="290" font-size="11" fill="#c0392b" transform="rotate(-90 144 290)">80 A · 35 mm²</text>
+<rect x="122" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="150" y="318" font-size="11" text-anchor="middle" fill="#c0392b">MC02</text>
+<text x="154" y="450" font-size="11" fill="#555" transform="rotate(-90 154 450)">-FC2 · 64.63 A</text>
+<line x1="210" y1="150" x2="210" y2="175" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="210" y1="175" x2="202" y2="190" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="210" y1="195" x2="210" y2="215" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="206" y1="171" x2="214" y2="179" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="214" y1="171" x2="206" y2="179" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="210" y1="215" x2="210" y2="300" stroke="#c0392b" stroke-width="2.5"/>
+<text x="204" y="290" font-size="11" fill="#c0392b" transform="rotate(-90 204 290)">80 A · 35 mm²</text>
+<rect x="182" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="210" y="318" font-size="11" text-anchor="middle" fill="#c0392b">MC03</text>
+<text x="214" y="450" font-size="11" fill="#555" transform="rotate(-90 214 450)">-FC2 · 64.63 A</text>
+<line x1="270" y1="150" x2="270" y2="175" stroke="#111" stroke-width="1.5"/>
+<line x1="270" y1="175" x2="262" y2="190" stroke="#111" stroke-width="1.5"/>
+<line x1="270" y1="195" x2="270" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="266" y1="171" x2="274" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="274" y1="171" x2="266" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="270" y1="215" x2="270" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="264" y="290" font-size="11" fill="#111" transform="rotate(-90 264 290)">6 A · 1.5 mm²</text>
+<rect x="242" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="270" y="318" font-size="11" text-anchor="middle" fill="#111">APC01</text>
+<text x="274" y="450" font-size="11" fill="#555" transform="rotate(-90 274 450)">-FC1 · 0.10 A</text>
+<line x1="330" y1="150" x2="330" y2="175" stroke="#111" stroke-width="1.5"/>
+<line x1="330" y1="175" x2="322" y2="190" stroke="#111" stroke-width="1.5"/>
+<line x1="330" y1="195" x2="330" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="326" y1="171" x2="334" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="334" y1="171" x2="326" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="330" y1="215" x2="330" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="324" y="290" font-size="11" fill="#111" transform="rotate(-90 324 290)">6 A · 1.5 mm²</text>
+<rect x="302" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="330" y="318" font-size="11" text-anchor="middle" fill="#111">APC02</text>
+<text x="334" y="450" font-size="11" fill="#555" transform="rotate(-90 334 450)">-FC1 · 0.10 A</text>
+<line x1="390" y1="150" x2="390" y2="175" stroke="#111" stroke-width="1.5"/>
+<line x1="390" y1="175" x2="382" y2="190" stroke="#111" stroke-width="1.5"/>
+<line x1="390" y1="195" x2="390" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="386" y1="171" x2="394" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="394" y1="171" x2="386" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="390" y1="215" x2="390" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="384" y="290" font-size="11" fill="#111" transform="rotate(-90 384 290)">6 A · 1.5 mm²</text>
+<rect x="362" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="390" y="318" font-size="11" text-anchor="middle" fill="#111">APC03</text>
+<text x="394" y="450" font-size="11" fill="#555" transform="rotate(-90 394 450)">-FC1 · 0.10 A</text>
+<line x1="450" y1="150" x2="450" y2="175" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="450" y1="175" x2="442" y2="190" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="450" y1="195" x2="450" y2="215" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="446" y1="171" x2="454" y2="179" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="454" y1="171" x2="446" y2="179" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="450" y1="215" x2="450" y2="300" stroke="#c0392b" stroke-width="2.5"/>
+<text x="444" y="290" font-size="11" fill="#c0392b" transform="rotate(-90 444 290)">40 A · 10 mm²</text>
+<rect x="422" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="450" y="318" font-size="11" text-anchor="middle" fill="#c0392b">POOL01</text>
+<text x="454" y="450" font-size="11" fill="#555" transform="rotate(-90 454 450)">-FC4 · 35.40 A</text>
+<line x1="510" y1="150" x2="510" y2="175" stroke="#111" stroke-width="1.5"/>
+<line x1="510" y1="175" x2="502" y2="190" stroke="#111" stroke-width="1.5"/>
+<line x1="510" y1="195" x2="510" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="506" y1="171" x2="514" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="514" y1="171" x2="506" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="510" y1="215" x2="510" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="504" y="290" font-size="11" fill="#111" transform="rotate(-90 504 290)">6 A · 1.5 mm²</text>
+<rect x="482" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="510" y="318" font-size="11" text-anchor="middle" fill="#111">LS01</text>
+<text x="514" y="450" font-size="11" fill="#555" transform="rotate(-90 514 450)">-FC2 · 1.52 A</text>
+<line x1="570" y1="150" x2="570" y2="175" stroke="#111" stroke-width="1.5"/>
+<line x1="570" y1="175" x2="562" y2="190" stroke="#111" stroke-width="1.5"/>
+<line x1="570" y1="195" x2="570" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="566" y1="171" x2="574" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="574" y1="171" x2="566" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="570" y1="215" x2="570" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="564" y="290" font-size="11" fill="#111" transform="rotate(-90 564 290)">6 A · 1.5 mm²</text>
+<rect x="542" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="570" y="318" font-size="11" text-anchor="middle" fill="#111">LS02</text>
+<text x="574" y="450" font-size="11" fill="#555" transform="rotate(-90 574 450)">-FC2 · 1.52 A</text>
+<line x1="630" y1="150" x2="630" y2="175" stroke="#111" stroke-width="1.5"/>
+<line x1="630" y1="175" x2="622" y2="190" stroke="#111" stroke-width="1.5"/>
+<line x1="630" y1="195" x2="630" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="626" y1="171" x2="634" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="634" y1="171" x2="626" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="630" y1="215" x2="630" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="624" y="290" font-size="11" fill="#111" transform="rotate(-90 624 290)">6 A · 1.5 mm²</text>
+<rect x="602" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="630" y="318" font-size="11" text-anchor="middle" fill="#111">AGVST01</text>
+<text x="634" y="450" font-size="11" fill="#555" transform="rotate(-90 634 450)">-FC2 · 0.75 A</text>
+<line x1="690" y1="150" x2="690" y2="175" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="690" y1="175" x2="682" y2="190" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="690" y1="195" x2="690" y2="215" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="686" y1="171" x2="694" y2="179" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="694" y1="171" x2="686" y2="179" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="690" y1="215" x2="690" y2="300" stroke="#c0392b" stroke-width="2.5"/>
+<text x="684" y="290" font-size="11" fill="#c0392b" transform="rotate(-90 684 290)">50 A · 16 mm²</text>
+<rect x="662" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="690" y="318" font-size="11" text-anchor="middle" fill="#c0392b">WASH01</text>
+<text x="694" y="450" font-size="11" fill="#555" transform="rotate(-90 694 450)">-FC5 · 43.19 A</text>
+<line x1="750" y1="150" x2="750" y2="175" stroke="#111" stroke-width="1.5"/>
+<line x1="750" y1="175" x2="742" y2="190" stroke="#111" stroke-width="1.5"/>
+<line x1="750" y1="195" x2="750" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="746" y1="171" x2="754" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="754" y1="171" x2="746" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="750" y1="215" x2="750" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="744" y="290" font-size="11" fill="#111" transform="rotate(-90 744 290)">10 A · 1.5 mm²</text>
+<rect x="722" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="750" y="318" font-size="11" text-anchor="middle" fill="#111">CMM01</text>
+<text x="754" y="450" font-size="11" fill="#555" transform="rotate(-90 754 450)">-FC2 · 9.72 A</text>
+<line x1="810" y1="150" x2="810" y2="175" stroke="#111" stroke-width="1.5"/>
+<line x1="810" y1="175" x2="802" y2="190" stroke="#111" stroke-width="1.5"/>
+<line x1="810" y1="195" x2="810" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="806" y1="171" x2="814" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="814" y1="171" x2="806" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="810" y1="215" x2="810" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="804" y="290" font-size="11" fill="#111" transform="rotate(-90 804 290)">6 A · 1.5 mm²</text>
+<rect x="782" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="810" y="318" font-size="11" text-anchor="middle" fill="#111">MARK01</text>
+<text x="814" y="450" font-size="11" fill="#555" transform="rotate(-90 814 450)">-FC3 · 2.91 A</text>
+<line x1="870" y1="150" x2="870" y2="175" stroke="#111" stroke-width="1.5"/>
+<line x1="870" y1="175" x2="862" y2="190" stroke="#111" stroke-width="1.5"/>
+<line x1="870" y1="195" x2="870" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="866" y1="171" x2="874" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="874" y1="171" x2="866" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="870" y1="215" x2="870" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="864" y="290" font-size="11" fill="#111" transform="rotate(-90 864 290)">10 A · 1.5 mm²</text>
+<rect x="842" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="870" y="318" font-size="11" text-anchor="middle" fill="#111">UTIL01</text>
+<text x="874" y="450" font-size="11" fill="#555" transform="rotate(-90 874 450)">-FC2 · 9.78 A</text>
+<line x1="930" y1="150" x2="930" y2="175" stroke="#111" stroke-width="1.5"/>
+<line x1="930" y1="175" x2="922" y2="190" stroke="#111" stroke-width="1.5"/>
+<line x1="930" y1="195" x2="930" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="926" y1="171" x2="934" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="934" y1="171" x2="926" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="930" y1="215" x2="930" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="924" y="290" font-size="11" fill="#111" transform="rotate(-90 924 290)">6 A · 1.5 mm²</text>
+<rect x="902" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="930" y="318" font-size="11" text-anchor="middle" fill="#111">SAFE01</text>
+<text x="934" y="450" font-size="11" fill="#555" transform="rotate(-90 934 450)">-FC1 · 0.10 A</text>
+<line x1="990" y1="150" x2="990" y2="175" stroke="#111" stroke-width="1.5"/>
+<line x1="990" y1="175" x2="982" y2="190" stroke="#111" stroke-width="1.5"/>
+<line x1="990" y1="195" x2="990" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="986" y1="171" x2="994" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="994" y1="171" x2="986" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="990" y1="215" x2="990" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="984" y="290" font-size="11" fill="#111" transform="rotate(-90 984 290)">6 A · 1.5 mm²</text>
+<rect x="962" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="990" y="318" font-size="11" text-anchor="middle" fill="#111">CC01</text>
+<text x="994" y="450" font-size="11" fill="#555" transform="rotate(-90 994 450)">-FC1 · 0.20 A</text>
+<line x1="1050" y1="150" x2="1050" y2="175" stroke="#111" stroke-width="1.5"/>
+<line x1="1050" y1="175" x2="1042" y2="190" stroke="#111" stroke-width="1.5"/>
+<line x1="1050" y1="195" x2="1050" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="1046" y1="171" x2="1054" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="1054" y1="171" x2="1046" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="1050" y1="215" x2="1050" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="1044" y="290" font-size="11" fill="#111" transform="rotate(-90 1044 290)">6 A · 1.5 mm²</text>
+<rect x="1022" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="1050" y="318" font-size="11" text-anchor="middle" fill="#111">SCADA01</text>
+<text x="1054" y="450" font-size="11" fill="#555" transform="rotate(-90 1054 450)">-FC1 · 0.20 A</text>
+<line x1="1110" y1="150" x2="1110" y2="175" stroke="#111" stroke-width="1.5"/>
+<line x1="1110" y1="175" x2="1102" y2="190" stroke="#111" stroke-width="1.5"/>
+<line x1="1110" y1="195" x2="1110" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="1106" y1="171" x2="1114" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="1114" y1="171" x2="1106" y2="179" stroke="#111" stroke-width="1.5"/>
+<line x1="1110" y1="215" x2="1110" y2="300" stroke="#111" stroke-width="1.2"/>
+<text x="1104" y="290" font-size="11" fill="#111" transform="rotate(-90 1104 290)">6 A · 1.5 mm²</text>
+<rect x="1082" y="300" width="56" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="1110" y="318" font-size="11" text-anchor="middle" fill="#111">NET01</text>
+<text x="1114" y="450" font-size="11" fill="#555" transform="rotate(-90 1114 450)">-FC1 · 0.10 A</text>
+<rect x="60" y="480" width="1080" height="100" rx="0" fill="#f2f2f2" stroke="#666" stroke-width="1.5"/>
+<text x="75" y="502" font-size="11" text-anchor="start" fill="#c0392b">MC01–MC03: 80 A / 35 mm² (I_inst 64.63 A) = the cable example of guide 67 C4 (+ PE 16 mm², ΔU, fault loop, L_max 67.10 m).</text>
+<text x="75" y="520" font-size="11" text-anchor="start" fill="#111">POOL01 40 A / 10 mm² · WASH01 50 A / 16 mm² · CMM01, UTIL01 10 A · eleven feeders 6 A / 1.5 mm² (often combined in a sub-distribution).</text>
+<text x="75" y="538" font-size="11" text-anchor="start" fill="#111">Σ demand P 115.213 kW · Σ module S 132.682 kVA (arithmetic, ks 1) · Σ I_inst 299.58 A · Σ In 416 A – none of these is the cell feeder current.</text>
+<text x="75" y="556" font-size="11" text-anchor="start" fill="#666">Text below the feeders: feeder designation and installed current I_inst of the module.</text>
+<text x="24" y="626" font-size="11" text-anchor="start" fill="#666">Teaching example – not for construction. Real circuits: qualified engineers, IEC 60204-1, ISO 13849, maker data.</text>
+</svg>

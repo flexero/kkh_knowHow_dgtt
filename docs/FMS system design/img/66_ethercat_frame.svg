@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" width="1200" height="460" font-family="Arial, Helvetica, sans-serif">
+<title>EtherCAT - one frame passes through all slaves "on the fly"</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker></defs>
+<rect x="0" y="0" width="1200" height="460" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" fill="#111111" font-weight="bold">EtherCAT - one frame passes through all slaves "on the fly"</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555555">Each slave reads its output bytes and inserts its input bytes while the frame passes (0.6 us delay each in the example). The last slave sends it back.</text>
+<rect x="30" y="120" width="160" height="70" rx="4" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="110.0" y="151.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">EtherCAT master</text>
+<text x="110.0" y="166.5" font-size="12" text-anchor="middle" fill="#111111">(standard NIC)</text>
+<rect x="260" y="120" width="140" height="70" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="330.0" y="151.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Slave 1</text>
+<text x="330.0" y="166.5" font-size="12" text-anchor="middle" fill="#111111">coupler</text>
+<text x="330" y="212" font-size="11" text-anchor="middle" fill="#1f6fb2">read out / insert in</text>
+<line x1="400" y1="140" x2="440" y2="140" stroke="#1f6fb2" stroke-width="2" marker-end="url(#aa)"/>
+<line x1="440" y1="170" x2="400" y2="170" stroke="#555555" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="440" y="120" width="140" height="70" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="510.0" y="151.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Slave 2</text>
+<text x="510.0" y="166.5" font-size="12" text-anchor="middle" fill="#111111">IO 16 DI</text>
+<text x="510" y="212" font-size="11" text-anchor="middle" fill="#1f6fb2">read out / insert in</text>
+<line x1="580" y1="140" x2="620" y2="140" stroke="#1f6fb2" stroke-width="2" marker-end="url(#aa)"/>
+<line x1="620" y1="170" x2="580" y2="170" stroke="#555555" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="620" y="120" width="140" height="70" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="690.0" y="151.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Slave 3</text>
+<text x="690.0" y="166.5" font-size="12" text-anchor="middle" fill="#111111">drive X</text>
+<text x="690" y="212" font-size="11" text-anchor="middle" fill="#1f6fb2">read out / insert in</text>
+<line x1="760" y1="140" x2="800" y2="140" stroke="#1f6fb2" stroke-width="2" marker-end="url(#aa)"/>
+<line x1="800" y1="170" x2="760" y2="170" stroke="#555555" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="800" y="120" width="140" height="70" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="870.0" y="151.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Slave 4</text>
+<text x="870.0" y="166.5" font-size="12" text-anchor="middle" fill="#111111">drive Y</text>
+<text x="870" y="212" font-size="11" text-anchor="middle" fill="#1f6fb2">read out / insert in</text>
+<line x1="940" y1="140" x2="980" y2="140" stroke="#1f6fb2" stroke-width="2" marker-end="url(#aa)"/>
+<line x1="980" y1="170" x2="940" y2="170" stroke="#555555" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="980" y="120" width="140" height="70" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="1050.0" y="151.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Slave n</text>
+<text x="1050.0" y="166.5" font-size="12" text-anchor="middle" fill="#111111">IO 8 AO</text>
+<text x="1050" y="212" font-size="11" text-anchor="middle" fill="#1f6fb2">read out / insert in</text>
+<line x1="190" y1="140" x2="260" y2="140" stroke="#1f6fb2" stroke-width="2" marker-end="url(#aa)"/>
+<line x1="260" y1="170" x2="190" y2="170" stroke="#555555" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M 1100 140 L 1130 140 L 1130 170 L 1100 170" stroke="#333" stroke-width="1.5" fill="none"/>
+<text x="30" y="106" font-size="12" text-anchor="start" fill="#1f6fb2">outgoing (processing) direction -&gt;</text>
+<text x="30" y="212" font-size="12" text-anchor="start" fill="#555555">&lt;- return direction</text>
+<text x="30" y="268" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">One frame carries the data of all slaves:</text>
+<rect x="30" y="283" width="90" height="40" rx="0" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="75.0" y="308" font-size="11" text-anchor="middle" fill="#111111">Eth hdr 14</text>
+<rect x="120" y="283" width="70" height="40" rx="0" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="155.0" y="308" font-size="11" text-anchor="middle" fill="#111111">EC hdr 2</text>
+<rect x="190" y="283" width="200" height="40" rx="0" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="290.0" y="308" font-size="11" text-anchor="middle" fill="#111111">Datagram hdr 10 + WKC 2 = 12</text>
+<rect x="390" y="283" width="380" height="40" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="580.0" y="308" font-size="11" text-anchor="middle" fill="#111111">process data of all slaves: n x d bytes</text>
+<rect x="770" y="283" width="60" height="40" rx="0" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="800.0" y="308" font-size="11" text-anchor="middle" fill="#111111">FCS 4</text>
+<rect x="830" y="283" width="90" height="40" rx="0" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="875.0" y="308" font-size="11" text-anchor="middle" fill="#111111">+ 20 wire</text>
+<text x="30" y="355" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">bytes = max(84, 14 + 2 + 12 + n*d + 4 + 20) ; t_wire = bytes*8/R ; t = t_wire + n*t_fwd ; cycle_min = 1.25*t</text>
+<text x="30" y="380" font-size="12" text-anchor="start" fill="#111111">Example 40 slaves x 16 B: 692 B -&gt; 55.36 us + 24.0 us = 79.36 us -&gt; cycle &gt;= 99.2 us (Part E1.2).</text>
+<text x="30" y="405" font-size="12" text-anchor="start" fill="#555555">Distributed clocks: each slave has a clock; the master measures the delay to each slave and corrects - jitter well below 1 us.</text>
+<text x="30" y="428" font-size="12" text-anchor="start" fill="#555555">Working counter (WKC): every slave that processed the datagram increments it - the master compares with the expected value every cycle.</text>
+</svg>

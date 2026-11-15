@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>Fixed-priority pre-emptive tasks: response time of 'Main' in the 'Tight' task set</title>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">Fixed-priority pre-emptive tasks: response time of 'Main' in the 'Tight' task set</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Fast_Motion T 2 ms C 0.3 ms (prio 1) pre-empts Main T 10 ms C 6 ms (prio 2). Main finishes at R = 7.2 ms although its own C is 6 ms.</text>
+<text x="24" y="132" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Fast_Motion (p1)</text>
+<line x1="120" y1="150" x2="1120" y2="150" stroke="#666" stroke-width="1"/>
+<text x="24" y="202" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Main (p2)</text>
+<line x1="120" y1="220" x2="1120" y2="220" stroke="#666" stroke-width="1"/>
+<text x="24" y="272" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Comm (p3)</text>
+<line x1="120" y1="290" x2="1120" y2="290" stroke="#666" stroke-width="1"/>
+<text x="24" y="342" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Diag (p4)</text>
+<line x1="120" y1="360" x2="1120" y2="360" stroke="#666" stroke-width="1"/>
+<line x1="120" y1="100" x2="120" y2="400" stroke="#ddd" stroke-width="1"/>
+<text x="120" y="418" font-size="11" text-anchor="middle" fill="#111">0</text>
+<line x1="220" y1="100" x2="220" y2="400" stroke="#ddd" stroke-width="1"/>
+<text x="220" y="418" font-size="11" text-anchor="middle" fill="#111">1</text>
+<line x1="320" y1="100" x2="320" y2="400" stroke="#ddd" stroke-width="1"/>
+<text x="320" y="418" font-size="11" text-anchor="middle" fill="#111">2</text>
+<line x1="420" y1="100" x2="420" y2="400" stroke="#ddd" stroke-width="1"/>
+<text x="420" y="418" font-size="11" text-anchor="middle" fill="#111">3</text>
+<line x1="520" y1="100" x2="520" y2="400" stroke="#ddd" stroke-width="1"/>
+<text x="520" y="418" font-size="11" text-anchor="middle" fill="#111">4</text>
+<line x1="620" y1="100" x2="620" y2="400" stroke="#ddd" stroke-width="1"/>
+<text x="620" y="418" font-size="11" text-anchor="middle" fill="#111">5</text>
+<line x1="720" y1="100" x2="720" y2="400" stroke="#ddd" stroke-width="1"/>
+<text x="720" y="418" font-size="11" text-anchor="middle" fill="#111">6</text>
+<line x1="820" y1="100" x2="820" y2="400" stroke="#ddd" stroke-width="1"/>
+<text x="820" y="418" font-size="11" text-anchor="middle" fill="#111">7</text>
+<line x1="920" y1="100" x2="920" y2="400" stroke="#ddd" stroke-width="1"/>
+<text x="920" y="418" font-size="11" text-anchor="middle" fill="#111">8</text>
+<line x1="1020" y1="100" x2="1020" y2="400" stroke="#ddd" stroke-width="1"/>
+<text x="1020" y="418" font-size="11" text-anchor="middle" fill="#111">9</text>
+<line x1="1120" y1="100" x2="1120" y2="400" stroke="#ddd" stroke-width="1"/>
+<text x="1120" y="418" font-size="11" text-anchor="middle" fill="#111">10</text>
+<text x="620" y="436" font-size="12" text-anchor="middle" fill="#111">time [ms] from the critical instant (all tasks released at t = 0)</text>
+<rect x="120" y="120" width="30" height="30" rx="0" fill="#e8eef8" stroke="#111" stroke-width="1"/>
+<rect x="320" y="120" width="30" height="30" rx="0" fill="#e8eef8" stroke="#111" stroke-width="1"/>
+<rect x="520" y="120" width="30" height="30" rx="0" fill="#e8eef8" stroke="#111" stroke-width="1"/>
+<rect x="720" y="120" width="30" height="30" rx="0" fill="#e8eef8" stroke="#111" stroke-width="1"/>
+<rect x="920" y="120" width="30" height="30" rx="0" fill="#e8eef8" stroke="#111" stroke-width="1"/>
+<rect x="150" y="190" width="170" height="30" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<rect x="350" y="190" width="170" height="30" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<rect x="550" y="190" width="170" height="30" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<rect x="750" y="190" width="90" height="30" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<rect x="840" y="260" width="80" height="30" rx="0" fill="#e8f5e9" stroke="#111" stroke-width="1"/>
+<rect x="950" y="260" width="170" height="30" rx="0" fill="#e8f5e9" stroke="#111" stroke-width="1"/>
+<line x1="120" y1="108" x2="120" y2="120" stroke="#1f5fa8" stroke-width="1.5"/>
+<polygon points="120,120 123.78,111.00 116.22,111.00" fill="#1f5fa8"/>
+<line x1="320" y1="108" x2="320" y2="120" stroke="#1f5fa8" stroke-width="1.5"/>
+<polygon points="320,120 323.78,111.00 316.22,111.00" fill="#1f5fa8"/>
+<line x1="520" y1="108" x2="520" y2="120" stroke="#1f5fa8" stroke-width="1.5"/>
+<polygon points="520,120 523.78,111.00 516.22,111.00" fill="#1f5fa8"/>
+<line x1="720" y1="108" x2="720" y2="120" stroke="#1f5fa8" stroke-width="1.5"/>
+<polygon points="720,120 723.78,111.00 716.22,111.00" fill="#1f5fa8"/>
+<line x1="920" y1="108" x2="920" y2="120" stroke="#1f5fa8" stroke-width="1.5"/>
+<polygon points="920,120 923.78,111.00 916.22,111.00" fill="#1f5fa8"/>
+<line x1="840" y1="150" x2="840" y2="400" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="846" y="184" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">R_Main = 7.2 ms</text>
+<text x="1120" y="470" font-size="11" text-anchor="start" fill="#111"></text>
+<text x="40" y="470" font-size="12" text-anchor="start" fill="#111">RTA iterations Main:  R0 = 6000 ;  R1 = 6000 + ceil(6000/2000)*300 = 6900 ;  R2 = 6000 + ceil(6900/2000)*300 = 7200 ;  R3 = 7200 = R2 -&gt; R = 7200 us &lt;= 10000 OK</text>
+<text x="40" y="490" font-size="12" text-anchor="start" fill="#111">RTA iterations Comm:  12000 -&gt; 25800 -&gt; 33900 -&gt; 41100 -&gt; 48300 -&gt; 49500 -&gt; 49500   (R/T = 0.495 OK)</text>
+<text x="40" y="510" font-size="12" text-anchor="start" fill="#111">U = 0.15 + 0.60 + 0.12 + 0.04 = 0.91 &gt; Liu-Layland bound 0.7568 (n = 4): the bound test fails, but the exact RTA shows all deadlines are met.</text>
+<text x="40" y="530" font-size="11" text-anchor="start" fill="#666">Comm and Diag continue after 10 ms (Comm finishes at 49.5 ms, Diag at 357.7 ms) - only the first 10 ms are drawn.</text>
+<text x="24" y="586" font-size="11" text-anchor="start" fill="#666">Teaching example - not for construction. Real PLC code: written, reviewed and validated by qualified people (IEC 61131-3, IEC 62061 / ISO 13849).</text>
+</svg>

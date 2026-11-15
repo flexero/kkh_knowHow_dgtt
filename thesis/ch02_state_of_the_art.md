@@ -229,7 +229,7 @@ From Sections 2.2–2.9 five gaps follow, each addressed by a part of the thesis
 
 | Gap | Statement | Addressed in |
 |---|---|---|
-| G1 | Design-stage predictions of production system models are almost never validated against the commissioned system and never followed through ramp-up. | Ch. 4 (frozen-prediction protocol), Ch. 6, Ch. 9.6 |
+| G1 | Design-stage predictions of production system models are almost never validated against the commissioned system and never followed through ramp-up. | Ch. 4 (frozen-prediction protocol), Ch. 6, Ch. 9.7 |
 | G2 | Input parameters are not updated sequentially from design priors with commissioning and ramp-up data; Bayesian updating with plant data is absent. | Ch. 4, Ch. 6 (C2) |
 | G3 | Low-cost data paths are demonstrated qualitatively; Modbus TCP is not evaluated; polling-induced event loss is not addressed. | Ch. 5 (C1) |
 | G4 | No method supports the staged transition from standalone CNC to FMS with learning of the uncertain capacity effect. | Ch. 7 (C3) |

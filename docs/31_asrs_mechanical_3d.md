@@ -1,5 +1,15 @@
 # 31 – AS/RS raw materials: mechanical system – rack, stacker crane, I/O (3D twin + design guide)
 
+> **Update 2026-11-15 – final project design.** This guide stays the general textbook and teaching example (392 crates,
+> 9.5 m rack). The final AS/RS of the combined FMS is designed in `../Doctor paper/60_final_asrs.md` (item F3):
+> - one aisle storing RAW castings and KIT machined parts;
+> - 760 positions, 19 bays × 10 levels × 2 sides, 14 m high-bay section;
+> - mast 600 × 400 × 6;
+> - SC 41.0 s, DC 67.9 s.
+>
+> Its program `thesis_final/design/03_asrs/asrs_design.py` reproduces §17 of this guide exactly with these inputs.
+
+
 **For whom:** mechanical engineers who plan, buy, install or run an automated high-bay store (AS/RS) for raw materials –
 here the store **ASRS-RAW** for crankcase castings, cylinder castings and crankshaft forgings of the compressor factory.
 **Where to see it live:** tab **AS/RS raw materials** → button **"1 · Mechanical system – 3D twin"** (deep link `/?sritem=1#asrs`).

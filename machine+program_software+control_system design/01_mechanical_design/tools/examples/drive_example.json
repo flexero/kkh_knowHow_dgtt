@@ -1,0 +1,32 @@
+{
+  "name": "Belt conveyor head drive 7.5 kW 1460 -> 480 rpm (example, chapter 8)",
+  "P_kW": 7.5,
+  "P_load_kW": 6.0,
+  "n1": 1460.0,
+  "n2": 480.0,
+  "load_class": "medium (screw compressors, conveyors)",
+  "hours_per_day": 16.0,
+  "a_target": 600.0,
+  "vb_section": "SPA",
+  "vb_d1": 160.0,
+  "sy_profile": "14M",
+  "sy_z1": 30,
+  "sy_z2": 91,
+  "ch_chain": "12A (ANSI 60)",
+  "ch_z1": 19,
+  "ch_z2": 58,
+  "ch_strands": 1,
+  "cp_n": 480.0,
+  "cp_J_motor": 0.3,
+  "cp_J_load": 2.0,
+  "cp_T_harm": [
+    [
+      1,
+      5.0
+    ]
+  ],
+  "cp_d_motor": 60.0,
+  "cp_d_load": 60.0,
+  "eta_motor_4p": 0.9,
+  "hours_year": 4000.0
+}

@@ -1,0 +1,195 @@
+{
+ "version": "F3.0 (2026-11-15)",
+ "crate": {
+  "L_mm": 1200,
+  "W_mm": 800,
+  "H_mm": 600,
+  "tare_kg": 45,
+  "max_gross_kg": 300,
+  "_note": "steel crate (box pallet, EN 13626 style) 1200 deep x 800 to the aisle, forklift + fork entry on the 800 side; one crate standard for castings and machined parts"
+ },
+ "rack": {
+  "levels": 10,
+  "bay_mm": 1925,
+  "bays": 19,
+  "positions": 760,
+  "need": 743,
+  "length_m": 36.675,
+  "rack_height_m": 12.6,
+  "top_level_z_m": 11.7,
+  "width_m": 4.1,
+  "footprint_m2": 193.41749999999996,
+  "clear_beam_mm": 1825
+ },
+ "rack_input": {
+  "clear_height_m": 14.0,
+  "top_clearance_m": 1.5,
+  "z1_m": 0.45,
+  "level_pitch_m": 1.25,
+  "upright_w_mm": 100,
+  "gap_mm": 75,
+  "crates_per_bay": 2,
+  "aisle_mm": 1500,
+  "front_zone_m": 9.0,
+  "rear_zone_m": 1.5,
+  "fill_factor": 0.9,
+  "beam": {
+   "b": 50,
+   "h": 120,
+   "t": 2.0,
+   "fy": 355
+  },
+  "upright": {
+   "A_eff": 520,
+   "i": 30,
+   "L_cr": 1250,
+   "fy": 355,
+   "m_per_level_kg": 17
+  },
+  "base_plate_mm2": 18000,
+  "gamma_Q": 1.4,
+  "gamma_G": 1.3,
+  "E": 210000,
+  "_note": "single-deep, double-sided, one aisle; clearances EN 15620 class 400; beam / upright from docs/31 \u00a717 (simplified EN 15512 style - final design by the rack supplier with tested sections)",
+  "_height_note": "high-bay section: 14.0 m clear under the lowest roof member; 1.5 m top clearance for the top guide-rail cross ties (13.35 m, part A drawings), sprinklers and lighting"
+ },
+ "crane": {
+  "mass": {
+   "mast_area_mm2": 11856,
+   "H_mast_m": 13.1,
+   "m_mast": 1219.21176,
+   "m_crane": 4419.21176
+  },
+  "input": {
+   "m_bottom_kg": 1600,
+   "m_top_kg": 200,
+   "m_carriage_kg": 600,
+   "m_rest_kg": 800,
+   "mast": {
+    "b": 400,
+    "h": 600,
+    "t": 6
+   },
+   "rho_steel": 7850,
+   "v_x": 3.0,
+   "a_x": 0.5,
+   "v_z": 1.0,
+   "a_z": 0.5,
+   "v_f": 1.0,
+   "a_f": 1.2,
+   "fork_stroke_m": 1.35,
+   "fork_lift_m": 0.15,
+   "t_pos_s": 2.0,
+   "t_dead_s": 1.0,
+   "w_roll": 0.01,
+   "k_rot": 1.05,
+   "eta_T": 0.9,
+   "eta_H": 0.85,
+   "eta_F": 0.8,
+   "eta_back": 0.65,
+   "overload": 1.5,
+   "wheel_D_mm": 400,
+   "rail_b_mm": 50,
+   "wheelbase_m": 2.4,
+   "phi": 1.15,
+   "p_lim": 5.0,
+   "c1": 0.889,
+   "c2": 1.0,
+   "drum_D_mm": 315,
+   "reeving": 1,
+   "rope_Fmin_kN": 80,
+   "rope_dia_mm": 10,
+   "fork_m_moving_kg": 120,
+   "fork_pinion_D_mm": 60,
+   "fork_mult": 2.0,
+   "motor_rpm": 1450,
+   "avail": 0.975,
+   "mttr_h": 2.0,
+   "mttr_p95_h": 4.0,
+   "_note": "single-mast stacker crane (EN 528); masses: docs/31 \u00a717 (mast mass computed from its section and height)",
+   "rail_b_eff_mm": 42,
+   "_rail_note": "rail 50x30 flat bar; effective contact width b - 2r = 50 - 2x4 = 42 mm for the wheel-load check (DIN 15070 / FEM 1.001 style, as docs/31)"
+  },
+  "drives": {
+   "travel": {
+    "F_N": 2940.540847656,
+    "P_peak_kW": 9.80180282552,
+    "P_cont_kW": 1.5431822455200002,
+    "motor_kW": 7.5,
+    "n_out_rpm": 143.2394487827058,
+    "ratio": 10.12290966156711,
+    "torque_out_Nm": 588.1081695312
+   },
+   "hoist": {
+    "P_static_kW": 10.387058823529413,
+    "P_peak_kW": 10.916470588235294,
+    "motor_kW": 11.0,
+    "n_out_rpm": 60.630454511198224,
+    "ratio": 23.915374075452302,
+    "rope_F_N": 9279.0,
+    "rope_safety": 8.621618708912598,
+    "torque_out_Nm": 1461.4425,
+    "P_regen_kW": 5.73885
+   },
+   "fork": {
+    "F_N": 710.01,
+    "P_kW": 0.8875124999999999,
+    "motor_kW": 1.1,
+    "n_out_rpm": 159.15494309189535,
+    "ratio": 9.1106186954104
+   }
+  },
+  "fem": {
+   "SC": 40.95,
+   "DC": 67.87450653028912,
+   "t_fork": 6.5166666666666675,
+   "travel_L": 37.875,
+   "lift_H": 11.25
+  }
+ },
+ "struct": {
+  "beam_I": 1216565.3333333333,
+  "beam_W": 20276.088888888888,
+  "beam_M_Nm": 698.9625,
+  "beam_sig": 48.26115654564106,
+  "beam_util": 0.1359469198468762,
+  "beam_defl": 1.0361483129654105,
+  "beam_defl_lim": 9.125,
+  "up_N_Ed": 43.37001,
+  "up_chi": 0.8635787337929228,
+  "up_N_bRd": 159.41663425817356,
+  "up_util": 0.27205448290774176,
+  "floor_Nmm2": 1.7276500000000001,
+  "R1_kN": 25.462507051080006,
+  "R2_kN": 20.832960314519998,
+  "Rmax_kN": 31.535798308700336,
+  "Pmean_kN": 27.968185643973555,
+  "Pal_kN": 74.676,
+  "wheel_util": 0.37452709898727243,
+  "mast_I": 626715072.0,
+  "mast_defl_mm": 4.433215342307077,
+  "mast_f1_Hz": 1.931386357872429,
+  "settle_s": 0.8240450826587425
+ },
+ "zones": {
+  "RAW_positions": 499,
+  "KIT_positions": 169
+ },
+ "moves": {
+  "raw_month": 3036.666666666667,
+  "kit_month": 6343.838383838385,
+  "batches_month": 113.33333333333333,
+  "avg_h": 28.42577288031834,
+  "peak_h": 45.48123660850935
+ },
+ "decision": "one aisle",
+ "io": {
+  "infeed_conveyor": 1,
+  "outfeed_conveyor": 1,
+  "pick_station": 1,
+  "contour_check": 1,
+  "transfer_x_m": 0.0,
+  "conveyor_speed_m_s": 0.2,
+  "conveyor_top_m": 0.7
+ }
+}

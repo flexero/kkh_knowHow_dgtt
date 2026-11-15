@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>OPC UA address space of module MC02 - nodes, references, subscription</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker></defs>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" fill="#111111" font-weight="bold">OPC UA address space of module MC02 - nodes, references, subscription</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555555">Object / Variable / Method nodes with NodeIds in namespace 2. The cell controller subscribes to Status and writes Command / Job.</text>
+<rect x="40" y="90" width="200" height="44" rx="4" fill="#f2f2f2" stroke="#333" stroke-width="1.5"/>
+<text x="140.0" y="116.0" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Root (i=84)</text>
+<rect x="40" y="160" width="200" height="44" rx="4" fill="#f2f2f2" stroke="#333" stroke-width="1.5"/>
+<text x="140.0" y="186.0" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Objects (i=85)</text>
+<line x1="140" y1="134" x2="140" y2="160" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="40" y="240" width="200" height="50" rx="4" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="140.0" y="261.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">MC02</text>
+<text x="140.0" y="276.5" font-size="12" text-anchor="middle" fill="#111111">Object - ns=2;s=MC02</text>
+<line x1="140" y1="204" x2="140" y2="240" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="330" y="105" width="150" height="40" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="405.0" y="121.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Status</text>
+<text x="405.0" y="136.5" font-size="12" text-anchor="middle" fill="#111111">Object</text>
+<path d="M 240 265 L 290 265 L 290 125 L 330 125" stroke="#333" stroke-width="1.5" fill="none"/>
+<rect x="520" y="97" width="270" height="25" rx="12" fill="#fff" stroke="#333" stroke-width="1"/>
+<text x="532" y="114" font-size="11" text-anchor="start" fill="#111111">StateCurrent - Int16 - Read</text>
+<line x1="480" y1="125" x2="520" y2="109" stroke="#555555" stroke-width="1"/>
+<rect x="520" y="126" width="270" height="25" rx="12" fill="#fff" stroke="#333" stroke-width="1"/>
+<text x="532" y="143" font-size="11" text-anchor="start" fill="#111111">Bits - UInt16 - Read</text>
+<line x1="480" y1="125" x2="520" y2="138" stroke="#555555" stroke-width="1"/>
+<rect x="520" y="155" width="270" height="25" rx="12" fill="#fff" stroke="#333" stroke-width="1"/>
+<text x="532" y="172" font-size="11" text-anchor="start" fill="#111111">Heartbeat - UInt16 - Read</text>
+<line x1="480" y1="125" x2="520" y2="167" stroke="#555555" stroke-width="1"/>
+<rect x="330" y="210" width="150" height="40" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="405.0" y="226.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Command</text>
+<text x="405.0" y="241.5" font-size="12" text-anchor="middle" fill="#111111">Object</text>
+<path d="M 240 265 L 290 265 L 290 230 L 330 230" stroke="#333" stroke-width="1.5" fill="none"/>
+<rect x="520" y="202" width="270" height="25" rx="12" fill="#fff" stroke="#333" stroke-width="1"/>
+<text x="532" y="219" font-size="11" text-anchor="start" fill="#111111">CntrlCmd - Int16 - Read/Write</text>
+<line x1="480" y1="230" x2="520" y2="214" stroke="#555555" stroke-width="1"/>
+<rect x="520" y="231" width="270" height="25" rx="12" fill="#fff" stroke="#333" stroke-width="1"/>
+<text x="532" y="248" font-size="11" text-anchor="start" fill="#111111">Bits - UInt16 - Read/Write</text>
+<line x1="480" y1="230" x2="520" y2="243" stroke="#555555" stroke-width="1"/>
+<rect x="520" y="260" width="270" height="25" rx="12" fill="#fff" stroke="#333" stroke-width="1"/>
+<text x="532" y="277" font-size="11" text-anchor="start" fill="#111111">Heartbeat - UInt16 - Read/Write</text>
+<line x1="480" y1="230" x2="520" y2="272" stroke="#555555" stroke-width="1"/>
+<rect x="330" y="315" width="150" height="40" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="405.0" y="331.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Admin</text>
+<text x="405.0" y="346.5" font-size="12" text-anchor="middle" fill="#111111">Object</text>
+<path d="M 240 265 L 290 265 L 290 335 L 330 335" stroke="#333" stroke-width="1.5" fill="none"/>
+<rect x="520" y="307" width="270" height="25" rx="12" fill="#fff" stroke="#333" stroke-width="1"/>
+<text x="532" y="324" font-size="11" text-anchor="start" fill="#111111">ProdProcessedCount - Int32 - Read</text>
+<line x1="480" y1="335" x2="520" y2="319" stroke="#555555" stroke-width="1"/>
+<rect x="520" y="336" width="270" height="25" rx="12" fill="#fff" stroke="#333" stroke-width="1"/>
+<text x="532" y="353" font-size="11" text-anchor="start" fill="#111111">AlarmNo - Int16 - Read</text>
+<line x1="480" y1="335" x2="520" y2="348" stroke="#555555" stroke-width="1"/>
+<rect x="330" y="420" width="150" height="40" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="405.0" y="436.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Job</text>
+<text x="405.0" y="451.5" font-size="12" text-anchor="middle" fill="#111111">Object</text>
+<path d="M 240 265 L 290 265 L 290 440 L 330 440" stroke="#333" stroke-width="1.5" fill="none"/>
+<rect x="520" y="412" width="270" height="25" rx="12" fill="#fff" stroke="#333" stroke-width="1"/>
+<text x="532" y="429" font-size="11" text-anchor="start" fill="#111111">Id - Int32 - Read/Write</text>
+<line x1="480" y1="440" x2="520" y2="424" stroke="#555555" stroke-width="1"/>
+<rect x="520" y="441" width="270" height="25" rx="12" fill="#fff" stroke="#333" stroke-width="1"/>
+<text x="532" y="458" font-size="11" text-anchor="start" fill="#111111">PalletId - Int32 - Read/Write</text>
+<line x1="480" y1="440" x2="520" y2="453" stroke="#555555" stroke-width="1"/>
+<rect x="330" y="530" width="150" height="36" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="405.0" y="544.6666666666666" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">Start()</text>
+<text x="405.0" y="558.6666666666666" font-size="11" text-anchor="middle" fill="#111111">Method</text>
+<path d="M 290 265 L 290 548 L 330 548" stroke="#333" stroke-width="1.5" fill="none"/>
+<text x="820" y="105" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">NodeId = namespace + identifier</text>
+<text x="820" y="128" font-size="12" text-anchor="start" fill="#111111">ns=2;s=MC02.Status.StateCurrent  (string)</text>
+<text x="820" y="148" font-size="12" text-anchor="start" fill="#111111">ns=0;i=2258  (numeric: Server CurrentTime)</text>
+<text x="820" y="168" font-size="12" text-anchor="start" fill="#111111">g=... (GUID) - b=... (opaque)</text>
+<text x="820" y="188" font-size="12" text-anchor="start" fill="#111111">Browse path: Objects/MC02/Status/StateCurrent</text>
+<rect x="820" y="225" width="360" height="205" rx="4" fill="#fff" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="835" y="248" font-size="13" text-anchor="start" fill="#1f6fb2" font-weight="bold">Subscription of the cell controller CC01</text>
+<text x="835" y="273" font-size="12" text-anchor="start" fill="#111111">MonitoredItem StateCurrent: sampling 250 ms</text>
+<text x="835" y="294" font-size="12" text-anchor="start" fill="#111111">  deadband none, queue size 1, discard oldest</text>
+<text x="835" y="315" font-size="12" text-anchor="start" fill="#111111">MonitoredItem Heartbeat: sampling 1000 ms</text>
+<text x="835" y="336" font-size="12" text-anchor="start" fill="#111111">Publishing interval 500 ms</text>
+<text x="835" y="357" font-size="12" text-anchor="start" fill="#111111">Max keep-alive count 10 -&gt; keep-alive after 5 s</text>
+<text x="835" y="378" font-size="12" text-anchor="start" fill="#111111">Lifetime count 30 -&gt; 15 s without client = deleted</text>
+<text x="835" y="399" font-size="12" text-anchor="start" fill="#111111">Notification = only changed values</text>
+<text x="820" y="462" font-size="12" text-anchor="start" fill="#111111">Node classes: Object, Variable, Method, ObjectType,</text>
+<text x="820" y="482" font-size="12" text-anchor="start" fill="#111111">VariableType, ReferenceType, DataType, View</text>
+<text x="820" y="502" font-size="12" text-anchor="start" fill="#111111">References: Organizes, HasComponent, HasProperty,</text>
+<text x="820" y="522" font-size="12" text-anchor="start" fill="#111111">HasTypeDefinition, HasSubtype ...</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>ISO 12100 risk assessment and the 3-step risk reduction loop</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker></defs>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" fill="#111" font-weight="bold">ISO 12100 – risk assessment (steps 1–4) and iterative risk reduction (step 5, 3-step method)</text>
+<text x="24" y="54" font-size="12" fill="#555">For an FMS: done for the ASSEMBLY by its manufacturer (integrator or owner), in addition to each module's own assessment.</text>
+<g font-size="13" fill="#111">
+<rect x="60" y="80" width="420" height="54" fill="#f4f4f4" stroke="#333"/><text x="74" y="102" font-weight="bold">1 Limits of the machine</text><text x="74" y="122" font-size="12">use, space, time, persons, all life phases</text>
+<line x1="270" y1="134" x2="270" y2="160" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="160" width="420" height="54" fill="#f4f4f4" stroke="#333"/><text x="74" y="182" font-weight="bold">2 Hazard identification</text><text x="74" y="202" font-size="12">checklist (Annex B), tasks, zones, what-if at interfaces</text>
+<line x1="270" y1="214" x2="270" y2="240" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="240" width="420" height="54" fill="#f4f4f4" stroke="#333"/><text x="74" y="262" font-weight="bold">3 Risk estimation</text><text x="74" y="282" font-size="12">severity S, exposure F, avoidance P → PLr (risk graph)</text>
+<line x1="270" y1="294" x2="270" y2="320" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<polygon points="270,320 440,370 270,420 100,370" fill="#eef4fa" stroke="#1f6fb2" stroke-width="2"/>
+<text x="270" y="366" text-anchor="middle" font-weight="bold">4 Risk evaluation:</text><text x="270" y="384" text-anchor="middle" font-size="12">adequately reduced?</text>
+<line x1="270" y1="420" x2="270" y2="460" stroke="#333" stroke-width="2" marker-end="url(#ah)"/><text x="280" y="446" font-size="12">yes</text>
+<rect x="60" y="460" width="420" height="54" fill="#f4f4f4" stroke="#333"/><text x="74" y="482" font-weight="bold">Document – technical file</text><text x="74" y="502" font-size="12">risk assessment, residual risks → instructions, DoC, CE</text>
+<line x1="440" y1="370" x2="600" y2="370" stroke="#333" stroke-width="2" marker-end="url(#ah)"/><text x="500" y="362" font-size="12">no</text>
+<rect x="600" y="80" width="560" height="440" fill="#fafafa" stroke="#1f6fb2" stroke-width="2"/>
+<text x="616" y="106" font-weight="bold" fill="#1f6fb2">5 Risk reduction – strictly in this order</text>
+<rect x="620" y="122" width="520" height="104" fill="#fff" stroke="#333"/>
+<text x="634" y="144" font-weight="bold">Step 1 Inherently safe design</text>
+<text x="634" y="166" font-size="12">lower speeds / forces, fail-safe clamp (holds without energy),</text>
+<text x="634" y="184" font-size="12">layout separating people and AGV routes, rounded edges,</text>
+<text x="634" y="202" font-size="12">load station outside the pool aisle, 24 V PELV controls</text>
+<rect x="620" y="238" width="520" height="122" fill="#fff" stroke="#333"/>
+<text x="634" y="260" font-weight="bold">Step 2 Safeguarding + complementary measures</text>
+<text x="634" y="282" font-size="12">fences (ISO 13857), interlocked doors + guard locking (ISO 14119),</text>
+<text x="634" y="300" font-size="12">light curtains / scanners at distance S (ISO 13855),</text>
+<text x="634" y="318" font-size="12">safety functions with PL ≥ PLr (ISO 13849), e-stop (ISO 13850),</text>
+<text x="634" y="336" font-size="12">LOTO means, escape release</text>
+<rect x="620" y="372" width="520" height="86" fill="#fff" stroke="#333"/>
+<text x="634" y="394" font-weight="bold">Step 3 Information for use</text>
+<text x="634" y="416" font-size="12">signs, lamps, instructions, training, PPE, maintenance (T10d,</text>
+<text x="634" y="434" font-size="12">proof tests) – never instead of a possible safeguard</text>
+<text x="616" y="490" font-size="12">After each measure: back to step 2 – did the measure create new hazards?</text>
+<path d="M600,500 C540,540 520,200 480,187" stroke="#333" stroke-width="2" fill="none" marker-end="url(#ah)" stroke-dasharray="6 4"/>
+</g>
+<text x="24" y="580" font-size="11" fill="#777">Teaching diagram after ISO 12100; use the current edition and the C-standards (ISO 11161, ISO 16090-1, ISO 10218-2, ISO 3691-4, EN 528).</text>
+</svg>

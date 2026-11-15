@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>VALVE_SINGLE and VALVE_DOUBLE: 5/2 solenoid valves with two cylinder end sensors</title>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">VALVE_SINGLE and VALVE_DOUBLE: 5/2 solenoid valves with two cylinder end sensors</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Single solenoid: spring return = defined rest position (clamp). Double solenoid: bistable, keeps its position (APC rotation, gripper, press-fit ram).</text>
+<text x="60" y="90" font-size="13" text-anchor="start" font-weight="bold" fill="#111">VALVE_SINGLE  (M04 Clamp)</text>
+<rect x="80" y="120" width="220" height="50" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<line x1="180" y1="120" x2="180" y2="170" stroke="#111" stroke-width="3"/>
+<line x1="180" y1="145" x2="360" y2="145" stroke="#111" stroke-width="3"/>
+<circle cx="100" cy="115" r="6" fill="#fff" stroke="#666" stroke-width="1.5"/>
+<circle cx="280" cy="115" r="6" fill="#fff" stroke="#666" stroke-width="1.5"/>
+<text x="100" y="104" font-size="11" text-anchor="middle" fill="#111">BG1 PosA</text>
+<text x="280" y="104" font-size="11" text-anchor="middle" fill="#111">BG2 PosB</text>
+<rect x="120" y="230" width="70" height="50" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<rect x="190" y="230" width="70" height="50" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<line x1="135" y1="275" x2="175" y2="235" stroke="#111" stroke-width="1.5"/>
+<polygon points="175,235 171.617,243.34 166.66,238.383" fill="#111"/>
+<line x1="245" y1="235" x2="205" y2="275" stroke="#111" stroke-width="1.5"/>
+<polygon points="205,275 208.383,266.66 213.34,271.617" fill="#111"/>
+<line x1="155" y1="230" x2="155" y2="170" stroke="#666" stroke-width="1"/>
+<line x1="225" y1="230" x2="225" y2="200" stroke="#666" stroke-width="1"/>
+<line x1="225" y1="200" x2="290" y2="200" stroke="#666" stroke-width="1"/>
+<line x1="290" y1="200" x2="290" y2="170" stroke="#666" stroke-width="1"/>
+<rect x="90" y="240" width="30" height="30" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<line x1="90" y1="240" x2="120" y2="270" stroke="#111" stroke-width="1.5"/>
+<text x="105" y="292" font-size="11" text-anchor="middle" fill="#111">Y1</text>
+<polyline points="260,255 266,245 272,265 278,245 284,265 290,255" fill="none" stroke="#111" stroke-width="1.5"/>
+<text x="190" y="312" font-size="11" text-anchor="middle" fill="#111">-MB1 5/2 valve</text>
+<rect x="80" y="340" width="200" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="180" y="358" font-size="11" text-anchor="middle" fill="#111">DO1.00  Sol</text>
+<rect x="80" y="372" width="200" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="180" y="390" font-size="11" text-anchor="middle" fill="#111">DI1.03  PosA</text>
+<rect x="80" y="404" width="200" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="180" y="422" font-size="11" text-anchor="middle" fill="#111">DI1.04  PosB</text>
+<text x="300" y="358" font-size="11" text-anchor="start" fill="#111">cables: valve 3x0.75 / 4x0.75 (5 m)</text>
+<text x="300" y="376" font-size="11" text-anchor="start" fill="#111">2 × sensor M8 3-pole (5 m)</text>
+<text x="300" y="394" font-size="11" text-anchor="start" fill="#111">tx 4: +24 V / 0 V per sensor</text>
+<text x="300" y="412" font-size="11" text-anchor="start" fill="#111">i24 0.13 A · loss 2.5 W</text>
+<text x="620" y="90" font-size="13" text-anchor="start" font-weight="bold" fill="#111">VALVE_DOUBLE  (M02 Rotate)</text>
+<rect x="640" y="120" width="220" height="50" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<line x1="740" y1="120" x2="740" y2="170" stroke="#111" stroke-width="3"/>
+<line x1="740" y1="145" x2="920" y2="145" stroke="#111" stroke-width="3"/>
+<circle cx="660" cy="115" r="6" fill="#fff" stroke="#666" stroke-width="1.5"/>
+<circle cx="840" cy="115" r="6" fill="#fff" stroke="#666" stroke-width="1.5"/>
+<text x="660" y="104" font-size="11" text-anchor="middle" fill="#111">BG1 PosA</text>
+<text x="840" y="104" font-size="11" text-anchor="middle" fill="#111">BG2 PosB</text>
+<rect x="680" y="230" width="70" height="50" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<rect x="750" y="230" width="70" height="50" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<line x1="695" y1="275" x2="735" y2="235" stroke="#111" stroke-width="1.5"/>
+<polygon points="735,235 731.617,243.34 726.66,238.383" fill="#111"/>
+<line x1="805" y1="235" x2="765" y2="275" stroke="#111" stroke-width="1.5"/>
+<polygon points="765,275 768.383,266.66 773.34,271.617" fill="#111"/>
+<line x1="715" y1="230" x2="715" y2="170" stroke="#666" stroke-width="1"/>
+<line x1="785" y1="230" x2="785" y2="200" stroke="#666" stroke-width="1"/>
+<line x1="785" y1="200" x2="850" y2="200" stroke="#666" stroke-width="1"/>
+<line x1="850" y1="200" x2="850" y2="170" stroke="#666" stroke-width="1"/>
+<rect x="650" y="240" width="30" height="30" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<line x1="650" y1="240" x2="680" y2="270" stroke="#111" stroke-width="1.5"/>
+<text x="665" y="292" font-size="11" text-anchor="middle" fill="#111">Y1</text>
+<rect x="820" y="240" width="30" height="30" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<line x1="820" y1="240" x2="850" y2="270" stroke="#111" stroke-width="1.5"/>
+<text x="835" y="292" font-size="11" text-anchor="middle" fill="#111">Y2</text>
+<text x="750" y="312" font-size="11" text-anchor="middle" fill="#111">-MB1 5/2 valve</text>
+<rect x="640" y="340" width="200" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="740" y="358" font-size="11" text-anchor="middle" fill="#111">DO1.00  SolA</text>
+<rect x="640" y="372" width="200" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="740" y="390" font-size="11" text-anchor="middle" fill="#111">DO1.01  SolB</text>
+<rect x="640" y="404" width="200" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="740" y="422" font-size="11" text-anchor="middle" fill="#111">DI1.00  PosA</text>
+<rect x="640" y="436" width="200" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="740" y="454" font-size="11" text-anchor="middle" fill="#111">DI1.01  PosB</text>
+<text x="860" y="358" font-size="11" text-anchor="start" fill="#111">cables: valve 3x0.75 / 4x0.75 (5 m)</text>
+<text x="860" y="376" font-size="11" text-anchor="start" fill="#111">2 × sensor M8 3-pole (5 m)</text>
+<text x="860" y="394" font-size="11" text-anchor="start" fill="#111">tx 4: +24 V / 0 V per sensor</text>
+<text x="860" y="412" font-size="11" text-anchor="start" fill="#111">i24 0.13 A · loss 2.5 W</text>
+<text x="60" y="510" font-size="11" text-anchor="start" fill="#111">Addresses from the module IO lists: M04 Clamp DO1.00, DI1.03/1.04 (after Curtain.Warn and Rotary.Ready/Fault); M02 Rotate DO1.00/1.01, DI1.00/1.01 (B0.4).</text>
+<text x="60" y="528" font-size="11" text-anchor="start" fill="#c0392b">Safety: a hazardous cylinder gets its valve supply through a zone F-DO or a safe exhaust valve; a clamp is a holding function and is not de-energised by a stop.</text>
+<text x="24" y="586" font-size="11" text-anchor="start" fill="#666">Teaching example – not for construction. Real circuits: qualified engineers, IEC 60204-1, ISO 13849, maker data.</text>
+</svg>

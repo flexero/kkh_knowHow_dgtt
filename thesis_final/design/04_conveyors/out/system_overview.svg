@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="600" viewBox="0 0 1180 600" font-family="Arial">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="20" y="28" font-size="17" font-weight="bold">Material handling system overview (F4.1) - F2 spine layout, stations of F4</text>
+<rect x="30" y="60" width="376" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="34" y="76" font-size="12" font-weight="bold">RAW</text>
+<rect x="34" y="228" width="110" height="24" fill="#ffe0b3" stroke="#c06000"/>
+<text x="38" y="244" font-size="10">AS/RS front U-loop</text>
+<rect x="406" y="60" width="22" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="410" y="76" font-size="12" font-weight="bold">QC</text>
+<rect x="410" y="228" width="14" height="24" fill="#e6f0ff" stroke="#2a6fbb"/>
+<text x="414" y="244" font-size="10">P&amp;D 3/2</text>
+<rect x="428" y="60" width="28" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="432" y="76" font-size="12" font-weight="bold">FIN</text>
+<rect x="432" y="228" width="20" height="24" fill="#e6f0ff" stroke="#2a6fbb"/>
+<text x="436" y="244" font-size="10">P&amp;D 5/4</text>
+<rect x="456" y="60" width="107" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="460" y="76" font-size="12" font-weight="bold">VMC</text>
+<rect x="460" y="228" width="70" height="24" fill="#e6f0ff" stroke="#2a6fbb"/>
+<text x="464" y="244" font-size="10">P&amp;D 18/4</text>
+<rect x="563" y="60" width="186" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="567" y="76" font-size="12" font-weight="bold">HMC</text>
+<rect x="567" y="228" width="70" height="24" fill="#e6f0ff" stroke="#2a6fbb"/>
+<text x="571" y="244" font-size="10">P&amp;D 10/3</text>
+<rect x="748" y="60" width="98" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="752" y="76" font-size="12" font-weight="bold">ROT</text>
+<rect x="752" y="228" width="70" height="24" fill="#e6f0ff" stroke="#2a6fbb"/>
+<text x="756" y="244" font-size="10">P&amp;D 12/3</text>
+<rect x="846" y="60" width="33" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="850" y="76" font-size="12" font-weight="bold">TOOL</text>
+<text x="850" y="244" font-size="10" fill="#777">floor station</text>
+<rect x="879" y="60" width="28" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="883" y="76" font-size="12" font-weight="bold">CHIP</text>
+<text x="883" y="244" font-size="10" fill="#777">floor station</text>
+<rect x="30" y="312" width="166" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="34" y="328" font-size="12" font-weight="bold">SHP</text>
+<rect x="196" y="312" width="22" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="200" y="328" font-size="12" font-weight="bold">PCK</text>
+<rect x="218" y="312" width="45" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="222" y="328" font-size="12" font-weight="bold">PNT</text>
+<rect x="263" y="312" width="104" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="267" y="328" font-size="12" font-weight="bold">TST</text>
+<rect x="367" y="312" width="168" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="371" y="328" font-size="12" font-weight="bold">ASY</text>
+<rect x="371" y="318" width="70" height="24" fill="#e6f0ff" stroke="#2a6fbb"/>
+<text x="375" y="334" font-size="10">P&amp;D 1/2</text>
+<rect x="535" y="312" width="249" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="539" y="328" font-size="12" font-weight="bold">BUY</text>
+<rect x="539" y="318" width="70" height="24" fill="#e6f0ff" stroke="#2a6fbb"/>
+<text x="543" y="334" font-size="10">P&amp;D 2/2</text>
+<rect x="784" y="312" width="55" height="198" fill="#f7f7f7" stroke="#444"/>
+<text x="788" y="328" font-size="12" font-weight="bold">MNT</text>
+<rect x="30" y="258" width="877" height="54" fill="#f3ecfa" stroke="#7a3fb0" stroke-dasharray="6 4"/>
+<text x="40" y="289" font-size="12" fill="#7a3fb0">AGV spine aisle 6 m (fleet size: F5, with the crate flows of F4.1) - every P&amp;D station docks on this aisle</text>
+<rect x="113" y="372" width="412" height="98" fill="none" stroke="#2a8a2a" stroke-width="4" rx="18"/>
+<text x="119" y="488" font-size="11" fill="#2a8a2a">assembly carrier loop 100 m, 21 carriers: ASSY 9 / TEST 7 / PAINT 1 / PACK 2 spurs</text>
+<text x="20" y="532" font-size="11" fill="#b00000">Numbers P&amp;D in/out = crate places of the inbound / outbound lane (Poisson rule + line-side crates). DESIGN F4.1.</text>
+</svg>

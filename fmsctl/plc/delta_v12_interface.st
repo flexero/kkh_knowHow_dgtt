@@ -39,6 +39,7 @@ VAR_INPUT
     TypeCode    : WORD;      (* 1 CNC 2 PALLET 3 LOAD 4 STATION 5 TEST 6 AGV 7 ASRS *)
     UnitId      : WORD;      (* 1 *)
     AllowedCmds : DWORD;     (* bit n = command code n known, e.g. CNC 4, 10, 14 = 16#00004410 *)
+    AllowedCmdsHi : DWORD := 16#0;  (* V1.2b: bit n = command code 32 + n known (AS/RS 32, 33 = 16#00000003) *)
     ShiftOn     : BOOL;
     AutoMode    : BOOL;
     SetupMode   : BOOL;
@@ -202,11 +203,14 @@ END_IF;
 (* ---------------------------------------------------------------- 7 toggle-bit command handshake *)
 Ready := ShiftOn AND AutoMode AND NOT SetupMode AND NOT MaintMode AND NOT Alarm AND NOT EStopCopy AND NOT busyT AND GwOk;
 req := (D202 AND 16#0001) <> 0;
-IF (req <> ackT) AND firstDone THEN
+(* sequence guard (map V1.2a): a toggle with cmd.seq = last acknowledged seq is a stale frame - ignore it *)
+IF (req <> ackT) AND firstDone AND (D201 <> D9) THEN
     code := D200;
-    IF code > 31 THEN
+    IF code > 63 THEN
         res := 1;                                     (* unknown command *)
-    ELSIF (SHR(AllowedCmds, WORD_TO_INT(code)) AND 16#00000001) = 0 THEN
+    ELSIF (code > 31) AND ((SHR(AllowedCmdsHi, WORD_TO_INT(code) - 32) AND 16#00000001) = 0) THEN
+        res := 1;                                     (* V1.2b: codes 32 - 63 from AllowedCmdsHi *)
+    ELSIF (code <= 31) AND ((SHR(AllowedCmds, WORD_TO_INT(code)) AND 16#00000001) = 0) THEN
         res := 1;                                     (* not a command of this device type *)
     ELSIF code = 4 THEN
         res := 0;  AckAlarm := TRUE;                  (* acknowledge alarm - also while busy *)

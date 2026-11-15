@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" font-family="Arial, Helvetica, sans-serif">
+<title>Ethernet II frame with 802.1Q VLAN tag - byte by byte</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker></defs>
+<rect x="0" y="0" width="1200" height="520" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" fill="#111111" font-weight="bold">Ethernet II frame with 802.1Q VLAN tag - byte by byte</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555555">What really goes over the cable. Numbers = bytes. Minimum frame 64 B (MAC to FCS) + 8 preamble/SFD + 12 gap = 84 B on the wire.</text>
+<rect x="30" y="90" width="70" height="60" rx="0" fill="#eeeeee" stroke="#333" stroke-width="1.5"/>
+<text x="65.0" y="125" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Preamble</text>
+<text x="65.0" y="170" font-size="12" text-anchor="middle" fill="#111">7 B</text>
+<rect x="100" y="90" width="40" height="60" rx="0" fill="#eeeeee" stroke="#333" stroke-width="1.5"/>
+<text x="120.0" y="125" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">SFD</text>
+<text x="120.0" y="170" font-size="12" text-anchor="middle" fill="#111">1 B</text>
+<rect x="140" y="90" width="110" height="60" rx="0" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="195.0" y="125" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Dest. MAC</text>
+<text x="195.0" y="170" font-size="12" text-anchor="middle" fill="#111">6 B</text>
+<rect x="250" y="90" width="110" height="60" rx="0" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="305.0" y="125" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Source MAC</text>
+<text x="305.0" y="170" font-size="12" text-anchor="middle" fill="#111">6 B</text>
+<rect x="360" y="90" width="120" height="60" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="2"/>
+<text x="420.0" y="125" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">802.1Q tag</text>
+<text x="420.0" y="170" font-size="12" text-anchor="middle" fill="#1f6fb2">4 B</text>
+<rect x="480" y="90" width="80" height="60" rx="0" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="520.0" y="125" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">EtherType</text>
+<text x="520.0" y="170" font-size="12" text-anchor="middle" fill="#111">2 B</text>
+<rect x="560" y="90" width="320" height="60" rx="0" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="720.0" y="125" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Payload (data)</text>
+<text x="720.0" y="170" font-size="12" text-anchor="middle" fill="#111">42-1500 B</text>
+<rect x="880" y="90" width="60" height="60" rx="0" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="910.0" y="125" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">FCS</text>
+<text x="910.0" y="170" font-size="12" text-anchor="middle" fill="#111">4 B</text>
+<rect x="940" y="90" width="150" height="60" rx="0" fill="#eeeeee" stroke="#333" stroke-width="1.5"/>
+<text x="1015.0" y="125" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Inter-frame gap</text>
+<text x="1015.0" y="170" font-size="12" text-anchor="middle" fill="#111">12 B</text>
+<line x1="140" y1="192" x2="990" y2="192" stroke="#555555" stroke-width="1"/>
+<line x1="140" y1="186" x2="140" y2="198" stroke="#555555" stroke-width="1"/>
+<line x1="990" y1="186" x2="990" y2="198" stroke="#555555" stroke-width="1"/>
+<text x="150" y="210" font-size="12" text-anchor="start" fill="#555555">frame size: 64 ... 1518 B untagged, 64 ... 1522 B with the tag (payload min 42 B with tag, 46 B without)</text>
+<text x="30" y="236" font-size="12" text-anchor="start" fill="#111111" font-weight="bold">Wire overhead = preamble 7 + SFD 1 + gap 12 = 20 B per frame  -&gt;  minimum on the wire 64 + 20 = 84 B = 6.72 us at 100 Mbit/s</text>
+<text x="470" y="270" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">Inside the 802.1Q tag (4 bytes = 32 bits)</text>
+<rect x="470" y="280" width="170" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="555.0" y="300" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">TPID 0x8100</text>
+<text x="555.0" y="317" font-size="11" text-anchor="middle" fill="#555555">16 bit</text>
+<rect x="640" y="280" width="70" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="675.0" y="300" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">PCP</text>
+<text x="675.0" y="317" font-size="11" text-anchor="middle" fill="#555555">3 bit</text>
+<rect x="710" y="280" width="50" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="735.0" y="300" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">DEI</text>
+<text x="735.0" y="317" font-size="11" text-anchor="middle" fill="#555555">1 bit</text>
+<rect x="760" y="280" width="200" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="860.0" y="300" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">VLAN ID (VID)</text>
+<text x="860.0" y="317" font-size="11" text-anchor="middle" fill="#555555">12 bit</text>
+<text x="470" y="348" font-size="12" text-anchor="start" fill="#555555">PCP = priority 0-7 (PROFINET RT uses 6)  -  DEI = drop eligible  -  VID = 1-4094 (0 = priority only, 4095 reserved)</text>
+<text x="30" y="390" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">EtherType examples</text>
+<text x="40" y="414" font-size="12" text-anchor="start" fill="#1f6fb2" font-weight="bold">0x0800</text>
+<text x="110" y="414" font-size="12" text-anchor="start" fill="#111111">IPv4 (Modbus TCP, OPC UA, MQTT, HTTP)</text>
+<text x="40" y="434" font-size="12" text-anchor="start" fill="#1f6fb2" font-weight="bold">0x0806</text>
+<text x="110" y="434" font-size="12" text-anchor="start" fill="#111111">ARP</text>
+<text x="40" y="454" font-size="12" text-anchor="start" fill="#1f6fb2" font-weight="bold">0x8892</text>
+<text x="110" y="454" font-size="12" text-anchor="start" fill="#111111">PROFINET RT (no IP header: fast, not routable)</text>
+<text x="40" y="474" font-size="12" text-anchor="start" fill="#1f6fb2" font-weight="bold">0x88A4</text>
+<text x="110" y="474" font-size="12" text-anchor="start" fill="#111111">EtherCAT</text>
+<text x="620" y="414" font-size="12" text-anchor="start" fill="#1f6fb2" font-weight="bold">0x88F7</text>
+<text x="690" y="414" font-size="12" text-anchor="start" fill="#111111">PTP (IEEE 1588)</text>
+<text x="620" y="434" font-size="12" text-anchor="start" fill="#1f6fb2" font-weight="bold">0x88E3</text>
+<text x="690" y="434" font-size="12" text-anchor="start" fill="#111111">MRP (media redundancy protocol)</text>
+<text x="620" y="454" font-size="12" text-anchor="start" fill="#1f6fb2" font-weight="bold">0x86DD</text>
+<text x="690" y="454" font-size="12" text-anchor="start" fill="#111111">IPv6</text>
+<text x="620" y="474" font-size="12" text-anchor="start" fill="#1f6fb2" font-weight="bold">0x88CC</text>
+<text x="690" y="474" font-size="12" text-anchor="start" fill="#111111">LLDP (topology, PROFINET neighbours)</text>
+<text x="30" y="505" font-size="12" text-anchor="start" fill="#555555">FCS = CRC-32 over MAC ... payload: a switch drops every frame with a wrong FCS ("CRC errors" counter on the port = cable / EMC problem).</text>
+</svg>

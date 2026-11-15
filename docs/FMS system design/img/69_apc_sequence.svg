@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" font-family="Arial, Helvetica, sans-serif">
+<title>APC01 sequence (step chain) inside the PackML state Execute</title>
+<rect x="0" y="0" width="1200" height="640" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">APC01 sequence (step chain) inside the PackML state Execute</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Starting -&gt; Execute initialises the target (B if PosA, A if PosB, else alarm 10). Each step has a timeout -&gt; alarm -&gt; internal Abort. S40 = done -&gt; SC -&gt; Completing.</text>
+<rect x="330" y="76" width="520" height="486" rx="10" fill="#fafafa" stroke="#1f5fa8" stroke-width="2"/>
+<text x="590" y="98" font-size="13" text-anchor="middle" font-weight="bold" fill="#1f5fa8">PackML state 6 Execute (acting)</text>
+<rect x="390" y="120" width="120" height="40" rx="0" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="450" y="145" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">S10</text>
+<line x1="510" y1="140" x2="535" y2="140" stroke="#111" stroke-width="1.5"/>
+<rect x="535" y="122" width="170" height="36" rx="0" fill="#fff" stroke="#111" stroke-width="1"/>
+<text x="542" y="137" font-size="11" text-anchor="start" fill="#111">N Clamp.Sol (unclamp)</text>
+<line x1="450" y1="160" x2="450" y2="215" stroke="#111" stroke-width="1.5"/>
+<line x1="428" y1="188" x2="472" y2="188" stroke="#111" stroke-width="3"/>
+<text x="420" y="192" font-size="11" text-anchor="end" fill="#111">Clamp.PosB</text>
+<line x1="310" y1="188" x2="428" y2="188" stroke="#fff" stroke-width="0"/>
+<rect x="390" y="215" width="120" height="40" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="450" y="240" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">S20</text>
+<line x1="510" y1="235" x2="535" y2="235" stroke="#111" stroke-width="1.5"/>
+<rect x="535" y="217" width="170" height="36" rx="0" fill="#fff" stroke="#111" stroke-width="1"/>
+<text x="542" y="232" font-size="11" text-anchor="start" fill="#111">N Clamp.Sol</text>
+<text x="542" y="247" font-size="11" text-anchor="start" fill="#111">N Rotate.SolB (target B)</text>
+<line x1="450" y1="255" x2="450" y2="315" stroke="#111" stroke-width="1.5"/>
+<line x1="428" y1="285" x2="472" y2="285" stroke="#111" stroke-width="3"/>
+<text x="420" y="289" font-size="11" text-anchor="end" fill="#111">PosB (target)</text>
+<rect x="390" y="315" width="120" height="40" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="450" y="340" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">S30</text>
+<line x1="510" y1="335" x2="535" y2="335" stroke="#111" stroke-width="1.5"/>
+<rect x="535" y="317" width="170" height="36" rx="0" fill="#fff" stroke="#111" stroke-width="1"/>
+<text x="542" y="332" font-size="11" text-anchor="start" fill="#111">(no output: spring clamps)</text>
+<line x1="450" y1="355" x2="450" y2="415" stroke="#111" stroke-width="1.5"/>
+<line x1="428" y1="385" x2="472" y2="385" stroke="#111" stroke-width="3"/>
+<text x="420" y="389" font-size="11" text-anchor="end" fill="#111">Clamp.PosA AND p &gt;= 4.5</text>
+<rect x="390" y="415" width="120" height="40" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="450" y="440" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">S40</text>
+<line x1="510" y1="435" x2="535" y2="435" stroke="#111" stroke-width="1.5"/>
+<rect x="535" y="417" width="170" height="36" rx="0" fill="#fff" stroke="#111" stroke-width="1"/>
+<text x="542" y="432" font-size="11" text-anchor="start" fill="#111">done -&gt; SC</text>
+<line x1="450" y1="455" x2="450" y2="495" stroke="#111" stroke-width="1.5"/>
+<line x1="450" y1="495" x2="450" y2="520" stroke="#111" stroke-width="1.5"/>
+<polygon points="450,520 453.78,511.00 446.22,511.00" fill="#111"/>
+<text x="450" y="540" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Completing (16)</text>
+<polyline points="472,188 860,188" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="860,188 851.00,184.22 851.00,191.78" fill="#c0392b"/>
+<text x="870" y="192" font-size="11" text-anchor="start" fill="#c0392b">n &gt;= 30 -&gt; alarm 11 unclamp timeout</text>
+<polyline points="472,285 860,285" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="860,285 851.00,281.22 851.00,288.78" fill="#c0392b"/>
+<text x="870" y="289" font-size="11" text-anchor="start" fill="#c0392b">n &gt;= 50 -&gt; alarm 12 rotate timeout</text>
+<polyline points="472,385 860,385" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="860,385 851.00,381.22 851.00,388.78" fill="#c0392b"/>
+<text x="870" y="389" font-size="11" text-anchor="start" fill="#c0392b">n &gt;= 30 -&gt; alarm 13 clamp press low / timeout</text>
+<polyline points="1080,200 1080,470" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="1080,470 1083.78,461.00 1076.22,461.00" fill="#c0392b"/>
+<rect x="980" y="470" width="200" height="56" rx="0" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="1080" y="494.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">Aborting (8) -&gt; Aborted (9)</text>
+<text x="1080" y="508.85" font-size="11" text-anchor="middle" fill="#111">AlarmNo = code, Fault bit3</text>
+<rect x="40" y="110" width="240" height="60" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="160" y="136.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Starting (3), 2 ticks</text>
+<text x="160" y="150.85" font-size="11" text-anchor="middle" fill="#111">entry Execute: init target</text>
+<line x1="280" y1="140" x2="388" y2="140" stroke="#111" stroke-width="1.5"/>
+<polygon points="388,140 379.00,136.22 379.00,143.78" fill="#111"/>
+<rect x="40" y="230" width="240" height="80" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="160" y="259.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Hold (4) accepted in Execute</text>
+<text x="160" y="273.85" font-size="11" text-anchor="middle" fill="#111">Holding / Held / Unholding:</text>
+<text x="160" y="287.85" font-size="11" text-anchor="middle" fill="#111">step + n frozen, outputs kept</text>
+<rect x="40" y="340" width="240" height="80" rx="0" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="160" y="369.85" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">Stop (3) / Abort (8)</text>
+<text x="160" y="383.85" font-size="11" text-anchor="middle" fill="#111">-&gt; Stopping / Aborting:</text>
+<text x="160" y="397.85" font-size="11" text-anchor="middle" fill="#111">all outputs FALSE</text>
+<text x="40" y="450" font-size="11" text-anchor="start" fill="#111">Step timer n: +1 per tick (100 ms), reset to 0</text>
+<text x="40" y="466" font-size="11" text-anchor="start" fill="#111">on every step change.</text>
+<text x="40" y="490" font-size="11" text-anchor="start" fill="#111">Outputs only in Execute, Holding, Held, Unholding.</text>
+<text x="40" y="514" font-size="11" text-anchor="start" fill="#c0392b">Lesson: a double-solenoid valve keeps its spool</text>
+<text x="40" y="530" font-size="11" text-anchor="start" fill="#c0392b">-&gt; the rotation continues after Stop / Abort.</text>
+<text x="40" y="546" font-size="11" text-anchor="start" fill="#c0392b">Energy isolation = safety valve (item 7/8).</text>
+<text x="24" y="626" font-size="11" text-anchor="start" fill="#666">Teaching example - not for construction. Real PLC code: written, reviewed and validated by qualified people (IEC 61131-3, IEC 62061 / ISO 13849).</text>
+</svg>

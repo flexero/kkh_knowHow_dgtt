@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#ffffff"/>
+<text x="30.00" y="20.00" font-family="Arial" font-size="3.00" text-anchor="start" font-weight="bold" fill="#000">SECTION across the main line 1:10 (carrier on the chain)</text>
+<rect x="76.00" y="100.00" width="4.00" height="3.00" fill="#999999" stroke="#000" stroke-width="0.30"/>
+<rect x="68.50" y="97.50" width="5.00" height="16.50" fill="#dde7f3" stroke="#000" stroke-width="0.30"/>
+<rect x="76.00" y="92.00" width="4.00" height="8.00" fill="#9db5d8" stroke="#000" stroke-width="0.30"/>
+<rect x="140.00" y="100.00" width="4.00" height="3.00" fill="#999999" stroke="#000" stroke-width="0.30"/>
+<rect x="146.50" y="97.50" width="5.00" height="16.50" fill="#dde7f3" stroke="#000" stroke-width="0.30"/>
+<rect x="140.00" y="92.00" width="4.00" height="8.00" fill="#9db5d8" stroke="#000" stroke-width="0.30"/>
+<rect x="70.00" y="91.20" width="80.00" height="0.80" fill="#eef3fa" stroke="#000" stroke-width="0.30"/>
+<rect x="81.00" y="100.50" width="58.00" height="1.50" fill="#c6e0b4" stroke="#000" stroke-width="0.30"/>
+<text x="110.00" y="106.00" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">lift-transfer belts (down: 5 below chain top, up: +30)</text>
+<line x1="65.00" y1="150.00" x2="57.50" y2="150.00" stroke="#000" stroke-width="0.18"/>
+<line x1="65.00" y1="100.00" x2="57.50" y2="100.00" stroke="#000" stroke-width="0.18"/>
+<line x1="59.00" y1="150.00" x2="59.00" y2="100.00" stroke="#000" stroke-width="0.18"/>
+<polygon points="59.00,100.00 58.30,102.20 59.70,102.20" fill="#000"/>
+<polygon points="59.00,150.00 59.70,147.80 58.30,147.80" fill="#000"/>
+<text x="58.20" y="125.00" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000" transform="rotate(-90 58.20 125.00)">top 500</text>
+<line x1="78.00" y1="91.20" x2="78.00" y2="81.70" stroke="#000" stroke-width="0.18"/>
+<line x1="142.00" y1="91.20" x2="142.00" y2="81.70" stroke="#000" stroke-width="0.18"/>
+<line x1="78.00" y1="83.20" x2="142.00" y2="83.20" stroke="#000" stroke-width="0.18"/>
+<polygon points="78.00,83.20 80.20,83.90 80.20,82.50" fill="#000"/>
+<polygon points="142.00,83.20 139.80,82.50 139.80,83.90" fill="#000"/>
+<text x="110.00" y="82.40" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">gauge 640</text>
+<line x1="58.00" y1="150.00" x2="162.00" y2="150.00" stroke="#000" stroke-width="0.40"/>
+<text x="30.00" y="205.00" font-family="Arial" font-size="3.00" text-anchor="start" font-weight="bold" fill="#000">PLAN 2 m module 1:20: transfer at x = -300, stopper at x = +800</text>
+<rect x="45.00" y="263.00" width="100.00" height="2.00" fill="#999999" stroke="#000" stroke-width="0.30"/>
+<rect x="45.00" y="231.00" width="100.00" height="2.00" fill="#999999" stroke="#000" stroke-width="0.30"/>
+<rect x="53.50" y="233.50" width="3.00" height="29.00" fill="#c6e0b4" stroke="#000" stroke-width="0.30"/>
+<rect x="78.50" y="233.50" width="3.00" height="29.00" fill="#c6e0b4" stroke="#000" stroke-width="0.30"/>
+<rect x="103.50" y="233.50" width="3.00" height="29.00" fill="#c6e0b4" stroke="#000" stroke-width="0.30"/>
+<rect x="133.00" y="245.00" width="4.00" height="6.00" fill="#c00000" stroke="#000" stroke-width="0.40"/>
+<text x="135.00" y="270.00" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">damped stopper</text>
+<text x="80.00" y="270.00" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">lift-transfer 90 deg</text>
+<text x="230.00" y="26.00" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">Accumulation principle: the carriers ride on free-turning rollers of the chain; a stopped</text>
+<text x="230.00" y="30.40" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">carrier lets the chain run under it with a small back pressure (mu_acc 0.05) -> queues</text>
+<text x="230.00" y="34.80" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">wait ON the line without stopping the drive.</text>
+<text x="230.00" y="39.20" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000"></text>
+<text x="230.00" y="43.60" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000"> Accumulation chain</text>
+<text x="230.00" y="48.00" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">Carrier + adapter + heaviest product = 232 kg. A section FULL of accumulated carriers may be</text>
+<text x="230.00" y="52.40" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">at most 41.9 m long (F_allow 1500 N per strand).</text>
+<text x="230.00" y="56.80" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">Design: 4 sections of 25 m; with the 21 carriers of the loop the worst section pull is 895 N</text>
+<text x="230.00" y="61.20" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">per strand -> drive 421 W -> 0.75 kW per section.</text>
+<text x="230.00" y="65.60" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000"> Lift-transfers</text>
+<text x="230.00" y="150.00" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">Drive sections: 4 x 25 m, 0.75 kW each (asm_line.py C).</text>
+<text x="230.00" y="154.60" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">Stopper class 1500 N static / 10 J (damped): line pressure of the largest queue + impact.</text>
+<text x="230.00" y="159.20" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">Lift-transfer: 3 belts at 90 deg, stroke 30 mm, cycle lift 2 s + spur 10 s + lower 2 s.</text>
+<text x="230.00" y="163.80" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">Side guides 25 mm above the chain top keep the carrier in line.</text>
+<rect x="0.30" y="0.30" width="419.40" height="296.40" fill="none" stroke="#000" stroke-width="0.20"/>
+<rect x="20.00" y="10.00" width="390.00" height="277.00" fill="none" stroke="#000" stroke-width="0.70"/>
+<line x1="210.00" y1="0.00" x2="210.00" y2="10.00" stroke="#000" stroke-width="0.70"/>
+<line x1="210.00" y1="287.00" x2="210.00" y2="297.00" stroke="#000" stroke-width="0.70"/>
+<line x1="10.00" y1="148.50" x2="20.00" y2="148.50" stroke="#000" stroke-width="0.70"/>
+<line x1="410.00" y1="148.50" x2="420.00" y2="148.50" stroke="#000" stroke-width="0.70"/>
+<text x="44.38" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">1</text>
+<text x="93.12" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">2</text>
+<text x="141.88" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">3</text>
+<text x="190.62" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">4</text>
+<text x="239.38" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">5</text>
+<text x="288.12" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">6</text>
+<text x="336.88" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">7</text>
+<text x="385.62" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">8</text>
+<text x="15.00" y="33.08" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">A</text>
+<text x="15.00" y="79.25" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">B</text>
+<text x="15.00" y="125.42" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">C</text>
+<text x="15.00" y="171.58" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">D</text>
+<text x="15.00" y="217.75" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">E</text>
+<text x="15.00" y="263.92" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">F</text>
+<rect x="230.00" y="231.00" width="180.00" height="56.00" fill="none" stroke="#000" stroke-width="0.70"/>
+<rect x="230.00" y="231.00" width="90.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="233.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Company / owner</text>
+<text x="231.00" y="239.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">[company name - fill in]</text>
+<rect x="320.00" y="231.00" width="90.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="321.00" y="233.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Project</text>
+<text x="321.00" y="239.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">Combined FMS VC20 + RB - item F4.4 assembly line</text>
+<rect x="230.00" y="241.00" width="180.00" height="12.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="243.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Title</text>
+<text x="231.00" y="251.00" font-family="Arial" font-size="3.20" text-anchor="start" font-weight="bold" fill="#000">Main line: twin-strand accumulation chain, lift-transfer, stopper</text>
+<rect x="230.00" y="253.00" width="50.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Drawing no.</text>
+<text x="231.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" font-weight="bold" fill="#000">F4-ASM-D22</text>
+<rect x="280.00" y="253.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="281.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Scale</text>
+<text x="281.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">1:10 / 1:20</text>
+<rect x="310.00" y="253.00" width="20.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="311.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Size</text>
+<text x="311.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">A3</text>
+<rect x="330.00" y="253.00" width="20.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="331.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Sheet</text>
+<text x="331.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">1/1</text>
+<rect x="350.00" y="253.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="351.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Date</text>
+<text x="351.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">2026-11-15</text>
+<rect x="380.00" y="253.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="381.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Rev.</text>
+<text x="381.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">0</text>
+<rect x="230.00" y="263.00" width="60.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Material</text>
+<text x="231.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">see parts list</text>
+<rect x="290.00" y="263.00" width="40.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="291.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">General tolerance</text>
+<text x="291.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">ISO 2768-mK</text>
+<rect x="330.00" y="263.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="331.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Drawn</text>
+<text x="331.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">asm_3d.py</text>
+<rect x="360.00" y="263.00" width="50.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="361.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Checked / released</text>
+<text x="361.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">- / -</text>
+<rect x="230.00" y="273.00" width="40.00" height="14.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="275.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Projection ISO 5456-2</text>
+<polygon points="238.00,279.90 247.00,278.30 247.00,284.70 238.00,283.10" fill="none" stroke="#000" stroke-width="0.30"/>
+<line x1="237.00" y1="281.50" x2="248.00" y2="281.50" stroke="#000" stroke-width="0.15" stroke-dasharray="1.5 0.6 0.3 0.6"/>
+<circle cx="255.00" cy="281.50" r="3.20" fill="none" stroke="#000" stroke-width="0.30"/>
+<circle cx="255.00" cy="281.50" r="1.60" fill="none" stroke="#000" stroke-width="0.30"/>
+<line x1="250.80" y1="281.50" x2="259.20" y2="281.50" stroke="#000" stroke-width="0.15" stroke-dasharray="1.5 0.6 0.3 0.6"/>
+<line x1="255.00" y1="277.30" x2="255.00" y2="285.70" stroke="#000" stroke-width="0.15" stroke-dasharray="1.5 0.6 0.3 0.6"/>
+<rect x="270.00" y="273.00" width="140.00" height="14.00" fill="#fff2cc" stroke="#000" stroke-width="0.25"/>
+<text x="272.00" y="279.00" font-family="Arial" font-size="2.80" text-anchor="start" font-weight="bold" fill="#000">DESIGN - to be checked and released by the responsible engineer</text>
+<text x="272.00" y="284.00" font-family="Arial" font-size="2.00" text-anchor="start" fill="#000">Generated from assembly_specs.json (F4.4). Do not scale - use the dimensions.</text>
+</svg>

@@ -1,0 +1,145 @@
+/* FMS engineering – item 5 deep sections 5F–5M (fmse5x.js). Theme variables only (light + dark). Prefix f5-. Reuses fe-*, fx-*, am-*, phd-* classes. */
+
+.f5-wx { margin-top: 8px; }
+.f5-kv td:first-child { width: 34%; }
+.f5-small td, .f5-small th { font-size: 12.5px; }
+.f5-num td, .f5-num th { white-space: nowrap; }
+.f5-brk { word-break: break-all; }
+.f5-tall { max-height: 420px; overflow-y: auto; }
+.f5-pre { background: var(--surface-2); border-radius: 6px; padding: 8px 10px; font-size: 12px; line-height: 1.45; overflow-x: auto; max-height: 420px; overflow-y: auto; white-space: pre; margin: 4px 0; }
+.f5-st { max-height: 560px; }
+#tab-fmse .f5-ta { width: 100%; box-sizing: border-box; font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; resize: vertical; }
+#tab-fmse .f5-in { width: 170px; max-width: 100%; }
+#tab-fmse .f5-wide { width: 100%; min-width: 0; box-sizing: border-box; }
+.f5-grow { flex: 1 1 260px; display: flex; gap: 6px; align-items: center; min-width: 0; }
+.f5-range { flex: 1; min-width: 80px; }
+.f5-tnow { min-width: 80px; }
+.f5-warnc { color: var(--fe-4) !important; }
+tr.f5-badrow td { background: color-mix(in srgb, var(--critical) 8%, transparent); }
+tr.f5-dim td { color: var(--muted); }
+tr.f5-cur td { box-shadow: inset 0 -2px 0 var(--fe-1); }
+.f5-detail { background: var(--surface-2); border-radius: 8px; padding: 4px 12px 8px; margin: 8px 0; }
+
+/* 5F MOM grid */
+.f5-mom td.f5-momc { cursor: pointer; min-width: 120px; }
+.f5-mom td.f5-momc:hover { background: var(--surface-2); }
+td.f5-sel, .f5-mom td.f5-sel { background: color-mix(in srgb, var(--fe-1) 22%, transparent) !important; box-shadow: inset 0 0 0 2px var(--fe-1); }
+
+/* 5H */
+.f5-tt td, .f5-tt th { white-space: nowrap; text-align: center; padding: 3px 6px; }
+.f5-tt td:first-child { text-align: left; }
+td.f5-okc { background: color-mix(in srgb, var(--fe-3) 16%, transparent); }
+td.f5-nc { color: var(--muted); }
+.f5-mm td { min-width: 120px; }
+.f5-mm td:first-child { min-width: 100px; white-space: nowrap; }
+
+/* 5I trees */
+.f5-tree li { line-height: 1.5; }
+.fe-tt.f5-tprocedure { background: color-mix(in srgb, var(--fe-5) 26%, transparent); }
+.fe-tt.f5-tunit { background: color-mix(in srgb, var(--fe-1) 24%, transparent); }
+.fe-tt.f5-toperation { background: color-mix(in srgb, var(--fe-3) 24%, transparent); }
+.fe-tt.f5-tphase { background: color-mix(in srgb, var(--fe-4) 26%, transparent); }
+
+/* charts */
+.f5-ln { fill: none; stroke-width: 2.2; }
+.f5-ln.f5-s1, .f5-lg.f5-s1 { stroke: var(--fe-1); background: var(--fe-1); }
+.f5-ln.f5-s2, .f5-lg.f5-s2 { stroke: var(--fe-2); background: var(--fe-2); }
+.f5-lg.f5-s3 { background: var(--fe-3); }
+.f5-dot.f5-s2 { fill: var(--fe-2); stroke: var(--surface); stroke-width: 1.3; }
+.f5-bar.f5-s1 { fill: var(--fe-1); fill-opacity: .75; }
+.f5-bar.f5-s2 { fill: var(--fe-2); fill-opacity: .75; }
+.f5-bar.f5-s3 { fill: var(--fe-3); fill-opacity: .75; }
+.f5-bar.f5-barhi, .f5-lg.f5-barhi { fill: var(--critical); background: var(--critical); }
+#tab-fmse .fx-lg i.f5-lg { height: 8px; }
+.f5-flood { stroke: var(--critical); stroke-width: 1.4; stroke-dasharray: 5 3; }
+.f5-tgt { stroke: var(--fe-3); stroke-width: 1.2; stroke-dasharray: 2 3; }
+
+/* 5J plant + Gantt */
+.f5-plant { background: var(--surface-2); border-radius: 8px; display: block; max-width: 1000px; margin: 0 auto; }
+.f5-box { fill: var(--surface); stroke: var(--text-2); stroke-width: 1.2; }
+.f5-bt { font-size: 13px; font-weight: 700; fill: var(--text); }
+.f5-mt { font-size: 12px; font-weight: 600; fill: var(--text); }
+.f5-ct { font-size: 11px; font-weight: 600; fill: var(--text); }
+.f5-linkup { stroke: var(--fe-3); stroke-width: 3; }
+.f5-linkdn { stroke: var(--critical); stroke-width: 3; stroke-dasharray: 6 5; }
+.f5-dnx { font-size: 20px; font-weight: 700; fill: var(--critical); }
+.f5-slot { fill: var(--surface); stroke: var(--border); stroke-dasharray: 3 2; }
+.f5-chip { stroke-width: 1; }
+.f5-cjob { fill: color-mix(in srgb, var(--fe-5) 35%, var(--surface)); stroke: var(--fe-5); }
+.f5-cconf { fill: color-mix(in srgb, var(--fe-4) 40%, var(--surface)); stroke: var(--fe-4); }
+.f5-cpal { fill: var(--surface); stroke: var(--text-2); }
+.f5-cready { fill: color-mix(in srgb, var(--fe-1) 30%, var(--surface)); stroke: var(--fe-1); }
+.f5-track { stroke: var(--text-2); stroke-width: 6; stroke-linecap: round; stroke-opacity: .45; }
+.f5-drop { stroke: var(--text-2); stroke-width: 1.2; stroke-dasharray: 3 3; }
+.f5-mach { stroke: var(--text-2); stroke-width: 1.2; }
+.f5-idle { fill: var(--surface); }
+.f5-ex, .f5-sw.f5-ex { fill: color-mix(in srgb, var(--fe-3) 45%, var(--surface)); background: color-mix(in srgb, var(--fe-3) 60%, var(--surface)); }
+.f5-held, .f5-sw.f5-held { fill: color-mix(in srgb, var(--critical) 45%, var(--surface)); background: color-mix(in srgb, var(--critical) 60%, var(--surface)); }
+.f5-cpl, .f5-sw.f5-cpl { fill: color-mix(in srgb, var(--fe-4) 45%, var(--surface)); background: color-mix(in srgb, var(--fe-4) 60%, var(--surface)); }
+.f5-load, .f5-sw.f5-load { fill: color-mix(in srgb, var(--fe-5) 40%, var(--surface)); background: color-mix(in srgb, var(--fe-5) 55%, var(--surface)); }
+.f5-mv, .f5-sw.f5-mv { fill: color-mix(in srgb, var(--fe-1) 50%, var(--surface)); background: color-mix(in srgb, var(--fe-1) 60%, var(--surface)); }
+.f5-mvb { fill: color-mix(in srgb, var(--fe-1) 28%, var(--surface)); }
+.f5-down, .f5-sw.f5-down { fill: color-mix(in srgb, var(--critical) 25%, var(--surface)); background: color-mix(in srgb, var(--critical) 30%, var(--surface)); }
+.f5-outb, .f5-sw.f5-outb { fill: var(--fe-4); background: var(--fe-4); }
+.f5-sw { display: inline-block; width: 14px; height: 10px; border-radius: 2px; }
+.f5-lgd { display: flex; flex-wrap: wrap; gap: 2px 4px; align-items: center; margin: 2px 0 8px; }
+.f5-prog { fill: var(--fe-5); }
+.f5-flt { fill: var(--critical); }
+.f5-fltt { fill: var(--surface); }
+.f5-veh { fill: var(--surface); stroke: var(--fe-1); stroke-width: 2; }
+.f5-vehon { fill: color-mix(in srgb, var(--fe-1) 35%, var(--surface)); }
+.f5-gantt { min-width: 640px; }
+.f5-gb { stroke: var(--surface); stroke-width: .6; }
+.f5-gt { font-size: 10px; fill: var(--text); dominant-baseline: middle; pointer-events: none; }
+.f5-gl { font-weight: 600; fill: var(--text); }
+.f5-cur { stroke: var(--text); stroke-width: 1.6; }
+.f5-gantt { cursor: crosshair; }
+.f5-nowbar { background: var(--surface-2); border-radius: 6px; padding: 6px 10px; margin: 6px 0; font-size: 13px; line-height: 1.6; }
+.f5-log { max-height: 320px; overflow-y: auto; font-family: ui-monospace, Consolas, monospace; font-size: 12px; border: 1px solid var(--border); border-radius: 6px; padding: 4px 0; position: relative; }
+.f5-log div { padding: 1px 10px; cursor: pointer; white-space: nowrap; }
+.f5-log div:hover { background: var(--surface-2); }
+.f5-log div.f5-now { background: color-mix(in srgb, var(--fe-1) 22%, transparent); font-weight: 700; }
+.f5-log div.f5-fut { color: var(--muted); }
+
+/* 5K */
+.f5-blk { margin: 2px 0; }
+.f5-blk select { max-width: 200px; }
+#tab-fmse .f5-blk input[type=number] { width: 56px; }
+#tab-fmse #f5AvC input[type=number] { width: 84px; }
+
+/* 5L */
+.f5-chk { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4px 14px; margin: 6px 0 10px; }
+.f5-ck { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; line-height: 1.45; }
+.f5-ck input { margin-top: 3px; flex: none; }
+.f5-pm td, .f5-pm th { text-align: center; white-space: nowrap; }
+td.f5-p1 { background: color-mix(in srgb, var(--critical) 30%, transparent); }
+td.f5-p2 { background: color-mix(in srgb, var(--fe-4) 32%, transparent); }
+td.f5-p3 { background: color-mix(in srgb, var(--fe-1) 20%, transparent); }
+td.f5-p0 { color: var(--muted); }
+.f5-isa { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px; }
+.f5-isa p { margin: 3px 0; font-size: 12.5px; }
+.f5-sk { width: 100%; max-width: 240px; background: var(--surface-2); border-radius: 4px; }
+.f5-skh { fill: var(--muted); fill-opacity: .35; }
+.f5-skb { fill: var(--surface); stroke: var(--border); }
+.f5-ska { fill: color-mix(in srgb, var(--fe-4) 60%, var(--surface)); stroke: var(--fe-4); }
+.f5-skl { fill: none; stroke: var(--text-2); stroke-width: 1.4; }
+
+/* 5M */
+.f5-hb { display: flex; flex-wrap: wrap; gap: 6px 16px; background: var(--surface-2); border-radius: 6px; padding: 8px 10px; font-size: 13px; margin: 4px 0; }
+.f5-dlp { fill: var(--surface); stroke: var(--text-2); }
+.f5-dll { fill: color-mix(in srgb, var(--fe-1) 40%, var(--surface)); }
+.f5-dlf { fill: color-mix(in srgb, var(--fe-3) 40%, var(--surface)); }
+
+@media (max-width: 700px) {
+  .f5-chk, .f5-isa { grid-template-columns: minmax(0, 1fr); }
+  .f5-kv td:first-child { width: 42%; }
+  .f5-pre { font-size: 11px; }
+  #tab-fmse .f5-in { width: 130px; }
+}
+.f5-nw23 td:nth-child(2), .f5-nw23 td:nth-child(3) { white-space: nowrap; }
+#f5TagRes td:nth-child(4), #f5TagRes td:nth-child(3) { white-space: nowrap; }
+#tab-fmse .fx-lg i.f5-sw { width: 14px; height: 10px; }
+#f5AvG, #f5AlH { max-width: 1000px; display: block; }
+#f5MbG, #f5AlP { max-width: 640px; display: block; }
+@media (max-width: 700px) { .f5-plant { min-width: 620px; } }
+#f5TagRes td:nth-child(2) { min-width: 180px; } #f5TagRes td:nth-child(6) { min-width: 160px; }

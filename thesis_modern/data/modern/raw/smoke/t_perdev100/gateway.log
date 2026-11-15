@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Pictures\Digitaltwin\thesis_modern\code\modern\gateway.py", line 403, in <module>
+    main()
+  File "C:\Users\Administrator\Pictures\Digitaltwin\thesis_modern\code\modern\gateway.py", line 399, in main
+    asyncio.run(run(a))
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Pictures\Digitaltwin\thesis_modern\code\modern\gateway.py", line 316, in run
+    clients = await asyncio.gather(*[conn(u) for u, _ in urls])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Pictures\Digitaltwin\thesis_modern\code\modern\gateway.py", line 315, in conn
+    raise RuntimeError(f'cannot connect {u}')
+RuntimeError: cannot connect opc.tcp://127.0.0.1:48514/fms/

@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="300" viewBox="0 0 660 300" font-family="Arial, Helvetica, sans-serif">
+<rect width="100%" height="100%" fill="white"/>
+<text x="20.0" y="22.0" font-size="12" text-anchor="start" fill="#000000" font-weight="bold">Pallet rack (locations 1-12)</text>
+<rect x="20.0" y="40.0" width="32.0" height="40.0" rx="0" fill="#F2F2F2" stroke="#666666" stroke-width="1.0"/>
+<text x="36.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="normal">1</text>
+<rect x="56.0" y="40.0" width="32.0" height="40.0" rx="0" fill="#F2F2F2" stroke="#666666" stroke-width="1.0"/>
+<text x="72.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="normal">2</text>
+<rect x="92.0" y="40.0" width="32.0" height="40.0" rx="0" fill="#F2F2F2" stroke="#666666" stroke-width="1.0"/>
+<text x="108.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="normal">3</text>
+<rect x="128.0" y="40.0" width="32.0" height="40.0" rx="0" fill="#F2F2F2" stroke="#666666" stroke-width="1.0"/>
+<text x="144.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="normal">4</text>
+<rect x="164.0" y="40.0" width="32.0" height="40.0" rx="0" fill="#F2F2F2" stroke="#666666" stroke-width="1.0"/>
+<text x="180.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="normal">5</text>
+<rect x="200.0" y="40.0" width="32.0" height="40.0" rx="0" fill="#F2F2F2" stroke="#666666" stroke-width="1.0"/>
+<text x="216.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="normal">6</text>
+<rect x="236.0" y="40.0" width="32.0" height="40.0" rx="0" fill="#F2F2F2" stroke="#666666" stroke-width="1.0"/>
+<text x="252.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="normal">7</text>
+<rect x="272.0" y="40.0" width="32.0" height="40.0" rx="0" fill="#F2F2F2" stroke="#666666" stroke-width="1.0"/>
+<text x="288.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="normal">8</text>
+<rect x="308.0" y="40.0" width="32.0" height="40.0" rx="0" fill="#F2F2F2" stroke="#666666" stroke-width="1.0"/>
+<text x="324.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="normal">9</text>
+<rect x="344.0" y="40.0" width="32.0" height="40.0" rx="0" fill="#F2F2F2" stroke="#666666" stroke-width="1.0"/>
+<text x="360.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="normal">10</text>
+<rect x="380.0" y="40.0" width="32.0" height="40.0" rx="0" fill="#F2F2F2" stroke="#666666" stroke-width="1.0"/>
+<text x="396.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="normal">11</text>
+<rect x="416.0" y="40.0" width="32.0" height="40.0" rx="0" fill="#F2F2F2" stroke="#666666" stroke-width="1.0"/>
+<text x="432.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="normal">12</text>
+<rect x="14.0" y="114.0" width="640.0" height="12.0" rx="0" fill="#E8E8E8" stroke="#666666" stroke-width="0.8"/>
+<text x="230.0" y="124.0" font-size="11" text-anchor="middle" fill="#666666" font-weight="normal">shuttle rail - one move at a time: t = 12 s + 2 s x |source - destination|</text>
+<rect x="472.0" y="106.0" width="46.0" height="28.0" rx="0" fill="#666666" stroke="#000000" stroke-width="1"/>
+<text x="495.0" y="125.0" font-size="13" text-anchor="middle" fill="white" font-weight="bold">S</text>
+<rect x="466.0" y="40.0" width="38.0" height="40.0" rx="0" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="485.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="bold">13</text>
+<rect x="512.0" y="40.0" width="38.0" height="40.0" rx="0" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="531.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="bold">14</text>
+<rect x="558.0" y="40.0" width="38.0" height="40.0" rx="0" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="577.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="bold">15</text>
+<rect x="604.0" y="40.0" width="38.0" height="40.0" rx="0" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="623.0" y="65.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="bold">16</text>
+<text x="485.0" y="34.0" font-size="12" text-anchor="middle" fill="#000000" font-weight="bold">L</text>
+<text x="577.0" y="34.0" font-size="11" text-anchor="middle" fill="#000000" font-weight="normal">HMC group H</text>
+<rect x="462.0" y="160.0" width="46.0" height="70.0" rx="0" fill="#FFF7E6" stroke="#000000" stroke-width="1.0"/>
+<text x="485.0" y="180.0" font-size="13" text-anchor="middle" fill="#000000" font-weight="bold">L</text>
+<text x="485.0" y="198.0" font-size="11" text-anchor="middle" fill="#000000" font-weight="normal">147 s</text>
+<text x="485.0" y="214.0" font-size="11" text-anchor="middle" fill="#000000" font-weight="normal">per part</text>
+<rect x="509.0" y="160.0" width="44.0" height="70.0" rx="0" fill="#EAF3FA" stroke="#000000" stroke-width="1.0"/>
+<text x="531.0" y="180.0" font-size="13" text-anchor="middle" fill="#000000" font-weight="bold">H1</text>
+<text x="531.0" y="198.0" font-size="11" text-anchor="middle" fill="#000000" font-weight="normal">358.5 s</text>
+<text x="531.0" y="214.0" font-size="11" text-anchor="middle" fill="#000000" font-weight="normal">per part</text>
+<rect x="555.0" y="160.0" width="44.0" height="70.0" rx="0" fill="#EAF3FA" stroke="#000000" stroke-width="1.0"/>
+<text x="577.0" y="180.0" font-size="13" text-anchor="middle" fill="#000000" font-weight="bold">H2</text>
+<text x="577.0" y="198.0" font-size="11" text-anchor="middle" fill="#000000" font-weight="normal">358.5 s</text>
+<text x="577.0" y="214.0" font-size="11" text-anchor="middle" fill="#000000" font-weight="normal">per part</text>
+<rect x="601.0" y="160.0" width="44.0" height="70.0" rx="0" fill="#EAF3FA" stroke="#000000" stroke-width="1.0"/>
+<text x="623.0" y="180.0" font-size="13" text-anchor="middle" fill="#000000" font-weight="bold">H3</text>
+<text x="623.0" y="198.0" font-size="11" text-anchor="middle" fill="#000000" font-weight="normal">358.5 s</text>
+<text x="623.0" y="214.0" font-size="11" text-anchor="middle" fill="#000000" font-weight="normal">per part</text>
+<line x1="485.0" y1="80.0" x2="485.0" y2="160.0" stroke="#666666" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="531.0" y1="80.0" x2="531.0" y2="160.0" stroke="#666666" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="577.0" y1="80.0" x2="577.0" y2="160.0" stroke="#666666" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="623.0" y1="80.0" x2="623.0" y2="160.0" stroke="#666666" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="20.0" y="182.0" font-size="12" text-anchor="start" fill="#000000" font-weight="bold">Typical pallet cycle when L is busy (3 moves):</text>
+<circle cx="30.0" cy="200.0" r="8" fill="#D55E00" stroke="white" stroke-width="1.0"/>
+<text x="30.0" y="204.0" font-size="10" text-anchor="middle" fill="white" font-weight="bold">1</text>
+<text x="44.0" y="204.0" font-size="11" text-anchor="start" fill="#000000" font-weight="normal">L (13) -&gt; HMC (14-16) with a raw casting</text>
+<text x="330.0" y="204.0" font-size="11" text-anchor="start" fill="#666666" font-weight="normal">16 s mean</text>
+<circle cx="30.0" cy="220.0" r="8" fill="#D55E00" stroke="white" stroke-width="1.0"/>
+<text x="30.0" y="224.0" font-size="10" text-anchor="middle" fill="white" font-weight="bold">2</text>
+<text x="44.0" y="224.0" font-size="11" text-anchor="start" fill="#000000" font-weight="normal">HMC -&gt; rack with the machined part</text>
+<text x="330.0" y="224.0" font-size="11" text-anchor="start" fill="#666666" font-weight="normal">29 s mean</text>
+<circle cx="30.0" cy="240.0" r="8" fill="#D55E00" stroke="white" stroke-width="1.0"/>
+<text x="30.0" y="244.0" font-size="10" text-anchor="middle" fill="white" font-weight="bold">3</text>
+<text x="44.0" y="244.0" font-size="11" text-anchor="start" fill="#000000" font-weight="normal">rack -&gt; L for unload + reload</text>
+<text x="330.0" y="244.0" font-size="11" text-anchor="start" fill="#666666" font-weight="normal">25 s mean</text>
+<text x="20.0" y="276.0" font-size="11" text-anchor="start" fill="#666666" font-weight="normal">Pallets 1-8: fixture A (VC10, VC20)   Pallets 9-12: fixture B (VC30)   N &lt;= 12 pallets in 16 locations</text>
+<rect x="24.0" y="70.0" width="24.0" height="6.0" rx="0" fill="#0072B2" stroke="none" stroke-width="0"/>
+<rect x="60.0" y="70.0" width="24.0" height="6.0" rx="0" fill="#0072B2" stroke="none" stroke-width="0"/>
+<rect x="96.0" y="70.0" width="24.0" height="6.0" rx="0" fill="#0072B2" stroke="none" stroke-width="0"/>
+<rect x="132.0" y="70.0" width="24.0" height="6.0" rx="0" fill="#0072B2" stroke="none" stroke-width="0"/>
+<rect x="168.0" y="70.0" width="24.0" height="6.0" rx="0" fill="#0072B2" stroke="none" stroke-width="0"/>
+<rect x="204.0" y="70.0" width="24.0" height="6.0" rx="0" fill="#0072B2" stroke="none" stroke-width="0"/>
+<rect x="240.0" y="70.0" width="24.0" height="6.0" rx="0" fill="#0072B2" stroke="none" stroke-width="0"/>
+<rect x="276.0" y="70.0" width="24.0" height="6.0" rx="0" fill="#0072B2" stroke="none" stroke-width="0"/>
+<rect x="312.0" y="70.0" width="24.0" height="6.0" rx="0" fill="#E69F00" stroke="none" stroke-width="0"/>
+<rect x="348.0" y="70.0" width="24.0" height="6.0" rx="0" fill="#E69F00" stroke="none" stroke-width="0"/>
+<rect x="384.0" y="70.0" width="24.0" height="6.0" rx="0" fill="#E69F00" stroke="none" stroke-width="0"/>
+<rect x="420.0" y="70.0" width="24.0" height="6.0" rx="0" fill="#E69F00" stroke="none" stroke-width="0"/>
+<rect x="20.0" y="288.0" width="12.0" height="6.0" rx="0" fill="#0072B2" stroke="none" stroke-width="0"/>
+<text x="36.0" y="295.0" font-size="10" text-anchor="start" fill="#666666" font-weight="normal">fixture A</text>
+<rect x="100.0" y="288.0" width="12.0" height="6.0" rx="0" fill="#E69F00" stroke="none" stroke-width="0"/>
+<text x="116.0" y="295.0" font-size="10" text-anchor="start" fill="#666666" font-weight="normal">fixture B</text>
+</svg>

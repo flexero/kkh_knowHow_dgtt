@@ -1,0 +1,73 @@
+{
+  "name": "Jib-crane arm root joint: RHS 120x120x6 S355, arm 2.0 m, hook load 500 kg, full-penetration butt weld to a 20 mm end plate (example)",
+  "steel": "S355",
+  "a": 6.0,
+  "t_max": 20.0,
+  "t_min": 6.0,
+  "lines": [
+    [
+      0,
+      0,
+      120,
+      0
+    ],
+    [
+      120,
+      0,
+      120,
+      120
+    ],
+    [
+      120,
+      120,
+      0,
+      120
+    ],
+    [
+      0,
+      120,
+      0,
+      0
+    ]
+  ],
+  "loads": {
+    "N": 0.0,
+    "Vx": 846.0,
+    "Vy": -9095.0,
+    "Mx": 17560.0,
+    "My": 1692.0,
+    "T": 0.0
+  },
+  "gamma_F": 1.5,
+  "member": {
+    "b": 120.0,
+    "h": 120.0,
+    "t": 6.0,
+    "L": 2000.0
+  },
+  "fatigue_blocks": [
+    {
+      "name": "lifts at full load (500 kg x dynamic 1.15), 20 years",
+      "dVy": 5641.0,
+      "dMx": 11282.0,
+      "n": 200000
+    },
+    {
+      "name": "lifts at half load",
+      "dVy": 2821.0,
+      "dMx": 5641.0,
+      "n": 400000
+    },
+    {
+      "name": "slewing / load swing, lateral 10 % of the hook load",
+      "dVx": 564.0,
+      "dMy": 1128.0,
+      "n": 600000
+    }
+  ],
+  "fat_toe": "load-carrying cruciform, full penetration",
+  "fat_throat": "load-carrying cruciform, full penetration",
+  "fat_shear": "fillet weld throat, shear",
+  "gamma_Mf": 1.15,
+  "gamma_Ff": 1.0
+}

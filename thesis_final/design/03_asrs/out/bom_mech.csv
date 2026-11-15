@@ -1,0 +1,28 @@
+item,description,qty,unit,make_buy,note
+A1,"Upright frame 12.60 m (2 uprights 100x? perforated, bracing), S355 galv.",40,pc,B,"rack supplier, EN 15512 tested section"
+A2,"Pallet beam pair box 120x50x2.0, clear 1825 mm, with safety locks",380,pair,B,rack supplier
+A3,Crate support rails / guides (centring) 1200 mm,760,pc,B,one pair per position
+A4,Base plates + anchors M12 (chemical),80,set,B,floor slab check
+A5,Top tie beams + top guide rail 100x20 S355,1,set,M/B,length 39.7 m
+A6,Bottom rail flat bar 50x30 S355 on grout + clamps,1,set,B,length 41.2 m
+A7,End stops with buffers (polyurethane) both ends,2,pc,B,EN 528: energy absorption
+B1,"Crane bottom frame welded S355 (wheel boxes, drive console)",1,pc,M,1600 kg
+B2,"Mast box 600x400x6 S355, height 13.10 m",1,pc,M,1219 kg
+B3,"Top frame with guide rollers (polyurethane, 4x)",1,pc,M,
+B4,"Lifting carriage with guide rollers, slack-rope and overload device",1,pc,M,600 kg incl. fork
+B5,Travel wheel D400 (drive) with bearing housing,1,pc,M/B,GGG70 or 42CrMo4 tread hardened
+B6,Travel wheel D400 (idler),1,pc,M/B,
+B7,Lateral guide rollers bottom (4x),4,pc,B,
+C1,"Travel geared motor 7.5 kW 4-pole, brake, encoder, i = 10.1, out 588 N m",1,pc,B,"helical-bevel, SEW/Nord/Lenze class"
+C2,"Hoist geared motor 11.0 kW 4-pole, brake (2x for EN 528 if required), encoder, i = 23.9",1,pc,B,"hoist duty, brake torque >= 1.6 x load torque"
+C3,"Rope drum D315 grooved + wire rope D10 (F_min 80 kN), safety 8.6",1,set,M/B,rope class per FEM 9.661 - check
+C4,"Telescopic fork 2-stage, stroke +-1.35 m, 300 kg, geared motor 1.10 kW, i = 9.1",1,set,B/M,see docs/39
+D1,"Laser distance meter travel axis (+-2 mm, 0-42 m, PROFINET/SSI) + reflector",1,set,B,
+D2,Barcode position system hoist (+-1 mm) + code tape 13.6 m,1,set,B,
+D3,Data light barrier (optical data transmission) crane <-> ground,1,pair,B,
+D4,"Power rail (enclosed conductor rail) 5-pole, 41 m + current collector",1,set,B,
+E1,Infeed chain conveyor 1200 mm with contour / weight / ID check station,1,set,B,item F4 details
+E2,Outfeed chain conveyor to AGV handover,1,set,B,item F4
+E3,Pick (kitting) station with crate presentation + pick-to-light,1,set,B,item F4 / F6
+E4,"Aisle access door with safety interlock, maintenance platform on crane",1,set,B,EN 528
+E5,Perimeter fence + light curtains at I/O (ISO 13855),1,set,B,item F8

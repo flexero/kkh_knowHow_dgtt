@@ -1,0 +1,204 @@
+{
+ "_note": "Final thesis item F3 - AS/RS design data. Values = DESIGN values or REFERENCE ESTIMATES (catalogue mid values). Formulas = guide docs/31 section 17 (checked there), generalised. Tool: asrs_design.py. Guide: Doctor paper/60_final_asrs.md.",
+ "version": "F3.0 (2026-11-15)",
+ "crate": {
+  "L_mm": 1200,
+  "W_mm": 800,
+  "H_mm": 600,
+  "tare_kg": 45,
+  "max_gross_kg": 300,
+  "_note": "steel crate (box pallet, EN 13626 style) 1200 deep x 800 to the aisle, forklift + fork entry on the 800 side; one crate standard for castings and machined parts"
+ },
+ "parts_per_crate_raw": {
+  "C01": 12,
+  "C02": 40,
+  "C03": 40,
+  "C04": 24,
+  "C05": 40,
+  "C06": 60,
+  "C07": 30,
+  "C08": 80,
+  "C09": 12,
+  "R01": 6,
+  "R02": 20,
+  "R03": 20,
+  "R04": 40,
+  "R05": 40,
+  "R06": 12,
+  "R07": 12
+ },
+ "_ppc_note": "castings / forgings / blanks per crate (layers with separators); R01: RB50 8, RB100 6, RB150 4 handled by mass limit in the program",
+ "machined_fill": 0.75,
+ "_fill_note": "machined parts need dunnage -> 75 % of the raw count per crate",
+ "stock": {
+  "raw_lot_days": 5,
+  "raw_safety_days": 2,
+  "kit_avg_days": 1.0,
+  "kit_safety_days": 0.5,
+  "min_crates_per_part": 2,
+  "work_days_month": 22,
+  "peak_factor": 1.6,
+  "kit_batch_units": 30,
+  "kit_crate_visits_per_batch": 10,
+  "_note": "RAW max stock = lot + safety (foundry delivers weekly); KIT max = avg + safety; kitting: one kit trolley per 30 units, each needs ~10 crate visits at the pick station (crane out + back)"
+ },
+ "rack": {
+  "clear_height_m": 14.0,
+  "top_clearance_m": 1.5,
+  "z1_m": 0.45,
+  "level_pitch_m": 1.25,
+  "upright_w_mm": 100,
+  "gap_mm": 75,
+  "crates_per_bay": 2,
+  "aisle_mm": 1500,
+  "front_zone_m": 9.0,
+  "rear_zone_m": 1.5,
+  "fill_factor": 0.9,
+  "beam": {
+   "b": 50,
+   "h": 120,
+   "t": 2.0,
+   "fy": 355
+  },
+  "upright": {
+   "A_eff": 520,
+   "i": 30,
+   "L_cr": 1250,
+   "fy": 355,
+   "m_per_level_kg": 17
+  },
+  "base_plate_mm2": 18000,
+  "gamma_Q": 1.4,
+  "gamma_G": 1.3,
+  "E": 210000,
+  "_note": "single-deep, double-sided, one aisle; clearances EN 15620 class 400; beam / upright from docs/31 \u00a717 (simplified EN 15512 style - final design by the rack supplier with tested sections)",
+  "_height_note": "high-bay section: 14.0 m clear under the lowest roof member; 1.5 m top clearance for the top guide-rail cross ties (13.35 m, part A drawings), sprinklers and lighting"
+ },
+ "crane": {
+  "m_bottom_kg": 1600,
+  "m_top_kg": 200,
+  "m_carriage_kg": 600,
+  "m_rest_kg": 800,
+  "mast": {
+   "b": 400,
+   "h": 600,
+   "t": 6
+  },
+  "rho_steel": 7850,
+  "v_x": 3.0,
+  "a_x": 0.5,
+  "v_z": 1.0,
+  "a_z": 0.5,
+  "v_f": 1.0,
+  "a_f": 1.2,
+  "fork_stroke_m": 1.35,
+  "fork_lift_m": 0.15,
+  "t_pos_s": 2.0,
+  "t_dead_s": 1.0,
+  "w_roll": 0.01,
+  "k_rot": 1.05,
+  "eta_T": 0.9,
+  "eta_H": 0.85,
+  "eta_F": 0.8,
+  "eta_back": 0.65,
+  "overload": 1.5,
+  "wheel_D_mm": 400,
+  "rail_b_mm": 50,
+  "wheelbase_m": 2.4,
+  "phi": 1.15,
+  "p_lim": 5.0,
+  "c1": 0.889,
+  "c2": 1.0,
+  "drum_D_mm": 315,
+  "reeving": 1,
+  "rope_Fmin_kN": 80,
+  "rope_dia_mm": 10,
+  "fork_m_moving_kg": 120,
+  "fork_pinion_D_mm": 60,
+  "fork_mult": 2.0,
+  "motor_rpm": 1450,
+  "avail": 0.975,
+  "mttr_h": 2.0,
+  "mttr_p95_h": 4.0,
+  "_note": "single-mast stacker crane (EN 528); masses: docs/31 \u00a717 (mast mass computed from its section and height)",
+  "rail_b_eff_mm": 42,
+  "_rail_note": "rail 50x30 flat bar; effective contact width b - 2r = 50 - 2x4 = 42 mm for the wheel-load check (DIN 15070 / FEM 1.001 style, as docs/31)"
+ },
+ "positioning": {
+  "x": [
+   [
+    "laser distance meter",
+    2.0
+   ],
+   [
+    "rail / mast deflection",
+    3.7
+   ],
+   [
+    "thermal 20 K over 40 m",
+    9.6
+   ],
+   [
+    "rack tolerance EN 15620",
+    5.0
+   ],
+   [
+    "control stop error",
+    3.0
+   ]
+  ],
+  "z": [
+   [
+    "barcode position system",
+    1.0
+   ],
+   [
+    "rope stretch under load",
+    4.0
+   ],
+   [
+    "beam deflection",
+    1.5
+   ],
+   [
+    "rack level tolerance",
+    5.0
+   ],
+   [
+    "control stop error",
+    2.0
+   ]
+  ],
+  "allow_x_mm": 75,
+  "allow_z_mm": 50
+ },
+ "motors_kW": [
+  0.37,
+  0.55,
+  0.75,
+  1.1,
+  1.5,
+  2.2,
+  3.0,
+  4.0,
+  5.5,
+  7.5,
+  11.0,
+  15.0,
+  18.5,
+  22.0
+ ],
+ "cost": {
+  "crane_base_EUR": 180000,
+  "crane_per_m_height_EUR": 6000,
+  "rack_per_position_EUR": 95,
+  "conveyor_station_EUR": 14000,
+  "contour_check_EUR": 18000,
+  "pick_station_EUR": 25000,
+  "controls_per_aisle_EUR": 90000,
+  "install_per_aisle_EUR": 60000,
+  "agv_per_unit_EUR": 90000,
+  "agv_km_cost_EUR": 0.0,
+  "_note": "REFERENCE ESTIMATES for the option comparison only; real offers from AS/RS suppliers"
+ }
+}

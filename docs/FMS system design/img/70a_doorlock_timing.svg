@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 536" width="1200" height="536" font-family="Arial, Helvetica, sans-serif">
+<title>FB_DoorLock - test L1: access request, unlock by the F-program, open, close, lock, channel fault</title>
+<rect x="0" y="0" width="1200" height="536" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">FB_DoorLock - test L1: access request, unlock by the F-program, open, close, lock, channel fault</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">C = xClosed AND xClosed2, L = xLocked AND xLocked2. xUnlockReq goes to the F-program; the F-program unlocks only at standstill. Errors are latched (cleared by module reset, part B).</text>
+<line x1="190.0" y1="84" x2="190.0" y2="430" stroke="#e6e6e6" stroke-width="1"/>
+<text x="190.0" y="446" font-size="11" text-anchor="middle" fill="#111">0</text>
+<line x1="353.3" y1="84" x2="353.3" y2="430" stroke="#e6e6e6" stroke-width="1"/>
+<text x="353.3" y="446" font-size="11" text-anchor="middle" fill="#111">5</text>
+<line x1="516.7" y1="84" x2="516.7" y2="430" stroke="#e6e6e6" stroke-width="1"/>
+<text x="516.7" y="446" font-size="11" text-anchor="middle" fill="#111">10</text>
+<line x1="680.0" y1="84" x2="680.0" y2="430" stroke="#e6e6e6" stroke-width="1"/>
+<text x="680.0" y="446" font-size="11" text-anchor="middle" fill="#111">15</text>
+<line x1="843.3" y1="84" x2="843.3" y2="430" stroke="#e6e6e6" stroke-width="1"/>
+<text x="843.3" y="446" font-size="11" text-anchor="middle" fill="#111">20</text>
+<line x1="1006.7" y1="84" x2="1006.7" y2="430" stroke="#e6e6e6" stroke-width="1"/>
+<text x="1006.7" y="446" font-size="11" text-anchor="middle" fill="#111">25</text>
+<line x1="1170.0" y1="84" x2="1170.0" y2="430" stroke="#e6e6e6" stroke-width="1"/>
+<text x="1170.0" y="446" font-size="11" text-anchor="middle" fill="#111">30</text>
+<text x="680.0" y="464" font-size="12" text-anchor="middle" fill="#111">tick k (x 100 ms)  -  events change inputs before the call of that tick</text>
+<text x="20" y="111.0" font-size="12" text-anchor="start" fill="#1f5fa8">xRequest</text>
+<polyline points="190.0,117 222.7,117 255.3,117 255.3,97 288.0,97 288.0,117 320.7,117 353.3,117 386.0,117 418.7,117 451.3,117 484.0,117 516.7,117 549.3,117 582.0,117 614.7,117 647.3,117 680.0,117 712.7,117 745.3,117 778.0,117 810.7,117 843.3,117 876.0,117 908.7,117 941.3,117 974.0,117 1006.7,117 1039.3,117 1072.0,117 1104.7,117 1137.3,117 1170.0,117" fill="none" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="255.3" y="97" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="145.0" font-size="12" text-anchor="start" fill="#1f5fa8">xClosed</text>
+<polyline points="190.0,131 222.7,131 255.3,131 288.0,131 320.7,131 353.3,131 386.0,131 418.7,131 451.3,131 451.3,151 484.0,151 516.7,151 549.3,151 582.0,151 614.7,151 647.3,151 680.0,151 680.0,131 712.7,131 745.3,131 778.0,131 810.7,131 843.3,131 843.3,151 876.0,151 908.7,151 941.3,151 974.0,151 1006.7,151 1039.3,151 1072.0,151 1104.7,151 1137.3,151 1170.0,151" fill="none" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="190.0" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="222.7" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="255.3" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="288.0" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="320.7" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="353.3" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="386.0" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="418.7" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="680.0" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="712.7" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="745.3" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="778.0" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="810.7" y="131" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="179.0" font-size="12" text-anchor="start" fill="#1f5fa8">xClosed2</text>
+<polyline points="190.0,165 222.7,165 255.3,165 288.0,165 320.7,165 353.3,165 386.0,165 418.7,165 451.3,165 451.3,185 484.0,185 516.7,185 549.3,185 582.0,185 614.7,185 647.3,185 680.0,185 680.0,165 712.7,165 745.3,165 778.0,165 810.7,165 843.3,165 876.0,165 908.7,165 941.3,165 974.0,165 1006.7,165 1039.3,165 1072.0,165 1104.7,165 1137.3,165 1170.0,165" fill="none" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="190.0" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="222.7" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="255.3" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="288.0" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="320.7" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="353.3" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="386.0" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="418.7" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="680.0" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="712.7" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="745.3" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="778.0" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="810.7" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="843.3" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="876.0" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="908.7" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="941.3" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="974.0" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1006.7" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1039.3" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1072.0" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1104.7" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1137.3" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="213.0" font-size="12" text-anchor="start" fill="#1f5fa8">xLocked</text>
+<polyline points="190.0,199 222.7,199 255.3,199 288.0,199 320.7,199 353.3,199 353.3,219 386.0,219 418.7,219 451.3,219 484.0,219 516.7,219 549.3,219 582.0,219 614.7,219 647.3,219 680.0,219 712.7,219 745.3,219 745.3,199 778.0,199 810.7,199 843.3,199 876.0,199 908.7,199 941.3,199 974.0,199 1006.7,199 1039.3,199 1072.0,199 1104.7,199 1137.3,199 1170.0,199" fill="none" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="190.0" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="222.7" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="255.3" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="288.0" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="320.7" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="745.3" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="778.0" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="810.7" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="843.3" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="876.0" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="908.7" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="941.3" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="974.0" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1006.7" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1039.3" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1072.0" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1104.7" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1137.3" y="199" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="247.0" font-size="12" text-anchor="start" fill="#1f5fa8">xLocked2</text>
+<polyline points="190.0,233 222.7,233 255.3,233 288.0,233 320.7,233 353.3,233 353.3,253 386.0,253 418.7,253 451.3,253 484.0,253 516.7,253 549.3,253 582.0,253 614.7,253 647.3,253 680.0,253 712.7,253 745.3,253 745.3,233 778.0,233 810.7,233 843.3,233 876.0,233 908.7,233 941.3,233 974.0,233 1006.7,233 1039.3,233 1072.0,233 1104.7,233 1137.3,233 1170.0,233" fill="none" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="190.0" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="222.7" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="255.3" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="288.0" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="320.7" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="745.3" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="778.0" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="810.7" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="843.3" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="876.0" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="908.7" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="941.3" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="974.0" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1006.7" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1039.3" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1072.0" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1104.7" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<rect x="1137.3" y="233" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="281.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">xUnlockReq</text>
+<polyline points="190.0,287 222.7,287 255.3,287 255.3,267 288.0,267 320.7,267 353.3,267 386.0,267 418.7,267 451.3,267 484.0,267 516.7,267 549.3,267 582.0,267 614.7,267 647.3,267 680.0,267 680.0,287 712.7,287 745.3,287 778.0,287 810.7,287 843.3,287 876.0,287 908.7,287 941.3,287 974.0,287 1006.7,287 1039.3,287 1072.0,287 1104.7,287 1137.3,287 1170.0,287" fill="none" stroke="#111" stroke-width="2"/>
+<rect x="255.3" y="267" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="288.0" y="267" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="320.7" y="267" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="353.3" y="267" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="386.0" y="267" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="418.7" y="267" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="451.3" y="267" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="484.0" y="267" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="516.7" y="267" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="549.3" y="267" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="582.0" y="267" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="614.7" y="267" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="647.3" y="267" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="315.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">xClosedOk</text>
+<polyline points="190.0,301 222.7,301 255.3,301 288.0,301 320.7,301 353.3,301 386.0,301 418.7,301 451.3,301 451.3,321 484.0,321 516.7,321 549.3,321 582.0,321 614.7,321 647.3,321 680.0,321 680.0,301 712.7,301 745.3,301 778.0,301 810.7,301 843.3,301 843.3,321 876.0,321 908.7,321 941.3,321 974.0,321 1006.7,321 1039.3,321 1072.0,321 1104.7,321 1137.3,321 1170.0,321" fill="none" stroke="#111" stroke-width="2"/>
+<rect x="190.0" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="222.7" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="255.3" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="288.0" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="320.7" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="353.3" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="386.0" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="418.7" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="680.0" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="712.7" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="745.3" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="778.0" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="810.7" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="349.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">xLockedOk</text>
+<polyline points="190.0,335 222.7,335 255.3,335 288.0,335 320.7,335 353.3,335 353.3,355 386.0,355 418.7,355 451.3,355 484.0,355 516.7,355 549.3,355 582.0,355 614.7,355 647.3,355 680.0,355 712.7,355 745.3,355 745.3,335 778.0,335 810.7,335 843.3,335 876.0,335 908.7,335 941.3,335 974.0,335 1006.7,335 1039.3,335 1072.0,335 1104.7,335 1137.3,335 1170.0,335" fill="none" stroke="#111" stroke-width="2"/>
+<rect x="190.0" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="222.7" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="255.3" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="288.0" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="320.7" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="745.3" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="778.0" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="810.7" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="843.3" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="876.0" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="908.7" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="941.3" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="974.0" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="1006.7" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="1039.3" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="1072.0" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="1104.7" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="1137.3" y="335" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="383.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">xError</text>
+<polyline points="190.0,389 222.7,389 255.3,389 288.0,389 320.7,389 353.3,389 386.0,389 418.7,389 451.3,389 484.0,389 516.7,389 549.3,389 582.0,389 614.7,389 647.3,389 680.0,389 712.7,389 745.3,389 778.0,389 810.7,389 843.3,389 843.3,369 876.0,369 908.7,369 941.3,369 974.0,369 1006.7,369 1039.3,369 1072.0,369 1104.7,369 1137.3,369 1170.0,369" fill="none" stroke="#c0392b" stroke-width="2"/>
+<rect x="843.3" y="369" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="876.0" y="369" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="908.7" y="369" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="941.3" y="369" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="974.0" y="369" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="1006.7" y="369" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="1039.3" y="369" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="1072.0" y="369" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="1104.7" y="369" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="1137.3" y="369" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="417.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">iAlarm</text>
+<rect x="190.0" y="401" width="653.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="516.7" y="417.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="843.3" y="401" width="130.7" height="24" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="908.7" y="417.0" font-size="10" text-anchor="middle" fill="#c0392b">3</text>
+<rect x="974.0" y="401" width="196.0" height="24" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="1072.0" y="417.0" font-size="10" text-anchor="middle" fill="#c0392b">1</text>
+<text x="24" y="486" font-size="11" text-anchor="start" fill="#555">tick 2 request -&gt; xUnlockReq ; tick 5 F-program unlocked ; tick 8 door open ; tick 15 closed again -&gt; request done ; tick 17 locked again ;</text>
+<text x="24" y="504" font-size="11" text-anchor="start" fill="#555">tick 20: channel 1 opens while locked -&gt; alarm 3 at once ; tick 24: discrepancy 500 ms -&gt; iAlarm overwritten with 1 (see text).</text>
+</svg>

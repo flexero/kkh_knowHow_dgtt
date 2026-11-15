@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>Hard-wired safety coupling between a machine tool and the cell safety controller</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker></defs>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" fill="#111" font-weight="bold">Safety coupling MC02 ↔ cell safety controller SAFE01 – potential-free, two channels, each side its own 24 V</text>
+<text x="24" y="54" font-size="12" fill="#555">The machine keeps its own certified safety system (ISO 16090-1). The cell only exchanges safety signals – never over Modbus / OPC UA / MQTT.</text>
+<rect x="40" y="80" width="360" height="400" fill="#f4f4f4" stroke="#333" stroke-width="2"/>
+<text x="220" y="106" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">=FMS1.MC02 machine tool</text>
+<text x="220" y="126" font-size="12" fill="#111" text-anchor="middle">machine builder's safety PLC / relays</text>
+<text x="60" y="160" font-size="12" fill="#111">own e-stop circuit, own doors with</text>
+<text x="60" y="178" font-size="12" fill="#111">guard locking (spindle run-down 8 s)</text>
+<rect x="800" y="80" width="360" height="400" fill="#eef4fa" stroke="#1f6fb2" stroke-width="2"/>
+<text x="980" y="106" font-size="14" fill="#1f6fb2" text-anchor="middle" font-weight="bold">=FMS1.SAFE01 cell safety PLC</text>
+<text x="980" y="126" font-size="12" fill="#111" text-anchor="middle">zone matrix Z1–Z5, pulse-test outputs</text>
+<g font-size="12" fill="#111">
+<!-- signals -->
+<line x1="800" y1="220" x2="400" y2="220" stroke="#333" stroke-width="2" marker-end="url(#ah)"/><line x1="800" y1="232" x2="400" y2="232" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<text x="600" y="212" text-anchor="middle" font-weight="bold">E-stop OUT (cell → machine)</text><text x="600" y="252" text-anchor="middle">2 × NO contact, closed = no e-stop</text>
+<line x1="400" y1="290" x2="800" y2="290" stroke="#333" stroke-width="2" marker-end="url(#ah)"/><line x1="400" y1="302" x2="800" y2="302" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<text x="600" y="282" text-anchor="middle" font-weight="bold">E-stop IN (machine → cell)</text><text x="600" y="322" text-anchor="middle">2 channels, read with pulse test</text>
+<line x1="400" y1="360" x2="800" y2="360" stroke="#333" stroke-width="2" marker-end="url(#ah)"/><line x1="400" y1="372" x2="800" y2="372" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<text x="600" y="352" text-anchor="middle" font-weight="bold">APC door closed (machine → cell)</text><text x="600" y="392" text-anchor="middle">pool side may move</text>
+<line x1="800" y1="430" x2="400" y2="430" stroke="#333" stroke-width="2" marker-end="url(#ah)"/><line x1="800" y1="442" x2="400" y2="442" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<text x="600" y="422" text-anchor="middle" font-weight="bold">Pool side safe (cell → machine)</text><text x="600" y="462" text-anchor="middle">machine may perform the pallet change</text>
+<rect x="400" y="200" width="20" height="260" fill="#ddd" stroke="#333"/><text x="410" y="196" font-size="11" text-anchor="middle">-XD3</text>
+<rect x="780" y="200" width="20" height="260" fill="#ddd" stroke="#333"/><text x="790" y="196" font-size="11" text-anchor="middle">-XD3</text>
+</g>
+<rect x="40" y="500" width="1120" height="84" fill="#f7f7f7" stroke="#ccc"/>
+<g font-size="12" fill="#111">
+<text x="56" y="524">Rules: potential-free contacts (no common 0 V between companies) · two channels with cross-circuit detection · separate cores · reaction time and</text>
+<text x="56" y="544">PL / PFHd of each side written in the interface sheet · the PL of a function crossing the coupling = combination of both sides' subsystems (G8).</text>
+<text x="56" y="566">Example row: MC02 ↔ SAFE01 | E-stop OUT | 2 × NO 24 V DC | XD3:1-2 / 3-4 | PL e (cell side) | ≤ 20 ms | open = e-stop | reset at cell panel.</text>
+</g>
+</svg>

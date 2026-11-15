@@ -8,6 +8,10 @@ gateway heartbeat 226) UNCHANGED, plus
 Conventions as V1.1: holding registers (FC03, also FC04), 0-based; UINT32 / REAL = 2 registers, high word first
 (REAL big-endian "ABCD"); ASCII20 = 10 registers; 2-register values start at even offsets; writes (FC06 / FC16)
 only to 200-226 and 400-449; other addresses -> exception 02 (write) – reads of gaps return 0.
+V1.2a = V1.2 + sequence guard (a REQ toggle with cmd.seq == hs.ackSeq is ignored).
+V1.2b = V1.2a + AS/RS (final thesis item F3): commands 32 relocate / 33 park, status 304 - 309 (crane state, detail code,
+x / z position), job parameters 405 - 409 (source location, crate id). ADDITIVE ONLY - no existing address changed, so the
+header value stays 0x0102. PLC templates: input AllowedCmdsHi (bits for codes 32 - 63) in FB_FmsIf_V12.
 ALL VALUES ARE EXAMPLES until the machine makers confirm them. Standard library only.
 """
 from __future__ import annotations
@@ -45,7 +49,7 @@ COMMON = [
     (104, 'evt.counter', 'UINT32', '', 'R', 'number of state changes since power-on (event block, thesis Table 5.2)'),
     (106, 'evt.tLast_ms', 'UINT32', 'ms', 'R', 'PLC time of the last state change'),
 ] + [(108 + 3 * k, f'evt.ring{k}', 'UINT16', '', 'R', f'event ring entry {k} (newest first): state code; followed by time ms (UINT32, 2 registers)') for k in range(8)] + [
-    (200, 'cmd.code', 'UINT16', '', 'RW', '1 load order, 2 start, 3 stop, 4 ack alarm, 5 recipe; 10 run job, 11 move pallet, 12 operator task, 13 start test, 14 tool data, 20 transport, 21 charge, 30 store, 31 retrieve'),
+    (200, 'cmd.code', 'UINT16', '', 'RW', '1 load order, 2 start, 3 stop, 4 ack alarm, 5 recipe; 10 run job, 11 move pallet, 12 operator task, 13 start test, 14 tool data, 20 transport, 21 charge, 30 store, 31 retrieve, 32 relocate, 33 park at the maintenance position (AS/RS, V1.2b)'),
     (201, 'cmd.seq', 'UINT16', '', 'RW', 'message counter (+1 per command), copied to hs.ackSeq'),
     (202, 'cmd.ctl', 'UINT16', '', 'RW', 'bit0 REQ toggle – write LAST; device answers ACK = REQ'),
     (203, 'cmd.order', 'ASCII20', '', 'RW', 'work order for command 1'),
@@ -128,13 +132,21 @@ TYPE_BLOCKS = {
         (404, 'tr.loadType', 'UINT16', '', 'RW', '1 casting box, 2 cylinder tray, 3 crankshaft tray, 4 compressor, 5 empty container'),
     ],
     'ASRS': [
-        (300, 'asrs.bay', 'UINT16', '', 'R', 'crane bay position'),
+        (300, 'asrs.bay', 'UINT16', '', 'R', 'crane bay position (crate column)'),
         (301, 'asrs.level', 'UINT16', '', 'R', 'crane level position'),
         (302, 'asrs.loadOnFork', 'UINT16', '', 'R', '1 = load on the fork'),
         (303, 'asrs.ioReady', 'UINT16', '', 'R', '1 = I/O point free for the next load'),
-        (402, 'loc.bay', 'UINT16', '', 'RW', 'bay of the location (commands 30 / 31)'),
+        (304, 'asrs.craneState', 'UINT16', '', 'R', 'V1.2b: 0 OFF 1 HOMING 2 IDLE 3 MOVE_TO_SOURCE 4 PICK 5 MOVE_TO_DEST 6 PUT 7 RETURN 8 FAULT 9 MANUAL 10 MAINTENANCE'),
+        (305, 'asrs.detail', 'UINT16', '', 'R', 'V1.2b: detail of the last job / alarm: 11 range, 12 not possible, 21 double occupancy, 22 source empty, 23 contour, 24 I/O not ready, 31 safety stop, 32 axis, 33 fork'),
+        (306, 'asrs.x_mm', 'UINT32', 'mm', 'R', 'V1.2b: travel position (laser)'),
+        (308, 'asrs.z_mm', 'UINT16', 'mm', 'R', 'V1.2b: hoist position (barcode positioning)'),
+        (402, 'loc.bay', 'UINT16', '', 'RW', 'bay (crate column) of the location (commands 30 / 31 / 32 destination)'),
         (403, 'loc.level', 'UINT16', '', 'RW', 'level of the location'),
         (404, 'loc.side', 'UINT16', '', 'RW', '1 left, 2 right'),
+        (405, 'src.bay', 'UINT16', '', 'RW', 'V1.2b: source column (command 32 relocate)'),
+        (406, 'src.level', 'UINT16', '', 'RW', 'V1.2b: source level (command 32)'),
+        (407, 'src.side', 'UINT16', '', 'RW', 'V1.2b: source side (command 32)'),
+        (408, 'crate.id', 'UINT32', '', 'RW', 'V1.2b: crate / handling-unit number (plausibility, barcode item F6)'),
     ],
 }
 

@@ -72,7 +72,8 @@ before the new data are added (Eq. 4.11).
 | Modbus laboratory bench | 5.7 | `commbench.py` |
 | Screening model, Eq. 7.3 | 7.3.3 | `staging.py` – `screen_th`, `calibrate_eta`, `validate_screen` |
 | Rolling-horizon rule, Eq. 7.2 | 7.3.1 | `staging.py` – `decide` |
-| Reference cases | 9 | `case_study.py` |
+| Reference cases 1 and 2 | 9.2, 9.3 | `case_study.py` |
+| Case 3: static load, multi-chain MVA of the shared cell (Eqs. 9.1–9.3), Roots line, P0, transfer test, screening | 9.4 | `case3_roots.py` – `shared_load`, `mva_multi`, `modelB_multi`, `best_allocation`, `roots_line`, `frozen_P0`, `roots_scenario`, `staging_screen` |
 | Browser implementation | 8.5 | `web/phd.js`, `web/phd_calc.js` |
 
 ## Appendix D – Experiment settings
@@ -86,6 +87,8 @@ before the new data are added (Eq. 4.11).
 | HTTP bench (Ch. 5) | 6 configurations × 10 s | 160-machine snapshot, 1 / 4 / 16 clients | 1 |
 | Staging (Ch. 7) | 40 factories × 6 policies; β = 0 / 0.5 | 4 stages × 6 months, 3 replications per stage (CRN), $N_\theta$ = 60 | truth 20 000 + $s$, stage streams 100 $s$ + stage |
 | Case 2 transfer (Ch. 9) | 20 factories × 12 months | $N_\theta$ = 30, 312.5 h/month | truth 30 000 + $s$ |
+| Case 3 P0 and transfer (Ch. 9) | P0: 400 samples; transfer: 20 factories × 12 months | $N_\theta$ = 30, 330 h/month, buffers 4, flow-equivalent cell 1.559 kits / h | P0 2027; truth 40 000 + $s$, run seed $s$ |
+| Case 3 investment screening (Ch. 9) | 4 options, 4 stages; 40 prior samples | budget 400 000 EUR / stage, 12 pallets, blowers served first | 77 |
 
 ## Appendix E – Case data sheets
 
@@ -95,5 +98,11 @@ before the new data are added (Eq. 4.11).
 **E.2 Case 2** – route BS variant G with machine counts and reference reliability: Table 9.6; source of route data:
 `web/bsfmfg_data.js` (ball screw factory design); plant: 120 shafts per day, 2 shifts × 7.5 h, 250 days, heat treatment 3
 shifts, OEE 0.75 for machine sizing.
+
+**E.3 Case 3** – Roots blower family and demand: Table 9.8; routing, cycle times, machine counts and reference
+reliability: Table 9.9; shared stations: Table 4.2 (full FMS of case 1, all options of Table 7.1); cell data:
+Section 9.2.5 (load station 147 s per crankcase, shuttle 70 s per cycle, move rule 12 s + 2 s per location);
+investment options: Table 9.14; all values [reference estimate]; data: `thesis/data/case3_roots.json`,
+`case3_P0.json` (Table 9.12), `case3_rampup.csv` (Table 9.13).
 
 All data sets: `thesis/data/`; generation commands: `thesis/README.md`.

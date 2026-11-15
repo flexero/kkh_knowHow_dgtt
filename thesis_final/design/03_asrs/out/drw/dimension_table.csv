@@ -1,0 +1,54 @@
+part,feature,value_mm,tolerance,source
+rack,rack length,36675,EN 15620 class 400 / supplier,design_result rack.length_m
+rack,rack height (top of top tie),12600,EN 15620 class 400 / supplier,design_result rack.rack_height_m
+rack,overall width over both sides,4100,EN 15620 class 400 / supplier,design_result rack.width_m
+rack,bays per side,19,-,design_result rack.bays
+rack,levels,10,-,design_result rack.levels
+rack,bay pitch,1925,+-3 per bay,design_result rack.bay_mm
+rack,clear beam span,1825,EN 15620 class 400 / supplier,design_result
+rack,upright section x (along aisle),100,supplier,asrs_data rack.upright_w_mm
+rack,upright section y (depth),80.0,supplier,asrs_3d design choice
+rack,gap upright-crate / crate-crate,75,EN 15620 class 400 / supplier,asrs_data rack.gap_mm
+rack,frame depth per side,1300,EN 15620 class 400 / supplier,(W - aisle)/2
+rack,aisle width (upright faces),1500,+-5,asrs_data rack.aisle_mm
+rack,rack start x (from transfer point),1200,+-10,asrs_design I/O 1.2 m
+rack,beam section h x b x t,120 x 50 x 2.0,supplier,asrs_data rack.beam
+rack,crate front face y,800,+-10,aisle/2 + 50
+rack,crate centre y (fork pick point),1400,+-10,crate front + L/2
+rack,beam top level L1,450,+-5,z1 + (l-1) pitch
+rack,beam top level L2,1700,+-5,z1 + (l-1) pitch
+rack,beam top level L3,2950,+-5,z1 + (l-1) pitch
+rack,beam top level L4,4200,+-5,z1 + (l-1) pitch
+rack,beam top level L5,5450,+-5,z1 + (l-1) pitch
+rack,beam top level L6,6700,+-5,z1 + (l-1) pitch
+rack,beam top level L7,7950,+-5,z1 + (l-1) pitch
+rack,beam top level L8,9200,+-5,z1 + (l-1) pitch
+rack,beam top level L9,10450,+-5,z1 + (l-1) pitch
+rack,beam top level L10,11700,+-5,z1 + (l-1) pitch
+crate,length x width x height,1200 x 800 x 600,+-5,asrs_data crate
+crate,runner height (fork entry),160.0,+-3,F4.2 crate base
+crate,fork entry opening between the 2 runners,600,+-3,F4.2 crate base
+crane,top of crane (top frame) above floor,13100,+-10,design_result crane.mass.H_mast_m
+crane,mast tube length,12600,ISO 2768-mK,top frame - bottom frame
+crane,mast section h(x) x b(y) x t,600 x 400 x 6,EN 10219,asrs_data crane.mast
+crane,mast position x (local),-1100 .. -500,ISO 2768-mK,asrs_3d
+crane,bottom frame length x width,3100 x 700,ISO 2768-mK,asrs_3d
+crane,wheel diameter,400,h9 tread,asrs_data crane.wheel_D_mm
+crane,wheelbase,2400,+-1,asrs_data crane.wheelbase_m
+crane,wheel centre height,230,ISO 2768-mK,rail 30 + D/2
+crane,hoist drum diameter,315,"grooved, ISO 2768-mK",asrs_data crane.drum_D_mm
+crane,carriage x range (local) / width,-500 .. 300 / 1200,ISO 2768-mK,asrs_3d
+crane,max half width in aisle (carriage),600,ISO 2768-mK,clearance to crate face 200
+fork,stage widths base/middle/top,450 / 400 / 350,ISO 2768-mK,asrs_3d
+fork,stage thickness base/middle/top,60 / 45 / 35,ISO 2768-mK,asrs_3d
+fork,stage length,1300,ISO 2768-mK,asrs_3d
+fork,stroke each side,1350,+-2,asrs_data crane.fork_stroke_m
+fork,lift above beam (fork in / lift),10 / 150,+-2,asrs_data fork_lift_m
+rails,bottom rail section / length,50 x 30 / 42375,see D05,asrs_design bom A6
+rails,top guide rail z range,13130 .. 13250,+-3,asrs_3d
+rails,cross ties z range (every 3rd frame),13250 .. 13350,+-5,asrs_3d
+building,clear height required (underside roof),14000,>= value,asrs_data rack.clear_height_m
+io,conveyor top (transfer level),700,+-2,design_result io
+io,conveyor length / width,6400 / 1250,ISO 2768-mK,asrs_3d
+io,contour gate x,-3000,+-20,asrs_3d
+io,pick station x range,-8500 .. -6700,+-50,asrs_3d

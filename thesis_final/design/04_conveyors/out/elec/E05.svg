@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="990" viewBox="0 0 1400 990" font-family="Arial">
+<rect width="100%" height="100%" fill="#fff"/>
+<rect x="20" y="20" width="1360" height="950" fill="none" stroke="#000" stroke-width="2"/>
+<line x1="20.0" y1="20" x2="20.0" y2="36" stroke="#000"/>
+<text x="88.0" y="32" font-size="11" text-anchor="middle">0</text>
+<line x1="156.0" y1="20" x2="156.0" y2="36" stroke="#000"/>
+<text x="224.0" y="32" font-size="11" text-anchor="middle">1</text>
+<line x1="292.0" y1="20" x2="292.0" y2="36" stroke="#000"/>
+<text x="360.0" y="32" font-size="11" text-anchor="middle">2</text>
+<line x1="428.0" y1="20" x2="428.0" y2="36" stroke="#000"/>
+<text x="496.0" y="32" font-size="11" text-anchor="middle">3</text>
+<line x1="564.0" y1="20" x2="564.0" y2="36" stroke="#000"/>
+<text x="632.0" y="32" font-size="11" text-anchor="middle">4</text>
+<line x1="700.0" y1="20" x2="700.0" y2="36" stroke="#000"/>
+<text x="768.0" y="32" font-size="11" text-anchor="middle">5</text>
+<line x1="836.0" y1="20" x2="836.0" y2="36" stroke="#000"/>
+<text x="904.0" y="32" font-size="11" text-anchor="middle">6</text>
+<line x1="972.0" y1="20" x2="972.0" y2="36" stroke="#000"/>
+<text x="1040.0" y="32" font-size="11" text-anchor="middle">7</text>
+<line x1="1108.0" y1="20" x2="1108.0" y2="36" stroke="#000"/>
+<text x="1176.0" y="32" font-size="11" text-anchor="middle">8</text>
+<line x1="1244.0" y1="20" x2="1244.0" y2="36" stroke="#000"/>
+<text x="1312.0" y="32" font-size="11" text-anchor="middle">9</text>
+<line x1="20" y1="36" x2="1380" y2="36" stroke="#000"/>
+<rect x="20" y="880" width="1360" height="90" fill="#fafafa" stroke="#000" stroke-width="2"/>
+<line x1="420" y1="880" x2="420" y2="970" stroke="#000"/>
+<line x1="800" y1="880" x2="800" y2="970" stroke="#000"/>
+<line x1="1060" y1="880" x2="1060" y2="970" stroke="#000"/>
+<line x1="1230" y1="880" x2="1230" y2="970" stroke="#000"/>
+<text x="30" y="904" font-size="13" font-weight="bold">=CONV1 / =ASM1  F4 conveyors (VC20 + RB)</text>
+<text x="30" y="924" font-size="11">Final thesis item F4.5 - conv_elec_drw.py (generated)</text>
+<text x="30" y="946" font-size="11" fill="#b00000" font-weight="bold">DESIGN - to be checked and released by a qualified engineer</text>
+<text x="430" y="910" font-size="14" font-weight="bold">AGV dock safety circuit SF-C2</text>
+<text x="430" y="932" font-size="11">IEC 60617 symbols (simplified), IEC 81346-2 tags, columns = current paths</text>
+<text x="430" y="950" font-size="11">cross-reference: /page.column</text>
+<text x="810" y="910" font-size="11">IEC 60204-1, ISO 13849-1, EN 619</text>
+<text x="810" y="932" font-size="11">Revision A  2026-11-15</text>
+<text x="1070" y="910" font-size="11">drawn: F4.5 prog.</text>
+<text x="1070" y="932" font-size="11">checked: ________</text>
+<text x="1070" y="952" font-size="11">released: ________</text>
+<text x="1240" y="910" font-size="13">page</text>
+<text x="1240" y="946" font-size="26" font-weight="bold">E05</text>
+<text x="1330" y="946" font-size="11">/ E08</text>
+<text x="60.0" y="70.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000">E05 - AGV dock (P&amp;D lane end / TU docks): light curtain with muting SF-C2 + optical coupler signals</text>
+<rect x="540.0" y="140.0" width="400.0" height="120.0" fill="#e6f0ff" stroke="#000" stroke-width="1.5"/>
+<text x="550.0" y="160.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">lane zone 1 (RL) + PD_end</text>
+<rect x="120.0" y="160.0" width="320.0" height="80.0" fill="#f3ecfa" stroke="#000" stroke-width="1.5"/>
+<text x="300.0" y="235.0" font-size="11" text-anchor="start" font-weight="normal" fill="#7a3fb0">AGV (docked, mutes)</text>
+<line x1="191.5" y1="120.0" x2="191.5" y2="280.0" stroke="#c00000" stroke-width="3.0"/>
+<text x="131.5" y="114.0" font-size="10" text-anchor="start" font-weight="normal" fill="#c00000">multi-beam light curtain</text>
+<line x1="191.5" y1="130.0" x2="540.0" y2="130.0" stroke="#555" stroke-width="2.0"/>
+<line x1="191.5" y1="270.0" x2="540.0" y2="270.0" stroke="#555" stroke-width="2.0"/>
+<text x="201.5" y="295.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">guarded tunnel (side fences) S = 1394 mm from the hazard (lane end)</text>
+<text x="201.5" y="312.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">S = K T + C = 1600 mm/s x 0.34 s + 850 mm (ISO 13855, body detection)</text>
+<circle cx="231.5" cy="180.0" r="6.0" fill="#ffd966" stroke="#000" stroke-width="1.5"/>
+<text x="243.5" y="184.0" font-size="9" text-anchor="start" font-weight="normal" fill="#000">-BG61</text>
+<circle cx="261.5" cy="220.0" r="6.0" fill="#ffd966" stroke="#000" stroke-width="1.5"/>
+<text x="273.5" y="224.0" font-size="9" text-anchor="start" font-weight="normal" fill="#000">-BG62</text>
+<rect x="80.0" y="400.0" width="210.0" height="50.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="85.0" y="415.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-BG60 light curtain</text>
+<text x="85.0" y="430.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">OSSD1 / OSSD2</text>
+<rect x="330.0" y="400.0" width="210.0" height="50.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="335.0" y="415.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-BG61/-BG62 muting</text>
+<text x="335.0" y="430.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">2 ch, timing + sequence</text>
+<rect x="580.0" y="400.0" width="210.0" height="50.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="585.0" y="415.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">AGV_PRESENT + dock sensor</text>
+<text x="585.0" y="430.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">from coupler -KF70 A1</text>
+<rect x="830.0" y="400.0" width="210.0" height="50.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="835.0" y="415.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF1 F-CPU (F-DI)</text>
+<text x="835.0" y="430.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">muting logic, max 20 s</text>
+<rect x="1080.0" y="400.0" width="210.0" height="50.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="1085.0" y="415.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-TA lane drive</text>
+<text x="1085.0" y="430.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">STO via PROFIsafe</text>
+<line x1="290.0" y1="425.0" x2="330.0" y2="425.0" stroke="#000" stroke-width="2.0"/>
+<line x1="540.0" y1="425.0" x2="580.0" y2="425.0" stroke="#000" stroke-width="2.0"/>
+<line x1="790.0" y1="425.0" x2="830.0" y2="425.0" stroke="#000" stroke-width="2.0"/>
+<line x1="1040.0" y1="425.0" x2="1080.0" y2="425.0" stroke="#000" stroke-width="2.0"/>
+<line x1="935.0" y1="450.0" x2="935.0" y2="500.0" stroke="#7a3fb0" stroke-width="2.0"/>
+<rect x="830.0" y="500.0" width="230.0" height="44.0" fill="#f3ecfa" stroke="#000" stroke-width="1.5"/>
+<text x="835.0" y="515.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">coupler -KF70: S4 ST_FAULT</text>
+<text x="835.0" y="530.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">AGV stops its deck rollers</text>
+<text x="80.0" y="480.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">Muting = curtain bridged only while AGV_PRESENT = 1 AND the docking sensor sees the AGV AND both muting sensors are on in the right</text>
+<text x="80.0" y="494.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">order within 4 s; muting ends 2 s after the AGV leaves; max muting time 20 s -&gt; otherwise STO + alarm.</text>
+<text x="60.0" y="580.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Optical coupler signals (F4.3, 8 + 8 bit, NOT safety-related):</text>
+<text x="80.0" y="602.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">A1 AGV_PRESENT</text>
+<text x="380.0" y="602.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">A2 AGV_READY_SEND</text>
+<text x="680.0" y="602.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">A3 AGV_READY_RECV</text>
+<text x="980.0" y="602.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">A4 AGV_TRANSFER_DONE</text>
+<text x="80.0" y="620.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">S1 ST_READY_RECV</text>
+<text x="380.0" y="620.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">S2 ST_READY_SEND</text>
+<text x="680.0" y="620.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">S3 ST_TRANSFER_DONE</text>
+<text x="980.0" y="620.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">S4 ST_FAULT</text>
+<text x="80.0" y="650.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">Spare bits A5-A8 / S5-S8 reserved (crate id parity, lane select). Job data (crate id, destination) over the fleet manager / fmsctl.</text>
+<text x="60.0" y="700.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Safety functions (conv_elec.py, ISO 13849-1 simplified method):</text>
+<text x="60.0" y="718.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">SF</text>
+<text x="120.0" y="718.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">PLr</text>
+<text x="160.0" y="718.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">PL</text>
+<text x="200.0" y="718.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">function</text>
+<text x="60.0" y="734.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">SF-C2</text>
+<text x="120.0" y="734.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">c</text>
+<text x="160.0" y="734.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">d</text>
+<text x="200.0" y="734.0" font-size="9" text-anchor="start" font-weight="normal" fill="#000">AGV dock: light curtain (multi-beam) with muting while AGV_PRESENT + docking sensor; a person -&gt; STO of lane + AGV rollers stop (ST_FAULT)</text>
+</svg>

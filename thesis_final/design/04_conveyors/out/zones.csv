@@ -1,0 +1,14 @@
+zone,line,type,x_m,y_m,function
+TU1,CV1,TU,-6.0,-1.4,AGV drop-off (sideways) + merge from CV3; WEIGHING transfer (4 load cells) with contour light frame and ID reader: every crate is checked here (AGV waits for the result; a fail goes back onto the AGV)
+Z12,CV1,CC,-4.8,-1.4,accumulation
+Z13,CV1,CC,-3.6,-1.4,accumulation
+Z14,CV1,CC,-2.4,-1.4,accumulation
+Z15,CV1,CC,-1.2,-1.4,accumulation
+Z16,CV1,CC,0.0,-1.4,P&D in: crane fork picks here
+Z26,CV2,CC,0.0,1.4,P&D out: crane fork puts here
+Z25,CV2,CC,-1.2,1.4,accumulation
+Z24,CV2,CC,-2.4,1.4,accumulation
+TU3,CV2,TU,-3.6,1.4,second AGV pick-up place (sideways); crates pass through when no AGV is there
+Z22,CV2,CC,-4.8,1.4,accumulation
+TU2,CV2,TU,-6.0,1.4,AGV pick-up (sideways) or divert to CV3 (kit visit)
+Z31,CV3,RCX,-6.0,0.0,"pick / rework position (crate 1200 leading, operator at x = -7.0)"

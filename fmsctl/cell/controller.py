@@ -46,6 +46,9 @@ VARIANT_NAME = {1: 'VC10', 2: 'VC20', 3: 'VC30'}
 JOB_TIMEOUT_S = {10: 3 * 465, 11: 120, 12: 1200, 14: 60}
 NOACK_GRACE_S = 3.0                     # wall-clock seconds: a late ACK is still accepted within this time
 OFFLINE_RETRY_S = 5.0                   # wall-clock seconds between polls of an OFFLINE device
+OFFLINE_AFTER = 3                       # consecutive failed polls before a device counts as OFFLINE (no false alarms
+                                        # from one slow answer when the PC or the network is busy)
+MODBUS_TIMEOUT_S = 0.5                  # per request
 PARK_AFTER_S = 900                      # raw pallet at a down / offline HMC -> back to the rack after 15 min (plant s)
 STALL_ALARM_S = 600                     # no job finished for 10 min while orders are open -> alarm (plant s)
 OPEN = ('sent', 'noack', 'unknown')     # job states that still block their device and pallet
@@ -54,7 +57,7 @@ OPEN = ('sent', 'noack', 'unknown')     # job states that still block their devi
 class CellController:
     def __init__(self, device_table, db_path, rule='EDD', loop=0.05, tool_check=True, logistics=False, speed=1.0):
         self.devices = {d['id']: d for d in device_table if d['id'] in CELL}
-        self.links = {i: DeviceLink(d, timeout=0.3) for i, d in self.devices.items()}
+        self.links = {i: DeviceLink(d, timeout=MODBUS_TIMEOUT_S) for i, d in self.devices.items()}
         self.db = DB(db_path)
         self.rule, self.loop, self.speed = rule, loop, speed
         was = self.db.get('mode', 'manual')
@@ -62,6 +65,7 @@ class CellController:
         self.db.put('mode', 'manual')
         self.live = {i: {'online': False} for i in CELL}
         self.offline_since, self.next_poll = {}, {}
+        self.fails = {i: 0 for i in CELL}
         self.retry_after = {}
         self.down_since = {}
         self.last_end = {m: 0.0 for m in HMC_SLOT}
@@ -224,6 +228,7 @@ class CellController:
                                      struct.unpack('>f', struct.pack('>HH', blk[44], blk[45]))[0])
                     used = [blk[10 + pk - 1] for pk in range(1, 31) if blk[10 + pk - 1] > 0]
                     d['toolLifeMin'] = min(used) / 10.0 if used else None
+                self.fails[i] = 0
                 was = self.live[i]
                 if not was.get('online') and i in self.offline_since:
                     self.db.event('info', i, 'back online')
@@ -239,9 +244,12 @@ class CellController:
                 with self.lock:
                     self.live[i] = d
             except ModbusError as e:
+                self.fails[i] += 1
+                if self.fails[i] < OFFLINE_AFTER and self.live[i].get('online'):
+                    continue                               # keep the last values; one slow answer is not a fault
                 if self.live[i].get('online') or i not in self.offline_since:
                     self.offline_since[i] = time.time()
-                    self.db.event('alarm', i, f'OFFLINE – {e}')
+                    self.db.event('alarm', i, f'OFFLINE – {e} ({self.fails[i]} polls failed)')
                 self.next_poll[i] = time.time() + OFFLINE_RETRY_S
                 with self.lock:
                     self.live[i] = {'online': False}

@@ -1,0 +1,17 @@
+area,element,drive,kW,qty,I_in_A_each,I_in_A_total,kW_total
+AF,CC,chain zone,0.18,9,0.465,4.19,1.62
+AF,TU,TU chain part,0.18,3,0.465,1.4,0.54
+AF,TU,TU roller set,0.12,3,0.331,0.99,0.36
+AF,TU,TU lift,0.25,3,0.608,1.82,0.75
+AF,RCX,Z31 rollers,0.12,1,0.331,0.33,0.12
+PD,RL,roller zone,0.12,52,0.331,17.19,6.24
+PD,PD_end,pop-up end stop (electric),0.12,14,0.331,4.63,1.68
+ASM,section,loop section,0.75,4,1.55,6.2,3.0
+ASM,corner,corner turntable rotate,0.37,4,0.874,3.5,1.48
+ASM,corner,corner chain,0.25,4,0.608,2.43,1.0
+ASM,spur,spur transfer lift,0.25,19,0.608,11.55,4.75
+ASM,spur,spur transfer belts,0.18,19,0.465,8.84,3.42
+ASM,spur,spur track,0.25,19,0.608,11.55,4.75
+ASM,lift_table,lift table hydraulic power unit,1.1,9,2.152,19.37,9.9
+ASM,load_station,tank lifter jib (vacuum pump + hoist),1.1,1,2.152,2.15,1.1
+HMC,hmc_station,HMC load station index table,0.12,1,0.331,0.33,0.12

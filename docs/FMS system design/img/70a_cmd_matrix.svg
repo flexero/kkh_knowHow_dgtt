@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700" font-family="Arial, Helvetica, sans-serif">
+<title>Command acceptance matrix of FB_CmdIf (item 5 tables) - mode Production, with Maintenance / Manual differences</title>
+<rect x="0" y="0" width="1200" height="700" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">Command acceptance matrix of FB_CmdIf (item 5 tables) - mode Production, with Maintenance / Manual differences</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Filled = accepted (CmdAck), empty = rejected (CmdRej + warning M*1000 + 900 + command). M = also rejected in Maintenance, X = also rejected in Manual.</text>
+<text x="277.5" y="100" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">1 Reset</text>
+<text x="372.5" y="100" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">2 Start</text>
+<text x="467.5" y="100" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">3 Stop</text>
+<text x="562.5" y="100" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">4 Hold</text>
+<text x="657.5" y="100" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">5 Unhold</text>
+<text x="752.5" y="100" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">6 Suspend</text>
+<text x="847.5" y="100" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">7 Unsuspend</text>
+<text x="942.5" y="100" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">8 Abort</text>
+<text x="1037.5" y="100" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">9 Clear</text>
+<text x="40" y="130" font-size="11" text-anchor="start" font-weight="bold" fill="#111">1 Clearing</text>
+<rect x="230" y="110" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="110" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="110" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="515" y="110" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="110" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="110" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="110" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="110" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="130" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="110" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="161" font-size="11" text-anchor="start" font-weight="bold" fill="#111">2 Stopped</text>
+<rect x="230" y="141" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="277.5" y="161" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="325" y="141" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="141" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="515" y="141" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="141" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="141" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="141" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="141" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="161" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="141" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="192" font-size="11" text-anchor="start" font-weight="bold" fill="#111">3 Starting</text>
+<rect x="230" y="172" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="172" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="172" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="467.5" y="192" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="515" y="172" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="172" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="172" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="172" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="172" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="192" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="172" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="223" font-size="11" text-anchor="start" font-weight="bold" fill="#111">4 Idle</text>
+<rect x="230" y="203" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="203" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="372.5" y="223" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="420" y="203" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="467.5" y="223" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="515" y="203" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="203" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="203" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="203" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="203" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="223" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="203" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="254" font-size="11" text-anchor="start" font-weight="bold" fill="#111">5 Suspended</text>
+<rect x="230" y="234" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="234" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="234" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="467.5" y="254" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="515" y="234" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="234" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="234" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="234" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="847.5" y="254" font-size="11" text-anchor="middle" fill="#7d6608">OK  M  X</text>
+<rect x="895" y="234" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="254" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="234" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="285" font-size="11" text-anchor="start" font-weight="bold" fill="#111">6 Execute</text>
+<rect x="230" y="265" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="265" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="265" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="467.5" y="285" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="515" y="265" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="562.5" y="285" font-size="11" text-anchor="middle" fill="#7d6608">OK  X</text>
+<rect x="610" y="265" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="265" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="752.5" y="285" font-size="11" text-anchor="middle" fill="#7d6608">OK  M  X</text>
+<rect x="800" y="265" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="265" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="285" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="265" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="316" font-size="11" text-anchor="start" font-weight="bold" fill="#111">7 Stopping</text>
+<rect x="230" y="296" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="296" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="296" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="515" y="296" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="296" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="296" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="296" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="296" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="316" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="296" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="347" font-size="11" text-anchor="start" font-weight="bold" fill="#111">8 Aborting</text>
+<rect x="230" y="327" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="327" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="327" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="515" y="327" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="327" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="327" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="327" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="327" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="990" y="327" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="378" font-size="11" text-anchor="start" font-weight="bold" fill="#111">9 Aborted</text>
+<rect x="230" y="358" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="358" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="358" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="515" y="358" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="358" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="358" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="358" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="358" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="990" y="358" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="1037.5" y="378" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<text x="40" y="409" font-size="11" text-anchor="start" font-weight="bold" fill="#111">10 Holding</text>
+<rect x="230" y="389" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="389" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="389" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="467.5" y="409" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="515" y="389" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="389" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="389" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="389" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="389" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="409" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="389" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="440" font-size="11" text-anchor="start" font-weight="bold" fill="#111">11 Held</text>
+<rect x="230" y="420" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="420" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="420" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="467.5" y="440" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="515" y="420" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="420" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="657.5" y="440" font-size="11" text-anchor="middle" fill="#7d6608">OK  X</text>
+<rect x="705" y="420" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="420" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="420" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="440" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="420" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="471" font-size="11" text-anchor="start" font-weight="bold" fill="#111">12 Unholding</text>
+<rect x="230" y="451" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="451" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="451" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="467.5" y="471" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="515" y="451" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="451" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="451" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="451" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="451" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="471" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="451" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="502" font-size="11" text-anchor="start" font-weight="bold" fill="#111">13 Suspending</text>
+<rect x="230" y="482" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="482" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="482" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="467.5" y="502" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="515" y="482" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="482" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="482" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="482" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="482" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="502" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="482" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="533" font-size="11" text-anchor="start" font-weight="bold" fill="#111">14 Unsuspending</text>
+<rect x="230" y="513" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="513" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="513" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="467.5" y="533" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="515" y="513" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="513" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="513" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="513" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="513" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="533" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="513" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="564" font-size="11" text-anchor="start" font-weight="bold" fill="#111">15 Resetting</text>
+<rect x="230" y="544" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="544" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="544" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="467.5" y="564" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="515" y="544" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="544" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="544" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="544" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="544" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="564" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="544" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="595" font-size="11" text-anchor="start" font-weight="bold" fill="#111">16 Completing</text>
+<rect x="230" y="575" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="325" y="575" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="575" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="467.5" y="595" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="515" y="575" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="575" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="575" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="575" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="575" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="595" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="575" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="626" font-size="11" text-anchor="start" font-weight="bold" fill="#111">17 Complete</text>
+<rect x="230" y="606" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="277.5" y="626" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="325" y="606" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="420" y="606" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="467.5" y="626" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="515" y="606" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="610" y="606" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="705" y="606" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="800" y="606" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<rect x="895" y="606" width="95" height="31" rx="0" fill="#d5f5e3" stroke="#999" stroke-width="1"/>
+<text x="942.5" y="626" font-size="11" text-anchor="middle" fill="#1e8449">OK</text>
+<rect x="990" y="606" width="95" height="31" rx="0" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="40" y="655" font-size="11" text-anchor="start" fill="#555">Stop: from every state except Stopped, Stopping, Aborting, Aborted, Clearing. Abort: from every state except Aborting, Aborted. Others: only along an edge of the item 5 state model.</text>
+<text x="40" y="673" font-size="11" text-anchor="start" fill="#555">Aborting accepts no command at all. Maintenance removes Suspend/Unsuspend; Manual allows only Reset, Start, Stop, Abort, Clear.</text>
+</svg>

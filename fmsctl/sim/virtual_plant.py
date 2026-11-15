@@ -9,7 +9,8 @@ switched to the real IP addresses without changing its code. Behaviour per devic
   STATION  job (cmd 10): cycle time × qty
   TEST     test (cmd 13): ISO 1217 style result values around the variant's specification, pass / fail
   AGV      transport (cmd 20) / charge (cmd 21): travel time from node coordinates, battery
-  ASRS     store / retrieve (cmd 30 / 31): crane cycle
+  ASRS     store / retrieve / relocate / park (cmd 30 / 31 / 32 / 33, map V1.2b): crane cycle
+           (detailed mirror of the crane PLC: thesis_final/design/03_asrs/asrs_sim.py)
 Time runs `speed` times faster than real time (default 20). Values are EXAMPLES from the design (config/factory.json).
 Usage: python -m fmsctl.sim.virtual_plant [--speed 20]      (Ctrl+C to stop)
 """
@@ -126,9 +127,11 @@ class Device:
         if req == (self.ack & 1):
             return                                      # no new request
         code, seq = self.get('cmd.code'), self.get('cmd.seq')
+        if seq == self.get('hs.ackSeq') and self.counter:     # sequence guard (map V1.2a): stale REQ toggle, e.g. a late
+            return                                         # frame of an old TCP connection -> ignore, REQ <> ACK stays
         result = 0
         allowed = {'CNC': (10, 14, 4), 'STATION': (10, 4), 'PALLET': (11, 4), 'LOAD': (12, 4), 'TEST': (13, 4),
-                   'AGV': (20, 21, 4), 'ASRS': (30, 31, 4)}[self.type]
+                   'AGV': (20, 21, 4), 'ASRS': (30, 31, 32, 33, 4)}[self.type]
         if code not in allowed:
             result = 1
         elif code == 4:

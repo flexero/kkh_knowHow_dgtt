@@ -19,7 +19,24 @@ TOOLS = ["fms_economics.py", "cpm_schedule.py", "business_case.py", "acceptance.
          "capacity_plan.py", "line_balance.py", "machine_select.py",
          # item 3: elements of an FMS
          "element_sizing.py", "tolerance_stack.py", "agv_fleet.py", "asrs_cycle.py", "robot_payload.py",
-         "assembly_test.py", "transport_select.py", "conveyor_drive.py"]
+         "assembly_test.py", "transport_select.py", "conveyor_drive.py",
+         # item 4: capacity, layout, simulation
+         "oee_losses.py", "queueing.py", "mva_closed.py", "buffer_sim.py", "fms_sim.py", "layout_plan.py",
+         # item 5: control architecture
+         "packml_sim.py", "tag_namer.py", "cell_controller_sim.py", "arch_availability.py", "alarm_kpi.py",
+         "isa95_msg.py",
+         # item 6: communication
+         "net_calc.py", "ip_plan.py", "modbus_codec.py", "datablock_map.py", "handshake_sim.py", "net_security.py",
+         # item 7: electrical & safety
+         "load_list.py", "cable_size.py", "control_power.py", "cabinet_thermal.py", "safety_pl.py",
+         "safety_distance.py", "safety_zones.py",
+         # item 8: module circuit library
+         "circuit_library.py", "module_power.py", "circuit_svg.py", "library_check.py",
+         # item 9: PLC programming principles
+         "plc_timing.py", "iec_std_fb.py", "device_fb.py", "module_sequence.py", "alarm_isa182.py", "st_codegen.py",
+         "plc_effort.py",
+         # item 10A: PLC library (ST device FBs) + soft PLC
+         "fb_library.py", "st_sim.py", "plc_lib_check.py"]
 
 
 def run_one(tool, verbose):

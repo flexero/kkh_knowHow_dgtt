@@ -26,7 +26,7 @@ const prevTab = window.onTabShown;
 window.onTabShown = (name) => { if (prevTab) prevTab(name); if (name === "fmse") build(current); };
 function build(n) {
   if (built[n] || !$("feItem" + n)) return;
-  const mods = { 2: "./fmse2.js", 3: "./fmse3.js", 4: "./fmse4.js", 5: "./fmse5.js", 6: "./fmse6.js" };                 // later items live in their own module files
+  const mods = { 2: "./fmse2.js", 3: "./fmse3.js", 4: "./fmse4.js", 5: "./fmse5.js", 6: "./fmse6.js", 7: "./fmse7.js", 8: "./fmse8.js", 9: "./fmse9.js", 10: "./fmse10.js" };                 // later items live in their own module files
   if (mods[n]) {
     built[n] = true;
     import(mods[n]).then((m) => m.mount($("feItem" + n))).catch((e) => { built[n] = false; $("feItem" + n).innerHTML = `<div class="card"><p class="fe-no">Item ${n} could not load: ${esc(e.message)}</p></div>`; });

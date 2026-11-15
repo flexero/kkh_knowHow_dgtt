@@ -1,0 +1,13 @@
+module,qty,EUR_each,EUR,where
+TU,3,9000,27000,AS/RS front 1; AS/RS front 1; AS/RS front 1
+CC,9,3500,31500,AS/RS front 1; AS/RS front 1; AS/RS front 1; AS/RS front 1; AS/RS front 1; AS/RS front 1; AS/RS front 1; AS/RS front 1; AS/RS front 1
+RCX,1,4000,4000,AS/RS front 1
+contour_gate,1,6000,6000,AS/RS front 1
+scale,1,3000,3000,AS/RS front 1
+RL,71,1800,127800,FIN 9; VMC 22; ROT 15; HMC 13; QC 5; BUY 4; ASY 3
+PD_end,14,6000,84000,FIN 2; VMC 2; ROT 2; HMC 2; QC 2; BUY 2; ASY 2
+loop_per_m,100,1100,110000,assembly loop 100
+spur_unit,19,7000,133000,assembly spurs 19
+corner_unit,4,8000,32000,assembly loop 4
+carrier,21,650,13650,assembly 21
+assy_load_station,1,12000,12000,assembly start (tank onto carrier) 1

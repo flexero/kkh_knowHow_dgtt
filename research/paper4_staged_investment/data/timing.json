@@ -1,0 +1,9 @@
+{
+ "screen_evals_per_decision": 698.75,
+ "max_evals_per_decision": 826.25,
+ "t_screen_s": 1.1992699466645718e-05,
+ "t_des_month_s": 0.03402970333894094,
+ "des_equiv_s_per_decision_3reps": 71.33476562425494,
+ "full_enumeration_bound_evals": 30720,
+ "full_enumeration_des_hours": 0.871160405476888
+}

@@ -1,0 +1,4 @@
+addr,tag,device,fc,start,n,t_trans_ms,every,update_worst_ms,need_ms,ok
+1,=ASRS1+GC-PG1,energy meter main supply (after -QB1),3,0,30,75.83,10,1532.1,5000,True
+2,=ASRS1+GC-BW92T,weighing terminal infeed scale (replaces the AI module -KF27),3,0,4,34.04,1,153.2,200,True
+3,=ASRS1+GC-TB12,"24 V DC UPS (battery, mains fail)",3,0,6,43.33,5,766.0,2000,True

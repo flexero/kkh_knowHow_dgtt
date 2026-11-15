@@ -175,13 +175,20 @@ FINAL), so hiding the load time adds no output; and buffers of 2 already lose le
 so larger buffers add little. Both options would become valuable with a different product mix, higher demand or
 labour-cost savings, which the model does not value (Section 7.7).
 
+**Replication.** The extended replication of companion paper 4 (200 scenarios instead of 40, 11 policies, paired
+tests with Holm correction) confirms the value of re-deciding: ADAPTIVE − STATIC = **+1.61 M EUR** (95 % confidence
+interval 1.45 – 1.77; better in 169 of 200 scenarios) [simulated]; the 40-scenario value of +1.71 M EUR lies inside
+this interval. Against a fixed plan that is itself optimised over the prior uncertainty, the advantage of learning is
+smaller (+0.31 M EUR, interval 0.23 – 0.38) — the fairest measure of what the twin's updating adds.
+
 ### 7.5.3 Under-capacity
 All-at-once has the lowest share of scenarios with at least one stage below 95 % of demand (40.0 %), closely followed by
-ADAPTIVE and PI_RULE (42.5 %); the fixed plan (52.5 %) and the demand-only policy (57.5 %) are clearly worse. A plausible cause, consistent
-with the design of the experiment but not separately recorded per stage, is the first stage: in high-demand scenarios
-the demand already exceeds the capacity of the starting configuration, and the staged policies can invest only within
-the first-stage budget before any data arrive, whereas ALL installs everything at once. Recording the shortfall per
-stage is a planned extension of the experiment.
+ADAPTIVE and PI_RULE (42.5 %); the fixed plan (52.5 %) and the demand-only policy (57.5 %) are clearly worse. The
+shortfall was afterwards recorded per stage in an extended replication (companion paper 4: 200 scenarios, same model
+and seeds scheme). It occurs in **stages 3 and 4, not in stage 1** as first assumed: in high-demand scenarios the
+demand of the later stages exceeds what the option set can deliver at all (6 356 units per month with every option
+installed), so no policy can avoid it. Under-capacity is therefore a limit of the option set, not of the staging rule;
+a second load station (Section 9.2.5) is the obvious missing option.
 
 ### 7.5.4 Risk aversion
 With $\beta = 0.5$ the results are practically unchanged (ADAPTIVE: mean 9.28 M EUR, CVaR 2.00 M EUR; 21 instead of 20

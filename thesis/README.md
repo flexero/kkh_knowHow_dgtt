@@ -1,7 +1,7 @@
 # Doctoral thesis – working folder
 
 Thesis of **Kenzo**: *An Uncertainty-Aware, Low-Cost Digital Twin Method for the Stepwise Introduction of Flexible
-Manufacturing Systems in Emerging Industries – Cases of Compressor and Ball Screw Production.*
+Manufacturing Systems in Emerging Industries – Cases of Compressor, Ball Screw and Roots Blower Production.*
 
 - Master plan, chapter list and writing order: [`00_thesis_plan.md`](00_thesis_plan.md)
 - Plain-English guide to the methods (for you, not for the examiners): [`../Doctor paper/52_thesis_methods_guide.md`](../Doctor%20paper/52_thesis_methods_guide.md)
@@ -20,7 +20,7 @@ Manufacturing Systems in Emerging Industries – Cases of Compressor and Ball Sc
 | 6 Bayesian-updated twin | [`ch06_bayesian_twin.md`](ch06_bayesian_twin.md) | draft v1.0 | ≈ 4 800 |
 | 7 Stepwise FMS introduction optimisation | [`ch07_staging_optimisation.md`](ch07_staging_optimisation.md) | draft v1.0 (expand formulation to ≈ 15 pages) | ≈ 2 900 |
 | 8 Implementation | [`ch08_implementation.md`](ch08_implementation.md) | draft v1.0 | ≈ 2 100 |
-| 9 Reference design cases | [`ch09_cases.md`](ch09_cases.md) | draft v1.0 (reference data; real ramp-up results = section 9.6) | ≈ 3 300 |
+| 9 Reference design cases | [`ch09_cases.md`](ch09_cases.md) | draft v1.0 (reference data; case 3 Roots blower extension = section 9.4; real ramp-up results = section 9.7) | ≈ 3 300 |
 | 1 Introduction | [`ch01_introduction.md`](ch01_introduction.md) | draft v1.0 | ≈ 1 800 |
 | 10 Discussion | [`ch10_discussion.md`](ch10_discussion.md) | draft v1.0 | ≈ 2 000 |
 | 11 Conclusions | [`ch11_conclusions.md`](ch11_conclusions.md) | draft v1.0 | ≈ 800 |
@@ -63,6 +63,7 @@ All scripts run with Python 3.10+ and **only the standard library** (offline PC)
 | `staging.py` | stepwise FMS introduction: 6 options × 4 half-year stages, policies NONE / ALL / STATIC / ADAPT_DEM / ADAPTIVE / PI_RULE, screening model calibrated + validated against the DES | `python staging.py 40 0.0 ../data/staging_b0.0.csv` (also β = 0.5) | `data/staging_b*.csv` | 7 |
 | `analyse_staging.py` | ΔNPV vs no investment, CVaR, capital, short stages, regret, paired differences | `python analyse_staging.py ../data/staging_b0.0.csv` | console (Tables 7.2–7.4) | 7 |
 | `case_study.py` | chapter 9: case 1 frozen prediction P0, staging decision + sensitivity, gateway sizing; case 2 ball screw route parsed from `web/bsfmfg_data.js`, capacity, transfer test (20 scenarios), sizing for 73 machines | `python case_study.py` (set `PYTHONIOENCODING=utf-8` on Windows) | `data/case_study.json`, `data/case1_P0.json` | 9 |
+| `case3_roots.py` | chapter 9, case 3 (Roots blower extension, all values reference estimates): static load of the shared stations, single- and three-chain mean value analysis of the shared cell (load station, shuttle, HMCs; fixture types A / B / C), Roots flow line with flow-equivalent cell, frozen prediction P0, transfer test (20 scenarios), screening of the first investment step, data-path load; figures 9.4 – 9.7 | `python case3_roots.py` (≈ 10 s; set `PYTHONIOENCODING=utf-8` on Windows) | `data/case3_roots.json`, `data/case3_P0.json`, `data/case3_rampup.csv`, `figures/fig9_[4-7]_roots_*.svg` | 9 |
 | `make_figures.py` | all thesis figures (SVG) from the data: structure, information loop, architecture / software layers, capacity charts, event loss, cycle time, NPV / CVaR, transfer test | `python make_figures.py` | `figures/*.svg` | all |
 | `make_fms_figures.py` | FMS figures 4.2 – 4.4 (factory layout, part routings, crankcase cell), 8.2 – 8.4 (control hierarchy, job handshake, AGV node map), 9.1 (cell throughput vs pallets): cleaned and cropped from the engineering drawings in `docs/img` and `Doctor paper/img`, figure 8.2 drawn new | `python make_fms_figures.py` | `figures/fig4_[234]_*.svg`, `fig8_[234]_*.svg`, `fig9_1_cell_throughput.svg` | 4, 8, 9 |
 | `build_thesis.py` | assembles all chapter files into `build/thesis.html`, `thesis.pdf` (headless Chrome) and `thesis.docx` (Office XML written with the standard library; figures converted to PNG) | `python build_thesis.py` (set `PYTHONIOENCODING=utf-8`) | `build/` | all |
@@ -86,7 +87,7 @@ Every number in the thesis carries one label:
 
 ## Known limitations of the current results (to be closed before the defence)
 1. Chapter 5: loopback network and emulated PLC timing → repeat with a real Delta AS332T and S7-1200 (Section 5.8).
-2. Chapter 6: ramp-up shape is an assumption; the real ramp-up of the case factory (Section 9.6) is the final test.
+2. Chapter 6: ramp-up shape is an assumption; the real ramp-up of the case factory (Section 9.7) is the final test.
 3. Design estimates (Table 4.2) are the twin's example values; case 2 reliability and all money values are reference
    estimates → replace with the real FMS design data and quotations, re-run `case_study.py`, freeze P0 again.
 4. References marked `[verify]` must be checked in the library database.

@@ -1,0 +1,847 @@
+{
+ "_note": "Shared worked-example inputs for FMS engineering item 6 (communication): guide docs/FMS system design/66_communication.md, tools/fmse/*.py, web/fmse6x*.js. All values are EXAMPLES. Everything here is deterministic: guide, tools and web must give IDENTICAL results (including the handshake log line by line). The 4 basic calculators of web/fmse6.js (CALC pn, ec, mb, hi) keep their formulas exactly - repeated below.",
+ "_formulas": {
+  "pn_load": "frame = max(64, io + 10 + 22) ; wire = frame + 20 ; bps = dev*wire*8/(cyc_ms/1000) ; load = bps/(spd_Mbit*1e6) ; verdict OK if load < 0.5",
+  "ec_cycle": "bytes = max(84, 14 + 2 + 12 + dev*bytes_per_slave + 4 + 20) ; t_wire_us = bytes*8/spd_Mbit ; t_us = t_wire_us + dev*fwd_us ; cycle_min_us = 1.25*t_us ; verdict <250 motion at 250 us, <1000 1 ms possible, else split",
+  "mb_poll": "req = ceil(regs/125) ; tr = rtt + resp [ms] ; cycle = ceil(dev/max(1,conn))*req*tr [ms] ; updates/s = 1000/cycle ; request 12 bytes, response 9 + 2*min(regs,125) bytes ; verdict <=100 handshakes ok, <=500 monitoring",
+  "hist_volume": "vps = tags*rate ; net_kbit = vps*bytes*8/1000 ; GB_day = vps*bytes*86400*comp/1e9 ; total = GB_day*days ; verdict < 500 GB fits",
+  "latency": "t_tx = wire_bytes*8/R ; base latency = (hops+1)*t_tx + hops*t_sw + length_m*5e-9 s (5 ns/m in copper or fibre) ; worst case with ONE maximum frame (max_wire_bytes) already being sent at each egress port = base + hops*max_wire_bytes*8/R (priority does not pre-empt a frame in transmission; IRT / TSN time slots remove this term). Report in microseconds.",
+  "iolink": "approximate M-sequence time: master_bytes = 2 + pd_out ; device_bytes = od + pd_in + 1 ; bits = 11*(master_bytes + device_bytes) + 10 ; t_msg = bits/baud ; cycle = max(t_msg, device_min_cycle) ; for each COM rate (COM1 4800, COM2 38400, COM3 230400 bit/s)",
+  "opcua_load": "notifications/s = items/(sampling_ms/1000)*change_ratio ; publish messages/s = subscriptions/(publishing_ms/1000) ; bytes/s = notifications/s*bytes_per_notification + messages/s*overhead_per_message ; kbit/s = bytes/s*8/1000",
+  "mqtt_load": "msg_bytes = 2 + (len(topic) + 2) + metrics_per_msg*bytes_per_metric + sparkplug_header ; in msgs/s = edges*rate ; in B/s = in msgs/s*msg_bytes ; out B/s = in B/s*subscribers ; total kbit/s = (in + out)*8/1000",
+  "fibre": "loss = length_km*att_db_km + connectors*conn_db + splices*splice_db ; budget = tx_min_dbm - rx_sens_dbm ; margin = budget - loss ; OK if margin >= 3 dB",
+  "subnet": "CIDR a.b.c.d/p: mask = p ones ; network = ip AND mask ; broadcast = network OR NOT mask ; usable hosts = 2^(32-p) - 2 (p <= 30) ; first = network+1, last = broadcast-1 ; overlap of two subnets = one network contains the other's network address",
+  "ip_plan": "exactly as web/fmse6.js drawIP: third octet = vlan % 256 ; subnet 10.site.third.0/24 ; gateway .1 ; counters per module code give unit = UNIT code + 2-digit number ; for each device of MODDEV[module] (in order) take the next free address of its range group (RANGES start .10/.50/.100/.150/.200/.240) ; tag = cell.unit ; if beyond the range end -> 'range full!'",
+  "profinet_name": "PROFINET device name = lower-case '<cell>-<unit>-<slug>' where slug = device name in lower case, every run of characters outside a-z0-9 replaced by one '-', leading/trailing '-' removed ; rules: only a-z 0-9 '-' '.', each label <= 63, total <= 240, not starting with 'port-' ; e.g. FMS1 MC01 'PLC (machine)' -> fms1-mc01-plc-machine",
+  "modbus_encode": "INT -> one register two's complement 16 bit ; UINT/WORD -> one register ; DINT -> two registers HIGH WORD FIRST (this standard, 'ABCD') ; REAL -> IEEE 754 single, two registers high word first ; register bytes big-endian. Word-order variants for teaching: ABCD (standard), CDAB (word swap), BADC (byte swap), DCBA (both).",
+  "modbus_frames": "MBAP = transaction id (2) + protocol id 0 (2) + length (2) = bytes that follow (unit id + PDU) + unit id (1). FC03 request PDU = 03 start(2) qty(2) ; response = 03 bytecount(1) data. FC06 request/response = 06 addr(2) value(2). FC16 request = 10 start(2) qty(2) bytecount(1) data ; response = 10 start(2) qty(2). Exception response = (fc + 0x80) code. Codes: 01 illegal function, 02 illegal data address, 03 illegal data value (e.g. qty 0 or > 125 for FC03, > 123 for FC16), 04 server device failure. Order of checks in the example server: function supported -> quantity valid (03) -> address range inside the map (02) -> write allowed (only words with direction in or in/out, else 02). Frames written as upper-case hex bytes separated by one space.",
+  "risk": "risk = likelihood (1-5) * consequence (1-5) ; class high >= 15, medium 8-14, low <= 7 ; SL-T from the initial class: high 3, medium 2, low 1 ; residual likelihood = max(1, L - sum of countermeasure points) ; residual risk = residual L * C (same classes) ; zone SL-T = max SL-T of the threats of the zone",
+  "firewall": "rules are checked top-down, FIRST MATCH wins ; a rule field matches if equal or '*' ; no match -> default deny (rule id 'DEFAULT') ; flows inside one zone are not filtered (not tested here). Audit: an ALLOW rule whose zones are not neighbours (list 'neighbours', either direction) -> finding 'crosses zones' ; an ALLOW rule with service '*' -> finding 'any service'.",
+  "handshake_sim": "see handshake_sim._rules"
+ },
+ "net_calc": {
+  "pn": [
+   {
+    "dev": 30,
+    "io": 32,
+    "cyc": 2,
+    "spd": 100,
+    "_case": "web default"
+   },
+   {
+    "dev": 60,
+    "io": 250,
+    "cyc": 1,
+    "spd": 100,
+    "_case": "big drives + robots at 1 ms"
+   }
+  ],
+  "ec": [
+   {
+    "dev": 40,
+    "bytes": 16,
+    "spd": 100,
+    "fwd": 0.6,
+    "_case": "web default"
+   },
+   {
+    "dev": 100,
+    "bytes": 8,
+    "spd": 100,
+    "fwd": 0.6,
+    "_case": "100 IO terminals"
+   }
+  ],
+  "mb": [
+   {
+    "dev": 20,
+    "regs": 60,
+    "resp": 8,
+    "rtt": 1,
+    "conn": 4,
+    "_case": "web default"
+   },
+   {
+    "dev": 20,
+    "regs": 60,
+    "resp": 8,
+    "rtt": 1,
+    "conn": 1,
+    "_case": "one connection only"
+   },
+   {
+    "dev": 15,
+    "regs": 200,
+    "resp": 8,
+    "rtt": 1,
+    "conn": 5,
+    "_case": "15 modules, 200 registers each"
+   }
+  ],
+  "hi": [
+   {
+    "tags": 3000,
+    "rate": 1,
+    "bytes": 16,
+    "days": 730,
+    "comp": 0.3,
+    "_case": "web default"
+   },
+   {
+    "tags": 3000,
+    "rate": 10,
+    "bytes": 16,
+    "days": 730,
+    "comp": 1.0,
+    "_case": "everything at 100 ms, no deadband"
+   }
+  ],
+  "latency": {
+   "wire_bytes": 84,
+   "R_Mbit": 100,
+   "hops": 10,
+   "t_sw_us": 3,
+   "length_m": 200,
+   "max_wire_bytes": 1538,
+   "_case": "line of 10 devices with 2-port switches (PROFINET line)"
+  },
+  "iolink": {
+   "pd_in": 2,
+   "pd_out": 0,
+   "od": 1,
+   "device_min_cycle_ms": 1.0,
+   "rates": [
+    [
+     "COM1",
+     4800
+    ],
+    [
+     "COM2",
+     38400
+    ],
+    [
+     "COM3",
+     230400
+    ]
+   ]
+  },
+  "opcua": {
+   "items": 600,
+   "sampling_ms": 250,
+   "change_ratio": 0.2,
+   "bytes_per_notification": 30,
+   "subscriptions": 15,
+   "publishing_ms": 500,
+   "overhead_per_message": 150,
+   "_case": "cell controller subscribes 15 modules x 40 items"
+  },
+  "mqtt": {
+   "edges": 20,
+   "rate": 1,
+   "topic": "spBv1.0/PLT1/DDATA/CC1/MC01",
+   "metrics_per_msg": 50,
+   "bytes_per_metric": 12,
+   "sparkplug_header": 10,
+   "subscribers": 3
+  },
+  "fibre": {
+   "length_km": 0.3,
+   "att_db_km": 3.5,
+   "connectors": 4,
+   "conn_db": 0.75,
+   "splices": 2,
+   "splice_db": 0.1,
+   "tx_min_dbm": -9.5,
+   "rx_sens_dbm": -17.0,
+   "_case": "multimode OM3 850 nm between hall switch and cell cabinet"
+  }
+ },
+ "subnet": {
+  "cidrs": [
+   "10.1.101.0/24",
+   "10.1.101.64/26",
+   "10.1.30.0/23",
+   "192.168.10.130/25"
+  ],
+  "plan": [
+   "10.1.10.0/24",
+   "10.1.20.0/24",
+   "10.1.30.0/24",
+   "10.1.101.0/24",
+   "10.1.101.128/25",
+   "10.1.102.0/24"
+  ],
+  "devices": [
+   [
+    "FMS1.MC01 CNC",
+    "10.1.101.150"
+   ],
+   [
+    "FMS1.MC02 CNC",
+    "10.1.101.151"
+   ],
+   [
+    "FMS1.POOL01 PLC",
+    "10.1.101.10"
+   ],
+   [
+    "FMS1.CC01 Cell controller",
+    "10.1.101.10"
+   ],
+   [
+    "FMS1.LS01 HMI",
+    "10.1.101.100"
+   ]
+  ]
+ },
+ "ip_plan": {
+  "site": 1,
+  "kit": "FMS (3 HMCs + pool + AGV)",
+  "cell": "FMS1",
+  "vlan": 101,
+  "_source": "KITS, MODDEV, RANGES, ZONES and UNIT of web/fmse6_data.js / web/fmse6.js - read them there"
+ },
+ "datablock": {
+  "_source": "BLOCK and EXTRA of web/fmse6_data.js (words 0-19 standard, 20+ module part)",
+  "module": "M01",
+  "unit": "MC02",
+  "unit_id": 1,
+  "base": 0,
+  "values": {
+   "Status.StateCurrent": 6,
+   "Status.UnitModeCurrent": 1,
+   "Command.CntrlCmd": 0,
+   "Command.Bits": 0,
+   "Status.Bits": 98,
+   "Command.UnitMode": 1,
+   "Admin.AlarmNo": 0,
+   "Admin.WarningNo": 0,
+   "Admin.ProdProcessedCount": 1412,
+   "Admin.ProdDefectiveCount": 23,
+   "Job.Id": 70001,
+   "Job.PalletId": 3,
+   "Status.LastCycle_s": 1834.5,
+   "Status.Heartbeat": 4711,
+   "Command.Heartbeat": 4710
+  },
+  "_values": "Status.Bits 98 = 0x0062 = Busy + Auto + PartPresent ; state 6 = Execute ; module part (words 20-24) = 0",
+  "word_order_demo": {
+   "DINT": 70001,
+   "REAL": 1834.5
+  },
+  "frames": [
+   {
+    "name": "Read standard block (words 0-19)",
+    "tid": 1,
+    "fc": 3,
+    "start": 0,
+    "qty": 20
+   },
+   {
+    "name": "Command Start: CntrlCmd = 2 + CmdChangeRequest (words 2-3)",
+    "tid": 2,
+    "fc": 16,
+    "start": 2,
+    "values": [
+     2,
+     1
+    ]
+   },
+   {
+    "name": "Job download: Job.Id 70002 + PalletId 4 (words 12-15)",
+    "tid": 3,
+    "fc": 16,
+    "start": 12,
+    "values": [
+     1,
+     4466,
+     0,
+     4
+    ]
+   },
+   {
+    "name": "Too many registers (qty 200)",
+    "tid": 4,
+    "fc": 3,
+    "start": 0,
+    "qty": 200
+   },
+   {
+    "name": "Address outside the map",
+    "tid": 5,
+    "fc": 3,
+    "start": 1000,
+    "qty": 10
+   },
+   {
+    "name": "Write to a read-only word (StateCurrent)",
+    "tid": 6,
+    "fc": 6,
+    "start": 0,
+    "value": 5
+   }
+  ],
+  "_frames": "server = the module MC02 with the values above; map size = 20 + module part (M01: words 20-24 -> 25 registers); FC03 response data = the encoded registers"
+ },
+ "naming": {
+  "site": "PLT1",
+  "area": "MACH",
+  "cell": "FMS1",
+  "sparkplug_group": "FMS1",
+  "sparkplug_edge": "CC1"
+ },
+ "security": {
+  "zones": [
+   [
+    "ent",
+    "Enterprise (L4)"
+   ],
+   [
+    "dmz",
+    "Industrial DMZ (L3.5)"
+   ],
+   [
+    "mfg",
+    "Manufacturing (L3)"
+   ],
+   [
+    "eng",
+    "Engineering"
+   ],
+   [
+    "c1",
+    "Cell FMS1 (L1-2)"
+   ],
+   [
+    "c2",
+    "Cell ASM1 (L1-2)"
+   ],
+   [
+    "saf",
+    "Safety FMS1"
+   ],
+   [
+    "inet",
+    "Internet / supplier"
+   ]
+  ],
+  "neighbours": [
+   [
+    "ent",
+    "dmz"
+   ],
+   [
+    "dmz",
+    "mfg"
+   ],
+   [
+    "mfg",
+    "c1"
+   ],
+   [
+    "mfg",
+    "c2"
+   ],
+   [
+    "eng",
+    "c1"
+   ],
+   [
+    "eng",
+    "c2"
+   ],
+   [
+    "c1",
+    "saf"
+   ]
+  ],
+  "rules": [
+   [
+    "R01",
+    "ent",
+    "*",
+    "dmz",
+    "API proxy",
+    "https",
+    "allow",
+    "ERP -> MES API proxy"
+   ],
+   [
+    "R02",
+    "dmz",
+    "API proxy",
+    "mfg",
+    "MES server",
+    "https",
+    "allow",
+    "proxy -> MES"
+   ],
+   [
+    "R03",
+    "dmz",
+    "Jump host",
+    "mfg",
+    "*",
+    "rdp",
+    "allow",
+    "remote service, MFA, time window, recorded"
+   ],
+   [
+    "R04",
+    "dmz",
+    "Jump host",
+    "c1",
+    "*",
+    "rdp",
+    "allow",
+    "remote service directly into the cell"
+   ],
+   [
+    "R05",
+    "mfg",
+    "*",
+    "c1",
+    "*",
+    "opcua",
+    "allow",
+    "MES / SCADA <-> cell controller, CNC"
+   ],
+   [
+    "R06",
+    "mfg",
+    "*",
+    "c1",
+    "*",
+    "modbus-read",
+    "allow",
+    "SCADA monitoring (DPI firewall sees FC03/FC04)"
+   ],
+   [
+    "R07",
+    "mfg",
+    "*",
+    "c1",
+    "*",
+    "modbus-write",
+    "deny",
+    "writes only through the cell controller"
+   ],
+   [
+    "R08",
+    "eng",
+    "Engineering WS",
+    "c1",
+    "*",
+    "s7",
+    "allow",
+    "PLC programming in an approved window"
+   ],
+   [
+    "R09",
+    "c1",
+    "Cell controller",
+    "saf",
+    "*",
+    "modbus-read",
+    "allow",
+    "safety status read only"
+   ],
+   [
+    "R10",
+    "*",
+    "*",
+    "saf",
+    "*",
+    "*",
+    "deny",
+    "no other access to the safety zone"
+   ],
+   [
+    "R11",
+    "mfg",
+    "Historian",
+    "dmz",
+    "Historian mirror",
+    "repl",
+    "allow",
+    "one-way replication outwards"
+   ],
+   [
+    "R12",
+    "c1",
+    "*",
+    "mfg",
+    "NTP server",
+    "ntp",
+    "allow",
+    "time synchronisation"
+   ],
+   [
+    "R13",
+    "c1",
+    "*",
+    "mfg",
+    "Syslog server",
+    "syslog",
+    "allow",
+    "security / event logs"
+   ],
+   [
+    "R14",
+    "*",
+    "*",
+    "inet",
+    "*",
+    "*",
+    "deny",
+    "nothing to the internet (logged)"
+   ],
+   [
+    "R15",
+    "eng",
+    "Engineering WS",
+    "c1",
+    "*",
+    "*",
+    "allow",
+    "temporary 'allow all' left after commissioning"
+   ]
+  ],
+  "_rules": "[id, src zone, src host, dst zone, dst host, service, action, note]",
+  "flows": [
+   [
+    "Office PC",
+    "ent",
+    "Cell PLC",
+    "c1",
+    "s7"
+   ],
+   [
+    "ERP server",
+    "ent",
+    "API proxy",
+    "dmz",
+    "https"
+   ],
+   [
+    "API proxy",
+    "dmz",
+    "MES server",
+    "mfg",
+    "https"
+   ],
+   [
+    "MES server",
+    "mfg",
+    "Cell controller",
+    "c1",
+    "opcua"
+   ],
+   [
+    "SCADA server",
+    "mfg",
+    "MC02 CNC",
+    "c1",
+    "opcua"
+   ],
+   [
+    "SCADA server",
+    "mfg",
+    "Stacker PLC",
+    "c1",
+    "modbus-write"
+   ],
+   [
+    "SCADA server",
+    "mfg",
+    "Stacker PLC",
+    "c1",
+    "modbus-read"
+   ],
+   [
+    "Supplier laptop",
+    "inet",
+    "Robot controller",
+    "c1",
+    "rdp"
+   ],
+   [
+    "Jump host",
+    "dmz",
+    "Robot controller",
+    "c1",
+    "rdp"
+   ],
+   [
+    "Engineering WS",
+    "eng",
+    "Cell PLC",
+    "c1",
+    "s7"
+   ],
+   [
+    "Cell PLC",
+    "c1",
+    "Cloud broker",
+    "inet",
+    "mqtts"
+   ],
+   [
+    "Historian",
+    "mfg",
+    "Historian mirror",
+    "dmz",
+    "repl"
+   ],
+   [
+    "Office PC",
+    "ent",
+    "Safety PLC",
+    "saf",
+    "modbus-write"
+   ],
+   [
+    "Cell controller",
+    "c1",
+    "Safety PLC",
+    "saf",
+    "modbus-read"
+   ],
+   [
+    "Cell PLC",
+    "c1",
+    "NTP server",
+    "mfg",
+    "ntp"
+   ],
+   [
+    "Office PC",
+    "ent",
+    "MES server",
+    "mfg",
+    "https"
+   ],
+   [
+    "Engineering WS",
+    "eng",
+    "Safety PLC",
+    "saf",
+    "s7"
+   ]
+  ],
+  "_flows": "[source host, source zone, destination host, destination zone, service]",
+  "threats": [
+   [
+    "Ransomware from the office reaches MES / SCADA",
+    "mfg",
+    4,
+    5,
+    [
+     [
+      "DMZ + default-deny firewalls",
+      2
+     ],
+     [
+      "Patching + offline back-ups",
+      1
+     ]
+    ]
+   ],
+   [
+    "Supplier remote access misused",
+    "c1",
+    3,
+    4,
+    [
+     [
+      "Jump host, MFA, recorded sessions",
+      2
+     ]
+    ]
+   ],
+   [
+    "Infected USB stick on an HMI",
+    "c1",
+    4,
+    4,
+    [
+     [
+      "USB port control",
+      2
+     ],
+     [
+      "Application whitelisting",
+      1
+     ]
+    ]
+   ],
+   [
+    "Unauthorised Modbus write to a module",
+    "c1",
+    3,
+    5,
+    [
+     [
+      "DPI firewall: writes only from the cell controller",
+      2
+     ]
+    ]
+   ],
+   [
+    "Safety PLC parameter changed",
+    "saf",
+    3,
+    5,
+    [
+     [
+      "Local password + safety checksum monitoring",
+      2
+     ]
+    ]
+   ],
+   [
+    "Spoofed MES job (wrong NC program)",
+    "mfg",
+    2,
+    4,
+    [
+     [
+      "OPC UA Sign & Encrypt + certificates",
+      1
+     ]
+    ]
+   ],
+   [
+    "Network loop / broadcast storm",
+    "c1",
+    3,
+    3,
+    [
+     [
+      "Managed switches: storm control + ring protocol",
+      1
+     ]
+    ]
+   ],
+   [
+    "Engineering laptop with malware",
+    "eng",
+    3,
+    4,
+    [
+     [
+      "Dedicated engineering workstations",
+      1
+     ],
+     [
+      "Offline virus scan station",
+      1
+     ]
+    ]
+   ],
+   [
+    "Historian data copied by outsiders",
+    "dmz",
+    3,
+    2,
+    [
+     [
+      "Read-only mirror, no plant access",
+      1
+     ]
+    ]
+   ]
+  ],
+  "_threats": "[threat, zone, likelihood 1-5, consequence 1-5, countermeasures [name, likelihood reduction]]"
+ },
+ "handshake_sim": {
+  "K": 250,
+  "tick_ms": 100,
+  "hs_timeout_ticks": 20,
+  "job_timeout_ticks": 80,
+  "hb_period_ticks": 10,
+  "hb_timeout_ticks": 30,
+  "scenarios": [
+   {
+    "name": "A Normal: 3 jobs",
+    "jobs": [
+     70001,
+     70002,
+     70003
+    ],
+    "exec_ticks": 50,
+    "events": []
+   },
+   {
+    "name": "B Module PLC stops for 6 s (cable pulled / PLC STOP)",
+    "jobs": [
+     70001,
+     70002,
+     70003
+    ],
+    "exec_ticks": 50,
+    "events": [
+     [
+      80,
+      "MOD_FREEZE"
+     ],
+     [
+      140,
+      "MOD_RESUME"
+     ]
+    ]
+   },
+   {
+    "name": "C Module does not answer the request",
+    "jobs": [
+     70001,
+     70002,
+     70003
+    ],
+    "exec_ticks": 50,
+    "events": [
+     [
+      50,
+      "IGNORE_REQ_ON"
+     ],
+     [
+      100,
+      "IGNORE_REQ_OFF"
+     ],
+     [
+      120,
+      "CC_RESET"
+     ]
+    ]
+   },
+   {
+    "name": "D Cell controller stops for 5 s",
+    "jobs": [
+     70001,
+     70002,
+     70003
+    ],
+    "exec_ticks": 50,
+    "events": [
+     [
+      100,
+      "CC_FREEZE"
+     ],
+     [
+      150,
+      "CC_RESUME"
+     ]
+    ]
+   }
+  ],
+  "_rules": [
+   "Discrete ticks k = 0,1,...,K; one tick = 100 ms = the poll period of the cell controller (CC). Two actors: CC and the module (MOD). CC image (written only by CC): Request, Ack, JobId, HB (heartbeat counter). MOD image (written only by MOD): Ready, Busy, Done, HSReady, HB, JobId. Initial: CC image all 0; MOD image Ready=1, others 0; MOD state IDLE; CC state S0; watch timers last=0, seen=0.",
+   "ONE-TICK DELAY: at the start of tick k take snapshots snc (CC image) and snm (MOD image) = values at the end of tick k-1. Both actors decide ONLY on the snapshot of the other side and write their own image (visible to the other side at tick k+1). Order inside a tick (also the log order): 1 events, 2 MOD, 3 CC.",
+   "1 EVENTS with time k in list order: MOD_FREEZE (module PLC stops: MOD does nothing at all, its image and HB stay frozen; remember freeze start f); MOD_RESUME (MOD runs again; set MOD watch timer last=k and seen=snc.HB; if MOD state EXEC: end = end + (k - f)); CC_FREEZE / CC_RESUME (same for CC: on resume CC sets last=k, seen=snm.HB and continues in its stored state); IGNORE_REQ_ON / IGNORE_REQ_OFF (module fault: MOD does not accept a request while ON); CC_RESET (operator reset: if CC state is ERR -> state S0, state timer = k). Log 'k EVENT <kind>'.",
+   "2 MOD (skip if frozen): (a) heartbeat: if k>0 and k % hb_period_ticks == 0 -> MOD.HB += 1. (b) watch CC heartbeat: if snc.HB != seen -> seen = snc.HB, last = k. If not lost and k - last >= hb_timeout_ticks -> lost, log 'MOD CC_LOSS', if state IDLE set Ready=0. Else if lost and last == k -> not lost, log 'MOD CC_OK', if state IDLE set Ready=1. (c) state machine, at most ONE transition per tick, checked in this order: IDLE and not lost and not ignoring and snc.Request==1 -> JobId=snc.JobId, HSReady=1, Busy=1, Ready=0, state ACCEPT, log 'MOD ACCEPT <job>'. ACCEPT and snc.Request==0 -> HSReady=0, end = k + exec_ticks, state EXEC, log 'MOD START <job>'. EXEC and k >= end -> Busy=0, Done=1, state DONE, log 'MOD DONE <job>'. DONE and snc.Ack==1 -> Done=0, Ready = 0 if lost else 1, state IDLE, log 'MOD RELEASE <job>'.",
+   "3 CC (skip if frozen): (a) heartbeat: if k>0 and k % hb_period_ticks == 0 -> CC.HB += 1. (b) watch MOD heartbeat: if snm.HB != seen -> seen = snm.HB, last = k. If not lost and k - last >= hb_timeout_ticks -> lost, Request=0, Ack=0, if state != ERR then state OFFLINE (timer k), log 'CC COMM_LOSS'; nothing else this tick. Else if lost and last == k -> not lost, log 'CC COMM_OK', then if state OFFLINE do RESYNC: snm.Done==1 -> Ack=1, state S4, log 'CC RESYNC_DONE <job>'; else snm.Busy==1 -> state S3, log 'CC RESYNC_BUSY <job>'; else state S0, log 'CC RESYNC_IDLE' and the current job (if any) goes back to the FRONT of the job queue; nothing else this tick. While lost: nothing else.",
+   "(c) CC state machine (state timer t = tick of the last state change; success condition is checked BEFORE the timeout): S0 WAIT_READY: if jobs remain and snm.Ready==1 and snm.Busy==0 -> take the first job, JobId=job, Request=1, state S1, log 'CC REQUEST <job>'. S1 WAIT_ACCEPT: snm.HSReady==1 -> Request=0, state S2, log 'CC ACCEPTED <job>'; else if k - t >= hs_timeout_ticks -> Request=0, state ERR, the job goes back to the FRONT of the queue, log 'CC HS_TIMEOUT S1 <job>'. S2 WAIT_RELEASE: snm.HSReady==0 -> state S3, log 'CC RUNNING <job>'; else timeout -> ERR, log 'CC HS_TIMEOUT S2 <job>'. S3 WAIT_DONE: snm.Done==1 -> Ack=1, state S4, log 'CC DONE <job>'; else if k - t >= job_timeout_ticks -> ERR, log 'CC JOB_TIMEOUT <job>'. S4 WAIT_DONE_CLEAR: snm.Done==0 -> Ack=0, state S0, job completed at tick k, log 'CC COMPLETE <job>'; else timeout -> Ack=0, ERR, log 'CC HS_TIMEOUT S4 <job>'. ERR: nothing (waits for CC_RESET).",
+   "KPIs per scenario: log lines, completed jobs with completion tick, final CC state, number of HS/JOB timeouts, comm-loss detection delay = tick of 'CC COMM_LOSS' (or 'MOD CC_LOSS') minus the freeze tick. Log line format: '<k> <text>' with k integer ticks."
+  ]
+ }
+}

@@ -1,0 +1,177 @@
+/* FMS engineering – item 9 PLC programming principles (fmse9.js, fmse9x.js, fmse9y.js). Theme variables only (light + dark). Prefix f9-.
+   Reuses fe-*, fx-*, am-*, phd-* and f8-* classes. */
+
+.f9-ex { margin: 10px 0 6px; border-left: 4px solid var(--fe-3); }
+.f9-ex p { font-size: 13px; line-height: 1.55; margin: 4px 0; }
+.f9-code { font-family: ui-monospace, Consolas, monospace; font-size: 12px; line-height: 1.45; background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 6px; padding: 8px 10px; margin: 4px 0; overflow-x: auto; white-space: pre; max-width: 100%; color: var(--text); }
+.f9-gencode { max-height: 520px; overflow: auto; }
+.f9-mono { font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; }
+.f9-strong { color: var(--fe-1); }
+.f9-warn { color: var(--warning); font-weight: 600; }
+.f9-bad { color: var(--critical); font-weight: 600; }
+.f9-det { margin: 8px 0; font-size: 13px; }
+.f9-det summary { cursor: pointer; font-weight: 600; }
+.f9-span { grid-column: 1 / -1; }
+#tab-fmse .f9-tin input[type=number] { width: 96px; }
+#tab-fmse .f9-wide { flex: 1 1 320px; display: flex; gap: 6px; align-items: center; min-width: 0; }
+#tab-fmse .f9-wide input { flex: 1; min-width: 0; }
+#tab-fmse .f9-sigin input[type=text] { width: 150px; }
+.f9-range { width: 220px; max-width: 100%; }
+.f9-scrub { display: inline-flex; align-items: center; gap: 6px; }
+.f9-scrub input { width: 240px; max-width: 46vw; }
+.f9-scrubw input { width: 360px; }
+.f9-dense td, .f9-dense th { padding: 1px 4px; font-size: 11.5px; }
+.f9-vendor td:first-child { white-space: nowrap; }
+.f9-coding code { font-size: 11.5px; white-space: normal; word-break: break-word; }
+.f9-good { color: var(--good-text, var(--fe-3)); }
+.f9-badc { color: var(--critical); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--critical) 50%, transparent); }
+
+/* 9A languages */
+.f9-langs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 8px; margin: 6px 0; }
+.f9-langbox { border: 1px solid var(--border); border-radius: 8px; padding: 4px 10px 6px; min-width: 0; }
+.f9-langbox h4 { margin: 4px 0; font-size: 13px; }
+.fe-scroll .f9-model { width: 100%; min-width: 440px; max-width: 560px; }
+.fe-scroll .f9-lang { width: 100%; min-width: 300px; max-width: 470px; }
+.fe-scroll .f9-sfc { min-width: 260px; max-width: 320px; }
+
+/* bars, leds */
+.f9-ubar { display: flex; height: 14px; border-radius: 4px; overflow: hidden; background: var(--surface-2); border: 1px solid var(--border); margin: 6px 0; max-width: 640px; }
+.f9-ubar i { display: block; height: 100%; }
+.f9-led { display: inline-block; width: 11px; height: 11px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--axis); vertical-align: -1px; }
+.f9-led.f9-on { background: var(--good); border-color: var(--good); }
+.f9-sigs { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12.5px; margin: 6px 0; }
+.f9-qGOOD { color: var(--good-text, var(--fe-3)); font-weight: 600; }
+.f9-qUNCERTAIN { color: var(--warning); font-weight: 600; }
+.f9-qBAD { color: var(--critical); font-weight: 600; }
+
+/* logs */
+.f9-log { font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; line-height: 1.5; max-height: 260px; overflow: auto; border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px; background: var(--surface); }
+.f9-logT { max-height: 320px; }
+.f9-log div { white-space: pre-wrap; word-break: break-word; cursor: default; }
+.f9-logT div { cursor: pointer; }
+.f9-log .f9-lfut { color: var(--muted); }
+.f9-log .f9-lnow { background: color-mix(in srgb, var(--fe-1) 22%, transparent); font-weight: 600; }
+
+/* 9F step chain, data block */
+.f9-chain { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; font-size: 12px; margin: 4px 0; }
+.f9-chain i { color: var(--muted); font-style: normal; }
+.f9-step { border: 1px solid var(--border); border-radius: 4px; padding: 2px 6px; background: var(--surface-2); }
+.f9-step.f9-son { background: var(--fe-1); color: #fff; border-color: var(--fe-1); font-weight: 600; }
+.f9-step.f9-sidle { border-color: var(--fe-1); }
+.f9-db td:first-child { width: 58%; }
+.f9-b1 { color: var(--fe-1); font-weight: 700; }
+.f9-b0 { color: var(--muted); }
+tr.f9-chg td { background: color-mix(in srgb, var(--fe-4) 20%, transparent); }
+.f9-dbt td { vertical-align: top; }
+
+/* 9H alarm state pill */
+.f9-as { display: inline-block; font-size: 11px; font-weight: 600; padding: 0 6px; border-radius: 8px; border: 1px solid var(--border); white-space: nowrap; }
+.f9-aUNACK { color: var(--critical); border-color: var(--critical); }
+.f9-aACKED { color: var(--warning); border-color: var(--warning); }
+.f9-aRTNUN { color: var(--fe-5); border-color: var(--fe-5); }
+.f9-aSHLVD, .f9-aOOS { color: var(--muted); border-style: dashed; }
+.f9-aNORM { color: var(--good-text, var(--fe-3)); }
+.f9-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 12px; }
+
+/* ----------------------------------------------------------- svg */
+.fe-scroll .f9-tl { min-width: 560px; max-width: 760px; width: 100%; }
+.fe-scroll .f9-timing { min-width: 760px; max-width: 980px; width: 100%; }
+.fe-scroll .f9-band { min-width: 380px; max-width: 520px; width: 100%; }
+.fe-scroll .f9-lim { min-width: 600px; max-width: 860px; width: 100%; }
+.fe-scroll .f9-mdia { min-width: 520px; max-width: 680px; width: 100%; }
+.fe-scroll .f9-strip { min-width: 480px; max-width: 640px; width: 100%; }
+.fe-scroll .f9-strip2 { min-width: 760px; max-width: 1100px; width: 100%; }
+.fe-scroll .f9-pack { min-width: 560px; max-width: 680px; width: 100%; }
+.fe-scroll .f9-plant { min-width: 460px; max-width: 600px; width: 100%; }
+.fe-scroll .f9-adia { min-width: 540px; max-width: 680px; width: 100%; }
+.f9-w { stroke: var(--text-2); stroke-width: 1.4; fill: none; }
+.f9-thin { stroke: var(--axis); stroke-width: 1; fill: none; }
+.f9-pw { stroke: var(--text); stroke-width: 2.4; fill: none; }
+.f9-rail { stroke: var(--text); stroke-width: 3; }
+.f9-hot { stroke: var(--good); stroke-width: 3; fill: none; }
+.f9-hotT { fill: var(--good-text, var(--good)); }
+.f9-sym { fill: var(--surface); stroke: var(--text-2); stroke-width: 1.3; }
+.f9-box { fill: var(--surface-2); stroke: var(--axis); stroke-width: 1; }
+.f9-none { fill: none; stroke: var(--axis); stroke-width: 1; }
+.f9-act { fill: color-mix(in srgb, var(--good) 30%, var(--surface)); stroke: var(--good); stroke-width: 1.5; }
+.f9-blk { fill: var(--surface); stroke: var(--text-2); stroke-width: 1.4; }
+.f9-cfg { fill: var(--surface); stroke: var(--text-2); stroke-width: 1.4; }
+.f9-res { fill: var(--surface-2); stroke: var(--axis); stroke-width: 1; }
+.f9-task { fill: color-mix(in srgb, var(--fe-1) 20%, var(--surface)); stroke: var(--fe-1); stroke-width: 1.2; }
+.f9-prg { fill: color-mix(in srgb, var(--fe-3) 22%, var(--surface)); stroke: var(--fe-3); stroke-width: 1.2; }
+.f9-fb { fill: color-mix(in srgb, var(--fe-4) 24%, var(--surface)); stroke: var(--fe-4); stroke-width: 1.2; }
+.f9-gvl { fill: color-mix(in srgb, var(--fe-5) 20%, var(--surface)); stroke: var(--fe-5); stroke-width: 1.2; }
+.f9-lbl { font-size: 12px; fill: var(--text); }
+.f9-sm { font-size: 11px; fill: var(--text); }
+.f9-xs { font-size: 10px; fill: var(--text-2); }
+.f9-b { font-weight: 700; }
+.f9-inv { fill: #fff; }
+.f9-ah { fill: var(--text-2); }
+.f9-axis { stroke: var(--axis); stroke-width: 1; }
+.f9-grid { stroke: var(--grid, var(--border)); stroke-width: .6; }
+.f9-grid2 { stroke: var(--axis); stroke-width: .8; stroke-dasharray: 3 3; }
+.f9-s1 { fill: color-mix(in srgb, var(--fe-5) 45%, var(--surface)); }
+.f9-s2 { fill: color-mix(in srgb, var(--fe-4) 50%, var(--surface)); }
+.f9-s3 { fill: color-mix(in srgb, var(--critical) 30%, var(--surface)); }
+.f9-s4 { fill: color-mix(in srgb, var(--fe-1) 45%, var(--surface)); }
+/* timing diagram */
+.f9-fin { fill: color-mix(in srgb, var(--fe-2) 22%, transparent); }
+.f9-fout { fill: color-mix(in srgb, var(--fe-1) 26%, transparent); }
+.f9-tin2 { stroke: var(--fe-2); stroke-width: 1.6; fill: none; }
+.f9-tout { stroke: var(--fe-1); stroke-width: 1.6; fill: none; }
+.f9-tet { stroke: var(--fe-3); stroke-width: 1.6; fill: none; }
+/* analog */
+.f9-bBAD { fill: color-mix(in srgb, var(--critical) 40%, var(--surface)); }
+.f9-bUNC { fill: color-mix(in srgb, var(--warning) 50%, var(--surface)); }
+.f9-bGOOD { fill: color-mix(in srgb, var(--good) 30%, var(--surface)); }
+.f9-mark { fill: var(--text); }
+.f9-markl { stroke: var(--text); stroke-width: 2; }
+.f9-val { stroke: var(--fe-1); stroke-width: 2; fill: none; }
+.f9-dot { fill: var(--fe-1); }
+.f9-limH { stroke: var(--critical); stroke-width: 1.5; }
+.f9-limHd { stroke: var(--critical); stroke-width: 1; stroke-dasharray: 4 3; }
+.f9-limL { stroke: var(--fe-5); stroke-width: 1.5; }
+.f9-limLd { stroke: var(--fe-5); stroke-width: 1; stroke-dasharray: 4 3; }
+.f9-almH { fill: color-mix(in srgb, var(--critical) 14%, transparent); }
+.f9-almL { fill: color-mix(in srgb, var(--fe-5) 16%, transparent); }
+.f9-onH { fill: var(--critical); }
+.f9-onL { fill: var(--fe-5); }
+.f9-off { fill: var(--surface-2); stroke: var(--border); stroke-width: .5; }
+/* state diagrams */
+.f9-st { fill: var(--surface); stroke: var(--axis); stroke-width: 1.2; }
+.f9-acting { fill: var(--surface-2); }
+.f9-stA { fill: var(--fe-1); stroke: var(--fe-1); stroke-width: 1.5; }
+.f9-stF { fill: var(--critical); stroke: var(--critical); stroke-width: 1.5; }
+.f9-from { stroke: var(--fe-1); stroke-width: 2; stroke-dasharray: 4 2; }
+.f9-edge { stroke: var(--text-2); stroke-width: 1.2; fill: none; }
+.f9-sc { stroke-dasharray: 4 3; }
+.f9-ehot { stroke: var(--fe-2); stroke-width: 3; fill: none; }
+.f9-cur { fill: color-mix(in srgb, var(--fe-2) 30%, transparent); stroke: var(--fe-2); stroke-width: 1; }
+.f9-evl { stroke: var(--fe-4); stroke-width: 1; stroke-dasharray: 2 2; }
+.f9-seg { fill: var(--surface-2); stroke: var(--surface); stroke-width: .6; }
+.f9-segE { fill: color-mix(in srgb, var(--fe-1) 40%, var(--surface)); stroke: var(--surface); stroke-width: .6; }
+.f9-segA { fill: color-mix(in srgb, var(--critical) 40%, var(--surface)); stroke: var(--surface); stroke-width: .6; }
+.f9-segC { fill: color-mix(in srgb, var(--good) 30%, var(--surface)); stroke: var(--surface); stroke-width: .6; }
+.f9-segH { fill: color-mix(in srgb, var(--fe-4) 45%, var(--surface)); stroke: var(--surface); stroke-width: .6; }
+.f9-segS { fill: color-mix(in srgb, var(--fe-3) 35%, var(--surface)); stroke: var(--surface); stroke-width: .6; }
+/* plant */
+.f9-plate { fill: var(--surface-2); stroke: var(--axis); stroke-width: 1; }
+.f9-arm { fill: var(--axis); stroke: var(--text-2); stroke-width: 1; }
+.f9-pal { fill: color-mix(in srgb, var(--fe-4) 40%, var(--surface)); stroke: var(--fe-4); stroke-width: 1.2; }
+.f9-pal2 { fill: color-mix(in srgb, var(--fe-5) 30%, var(--surface)); stroke: var(--fe-5); stroke-width: 1.2; }
+.f9-hub { fill: var(--text-2); }
+.f9-clamp { fill: var(--surface); stroke: var(--text-2); stroke-width: 1.4; }
+.f9-clampOn { fill: color-mix(in srgb, var(--good) 40%, var(--surface)); stroke: var(--good); stroke-width: 1.4; }
+.f9-cyl { fill: var(--surface-2); stroke: var(--text-2); stroke-width: 1.2; }
+.f9-gauge { fill: none; stroke: var(--axis); stroke-width: 6; }
+.f9-needle { stroke: var(--critical); stroke-width: 2.4; }
+.f9-needleOk { stroke: var(--good); stroke-width: 2.4; }
+.f9-ledOn { fill: var(--good); stroke: var(--good); }
+.f9-ledOff { fill: var(--surface-2); stroke: var(--axis); }
+
+@media (max-width: 700px) {
+  .f9-langs { grid-template-columns: 1fr; }
+  .f9-scrub input, .f9-scrubw input { width: 160px; }
+  #tab-fmse .f9-sigin input[type=text] { width: 120px; }
+}

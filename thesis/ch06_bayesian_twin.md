@@ -4,7 +4,7 @@
 > `bottleneck_experiment.py`, `variance_experiment.py`, `analyse_rampup.py`, `plot_ch6.py`). Data: `thesis/data/`.
 > All results in this chapter are **[simulated]**: they come from computational experiments with a virtual ramp-up whose
 > "true" parameters are known to the experimenter but hidden from the twin. They prove properties of the *method*; the
-> validation against the real ramp-up of the case factory follows in Section 9.6.
+> validation against the real ramp-up of the case factory follows in Section 9.7.
 
 ## 6.1 Purpose
 
@@ -345,7 +345,7 @@ uncertainty should be allowed to shrink.
 
 *Validity of the experiment.* (i) The truth generator uses the same model family as the twin (log-normal times,
 exponential failures and repairs); real systems deviate from these laws, which the discrepancy term partly absorbs but
-which the industrial validation (Section 9.6) must examine. (ii) The ramp-up shape and magnitudes of Table 6.1 are
+which the industrial validation (Section 9.7) must examine. (ii) The ramp-up shape and magnitudes of Table 6.1 are
 assumptions; they were chosen to be plausible, not calibrated on a real ramp-up, and different shapes will change
 absolute numbers. (iii) Months are simulated independently (no WIP carried over), and the reduced-order model omits
 pallets, AGVs and dispatching. (iv) Each scenario's truth is simulated once per month, so $Y_k$ contains aleatory noise of

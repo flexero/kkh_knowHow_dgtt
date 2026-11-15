@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" font-family="Arial, Helvetica, sans-serif">
+<title>ESTOP (2 NC, test pulses) → safety PLC (M18) → zone outputs: STO, safety contactors, couplings</title>
+<rect x="0" y="0" width="1200" height="620" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">ESTOP (2 NC, test pulses) → safety PLC (M18) → zone outputs: STO, safety contactors, couplings</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Every e-stop has its own two F-DI (location known, no series masking). Discrepancy monitoring, manual reset (blue button, falling edge).</text>
+<text x="110" y="92" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">POOL01 -SF2</text>
+<line x1="88" y1="100" x2="88" y2="120" stroke="#c0392b" stroke-width="1.5"/>
+<text x="88" y="98" font-size="11" text-anchor="start" fill="#111"></text>
+<line x1="88" y1="120" x2="88" y2="128" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="88" y1="142" x2="88" y2="150" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="88" y1="142" x2="96" y2="127" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="88" y1="128" x2="98" y2="128" stroke="#c0392b" stroke-width="1.5"/>
+<polyline points="82,132 86,135 82,138" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="88" y1="150" x2="88" y2="200" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="132" y1="100" x2="132" y2="120" stroke="#c0392b" stroke-width="1.5"/>
+<text x="132" y="98" font-size="11" text-anchor="start" fill="#111"></text>
+<line x1="132" y1="120" x2="132" y2="128" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="132" y1="142" x2="132" y2="150" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="132" y1="142" x2="140" y2="127" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="132" y1="128" x2="142" y2="128" stroke="#c0392b" stroke-width="1.5"/>
+<polyline points="126,132 130,135 126,138" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="132" y1="150" x2="132" y2="200" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="88" y1="135" x2="132" y2="135" stroke="#666" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="110" cy="128" r="9" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="88" y="112" font-size="11" text-anchor="end" fill="#666">T1</text>
+<text x="136" y="112" font-size="11" text-anchor="start" fill="#666">T2</text>
+<rect x="50" y="200" width="120" height="40" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="110" y="218" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">FDI1.05 / 1.06</text>
+<text x="110" y="234" font-size="11" text-anchor="middle" fill="#111">Estop.Ok / Ok2</text>
+<line x1="110" y1="240" x2="110" y2="290" stroke="#c0392b" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="290" y="92" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">LS01 -SF2</text>
+<line x1="268" y1="100" x2="268" y2="120" stroke="#c0392b" stroke-width="1.5"/>
+<text x="268" y="98" font-size="11" text-anchor="start" fill="#111"></text>
+<line x1="268" y1="120" x2="268" y2="128" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="268" y1="142" x2="268" y2="150" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="268" y1="142" x2="276" y2="127" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="268" y1="128" x2="278" y2="128" stroke="#c0392b" stroke-width="1.5"/>
+<polyline points="262,132 266,135 262,138" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="268" y1="150" x2="268" y2="200" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="312" y1="100" x2="312" y2="120" stroke="#c0392b" stroke-width="1.5"/>
+<text x="312" y="98" font-size="11" text-anchor="start" fill="#111"></text>
+<line x1="312" y1="120" x2="312" y2="128" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="312" y1="142" x2="312" y2="150" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="312" y1="142" x2="320" y2="127" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="312" y1="128" x2="322" y2="128" stroke="#c0392b" stroke-width="1.5"/>
+<polyline points="306,132 310,135 306,138" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="312" y1="150" x2="312" y2="200" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="268" y1="135" x2="312" y2="135" stroke="#666" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="290" cy="128" r="9" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="268" y="112" font-size="11" text-anchor="end" fill="#666">T1</text>
+<text x="316" y="112" font-size="11" text-anchor="start" fill="#666">T2</text>
+<rect x="230" y="200" width="120" height="40" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="290" y="218" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">FDI1.02 / 1.03</text>
+<text x="290" y="234" font-size="11" text-anchor="middle" fill="#111">Estop.Ok / Ok2</text>
+<line x1="290" y1="240" x2="290" y2="290" stroke="#c0392b" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="470" y="92" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">SAFE01 -SF1</text>
+<line x1="448" y1="100" x2="448" y2="120" stroke="#c0392b" stroke-width="1.5"/>
+<text x="448" y="98" font-size="11" text-anchor="start" fill="#111"></text>
+<line x1="448" y1="120" x2="448" y2="128" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="448" y1="142" x2="448" y2="150" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="448" y1="142" x2="456" y2="127" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="448" y1="128" x2="458" y2="128" stroke="#c0392b" stroke-width="1.5"/>
+<polyline points="442,132 446,135 442,138" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="448" y1="150" x2="448" y2="200" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="492" y1="100" x2="492" y2="120" stroke="#c0392b" stroke-width="1.5"/>
+<text x="492" y="98" font-size="11" text-anchor="start" fill="#111"></text>
+<line x1="492" y1="120" x2="492" y2="128" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="492" y1="142" x2="492" y2="150" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="492" y1="142" x2="500" y2="127" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="492" y1="128" x2="502" y2="128" stroke="#c0392b" stroke-width="1.5"/>
+<polyline points="486,132 490,135 486,138" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="492" y1="150" x2="492" y2="200" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="448" y1="135" x2="492" y2="135" stroke="#666" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="470" cy="128" r="9" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="448" y="112" font-size="11" text-anchor="end" fill="#666">T1</text>
+<text x="496" y="112" font-size="11" text-anchor="start" fill="#666">T2</text>
+<rect x="410" y="200" width="120" height="40" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="470" y="218" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">FDI1.00 / 1.01</text>
+<text x="470" y="234" font-size="11" text-anchor="middle" fill="#111">Estop.Ok / Ok2</text>
+<line x1="470" y1="240" x2="470" y2="290" stroke="#c0392b" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="620" y="110" font-size="11" text-anchor="start" fill="#666">Designations count per module: in LS01 the Release push-button</text>
+<text x="620" y="126" font-size="11" text-anchor="start" fill="#666">is -SF1, so the e-stop is -SF2 (B0.3).</text>
+<rect x="60" y="290" width="480" height="70" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="300" y="308" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">Safety PLC CPU  =FMS1.SAFE01-KF1  (PROFIsafe over PROFINET)</text>
+<text x="300" y="324" font-size="11" text-anchor="middle" fill="#111">safety program: e-stop = Ok AND Ok2 (discrepancy) · zone matrix · reset</text>
+<text x="300" y="340" font-size="11" text-anchor="middle" fill="#111">F-monitoring time in the reaction time</text>
+<line x1="540" y1="310" x2="700" y2="300" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="700,300 691.945,304.015 691.508,297.019" fill="#c0392b"/>
+<rect x="700" y="280" width="250" height="44" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="825" y="298" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">FDO STO</text>
+<text x="825" y="314" font-size="11" text-anchor="middle" fill="#111">drives SS1 → STO (POOL01, LS01)</text>
+<line x1="540" y1="316" x2="700" y2="360" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="700,360 691.078,361.181 692.936,354.423" fill="#c0392b"/>
+<rect x="700" y="340" width="250" height="44" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="825" y="358" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">FDO Enable</text>
+<text x="825" y="374" font-size="11" text-anchor="middle" fill="#111">safety contactor pairs (EDM)</text>
+<line x1="540" y1="322" x2="700" y2="420" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="700,420 691.1,418.659 694.762,412.682" fill="#c0392b"/>
+<rect x="700" y="400" width="250" height="44" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="825" y="418" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">FDO EstopOut</text>
+<text x="825" y="434" font-size="11" text-anchor="middle" fill="#111">coupling to MC01–MC03 (machine e-stop)</text>
+<line x1="540" y1="328" x2="700" y2="480" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="700,480 691.576,476.832 696.404,471.75" fill="#c0392b"/>
+<rect x="700" y="460" width="250" height="44" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="825" y="478" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">zone F-DO</text>
+<text x="825" y="494" font-size="11" text-anchor="middle" fill="#111">valve / contactor supplies of a zone</text>
+<rect x="990" y="290" width="170" height="60" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="1075" y="308" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">Reset -SF (blue)</text>
+<text x="1075" y="324" font-size="11" text-anchor="middle" fill="#111">SAFE01.Reset.Pb</text>
+<text x="1075" y="340" font-size="11" text-anchor="middle" fill="#111">outside the zone</text>
+<rect x="60" y="420" width="1100" height="120" rx="0" fill="#f2f2f2" stroke="#666" stroke-width="1.5"/>
+<text x="75" y="442" font-size="11" text-anchor="start" fill="#111">FAT: press → both channels 0, zone outputs off, PackML Aborted · release without reset → stays off · reset → restart allowed (no automatic restart)</text>
+<text x="75" y="460" font-size="11" text-anchor="start" fill="#111">open one core only → discrepancy fault · short T1 to T2 channel → cross-circuit detected by the test pulses</text>
+<text x="75" y="482" font-size="11" text-anchor="start" fill="#111">PL: input Cat 3, DC 99 %, MTTFd from B10d (guide 67 SF3: PLr d → PL d); combination with logic (PL e) and output subsystem (guide 67 G8).</text>
+<text x="75" y="504" font-size="11" text-anchor="start" fill="#c0392b">Stop category 1: drives decelerate under control, then STO; clamps are NOT de-energised (holding function, guide 67 I7.4).</text>
+<text x="24" y="606" font-size="11" text-anchor="start" fill="#666">Teaching example – not for construction. Real circuits: qualified engineers, IEC 60204-1, ISO 13849, maker data.</text>
+</svg>

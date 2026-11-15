@@ -1,0 +1,6 @@
+no,action,source,destination,service,purpose
+1,allow,10.70.1.10,10.70.20.51,TCP 502,fmsctl cell controller -> Modbus TCP server (V1.2b)
+2,allow,10.70.1.20,10.70.20.51,TCP 443,"engineering / diagnostics HTTPS (time-limited, logged)"
+3,allow,10.70.20.51,10.70.1.5,UDP 123,NTP time for event time stamps
+4,allow,10.70.20.51,10.70.1.6,UDP 514,syslog of firewall / CP events
+5,deny,any,any,any,default deny (log)

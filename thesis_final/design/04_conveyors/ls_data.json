@@ -1,0 +1,306 @@
+{
+ "_note": "Final thesis item F4.3 - load stations: A AGV P&D station, B TU1 check station, C pick / rework station Z31, D gravity flow racks for the line-side buffers, E HMC pallet load station. DESIGN values / REFERENCE ESTIMATES; catalogue classes [verify]. Tool: load_stations.py. Guide: Doctor paper/61 chapters 22-33.",
+ "version": "F4.3 (2026-11-15)",
+ "g": 9.81,
+ "pd": {
+  "agv_stop_x_mm": 10,
+  "agv_stop_y_mm": 10,
+  "agv_yaw_deg": 0.5,
+  "floor_mm": 3,
+  "deck_height_tol_mm": 5,
+  "_agv": "AGV docking accuracy (natural-contour / reflector navigation with final docking sensor) - requirement handed to F5",
+  "guide_gap_mm": 25,
+  "lead_in_deg": 15,
+  "lead_in_len_mm": 150,
+  "transfer_gap_mm": 30,
+  "step_max_mm": 6,
+  "_step": "a runner can roll over a height step h onto a roller of diameter D if h <= ~0.1 D (60 mm roller -> 6 mm)",
+  "zone_m": 1.4,
+  "v_m_s": 0.2,
+  "handshake_s": 3.0,
+  "buffer_stroke_mm": 12,
+  "decel_limit_g": 0.5,
+  "_buffer": "polyurethane end buffers: the crate hits the stop only if the stop sensor fails (control fault) - KE absorbed within the stroke; content shift starts at about 0.5 g"
+ },
+ "handshake": [
+  [
+   "A1",
+   "AGV -> station",
+   "AGV_PRESENT",
+   "AGV stands docked (docking sensor + position confirmed by the fleet manager)"
+  ],
+  [
+   "A2",
+   "AGV -> station",
+   "AGV_READY_SEND",
+   "AGV deck loaded, ready to push the crate out (drop-off)"
+  ],
+  [
+   "A3",
+   "AGV -> station",
+   "AGV_READY_RECV",
+   "AGV deck empty, rollers running inwards (pick-up)"
+  ],
+  [
+   "A4",
+   "AGV -> station",
+   "AGV_TRANSFER_DONE",
+   "crate fully on / off the AGV deck (deck sensors)"
+  ],
+  [
+   "S1",
+   "station -> AGV",
+   "ST_READY_RECV",
+   "first lane zone empty, lane rollers running inwards, end stop lowered (drop-off)"
+  ],
+  [
+   "S2",
+   "station -> AGV",
+   "ST_READY_SEND",
+   "crate at the lane end, stop lowered, rollers running outwards (pick-up)"
+  ],
+  [
+   "S3",
+   "station -> AGV",
+   "ST_TRANSFER_DONE",
+   "crate fully on the lane / fully off the lane (zone sensors)"
+  ],
+  [
+   "S4",
+   "station -> AGV",
+   "ST_FAULT",
+   "station fault / E-stop / light curtain without muting -> AGV stops its rollers"
+  ]
+ ],
+ "_handshake_note": "parallel signals over a short-range optical data coupler at the docking point (8 bit each way, deterministic, independent of Wi-Fi); job data (crate id, destination) over the fleet manager / fmsctl. The safety stop does NOT use these signals (item F8).",
+ "check": {
+  "rack_gap_mm": 75,
+  "pos_tol_x_mm": 12.0,
+  "pos_tol_z_mm": 6.9,
+  "safety_mm": 5,
+  "level_pitch_mm": 1250,
+  "beam_h_mm": 120,
+  "fork_lift_mm": 150,
+  "rack_front_mm": 50,
+  "frame_depth_mm": 1300,
+  "crate_h_total_mm": 600,
+  "rim_rule_mm": 20,
+  "detect_min_mm": 20,
+  "_detect": "smallest object that must be detected when it sticks out (crankshaft end ~20 mm, bolt heads)",
+  "tu_dead_kg": 450,
+  "overload_share": 0.25,
+  "ecc_factor": 1.5,
+  "cells": 4,
+  "cell_caps_kg": [
+   250,
+   500,
+   750,
+   1000,
+   1500
+  ],
+  "cell_class_ppm": 230,
+  "_class": "OIML R60 C3-class load cell: combined error ~0.023 % of capacity per cell (simplified) [verify]",
+  "vib_kg": 0.8,
+  "zero_drift_kg": 0.3,
+  "cell_defl_mm": 0.3,
+  "filter_hz": 2.0,
+  "max_kg": 300,
+  "plausibility_tol": 0.03,
+  "_h": "total crate height 600 mm including the 160 mm runners (F3 / F4.2)"
+ },
+ "kit": {
+  "trolley_tare_kg": 60,
+  "agv_payload_kg": 300,
+  "trolley_places": 2,
+  "heavy_limit_kg": 8.0,
+  "_heavy": "parts heavier than this are NOT kitted: they go to assembly in their own crate (line feeding) and are handled with balancers there",
+  "t_fixed_s": 20,
+  "t_pick_s": {
+   "light": 2.0,
+   "medium": 3.0,
+   "heavy": 4.5
+  },
+  "light_max_kg": 1.0,
+  "medium_max_kg": 4.0,
+  "t_bin_s": 6.0,
+  "bins_per_crate": 8,
+  "bin_kg_max": 15.0,
+  "_t": "MTM-UAS-style values: fixed = crate arrival, scan, pick-to-light confirm; per pick = reach, grasp, move, place in the kit trolley compartment; bin = pull a far bin to the near side",
+  "niosh": {
+   "LC": 23.0,
+   "freq_per_min": 6.0,
+   "duration": "1-2h",
+   "coupling": 0.95,
+   "cases": [
+    [
+     "pick from a near bin, top layer",
+     45,
+     120,
+     25,
+     0.5
+    ],
+    [
+     "pick from a near bin, bottom layer",
+     45,
+     95,
+     50,
+     0.5
+    ],
+    [
+     "pick from a FAR bin without pulling it",
+     85,
+     95,
+     50,
+     0.5
+    ],
+    [
+     "lift a full bin (15 kg) out of the top layer to the side shelf",
+     45,
+     135,
+     30,
+     0.92
+    ]
+   ],
+   "_cases": "[name, H cm, V cm, D cm, FM]; FM from the revised NIOSH table: 6 lifts/min 1-2 h -> 0.50; 0.5 lifts/min 1-2 h -> 0.92 [verify table]"
+  },
+  "_niosh": "cases: [name, H cm (horizontal distance hands - ankles), V cm (hand height at origin), D cm (vertical travel)]",
+  "pull_mu": 0.4,
+  "pull_limit_N": 100,
+  "bin_dims_mm": [
+   600,
+   400,
+   147.5
+  ],
+  "_bins": "VDA RL-KLT 6147 class 600 x 400 x 147.5: 2 layers x 4 fit the crate inside 1192 x 792 x 420 mm"
+ },
+ "flow": {
+  "f_roll": 0.03,
+  "f_light": 0.05,
+  "tare_kg": 45,
+  "max_kg": 300,
+  "v_max_m_s": 0.3,
+  "crate_pitch_m": 1.4,
+  "brake_roller_v_m_s": 0.25,
+  "lane_max_crates": 3,
+  "lane_eur": 2500,
+  "per_place_eur": 900,
+  "return_lane_per_dept": 1,
+  "_note": "pallet-flow lanes, crate 1200-leading on rollers 60 x 2 at pitch 150; entry at the AGV side (AGV deck rollers push the crate in), exit at the machine side with a pallet separator; one lane per part type (FIFO), one empty-crate return lane per department (opposite slope)",
+  "lane_width_m": 1.05,
+  "_lane_w": "crate 800 across + 2 x 70 frame + 2 x 55 clearance",
+  "entry_mm": 900,
+  "exit_min_mm": 650,
+  "_entry": "the AGV lifting deck raises the crate to 900 mm at the flow-lane entry (requirement F5: deck lift 700-900 mm); the lane drops s x L to the exit",
+  "ball_deck_eur": 1500,
+  "return_zone_eur": 1800,
+  "ball_f": 0.02,
+  "_return": "empties: at the exit the crate in use stands on a ball-transfer deck across the lanes of the department; the operator slides the empty crate (45 kg) sideways to the entry of a POWERED return lane (2 roller zones) that climbs gently to the AGV deck height 700"
+ },
+ "hmc": {
+  "pallet_kg": 110,
+  "pallet_mm": 500,
+  "tomb_kg": {
+   "FA": 350,
+   "FC": 380
+  },
+  "tomb_mm": [
+   400,
+   400,
+   800
+  ],
+  "index_deg": 90,
+  "index_s": 3.0,
+  "mu_bearing": 0.005,
+  "r_bearing_m": 0.15,
+  "eta": 0.8,
+  "slew_C0a_kN": 150,
+  "slew_M0_kNm": 10,
+  "impact": 2.0,
+  "part_r_m": 0.3,
+  "F_cut_N": 3000,
+  "S_clamp": 2.0,
+  "mu_clamp": 0.15,
+  "p_bar": 250,
+  "clamp_bores_mm": [
+   16,
+   20,
+   25,
+   32,
+   40
+  ],
+  "acc_V0_cm3": 160,
+  "acc_p0_bar": 150,
+  "leak_cm3_min": 0.02,
+  "machining_min": 15,
+  "p_switch_bar": 220,
+  "air_gap_bar": 2.5,
+  "ls_model": {
+   "base": 25,
+   "per_clamp": 8,
+   "hoist_above_kg": 15,
+   "hoist": 20,
+   "clean": 10
+  },
+  "clamps": {
+   "C01": 3,
+   "R01": 2,
+   "R02": 2,
+   "R03": 2
+  },
+  "visits_h": {
+   "FA": 9.09,
+   "FC": 1.21
+  },
+  "lc": {
+   "K_mm_s": 1600,
+   "t_curtain_ms": 15,
+   "t_plc_ms": 30,
+   "t_stop_ms": 300,
+   "d_mm": 30
+  },
+  "_lc": "light curtain between the operator side and the pallet-shuttle side: the shuttle (F2 transport 0.5 min per move) must be stopped before a hand / body reaches it; K = 1600 mm/s (body approach, ISO 13855), stop time of the shuttle axis (design)",
+  "positions": {
+   "FA": [
+    [
+     "C01",
+     16.5,
+     14.2,
+     2
+    ]
+   ],
+   "FC": [
+    [
+     "R01",
+     22.0,
+     19.0,
+     2
+    ],
+    [
+     "R02",
+     6.6,
+     5.4,
+     2
+    ],
+    [
+     "R03",
+     6.6,
+     5.4,
+     2
+    ]
+   ]
+  },
+  "_positions": "[part, raw kg, machined kg, clamping positions on the tombstone]; one handling per position per visit = unload the old part + load the new one (F1 load model); FA one-in-one-out: OP10 + OP20 positions",
+  "f2_ls_min": {
+   "FA": 2.63,
+   "FC": 5.77
+  },
+  "niosh": {
+   "H": 40,
+   "V": 120,
+   "D": 45,
+   "FM": 0.94,
+   "CM": 0.95
+  },
+  "_slew": "slewing ring class Ø 300 four-point contact: much stronger than needed (fs > 20); chosen for tilting stiffness of the table under hoist impacts and for the index accuracy, a smaller ring is not cheaper in this size"
+ }
+}

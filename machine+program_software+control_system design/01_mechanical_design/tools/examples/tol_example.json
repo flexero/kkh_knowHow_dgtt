@@ -1,0 +1,163 @@
+{
+  "name": "Gearbox intermediate shaft: 6207 seats, gear press fit, sliding sleeve, cover spigots, axial play, cover bolts (example)",
+  "fits": [
+    {
+      "name": "6207 inner ring on shaft (rotating load)",
+      "D": 35.0,
+      "hole": "brg_bore",
+      "shaft": "k5",
+      "alpha": [
+        1.15e-05,
+        1.15e-05
+      ],
+      "T": [
+        70.0,
+        70.0
+      ],
+      "need": [
+        null,
+        -1.0
+      ]
+    },
+    {
+      "name": "6207 outer ring in housing (stationary load, floating side)",
+      "D": 72.0,
+      "hole": "H7",
+      "shaft": "brg_od",
+      "alpha": [
+        1.05e-05,
+        1.15e-05
+      ],
+      "T": [
+        60.0,
+        70.0
+      ],
+      "need": [
+        0.0,
+        60.0
+      ]
+    },
+    {
+      "name": "gear hub on shaft (press fit)",
+      "D": 40.0,
+      "hole": "H7",
+      "shaft": "u6",
+      "alpha": [
+        1.15e-05,
+        1.15e-05
+      ],
+      "T": [
+        70.0,
+        70.0
+      ],
+      "need": [
+        null,
+        -20.0
+      ]
+    },
+    {
+      "name": "sliding sleeve on shaft (shift collar)",
+      "D": 45.0,
+      "hole": "H7",
+      "shaft": "g6",
+      "alpha": [
+        1.15e-05,
+        1.15e-05
+      ],
+      "T": [
+        70.0,
+        70.0
+      ],
+      "need": [
+        5.0,
+        60.0
+      ]
+    },
+    {
+      "name": "bearing cover spigot in housing bore (centring)",
+      "D": 72.0,
+      "hole": "H7",
+      "shaft": "f7",
+      "alpha": [
+        1.05e-05,
+        1.05e-05
+      ],
+      "T": [
+        60.0,
+        55.0
+      ],
+      "need": [
+        5.0,
+        120.0
+      ]
+    }
+  ],
+  "pressfit": {
+    "fit": "H7/u6",
+    "d": 40.0,
+    "D_hub": 70.0,
+    "di_shaft": 0.0,
+    "l": 40.0,
+    "Rz_shaft": 3.2,
+    "Rz_hub": 6.3,
+    "E_shaft": 210000.0,
+    "E_hub": 210000.0,
+    "nu_shaft": 0.3,
+    "nu_hub": 0.3,
+    "mu": 0.12,
+    "Re_hub": 700.0,
+    "alpha_hub": 1.15e-05,
+    "T_req_Nm": 180.0,
+    "S_slip": 1.5,
+    "S_hub": 1.2
+  },
+  "stack": {
+    "name": "axial play of the cross-located shaft",
+    "LSL": 0.1,
+    "USL": 0.5,
+    "items": [
+      [
+        "housing width between cover faces",
+        1,
+        150.0,
+        0.1
+      ],
+      [
+        "spigot depth cover A",
+        -1,
+        5.0,
+        0.05
+      ],
+      [
+        "spigot depth cover B",
+        -1,
+        5.0,
+        0.05
+      ],
+      [
+        "bearing width 6207 A (17 0/-0.12)",
+        -1,
+        16.94,
+        0.06
+      ],
+      [
+        "bearing width 6207 B (17 0/-0.12)",
+        -1,
+        16.94,
+        0.06
+      ],
+      [
+        "shaft distance between bearing shoulders",
+        -1,
+        105.8,
+        0.05
+      ]
+    ]
+  },
+  "gdt": {
+    "F": 6.0,
+    "H": 6.6,
+    "H_tol": 0.18,
+    "pattern": "M6 cover bolts in tapped housing, cover holes 6.6 H13"
+  }
+}

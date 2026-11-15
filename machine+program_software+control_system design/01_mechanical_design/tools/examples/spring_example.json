@@ -1,0 +1,17 @@
+{
+  "name": "Follower spring for the M6 cam at 400 rpm (preload 70 N, 4 N/mm, stroke 20 mm)",
+  "d": 2.5,
+  "D": 25.0,
+  "n": 6.0,
+  "L0": 63.0,
+  "L1": 46.1,
+  "L2": 26.1,
+  "f_exc": 6.667,
+  "req": {
+    "F1": 70.0,
+    "F2": 150.0,
+    "stroke": 20.0,
+    "D": 25.0,
+    "Da_max": 30.0
+  }
+}

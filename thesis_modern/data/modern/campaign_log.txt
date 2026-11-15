@@ -1,0 +1,61 @@
+r1_s1                           79 s  events 348 valid True  {"dc:FmsState:q1:p1000": 0.7328, "dc:FmsState:q1:p100": 0.9914, "dc:FmsState:q1:p250": 0.9253, "dc:FmsState:q10:p1000": 1.0, "dc:FmsStateSampled:q10:p1000": 0.9914, "ev:q0:p100": 1.0, "ev:q0:p1000": 1.0}
+r1_s2                           79 s  events 372 valid True  {"dc:FmsState:q1:p1000": 0.7231, "dc:FmsState:q1:p100": 0.9892, "dc:FmsState:q1:p250": 0.9247, "dc:FmsState:q10:p1000": 1.0, "dc:FmsStateSampled:q10:p1000": 0.9812, "ev:q0:p100": 1.0, "ev:q0:p1000": 1.0}
+r1_s3                           79 s  events 359 valid True  {"dc:FmsState:q1:p1000": 0.727, "dc:FmsState:q1:p100": 0.9805, "dc:FmsState:q1:p250": 0.9387, "dc:FmsState:q10:p1000": 1.0, "dc:FmsStateSampled:q10:p1000": 0.9805, "ev:q0:p100": 1.0, "ev:q0:p1000": 1.0}
+r4_s1                           79 s  events 1390 valid True  {"dc:FmsState:q1:p1000": 0.518, "dc:FmsState:q1:p100": 0.8813, "dc:FmsState:q1:p250": 0.7266, "dc:FmsState:q10:p1000": 1.0, "dc:FmsStateSampled:q10:p1000": 0.8353, "ev:q0:p100": 1.0, "ev:q0:p1000": 1.0}
+r4_s2                           79 s  events 1481 valid True  {"dc:FmsState:q1:p1000": 0.5091, "dc:FmsState:q1:p100": 0.8737, "dc:FmsState:q1:p250": 0.7286, "dc:FmsState:q10:p1000": 1.0, "dc:FmsStateSampled:q10:p1000": 0.8433, "ev:q0:p100": 1.0, "ev:q0:p1000": 1.0}
+r4_s3                           79 s  events 1394 valid True  {"dc:FmsState:q1:p1000": 0.4957, "dc:FmsState:q1:p100": 0.8623, "dc:FmsState:q1:p250": 0.7009, "dc:FmsState:q10:p1000": 1.0, "dc:FmsStateSampled:q10:p1000": 0.8164, "ev:q0:p100": 1.0, "ev:q0:p1000": 1.0}
+r4_s3                           79 s  events 1394 valid True  {"dc:FmsState:q1:p1000": 0.4986, "dc:FmsState:q1:p100": 0.8637, "dc:FmsState:q1:p250": 0.698, "dc:FmsState:q10:p1000": 1.0, "dc:FmsStateSampled:q10:p1000": 0.8207, "ev:q0:p100": 1.0, "ev:q0:p1000": 1.0}
+r16_s1                          79 s  events 5382 valid True  {"dc:FmsState:q1:p1000": 0.2269, "dc:FmsState:q1:p100": 0.6706, "dc:FmsState:q1:p250": 0.5253, "dc:FmsState:q10:p1000": 0.9902, "dc:FmsStateSampled:q10:p1000": 0.5979, "ev:q0:p100": 1.0, "ev:q0:p1000": 1.0}
+r16_s2                          79 s  events 5661 valid True  {"dc:FmsState:q1:p1000": 0.2144, "dc:FmsState:q1:p100": 0.6501, "dc:FmsState:q1:p250": 0.508, "dc:FmsState:q10:p1000": 0.9836, "dc:FmsStateSampled:q10:p1000": 0.5815, "ev:q0:p100": 1.0, "ev:q0:p1000": 1.0}
+r16_s3                          79 s  events 5527 valid True  {"dc:FmsState:q1:p1000": 0.2191, "dc:FmsState:q1:p100": 0.6548, "dc:FmsState:q1:p250": 0.5021, "dc:FmsState:q10:p1000": 0.9872, "dc:FmsStateSampled:q10:p1000": 0.5808, "ev:q0:p100": 1.0, "ev:q0:p1000": 1.0}
+q1_sf_rp_steady_s1              82 s  events 348 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 104.0}
+q1_sf_rp_steady_s2              82 s  events 372 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 106.9}
+q1_sf_rp_steady_s3              82 s  events 359 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 103.3}
+q0_nosf_norp_restart_s1         82 s  events 348 valid True  {"mqtt-ev": 1.0, "twin": 0.8908, "twin_p95_ms": 104.4}
+q0_nosf_norp_restart_s2         82 s  events 372 valid True  {"mqtt-ev": 1.0, "twin": 0.9086, "twin_p95_ms": 101.9}
+q0_nosf_norp_restart_s3         82 s  events 359 valid True  {"mqtt-ev": 1.0, "twin": 0.8719, "twin_p95_ms": 101.5}
+q0_sf_norp_restart_s1           82 s  events 348 valid True  {"mqtt-ev": 1.0, "twin": 0.9971, "twin_p95_ms": 2960.4}
+q0_sf_norp_restart_s2           82 s  events 372 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 2084.4}
+q0_sf_norp_restart_s3           82 s  events 359 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 2750.6}
+q1_sf_norp_restart_s1           82 s  events 348 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 3120.5}
+q1_sf_norp_restart_s2           82 s  events 372 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 2077.2}
+q1_sf_norp_restart_s3           82 s  events 359 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 2770.6}
+q2_sf_norp_restart_s1           82 s  events 348 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 3144.9}
+q2_sf_norp_restart_s2           82 s  events 372 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 2087.0}
+q2_sf_norp_restart_s3           82 s  events 359 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 2803.3}
+q1_sf_rp_restart_s1             82 s  events 348 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 3128.8}
+q1_sf_rp_restart_s2             82 s  events 372 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 2090.3}
+q1_sf_rp_restart_s3             82 s  events 359 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 2792.3}
+q0_sf_rp_restart_s1             82 s  events 348 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 3111.8}
+q0_sf_rp_restart_s2             82 s  events 372 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 2076.1}
+q0_sf_rp_restart_s3             82 s  events 359 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 2780.2}
+plain_s1                        82 s  events 348 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 101.6}
+plain_s2                        82 s  events 372 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 101.5}
+plain_s3                        82 s  events 359 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 103.1}
+sec_s1                          94 s  events 348 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 99.5}
+sec_s2                          94 s  events 372 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 102.1}
+sec_s3                          94 s  events 359 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 106.6}
+plain_s1                        82 s  events 348 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 104.2}
+plain_s2                        82 s  events 372 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 107.4}
+plain_s3                        82 s  events 359 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 102.9}
+sec_s1                          94 s  events 348 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 101.0}
+sec_s2                          94 s  events 372 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 101.2}
+sec_s3                          94 s  events 359 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 102.5}
+single_n21_s1                   82 s  events 348 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 104.0}
+single_n21_s2                   82 s  events 372 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 101.0}
+single_n21_s3                   82 s  events 359 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 107.9}
+single_n50_s1                   85 s  events 869 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 103.9}
+single_n50_s2                   85 s  events 860 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 102.0}
+single_n50_s3                   85 s  events 885 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 103.0}
+single_n100_s1                  91 s  events 1685 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 103.0}
+single_n100_s2                  91 s  events 1659 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 103.4}
+single_n100_s3                  91 s  events 1710 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 100.7}
+perdev_n21_s1                  138 s  events 348 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 99.1}
+perdev_n21_s2                  139 s  events 372 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 99.5}
+perdev_n21_s3                  138 s  events 359 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 101.7}
+perdev_n50_s1                  212 s  events 869 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 104.5}
+perdev_n50_s2                  212 s  events 860 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 103.9}
+perdev_n50_s3                  213 s  events 885 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 97.8}
+perdev_n100_s1                 337 s  events 1685 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 104.6}
+perdev_n100_s2                 340 s  events 1659 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 103.0}
+perdev_n100_s3                 341 s  events 1710 valid True  {"mqtt-ev": 1.0, "twin": 1.0, "twin_p95_ms": 103.2}

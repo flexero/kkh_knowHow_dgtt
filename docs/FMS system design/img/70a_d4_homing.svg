@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>D4 - Resetting runs a homing sequence: Idle means 'ready AND in a known position'</title>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">D4 - Resetting runs a homing sequence: Idle means 'ready AND in a known position'</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Abort and Stop never move a device - they only switch outputs to the fail-safe value. Resetting is the one place where the module returns to the home position (with checks).</text>
+<rect x="80" y="100" width="120" height="56" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="140.0" y="132.33333333333334" font-size="14" text-anchor="middle" font-weight="bold" fill="#1f5fa8">H10</text>
+<text x="230" y="124" font-size="13" text-anchor="start" font-weight="bold" fill="#111">all device commands = home command</text>
+<text x="230" y="144" font-size="11" text-anchor="start" fill="#111">Rotate -&gt; A (xCmdB FALSE), Clamp -&gt; spring (clamped)</text>
+<polyline points="140,156 140,190" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="140,190 144.00,181.00 136.00,181.00" fill="#111"/>
+<rect x="80" y="190" width="120" height="56" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="140.0" y="222.33333333333334" font-size="14" text-anchor="middle" font-weight="bold" fill="#1f5fa8">H20</text>
+<text x="230" y="214" font-size="13" text-anchor="start" font-weight="bold" fill="#111">motion allowed?</text>
+<text x="230" y="234" font-size="11" text-anchor="start" fill="#111">safety OK (F-status), guards closed, no class A alarm</text>
+<polyline points="140,246 140,280" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="140,280 144.00,271.00 136.00,271.00" fill="#111"/>
+<rect x="80" y="280" width="120" height="56" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="140.0" y="312.3333333333333" font-size="14" text-anchor="middle" font-weight="bold" fill="#1f5fa8">H30</text>
+<text x="230" y="304" font-size="13" text-anchor="start" font-weight="bold" fill="#111">drive devices home</text>
+<text x="230" y="324" font-size="11" text-anchor="start" fill="#111">each FB must report home (xAtA / stopped / not busy) within its timeout</text>
+<polyline points="140,336 140,370" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="140,370 144.00,361.00 136.00,361.00" fill="#111"/>
+<rect x="80" y="370" width="120" height="56" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="140.0" y="402.3333333333333" font-size="14" text-anchor="middle" font-weight="bold" fill="#1f5fa8">H40</text>
+<text x="230" y="394" font-size="13" text-anchor="start" font-weight="bold" fill="#111">check</text>
+<text x="230" y="414" font-size="11" text-anchor="start" fill="#111">no active class A or B alarm, all devices home, F-program OK</text>
+<polyline points="140,426 140,460" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="140,460 144.00,451.00 136.00,451.00" fill="#111"/>
+<rect x="80" y="460" width="120" height="56" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="140.0" y="492.3333333333333" font-size="14" text-anchor="middle" font-weight="bold" fill="#1f5fa8">SC</text>
+<text x="230" y="484" font-size="13" text-anchor="start" font-weight="bold" fill="#111">state complete -&gt; Idle</text>
+<text x="230" y="504" font-size="11" text-anchor="start" fill="#111">Ready bit (word 4 bit0)</text>
+<rect x="780" y="190" width="360" height="90" rx="8" fill="#fef9e7" stroke="#b7950b" stroke-width="1.5"/>
+<text x="960.0" y="217.66666666666666" font-size="12" text-anchor="middle" font-weight="bold" fill="#7d6608">motion NOT allowed</text>
+<text x="960.0" y="231.66666666666666" font-size="11" text-anchor="middle" fill="#111">(door open, safety not OK)</text>
+<text x="960.0" y="245.66666666666666" font-size="11" text-anchor="middle" fill="#111">alarm 2001 'not in home position', class B</text>
+<text x="960.0" y="259.66666666666663" font-size="11" text-anchor="middle" fill="#111">stay in Resetting until homed / Stop / Abort</text>
+<polyline points="560,218 780,235" fill="none" stroke="#b7950b" stroke-width="1.5"/>
+<polygon points="780,235 771.33,230.32 770.72,238.29" fill="#b7950b"/>
+<text x="660" y="214" font-size="11" text-anchor="middle" fill="#111">no</text>
+<rect x="780" y="320" width="360" height="70" rx="8" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="960.0" y="344.6666666666667" font-size="12" text-anchor="middle" font-weight="bold" fill="#c0392b">device timeout</text>
+<text x="960.0" y="358.6666666666667" font-size="11" text-anchor="middle" fill="#111">device alarm (e.g. 2011 class A)</text>
+<text x="960.0" y="372.6666666666667" font-size="11" text-anchor="middle" fill="#111">-&gt; internal Abort</text>
+<polyline points="600,318 780,355" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="780,355 771.99,349.27 770.38,357.11" fill="#c0392b"/>
+<text x="80" y="570" font-size="11" text-anchor="start" fill="#555">Item 9 scenarios B and E ended in Idle with the rotation half-way (fixed-time Resetting). With homing the next Start always begins at a known end position.</text>
+</svg>

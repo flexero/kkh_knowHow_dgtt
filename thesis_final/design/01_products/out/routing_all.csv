@@ -1,0 +1,135 @@
+variant,part,name,qty,op,machine,alt,op_name,cut_s,noncut_s,total_s,load_s,tools,pc_max_kW
+VC20,C01,Crankcase,1,OP10,HMC,,"base side: base face, feet holes, sump/drain",134.41,46.6,181.01,79,4,3.23
+VC20,C01,Crankcase,1,OP20,HMC,,"2 decks + spigots + studs, both bearing seats (B-axis 0/180 deg), covers, breather",356.71,178.2,534.91,79,16,3.23
+VC20,C01,Crankcase,1,OP30,WASH,,"wash, blow, dry (residual dirt <= 2 mg/part, ISO 16232)",45.0,0.0,45.0,0.0,0,0.0
+VC20,C01,Crankcase,1,OP40,CMM,,CMM 1 of 20 + first/last of each shift,45.0,0.0,45.0,0.0,0,0.0
+VC20,C02,Rear bearing cover,1,OP10,VMC,,"face, spigot, 6 bolt holes",51.21,31.5,82.71,43,3,2.21
+VC20,C02,Rear bearing cover,1,OP20,VMC,,outer face,22.11,15.5,37.61,43,1,2.21
+VC20,C03,Front cover with oil seal seat and sight glass,1,OP10,VMC,,"inner face, spigot, seal bore, holes",83.3,53.5,136.8,43,7,2.7
+VC20,C03,Front cover with oil seal seat and sight glass,1,OP20,VMC,,outer face,36.65,15.5,52.15,43,1,2.21
+VC20,C04,Cylinder (finned),2,OP10,VMC,,"bottom face, spigot, rough+semi-finish bore 69.94",142.27,32.0,174.27,43,4,3.23
+VC20,C04,Cylinder (finned),2,OP20,VMC,,"top face, 4 stud holes through",48.74,24.0,72.74,43,2,3.23
+VC20,C04,Cylinder (finned),2,OP30,HONE,,honing 69.94 -> 70.015 rough + plateau,65.0,4.0,69.0,43,1,0.0
+VC20,C04,Cylinder (finned),2,OP40,WASH,,wash,10.0,0.0,10.0,0.0,0,0.0
+VC20,C05,Cylinder head,2,OP10,VMC,,"gasket face, partition, stud holes",13.28,24.0,37.28,43,2,2.53
+VC20,C05,Cylinder head,2,OP20,VMC,,"ports: suction G1/2 filter, discharge G3/8",12.09,39.5,51.59,43,5,2.71
+VC20,C06,Valve plate,2,OP10,VMC,,"face side 1, ports, stud holes, retainer taps",97.32,65.0,162.32,43,6,0.94
+VC20,C06,Valve plate,2,OP20,VMC,,"face side 2, valve seat recess",51.66,21.0,72.66,43,2,0.72
+VC20,C06,Valve plate,2,OP30,LAP,,double-disc lapping both faces (batch 24),50.0,0.0,50.0,0.0,0,0.0
+VC20,C06,Valve plate,2,OP40,WASH,,wash,3.33,0.0,3.33,0.0,0,0.0
+VC20,C07,Crankshaft,1,OP10,LATHE,TMILL,face both ends + centre holes (centring machine or lathe),19.8,7.5,27.3,43,2,4.2
+VC20,C07,Crankshaft,1,OP20,TMILL,,"turn journals, pulley end, webs; orbital turning of pin; thread M10; keyway",124.36,34.0,158.36,43,4,4.2
+VC20,C07,Crankshaft,1,OP30,IHARD,,induction harden + temper pin and journals,75.0,0.0,75.0,0.0,0,0.0
+VC20,C07,Crankshaft,1,OP40,GRIND,,grind 2 journals + pulley seat + pin (angular-head/orbital pin grinding),107.0,12.0,119.0,43,1,0.0
+VC20,C07,Crankshaft,1,OP50,BAL,,"dynamic balance with bob weight, drill correction in counterweights",110.0,0.0,110.0,0.0,0,0.0
+VC20,C07,Crankshaft,1,OP60,WASH,,wash,10.0,0.0,10.0,0.0,0,0.0
+VC20,C08,Connecting rod with cap,2,OP10,VMC,,"face both sides (2 setups), saw cap, mill joint faces, bolt holes + threads",29.23,36.0,65.23,43,4,1.69
+VC20,C08,Connecting rod with cap,2,OP20,VMC,,assembled with cap: bore big end and small end,5.55,32.0,37.55,43,4,0.0
+VC20,C08,Connecting rod with cap,2,OP30,WASH,,wash + mass grading,5.0,0.0,5.0,0.0,0,0.0
+VC20,C09,"Flywheel pulley (2 x SPA, fan spokes)",1,OP10,LATHE,TMILL,"side 1: face, bore, OD, groove 1",291.3,14.0,305.3,43,4,4.19
+VC20,C09,"Flywheel pulley (2 x SPA, fan spokes)",1,OP20,LATHE,TMILL,"side 2: face, hub, groove 2",200.72,6.0,206.72,43,2,4.19
+VC20,C09,"Flywheel pulley (2 x SPA, fan spokes)",1,OP30,KEYS,TMILL,keyway 8 JS9 x 3.3 x 40 (slotting),55.0,0.0,55.0,0.0,0,0.0
+VC20,C09,"Flywheel pulley (2 x SPA, fan spokes)",1,OP40,BAL,,"single-plane balance, drill correction in rim",60.0,0.0,60.0,0.0,0,0.0
+VC20,ASSY,product VC20,1,A10,ASSY,,"Crank drive: press bearings on crankshaft (induction heater 80 C), insert into crankcase, fit covers + seal",300,0.0,300.0,0.0,0,0.0
+VC20,ASSY,product VC20,1,A20,ASSY,,"Pistons: pin + circlips + rings onto rods (mass-graded pairs), rods onto pin, torque-angle rod bolts",240,0.0,240.0,0.0,0,0.0
+VC20,ASSY,product VC20,1,A30,ASSY,,"Cylinders: measure deck height, choose base gasket class, fit cylinders over pistons (ring compressor)",220,0.0,220.0,0.0,0,0.0
+VC20,ASSY,product VC20,1,A40,ASSY,,"Valve plates with reeds, gaskets, heads; torque studs crosswise in 3 steps",260,0.0,260.0,0.0,0,0.0
+VC20,ASSY,product VC20,1,A50,ASSY,,"Flywheel pulley, key, bolt; oil fill 0.9 L; filters; manifold",180,0.0,180.0,0.0,0,0.0
+VC20,ASSY,product VC20,1,A60,ASSY,,"Mount pump + motor on tank plate, belts, tension (deflection 6 mm at 30 N), guard",300,0.0,300.0,0.0,0,0.0
+VC20,ASSY,product VC20,1,A70,ASSY,,"Pressure switch, safety valve, check valve, gauges, piping, electrical connection",360,0.0,360.0,0.0,0,0.0
+VC20,ASSY,product VC20,1,T10,TEST,,"Run-in 10 min, leak test 8 bar (soap/ultrasonic), FAD by fill-time method (ISO 1217 Annex C procedure), current, noise, safety-valve check",1500,0.0,1500.0,0.0,0,0.0
+VC20,ASSY,product VC20,1,P10,PAINT,,Touch-up / paint of pump unit (powder coated parts bought),120,0.0,120.0,0.0,0,0.0
+VC20,ASSY,product VC20,1,F10,PACK,,"Final inspection, name plate, manual, packing",300,0.0,300.0,0.0,0,0.0
+RB50,R01,Housing (figure-eight bore),1,OP10,HMC,,"feet face + feet holes + inlet flange face, port and studs",167.8,60.8,228.6,71,5,3.23
+RB50,R01,Housing (figure-eight bore),1,OP20,HMC,,"end face 1 + both bores (rough, semi, finish boring bar) + dowels + taps; B 180: end face 2 + dowels + taps; outlet flange",710.8,152.8,863.6,71,11,3.23
+RB50,R01,Housing (figure-eight bore),1,OP30,WASH,,wash,90.0,0.0,90.0,0.0,0,0.0
+RB50,R01,Housing (figure-eight bore),1,OP40,CMM,,"CMM 1 of 10 (bores, centre distance, end faces)",120.0,0.0,120.0,0.0,0,0.0
+RB50,R02,"Head plate, drive end (floating bearings)",1,OP10,HMC,,"outer face, cover taps",88.88,52.8,141.68,51,3,3.23
+RB50,R02,"Head plate, drive end (floating bearings)",1,OP20,HMC,,"inner face, 2 bearing bores + seal bores, dowels, bolt holes",141.82,90.6,232.42,51,8,3.23
+RB50,R02,"Head plate, drive end (floating bearings)",1,OP30,WASH,,wash,20.0,0.0,20.0,0.0,0,0.0
+RB50,R03,"Head plate, gear end (fixed bearings)",1,OP10,HMC,,"outer face, cover taps",94.27,57.6,151.87,51,3,3.23
+RB50,R03,"Head plate, gear end (fixed bearings)",1,OP20,HMC,,"inner face, 2 bearing bores with shoulders, seal bores, dowels, bolt holes",138.46,90.6,229.06,51,8,3.23
+RB50,R03,"Head plate, gear end (fixed bearings)",1,OP30,WASH,,wash,20.0,0.0,20.0,0.0,0,0.0
+RB50,R04,"Gear cover (oil case, gear end)",1,OP10,VMC,,"flange face, bolt holes, sight glass, filler, drain",72.03,59.5,131.53,43,7,3.28
+RB50,R05,"Drive-end cover (oil case, drive end)",1,OP10,VMC,,"flange face, seal bore, holes",42.37,52.0,94.37,43,6,2.53
+RB50,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP10,LATHE,TMILL,face + centre both ends,16.09,7.5,23.59,43,2,3.74
+RB50,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP20,TMILL,LATHE,"turn tip dia, rotor end faces, journals, seal, gear seat, drive extension, threads M24x1.5; keyway",210.17,35.0,245.17,43,2,3.74
+RB50,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP30,RMILL,,lobe profile 3 lobes: rough (near-net 3 mm) + finish flank line milling,324.42,27.0,351.42,43,1,3.41
+RB50,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP40,GRIND,,"grind journals, gear seat, drive extension",107.0,18.0,125.0,43,1,0.0
+RB50,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP50,BAL,,"two-plane balance G2.5, drill correction in lobe ends",150.0,0.0,150.0,0.0,0,0.0
+RB50,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP60,CMM,,profile check 1 of 10 (CMM scanning),150.0,0.0,150.0,0.0,0,0.0
+RB50,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP10,LATHE,TMILL,face + centre both ends,16.09,7.5,23.59,43,2,3.74
+RB50,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP20,TMILL,LATHE,"turn tip dia, end faces, journals, seals, gear seat, thread",191.69,29.5,221.19,43,1,3.74
+RB50,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP30,RMILL,,lobe profile 3 lobes rough + finish,324.42,27.0,351.42,43,1,3.41
+RB50,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP40,GRIND,,grind journals + gear seat,84.0,12.0,96.0,43,1,0.0
+RB50,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP50,BAL,,two-plane balance G2.5,150.0,0.0,150.0,0.0,0,0.0
+RB50,ASSY,product RB50,1,A10,ASSY,,"Fit seals + bearings into head plates (press), mount drive-end head plate on housing with dowels",360,0.0,360.0,0.0,0,0.0
+RB50,ASSY,product RB50,1,A20,ASSY,,"Insert rotors, mount gear-end head plate, set axial position (end clearance 0.10 gear side, feeler)",420,0.0,420.0,0.0,0,0.0
+RB50,ASSY,product RB50,1,A30,ASSY,,"Mount timing gears on taper elements, set lobe phase (equal clearances 0.20 on both flanks), tighten",600,0.0,600.0,0.0,0,0.0
+RB50,ASSY,product RB50,1,A40,ASSY,,"Lock nuts, oil slingers, covers with sealant, oil fill",300,0.0,300.0,0.0,0,0.0
+RB50,ASSY,product RB50,1,A50,ASSY,,"Package: blower + motor on base frame, pulleys, belts, silencers, valves, guard",540,0.0,540.0,0.0,0,0.0
+RB50,ASSY,product RB50,1,T10,TEST,,"Run-in 15 min, flow + power at 3 pressure points (ISO 1217-type), vibration ISO 10816-3, temperature, noise ISO 2151, oil leak",1800,0.0,1800.0,0.0,0,0.0
+RB50,ASSY,product RB50,1,P10,PAINT,,Paint blower stage (primer + top coat),300,0.0,300.0,0.0,0,0.0
+RB50,ASSY,product RB50,1,F10,PACK,,"Final inspection, name plate, manual, packing",300,0.0,300.0,0.0,0,0.0
+RB100,R01,Housing (figure-eight bore),1,OP10,HMC,,"feet face + feet holes + inlet flange face, port and studs",214.55,60.8,275.35,71,5,3.23
+RB100,R01,Housing (figure-eight bore),1,OP20,HMC,,"end face 1 + both bores (rough, semi, finish boring bar) + dowels + taps; B 180: end face 2 + dowels + taps; outlet flange",980.54,152.8,1133.34,71,11,3.23
+RB100,R01,Housing (figure-eight bore),1,OP30,WASH,,wash,90.0,0.0,90.0,0.0,0,0.0
+RB100,R01,Housing (figure-eight bore),1,OP40,CMM,,"CMM 1 of 10 (bores, centre distance, end faces)",120.0,0.0,120.0,0.0,0,0.0
+RB100,R02,"Head plate, drive end (floating bearings)",1,OP10,HMC,,"outer face, cover taps",88.88,52.8,141.68,51,3,3.23
+RB100,R02,"Head plate, drive end (floating bearings)",1,OP20,HMC,,"inner face, 2 bearing bores + seal bores, dowels, bolt holes",141.82,90.6,232.42,51,8,3.23
+RB100,R02,"Head plate, drive end (floating bearings)",1,OP30,WASH,,wash,20.0,0.0,20.0,0.0,0,0.0
+RB100,R03,"Head plate, gear end (fixed bearings)",1,OP10,HMC,,"outer face, cover taps",94.27,57.6,151.87,51,3,3.23
+RB100,R03,"Head plate, gear end (fixed bearings)",1,OP20,HMC,,"inner face, 2 bearing bores with shoulders, seal bores, dowels, bolt holes",138.46,90.6,229.06,51,8,3.23
+RB100,R03,"Head plate, gear end (fixed bearings)",1,OP30,WASH,,wash,20.0,0.0,20.0,0.0,0,0.0
+RB100,R04,"Gear cover (oil case, gear end)",1,OP10,VMC,,"flange face, bolt holes, sight glass, filler, drain",72.03,59.5,131.53,43,7,3.28
+RB100,R05,"Drive-end cover (oil case, drive end)",1,OP10,VMC,,"flange face, seal bore, holes",42.37,52.0,94.37,43,6,2.53
+RB100,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP10,LATHE,TMILL,face + centre both ends,16.09,7.5,23.59,43,2,3.74
+RB100,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP20,TMILL,LATHE,"turn tip dia, rotor end faces, journals, seal, gear seat, drive extension, threads M24x1.5; keyway",298.59,35.0,333.59,43,2,3.74
+RB100,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP30,RMILL,,lobe profile 3 lobes: rough (near-net 3 mm) + finish flank line milling,540.7,27.0,567.7,43,1,3.41
+RB100,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP40,GRIND,,"grind journals, gear seat, drive extension",107.0,18.0,125.0,43,1,0.0
+RB100,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP50,BAL,,"two-plane balance G2.5, drill correction in lobe ends",150.0,0.0,150.0,0.0,0,0.0
+RB100,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP60,CMM,,profile check 1 of 10 (CMM scanning),150.0,0.0,150.0,0.0,0,0.0
+RB100,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP10,LATHE,TMILL,face + centre both ends,16.09,7.5,23.59,43,2,3.74
+RB100,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP20,TMILL,LATHE,"turn tip dia, end faces, journals, seals, gear seat, thread",280.11,29.5,309.61,43,1,3.74
+RB100,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP30,RMILL,,lobe profile 3 lobes rough + finish,540.7,27.0,567.7,43,1,3.41
+RB100,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP40,GRIND,,grind journals + gear seat,84.0,12.0,96.0,43,1,0.0
+RB100,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP50,BAL,,two-plane balance G2.5,150.0,0.0,150.0,0.0,0,0.0
+RB100,ASSY,product RB100,1,A10,ASSY,,"Fit seals + bearings into head plates (press), mount drive-end head plate on housing with dowels",360,0.0,360.0,0.0,0,0.0
+RB100,ASSY,product RB100,1,A20,ASSY,,"Insert rotors, mount gear-end head plate, set axial position (end clearance 0.10 gear side, feeler)",420,0.0,420.0,0.0,0,0.0
+RB100,ASSY,product RB100,1,A30,ASSY,,"Mount timing gears on taper elements, set lobe phase (equal clearances 0.20 on both flanks), tighten",600,0.0,600.0,0.0,0,0.0
+RB100,ASSY,product RB100,1,A40,ASSY,,"Lock nuts, oil slingers, covers with sealant, oil fill",300,0.0,300.0,0.0,0,0.0
+RB100,ASSY,product RB100,1,A50,ASSY,,"Package: blower + motor on base frame, pulleys, belts, silencers, valves, guard",540,0.0,540.0,0.0,0,0.0
+RB100,ASSY,product RB100,1,T10,TEST,,"Run-in 15 min, flow + power at 3 pressure points (ISO 1217-type), vibration ISO 10816-3, temperature, noise ISO 2151, oil leak",1800,0.0,1800.0,0.0,0,0.0
+RB100,ASSY,product RB100,1,P10,PAINT,,Paint blower stage (primer + top coat),300,0.0,300.0,0.0,0,0.0
+RB100,ASSY,product RB100,1,F10,PACK,,"Final inspection, name plate, manual, packing",300,0.0,300.0,0.0,0,0.0
+RB150,R01,Housing (figure-eight bore),1,OP10,HMC,,"feet face + feet holes + inlet flange face, port and studs",261.3,60.8,322.1,71,5,3.23
+RB150,R01,Housing (figure-eight bore),1,OP20,HMC,,"end face 1 + both bores (rough, semi, finish boring bar) + dowels + taps; B 180: end face 2 + dowels + taps; outlet flange",1250.29,152.8,1403.09,71,11,3.23
+RB150,R01,Housing (figure-eight bore),1,OP30,WASH,,wash,90.0,0.0,90.0,0.0,0,0.0
+RB150,R01,Housing (figure-eight bore),1,OP40,CMM,,"CMM 1 of 10 (bores, centre distance, end faces)",120.0,0.0,120.0,0.0,0,0.0
+RB150,R02,"Head plate, drive end (floating bearings)",1,OP10,HMC,,"outer face, cover taps",88.88,52.8,141.68,51,3,3.23
+RB150,R02,"Head plate, drive end (floating bearings)",1,OP20,HMC,,"inner face, 2 bearing bores + seal bores, dowels, bolt holes",141.82,90.6,232.42,51,8,3.23
+RB150,R02,"Head plate, drive end (floating bearings)",1,OP30,WASH,,wash,20.0,0.0,20.0,0.0,0,0.0
+RB150,R03,"Head plate, gear end (fixed bearings)",1,OP10,HMC,,"outer face, cover taps",94.27,57.6,151.87,51,3,3.23
+RB150,R03,"Head plate, gear end (fixed bearings)",1,OP20,HMC,,"inner face, 2 bearing bores with shoulders, seal bores, dowels, bolt holes",138.46,90.6,229.06,51,8,3.23
+RB150,R03,"Head plate, gear end (fixed bearings)",1,OP30,WASH,,wash,20.0,0.0,20.0,0.0,0,0.0
+RB150,R04,"Gear cover (oil case, gear end)",1,OP10,VMC,,"flange face, bolt holes, sight glass, filler, drain",72.03,59.5,131.53,43,7,3.28
+RB150,R05,"Drive-end cover (oil case, drive end)",1,OP10,VMC,,"flange face, seal bore, holes",42.37,52.0,94.37,43,6,2.53
+RB150,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP10,LATHE,TMILL,face + centre both ends,16.09,7.5,23.59,43,2,3.74
+RB150,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP20,TMILL,LATHE,"turn tip dia, rotor end faces, journals, seal, gear seat, drive extension, threads M24x1.5; keyway",387.01,35.0,422.01,43,2,3.74
+RB150,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP30,RMILL,,lobe profile 3 lobes: rough (near-net 3 mm) + finish flank line milling,865.11,27.0,892.11,43,1,3.41
+RB150,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP40,GRIND,,"grind journals, gear seat, drive extension",107.0,18.0,125.0,43,1,0.0
+RB150,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP50,BAL,,"two-plane balance G2.5, drill correction in lobe ends",150.0,0.0,150.0,0.0,0,0.0
+RB150,R06,"Rotor, drive (tri-lobe, integral shafts, drive extension)",1,OP60,CMM,,profile check 1 of 10 (CMM scanning),150.0,0.0,150.0,0.0,0,0.0
+RB150,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP10,LATHE,TMILL,face + centre both ends,16.09,7.5,23.59,43,2,3.74
+RB150,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP20,TMILL,LATHE,"turn tip dia, end faces, journals, seals, gear seat, thread",368.53,29.5,398.03,43,1,3.74
+RB150,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP30,RMILL,,lobe profile 3 lobes rough + finish,865.11,27.0,892.11,43,1,3.41
+RB150,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP40,GRIND,,grind journals + gear seat,84.0,12.0,96.0,43,1,0.0
+RB150,R07,"Rotor, driven (tri-lobe, integral shafts)",1,OP50,BAL,,two-plane balance G2.5,150.0,0.0,150.0,0.0,0,0.0
+RB150,ASSY,product RB150,1,A10,ASSY,,"Fit seals + bearings into head plates (press), mount drive-end head plate on housing with dowels",360,0.0,360.0,0.0,0,0.0
+RB150,ASSY,product RB150,1,A20,ASSY,,"Insert rotors, mount gear-end head plate, set axial position (end clearance 0.10 gear side, feeler)",420,0.0,420.0,0.0,0,0.0
+RB150,ASSY,product RB150,1,A30,ASSY,,"Mount timing gears on taper elements, set lobe phase (equal clearances 0.20 on both flanks), tighten",600,0.0,600.0,0.0,0,0.0
+RB150,ASSY,product RB150,1,A40,ASSY,,"Lock nuts, oil slingers, covers with sealant, oil fill",300,0.0,300.0,0.0,0,0.0
+RB150,ASSY,product RB150,1,A50,ASSY,,"Package: blower + motor on base frame, pulleys, belts, silencers, valves, guard",540,0.0,540.0,0.0,0,0.0
+RB150,ASSY,product RB150,1,T10,TEST,,"Run-in 15 min, flow + power at 3 pressure points (ISO 1217-type), vibration ISO 10816-3, temperature, noise ISO 2151, oil leak",1800,0.0,1800.0,0.0,0,0.0
+RB150,ASSY,product RB150,1,P10,PAINT,,Paint blower stage (primer + top coat),300,0.0,300.0,0.0,0,0.0
+RB150,ASSY,product RB150,1,F10,PACK,,"Final inspection, name plate, manual, packing",300,0.0,300.0,0.0,0,0.0

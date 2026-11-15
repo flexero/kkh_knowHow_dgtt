@@ -206,7 +206,7 @@ measures the *architecture and gateway* — capacity, latency, loss, reconstruct
 ### 5.7.2 Results
 
 **Table 5.3** Measurement results, 60 s per run, 36-register FC03 polls [measured; PLC timing emulated].
-| $N$ | Polling | $P$ [s] | $t_{scan}$ [ms] | Cycle mean / p95 [ms] | Achieved rate [Hz] | RTT median / p99 [ms] | Events | State-only: changes reported | Event block: loss | Latency mean / p95 / max [s] |
+| $N$ | Polling | $P$ [s] | $t_{scan}$ [ms] | Cycle mean / p95 [ms] | Achieved rate [Hz] (1 / cycle) | RTT median / p99 [ms] | Events | State-only: changes reported | Event block: loss | Latency mean / p95 / max [s] |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 10 | sequential | 1.0 | 10 | 66.4 / 84.5 | 1.00 | 6.97 / 11.50 | 148 | 70.3 % | 0.00 % | 0.54 / 0.96 / 1.02 |
 | 10 | parallel | 1.0 | 10 | 10.8 / 12.0 | 1.00 | 6.57 / 11.57 | 148 | 70.9 % | 0.00 % | 0.54 / 0.94 / 1.01 |
@@ -240,12 +240,14 @@ resolution (Section 5.8). State-only polling of the same data reported only 63�
 - *Sequential capacity (Eq. 5.4).* The measured RTT (median 6.5 ms; the mean is slightly higher because sleeps
   overshoot by about 0.5 ms) gives cycle times of 261 ms for 40 machines and 1 046 ms for 160 machines, against 242 ms
   and 968 ms predicted with $\mathbb{E}[\mathrm{RTT}] = 6.05$ ms. With 160 machines the sequential gateway can no longer
-  hold $P$ = 1 s (achieved 0.96 Hz), and with $t_{scan}$ = 20 ms it falls to 0.54 Hz (cycle 1 846 ms; predicted
+  hold $P$ = 1 s (achieved rate 0.96 Hz, calculated as the inverse of the measured cycle time), and with
+  $t_{scan}$ = 20 ms it falls to 0.54 Hz (cycle 1 846 ms; predicted
   1 768 ms) — exactly the limit of Eq. (5.4).
 - *Parallel polling.* The parallel gateway polls 160 machines in 14 ms (24 ms with $t_{scan}$ = 20 ms), i.e. in about
   one maximal PLC response time. It holds 4 Hz for 160 machines and 10 Hz with instantly answering devices (3.5 ms
-  cycle). The gateway's own cost is about 0.04 ms per request on this PC: 6.7 ms for 160 sequential requests to devices
-  that answer instantly. The raw loopback RTT is 0.014 ms and does not depend on the number of registers between 1 and
+  cycle). An upper bound for the gateway's own cost is about 0.04 ms per request on this PC: 6.7 ms for 160 sequential
+  requests to devices that answer instantly. A later replication with 5 seeds (companion paper 3) measured 13.0 ms
+  for 160 devices with the parallel gateway, i.e. about 0.013 ms per request [measured]. The raw loopback RTT is 0.014 ms and does not depend on the number of registers between 1 and
   125 (`comm_rtt.json`).
 - *Latency (Eq. 5.5).* Mean latencies of 0.51–0.54 s at $P$ = 1 s and 0.13–0.14 s at 0.25 s match
   $P_{eff}/2 + \mathrm{RTT}$. The maximum equals $P_{eff} + \mathrm{RTT}_{max}$: 1.01–1.12 s at $P$ = 1 s, and 2.04 s for

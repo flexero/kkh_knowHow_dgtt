@@ -1,0 +1,13 @@
+{
+  "name": "M5 pinion z 19 (integral pinion shaft), case hardened and ground (worked example chapter 8)",
+  "z": 19,
+  "x": 0.25,
+  "hand": "left",
+  "hob_hand": "left",
+  "hob_da0": 56.0,
+  "hob_z0": 2,
+  "hob_gashes": 14,
+  "batch": 400,
+  "annual": 4000,
+  "grade_required": 6
+}

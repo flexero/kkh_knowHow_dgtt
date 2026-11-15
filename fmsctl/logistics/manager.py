@@ -31,7 +31,12 @@ from fmsctl.spec import plant
 
 DEVICES = ['AGV-01', 'AGV-02', 'ASRS-RAW', 'ASRS-FG']
 ASRS_IO = {'ASRS-RAW': 1, 'ASRS-FG': 8}
-LAYOUT = {'ASRS-RAW': (28, 7), 'ASRS-FG': (28, 5)}                     # bays × levels (× 2 sides); FG 5 levels (config)
+# bays (= crate columns) × levels (× 2 sides). ASRS-RAW = final thesis item F3: ONE aisle with zone KIT (columns 1-10,
+# machined parts, near the I/O) and zone RAW (columns 11-38, castings), 38 × 10 × 2 = 760 locations
+# (thesis_final/design/03_asrs). ASRS-FG = optional finished-goods store of the earlier design - NOT in the final F2
+# layout (finished goods go to block storage SHP); kept because the documented FG flow and its tests use it.
+LAYOUT = {'ASRS-RAW': (38, 10), 'ASRS-FG': (28, 5)}
+ZONE_KIT_COLS = 10                                                      # ASRS-RAW columns 1..10 = zone KIT
 BAYS, LEVELS = LAYOUT['ASRS-RAW']
 CHARGERS = [9, 10]
 LOW_BATTERY, CHARGED = 25, 95
@@ -68,11 +73,10 @@ class Logistics:
         self.live = {i: {'online': False} for i in DEVICES}
         self.fails = {i: 0 for i in DEVICES}
         self.timeout_alarmed = set()
-        if not self.db.q('SELECT asrs FROM loc LIMIT 1'):
-            with self.db.lock:
-                self.db.c.executemany('INSERT INTO loc (asrs, bay, level, side) VALUES (?,?,?,?)',
-                                      [(a, b, l, s) for a, (nb, nl) in LAYOUT.items()
-                                       for b in range(1, nb + 1) for l in range(1, nl + 1) for s in (1, 2)])
+        with self.db.lock:                                  # INSERT OR IGNORE: an older database (28 × 7) gets the new locations
+            self.db.c.executemany('INSERT OR IGNORE INTO loc (asrs, bay, level, side) VALUES (?,?,?,?)',
+                                  [(a, b, l, s) for a, (nb, nl) in LAYOUT.items()
+                                   for b in range(1, nb + 1) for l in range(1, nl + 1) for s in (1, 2)])
         for v in BOX:
             self.db.x('INSERT OR IGNORE INTO buffer (variant) VALUES (?)', (v,))
         self.hu_seq = self.db.get('hu_seq', 1000)

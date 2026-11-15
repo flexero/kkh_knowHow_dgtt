@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="Arial, Helvetica, sans-serif">
+<title>24 V distribution of the M03 cabinet: PSU 5 A, ECB channels, PELV earthing</title>
+<rect x="0" y="0" width="1200" height="560" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">24 V distribution of the M03 cabinet: PSU 5 A, ECB channels, PELV earthing</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Library current 3.02 A × 1.25 = 3.775 A → PSU 5 A. Channel split and ECB ratings are scratch values (B8.2), not library rules.</text>
+<rect x="40" y="110" width="170" height="110" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="125" y="128" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">-TB1 PSU</text>
+<text x="125" y="144" font-size="11" text-anchor="middle" fill="#111">400 V AC in</text>
+<text x="125" y="160" font-size="11" text-anchor="middle" fill="#111">24 V DC 5 A</text>
+<text x="125" y="176" font-size="11" text-anchor="middle" fill="#111">loss 10.4 W</text>
+<text x="125" y="192" font-size="11" text-anchor="middle" fill="#111">DC OK → DI (opt.)</text>
+<line x1="210" y1="140" x2="320" y2="140" stroke="#c0392b" stroke-width="3"/>
+<text x="230" y="132" font-size="11" text-anchor="start" fill="#c0392b">+24 V</text>
+<line x1="210" y1="200" x2="1140" y2="200" stroke="#111" stroke-width="2.5"/>
+<text x="230" y="218" font-size="11" text-anchor="start" fill="#111">0 V</text>
+<line x1="270" y1="200" x2="270" y2="270" stroke="#4a8a3a" stroke-width="2"/>
+<rect x="250" y="270" width="40" height="16" rx="0" fill="#fff" stroke="#4a8a3a" stroke-width="1.5"/>
+<text x="300" y="283" font-size="11" text-anchor="start" fill="#111">removable 0 V – PE link (one point, PELV)</text>
+<line x1="320" y1="100" x2="320" y2="470" stroke="#c0392b" stroke-width="4"/>
+<line x1="320" y1="110" x2="420" y2="110" stroke="#c0392b" stroke-width="2"/>
+<rect x="420" y="95" width="100" height="30" rx="0" fill="#fbeaea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="470" y="115" font-size="11" text-anchor="middle" fill="#c0392b">ECB 1 A</text>
+<line x1="520" y1="110" x2="600" y2="110" stroke="#c0392b" stroke-width="2"/>
+<text x="610" y="107" font-size="12" text-anchor="start" font-weight="bold" fill="#111">ch1 logic 0.60 A</text>
+<text x="610" y="124" font-size="11" text-anchor="start" fill="#111">IO station: bus interface + 6 cards (0.3 + 0.05 × 6)</text>
+<line x1="320" y1="200" x2="420" y2="200" stroke="#c0392b" stroke-width="2"/>
+<rect x="420" y="185" width="100" height="30" rx="0" fill="#fbeaea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="470" y="205" font-size="11" text-anchor="middle" fill="#c0392b">ECB 1 A</text>
+<line x1="520" y1="200" x2="600" y2="200" stroke="#c0392b" stroke-width="2"/>
+<text x="610" y="197" font-size="12" text-anchor="start" font-weight="bold" fill="#111">ch2 sensors 0.42 A</text>
+<text x="610" y="214" font-size="11" text-anchor="start" fill="#111">4 × SENSOR 0.03 + DOOR_LOCK electronics 0.3</text>
+<line x1="320" y1="290" x2="420" y2="290" stroke="#c0392b" stroke-width="2"/>
+<rect x="420" y="275" width="100" height="30" rx="0" fill="#fbeaea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="470" y="295" font-size="11" text-anchor="middle" fill="#c0392b">ECB 1 A</text>
+<line x1="520" y1="290" x2="600" y2="290" stroke="#c0392b" stroke-width="2"/>
+<text x="610" y="287" font-size="12" text-anchor="start" font-weight="bold" fill="#111">ch3 actuators 0.20 A</text>
+<text x="610" y="304" font-size="11" text-anchor="start" fill="#111">SIGNAL_TOWER 0.2</text>
+<line x1="320" y1="380" x2="420" y2="380" stroke="#c0392b" stroke-width="2"/>
+<rect x="420" y="365" width="100" height="30" rx="0" fill="#fbeaea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="470" y="385" font-size="11" text-anchor="middle" fill="#c0392b">ECB 3 A</text>
+<line x1="520" y1="380" x2="600" y2="380" stroke="#c0392b" stroke-width="2"/>
+<text x="610" y="377" font-size="12" text-anchor="start" font-weight="bold" fill="#111">ch4 drives / safety 1.80 A</text>
+<text x="610" y="394" font-size="11" text-anchor="start" fill="#111">3 × VFD_STO 0.5 (STO + control board) + CONT_PAIR_EDM coils 0.3</text>
+<rect x="600" y="470" width="540" height="40" rx="0" fill="#f2f2f2" stroke="#666" stroke-width="1.5"/>
+<text x="615" y="495" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Σ 0.60 + 0.42 + 0.20 + 1.80 = 3.02 A = library value (B0.11)</text>
+<text x="24" y="546" font-size="11" text-anchor="start" fill="#666">Teaching example – not for construction. Real circuits: qualified engineers, IEC 60204-1, ISO 13849, maker data.</text>
+</svg>

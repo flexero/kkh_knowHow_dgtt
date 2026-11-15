@@ -284,7 +284,7 @@ def main(argv):
         import os, subprocess
         here = os.path.dirname(os.path.abspath(__file__))
         bad = 0
-        for m in ("dm_toolkit", "dm_req", "dm_embody", "dm_strength", "dm_opt", "crank", "fourbar", "shaft"):
+        for m in ("dm_toolkit", "dm_req", "dm_embody", "dm_strength", "dm_opt", "crank", "fourbar", "shaft", "bearing", "gear", "bevel", "worm", "gearmfg", "cam", "bolt", "spring", "drive", "tol", "weld", "vessel", "optflow"):
             r = subprocess.run([sys.executable, "-I", os.path.join(here, m + ".py"), "selftest"],
                                capture_output=True, text=True)
             last = (r.stdout.strip().splitlines() or ["no output"])[-1]

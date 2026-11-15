@@ -1,0 +1,332 @@
+{
+ "_note": "Final thesis item F2 - production programme and FMS design data. Programme = Kenzo's default (2026-11-15, editable). Machine prices, areas, power = REFERENCE ESTIMATES (European/Asian mid-range list prices 2025-26, +-30 %), to be replaced by quotations. Tool: fms_design.py. Guide: Doctor paper/59_final_fms_design.md.",
+ "version": "F2.0 (2026-11-15)",
+ "programme": {
+  "H_month": 330,
+  "_H_note": "productive hours per month: 2 shifts x 7.5 h x 22 days = 330 h (thesis assumption)",
+  "demand_month": {
+   "VC20": 3000,
+   "RB50": 140,
+   "RB100": 180,
+   "RB150": 80
+  },
+  "_demand_note": "RB 400/month split 35/45/20 %",
+  "ramp": [
+   0.4,
+   0.6,
+   0.8,
+   1.0
+  ],
+  "lot": {
+   "VC20": 150,
+   "RB50": 35,
+   "RB100": 45,
+   "RB150": 20
+  },
+  "_lot_note": "production lot = about 1 day VC20, about 1 week per RB variant (sets the number of set-ups)",
+  "u_max": 0.9,
+  "_u_note": "planning ceiling on top of OEE: load <= machines x H x OEE x u_max (queueing reserve)",
+  "price": {
+   "VC20": 1450,
+   "RB50": 1100,
+   "RB100": 1500,
+   "RB150": 2000
+  },
+  "material_EUR": {
+   "VC20": 900,
+   "RB50": 560,
+   "RB100": 760,
+   "RB150": 1000
+  },
+  "_material_note": "castings + forgings + bought parts + tank/motor + packing + consumables + tools + energy per unit, REFERENCE ESTIMATE (VC20: tank 300 L ~200, motor 3 kW ~170, castings 48 kg ~100, pistons/rings/valves/bearings ~90, switch/valves/gauges ~110, drive ~50, small parts ~30, packing ~40, consumables/tools/energy ~70, scrap 4 %)",
+  "variable_share": 0.12,
+  "_variable_note": "sales, marketing, distribution, freight, warranty, commission as share of price",
+  "fixed_overhead_month": 350000,
+  "_overhead_note": "indirect staff (~80 x 1500), management, engineering, quality, admin, IT, utilities base load, insurance - REFERENCE ESTIMATE",
+  "other_investment": {
+   "load stations, conveyors, assembly line transport (F4)": 450000,
+   "AGV fleet + charging (F5)": 400000,
+   "barcode / RFID system (F6)": 150000,
+   "safety system (F8)": 250000,
+   "control, MES, IT, network (F9)": 400000,
+   "assembly tools, presses, test instruments (F10)": 350000,
+   "utilities: power, air, coolant, chips, foundations (F11)": 900000,
+   "start-up, training, trials (F12)": 300000,
+   "AS/RS one aisle RAW+KIT incl. I/O + pick station (F3 estimate)": 549000
+  },
+  "_other_note": "placeholders until items F3-F12 deliver their own BOM-based cost; REFERENCE ESTIMATES",
+  "working_capital_months": 1.5,
+  "p_target": 0.9,
+  "labour_EUR_h": 9.0,
+  "energy_EUR_kWh": 0.12,
+  "interest": 0.08,
+  "years": 10,
+  "maintenance_share": 0.04
+ },
+ "machines": {
+  "_cols": "price EUR, area m2 (incl. service area, chip conveyor), kW mean electrical, OEE, operators per machine (while running), setup min per lot, department",
+  "HMC": {
+   "price": 380000,
+   "area": 40,
+   "kW": 14,
+   "OEE": 0.85,
+   "op": 0.0,
+   "setup": 0,
+   "dept": "HMC",
+   "min": 2
+  },
+  "VMC": {
+   "price": 110000,
+   "area": 18,
+   "kW": 8,
+   "OEE": 0.8,
+   "op": 0.34,
+   "setup": 20,
+   "dept": "VMC"
+  },
+  "LATHE": {
+   "price": 90000,
+   "area": 14,
+   "kW": 7,
+   "OEE": 0.8,
+   "op": 0.34,
+   "setup": 15,
+   "dept": "ROT"
+  },
+  "TMILL": {
+   "price": 280000,
+   "area": 20,
+   "kW": 10,
+   "OEE": 0.8,
+   "op": 0.5,
+   "setup": 25,
+   "dept": "ROT"
+  },
+  "RMILL": {
+   "price": 450000,
+   "area": 25,
+   "kW": 12,
+   "OEE": 0.8,
+   "op": 0.5,
+   "setup": 30,
+   "dept": "ROT"
+  },
+  "GRIND": {
+   "price": 250000,
+   "area": 18,
+   "kW": 9,
+   "OEE": 0.8,
+   "op": 0.5,
+   "setup": 20,
+   "dept": "ROT"
+  },
+  "IHARD": {
+   "price": 150000,
+   "area": 12,
+   "kW": 25,
+   "OEE": 0.85,
+   "op": 0.25,
+   "setup": 10,
+   "dept": "ROT"
+  },
+  "BAL": {
+   "price": 90000,
+   "area": 8,
+   "kW": 3,
+   "OEE": 0.9,
+   "op": 0.5,
+   "setup": 10,
+   "dept": "ROT"
+  },
+  "KEYS": {
+   "price": 45000,
+   "area": 6,
+   "kW": 3,
+   "OEE": 0.85,
+   "op": 0.25,
+   "setup": 10,
+   "dept": "ROT"
+  },
+  "HONE": {
+   "price": 180000,
+   "area": 12,
+   "kW": 6,
+   "OEE": 0.85,
+   "op": 0.34,
+   "setup": 10,
+   "dept": "FIN"
+  },
+  "LAP": {
+   "price": 120000,
+   "area": 10,
+   "kW": 5,
+   "OEE": 0.85,
+   "op": 0.25,
+   "setup": 0,
+   "dept": "FIN"
+  },
+  "WASH": {
+   "price": 120000,
+   "area": 15,
+   "kW": 18,
+   "OEE": 0.9,
+   "op": 0.0,
+   "setup": 0,
+   "dept": "FIN"
+  },
+  "CMM": {
+   "price": 160000,
+   "area": 20,
+   "kW": 2,
+   "OEE": 0.85,
+   "op": 0.5,
+   "setup": 0,
+   "dept": "QC"
+  },
+  "ASSY": {
+   "price": 25000,
+   "area": 25,
+   "kW": 1,
+   "OEE": 0.85,
+   "op": 1.0,
+   "setup": 0,
+   "dept": "ASY"
+  },
+  "TEST": {
+   "price": 80000,
+   "area": 20,
+   "kW": 6,
+   "OEE": 0.85,
+   "op": 0.5,
+   "setup": 0,
+   "dept": "TST"
+  },
+  "PAINT": {
+   "price": 60000,
+   "area": 60,
+   "kW": 8,
+   "OEE": 0.85,
+   "op": 1.0,
+   "setup": 0,
+   "dept": "PNT"
+  },
+  "PACK": {
+   "price": 30000,
+   "area": 15,
+   "kW": 1,
+   "OEE": 0.85,
+   "op": 1.0,
+   "setup": 0,
+   "dept": "PCK"
+  }
+ },
+ "alt_factor": {
+  "_note": "time on the alternative machine / time on the primary machine (design estimate)",
+  "default": 1.0
+ },
+ "hmc_cell": {
+  "_note": "closed queueing network of the pallet cell: classes = fixture types; one visit = one product unit (tombstone with all faces)",
+  "classes": {
+   "FA": {
+    "products": [
+     "VC20"
+    ],
+    "fixture_EUR": 28000,
+    "parts": "crankcase C01 OP10 + OP20 (one-in-one-out tombstone)"
+   },
+   "FC": {
+    "products": [
+     "RB50",
+     "RB100",
+     "RB150"
+    ],
+    "fixture_EUR": 38000,
+    "parts": "Roots kit R01 + R02 + R03 (housing + head plates on one tombstone)"
+   }
+  },
+  "transport_min_per_visit": 1.0,
+  "_transport_note": "2 moves x 0.5 min (rail shuttle or AGV between rack, load station, HMC)",
+  "load_station_EUR": 45000,
+  "pallet_rack_slot_EUR": 3000,
+  "des": {
+   "hours": 3000,
+   "warmup": 200,
+   "cv_machining": 0.15,
+   "cv_load": 0.4,
+   "seed": 7
+  }
+ },
+ "monte_carlo": {
+  "n": 400,
+  "sigma_time": 0.15,
+  "sigma_demand": 0.1,
+  "seed": 11,
+  "_note": "lognormal time factor per machine type (sigma 0.15 ~ +-25 % at 90 %), normal demand factor"
+ },
+ "layout": {
+  "row_depth_m": 22,
+  "aisle_m": 6,
+  "area_factor": 1.35,
+  "_note": "two rows of departments along a central AGV aisle (spine layout); department width = area*factor/row_depth",
+  "extra_depts": {
+   "RAW": {
+    "area": 420,
+    "name": "AS/RS raw castings + receiving"
+   },
+   "KIT": {
+    "area": 260,
+    "name": "AS/RS finished parts + kitting"
+   },
+   "SHP": {
+    "area": 300,
+    "name": "finished goods + shipping"
+   },
+   "HMC": {
+    "area": 120,
+    "name": "pallet rack + load stations inside the HMC cell"
+   },
+   "BUY": {
+    "area": 450,
+    "name": "bought parts, tanks, motors (incoming)"
+   },
+   "TOOL": {
+    "area": 60,
+    "name": "tool room + presetting"
+   },
+   "MNT": {
+    "area": 100,
+    "name": "maintenance workshop + spare parts"
+   },
+   "CHIP": {
+    "area": 50,
+    "name": "chips, coolant, briquetting"
+   }
+  },
+  "unit_load": {
+   "P-L": 1,
+   "P-M": 4,
+   "P-S": 12,
+   "P-F": 24,
+   "R-E": 6,
+   "R-D": 4,
+   "PRODUCT": 1
+  },
+  "_unit_note": "parts per transport unit (crate / pallet) by family; products move singly on the assembly-test-paint-pack line",
+  "dock_flows": {
+   "RAW": 2250,
+   "BUY": 600,
+   "SHP": 3400
+  },
+  "_dock_note": "truck unit loads per month at the dock wall (castings in foundry pallets, bought parts, finished products)",
+  "anneal": {
+   "iters": 20000,
+   "T0": 2000.0,
+   "seed": 3,
+   "restarts": 6
+  },
+  "dept_alias": {
+   "KIT": "RAW"
+  },
+  "_alias_note": "F3 decision (2026-11-15): one AS/RS aisle stores RAW castings and KIT machined parts at the dock -> department KIT merged into RAW"
+ }
+}

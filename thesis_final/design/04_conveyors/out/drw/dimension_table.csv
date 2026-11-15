@@ -1,0 +1,83 @@
+module,feature,value_mm,tolerance,source
+all,conveyor top (chain top / roller top),700.0,+-2,module_specs
+crate,L x W x H,1200 x 800 x 600,ISO 2768-m,module_specs
+crate,runner width x height,100 x 160,ISO 2768-m,module_specs
+crate,runner positions across the 800 side,-350 / 0 / +350,+-3,module_specs
+CC,zone length,1200,+-1,module_specs
+CC,inside width between frame webs,1310.0,+-2,module_specs
+CC,chain gauge (strand centres),900,+-1,module_specs
+CC,chain,12B-1,-,ISO 606
+CC,sprocket pitch diameter,91.6,-,p/sin(180/z)
+CC,sprocket centres,1020.0,+-0.5,conv_3d
+CC,shaft centre height,646.2,+-0.5,top - h/2 - d0/2
+CC,return strand centre height,600.4,+-1,conv_3d
+CC,drive / idler shaft diameter,30,k6 at bearing,module_specs
+CC,bearing units,UCP206,-,module_specs
+CC,take-up stroke,54,min,module_specs
+CC/RL,side frame C profile h x b x t,160 x 65 x 5,EN 10162,conv_mech_data
+CC/RL,frame top below conveyor top,10,+-1,conv_3d
+CC/RL,"leg 80 x 80, base plate 160 x 160 x 10",80 / 160,ISO 2768-m,conv_3d
+CC,sensor slow-down / stop before zone end,250 / 60,+-5,conv_mech
+RL,zone length,1400,+-1,module_specs
+RL,rollers per zone,9,-,module_specs
+RL,roller pitch,150,+-0.5,module_specs
+RL,roller tube D x t,60 x 2,EN 10305-3,module_specs
+RL,roller length,1000,+-1,module_specs
+RL,roller centre height,670.0,+-0.5,top - D/2
+RL,axle diameter,20,h9,module_specs
+RL,roller sprocket 08B z14 d0,57.1,-,ISO 606
+RCX,zone length (between the TU1 / TU2 frames),1340.0,+-1,conv_3d
+RL,gear motor kW / ratio,0.12 / 22,-,module_specs
+TU,zone length,1200,+-1,module_specs
+TU,rollers (axis x) / pitch along y,8 / 150,+-0.5,module_specs
+TU,roller length (clear of chain shafts),960.0,+-1,conv_3d
+TU,roller top down,685.0,+-1,top - 15
+TU,roller top up,715.0,+-1,top + 15
+TU,lift stroke,30,+-0.5,module_specs
+TU,eccentricity,15.0,+-0.1,module_specs
+TU,eccentric shafts x position,-300 / +300,+-1,conv_3d
+TU,lift gear motor kW / ratio,0.25 / 70,-,module_specs
+PD_end,guide gap per side,25,+-2,module_specs
+PD_end,lead-in angle,15 deg,+-1 deg,module_specs
+PD_end,AGV gap / height tolerance,30 / +-10,-,module_specs
+front,TU1 / TU2 / TU3 centres x,-6000 / -6000 / -3600,+-5,F4.1
+front,CV1 / CV2 centre line y,-1400 / +1400,+-3,F3 fork pick point
+front,Z31 centre,"x -6000, y 0",+-5,F4.1
+front,chain zone pitch along x,1200,+-2,F4.1
+PD station,AGV gap / guide gap per side,30 / 25,+-2,stations_specs
+PD station,lead-in angle / length,15 deg / 150,+-1 deg,stations_specs
+PD station,AGV deck top,700.0,+-3,F4.3 A (F5 requirement)
+PD station,light-curtain posts y,+-720,+-10,stations_3d
+PD station,optical coupler height,500,+-10,stations_3d
+check TU1,vertical light grids x,+-420,+-2,800/2 + w_lim
+check TU1,horizontal grid height above floor,1320.0,+-2,top + h_lim
+check TU1,grid posts y,+-900,+-5,stations_3d
+check TU1,load cells (4) x / y,+-520 / +-695,+-5,stations_3d
+check TU1,runner sensors x,-350 / +350,+-3,crate runners
+pick Z31,platform height / extent x,300 / -1400..-620,+-5,stations_specs
+pick Z31,bins (8) L x W x H,594 x 396 x 147.5,VDA 4500,stations_3d
+pick Z31,pick-to-light bar height,1800.0,+-10,stations_3d
+flow rack,slope,5.5 %,+-0.1 %,stations_specs
+flow rack,brake roller pitch,1050.0,+-5,stations_specs
+flow rack,lane pitch,1050.0,+-5,ls_data
+flow rack,7 m lane entry / exit roller top,900 / 669,+-3,stations_3d
+HMC station,table top / pallet / tombstone,900 / 500 x 500 / 400 x 400 x 800,+-1,stations_specs
+HMC station,light curtain to shuttle,680.0,min,ISO 13855
+HMC station,jib crane radius / SWL,3000 / 125 kg,-,stations_specs
+HMC station,swing clamp bore,20,-,load_stations E
+ASM carrier,L x W / gauge (RHS 80 x 40),1800 x 800 / 640,+-2,assembly_specs
+ASM carrier,height chain top -> deck top,88.0,+-1,asm_3d
+ASM carrier,locating bushes x,+-700,+-0.2,asm_3d
+ASM carrier,PU bumper stroke,20.0,-,asm_line A
+ASM carrier,VC20 feet / CG / top above chain top,900 x 380 / 578 / 1208,-,assembly_specs
+ASM carrier,RB100 pins / CG / top above chain top,760 x 460 / 418 / 798,+-0.5 pins,assembly_specs
+ASM main line,chain top,500.0,+-2,assembly_specs
+ASM main line,lift-transfer stroke,30.0,+-1,asm_3d
+ASM spur,spur track / strands x,2000 / +-600,+-2,asm_3d
+ASM spur,lift table carrier top range,100 .. 800,-,asm_line B
+ASM spur,pit depth,250.0,+-5,asm_line B
+ASM loop,rectangle / perimeter,44000 x 6000 / 100000,-,asm_3d
+ASM loop,spur pitch along the line (alternating),1300,+-50,asm_3d
+ASM load station,tank rack L x W x H / places,1700 x 1150 x 1150 / 4,-,assembly_specs
+ASM load station,jib radius,3500.0,-,asm_3d
+ASM test spur,hood L x W x H,2200 x 1300 x 1600,-,asm_3d

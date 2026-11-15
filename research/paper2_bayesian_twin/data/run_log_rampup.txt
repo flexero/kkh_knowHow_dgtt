@@ -1,0 +1,7 @@
+main: 100 scenarios, 13200 rows, 2705 s wall time -> C:\Users\Administrator\Pictures\Digitaltwin\research\paper2_bayesian_twin\data\rampup_main.csv
+w0.25: 100 scenarios, 3600 rows, 869 s wall time -> C:\Users\Administrator\Pictures\Digitaltwin\research\paper2_bayesian_twin\data\rampup_w0.25.csv
+w4: 100 scenarios, 3600 rows, 660 s wall time -> C:\Users\Administrator\Pictures\Digitaltwin\research\paper2_bayesian_twin\data\rampup_w4.csv
+tau1: 100 scenarios, 6000 rows, 452 s wall time -> C:\Users\Administrator\Pictures\Digitaltwin\research\paper2_bayesian_twin\data\rampup_tau1.csv
+tau4: 100 scenarios, 6000 rows, 442 s wall time -> C:\Users\Administrator\Pictures\Digitaltwin\research\paper2_bayesian_twin\data\rampup_tau4.csv
+stat: 100 scenarios, 6000 rows, 459 s wall time -> C:\Users\Administrator\Pictures\Digitaltwin\research\paper2_bayesian_twin\data\rampup_stat.csv
+mm: 100 scenarios, 6000 rows, 443 s wall time -> C:\Users\Administrator\Pictures\Digitaltwin\research\paper2_bayesian_twin\data\rampup_mm.csv

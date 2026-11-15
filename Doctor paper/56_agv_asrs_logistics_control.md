@@ -1,5 +1,16 @@
 # 56 – AGV fleet manager, AS/RS warehouse management and material flows (FMS item 4) – textbook and implementation guide
 
+> **Update 2026-11-15 (final thesis item F3, guide 60).**
+> - `ASRS-RAW` in `fmsctl/logistics/manager.py` is now **38 columns × 10 levels × 2 sides = 760 locations**: zone KIT =
+>   columns 1–10, RAW = columns 11–38. It was 28 × 7 = 392.
+> - `ASRS-FG` is kept as an optional store; it is not in the final F2 layout.
+> - Register map V1.2b adds:
+>   - command 32 relocate and command 33 park;
+>   - status registers 304–308 (crane state, detail code, x, z);
+>   - job parameters 405–408 (source location, crate id).
+> - The cycle-time and fleet numbers below belong to the earlier layout. The final values are in guide 60 and in F2 (5 AGVs).
+
+
 **Scope:** item 4 of the FMS control system (`fmsctl/logistics/`): the warehouse management of the two AS/RS (raw material and
 finished goods), the fleet manager of the AGVs, the castings kanban for the crankcase cell and the finished-goods flow of the
 V-type piston compressor factory (VC10 / VC20 / VC30). Company rule: **Ethernet, Modbus TCP and HTTP only, offline PCs, no

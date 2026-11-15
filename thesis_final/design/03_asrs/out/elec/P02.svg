@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="990" viewBox="0 0 1400 990" font-family="Arial">
+<rect width="100%" height="100%" fill="#fff"/>
+<rect x="20" y="20" width="1360" height="950" fill="none" stroke="#000" stroke-width="2"/>
+<line x1="20.0" y1="20" x2="20.0" y2="36" stroke="#000"/>
+<text x="88.0" y="32" font-size="11" text-anchor="middle">0</text>
+<line x1="156.0" y1="20" x2="156.0" y2="36" stroke="#000"/>
+<text x="224.0" y="32" font-size="11" text-anchor="middle">1</text>
+<line x1="292.0" y1="20" x2="292.0" y2="36" stroke="#000"/>
+<text x="360.0" y="32" font-size="11" text-anchor="middle">2</text>
+<line x1="428.0" y1="20" x2="428.0" y2="36" stroke="#000"/>
+<text x="496.0" y="32" font-size="11" text-anchor="middle">3</text>
+<line x1="564.0" y1="20" x2="564.0" y2="36" stroke="#000"/>
+<text x="632.0" y="32" font-size="11" text-anchor="middle">4</text>
+<line x1="700.0" y1="20" x2="700.0" y2="36" stroke="#000"/>
+<text x="768.0" y="32" font-size="11" text-anchor="middle">5</text>
+<line x1="836.0" y1="20" x2="836.0" y2="36" stroke="#000"/>
+<text x="904.0" y="32" font-size="11" text-anchor="middle">6</text>
+<line x1="972.0" y1="20" x2="972.0" y2="36" stroke="#000"/>
+<text x="1040.0" y="32" font-size="11" text-anchor="middle">7</text>
+<line x1="1108.0" y1="20" x2="1108.0" y2="36" stroke="#000"/>
+<text x="1176.0" y="32" font-size="11" text-anchor="middle">8</text>
+<line x1="1244.0" y1="20" x2="1244.0" y2="36" stroke="#000"/>
+<text x="1312.0" y="32" font-size="11" text-anchor="middle">9</text>
+<line x1="20" y1="36" x2="1380" y2="36" stroke="#000"/>
+<rect x="20" y="880" width="1360" height="90" fill="#fafafa" stroke="#000" stroke-width="2"/>
+<line x1="420" y1="880" x2="420" y2="970" stroke="#000"/>
+<line x1="800" y1="880" x2="800" y2="970" stroke="#000"/>
+<line x1="1060" y1="880" x2="1060" y2="970" stroke="#000"/>
+<line x1="1230" y1="880" x2="1230" y2="970" stroke="#000"/>
+<text x="30" y="904" font-size="13" font-weight="bold">=ASRS1  AS/RS one aisle (VC20 + Roots combined FMS)</text>
+<text x="30" y="924" font-size="11">Final thesis item F3 - asrs_elec.py (generated)</text>
+<text x="30" y="946" font-size="11" fill="#b00000" font-weight="bold">DESIGN - to be checked and released by a qualified engineer</text>
+<text x="430" y="910" font-size="14" font-weight="bold">Main power distribution and conductor rail</text>
+<text x="430" y="932" font-size="11">IEC 60617 symbols (simplified), IEC 81346-2 tags, columns = current paths</text>
+<text x="430" y="950" font-size="11">cross-reference: /page.column</text>
+<text x="810" y="910" font-size="11">Standard: IEC 60204-1/-32, ISO 13849-1, EN 528</text>
+<text x="810" y="932" font-size="11">Revision A  2026-11-15</text>
+<text x="1070" y="910" font-size="11">drawn: F3 program</text>
+<text x="1070" y="932" font-size="11">checked: ________</text>
+<text x="1070" y="952" font-size="11">released: ________</text>
+<text x="1240" y="910" font-size="13">page</text>
+<text x="1240" y="946" font-size="26" font-weight="bold">P02</text>
+<text x="1330" y="946" font-size="11">/ P10</text>
+<line x1="64.0" y1="70.0" x2="1360.0" y2="70.0" stroke="#000" stroke-width="2.0"/>
+<text x="58.0" y="74.0" font-size="10" text-anchor="end" font-weight="normal" fill="#000">L1</text>
+<line x1="64.0" y1="88.0" x2="1360.0" y2="88.0" stroke="#000" stroke-width="2.0"/>
+<text x="58.0" y="92.0" font-size="10" text-anchor="end" font-weight="normal" fill="#000">L2</text>
+<line x1="64.0" y1="106.0" x2="1360.0" y2="106.0" stroke="#000" stroke-width="2.0"/>
+<text x="58.0" y="110.0" font-size="10" text-anchor="end" font-weight="normal" fill="#000">L3</text>
+<line x1="64.0" y1="124.0" x2="1360.0" y2="124.0" stroke="#2a8a2a" stroke-width="1.5"/>
+<text x="58.0" y="128.0" font-size="10" text-anchor="end" font-weight="normal" fill="#000">PE</text>
+<text x="70.0" y="62.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">from sub-distribution: -FC0 gG 32 A, -W0001 5G6, 40 m</text>
+<line x1="88.0" y1="124.0" x2="88.0" y2="150.0" stroke="#000" stroke-width="1.5"/>
+<line x1="88.0" y1="150.0" x2="88.0" y2="162.0" stroke="#000" stroke-width="1.5"/>
+<line x1="88.0" y1="162.0" x2="98.0" y2="182.0" stroke="#000" stroke-width="1.5"/>
+<line x1="88.0" y1="184.0" x2="88.0" y2="196.0" stroke="#000" stroke-width="1.5"/>
+<text x="100.0" y="172.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-QB1</text>
+<text x="100.0" y="186.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">main switch 40 A</text>
+<rect x="48.0" y="210.0" width="80.0" height="46.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="53.0" y="225.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-FC1</text>
+<text x="53.0" y="240.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">SPD T2</text>
+<line x1="88.0" y1="196.0" x2="1244.0" y2="196.0" stroke="#000" stroke-width="2.0"/>
+<line x1="319.2" y1="196.0" x2="319.2" y2="260.0" stroke="#000" stroke-width="1.5"/>
+<rect x="313.2" y="260.0" width="12.0" height="30.0" fill="none" stroke="#000" stroke-width="1.5"/>
+<line x1="319.2" y1="252.0" x2="319.2" y2="298.0" stroke="#000" stroke-width="1.5"/>
+<text x="329.2" y="272.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-FC2</text>
+<text x="329.2" y="286.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">MCCB 25 A</text>
+<line x1="319.2" y1="298.0" x2="319.2" y2="330.0" stroke="#000" stroke-width="1.5"/>
+<text x="329.2" y="345.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">crane feeder</text>
+<line x1="632.0" y1="196.0" x2="632.0" y2="260.0" stroke="#000" stroke-width="1.5"/>
+<rect x="626.0" y="260.0" width="12.0" height="30.0" fill="none" stroke="#000" stroke-width="1.5"/>
+<line x1="632.0" y1="252.0" x2="632.0" y2="298.0" stroke="#000" stroke-width="1.5"/>
+<text x="642.0" y="272.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-FC3</text>
+<text x="642.0" y="286.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">MCB C16</text>
+<line x1="632.0" y1="298.0" x2="632.0" y2="330.0" stroke="#000" stroke-width="1.5"/>
+<text x="642.0" y="345.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">conveyors /P09.1</text>
+<line x1="849.6" y1="196.0" x2="849.6" y2="260.0" stroke="#000" stroke-width="1.5"/>
+<rect x="843.6" y="260.0" width="12.0" height="30.0" fill="none" stroke="#000" stroke-width="1.5"/>
+<line x1="849.6" y1="252.0" x2="849.6" y2="298.0" stroke="#000" stroke-width="1.5"/>
+<text x="859.6" y="272.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-FC4</text>
+<text x="859.6" y="286.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">MCB C6</text>
+<line x1="849.6" y1="298.0" x2="849.6" y2="330.0" stroke="#000" stroke-width="1.5"/>
+<text x="859.6" y="345.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">24 V PSU /P06.0</text>
+<line x1="1067.2" y1="196.0" x2="1067.2" y2="260.0" stroke="#000" stroke-width="1.5"/>
+<rect x="1061.2" y="260.0" width="12.0" height="30.0" fill="none" stroke="#000" stroke-width="1.5"/>
+<line x1="1067.2" y1="252.0" x2="1067.2" y2="298.0" stroke="#000" stroke-width="1.5"/>
+<text x="1077.2" y="272.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-FC5</text>
+<text x="1077.2" y="286.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">RCBO 30 mA</text>
+<line x1="1067.2" y1="298.0" x2="1067.2" y2="330.0" stroke="#000" stroke-width="1.5"/>
+<text x="1077.2" y="345.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">aisle light, socket</text>
+<line x1="319.2" y1="360.0" x2="319.2" y2="372.0" stroke="#000" stroke-width="1.5"/>
+<line x1="319.2" y1="372.0" x2="329.2" y2="392.0" stroke="#000" stroke-width="1.5"/>
+<line x1="319.2" y1="394.0" x2="319.2" y2="406.0" stroke="#000" stroke-width="1.5"/>
+<text x="331.2" y="382.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-QA2</text>
+<text x="331.2" y="396.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">crane contactor (F-DQ /P06.6)</text>
+<line x1="319.2" y1="420.0" x2="319.2" y2="432.0" stroke="#000" stroke-width="1.5"/>
+<line x1="319.2" y1="432.0" x2="329.2" y2="452.0" stroke="#000" stroke-width="1.5"/>
+<line x1="319.2" y1="454.0" x2="319.2" y2="466.0" stroke="#000" stroke-width="1.5"/>
+<text x="331.2" y="442.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-QB2</text>
+<text x="331.2" y="456.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">rail isolator (LOTO)</text>
+<line x1="319.2" y1="466.0" x2="319.2" y2="510.0" stroke="#000" stroke-width="1.5"/>
+<rect x="224.0" y="510.0" width="1060.8" height="50.0" fill="#eef4ff" stroke="#000" stroke-width="1.5"/>
+<text x="234.0" y="530.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">-WD1 enclosed conductor rail 40 A, 4-pole + PE (double PE collector), L = 40.7 m, end feed</text>
+<text x="234.0" y="548.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">dU at peak 36.2 A, crane at far end: rail 0.97 % + supply 2.56 % = 3.53 % (limit 5 %)</text>
+<rect x="834.0" y="600.0" width="140.0" height="50.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="839.0" y="615.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-XD10</text>
+<text x="839.0" y="630.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">collector trolley</text>
+<line x1="904.0" y1="560.0" x2="904.0" y2="600.0" stroke="#000" stroke-width="1.5"/>
+<line x1="904.0" y1="650.0" x2="904.0" y2="700.0" stroke="#000" stroke-width="1.5"/>
+<text x="912.0" y="690.0" font-size="10" text-anchor="start" font-weight="normal" fill="#1f4e9a">to crane -QA10 /P03.0</text>
+<text x="60.0" y="760.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Fault loop at far end: Z_s = 0.617 ohm &lt;= 0.8 x U0/I_i = 0.736 ohm (I_i = 250 A); I_k1 = 354 A</text>
+<text x="60.0" y="780.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Design current I_b = 28.9 A (20.0 kVA), peak 44.4 A (30.7 kVA); feeder cable to rail 5G4</text>
+<text x="60.0" y="800.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">-QB2 rail isolator lockable in OFF + lamp 'rail live' -PF59 at the aisle door (/P09); the PE is continuous via two collectors (IEC 60204-32).</text>
+</svg>

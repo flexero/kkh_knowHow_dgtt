@@ -2600,6 +2600,7 @@ offline HMC-03 no longer slows the loop).
 | G16 | **fixed** | rack storage in the free location **nearest** to the load station; rule (c) fetches the **oldest** machined pallet (new column `pallet.since`). |
 | G17 | **partly fixed** | rule (b) feeds the idle HMC that has waited longest (even load). The shuttle position is not used yet. |
 | G18 | **partly fixed** | index on `job(status, device)`; backup and archive still open. |
+| G26 (new, found by SCI paper 5) | **fixed** | with a Modbus time-out of 0.3 s, one slow answer on a busy PC marked a machine OFFLINE (up to 54 false OFFLINE events per run, throughput 30 – 40 % too low). Now: time-out 0.5 s (`MODBUS_TIMEOUT_S`) and OFFLINE only after 3 consecutive failed polls (`OFFLINE_AFTER`); the last values are kept meanwhile. On the real plant set the time-out from the measured round-trip time (FAT) – typically 0.5 – 1 s. |
 | G8 – G12, G14, G19 – G25 | open | as in the table above. |
 
 The throughput, pallet-circulation and HMC-balance figures of chapter 27 should be measured again with the fixed

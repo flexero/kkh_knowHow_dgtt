@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="Arial, Helvetica, sans-serif">
+<title>24 V DC distribution with electronic circuit breaker channels (JSON dc24)</title>
+<rect x="0" y="0" width="1200" height="560" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" fill="#111" font-weight="bold">24 V DC control power – PSU, electronic circuit breakers per channel, PELV earthing</text>
+<text x="24" y="54" font-size="12" fill="#555">Load 5.74 A × reserve 1.25 = 7.175 A → PSU 10 A. Each channel ECB = smallest rating ≥ 1.25 × channel current.</text>
+<g font-size="12" fill="#111">
+<rect x="40" y="110" width="170" height="120" fill="#f4f4f4" stroke="#333" stroke-width="2"/>
+<text x="125" y="140" text-anchor="middle" font-weight="bold">-TA1 PSU</text>
+<text x="125" y="162" text-anchor="middle">3 × 400 V AC in</text>
+<text x="125" y="182" text-anchor="middle">24 V DC 10 A</text>
+<text x="125" y="202" text-anchor="middle">DC OK → PLC</text>
+<line x1="210" y1="140" x2="320" y2="140" stroke="#c0392b" stroke-width="3"/><text x="230" y="132">+24 V</text>
+<line x1="210" y1="210" x2="1140" y2="210" stroke="#1f6fb2" stroke-width="3"/><text x="230" y="228">0 V</text>
+<line x1="270" y1="210" x2="270" y2="290" stroke="#4a8a3a" stroke-width="2.5"/>
+<rect x="250" y="290" width="40" height="18" fill="#fff" stroke="#4a8a3a"/><text x="300" y="304">removable link 0 V – PE (one point, PELV)</text>
+<line x1="320" y1="100" x2="320" y2="180" stroke="#c0392b" stroke-width="5"/>
+</g>
+<g font-size="12" fill="#111">
+<!-- channels -->
+<line x1="320" y1="110" x2="420" y2="110" stroke="#c0392b" stroke-width="2"/>
+<rect x="420" y="96" width="100" height="28" fill="#eef4fa" stroke="#1f6fb2"/><text x="470" y="115" text-anchor="middle">-FC1 ECB 3 A</text>
+<line x1="520" y1="110" x2="600" y2="110" stroke="#c0392b" stroke-width="2"/>
+<text x="610" y="106" font-weight="bold">ch1 logic 2.30 A</text><text x="610" y="122">PLC CPU + IO 1.2 · IO-Link 2 × 0.4 · safety IO 0.3</text>
+<line x1="320" y1="150" x2="420" y2="150" stroke="#c0392b" stroke-width="2"/>
+<rect x="420" y="136" width="100" height="28" fill="#eef4fa" stroke="#1f6fb2"/><text x="470" y="155" text-anchor="middle">-FC2 ECB 2 A</text>
+<line x1="520" y1="150" x2="600" y2="150" stroke="#c0392b" stroke-width="2"/>
+<text x="610" y="146" font-weight="bold">ch2 sensors 1.42 A</text><text x="610" y="162">24 sensors × 0.03 · RFID 2 × 0.25 · signal tower 0.2</text>
+<line x1="320" y1="170" x2="340" y2="170" stroke="#c0392b" stroke-width="2"/>
+<line x1="340" y1="170" x2="340" y2="250" stroke="#c0392b" stroke-width="2"/>
+<line x1="340" y1="250" x2="420" y2="250" stroke="#c0392b" stroke-width="2"/>
+<rect x="420" y="236" width="100" height="28" fill="#eef4fa" stroke="#1f6fb2"/><text x="470" y="255" text-anchor="middle">-FC3 ECB 1 A</text>
+<line x1="520" y1="250" x2="600" y2="250" stroke="#c0392b" stroke-width="2"/>
+<text x="610" y="246" font-weight="bold">ch3 actuators 0.52 A</text><text x="610" y="262">10 valve coils × 0.104 A × sim 0.5 (safe output group possible)</text>
+<line x1="340" y1="250" x2="340" y2="300" stroke="#c0392b" stroke-width="2"/>
+<line x1="340" y1="300" x2="420" y2="300" stroke="#c0392b" stroke-width="2"/>
+<rect x="420" y="286" width="100" height="28" fill="#eef4fa" stroke="#1f6fb2"/><text x="470" y="305" text-anchor="middle">-FC4 ECB 2 A</text>
+<line x1="520" y1="300" x2="600" y2="300" stroke="#c0392b" stroke-width="2"/>
+<text x="610" y="296" font-weight="bold">ch4 safety + HMI 1.50 A</text><text x="610" y="312">light curtain pair 0.6 · HMI 0.9</text>
+</g>
+<rect x="40" y="350" width="1120" height="190" fill="#f7f7f7" stroke="#ccc"/>
+<g font-size="12" fill="#111">
+<text x="56" y="376" font-weight="bold">Channel table (reserve 1.25)</text>
+<text x="56" y="398">ch1 2.30 A → 2.875 A → 3 A · ch2 1.42 A → 1.775 A → 2 A · ch3 0.52 A → 0.65 A → 1 A · ch4 1.50 A → 1.875 A → 2 A · sum of ratings 8 A ≤ 10 A</text>
+<text x="56" y="424" font-weight="bold">Remote line (valve terminal 15 m, 2 A, 1.5 mm², ρ 0.0178)</text>
+<text x="56" y="446">ΔU = 2 × L × I × ρ / A = 2 × 15 × 2 × 0.0178 / 1.5 = 0.712 V → U_load = 23.288 V ≥ 21.6 V ✓ · L_max = 2.4 × 1.5 / 0.0712 = 50.56 m</text>
+<text x="56" y="472" font-weight="bold">Why ECBs</text>
+<text x="56" y="494">A PSU limits its short-circuit current (≈ 1.1–1.5 × rating) – a miniature circuit-breaker would not trip fast and all channels would collapse.</text>
+<text x="56" y="514">The ECB switches off only the faulty channel; its trip status goes to the PLC (alarm text). Logic, sensors, actuators and safety separated.</text>
+<text x="56" y="532" fill="#777" font-size="11">Example values from item7_examples.json.</text>
+</g>
+</svg>

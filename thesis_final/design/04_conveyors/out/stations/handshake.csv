@@ -1,0 +1,9 @@
+id,direction,signal,meaning
+A1,AGV -> station,AGV_PRESENT,AGV stands docked (docking sensor + position confirmed by the fleet manager)
+A2,AGV -> station,AGV_READY_SEND,"AGV deck loaded, ready to push the crate out (drop-off)"
+A3,AGV -> station,AGV_READY_RECV,"AGV deck empty, rollers running inwards (pick-up)"
+A4,AGV -> station,AGV_TRANSFER_DONE,crate fully on / off the AGV deck (deck sensors)
+S1,station -> AGV,ST_READY_RECV,"first lane zone empty, lane rollers running inwards, end stop lowered (drop-off)"
+S2,station -> AGV,ST_READY_SEND,"crate at the lane end, stop lowered, rollers running outwards (pick-up)"
+S3,station -> AGV,ST_TRANSFER_DONE,crate fully on the lane / fully off the lane (zone sensors)
+S4,station -> AGV,ST_FAULT,station fault / E-stop / light curtain without muting -> AGV stops its rollers

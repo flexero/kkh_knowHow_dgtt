@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="Arial, Helvetica, sans-serif">
+<title>Modbus TCP frame - read the standard block of MC02 (FC03, words 0-19)</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker></defs>
+<rect x="0" y="0" width="1200" height="560" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" fill="#111111" font-weight="bold">Modbus TCP frame - read the standard block of MC02 (FC03, words 0-19)</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555555">MBAP header (7 bytes) + PDU. All 16-bit fields big-endian (high byte first). Values from the JSON example (Part H3).</text>
+<text x="30" y="92" font-size="14" text-anchor="start" fill="#111111" font-weight="bold">Request (12 bytes, TCP port 502)</text>
+<rect x="30" y="105" width="120" height="46" rx="0" fill="#f2f2f2" stroke="#333" stroke-width="1.5"/>
+<text x="90.0" y="134" font-size="15" text-anchor="middle" fill="#111111" font-weight="bold">00 01</text>
+<text x="90.0" y="170" font-size="11" text-anchor="middle" fill="#111111">Transaction id</text>
+<text x="90.0" y="186" font-size="11" text-anchor="middle" fill="#555555">1</text>
+<rect x="150" y="105" width="120" height="46" rx="0" fill="#f2f2f2" stroke="#333" stroke-width="1.5"/>
+<text x="210.0" y="134" font-size="15" text-anchor="middle" fill="#111111" font-weight="bold">00 00</text>
+<text x="210.0" y="170" font-size="11" text-anchor="middle" fill="#111111">Protocol id</text>
+<text x="210.0" y="186" font-size="11" text-anchor="middle" fill="#555555">0 = Modbus</text>
+<rect x="270" y="105" width="120" height="46" rx="0" fill="#f2f2f2" stroke="#333" stroke-width="1.5"/>
+<text x="330.0" y="134" font-size="15" text-anchor="middle" fill="#111111" font-weight="bold">00 06</text>
+<text x="330.0" y="170" font-size="11" text-anchor="middle" fill="#111111">Length</text>
+<text x="330.0" y="186" font-size="11" text-anchor="middle" fill="#555555">6 bytes follow</text>
+<rect x="390" y="105" width="85" height="46" rx="0" fill="#f2f2f2" stroke="#333" stroke-width="1.5"/>
+<text x="432.5" y="134" font-size="15" text-anchor="middle" fill="#111111" font-weight="bold">01</text>
+<text x="432.5" y="170" font-size="11" text-anchor="middle" fill="#111111">Unit id</text>
+<text x="432.5" y="186" font-size="11" text-anchor="middle" fill="#555555">1</text>
+<rect x="475" y="105" width="85" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="517.5" y="134" font-size="15" text-anchor="middle" fill="#111111" font-weight="bold">03</text>
+<text x="517.5" y="170" font-size="11" text-anchor="middle" fill="#111111">Function code</text>
+<text x="517.5" y="186" font-size="11" text-anchor="middle" fill="#555555">read holding</text>
+<rect x="560" y="105" width="120" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="620.0" y="134" font-size="15" text-anchor="middle" fill="#111111" font-weight="bold">00 00</text>
+<text x="620.0" y="170" font-size="11" text-anchor="middle" fill="#111111">Start address</text>
+<text x="620.0" y="186" font-size="11" text-anchor="middle" fill="#555555">0 (= 40001)</text>
+<rect x="680" y="105" width="120" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="740.0" y="134" font-size="15" text-anchor="middle" fill="#111111" font-weight="bold">00 14</text>
+<text x="740.0" y="170" font-size="11" text-anchor="middle" fill="#111111">Quantity</text>
+<text x="740.0" y="186" font-size="11" text-anchor="middle" fill="#555555">20 registers</text>
+<text x="30" y="214" font-size="12" text-anchor="start" fill="#555555">&lt;----------- MBAP header 7 bytes -----------&gt;</text>
+<text x="560" y="214" font-size="12" text-anchor="start" fill="#1f6fb2">&lt;------- PDU 5 bytes -------&gt;</text>
+<text x="30" y="258" font-size="14" text-anchor="start" fill="#111111" font-weight="bold">Response (49 bytes)</text>
+<rect x="30" y="271" width="96" height="46" rx="0" fill="#f2f2f2" stroke="#333" stroke-width="1.5"/>
+<text x="78.0" y="300" font-size="14" text-anchor="middle" fill="#111111" font-weight="bold">00 01</text>
+<text x="78.0" y="336" font-size="11" text-anchor="middle" fill="#111111">Transaction</text>
+<text x="78.0" y="352" font-size="11" text-anchor="middle" fill="#555555">copied</text>
+<rect x="126" y="271" width="96" height="46" rx="0" fill="#f2f2f2" stroke="#333" stroke-width="1.5"/>
+<text x="174.0" y="300" font-size="14" text-anchor="middle" fill="#111111" font-weight="bold">00 00</text>
+<text x="174.0" y="336" font-size="11" text-anchor="middle" fill="#111111">Protocol</text>
+<text x="174.0" y="352" font-size="11" text-anchor="middle" fill="#555555">0</text>
+<rect x="222" y="271" width="96" height="46" rx="0" fill="#f2f2f2" stroke="#333" stroke-width="1.5"/>
+<text x="270.0" y="300" font-size="14" text-anchor="middle" fill="#111111" font-weight="bold">00 2B</text>
+<text x="270.0" y="336" font-size="11" text-anchor="middle" fill="#111111">Length</text>
+<text x="270.0" y="352" font-size="11" text-anchor="middle" fill="#555555">43</text>
+<rect x="318" y="271" width="74" height="46" rx="0" fill="#f2f2f2" stroke="#333" stroke-width="1.5"/>
+<text x="355.0" y="300" font-size="14" text-anchor="middle" fill="#111111" font-weight="bold">01</text>
+<text x="355.0" y="336" font-size="11" text-anchor="middle" fill="#111111">Unit</text>
+<text x="355.0" y="352" font-size="11" text-anchor="middle" fill="#555555">1</text>
+<rect x="392" y="271" width="74" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="429.0" y="300" font-size="14" text-anchor="middle" fill="#111111" font-weight="bold">03</text>
+<text x="429.0" y="336" font-size="11" text-anchor="middle" fill="#111111">FC</text>
+<text x="429.0" y="352" font-size="11" text-anchor="middle" fill="#555555">03</text>
+<rect x="466" y="271" width="74" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="503.0" y="300" font-size="14" text-anchor="middle" fill="#111111" font-weight="bold">28</text>
+<text x="503.0" y="336" font-size="11" text-anchor="middle" fill="#111111">Byte count</text>
+<text x="503.0" y="352" font-size="11" text-anchor="middle" fill="#555555">40 = 2 x 20</text>
+<rect x="540" y="271" width="96" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="588.0" y="300" font-size="14" text-anchor="middle" fill="#111111" font-weight="bold">00 06</text>
+<text x="588.0" y="336" font-size="11" text-anchor="middle" fill="#111111">word 0</text>
+<text x="588.0" y="352" font-size="11" text-anchor="middle" fill="#555555">State 6</text>
+<rect x="636" y="271" width="96" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="684.0" y="300" font-size="14" text-anchor="middle" fill="#111111" font-weight="bold">00 01</text>
+<text x="684.0" y="336" font-size="11" text-anchor="middle" fill="#111111">word 1</text>
+<text x="684.0" y="352" font-size="11" text-anchor="middle" fill="#555555">Mode 1</text>
+<rect x="732" y="271" width="96" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="780.0" y="300" font-size="14" text-anchor="middle" fill="#111111" font-weight="bold">...</text>
+<text x="780.0" y="336" font-size="11" text-anchor="middle" fill="#111111">words 2-17</text>
+<text x="780.0" y="352" font-size="11" text-anchor="middle" fill="#555555">32 bytes</text>
+<rect x="828" y="271" width="96" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="876.0" y="300" font-size="14" text-anchor="middle" fill="#111111" font-weight="bold">12 67</text>
+<text x="876.0" y="336" font-size="11" text-anchor="middle" fill="#111111">word 18</text>
+<text x="876.0" y="352" font-size="11" text-anchor="middle" fill="#555555">HB 4711</text>
+<rect x="924" y="271" width="96" height="46" rx="0" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="972.0" y="300" font-size="14" text-anchor="middle" fill="#111111" font-weight="bold">12 66</text>
+<text x="972.0" y="336" font-size="11" text-anchor="middle" fill="#111111">word 19</text>
+<text x="972.0" y="352" font-size="11" text-anchor="middle" fill="#555555">CC HB 4710</text>
+<text x="30" y="393" font-size="12" text-anchor="start" fill="#111111">Exception: function code + 0x80 and one code byte, e.g. 00 04 00 00 00 03 01 83 03 (FC03, code 03 illegal data value: qty 200 &gt; 125)</text>
+<text x="30" y="416" font-size="12" text-anchor="start" fill="#111111">Check order of the example server: function supported (01) -&gt; quantity valid (03) -&gt; address inside the map (02) -&gt; write allowed (02)</text>
+<text x="30" y="452" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">Address conventions:</text>
+<text x="30" y="474" font-size="12" text-anchor="start" fill="#111111">PDU address 0 = holding register 40001 (1-based documentation) - always write in the sheet which one you mean.</text>
+<text x="30" y="496" font-size="12" text-anchor="start" fill="#111111">Limits: FC03 1-125 registers per request (250 data bytes) - FC16 1-123 registers - many servers answer one request at a time per connection.</text>
+<text x="30" y="518" font-size="12" text-anchor="start" fill="#555555">Length field = unit id + PDU = 1 + 5 = 6 (request) and 1 + 2 + 40 = 43 = 0x2B (response).</text>
+</svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="Arial, Helvetica, sans-serif">
+<title>D3 - alarm classes decide the PackML reaction (not the device)</title>
+<rect x="0" y="0" width="1200" height="560" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">D3 - alarm classes decide the PackML reaction (not the device)</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Example: clamp pressure is watched by TWO alarms with different classes - 'not reached in the clamp step' (B -&gt; Held) and 'lost while machining' (A -&gt; Abort + feed hold).</text>
+<rect x="60" y="100" width="330" height="170" rx="8" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="225.0" y="151.5" font-size="13" text-anchor="middle" font-weight="bold" fill="#c0392b">Class A - stop at once</text>
+<text x="225.0" y="166.5" font-size="12" text-anchor="middle" fill="#111">internal Abort (any state)</text>
+<text x="225.0" y="181.5" font-size="12" text-anchor="middle" fill="#111">equipment / product at risk</text>
+<text x="225.0" y="196.5" font-size="12" text-anchor="middle" fill="#111">red tower + horn</text>
+<text x="225.0" y="211.5" font-size="12" text-anchor="middle" fill="#111">job lost: Clear + Reset</text>
+<text x="225.0" y="226.5" font-size="12" text-anchor="middle" fill="#111">e.g. 2052, 2011, drive fault</text>
+<rect x="435" y="100" width="330" height="170" rx="8" fill="#fef9e7" stroke="#b7950b" stroke-width="1.5"/>
+<text x="600.0" y="151.5" font-size="13" text-anchor="middle" font-weight="bold" fill="#7d6608">Class B - controlled pause</text>
+<text x="600.0" y="166.5" font-size="12" text-anchor="middle" fill="#111">internal Hold if in Execute</text>
+<text x="600.0" y="181.5" font-size="12" text-anchor="middle" fill="#111">(other states: stays, shown)</text>
+<text x="600.0" y="196.5" font-size="12" text-anchor="middle" fill="#111">yellow tower + horn</text>
+<text x="600.0" y="211.5" font-size="12" text-anchor="middle" fill="#111">operator fixes -&gt; Unhold</text>
+<text x="600.0" y="226.5" font-size="12" text-anchor="middle" fill="#111">e.g. 2051, 2021, 2001</text>
+<rect x="810" y="100" width="330" height="170" rx="8" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="975.0" y="151.5" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Class C - warning</text>
+<text x="975.0" y="166.5" font-size="12" text-anchor="middle" fill="#111">no state change</text>
+<text x="975.0" y="181.5" font-size="12" text-anchor="middle" fill="#111">yellow tower, no horn</text>
+<text x="975.0" y="196.5" font-size="12" text-anchor="middle" fill="#111">WarningNo (word 7)</text>
+<text x="975.0" y="211.5" font-size="12" text-anchor="middle" fill="#111">maintenance request</text>
+<text x="975.0" y="226.5" font-size="12" text-anchor="middle" fill="#111">e.g. 2053, UPS on battery, 2902</text>
+<rect x="120" y="360" width="130" height="46" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="185.0" y="386.6666666666667" font-size="12" text-anchor="middle" font-weight="bold" fill="#1f5fa8">Execute</text>
+<rect x="420" y="330" width="130" height="46" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="485.0" y="356.6666666666667" font-size="12" text-anchor="middle" font-weight="bold" fill="#1f5fa8">Holding</text>
+<rect x="600" y="330" width="130" height="46" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="665.0" y="356.6666666666667" font-size="12" text-anchor="middle" font-weight="bold" fill="#1f5fa8">Held</text>
+<rect x="780" y="330" width="130" height="46" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="845.0" y="356.6666666666667" font-size="12" text-anchor="middle" font-weight="bold" fill="#1f5fa8">Unholding</text>
+<rect x="420" y="440" width="130" height="46" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="485.0" y="466.6666666666667" font-size="12" text-anchor="middle" font-weight="bold" fill="#1f5fa8">Aborting</text>
+<rect x="600" y="440" width="130" height="46" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="665.0" y="466.6666666666667" font-size="12" text-anchor="middle" font-weight="bold" fill="#1f5fa8">Aborted</text>
+<rect x="780" y="440" width="130" height="46" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="845.0" y="466.6666666666667" font-size="12" text-anchor="middle" font-weight="bold" fill="#1f5fa8">Clearing</text>
+<rect x="960" y="440" width="130" height="46" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="1025.0" y="466.6666666666667" font-size="12" text-anchor="middle" font-weight="bold" fill="#1f5fa8">Stopped</text>
+<polyline points="250,375 420,353" fill="none" stroke="#b7950b" stroke-width="1.5"/>
+<polygon points="420,353 410.56,350.19 411.59,358.12" fill="#b7950b"/>
+<text x="330" y="350" font-size="11" text-anchor="middle" fill="#7d6608">class B</text>
+<polyline points="550,353 600,353" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="600,353 591.00,349.00 591.00,357.00" fill="#111"/>
+<polyline points="730,353 780,353" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="780,353 771.00,349.00 771.00,357.00" fill="#111"/>
+<text x="755" y="320" font-size="10" text-anchor="middle" fill="#111">Unhold</text>
+<polyline points="845,330 845,310 185,310 185,360" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="185,360 189.00,351.00 181.00,351.00" fill="#111"/>
+<text x="520" y="304" font-size="10" text-anchor="middle" fill="#111">SC: step repeated</text>
+<polyline points="250,395 420,460" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="420,460 413.02,453.05 410.16,460.52" fill="#c0392b"/>
+<text x="320" y="445" font-size="11" text-anchor="middle" fill="#c0392b">class A</text>
+<polyline points="550,463 600,463" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="600,463 591.00,459.00 591.00,467.00" fill="#111"/>
+<polyline points="730,463 780,463" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="780,463 771.00,459.00 771.00,467.00" fill="#111"/>
+<text x="755" y="455" font-size="10" text-anchor="middle" fill="#111">Clear</text>
+<polyline points="910,463 960,463" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="960,463 951.00,459.00 951.00,467.00" fill="#111"/>
+<text x="60" y="525" font-size="11" text-anchor="start" fill="#555">Rule of the alarm manager: AlarmNo = most severe active A/B alarm (A before B, earlier before later), WarningNo = earliest active C alarm, AlarmClass = 1/2/3 of the most severe.</text>
+<text x="60" y="543" font-size="11" text-anchor="start" fill="#555">Held means 'internal condition, the operator can clear it and continue'; Aborted means 'fault, the job is lost' (ISA-TR88.00.02).</text>
+</svg>

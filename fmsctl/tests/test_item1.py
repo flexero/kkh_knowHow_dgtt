@@ -124,6 +124,17 @@ def main():
     check('gateway watchdog: frozen heartbeat (register 226) -> READY off, job refused; heartbeat back -> job accepted',
           wd_ok and ready_off and r['result'] == 0, f'refused while frozen: {wd_ok}, READY off: {ready_off}, after recovery {r}')
 
+    # 7 stale REQ toggle (late frame of an old TCP connection) must not run the last job again (sequence guard, map V1.2a)
+    tb1 = links['TEST-01']
+    done0 = tb1.read('job.idDone')
+    ctl_now = tb1.read('cmd.ctl')
+    tb1.cli.write1(202, ctl_now ^ 1)                               # stale toggle, cmd.seq unchanged (= last ackSeq)
+    time.sleep(0.3)
+    ran_again = bool(tb1.read('hs.status') & 2) or tb1.read('job.idDone') != done0
+    j = tb1.command(13, {'job.variant': 1, 'job.text': 'VC10-000001'}); r = tb1.wait_done(j, timeout=60)
+    check('stale REQ toggle ignored (sequence guard); the next command still runs once', not ran_again and r['result'] in (0, 1)
+          and tb1.read('test.serial') == 'VC10-000001', f'job started by stale toggle: {ran_again}, next command {r}')
+
     n_ok = sum(RESULTS)
     print(f'\n{n_ok} / {len(RESULTS)} checks passed')
     return 0 if n_ok == len(RESULTS) else 1

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" font-family="Arial, Helvetica, sans-serif">
+<title>Cable sizing flow with the MC02 feeder example</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker></defs>
+<rect x="0" y="0" width="1200" height="620" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" fill="#111" font-weight="bold">Cable sizing – four checks, worked for the feeder to MC02 (JSON cable case)</text>
+<text x="24" y="54" font-size="12" fill="#555">Ib 65 A · In 80 A curve C (m 10) · L 60 m · cos φ 0.85 · ρ 0.0225 Ω mm²/m · Z_ext 0.15 Ω · k_temp 0.87 · k_group 0.77</text>
+<g font-size="12" fill="#111">
+<rect x="40" y="80" width="250" height="90" fill="#f4f4f4" stroke="#333"/>
+<text x="52" y="102" font-weight="bold">1 Load and device</text><text x="52" y="124">Ib = 65 A ≤ In = 80 A</text><text x="52" y="144">curve C → Ia = 10 × 80 = 800 A</text>
+<line x1="290" y1="125" x2="330" y2="125" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="330" y="80" width="260" height="90" fill="#f4f4f4" stroke="#333"/>
+<text x="342" y="102" font-weight="bold">2 Thermal: required Iz</text><text x="342" y="124">Iz_req = 80 / (0.87 × 0.77)</text><text x="342" y="144">= 80 / 0.6699 = 119.42 A</text>
+<line x1="590" y1="125" x2="630" y2="125" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="630" y="80" width="260" height="90" fill="#eef4fa" stroke="#1f6fb2" stroke-width="2"/>
+<text x="642" y="102" font-weight="bold">3 Choose A from the table</text><text x="642" y="124">25 mm²: 119 A &lt; 119.42 ✗</text><text x="642" y="144" fill="#1f6fb2" font-weight="bold">35 mm²: 148 A ✓ → Iz = 99.15 A</text>
+<line x1="890" y1="125" x2="930" y2="125" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="930" y="80" width="230" height="90" fill="#f4f4f4" stroke="#333"/>
+<text x="942" y="102" font-weight="bold">4 PE (simple rule)</text><text x="942" y="124">16 &lt; 35 ≤ 35 → A_pe = 16 mm²</text><text x="942" y="144">(IEC 60364-5-54)</text>
+<line x1="1045" y1="170" x2="1045" y2="210" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="760" y="210" width="400" height="90" fill="#f4f4f4" stroke="#333"/>
+<text x="772" y="232" font-weight="bold">5 Voltage drop</text><text x="772" y="254">ΔU = √3 × 65 × 60 × 0.0225 × 0.85 / 35 = 3.691 V</text><text x="772" y="274">= 0.923 % ≤ 5 % ✓</text>
+<line x1="760" y1="255" x2="720" y2="255" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="320" y="210" width="400" height="110" fill="#f4f4f4" stroke="#333"/>
+<text x="332" y="232" font-weight="bold">6 Fault loop (TN)</text><text x="332" y="254">R_loop = 60 × 0.0225 × (1/35 + 1/16) = 0.1229 Ω</text><text x="332" y="274">Zs = 0.15 + 0.1229 = 0.2729 Ω</text><text x="332" y="294" fill="#1f6fb2" font-weight="bold">Ik1 = 230 / 0.2729 = 842.7 A ≥ 800 A ✓</text>
+<line x1="320" y1="265" x2="290" y2="265" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="40" y="210" width="250" height="110" fill="#f4f4f4" stroke="#333"/>
+<text x="52" y="232" font-weight="bold">7 Maximum length</text><text x="52" y="254">L_max = (230/800 − 0.15) /</text><text x="52" y="274">(0.0225 × (1/35 + 1/16))</text><text x="52" y="294" font-weight="bold">= 67.10 m ≥ 60 m ✓</text>
+</g>
+<!-- length chart -->
+<text x="40" y="360" font-size="13" fill="#111" font-weight="bold">Ik1 versus feeder length (35 mm² / PE 16 mm²) – why a long feeder with reduced PE fails</text>
+<line x1="100" y1="560" x2="1100" y2="560" stroke="#333"/><line x1="100" y1="560" x2="100" y2="380" stroke="#333"/>
+<g font-size="11" fill="#555" text-anchor="middle">
+<text x="100" y="578">0</text><text x="300" y="578">20</text><text x="500" y="578">40</text><text x="700" y="578">60</text><text x="900" y="578">80</text><text x="1100" y="578">100 m</text>
+</g>
+<g font-size="11" fill="#555" text-anchor="end"><text x="94" y="564">0</text><text x="94" y="474">800 A</text><text x="94" y="384">1600 A</text></g>
+<line x1="100" y1="470" x2="1100" y2="470" stroke="#c0392b" stroke-dasharray="6 4"/>
+<text x="1096" y="463" font-size="11" fill="#c0392b" text-anchor="end">Ia = 800 A (magnetic trip C80)</text>
+<polyline fill="none" stroke="#1f6fb2" stroke-width="3" points="100,387.5 200,408.2 300,424.5 400,437.6 500,448.5 600,457.5 700,465.2 771,470 800,471.8 900,477.6 1000,482.6 1100,487.1"/>
+<circle cx="700" cy="465.2" r="5" fill="#1f6fb2"/><text x="690" y="455" font-size="11" fill="#111" text-anchor="end">60 m: 842.7 A</text>
+<circle cx="771" cy="470" r="5" fill="#c0392b"/><text x="780" y="492" font-size="11" fill="#111">L_max 67.1 m</text>
+<circle cx="900" cy="477.6" r="5" fill="#333"/><text x="905" y="508" font-size="11" fill="#111">80 m: 732.7 A ✗</text>
+<circle cx="1100" cy="487.1" r="5" fill="#333"/><text x="1095" y="524" font-size="11" fill="#111" text-anchor="end">100 m: 648.1 A ✗</text>
+<text x="40" y="606" font-size="11" fill="#777">Ik1 = 230 / (0.15 + L × 0.0020491) (Ik1 at 0 m = 1 533 A with Z_ext only). Fix: full-size PE 35 mm² → L_max 106.9 m. Example values only.</text>
+</svg>

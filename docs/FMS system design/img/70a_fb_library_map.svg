@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" font-family="Arial, Helvetica, sans-serif">
+<title>The device FB library of part A - control blocks, mirrors of safety signals, module standard blocks</title>
+<rect x="0" y="0" width="1200" height="640" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">The device FB library of part A - control blocks, mirrors of safety signals, module standard blocks</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">One FB type per circuit pattern of item 8 (guide 68). Mirrors only READ F-copies for HMI, alarms and PackML triggers - the safety function is in the F-program.</text>
+<rect x="30" y="90" width="275" height="500" rx="10" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="167" y="115" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Control blocks (write field outputs)</text>
+<text x="46" y="150" font-size="12" text-anchor="start" fill="#111">FB_Valve1  (VALVE_SINGLE)</text>
+<text x="46" y="182" font-size="12" text-anchor="start" fill="#111">FB_Valve2  (VALVE_DOUBLE)</text>
+<text x="46" y="214" font-size="12" text-anchor="start" fill="#111">FB_MotorDol  (DOL, item 9)</text>
+<text x="46" y="246" font-size="12" text-anchor="start" fill="#111">FB_DriveSto  (VFD_STO)</text>
+<text x="46" y="278" font-size="12" text-anchor="start" fill="#111">FB_Heater  (HEATER)</text>
+<text x="46" y="310" font-size="12" text-anchor="start" fill="#111">FB_PushButton  (PUSHBUTTON)</text>
+<text x="46" y="342" font-size="12" text-anchor="start" fill="#111">FB_SignalTower  (SIGNAL_TOWER)</text>
+<text x="46" y="374" font-size="12" text-anchor="start" fill="#111">FB_HandshakeHw  (HANDSHAKE_HW)</text>
+<text x="46" y="406" font-size="12" text-anchor="start" fill="#111">FB_Scanner  (SCANNER, field select)</text>
+<rect x="320" y="90" width="275" height="500" rx="10" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="457" y="115" font-size="12" text-anchor="middle" font-weight="bold" fill="#1f5fa8">Monitoring blocks (inputs only)</text>
+<text x="336" y="150" font-size="12" text-anchor="start" fill="#111">FB_Sensor  (SENSOR)</text>
+<text x="336" y="182" font-size="12" text-anchor="start" fill="#111">FB_AnalogIn + FB_LimitAlarm  (ANALOG_P/T)</text>
+<text x="336" y="214" font-size="12" text-anchor="start" fill="#111">FB_Feeder  (FEEDER_EXT)</text>
+<text x="336" y="246" font-size="12" text-anchor="start" fill="#111">FB_Ups  (UPS_DC)</text>
+<text x="336" y="278" font-size="12" text-anchor="start" fill="#111">FB_ModeSwitch  (MODE_SWITCH)</text>
+<text x="336" y="310" font-size="12" text-anchor="start" fill="#111">FB_DoorLock  (DOOR_LOCK, request)</text>
+<rect x="610" y="90" width="275" height="500" rx="10" fill="#fff7e6" stroke="#b9770e" stroke-width="1.5"/>
+<text x="747" y="115" font-size="12" text-anchor="middle" font-weight="bold" fill="#b9770e">Safety MIRRORS (F-copies, diagnosis)</text>
+<text x="626" y="150" font-size="12" text-anchor="start" fill="#111">FB_Safe2Ch  (base)</text>
+<text x="626" y="182" font-size="12" text-anchor="start" fill="#111">  FB_Estop = Safe2Ch</text>
+<text x="626" y="214" font-size="12" text-anchor="start" fill="#111">  FB_Door2Ch = Safe2Ch</text>
+<text x="626" y="246" font-size="12" text-anchor="start" fill="#111">  FB_EnableSwitch = Safe2Ch</text>
+<text x="626" y="278" font-size="12" text-anchor="start" fill="#111">  FB_LightCurtain = Safe2Ch + xWarn</text>
+<text x="626" y="310" font-size="12" text-anchor="start" fill="#111">  FB_SafetyCoupling = 2 x Safe2Ch</text>
+<text x="626" y="342" font-size="12" text-anchor="start" fill="#111">FB_Edm  (base)</text>
+<text x="626" y="374" font-size="12" text-anchor="start" fill="#111">  FB_ZoneOut, FB_ContactorPair = Edm(inv)</text>
+<text x="626" y="406" font-size="12" text-anchor="start" fill="#111">  FB_SafeValve = 2 x Edm(not inv)</text>
+<text x="626" y="438" font-size="12" text-anchor="start" fill="#111">FB_TwoHand  (status only)</text>
+<rect x="900" y="90" width="275" height="500" rx="10" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="1037" y="115" font-size="12" text-anchor="middle" font-weight="bold" fill="#c0392b">Module standard blocks</text>
+<text x="916" y="150" font-size="12" text-anchor="start" fill="#111">FB_CmdIf  (D1)</text>
+<text x="916" y="182" font-size="12" text-anchor="start" fill="#111">FB_AlarmMgr  (D2, D3)</text>
+<text x="916" y="214" font-size="12" text-anchor="start" fill="#111">FB_PackMLCore  (part B)</text>
+<text x="916" y="246" font-size="12" text-anchor="start" fill="#111">homing in Resetting (D4)</text>
+<text x="30" y="615" font-size="12" text-anchor="start" fill="#555">Counts: 25 FB types of item 9 codegen + FB_Safe2Ch, FB_Edm (bases) + FB_CmdIf, FB_AlarmMgr, FB_PackMLCore = 30 blocks. The kit: 95 instances of 22 type names = 17 code bodies (7 wrappers on 2 bases).</text>
+</svg>

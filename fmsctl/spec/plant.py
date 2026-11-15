@@ -33,8 +33,8 @@ DEVICES = [
     ('PACK-01', 'STATION', 13, 23, 'Packing station'),
     ('AGV-01', 'AGV', 20, 41, 'Automated guided vehicle 1 (Wi-Fi, Modbus TCP)'),
     ('AGV-02', 'AGV', 20, 42, 'Automated guided vehicle 2'),
-    ('ASRS-RAW', 'ASRS', 20, 51, 'Raw material AS/RS crane (392 locations)'),
-    ('ASRS-FG', 'ASRS', 20, 52, 'Finished goods AS/RS crane'),
+    ('ASRS-RAW', 'ASRS', 20, 51, 'AS/RS crane RAW + KIT zones (760 locations, final thesis F3)'),
+    ('ASRS-FG', 'ASRS', 20, 52, 'Finished goods AS/RS crane (optional, not in the final F2 layout)'),
 ]
 
 # AGV nodes [example]: node -> (x, z) in metres on the hall layout

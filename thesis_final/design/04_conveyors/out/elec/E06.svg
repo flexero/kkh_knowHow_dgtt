@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="990" viewBox="0 0 1400 990" font-family="Arial">
+<rect width="100%" height="100%" fill="#fff"/>
+<rect x="20" y="20" width="1360" height="950" fill="none" stroke="#000" stroke-width="2"/>
+<line x1="20.0" y1="20" x2="20.0" y2="36" stroke="#000"/>
+<text x="88.0" y="32" font-size="11" text-anchor="middle">0</text>
+<line x1="156.0" y1="20" x2="156.0" y2="36" stroke="#000"/>
+<text x="224.0" y="32" font-size="11" text-anchor="middle">1</text>
+<line x1="292.0" y1="20" x2="292.0" y2="36" stroke="#000"/>
+<text x="360.0" y="32" font-size="11" text-anchor="middle">2</text>
+<line x1="428.0" y1="20" x2="428.0" y2="36" stroke="#000"/>
+<text x="496.0" y="32" font-size="11" text-anchor="middle">3</text>
+<line x1="564.0" y1="20" x2="564.0" y2="36" stroke="#000"/>
+<text x="632.0" y="32" font-size="11" text-anchor="middle">4</text>
+<line x1="700.0" y1="20" x2="700.0" y2="36" stroke="#000"/>
+<text x="768.0" y="32" font-size="11" text-anchor="middle">5</text>
+<line x1="836.0" y1="20" x2="836.0" y2="36" stroke="#000"/>
+<text x="904.0" y="32" font-size="11" text-anchor="middle">6</text>
+<line x1="972.0" y1="20" x2="972.0" y2="36" stroke="#000"/>
+<text x="1040.0" y="32" font-size="11" text-anchor="middle">7</text>
+<line x1="1108.0" y1="20" x2="1108.0" y2="36" stroke="#000"/>
+<text x="1176.0" y="32" font-size="11" text-anchor="middle">8</text>
+<line x1="1244.0" y1="20" x2="1244.0" y2="36" stroke="#000"/>
+<text x="1312.0" y="32" font-size="11" text-anchor="middle">9</text>
+<line x1="20" y1="36" x2="1380" y2="36" stroke="#000"/>
+<rect x="20" y="880" width="1360" height="90" fill="#fafafa" stroke="#000" stroke-width="2"/>
+<line x1="420" y1="880" x2="420" y2="970" stroke="#000"/>
+<line x1="800" y1="880" x2="800" y2="970" stroke="#000"/>
+<line x1="1060" y1="880" x2="1060" y2="970" stroke="#000"/>
+<line x1="1230" y1="880" x2="1230" y2="970" stroke="#000"/>
+<text x="30" y="904" font-size="13" font-weight="bold">=CONV1 / =ASM1  F4 conveyors (VC20 + RB)</text>
+<text x="30" y="924" font-size="11">Final thesis item F4.5 - conv_elec_drw.py (generated)</text>
+<text x="30" y="946" font-size="11" fill="#b00000" font-weight="bold">DESIGN - to be checked and released by a qualified engineer</text>
+<text x="430" y="910" font-size="14" font-weight="bold">Lift table in the pit SF-C4</text>
+<text x="430" y="932" font-size="11">IEC 60617 symbols (simplified), IEC 81346-2 tags, columns = current paths</text>
+<text x="430" y="950" font-size="11">cross-reference: /page.column</text>
+<text x="810" y="910" font-size="11">IEC 60204-1, ISO 13849-1, EN 619</text>
+<text x="810" y="932" font-size="11">Revision A  2026-11-15</text>
+<text x="1070" y="910" font-size="11">drawn: F4.5 prog.</text>
+<text x="1070" y="932" font-size="11">checked: ________</text>
+<text x="1070" y="952" font-size="11">released: ________</text>
+<text x="1240" y="910" font-size="13">page</text>
+<text x="1240" y="946" font-size="26" font-weight="bold">E06</text>
+<text x="1330" y="946" font-size="11">/ E08</text>
+<text x="60.0" y="70.0" font-size="16" text-anchor="start" font-weight="bold" fill="#000">E06 - ASSY spur lift table in a 250 mm pit: hydraulic power unit, 2 monitored lowering valves, safety edge (SF-C4)</text>
+<rect x="120.0" y="380.0" width="360.0" height="60.0" fill="#eeeeee" stroke="#000" stroke-width="1.5"/>
+<text x="130.0" y="432.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">pit 250 mm</text>
+<rect x="140.0" y="300.0" width="320.0" height="30.0" fill="#e6f0ff" stroke="#000" stroke-width="1.5"/>
+<text x="150.0" y="320.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">table + carrier (top 100 ... 800 mm)</text>
+<line x1="160.0" y1="330.0" x2="440.0" y2="380.0" stroke="#000" stroke-width="2.0"/>
+<line x1="440.0" y1="330.0" x2="160.0" y2="380.0" stroke="#000" stroke-width="2.0"/>
+<line x1="140.0" y1="334.0" x2="460.0" y2="334.0" stroke="#c06000" stroke-width="4.0"/>
+<text x="120.0" y="460.0" font-size="10" text-anchor="start" font-weight="normal" fill="#c06000">-BG81 safety edge (orange) around the table, EN ISO 13856-2</text>
+<rect x="560.0" y="140.0" width="200.0" height="60.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="565.0" y="155.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-MA81 HPU 1.1 kW</text>
+<text x="565.0" y="170.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">hydraulic power unit</text>
+<circle cx="660.0" cy="240.0" r="24.0" fill="none" stroke="#000" stroke-width="1.5"/>
+<text x="660.0" y="238.0" font-size="14" text-anchor="middle" font-weight="bold" fill="#000">M</text>
+<text x="660.0" y="253.0" font-size="10" text-anchor="middle" font-weight="normal" fill="#000">3~</text>
+<text x="690.0" y="236.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000"></text>
+<text x="690.0" y="250.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000"></text>
+<rect x="560.0" y="300.0" width="200.0" height="50.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="565.0" y="315.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-QM81 lowering valve 1</text>
+<text x="565.0" y="330.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">monitored (spool position)</text>
+<rect x="560.0" y="370.0" width="200.0" height="50.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="565.0" y="385.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-QM82 lowering valve 2</text>
+<text x="565.0" y="400.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">monitored (spool position)</text>
+<line x1="460.0" y1="325.0" x2="560.0" y2="325.0" stroke="#000" stroke-width="2.0"/>
+<line x1="460.0" y1="395.0" x2="560.0" y2="395.0" stroke="#000" stroke-width="2.0"/>
+<rect x="860.0" y="140.0" width="220.0" height="60.0" fill="#fff4e6" stroke="#000" stroke-width="1.5"/>
+<text x="865.0" y="155.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF81 edge control unit</text>
+<text x="865.0" y="170.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">PL d (certified)</text>
+<rect x="860.0" y="240.0" width="220.0" height="60.0" fill="#e6f0ff" stroke="#000" stroke-width="1.5"/>
+<text x="865.0" y="255.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">=ASM1-KF1 F-CPU</text>
+<text x="865.0" y="270.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">F-DI edge 2 ch, F-DQ valves</text>
+<rect x="860.0" y="340.0" width="220.0" height="60.0" fill="#fff" stroke="#000" stroke-width="1.5"/>
+<text x="865.0" y="355.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-BG82 height sensor</text>
+<text x="865.0" y="370.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">AI 4-20 mA (memory heights)</text>
+<line x1="970.0" y1="200.0" x2="970.0" y2="240.0" stroke="#000" stroke-width="2.0"/>
+<line x1="860.0" y1="270.0" x2="760.0" y2="325.0" stroke="#000" stroke-width="2.0"/>
+<line x1="860.0" y1="270.0" x2="760.0" y2="395.0" stroke="#000" stroke-width="2.0"/>
+<text x="560.0" y="470.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Lowering: both valves must open; the edge or an E-stop closes both (Cat 3, MTTFd 150 a each, DC 90 % by spool monitoring).</text>
+<text x="560.0" y="488.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Raising: the HPU runs only while 'up' is pressed (hold-to-run) or a memory height is recalled with the pit cover closed.</text>
+<text x="60.0" y="540.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Stopping check: overrun after edge contact s = v (t_edge + t_valve) = 30 mm/s x (20 + 80) ms = 3 mm &lt;= 25 mm edge travel -&gt; no crushing.</text>
+<text x="60.0" y="562.0" font-size="11" text-anchor="start" font-weight="normal" fill="#000">Pit: cover plates follow the table; pit cover closed = DI; light pit lamp; drain for hydraulic oil (F11).</text>
+<text x="60.0" y="620.0" font-size="12" text-anchor="start" font-weight="bold" fill="#000">Safety functions (conv_elec.py, ISO 13849-1 simplified method):</text>
+<text x="60.0" y="638.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">SF</text>
+<text x="120.0" y="638.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">PLr</text>
+<text x="160.0" y="638.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">PL</text>
+<text x="200.0" y="638.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">function</text>
+<text x="60.0" y="654.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">SF-C4</text>
+<text x="120.0" y="654.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">d</text>
+<text x="160.0" y="654.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">d</text>
+<text x="200.0" y="654.0" font-size="9" text-anchor="start" font-weight="normal" fill="#000">Lift table in the pit: safety edge (EN ISO 13856-2) around the table -&gt; both lowering valves close</text>
+<text x="60.0" y="670.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">SF-C7</text>
+<text x="120.0" y="670.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">c</text>
+<text x="160.0" y="670.0" font-size="10" text-anchor="start" font-weight="bold" fill="#000">d</text>
+<text x="200.0" y="670.0" font-size="9" text-anchor="start" font-weight="normal" fill="#000">Test docking slide: force-limited pressure (&lt; 150 N) + hood interlock 2 ch</text>
+</svg>

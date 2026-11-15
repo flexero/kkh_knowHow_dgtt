@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>ISO 13855 safety distance geometry with the six JSON cases</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker></defs>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" fill="#111" font-weight="bold">Safety distance S = K × T + C (ISO 13855) – light curtain, multi-beam, scanner, two-hand</text>
+<text x="24" y="54" font-size="12" fill="#555">K approach speed: 2 000 mm/s (hand) or 1 600 mm/s (body). T = sensor + logic + machine stopping time. C = intrusion distance.</text>
+<!-- side view light curtain -->
+<g font-size="12" fill="#111">
+<text x="40" y="92" font-weight="bold">Side view – light curtain at the load station LS01 (perpendicular approach)</text>
+<line x1="40" y1="330" x2="640" y2="330" stroke="#333" stroke-width="2"/>
+<rect x="470" y="200" width="150" height="130" fill="#f3e6e4" stroke="#c0392b" stroke-width="2"/>
+<text x="545" y="260" text-anchor="middle" font-weight="bold">danger zone</text><text x="545" y="278" text-anchor="middle">rotary table</text>
+<line x1="230" y1="130" x2="230" y2="330" stroke="#1f6fb2" stroke-width="5"/>
+<g stroke="#1f6fb2" stroke-width="1" stroke-dasharray="3 3"><line x1="230" y1="150" x2="250" y2="150"/><line x1="230" y1="190" x2="250" y2="190"/><line x1="230" y1="230" x2="250" y2="230"/><line x1="230" y1="270" x2="250" y2="270"/><line x1="230" y1="310" x2="250" y2="310"/></g>
+<text x="180" y="122" fill="#1f6fb2">detection zone</text>
+<circle cx="110" cy="190" r="16" fill="none" stroke="#333" stroke-width="2"/><line x1="110" y1="206" x2="110" y2="280" stroke="#333" stroke-width="2"/><line x1="110" y1="225" x2="190" y2="225" stroke="#333" stroke-width="2"/><line x1="110" y1="280" x2="90" y2="330" stroke="#333" stroke-width="2"/><line x1="110" y1="280" x2="130" y2="330" stroke="#333" stroke-width="2"/>
+<line x1="230" y1="360" x2="470" y2="360" stroke="#333" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<text x="350" y="380" text-anchor="middle" font-weight="bold">S (minimum distance)</text>
+<text x="40" y="410">LC1 14 mm: S = 2000 × 0.185 + 8 × (14 − 14) = 370 mm</text>
+<text x="40" y="430">LC2 30 mm: S = 370 + 8 × 16 = 498 mm</text>
+<text x="40" y="450">LC3 30 mm, T 0.300 s: 2000 T + 128 = 728 &gt; 500 → 1600 × 0.3 + 128 = 608 mm</text>
+<text x="40" y="470">MB1 4-beam: S = 1600 × 0.185 + 850 = 1 146 mm (arm reaches through)</text>
+<text x="40" y="496" fill="#c0392b">Step-behind: if a person can stand between curtain and hazard → second detection / restart interlock.</text>
+</g>
+<!-- top view scanner -->
+<g font-size="12" fill="#111">
+<text x="700" y="92" font-weight="bold">Top view – scanner field at the AGV dock (parallel approach)</text>
+<rect x="1000" y="150" width="140" height="160" fill="#f3e6e4" stroke="#c0392b" stroke-width="2"/>
+<text x="1070" y="225" text-anchor="middle" font-weight="bold">danger zone</text><text x="1070" y="243" text-anchor="middle">transfer / robot</text>
+<path d="M1000,140 L760,140 L760,320 L1000,320" fill="#eef4fa" stroke="#1f6fb2" stroke-width="2"/>
+<rect x="988" y="222" width="14" height="14" fill="#1f6fb2"/><text x="900" y="216" fill="#1f6fb2">scanner</text>
+<text x="780" y="236" fill="#1f6fb2">protective field</text>
+<line x1="760" y1="350" x2="1000" y2="350" stroke="#333" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<text x="880" y="370" text-anchor="middle" font-weight="bold">S = 1 980 mm</text>
+<text x="700" y="410">SC1: T = 0.08 + 0.02 + 0.40 = 0.500 s, field height H = 300 mm, Z = 100 mm</text>
+<text x="700" y="430">C = max(850, 1200 − 0.4 × 300) = 1 080 mm</text>
+<text x="700" y="450">S = 1600 × 0.5 + 1080 + 100 = 1 980 mm</text>
+<text x="700" y="476">TH1 two-hand: T = 0.12 s → S = 1600 × 0.12 + 250 = 442 mm</text>
+<text x="700" y="496">(192 mm if the buttons are covered)</text>
+</g>
+<rect x="40" y="520" width="1120" height="62" fill="#f7f7f7" stroke="#ccc"/>
+<text x="56" y="544" font-size="12" fill="#111">Every 100 ms of stopping time costs 160–200 mm of floor space. Measure T on site (stop-time meter) at worst case and repeat yearly.</text>
+<text x="56" y="566" font-size="11" fill="#777">Classic ISO 13855 formulas (2010) as in item7_examples.json; the 2024 edition revises details – apply the edition valid for the project.</text>
+</svg>

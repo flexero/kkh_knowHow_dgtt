@@ -1,0 +1,17 @@
+{
+  "name": "Helical gear shaft (example): d 30, 960 rpm, axial gear force on the locating bearing A",
+  "rpm": 960.0,
+  "use_crank_loads": false,
+  "bearing_A": "6306",
+  "bearing_B": "NU206",
+  "Fr_A_N": 3200.0,
+  "Fa_A_N": 0.0,
+  "Fr_B_N": 2100.0,
+  "Fa_B_N": 0.0,
+  "Fa_external_N": 1340.0,
+  "target_life_h": 20000.0,
+  "reliability_pct": 95.0,
+  "oil_VG": 68,
+  "oil_temp_C": 70.0,
+  "cleanliness": "normal cleanliness"
+}

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="1200" height="760" font-family="Arial, Helvetica, sans-serif">
+<title>Module program structure - the standard module FB of the library (item 10 part A)</title>
+<rect x="0" y="0" width="1200" height="760" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">Module program structure - the standard module FB of the library (item 10 part A)</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">One module FB per module instance (e.g. APC01 : FB_APC01). Layers from item 9 (guide 69): IO image -&gt; device FBs -&gt; module logic -&gt; data block. Arrows = data flow in one scan.</text>
+<rect x="30" y="80" width="1140" height="600" rx="12" fill="#ffffff" stroke="#999" stroke-width="1" stroke-dasharray="6,4"/>
+<text x="48" y="100" font-size="12" text-anchor="start" font-weight="bold" fill="#111">FB_&lt;unit&gt; (module FB)  -  called once per scan in the 10 ms main task</text>
+<rect x="60" y="130" width="230" height="90" rx="8" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="175.0" y="157.66666666666666" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">FB_CmdIf (D1)</text>
+<text x="175.0" y="171.66666666666666" font-size="11" text-anchor="middle" fill="#111">rising edge of CmdChangeRequest</text>
+<text x="175.0" y="185.66666666666666" font-size="11" text-anchor="middle" fill="#111">-&gt; CmdAck / CmdRej echo</text>
+<text x="175.0" y="199.66666666666666" font-size="11" text-anchor="middle" fill="#111">iCmdExec (one call)</text>
+<rect x="60" y="250" width="230" height="90" rx="8" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="175.0" y="277.6666666666667" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Mode handling</text>
+<text x="175.0" y="291.6666666666667" font-size="11" text-anchor="middle" fill="#111">FB_ModeSwitch -&gt; unit mode</text>
+<text x="175.0" y="305.6666666666667" font-size="11" text-anchor="middle" fill="#111">change only in Stopped/Idle/Aborted</text>
+<text x="175.0" y="319.6666666666667" font-size="11" text-anchor="middle" fill="#111">(item 5)</text>
+<rect x="340" y="130" width="260" height="210" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="470.0" y="196.66666666666666" font-size="12" text-anchor="middle" font-weight="bold" fill="#1f5fa8">FB_PackMLCore (part B)</text>
+<text x="470.0" y="210.66666666666666" font-size="11" text-anchor="middle" fill="#111">17 states, 9 commands</text>
+<text x="470.0" y="224.66666666666666" font-size="11" text-anchor="middle" fill="#111">acting states end with SC</text>
+<text x="470.0" y="238.66666666666666" font-size="11" text-anchor="middle" fill="#111">internal Abort (class A)</text>
+<text x="470.0" y="252.66666666666666" font-size="11" text-anchor="middle" fill="#111">internal Hold (class B, Execute)</text>
+<text x="470.0" y="266.66666666666663" font-size="11" text-anchor="middle" fill="#111">Resetting = HOMING (D4)</text>
+<text x="470.0" y="280.66666666666663" font-size="11" text-anchor="middle" fill="#111">iState -&gt; word 0, Bits -&gt; word 4</text>
+<rect x="650" y="130" width="250" height="210" rx="8" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="775.0" y="196.66666666666666" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Sequences (part B)</text>
+<text x="775.0" y="210.66666666666666" font-size="11" text-anchor="middle" fill="#111">step chain in Execute</text>
+<text x="775.0" y="224.66666666666666" font-size="11" text-anchor="middle" fill="#111">homing chain in Resetting</text>
+<text x="775.0" y="238.66666666666666" font-size="11" text-anchor="middle" fill="#111">step timer + timeouts</text>
+<text x="775.0" y="252.66666666666666" font-size="11" text-anchor="middle" fill="#111">interlocks between devices</text>
+<text x="775.0" y="266.66666666666663" font-size="11" text-anchor="middle" fill="#111">-&gt; device commands</text>
+<text x="775.0" y="280.66666666666663" font-size="11" text-anchor="middle" fill="#111">(xCmdB, xCmdRun, xEnable)</text>
+<rect x="950" y="130" width="200" height="210" rx="8" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="1050.0" y="196.66666666666666" font-size="12" text-anchor="middle" font-weight="bold" fill="#c0392b">FB_AlarmMgr (D2/D3)</text>
+<text x="1050.0" y="210.66666666666666" font-size="11" text-anchor="middle" fill="#111">AlarmNo = M*1000+10*i+a</text>
+<text x="1050.0" y="224.66666666666666" font-size="11" text-anchor="middle" fill="#111">class A / B / C</text>
+<text x="1050.0" y="238.66666666666666" font-size="11" text-anchor="middle" fill="#111">AlarmNo, WarningNo</text>
+<text x="1050.0" y="252.66666666666666" font-size="11" text-anchor="middle" fill="#111">AlarmClass</text>
+<text x="1050.0" y="266.66666666666663" font-size="11" text-anchor="middle" fill="#111">-&gt; reaction to PackML</text>
+<text x="1050.0" y="280.66666666666663" font-size="11" text-anchor="middle" fill="#111">-&gt; signal tower</text>
+<rect x="60" y="390" width="1090" height="120" rx="8" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="605" y="412" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Device FB layer (generated instance list, item 9 codegen)  -  one instance per circuit-pattern instance with field IO</text>
+<rect x="75" y="425" width="142" height="70" rx="8" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="146.0" y="456.8333333333333" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">FB_Valve2</text>
+<text x="146.0" y="469.8333333333333" font-size="10" text-anchor="middle" fill="#111">Rotate</text>
+<rect x="227" y="425" width="142" height="70" rx="8" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="298.0" y="456.8333333333333" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">FB_Valve1</text>
+<text x="298.0" y="469.8333333333333" font-size="10" text-anchor="middle" fill="#111">Clamp</text>
+<rect x="379" y="425" width="142" height="70" rx="8" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="450.0" y="456.8333333333333" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">FB_Sensor</text>
+<text x="450.0" y="469.8333333333333" font-size="10" text-anchor="middle" fill="#111">PalSideA</text>
+<rect x="531" y="425" width="142" height="70" rx="8" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="602.0" y="456.8333333333333" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">FB_Sensor</text>
+<text x="602.0" y="469.8333333333333" font-size="10" text-anchor="middle" fill="#111">PalSideB</text>
+<rect x="683" y="425" width="142" height="70" rx="8" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="754.0" y="456.8333333333333" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">FB_AnalogIn</text>
+<text x="754.0" y="469.8333333333333" font-size="10" text-anchor="middle" fill="#111">ClampPress</text>
+<rect x="835" y="425" width="142" height="70" rx="8" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="906.0" y="456.8333333333333" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">...</text>
+<text x="906.0" y="469.8333333333333" font-size="10" text-anchor="middle" fill="#111">FB_MotorDol, FB_DriveSto,</text>
+<rect x="987" y="425" width="142" height="70" rx="8" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="1058.0" y="456.8333333333333" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">mirrors:</text>
+<text x="1058.0" y="469.8333333333333" font-size="10" text-anchor="middle" fill="#111">FB_Estop, FB_Door2Ch</text>
+<rect x="60" y="560" width="340" height="90" rx="8" fill="#eaf1fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="230.0" y="587.6666666666666" font-size="12" text-anchor="middle" font-weight="bold" fill="#1f5fa8">Data block mapping</text>
+<text x="230.0" y="601.6666666666666" font-size="11" text-anchor="middle" fill="#111">words 0-19 (+20 ..) ONE WRITER PER WORD</text>
+<text x="230.0" y="615.6666666666666" font-size="11" text-anchor="middle" fill="#111">module writes 0-1, 4, 6-11, 16-18</text>
+<text x="230.0" y="629.6666666666666" font-size="11" text-anchor="middle" fill="#111">CC writes 2-3, 5, 12-15, 19</text>
+<rect x="430" y="560" width="340" height="90" rx="8" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="600.0" y="587.6666666666666" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">HMI interface</text>
+<text x="600.0" y="601.6666666666666" font-size="11" text-anchor="middle" fill="#111">faceplate structures per FB type</text>
+<text x="600.0" y="615.6666666666666" font-size="11" text-anchor="middle" fill="#111">Sts / Alm read, Cmd.xMan.. written</text>
+<text x="600.0" y="629.6666666666666" font-size="11" text-anchor="middle" fill="#111">alarm text table generated (10B)</text>
+<rect x="800" y="560" width="350" height="90" rx="8" fill="#fff7e6" stroke="#b9770e" stroke-width="1.5"/>
+<text x="975.0" y="587.6666666666666" font-size="12" text-anchor="middle" font-weight="bold" fill="#b9770e">F-program (separate, certified)</text>
+<text x="975.0" y="601.6666666666666" font-size="11" text-anchor="middle" fill="#111">STO, zone release, door lock, e-stop</text>
+<text x="975.0" y="615.6666666666666" font-size="11" text-anchor="middle" fill="#111">standard program READS F-copies only</text>
+<text x="975.0" y="629.6666666666666" font-size="11" text-anchor="middle" fill="#111">requests: unlock, zone release</text>
+<polyline points="290,175 340,175" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="340,175 331.00,171.00 331.00,179.00" fill="#111"/>
+<polyline points="290,295 340,295" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="340,295 331.00,291.00 331.00,299.00" fill="#111"/>
+<polyline points="600,235 650,235" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="650,235 641.00,231.00 641.00,239.00" fill="#111"/>
+<polyline points="1050,340 1050,370 470,370 470,340" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="470,340 466.00,349.00 474.00,349.00" fill="#c0392b"/>
+<text x="760" y="364" font-size="10" text-anchor="middle" fill="#c0392b">class A -&gt; internal Abort, class B -&gt; internal Hold</text>
+<polyline points="775,340 775,425" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="775,425 779.00,416.00 771.00,416.00" fill="#111"/>
+<text x="830" y="385" font-size="10" text-anchor="start" fill="#111">commands</text>
+<polyline points="1000,425 1000,340" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="1000,340 996.00,349.00 1004.00,349.00" fill="#c0392b"/>
+<text x="1010" y="400" font-size="10" text-anchor="start" fill="#c0392b">iAlarm</text>
+<polyline points="230,560 230,520 40,520 40,175 60,175" fill="none" stroke="#1f5fa8" stroke-width="1.5" stroke-dasharray="5,3"/>
+<polygon points="60,175 51.00,171.00 51.00,179.00" fill="#1f5fa8"/>
+<text x="110" y="535" font-size="10" text-anchor="middle" fill="#1f5fa8">words 2, 3</text>
+<polyline points="330,340 330,380 45,380 45,540 320,540 320,560" fill="none" stroke="#1f5fa8" stroke-width="1.5" stroke-dasharray="5,3"/>
+<polygon points="320,560 324.00,551.00 316.00,551.00" fill="#1f5fa8"/>
+<polyline points="975,560 975,520" fill="none" stroke="#b9770e" stroke-width="1.5" stroke-dasharray="5,3"/>
+<polygon points="975,520 971.00,529.00 979.00,529.00" fill="#b9770e"/>
+<text x="1080" y="540" font-size="10" text-anchor="middle" fill="#b9770e">F-copies (read only)</text>
+<text x="600" y="710" font-size="11" text-anchor="middle" fill="#111">Order in one scan: 1 device FBs (status) -&gt; 2 FB_CmdIf -&gt; 3 alarm manager -&gt; 4 PackML core (commands, internal Abort/Hold, SC) -&gt; 5 sequences -&gt; 6 device commands/outputs -&gt; 7 data block + HMI</text>
+<text x="600" y="730" font-size="11" text-anchor="middle" fill="#555">Only the device FB writes its q-outputs; only the PackML core writes the state; only the alarm manager writes AlarmNo / WarningNo (one writer per variable).</text>
+</svg>

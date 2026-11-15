@@ -134,6 +134,7 @@ VERSION : 1.2
       TypeCode    : UInt := 1;       // 1 CNC 2 PALLET 3 LOAD 4 STATION 5 TEST 6 AGV 7 ASRS
       UnitId      : UInt := 1;       // unit id of this plant = 1 for every device
       AllowedCmds : DWord;           // bit n = command code n is known (n = 0 - 31), e.g. CNC: 4, 10, 14 = 16#0000_4410
+      AllowedCmdsHi : DWord := 16#0; // V1.2b: bit n = command code 32 + n is known (AS/RS: 32, 33 = 16#0000_0003)
       ShiftOn     : Bool;            // key switch / shift active (else status bit 7, state 0 OFF)
       AutoMode    : Bool;            // mode selector AUTO
       SetupMode   : Bool;            // mode selector SET-UP
@@ -286,11 +287,15 @@ BEGIN
    #Ready := #ShiftOn AND #AutoMode AND NOT #SetupMode AND NOT #MaintMode AND NOT #Alarm AND NOT #EStopCopy
              AND NOT #busyT AND #GwOk;
    #newReq := #HR.cmd_ctl.%X0 <> #ackT;                // REQ differs from ACK = a NEW command
-   IF #newReq AND #firstDone THEN
+   // sequence guard (map V1.2a): a toggle whose cmd.seq equals the last acknowledged seq is a STALE frame (e.g. a late
+   // REQ write from an old TCP connection) – ignore it; REQ <> ACK stays visible and the controller cancels it.
+   IF #newReq AND #firstDone AND (#HR.cmd_seq <> #HR.hs_ackSeq) THEN
       #code := #HR.cmd_code;
-      IF #code > 31 THEN
+      IF #code > 63 THEN
          #res := 1;                                     // unknown command
-      ELSIF (SHR(IN := #AllowedCmds, N := #code) AND 16#0000_0001) = 0 THEN
+      ELSIF #code > 31 AND (SHR(IN := #AllowedCmdsHi, N := #code - 32) AND 16#0000_0001) = 0 THEN
+         #res := 1;                                     // V1.2b: codes 32 - 63 from AllowedCmdsHi
+      ELSIF #code <= 31 AND (SHR(IN := #AllowedCmds, N := #code) AND 16#0000_0001) = 0 THEN
          #res := 1;                                     // not a command of this device type
       ELSIF #code = 4 THEN
          #res := 0; #AckAlarm := TRUE;                  // acknowledge alarm – allowed also while busy

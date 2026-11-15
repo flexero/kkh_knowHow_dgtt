@@ -14,7 +14,7 @@ export const LEVELS = [
   { l: 2, n: "Supervisory control", sys: "Cell controller, SCADA / HMI, historian", time: "minutes, seconds",
     does: ["Cell controller: which pallet to which machine now, transport orders, pallet / fixture / tool status", "SCADA / HMI: overview, alarms, trends, operator commands", "Historian: time series of all signals"],
     out: "Transport orders, start commands with program number, set-points", inp: "Module states (PackML), hand-over signals, alarms",
-    fms: "Sends pallet P07 to HMC-02, starts program O2010C, routes it to the washer afterwards." },
+    fms: "Sends pallet P07 to MC02, starts program O2010C, routes it to the washer afterwards." },
   { l: 1, n: "Basic control", sys: "PLC, CNC, robot controller, safety PLC, drives", time: "milliseconds, seconds",
     does: ["Sequences of each module (pallet change, clamp, door, stacker move)", "Interlocks, hand-over handshakes", "Motion control, NC program execution", "Safety functions (hard-wired / safety PLC)"],
     out: "Outputs to valves, motors, drives", inp: "Sensors, encoders, switches, safety devices",
@@ -48,9 +48,9 @@ export const HIER = { n: "Enterprise – Example Compressors Ltd", t: "Enterpris
   { n: "Site – Plant 1", t: "Site", c: [
     { n: "Area – Machining", t: "Area", c: [
       { n: "Work cell – FMS1 (crankcases)", t: "Work centre / cell", c: [
-        { n: "HMC01 – machining centre (M01)", t: "Work unit", c: [{ n: "APC – pallet changer (M02)", t: "Equipment module", c: [{ n: "Clamp valve Y1 + pressure switch B3", t: "Control module" }, { n: "Rotary drive M1", t: "Control module" }] }, { n: "Tool magazine (M09)", t: "Equipment module" }, { n: "Door", t: "Equipment module", c: [{ n: "Door lock S5 (safety)", t: "Control module" }] }] },
-        { n: "HMC02 – machining centre (M01)", t: "Work unit" },
-        { n: "HMC03 – machining centre (M01)", t: "Work unit" },
+        { n: "MC01 – machining centre (M01)", t: "Work unit", c: [{ n: "APC – pallet changer (M02)", t: "Equipment module", c: [{ n: "Clamp valve Y1 + pressure switch B3", t: "Control module" }, { n: "Rotary drive M1", t: "Control module" }] }, { n: "Tool magazine (M09)", t: "Equipment module" }, { n: "Door", t: "Equipment module", c: [{ n: "Door lock S5 (safety)", t: "Control module" }] }] },
+        { n: "MC02 – machining centre (M01)", t: "Work unit" },
+        { n: "MC03 – machining centre (M01)", t: "Work unit" },
         { n: "POOL1 – pallet pool + stacker (M03)", t: "Work unit", c: [{ n: "Stacker travel axis", t: "Equipment module" }, { n: "Fork / transfer", t: "Equipment module" }] },
         { n: "LS1, LS2 – load stations (M04)", t: "Work unit" },
         { n: "WASH1 – washer (M10)", t: "Work unit" },
@@ -82,24 +82,24 @@ export const MEANING = {
 export const MODES = { Production: ["Reset", "Start", "Stop", "Hold", "Unhold", "Suspend", "Unsuspend", "Abort", "Clear"], Maintenance: ["Reset", "Start", "Stop", "Hold", "Unhold", "Abort", "Clear"], Manual: ["Reset", "Start", "Stop", "Abort", "Clear"] };
 
 /* 5D one pallet through all levels: lanes and steps [from, to, level, title, message] */
-export const LANES = ["ERP", "MES", "Cell controller", "SCADA / HMI", "AS/RS · WMS", "Stacker PLC", "Load station", "HMC-02 CNC", "CMM"];
+export const LANES = ["ERP", "MES", "Cell controller", "SCADA / HMI", "AS/RS · WMS", "Stacker PLC", "Load station", "MC02 CNC", "CMM"];
 export const LANE_LVL = [4, 3, 2, 2, 3, 1, 1, 1, 1];
 export const FLOWSTEPS = [
   [0, 1, 4, "Production order released", 'HTTP POST /mes/orders {"po":"4711","item":"CC20-MACH","qty":40,"due":"2026-11-20","routing":"R-CC20/C"}'],
-  [1, 1, 3, "Schedule + kit check", "WO-4711-10 on group HMC · castings 40 in AS/RS ✓ · fixture F-CC20 ×2 ✓ · NC O2010 rev C released ✓ · tools T1–T38 in HMC-01/02 ✓ → release"],
-  [1, 2, 3, "Job to the cell", 'job {"wo":"WO-4711-10","pallets":10,"fixture":"F-CC20","program":"O2010C","machines":["HMC-01","HMC-02"]}'],
+  [1, 1, 3, "Schedule + kit check", "WO-4711-10 on group HMC · castings 40 in AS/RS ✓ · fixture F-CC20 ×2 ✓ · NC O2010 rev C released ✓ · tools T1–T38 in MC01/02 ✓ → release"],
+  [1, 2, 3, "Job to the cell", 'job {"wo":"WO-4711-10","pallets":10,"fixture":"F-CC20","program":"O2010C","machines":["MC01","MC02"]}'],
   [2, 4, 2, "Material call", 'transport order {"item":"CC20-CAST","qty":4,"to":"LS1"} → AS/RS retrieves box B-2231'],
   [2, 5, 2, "Bring empty fixture pallet", 'Modbus/OPC UA write: Job.Cmd=MOVE, From=RACK-12, To=LS1, Pallet=P07 → PackML Execute → Done'],
   [6, 6, 1, "Operator clamps parts", "HMI LS1: 'Clamp 4 × CC20 on P07 (F-CC20)' · scan pallet RFID P07 · scan serials CC20-0812…0815 · clamp pressure OK · release button"],
   [6, 2, 1, "Pallet released", 'LS1 → cell: {"pallet":"P07","wo":"WO-4711-10","serials":["CC20-0812","CC20-0813","CC20-0814","CC20-0815"],"state":"READY"}'],
-  [2, 5, 2, "Route to free machine", "HMC-02 Idle + tools OK + program present → stacker: MOVE P07 LS1 → HMC-02/APC"],
+  [2, 5, 2, "Route to free machine", "MC02 Idle + tools OK + program present → stacker: MOVE P07 LS1 → MC02/APC"],
   [2, 7, 2, "Start machining", "Handshake: cell sets Request(program=O2010C, pallet=P07) → CNC Ready → Busy → PackML Execute"],
   [7, 3, 1, "Live status", "State=Execute · spindle 18 % load · tool T12 life 61 % · SCADA trend + historian; no alarm"],
-  [7, 2, 1, "Cycle done", '{"machine":"HMC-02","pallet":"P07","result":"DONE","cycle_min":57.2,"parts_ok":4} → PackML Complete → Reset → Idle'],
-  [2, 5, 2, "Pallet to washer / CMM", "Rule: 1 in 10 measured → P07 selected → MOVE HMC-02 → WASH1 → CMM1"],
+  [7, 2, 1, "Cycle done", '{"machine":"MC02","pallet":"P07","result":"DONE","cycle_min":57.2,"parts_ok":4} → PackML Complete → Reset → Idle'],
+  [2, 5, 2, "Pallet to washer / CMM", "Rule: 1 in 10 measured → P07 selected → MOVE MC02 → WASH1 → CMM1"],
   [8, 1, 1, "Measured values", '{"serial":"CC20-0812","bore_A":{"value":52.012,"tol":"52.000/+0.030","ok":true}, …} → SPC chart'],
   [6, 2, 1, "Unclamp, parts out", "LS1: unclamp 4 parts → box to AS/RS (finished WIP) · pallet P07 back to rack"],
-  [2, 1, 2, "Confirmation to MES", 'confirm {"wo":"WO-4711-10","good":4,"scrap":0,"machine":"HMC-02","run_min":57.2} → genealogy per serial'],
+  [2, 1, 2, "Confirmation to MES", 'confirm {"wo":"WO-4711-10","good":4,"scrap":0,"machine":"MC02","run_min":57.2} → genealogy per serial'],
   [1, 0, 3, "Confirmation to ERP", 'HTTP POST /erp/confirmations {"po":"4711","op":"10","yield":4,"scrap":0,"hours":0.95} → stock + cost updated'],
 ];
 

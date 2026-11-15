@@ -10,7 +10,7 @@
   "P0_p05": 5916,
   "P0_p50": 6184,
   "P0_p95": 6413,
-  "note": "Mature-state monthly good output. To be compared with the real factory after ramp-up (section 9.6). Values are a reference design case until the final design data replace Table 4.2."
+  "note": "Mature-state monthly good output. To be compared with the real factory after ramp-up (section 9.7). Values are a reference design case until the final design data replace Table 4.2."
  },
  "case1_sensitivity": [
   {

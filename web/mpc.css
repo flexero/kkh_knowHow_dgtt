@@ -43,3 +43,4 @@
 #tab-mpc .mpc-bad { border-color: var(--critical); }
 #tab-mpc .mpc-bad b { color: var(--critical); }
 #tab-mpc .mpc-okc { color: var(--good); font-weight: 600; }
+#tab-mpc tr.mpc-sel td { background: rgba(42, 120, 214, .10); font-weight: 600; }

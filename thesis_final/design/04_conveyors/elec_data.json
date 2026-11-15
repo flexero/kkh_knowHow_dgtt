@@ -1,0 +1,392 @@
+{
+ "_note": "Final thesis item F4.5 - electrics, safety and communication of all F4 conveyors and stations. DESIGN values / REFERENCE ESTIMATES; catalogue classes 'or equal' [verify]. Tool: conv_elec.py. Guide: Doctor paper/61 chapters 49-60. Communication in two cases: A built-in PLC ports, B expansion modules (method of F3 Part D, asrs_comm.select_modules).",
+ "version": "F4.5 (2026-11-15)",
+ "U": 400.0,
+ "small_motor": {
+  "0.12": [
+   0.65,
+   0.6
+  ],
+  "0.18": [
+   0.68,
+   0.64
+  ],
+  "0.25": [
+   0.7,
+   0.68
+  ],
+  "_": "cos_phi, eta of small 4-pole motors (IE2 class allowed below 0.75 kW, EU 2019/1781) [verify]"
+ },
+ "inverter_eta": 0.97,
+ "inverter_cos_in": 0.9,
+ "k_s": 0.5,
+ "drives": {
+  "_": "per module type: [name, kW, area, how many per module]",
+  "CC": [
+   [
+    "chain zone",
+    0.18
+   ]
+  ],
+  "TU": [
+   [
+    "TU chain part",
+    0.18
+   ],
+   [
+    "TU roller set",
+    0.12
+   ],
+   [
+    "TU lift",
+    0.25
+   ]
+  ],
+  "RCX": [
+   [
+    "Z31 rollers",
+    0.12
+   ]
+  ],
+  "RL": [
+   [
+    "roller zone",
+    0.12
+   ]
+  ],
+  "PD_end": [
+   [
+    "pop-up end stop (electric)",
+    0.12
+   ]
+  ],
+  "section": [
+   [
+    "loop section",
+    0.75
+   ]
+  ],
+  "corner": [
+   [
+    "corner turntable rotate",
+    0.37
+   ],
+   [
+    "corner chain",
+    0.25
+   ]
+  ],
+  "spur": [
+   [
+    "spur transfer lift",
+    0.25
+   ],
+   [
+    "spur transfer belts",
+    0.18
+   ],
+   [
+    "spur track",
+    0.25
+   ]
+  ],
+  "lift_table": [
+   [
+    "lift table hydraulic power unit",
+    1.1
+   ]
+  ],
+  "load_station": [
+   [
+    "tank lifter jib (vacuum pump + hoist)",
+    1.1
+   ]
+  ],
+  "hmc_index": [
+   [
+    "HMC load station index table",
+    0.12
+   ]
+  ]
+ },
+ "dol_check": {
+  "T_start_ratio": 2.0,
+  "light_crate_kg": 45,
+  "full_crate_kg": 300,
+  "carrier_product_kg": 232,
+  "slide_limit": 3.9,
+  "content_limit_g": 0.5
+ },
+ "io": {
+  "_": "[DI, DO, F-DI, F-DO, AI] per element; drives are PROFINET devices (no DI/DO): 'pn' = PROFINET devices",
+  "CC": {
+   "DI": 2,
+   "pn": 1
+  },
+  "TU": {
+   "DI": 7,
+   "pn": 3
+  },
+  "RCX": {
+   "DI": 2,
+   "pn": 1
+  },
+  "RL": {
+   "DI": 2,
+   "pn": 1
+  },
+  "PD_end": {
+   "DI": 4,
+   "F-DI": 2,
+   "pn": 1,
+   "coupler": 1,
+   "_": "stop up/down, 2 muting sensors; light curtain OSSD 2 ch; electric stop = PN drive; optical coupler 8/8 bit"
+  },
+  "check_TU1": {
+   "DI": 3,
+   "pn": 4,
+   "AI": 0,
+   "_": "2 runner sensors + portal door; 3 light grids (IO-Link/PN) + ID reader (PN); scale: Case A AI module, Case B Modbus RTU (F3 Part D)"
+  },
+  "flow_lane": {
+   "DI": 2,
+   "DO": 1,
+   "_": "entry free + crate at exit; separator actuator"
+  },
+  "flow_block": {
+   "coupler": 1,
+   "F-DI": 2,
+   "_": "one AGV coupler + light curtain per department block"
+  },
+  "section": {
+   "DI": 2,
+   "pn": 1
+  },
+  "corner": {
+   "DI": 6,
+   "pn": 2
+  },
+  "spur": {
+   "DI": 8,
+   "DO": 2,
+   "pn": 3,
+   "_": "transfer up/down/in/out, spur track 2 positions, stopper DO + feedback"
+  },
+  "stopper": {
+   "DI": 2,
+   "DO": 1
+  },
+  "lift_locate": {
+   "DI": 2,
+   "DO": 1
+  },
+  "lift_table": {
+   "DI": 3,
+   "DO": 3,
+   "F-DI": 2,
+   "AI": 1,
+   "pn": 1,
+   "_": "up/down limit + pit cover, 3 valves, safety edge 2 ch, height sensor"
+  },
+  "test_dock": {
+   "DI": 4,
+   "DO": 2
+  },
+  "gate": {
+   "DI": 1,
+   "F-DI": 2,
+   "F-DO": 1,
+   "_": "interlock 2 ch + guard locking"
+  },
+  "estop": {
+   "F-DI": 2
+  },
+  "load_station": {
+   "DI": 4,
+   "DO": 2,
+   "pn": 1
+  },
+  "hmc_station": {
+   "DI": 12,
+   "DO": 4,
+   "F-DI": 4,
+   "pn": 1,
+   "AI": 2
+  },
+  "dock_tu": {
+   "DI": 2,
+   "F-DI": 2,
+   "coupler": 1,
+   "_": "AGV dock at TU1 / TU2 / TU3 of the AS/RS front: 2 muting sensors, light curtain 2 ch, optical coupler"
+  }
+ },
+ "estops": {
+  "AF": 4,
+  "PD": 14,
+  "ASM": 12,
+  "HMC": 2
+ },
+ "areas": {
+  "AF": {
+   "name": "AS/RS front (PLC-ASRS1 of F3)",
+   "feeder_m": 20
+  },
+  "PD": {
+   "name": "P&D stations + flow racks (PLC-CONV1)",
+   "feeder_m": 75
+  },
+  "ASM": {
+   "name": "assembly carrier line (PLC-ASM1)",
+   "feeder_m": 40
+  },
+  "HMC": {
+   "name": "HMC pallet load station (cell controller of the HMC pallet system)",
+   "feeder_m": 15
+  }
+ },
+ "power_bus": {
+  "_": "400 V flat / hybrid power cable along the line with tap-offs to the decentralised drives",
+  "A_mm2": [
+   2.5,
+   4.0,
+   6.0,
+   10.0
+  ],
+  "du_max": 3.0,
+  "R70": 0.0219,
+  "_R": "ohm m mm2 at 70 C (copper)"
+ },
+ "psu_mA": {
+  "DI": 8,
+  "DO": 300,
+  "F-DI": 15,
+  "F-DO": 500,
+  "AI": 25,
+  "remote_io": 300,
+  "coupler": 150,
+  "pn_switch": 250,
+  "light_curtain": 300,
+  "scanner": 400
+ },
+ "comm": {
+  "_": "uses ../03_asrs/comm_data.json catalogue and asrs_comm.select_modules with these demands",
+  "PLC-CONV1": {
+   "A": {
+    "PN_IO": 1,
+    "ETH": 1,
+    "RS485": 0,
+    "CAN": 0,
+    "firewall_at_plc": false
+   },
+   "B": {
+    "PN_IO": 2,
+    "ETH": 2,
+    "RS485": 1,
+    "CAN": 0,
+    "firewall_at_plc": true
+   },
+   "why_B": "net 1 = west half of the spine, net 2 = east half (a cable fault stops only half of the stations); CP firewall for the factory link; RS-485 for the energy meters of the power-bus feeders"
+  },
+  "PLC-ASM1": {
+   "A": {
+    "PN_IO": 1,
+    "ETH": 1,
+    "RS485": 0,
+    "CAN": 0,
+    "firewall_at_plc": false
+   },
+   "B": {
+    "PN_IO": 2,
+    "ETH": 2,
+    "RS485": 1,
+    "CAN": 0,
+    "firewall_at_plc": true
+   },
+   "why_B": "net 1 = loop + spurs, net 2 = 7 test benches (vendor PLCs as PROFINET i-devices, separated so that a bench fault cannot stop the loop); CP firewall; RS-485 for the lift-table hydraulic units and energy meters"
+  },
+  "update_ms": 4.0,
+  "drive_bytes": [
+   4,
+   4
+  ],
+  "rio_bytes": [
+   32,
+   16
+  ],
+  "dev_bytes": [
+   16,
+   16
+  ]
+ },
+ "air": {
+  "p_bar": 6.0,
+  "_": "[element, bore mm, stroke mm, double-acting, cycles per hour per element at the design rate]",
+  "actuators": [
+   [
+    "assembly stopper",
+    32,
+    25,
+    true,
+    8
+   ],
+   [
+    "lift-and-locate",
+    40,
+    20,
+    true,
+    4
+   ],
+   [
+    "test docking slide",
+    50,
+    150,
+    true,
+    1.5
+   ],
+   [
+    "flow-rack separator",
+    32,
+    50,
+    true,
+    3
+   ]
+  ],
+  "balancer_NL_per_lift": 25,
+  "leak_share": 0.15
+ },
+ "safety": {
+  "d_op": 220,
+  "h_op": 16,
+  "dock_lc": {
+   "K": 1600,
+   "t_curtain_ms": 10,
+   "t_plc_ms": 30,
+   "t_stop_ms": 300,
+   "C_multibeam_mm": 850
+  },
+  "gate": {
+   "t_stop_ms": 400
+  },
+  "pit_edge": {
+   "v_lower_mm_s": 30,
+   "t_edge_ms": 20,
+   "t_valve_ms": 80,
+   "edge_travel_mm": 25
+  }
+ },
+ "cost_EUR": {
+  "decentral_drive": 900,
+  "dol_starter": 300,
+  "remote_io_station": 2200,
+  "coupler": 1200,
+  "light_curtain_muting": 2600,
+  "estop": 180,
+  "safety_edge": 450,
+  "gate_lock": 600,
+  "plc_cpu_f": 4200,
+  "cabinet": 6000,
+  "power_bus_m": 28,
+  "pn_cable_m": 4,
+  "energy_meter": 350
+ }
+}

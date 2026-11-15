@@ -1,0 +1,6 @@
+{"scan_ms": 0.0, "sequence": "devicelink", "ack_poll_ms": 20.0, "frames_mean": 10} {'total': 0.36, 'write_phase': 0.3, 'ack_phase': 0.06}
+{"scan_ms": 0.0, "sequence": "3frame", "ack_poll_ms": 20.0, "frames_mean": 4} {'total': 0.25, 'write_phase': 0.23, 'ack_phase': 0.02}
+{"scan_ms": 0.0, "sequence": "3frame", "ack_poll_ms": 5.0, "frames_mean": 4} {'total': 0.26, 'write_phase': 0.24, 'ack_phase': 0.02}
+{"scan_ms": 10.0, "sequence": "devicelink", "ack_poll_ms": 20.0, "frames_mean": 10.923333333333334} {'total': 88.76, 'write_phase': 44.64, 'ack_phase': 44.12}
+{"scan_ms": 10.0, "sequence": "3frame", "ack_poll_ms": 20.0, "frames_mean": 4.903333333333333} {'total': 49.98, 'write_phase': 19.21, 'ack_phase': 30.77}
+{"scan_ms": 10.0, "sequence": "3frame", "ack_poll_ms": 5.0, "frames_mean": 4.933333333333334} {'total': 37.55, 'write_phase': 19.71, 'ack_phase': 17.85}

@@ -1,0 +1,27 @@
+{
+  "name": "Packaging pusher redesigned for 400 rpm: modified-sine rise 130 deg, modified-sine return 150 deg (example)",
+  "segments": [
+    {
+      "kind": "rise",
+      "law": "modsine",
+      "beta": 130.0
+    },
+    {
+      "kind": "dwell",
+      "beta": 40.0
+    },
+    {
+      "kind": "return",
+      "law": "modsine",
+      "beta": 150.0
+    },
+    {
+      "kind": "dwell",
+      "beta": 40.0
+    }
+  ],
+  "n_rpm": 400.0,
+  "k_spring": 4.0,
+  "F0_spring": 70.0,
+  "R0": 35.0
+}

@@ -1,0 +1,105 @@
+/* FMS engineering – item 7 electrical & safety (fmse7.js + fmse7x.js). Theme variables only (light + dark). Prefix f7-. Reuses fe-*, fx-*, am-*, phd-* classes. */
+
+.f7-warnbox { border-left: 4px solid var(--warning); }
+.f7-warnbox p { margin: 0; font-size: 13.5px; line-height: 1.5; }
+.f7-kv td:first-child { width: 46%; }
+.f7-in input[type=number] { width: 100px; max-width: 100%; }
+#tab-fmse .f7-n { width: 72px; max-width: 100%; }
+#tab-fmse .f7-nw { width: 96px; max-width: 100%; }
+#tab-fmse .f7-t { width: 100%; min-width: 120px; box-sizing: border-box; }
+#tab-fmse .f7-mini { padding: 1px 6px; font-size: 12px; margin: 0; }
+#tab-fmse .f7-selw { max-width: 100%; }
+.f7-small td, .f7-small th { font-size: 12.5px; }
+.f7-small td { vertical-align: middle; }
+.f7-r { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.f7-use { border-top: 1px dashed var(--border); padding-top: 6px; }
+.f7-hint { border-left: 3px solid var(--warning); padding-left: 8px; }
+.f7-warn { color: var(--serious); font-weight: 600; }
+.f7-red { fill: var(--critical); font-weight: 600; }
+tr.f7-hl td { background: var(--surface-2); }
+tr.f7-click { cursor: pointer; }
+tr.f7-dim td { color: var(--muted); }
+tr.f7-fired td { font-weight: 600; }
+tr.f7-resrow td { border-top: 2px solid var(--axis); }
+.f7-sub { border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; margin: 8px 0; }
+.f7-sub .card-head { margin: 0 0 4px; }
+.f7-ver { background: var(--surface-2); }
+.f7-ci { display: block; font-size: 13px; line-height: 1.45; margin: 3px 0; padding-left: 22px; text-indent: -22px; }
+.f7-pt { font-size: 13px; line-height: 1.5; margin: 4px 0; }
+
+/* svg drawing primitives */
+.f7-w { stroke: var(--text-2); stroke-width: 1.4; fill: none; }
+.f7-bus { stroke: var(--text); stroke-width: 4; }
+.f7-sym { fill: var(--surface); stroke: var(--text-2); stroke-width: 1.4; }
+.f7-box { fill: var(--surface-2); stroke: var(--axis); stroke-width: 1; }
+.f7-lbl { font-size: 12px; fill: var(--text); }
+.f7-sm { font-size: 10.5px; fill: var(--text-2); }
+.f7-dash { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+.f7-dot { fill: var(--fe-2); stroke: var(--surface); stroke-width: 1.5; }
+.f7-ia, .f7-ialine { stroke: var(--critical); stroke-width: 1.8; stroke-dasharray: 6 3; }
+.f7-axis0 { stroke: var(--axis); stroke-width: 1.4; }
+.f7-fanz { fill: var(--fe-3); fill-opacity: .10; }
+.f7-safe { stroke: var(--critical); stroke-width: 1.6; fill: none; }
+.f7-beam { stroke: var(--fe-2); stroke-width: 1; stroke-dasharray: 3 3; }
+.f7-sch { max-width: 640px; }
+.fe-scroll .f7-wide { min-width: 640px; max-width: 900px; }
+.fe-scroll .f7-plan { min-width: 520px; max-width: 760px; }
+
+/* 7E risk graph */
+.f7-rg { stroke: var(--axis); stroke-width: 1.4; fill: none; }
+.f7-rgon { stroke: var(--fe-1); stroke-width: 3.2; fill: none; }
+.f7-pl { stroke: var(--axis); stroke-width: 1; fill-opacity: .35; }
+.f7-plon { stroke: var(--text); stroke-width: 2.4; fill-opacity: .8; }
+.f7-pl-a { fill: var(--fe-3); } .f7-pl-b { fill: var(--fe-3); } .f7-pl-c { fill: var(--fe-4); } .f7-pl-d { fill: var(--fe-2); } .f7-pl-e { fill: var(--critical); }
+
+/* 7G distance drawing */
+.f7-haz { fill: var(--critical); fill-opacity: .18; stroke: var(--critical); }
+.f7-dev { stroke: var(--fe-1); stroke-width: 4; }
+.f7-seg1 { fill: var(--fe-1); fill-opacity: .55; }
+.f7-seg2 { fill: var(--fe-2); fill-opacity: .55; }
+.f7-dim { stroke: var(--text-2); stroke-width: 1; }
+.f7-arrow { stroke: var(--text-2); stroke-width: 1.6; fill: none; marker-end: none; }
+
+/* 7H zones: action colours (cells, svg modules, legend) */
+.f7-aRUN { background: color-mix(in srgb, var(--fe-3) 22%, transparent); fill: var(--fe-3); fill-opacity: .35; }
+.f7-aSLS { background: color-mix(in srgb, var(--fe-4) 30%, transparent); fill: var(--fe-4); fill-opacity: .5; }
+.f7-aSS1 { background: color-mix(in srgb, var(--fe-2) 30%, transparent); fill: var(--fe-2); fill-opacity: .5; }
+.f7-aSTO { background: color-mix(in srgb, var(--critical) 30%, transparent); fill: var(--critical); fill-opacity: .5; }
+.f7-mat td { text-align: center; white-space: nowrap; }
+.f7-mat td:nth-child(2) { text-align: left; white-space: normal; min-width: 150px; }
+.f7-mod { stroke: var(--axis); stroke-width: 1; }
+.f7-zone { fill: none; stroke: var(--muted); stroke-width: 1.4; stroke-dasharray: 6 4; }
+.f7-zone.f7-zon { stroke: var(--critical); stroke-width: 2.4; fill: var(--critical); fill-opacity: .05; }
+.f7-door { fill: var(--surface); stroke: var(--text-2); }
+.f7-door.f7-zon { fill: var(--critical); fill-opacity: .4; }
+.f7-rail { stroke: var(--text-2); stroke-width: 3; }
+.f7-lc { stroke: var(--fe-1); stroke-width: 3; stroke-dasharray: 2 3; }
+.f7-lc.f7-zon { stroke: var(--critical); }
+.f7-sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 4px; }
+.f7-lgd { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 4px 0 8px; }
+.f7-tog { display: flex; flex-wrap: wrap; gap: 4px; }
+.f7-tog p { flex-basis: 100%; }
+
+/* 7I sketches */
+.f7-skgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; margin: 6px 0 10px; }
+.f7-skc { background: var(--surface-2); border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.f7-skc p { margin: 4px 0; line-height: 1.45; }
+.f7-sk { width: 100%; max-width: 260px; height: auto; display: block; margin: 4px 0; }
+.f7-ax { stroke: var(--axis); stroke-width: 1.2; }
+.f7-req { stroke: var(--critical); stroke-width: 1; stroke-dasharray: 3 3; }
+.f7-win { fill: var(--fe-4); fill-opacity: .25; }
+
+/* 7J patterns, 7M cases, 7N checklists */
+.f7-pat { display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 12px 18px; }
+.f7-patc { border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; min-width: 0; }
+.f7-patc .fe-chart { min-width: 440px; }
+.f7-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px 18px; }
+.f7-case { background: var(--surface-2); border-radius: 8px; padding: 6px 10px; min-width: 0; }
+.f7-chk { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 6px 18px; }
+.f7-chk h4 { margin: 8px 0 4px; }
+
+@media (max-width: 700px) {
+  .f7-kv td:first-child { width: 52%; }
+  .f7-in input[type=number] { width: 76px; }
+  .f7-pat, .f7-cases { grid-template-columns: minmax(0, 1fr); }
+}

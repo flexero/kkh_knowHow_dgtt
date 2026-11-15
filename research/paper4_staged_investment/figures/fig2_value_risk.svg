@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox='0 0 760 420' font-family='Arial, Helvetica, sans-serif'>
+<rect width='100%' height='100%' fill='#ffffff'/>
+<line x1='283.5' y1='30.0' x2='283.5' y2='360.0' stroke='#888888' stroke-width='1'/>
+<text x='283.5' y='378.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>0</text>
+<line x1='374.8' y1='30.0' x2='374.8' y2='360.0' stroke='#d9d9d9' stroke-width='1'/>
+<text x='374.8' y='378.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>2</text>
+<line x1='466.1' y1='30.0' x2='466.1' y2='360.0' stroke='#d9d9d9' stroke-width='1'/>
+<text x='466.1' y='378.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>4</text>
+<line x1='557.4' y1='30.0' x2='557.4' y2='360.0' stroke='#d9d9d9' stroke-width='1'/>
+<text x='557.4' y='378.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>6</text>
+<line x1='648.7' y1='30.0' x2='648.7' y2='360.0' stroke='#d9d9d9' stroke-width='1'/>
+<text x='648.7' y='378.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>8</text>
+<line x1='740.0' y1='30.0' x2='740.0' y2='360.0' stroke='#d9d9d9' stroke-width='1'/>
+<text x='740.0' y='378.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>10</text>
+<text x='477.5' y='402.0' font-size='13' text-anchor='middle' fill='#1a1a1a' font-weight='normal'>Incremental NPV versus no investment [M EUR]</text>
+<text x='205.0' y='50.5' font-size='12.5' text-anchor='end' fill='#1a1a1a' font-weight='normal'>Myopic with twin</text>
+<line x1='578.9' y1='41.5' x2='640.8' y2='41.5' stroke='#777777' stroke-width='2'/>
+<circle cx='609.8' cy='41.5' r='5' fill='#777777' stroke='#777777' stroke-width='1.6'/>
+<line x1='283.5' y1='53.5' x2='302.3' y2='53.5' stroke='#777777' stroke-width='1.2' stroke-dasharray='3,2'/>
+<polygon points='283.47826086956525,48.04 288.9382608695652,53.5 283.47826086956525,58.96 278.01826086956527,53.5' fill='#ffffff' stroke='#777777' stroke-width='1.6'/>
+<text x='205.0' y='83.5' font-size='12.5' text-anchor='end' fill='#1a1a1a' font-weight='normal'>Fixed plan (point values)</text>
+<line x1='587.2' y1='74.5' x2='639.3' y2='74.5' stroke='#E69F00' stroke-width='2'/>
+<circle cx='613.3' cy='74.5' r='5' fill='#E69F00' stroke='#E69F00' stroke-width='1.6'/>
+<line x1='268.0' y1='86.5' x2='326.5' y2='86.5' stroke='#E69F00' stroke-width='1.2' stroke-dasharray='3,2'/>
+<polygon points='292.9011109803855,81.03999999999999 298.3611109803855,86.5 292.9011109803855,91.96000000000001 287.44111098038553,86.5' fill='#ffffff' stroke='#E69F00' stroke-width='1.6'/>
+<text x='205.0' y='116.5' font-size='12.5' text-anchor='end' fill='#1a1a1a' font-weight='normal'>Adaptive, demand only</text>
+<line x1='609.2' y1='107.5' x2='674.2' y2='107.5' stroke='#56B4E9' stroke-width='2'/>
+<circle cx='641.7' cy='107.5' r='5' fill='#56B4E9' stroke='#56B4E9' stroke-width='1.6'/>
+<line x1='275.5' y1='119.5' x2='311.8' y2='119.5' stroke='#56B4E9' stroke-width='1.2' stroke-dasharray='3,2'/>
+<polygon points='290.9511863959792,114.03999999999999 296.4111863959792,119.5 290.9511863959792,124.96000000000001 285.49118639597924,119.5' fill='#ffffff' stroke='#56B4E9' stroke-width='1.6'/>
+<text x='205.0' y='149.5' font-size='12.5' text-anchor='end' fill='#1a1a1a' font-weight='normal'>Bottleneck greedy</text>
+<line x1='636.8' y1='140.5' x2='695.7' y2='140.5' stroke='#777777' stroke-width='2'/>
+<circle cx='666.3' cy='140.5' r='5' fill='#777777' stroke='#777777' stroke-width='1.6'/>
+<line x1='288.8' y1='152.5' x2='330.0' y2='152.5' stroke='#777777' stroke-width='1.2' stroke-dasharray='3,2'/>
+<polygon points='306.7936344824023,147.04 312.2536344824023,152.5 306.7936344824023,157.96 301.3336344824023,152.5' fill='#ffffff' stroke='#777777' stroke-width='1.6'/>
+<text x='205.0' y='182.5' font-size='12.5' text-anchor='end' fill='#1a1a1a' font-weight='normal'>Fixed plan (stochastic)</text>
+<line x1='642.5' y1='173.5' x2='703.2' y2='173.5' stroke='#CC79A7' stroke-width='2'/>
+<circle cx='672.8' cy='173.5' r='5' fill='#CC79A7' stroke='#CC79A7' stroke-width='1.6'/>
+<line x1='263.8' y1='185.5' x2='323.2' y2='185.5' stroke='#CC79A7' stroke-width='1.2' stroke-dasharray='3,2'/>
+<polygon points='288.77139441230975,180.04 294.2313944123097,185.5 288.77139441230975,190.96 283.31139441230977,185.5' fill='#ffffff' stroke='#CC79A7' stroke-width='1.6'/>
+<text x='205.0' y='215.5' font-size='12.5' text-anchor='end' fill='#1a1a1a' font-weight='normal'>All-at-once</text>
+<line x1='645.4' y1='206.5' x2='712.5' y2='206.5' stroke='#D55E00' stroke-width='2'/>
+<circle cx='679.0' cy='206.5' r='5' fill='#D55E00' stroke='#D55E00' stroke-width='1.6'/>
+<line x1='236.4' y1='218.5' x2='295.8' y2='218.5' stroke='#D55E00' stroke-width='1.2' stroke-dasharray='3,2'/>
+<polygon points='261.3685212507602,213.04 266.82852125076016,218.5 261.3685212507602,223.96 255.90852125076017,218.5' fill='#ffffff' stroke='#D55E00' stroke-width='1.6'/>
+<text x='205.0' y='248.5' font-size='12.5' text-anchor='end' fill='#1a1a1a' font-weight='normal'>Rule with true parameters</text>
+<line x1='646.0' y1='239.5' x2='708.8' y2='239.5' stroke='#777777' stroke-width='2'/>
+<circle cx='677.4' cy='239.5' r='5' fill='#777777' stroke='#777777' stroke-width='1.6'/>
+<line x1='289.9' y1='251.5' x2='335.1' y2='251.5' stroke='#777777' stroke-width='1.2' stroke-dasharray='3,2'/>
+<polygon points='311.6255689483446,246.04 317.0855689483446,251.5 311.6255689483446,256.96 306.1655689483446,251.5' fill='#ffffff' stroke='#777777' stroke-width='1.6'/>
+<text x='205.0' y='281.5' font-size='12.5' text-anchor='end' fill='#1a1a1a' font-weight='normal'>Clairvoyant plan</text>
+<line x1='651.0' y1='272.5' x2='712.7' y2='272.5' stroke='#000000' stroke-width='2'/>
+<circle cx='681.9' cy='272.5' r='5' fill='#000000' stroke='#000000' stroke-width='1.6'/>
+<line x1='290.4' y1='284.5' x2='337.1' y2='284.5' stroke='#000000' stroke-width='1.2' stroke-dasharray='3,2'/>
+<polygon points='312.63050008466803,279.04 318.090500084668,284.5 312.63050008466803,289.96 307.17050008466805,284.5' fill='#ffffff' stroke='#000000' stroke-width='1.6'/>
+<text x='205.0' y='314.5' font-size='12.5' text-anchor='end' fill='#1a1a1a' font-weight='normal'>Adaptive, parameters only</text>
+<line x1='650.9' y1='305.5' x2='713.6' y2='305.5' stroke='#009E73' stroke-width='2'/>
+<circle cx='682.3' cy='305.5' r='5' fill='#009E73' stroke='#009E73' stroke-width='1.6'/>
+<line x1='261.6' y1='317.5' x2='321.3' y2='317.5' stroke='#009E73' stroke-width='1.2' stroke-dasharray='3,2'/>
+<polygon points='286.9689540340872,312.04 292.42895403408716,317.5 286.9689540340872,322.96 281.5089540340872,317.5' fill='#ffffff' stroke='#009E73' stroke-width='1.6'/>
+<text x='205.0' y='347.5' font-size='12.5' text-anchor='end' fill='#1a1a1a' font-weight='bold'>Adaptive with twin</text>
+<line x1='655.7' y1='338.5' x2='717.8' y2='338.5' stroke='#0072B2' stroke-width='2'/>
+<circle cx='686.7' cy='338.5' r='5' fill='#0072B2' stroke='#0072B2' stroke-width='1.6'/>
+<line x1='282.1' y1='350.5' x2='337.3' y2='350.5' stroke='#0072B2' stroke-width='1.2' stroke-dasharray='3,2'/>
+<polygon points='305.6294918551133,345.04 311.0894918551133,350.5 305.6294918551133,355.96 300.16949185511334,350.5' fill='#ffffff' stroke='#0072B2' stroke-width='1.6'/>
+<circle cx='225.0' cy='14.0' r='4.5' fill='#1a1a1a' stroke='#1a1a1a' stroke-width='1.6'/>
+<text x='237.0' y='18.0' font-size='12' text-anchor='start' fill='#555555' font-weight='normal'>mean with 95 % CI</text>
+<polygon points='390,8.8 395.2,14 390,19.2 384.8,14' fill='#ffffff' stroke='#1a1a1a' stroke-width='1.6'/>
+<text x='402.0' y='18.0' font-size='12' text-anchor='start' fill='#555555' font-weight='normal'>CVaR10 (mean of worst 10 %) with 95 % bootstrap CI</text>
+</svg>

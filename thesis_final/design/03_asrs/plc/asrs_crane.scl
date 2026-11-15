@@ -1,0 +1,812 @@
+// =====================================================================================================================
+// Stacker crane ASRS-RAW (one aisle, RAW + KIT zones) – Siemens S7-1500 (TIA Portal, SCL external source)
+// Final thesis item F3 · guide Doctor paper/60_final_asrs.md (part C) · mirror model: ../asrs_sim.py (same states,
+// same result / detail codes, same interlocks – change both together)
+// Contract: fmsctl/spec/regmap.py, register map V1.2b (= V1.2a + AS/RS commands 32 / 33 and registers 304 - 309,
+//           405 - 409; header value stays 16#0102 because no existing address changed)
+//
+// IMPORT ORDER (TIA Portal > External source files > Generate blocks from source):
+//   1  fmsctl/plc/siemens_v12_interface.scl   -> typFmsRingEntry, typFmsMapV12, FMS_HR, FC_FmsPutReal, FC_FmsGetReal,
+//                                                FB_FmsIf_V12 (handshake, sequence guard, watchdog, events), FB_FmsComm
+//   2  this file                              -> the crane blocks below
+// Blocks of this file:
+//   UDT  typAsrsPos      position in the rack (column, level, side) + coordinates
+//   UDT  typAsrsJob      one job (code, id, destination, source, crate id)
+//   UDT  typAxisSts      status of one positioning axis
+//   UDT  typAsrsAlarm    one alarm (active, code, class)
+//   FC   FC_AsrsCoord    column / level / side -> x, z (geometry of the rack, design F3)
+//   FB   FB_Axis         positioning of travel (laser distance meter) or hoist (barcode positioning system)
+//   FB   FB_Fork         telescopic fork left / centre / right with sensor confirmation
+//   FB   FB_AsrsType     AS/RS type registers 300 - 309 + check of the job parameters (TypeCheck for FB_FmsIf_V12)
+//   FB   FB_Crane        main state machine OFF / HOMING / IDLE / MOVE_TO_SOURCE / PICK / MOVE_TO_DEST / PUT / RETURN /
+//                        FAULT / MANUAL / MAINTENANCE with interlocks, result codes and alarms
+//   DB   ASRS_LINK       hand-over between OB1 (communication, 100 ms class) and OB30 (motion, 10 ms)
+// Call structure (end of file): OB1 = FB_FmsComm -> FB_AsrsType -> FB_FmsIf_V12 -> latch new job into ASRS_LINK;
+//                               OB30 (10 ms) = FB_Crane (axes + fork inside) -> latch job end into ASRS_LINK.
+//
+// Coordinates (same as the digital twin): x along the aisle, 0 = I/O transfer point, rack starts at x = 1.2 m;
+// z = height of the fork top above the floor; side 1 = LEFT (infeed side), side 2 = RIGHT (outfeed side).
+// Register "bay" (402 / 300) is the CRATE COLUMN 1 - 38: physical bay = (col + 1) / 2, crate k = (col - 1) MOD 2.
+// Zones (WMS only, the PLC does not check zones): KIT columns 1 - 10 (near the I/O, 200 positions),
+//                                                 RAW columns 11 - 38 (560 positions).
+//
+// SAFETY: the safety functions (emergency stop, aisle door, end-of-aisle overtravel, safe speed in the end zones,
+// slack rope / overload) are made by the SAFETY PLC and the drives (STO / SS1 / SLS) – item F8 and sub-task B.
+// This program only READS their status (iSafetyOk, iDoorClosed) and reacts; it never bypasses them.
+//
+// ALL VALUES ARE DESIGN VALUES. This source was written for the thesis and has NOT been compiled in this project.
+// Compile it in your TIA version, fix syntax details marked CHECK, then run the FAT list of guide 60.
+// =====================================================================================================================
+
+TYPE "typAsrsPos"
+VERSION : 1.0
+   STRUCT
+      col   : UInt;      // crate column 1 - 38 (0 = I/O point)
+      level : UInt;      // level 1 - 10 (0 = I/O point)
+      side  : UInt;      // 1 left, 2 right
+      x_m   : Real;      // travel coordinate of the crate centre
+      z_m   : Real;      // fork top height for PUT (crate bottom); PICK starts LIFT lower
+   END_STRUCT;
+END_TYPE
+
+TYPE "typAsrsJob"
+VERSION : 1.0
+   STRUCT
+      code    : UInt;            // 30 store, 31 retrieve, 32 relocate, 33 park at the maintenance position
+      jobId   : UDInt;
+      dst     : "typAsrsPos";
+      src     : "typAsrsPos";
+      crateId : UDInt;
+      srcIsIO : Bool;            // pick at the infeed P&D station
+      dstIsIO : Bool;            // put at the outfeed P&D station
+      skipPick: Bool;            // store with the load already on the fork (recovery after detail 21)
+   END_STRUCT;
+END_TYPE
+
+TYPE "typAxisSts"
+VERSION : 1.0
+   STRUCT
+      act_m   : Real;
+      set_mps : Real;
+      inPos   : Bool;
+      busy    : Bool;
+      error   : Bool;
+      errCode : UInt;            // 1 timeout, 2 following error, 3 position sensor invalid, 4 drive fault, 5 target out of range
+   END_STRUCT;
+END_TYPE
+
+TYPE "typAsrsAlarm"
+VERSION : 1.0
+   STRUCT
+      active : Bool;
+      code   : UInt;             // = detail code (table at the end of this file)
+      cls    : UInt;             // 1 warning (no stop), 2 job abort + FAULT, 3 safety stop
+   END_STRUCT;
+END_TYPE
+
+// ---------------------------------------------------------------------------------------------------------------------
+FUNCTION "FC_AsrsCoord" : Bool
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+// Returns FALSE when the position is outside the rack. Geometry of design F3 (asrs_design.py):
+//   x = X_RACK0 + UPRIGHT + (bay - 1) * BAY + FIRST + k * PITCH2     bay = (col + 1) / 2, k = (col - 1) MOD 2
+//   z = Z1 + (level - 1) * PITCH
+   VAR_INPUT
+      col   : UInt;
+      level : UInt;
+      side  : UInt;
+   END_VAR
+   VAR_OUTPUT
+      x_m : Real;
+      z_m : Real;
+   END_VAR
+   VAR_TEMP
+      bay : UInt;
+      k   : UInt;
+   END_VAR
+   VAR CONSTANT
+      X_RACK0 : Real := 1.2;     // first upright face from the I/O transfer point
+      UPRIGHT : Real := 0.1;
+      BAY     : Real := 1.925;   // 100 + 3 x 75 + 2 x 800 mm
+      FIRST   : Real := 0.475;   // gap 75 + half crate 400
+      PITCH2  : Real := 0.875;   // crate 800 + gap 75
+      Z1      : Real := 0.45;
+      PITCH   : Real := 1.25;
+      NCOL    : UInt := 38;
+      NLEV    : UInt := 10;
+   END_VAR
+BEGIN
+   IF #col < 1 OR #col > #NCOL OR #level < 1 OR #level > #NLEV OR #side < 1 OR #side > 2 THEN
+      #x_m := 0.0; #z_m := 0.0;
+      #FC_AsrsCoord := FALSE;
+      RETURN;
+   END_IF;
+   #bay := (#col + 1) / 2;
+   #k := (#col - 1) MOD 2;
+   #x_m := #X_RACK0 + #UPRIGHT + UINT_TO_REAL(#bay - 1) * #BAY + #FIRST + UINT_TO_REAL(#k) * #PITCH2;
+   #z_m := #Z1 + UINT_TO_REAL(#level - 1) * #PITCH;
+   #FC_AsrsCoord := TRUE;
+END_FUNCTION
+
+// ---------------------------------------------------------------------------------------------------------------------
+FUNCTION_BLOCK "FB_Axis"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+// Point-to-point positioning with a speed setpoint to the drive (telegram-style: speed setpoint + enable; the drive
+// ramps are set FASTER than AMax so that this FB shapes the profile). Absolute position from the sensor:
+// travel = laser distance meter, hoist = barcode positioning system – therefore no homing run is needed after power-up,
+// only a plausibility check (Home input).
+// Profile: v_target = MIN(VMax, SQRT(2 * AMax * (remaining - 0.005))), changed by at most AMax * Tcycle per call
+// (trapezoid), creep speed VCreep inside the last CreepDist, end-zone speed VEndZone near both ends of the axis.
+   VAR_INPUT
+      Enable     : Bool;        // drive enabled and allowed to move (interlocks OK)
+      Execute    : Bool;        // rising edge = start a move to Target
+      Home       : Bool;        // rising edge = homing (plausibility check of the absolute position)
+      QuickStop  : Bool;        // TRUE = stop with QuickDecel, cancel the move
+      Target     : Real;        // m
+      VMax       : Real;        // m/s  (travel 3.0, hoist 1.0)
+      AMax       : Real;        // m/s2 (travel 0.5, hoist 0.5)
+      QuickDecel : Real := 1.5; // m/s2
+      VCreep     : Real := 0.03;
+      CreepDist  : Real := 0.010;
+      Window     : Real := 0.003;   // in-position window +- m (travel 3 mm, hoist 2 mm)
+      SettleTime : Time := T#200MS;
+      PosMin     : Real;        // software limits (inside the hardware limit switches)
+      PosMax     : Real;
+      EndZone    : Real := 1.5; // m from PosMin / PosMax with reduced speed (the drive SLS supervises the same)
+      VEndZone   : Real := 0.5;
+      FollowErr  : Real := 0.10;// m: profile position minus actual position
+      ActPos     : Real;        // m, from the position sensor
+      PosValid   : Bool;        // sensor status OK (laser: signal quality, BPS: code read)
+      DriveReady : Bool;
+      DriveFault : Bool;
+      Tcycle     : Real := 0.01;// s, call interval (OB30)
+   END_VAR
+   VAR_OUTPUT
+      SpeedSet : Real;          // m/s to the drive (signed)
+      Busy     : Bool;
+      InPos    : Bool;
+      Done     : Bool;          // TRUE while in position after a finished move
+      Error    : Bool;
+      ErrCode  : UInt;          // 1 timeout, 2 following error, 3 position sensor invalid, 4 drive fault, 5 target out of range
+      Sts      : "typAxisSts";
+   END_VAR
+   VAR
+      exeOld   : Bool;
+      homeOld  : Bool;
+      tgt      : Real;
+      vProf    : Real;
+      pProf    : Real;          // integrated profile position (for the following-error check)
+      tMove    : Real;          // s since the start of the move
+      tLimit   : Real;          // s allowed for the move
+      tonSettle: TON_TIME;
+   END_VAR
+   VAR_TEMP
+      rem      : Real;
+      dir      : Real;
+      vT       : Real;
+      dv       : Real;
+      dist     : Real;
+   END_VAR
+BEGIN
+   // ---------------- errors that are always checked
+   IF #DriveFault THEN #Error := TRUE; #ErrCode := 4; END_IF;
+   IF #Busy AND NOT #PosValid THEN #Error := TRUE; #ErrCode := 3; END_IF;
+
+   // ---------------- new move
+   IF #Execute AND NOT #exeOld THEN
+      IF #Target < #PosMin OR #Target > #PosMax THEN
+         #Error := TRUE; #ErrCode := 5;
+      ELSIF NOT #Error THEN
+         #tgt := #Target;
+         #pProf := #ActPos;
+         #vProf := 0.0;
+         #tMove := 0.0;
+         #dist := ABS(#Target - #ActPos);
+         // expected trapezoid time + 5 s reserve + 50 %
+         IF #dist >= #VMax * #VMax / #AMax THEN
+            #tLimit := 1.5 * (#dist / #VMax + #VMax / #AMax) + 5.0;
+         ELSE
+            #tLimit := 1.5 * (2.0 * SQRT(#dist / #AMax)) + 5.0;
+         END_IF;
+         #Busy := TRUE; #Done := FALSE; #InPos := FALSE;
+      END_IF;
+   END_IF;
+   #exeOld := #Execute;
+
+   // ---------------- homing = plausibility check (absolute sensors)
+   IF #Home AND NOT #homeOld THEN
+      IF NOT #PosValid OR #ActPos < #PosMin - 0.05 OR #ActPos > #PosMax + 0.05 THEN
+         #Error := TRUE; #ErrCode := 3;
+      END_IF;
+   END_IF;
+   #homeOld := #Home;
+
+   // ---------------- profile
+   IF #Busy AND NOT #Error AND #Enable AND NOT #QuickStop THEN
+      #rem := #tgt - #ActPos;
+      IF #rem >= 0.0 THEN #dir := 1.0; ELSE #dir := -1.0; END_IF;
+      IF ABS(#rem) <= #CreepDist THEN
+         #vT := #VCreep;
+      ELSE
+         #vT := SQRT(2.0 * #AMax * MAX(IN1 := ABS(#rem) - 0.005, IN2 := 0.0));
+         #vT := MIN(IN1 := #vT, IN2 := #VMax);
+         #vT := MAX(IN1 := #vT, IN2 := #VCreep);
+      END_IF;
+      // end zones: slow down when moving TOWARDS an end of the axis
+      IF (#dir < 0.0 AND #ActPos < #PosMin + #EndZone) OR (#dir > 0.0 AND #ActPos > #PosMax - #EndZone) THEN
+         #vT := MIN(IN1 := #vT, IN2 := #VEndZone);
+      END_IF;
+      IF ABS(#rem) <= #Window THEN #vT := 0.0; END_IF;
+      #vT := #dir * #vT;
+      #dv := #vT - #vProf;                                        // acceleration limit (trapezoid)
+      IF #dv > #AMax * #Tcycle THEN #dv := #AMax * #Tcycle; END_IF;
+      IF #dv < -#AMax * #Tcycle THEN #dv := -#AMax * #Tcycle; END_IF;
+      #vProf := #vProf + #dv;
+      #pProf := #pProf + #vProf * #Tcycle;
+      #tMove := #tMove + #Tcycle;
+      IF ABS(#pProf - #ActPos) > #FollowErr AND ABS(#rem) > #FollowErr THEN
+         #Error := TRUE; #ErrCode := 2;                           // the axis does not follow (brake, blocked, slip)
+      END_IF;
+      IF #tMove > #tLimit THEN
+         #Error := TRUE; #ErrCode := 1;                           // timeout
+      END_IF;
+      #tonSettle(IN := ABS(#rem) <= #Window AND ABS(#vProf) < 0.01, PT := #SettleTime);
+      IF #tonSettle.Q THEN
+         #Busy := FALSE; #InPos := TRUE; #Done := TRUE; #vProf := 0.0;
+      END_IF;
+   ELSIF #QuickStop OR #Error OR NOT #Enable THEN
+      // controlled stop with QuickDecel (the drive STO / SS1 acts independently of this)
+      IF #vProf > 0.0 THEN #vProf := MAX(IN1 := #vProf - #QuickDecel * #Tcycle, IN2 := 0.0);
+      ELSIF #vProf < 0.0 THEN #vProf := MIN(IN1 := #vProf + #QuickDecel * #Tcycle, IN2 := 0.0);
+      END_IF;
+      #Busy := FALSE;
+      #tonSettle(IN := FALSE, PT := #SettleTime);
+   END_IF;
+   IF #Error AND NOT #Execute AND NOT #Enable THEN
+      // error is reset by disabling the axis with Execute low (FB_Crane does this on alarm acknowledge)
+      IF NOT #DriveFault AND #PosValid THEN #Error := FALSE; #ErrCode := 0; END_IF;
+   END_IF;
+   #InPos := ABS(#tgt - #ActPos) <= #Window AND NOT #Busy;
+   #SpeedSet := #vProf;
+   #Sts.act_m := #ActPos; #Sts.set_mps := #vProf; #Sts.inPos := #InPos; #Sts.busy := #Busy;
+   #Sts.error := #Error; #Sts.errCode := #ErrCode;
+END_FUNCTION_BLOCK
+
+// ---------------------------------------------------------------------------------------------------------------------
+FUNCTION_BLOCK "FB_Fork"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+// Two-stage telescopic fork, stroke +- 1.35 m, two speeds (fast / creep) from the motor encoder position, end positions
+// confirmed by sensors. Overtravel sensors are wired to the SAFETY PLC as well (sub-task B); here they give an alarm.
+   VAR_INPUT
+      Enable     : Bool;
+      Execute    : Bool;        // rising edge = go to CmdPos
+      CmdPos     : UInt;        // 0 centre, 1 left, 2 right
+      ForkPos_m  : Real;        // motor encoder, + = right
+      iCentre    : Bool;        // centre position sensor
+      iLeftEnd   : Bool;        // left end position sensor
+      iRightEnd  : Bool;        // right end position sensor
+      iOverLeft  : Bool;        // overtravel left (NC contact -> FALSE = overtravel)
+      iOverRight : Bool;
+      DriveReady : Bool;
+      DriveFault : Bool;
+      Stroke_m   : Real := 1.35;
+      SlowDist_m : Real := 0.10;
+      TimeOut    : Time := T#8S;
+   END_VAR
+   VAR_OUTPUT
+      qRunLeft  : Bool;
+      qRunRight : Bool;
+      qFast     : Bool;
+      Busy      : Bool;
+      Done      : Bool;
+      Error     : Bool;
+      ErrCode   : UInt;         // 1 timeout, 2 overtravel, 3 drive fault, 4 sensor inconsistent
+   END_VAR
+   VAR
+      exeOld : Bool;
+      cmd    : UInt;
+      tonT   : TON_TIME;
+   END_VAR
+   VAR_TEMP
+      tgt     : Real;
+      reached : Bool;
+   END_VAR
+BEGIN
+   IF #DriveFault THEN #Error := TRUE; #ErrCode := 3; END_IF;
+   IF NOT #iOverLeft OR NOT #iOverRight THEN #Error := TRUE; #ErrCode := 2; END_IF;
+   IF (#iCentre AND (#iLeftEnd OR #iRightEnd)) OR (#iLeftEnd AND #iRightEnd) THEN #Error := TRUE; #ErrCode := 4; END_IF;
+   IF #Execute AND NOT #exeOld AND NOT #Error THEN
+      #cmd := #CmdPos; #Busy := TRUE; #Done := FALSE;
+   END_IF;
+   #exeOld := #Execute;
+   CASE #cmd OF
+      1: #tgt := -#Stroke_m; #reached := #iLeftEnd;
+      2: #tgt := #Stroke_m;  #reached := #iRightEnd;
+      ELSE #tgt := 0.0;      #reached := #iCentre;
+   END_CASE;
+   #qRunLeft := FALSE; #qRunRight := FALSE; #qFast := FALSE;
+   IF #Busy AND #Enable AND #DriveReady AND NOT #Error THEN
+      IF #reached THEN
+         #Busy := FALSE; #Done := TRUE;
+      ELSE
+         #qRunLeft := #ForkPos_m > #tgt;
+         #qRunRight := #ForkPos_m < #tgt;
+         #qFast := ABS(#tgt - #ForkPos_m) > #SlowDist_m;
+      END_IF;
+   ELSIF NOT #Enable OR #Error THEN
+      #Busy := FALSE;
+   END_IF;
+   #tonT(IN := #Busy, PT := #TimeOut);
+   IF #tonT.Q THEN #Error := TRUE; #ErrCode := 1; #Busy := FALSE; END_IF;
+   IF #Error AND NOT #Enable AND NOT #DriveFault AND #iOverLeft AND #iOverRight THEN
+      #Error := FALSE; #ErrCode := 0;                       // reset by disabling (alarm acknowledge)
+   END_IF;
+END_FUNCTION_BLOCK
+
+// ---------------------------------------------------------------------------------------------------------------------
+FUNCTION_BLOCK "FB_AsrsType"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+// Device type 7 = AS/RS. Fills registers 300 - 309 and checks the CURRENT job parameters of commands 30 - 33.
+// The result goes to input TypeCheck of FB_FmsIf_V12 (0 OK, 2 not ready, 3 bad data), the detail to register 305.
+//   300 asrs.bay (column)   301 asrs.level   302 asrs.loadOnFork   303 asrs.ioReady (infeed P&D free for the next load)
+//   304 asrs.craneState     305 asrs.detail  306 - 307 asrs.x_mm (UDInt, high word first)   308 asrs.z_mm   309 spare
+// Job parameters: 402 loc.bay (column) 403 loc.level 404 loc.side (destination of 30 / 32, source of 31)
+//                 405 src.bay 406 src.level 407 src.side (command 32)   408 - 409 crate.id (UDInt)
+   VAR_INPUT
+      CurCol       : UInt;
+      CurLevel     : UInt;
+      LoadOnFork   : Bool;
+      InfeedFree   : Bool;
+      InfeedLoad   : Bool;      // load waiting at the infeed P&D station
+      InfeedContourOk : Bool;   // contour / weight / ID check passed (item F4 conveyor)
+      CraneState   : UInt;
+      Detail       : UInt;      // detail of the last job / active alarm
+      X_m          : Real;
+      Z_m          : Real;
+   END_VAR
+   VAR_OUTPUT
+      TypeCheck    : UInt;
+      CheckDetail  : UInt;      // detail code of a rejected command (11, 12, 24)
+   END_VAR
+   VAR_IN_OUT
+      HR           : "typFmsMapV12";
+   END_VAR
+   VAR_TEMP
+      okD   : Bool;
+      okS   : Bool;
+      xd    : Real;
+      zd    : Real;
+      dw    : DWord;
+      i     : Int;
+   END_VAR
+BEGIN
+   // ---------------- status 300 - 309
+   #HR.typ[300] := UINT_TO_WORD(#CurCol);
+   #HR.typ[301] := UINT_TO_WORD(#CurLevel);
+   #HR.typ[302] := BOOL_TO_WORD(#LoadOnFork);
+   #HR.typ[303] := BOOL_TO_WORD(#InfeedFree);
+   #HR.typ[304] := UINT_TO_WORD(#CraneState);
+   #HR.typ[305] := UINT_TO_WORD(#Detail);
+   #dw := UDINT_TO_DWORD(REAL_TO_UDINT(MAX(IN1 := #X_m, IN2 := 0.0) * 1000.0));
+   #HR.typ[306] := DWORD_TO_WORD(SHR(IN := #dw, N := 16));   // high word first
+   #HR.typ[307] := DWORD_TO_WORD(#dw);
+   #HR.typ[308] := UINT_TO_WORD(REAL_TO_UINT(MAX(IN1 := #Z_m, IN2 := 0.0) * 1000.0));
+   FOR #i := 309 TO 389 DO #HR.typ[#i] := 0; END_FOR;
+
+   // ---------------- type check (same rules as asrs_sim.py CraneModel.check)
+   #TypeCheck := 0; #CheckDetail := 0;
+   #okD := "FC_AsrsCoord"(col := WORD_TO_UINT(#HR.jpar[402]), level := WORD_TO_UINT(#HR.jpar[403]),
+                          side := WORD_TO_UINT(#HR.jpar[404]), x_m => #xd, z_m => #zd);
+   CASE #HR.cmd_code OF
+      30:  // store: destination 402 - 404; load on the fork OR a checked load at the infeed
+         IF NOT #okD THEN #TypeCheck := 3; #CheckDetail := 11;
+         ELSIF NOT #LoadOnFork AND NOT (#InfeedLoad AND #InfeedContourOk) THEN #TypeCheck := 2; #CheckDetail := 24;
+         END_IF;
+      31:  // retrieve: source 402 - 404; fork must be empty
+         IF NOT #okD THEN #TypeCheck := 3; #CheckDetail := 11;
+         ELSIF #LoadOnFork THEN #TypeCheck := 3; #CheckDetail := 12;
+         END_IF;
+      32:  // relocate: source 405 - 407 -> destination 402 - 404
+         #okS := "FC_AsrsCoord"(col := WORD_TO_UINT(#HR.jpar[405]), level := WORD_TO_UINT(#HR.jpar[406]),
+                                side := WORD_TO_UINT(#HR.jpar[407]), x_m => #xd, z_m => #zd);
+         IF NOT #okD OR NOT #okS THEN #TypeCheck := 3; #CheckDetail := 11;
+         ELSIF #HR.jpar[402] = #HR.jpar[405] AND #HR.jpar[403] = #HR.jpar[406] AND #HR.jpar[404] = #HR.jpar[407] THEN
+            #TypeCheck := 3; #CheckDetail := 12;                    // source = destination
+         ELSIF #LoadOnFork THEN #TypeCheck := 3; #CheckDetail := 12;
+         END_IF;
+      33:  // park at the maintenance position: no parameters
+         ;
+   END_CASE;
+END_FUNCTION_BLOCK
+
+// ---------------------------------------------------------------------------------------------------------------------
+DATA_BLOCK "ASRS_LINK"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+NON_RETAIN
+// Hand-over between OB1 (communication) and OB30 (motion): pulses are LATCHED here, the receiving OB clears them.
+   STRUCT
+      jobReq    : Bool;          // set by OB1 when FB_FmsIf_V12.NewJob, cleared by FB_Crane when it starts the job
+      job       : "typAsrsJob";
+      ackReq    : Bool;          // set by OB1 on FB_FmsIf_V12.AckAlarm, cleared by FB_Crane
+      jobEnd    : Bool;          // set by FB_Crane, cleared by OB1 after it passed JobEnd to FB_FmsIf_V12
+      jobResult : UInt;          // 0 OK, 2 aborted
+      detail    : UInt;
+   END_STRUCT;
+BEGIN
+END_DATA_BLOCK
+
+// ---------------------------------------------------------------------------------------------------------------------
+FUNCTION_BLOCK "FB_Crane"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+// Main state machine. State numbers = register 304 = asrs_sim.py STATE (do not renumber):
+//   0 OFF  1 HOMING  2 IDLE  3 MOVE_TO_SOURCE  4 PICK  5 MOVE_TO_DEST  6 PUT  7 RETURN  8 FAULT  9 MANUAL  10 MAINTENANCE
+// Detail codes (register 305, alarm number = detail):
+//   11 position out of range   12 command not possible (fork loaded / src = dst)   21 destination occupied (double
+//   occupancy)   22 source empty   23 contour check failed at the infeed   24 I/O point not ready   31 safety stop (door /
+//   e-stop / safety PLC)   32 axis fault (timeout / following error / sensor / drive)   33 fork fault / load lost
+   VAR_INPUT
+      // ---- safety + mode (read only – the safety PLC does the safety)
+      iSafetyOk        : Bool;   // safety PLC: e-stop circuit closed, STO not active
+      iDoorClosed      : Bool;   // aisle access door locked (guard locking feedback)
+      iDrivesReady     : Bool;   // main contactor on, drives without fault
+      iAuto            : Bool;   // mode selector AUTO
+      iManual          : Bool;   // mode selector MANUAL (hold-to-run jog from the HMI on the crane)
+      iMaint           : Bool;   // key switch MAINTENANCE
+      // ---- position sensors
+      iLaserX_m        : Real;   // laser distance meter, travel position
+      iLaserValid      : Bool;
+      iBpsZ_m          : Real;   // barcode positioning system, hoist position
+      iBpsValid        : Bool;
+      iForkPos_m       : Real;   // fork motor encoder
+      // ---- fork + load sensors
+      iForkCentre      : Bool;
+      iForkLeftEnd     : Bool;
+      iForkRightEnd    : Bool;
+      iForkOverLeft    : Bool;   // NC
+      iForkOverRight   : Bool;   // NC
+      iLoadOnFork      : Bool;   // two sensors AND-ed in the I/O mapping
+      iSlotOccLeft     : Bool;   // look-ahead sensor: crate in the rack slot on the left at the current position
+      iSlotOccRight    : Bool;
+      iLoadOverhang    : Bool;   // load protrudes over the fork (side sensors on the carriage)
+      // ---- I/O stations (item F4)
+      iInfeedLoad      : Bool;
+      iInfeedContourOk : Bool;
+      iOutfeedFree     : Bool;
+      // ---- drive status
+      iTravelReady, iTravelFault : Bool;
+      iHoistReady, iHoistFault   : Bool;
+      iForkReady, iForkFault     : Bool;
+      // ---- manual jog (hold-to-run)
+      iJogXPlus, iJogXMinus, iJogZPlus, iJogZMinus, iJogForkL, iJogForkR : Bool;
+   END_VAR
+   VAR_OUTPUT
+      qTravelSpeed     : Real;   // m/s setpoint to the travel drive
+      qHoistSpeed      : Real;
+      qTravelEnable    : Bool;
+      qHoistEnable     : Bool;
+      qHoistBrakeRelease : Bool;
+      qForkLeft        : Bool;
+      qForkRight       : Bool;
+      qForkFast        : Bool;
+      qInfeedTake      : Bool;   // signal to the infeed conveyor: crane takes the load (conveyor stops / handover)
+      qOutfeedPut      : Bool;   // signal to the outfeed conveyor: load placed, conveyor may run
+      qLampFault       : Bool;
+      State            : UInt;
+      Detail           : UInt;
+      LoadOnFork       : Bool;
+      CurCol           : UInt;
+      CurLevel         : UInt;
+      Alarm            : "typAsrsAlarm";
+      InCycle          : Bool;   // -> FB_FmsIf_V12.InCycle
+      AlarmActive      : Bool;   // -> FB_FmsIf_V12.Alarm
+   END_VAR
+   VAR_IN_OUT
+      Link : "ASRS_LINK";
+   END_VAR
+   VAR
+      axX     : "FB_Axis";
+      axZ     : "FB_Axis";
+      fork    : "FB_Fork";
+      job     : "typAsrsJob";
+      jobActive : Bool;
+      step    : Int;
+      exeX, exeZ, exeF : Bool;
+      tgtX, tgtZ : Real;
+      forkCmd : UInt;
+      tonWait : TON_TIME;
+      homeReq : Bool;
+      firstScan : Bool := TRUE;
+   END_VAR
+   VAR CONSTANT
+      S_OFF : UInt := 0; S_HOMING : UInt := 1; S_IDLE : UInt := 2; S_MOVE_SRC : UInt := 3; S_PICK : UInt := 4;
+      S_MOVE_DST : UInt := 5; S_PUT : UInt := 6; S_RETURN : UInt := 7; S_FAULT : UInt := 8; S_MANUAL : UInt := 9;
+      S_MAINT : UInt := 10;
+      LIFT    : Real := 0.15;   // fork lift between "low" (under the crate) and "high" (crate lifted)
+      Z_IO    : Real := 0.70;   // fork top at the P&D stations = conveyor top
+      X_IO    : Real := 0.0;
+      X_MAINT : Real := 0.0;    // maintenance position at the front end (access platform at the aisle door)
+      Z_MAINT : Real := 0.45;
+      X_MAX   : Real := 37.875; // travel_L of design F3
+      Z_MIN   : Real := 0.30;
+      Z_MAX   : Real := 11.90;
+   END_VAR
+   VAR_TEMP
+      interlockOk : Bool;
+      sideFree    : Bool;
+      sideOcc     : Bool;
+      ok          : Bool;
+      xx, zz      : Real;
+   END_VAR
+BEGIN
+   // ---------------- 0 position, column and level for the type registers (nearest location)
+   #LoadOnFork := #iLoadOnFork;
+   IF #iLaserX_m > 1.3 THEN
+      #CurCol := REAL_TO_UINT(((#iLaserX_m - 1.3 - 0.475) / 1.925) * 2.0 + 1.0);     // approximate column (display)
+      IF #CurCol > 38 THEN #CurCol := 38; END_IF;
+   ELSE
+      #CurCol := 0;
+   END_IF;
+   IF #iBpsZ_m > 0.3 THEN
+      #CurLevel := MIN(IN1 := REAL_TO_UINT((#iBpsZ_m - 0.45) / 1.25) + 1, IN2 := 10);
+   ELSE
+      #CurLevel := 0;
+   END_IF;
+
+   // ---------------- 1 global interlocks (every state except OFF / MANUAL / MAINTENANCE)
+   #interlockOk := #iSafetyOk AND #iDoorClosed AND #iDrivesReady;
+   IF #firstScan THEN #State := #S_OFF; #firstScan := FALSE; END_IF;
+
+   IF NOT #interlockOk AND #State <> #S_OFF AND #State <> #S_FAULT AND #State <> #S_MAINT THEN
+      // safety stop: the drives are already in STO / SS1 by the safety PLC – here: cancel the job, report, FAULT
+      IF #jobActive THEN
+         #Link.jobEnd := TRUE; #Link.jobResult := 2; #Link.detail := 31; #jobActive := FALSE;
+      END_IF;
+      #Detail := 31; #State := #S_FAULT;
+   END_IF;
+   IF (#axX.Error OR #axZ.Error) AND #State <> #S_FAULT AND #State <> #S_OFF THEN
+      IF #jobActive THEN #Link.jobEnd := TRUE; #Link.jobResult := 2; #Link.detail := 32; #jobActive := FALSE; END_IF;
+      #Detail := 32; #State := #S_FAULT;
+   END_IF;
+   IF #fork.Error AND #State <> #S_FAULT AND #State <> #S_OFF THEN
+      IF #jobActive THEN #Link.jobEnd := TRUE; #Link.jobResult := 2; #Link.detail := 33; #jobActive := FALSE; END_IF;
+      #Detail := 33; #State := #S_FAULT;
+   END_IF;
+
+   // ---------------- 2 state machine
+   CASE #State OF
+      0:  // OFF – waits for drives ready + safety OK
+         #exeX := FALSE; #exeZ := FALSE; #exeF := FALSE;
+         IF #interlockOk THEN #State := #S_HOMING; #step := 0; END_IF;
+
+      1:  // HOMING – absolute sensors: plausibility check + fork to centre
+         CASE #step OF
+            0: #homeReq := TRUE; #step := 10;
+            10: #homeReq := FALSE;
+                IF #iLaserValid AND #iBpsValid THEN
+                   #forkCmd := 0; #exeF := TRUE; #step := 20;
+                END_IF;
+            20: IF #fork.Done THEN #exeF := FALSE; #State := #S_IDLE; #Detail := 0; END_IF;
+         END_CASE;
+
+      2, 7:  // IDLE / RETURN – accept a job (RETURN is interrupted by a new job)
+         IF #iManual THEN #State := #S_MANUAL;
+         ELSIF #iMaint THEN #State := #S_MAINT;
+         ELSIF #Link.jobReq THEN
+            #job := #Link.job; #Link.jobReq := FALSE; #jobActive := TRUE; #Detail := 0;
+            #exeX := FALSE; #exeZ := FALSE;
+            CASE #job.code OF
+               30: #job.srcIsIO := TRUE; #job.dstIsIO := FALSE; #job.skipPick := #iLoadOnFork;
+               31: #job.srcIsIO := FALSE; #job.dstIsIO := TRUE; #job.skipPick := FALSE;
+               32: #job.srcIsIO := FALSE; #job.dstIsIO := FALSE; #job.skipPick := FALSE;
+               33: #job.skipPick := TRUE;
+            END_CASE;
+            IF #job.skipPick THEN #State := #S_MOVE_DST; ELSE #State := #S_MOVE_SRC; END_IF;
+            #step := 0;
+         ELSIF #State = #S_RETURN THEN
+            // drive back to the I/O waiting position, then IDLE
+            CASE #step OF
+               0: #tgtX := #X_IO; #tgtZ := #Z_IO - #LIFT; #exeX := TRUE; #exeZ := TRUE; #step := 10;
+               10: IF #axX.Done AND #axZ.Done THEN #exeX := FALSE; #exeZ := FALSE; #State := #S_IDLE; END_IF;
+            END_CASE;
+         END_IF;
+
+      3:  // MOVE_TO_SOURCE – carriage to the "low" pick height (fork under the crate)
+         CASE #step OF
+            0: IF #job.srcIsIO THEN #tgtX := #X_IO; #tgtZ := #Z_IO - #LIFT;
+               ELSE
+                  #ok := "FC_AsrsCoord"(col := #job.src.col, level := #job.src.level, side := #job.src.side, x_m => #xx, z_m => #zz);
+                  #tgtX := #xx; #tgtZ := #zz - #LIFT;
+               END_IF;
+               #exeX := TRUE; #exeZ := TRUE; #step := 10;
+            10: IF #axX.Done AND #axZ.Done THEN #exeX := FALSE; #exeZ := FALSE; #State := #S_PICK; #step := 0; END_IF;
+         END_CASE;
+
+      4:  // PICK – check source, fork out, lift, fork in, check load
+         CASE #step OF
+            0:  IF #job.srcIsIO THEN
+                   IF NOT #iInfeedLoad THEN #Detail := 24; #step := 900;           // nothing to take
+                   ELSIF NOT #iInfeedContourOk THEN #Detail := 23; #step := 900;   // contour / weight / ID failed
+                   ELSE #qInfeedTake := TRUE; #step := 10;
+                   END_IF;
+                ELSE
+                   IF #job.src.side = 1 THEN #sideOcc := #iSlotOccLeft; ELSE #sideOcc := #iSlotOccRight; END_IF;
+                   IF NOT #sideOcc THEN #Detail := 22; #step := 900; ELSE #step := 10; END_IF;    // source empty
+                END_IF;
+            10: IF #job.srcIsIO THEN #forkCmd := 1; ELSE #forkCmd := #job.src.side; END_IF;   // infeed is on the left
+                #exeF := TRUE; #step := 20;
+            20: IF #fork.Done THEN #exeF := FALSE; #tgtZ := #tgtZ + #LIFT; #exeZ := TRUE; #step := 30; END_IF;
+            30: IF #axZ.Done THEN #exeZ := FALSE; #forkCmd := 0; #exeF := TRUE; #step := 40; END_IF;
+            40: IF #fork.Done THEN #exeF := FALSE; #qInfeedTake := FALSE; #step := 50; END_IF;
+            50: IF #iLoadOnFork AND NOT #iLoadOverhang THEN #State := #S_MOVE_DST; #step := 0;
+                ELSE #Detail := 33; #step := 900;                               // load lost / overhang on the fork
+                END_IF;
+            900: // job not possible: abort with result 2, crane goes to FAULT (operator decides)
+                #Link.jobEnd := TRUE; #Link.jobResult := 2; #Link.detail := #Detail; #jobActive := FALSE;
+                #qInfeedTake := FALSE; #State := #S_FAULT;
+         END_CASE;
+
+      5:  // MOVE_TO_DEST – carry the load "high"
+         CASE #step OF
+            0: IF #job.code = 33 THEN #tgtX := #X_MAINT; #tgtZ := #Z_MAINT;
+               ELSIF #job.dstIsIO THEN #tgtX := #X_IO; #tgtZ := #Z_IO + 0.0;
+               ELSE
+                  #ok := "FC_AsrsCoord"(col := #job.dst.col, level := #job.dst.level, side := #job.dst.side, x_m => #xx, z_m => #zz);
+                  #tgtX := #xx; #tgtZ := #zz;
+               END_IF;
+               #exeX := TRUE; #exeZ := TRUE; #step := 10;
+            10: IF #axX.Done AND #axZ.Done THEN
+                   #exeX := FALSE; #exeZ := FALSE; #step := 0;
+                   IF #job.code = 33 THEN               // parked – job done
+                      #Link.jobEnd := TRUE; #Link.jobResult := 0; #Link.detail := 0; #jobActive := FALSE; #State := #S_IDLE;
+                   ELSE
+                      #State := #S_PUT;
+                   END_IF;
+                END_IF;
+         END_CASE;
+
+      6:  // PUT – double-occupancy check, fork out, lower, fork in, check fork empty
+         CASE #step OF
+            0:  IF #job.dstIsIO THEN
+                   #tonWait(IN := NOT #iOutfeedFree, PT := T#60S);
+                   IF #iOutfeedFree THEN #tonWait(IN := FALSE, PT := T#60S); #step := 10;
+                   ELSIF #tonWait.Q THEN #Detail := 24; #step := 900;              // outfeed blocked for 60 s
+                   END_IF;
+                ELSE
+                   IF #job.dst.side = 1 THEN #sideFree := NOT #iSlotOccLeft; ELSE #sideFree := NOT #iSlotOccRight; END_IF;
+                   IF #sideFree THEN #step := 10; ELSE #Detail := 21; #step := 900; END_IF;   // DOUBLE OCCUPANCY
+                END_IF;
+            10: IF #job.dstIsIO THEN #forkCmd := 2; ELSE #forkCmd := #job.dst.side; END_IF;   // outfeed is on the right
+                #exeF := TRUE; #step := 20;
+            20: IF #fork.Done THEN #exeF := FALSE; #tgtZ := #tgtZ - #LIFT; #exeZ := TRUE; #step := 30; END_IF;
+            30: IF #axZ.Done THEN #exeZ := FALSE; #forkCmd := 0; #exeF := TRUE; #step := 40; END_IF;
+            40: IF #fork.Done THEN #exeF := FALSE; #step := 50; END_IF;
+            50: IF NOT #iLoadOnFork THEN
+                   #qOutfeedPut := #job.dstIsIO;
+                   #Link.jobEnd := TRUE; #Link.jobResult := 0; #Link.detail := 0; #jobActive := FALSE;
+                   #State := #S_RETURN; #step := 0;
+                ELSE #Detail := 33; #step := 900;
+                END_IF;
+            900: // load stays on the fork; FAULT until acknowledge, then a new store (30) puts it elsewhere
+                #Link.jobEnd := TRUE; #Link.jobResult := 2; #Link.detail := #Detail; #jobActive := FALSE; #State := #S_FAULT;
+         END_CASE;
+
+      8:  // FAULT – everything stopped; acknowledge (command 4 or HMI) when the cause is gone
+         #exeX := FALSE; #exeZ := FALSE; #exeF := FALSE; #qInfeedTake := FALSE;
+         IF #Link.ackReq THEN
+            #Link.ackReq := FALSE;
+            IF #interlockOk AND NOT #axX.Error AND NOT #axZ.Error AND NOT #fork.Error THEN
+               #Detail := 0; #State := #S_HOMING; #step := 0;    // plausibility check again, then IDLE
+            END_IF;
+         END_IF;
+
+      9:  // MANUAL – hold-to-run jog with creep speed, interlocks stay active, no jobs
+         #exeX := FALSE; #exeZ := FALSE;
+         IF NOT #iManual THEN #State := #S_HOMING; #step := 0; END_IF;
+
+      10: // MAINTENANCE – crane at the maintenance position, drives disabled by the key switch circuit
+         #exeX := FALSE; #exeZ := FALSE; #exeF := FALSE;
+         IF NOT #iMaint THEN #State := #S_OFF; END_IF;
+   END_CASE;
+   IF #State <> #S_PUT THEN #qOutfeedPut := FALSE; END_IF;
+
+   // ---------------- 3 axes and fork (always called)
+   #axX(Enable := #interlockOk AND #State <> #S_FAULT AND #State <> #S_MAINT, Execute := #exeX, Home := #homeReq,
+        QuickStop := NOT #interlockOk, Target := #tgtX, VMax := 3.0, AMax := 0.5, Window := 0.003,
+        PosMin := 0.0, PosMax := #X_MAX, ActPos := #iLaserX_m, PosValid := #iLaserValid,
+        DriveReady := #iTravelReady, DriveFault := #iTravelFault);
+   #axZ(Enable := #interlockOk AND #State <> #S_FAULT AND #State <> #S_MAINT, Execute := #exeZ, Home := #homeReq,
+        QuickStop := NOT #interlockOk, Target := #tgtZ, VMax := 1.0, AMax := 0.5, Window := 0.002,
+        PosMin := #Z_MIN, PosMax := #Z_MAX, EndZone := 0.5, VEndZone := 0.3,
+        ActPos := #iBpsZ_m, PosValid := #iBpsValid, DriveReady := #iHoistReady, DriveFault := #iHoistFault);
+   #fork(Enable := #interlockOk AND #State <> #S_FAULT AND #State <> #S_MAINT AND (#axX.InPos AND #axZ.InPos OR #State = #S_HOMING),
+         Execute := #exeF, CmdPos := #forkCmd, ForkPos_m := #iForkPos_m, iCentre := #iForkCentre,
+         iLeftEnd := #iForkLeftEnd, iRightEnd := #iForkRightEnd, iOverLeft := #iForkOverLeft, iOverRight := #iForkOverRight,
+         DriveReady := #iForkReady, DriveFault := #iForkFault);
+   // INTERLOCK: the fork may only move when both axes are in position; the axes may only move with the fork centred
+   IF NOT #iForkCentre AND (#exeX OR #exeZ) AND #State <> #S_PICK AND #State <> #S_PUT THEN
+      #exeX := FALSE; #exeZ := FALSE;                     // never travel with an extended fork
+   END_IF;
+
+   // manual jog: creep speed, only in MANUAL
+   IF #State = #S_MANUAL AND #interlockOk THEN
+      #qTravelSpeed := 0.2 * (BOOL_TO_REAL(#iJogXPlus) - BOOL_TO_REAL(#iJogXMinus));
+      #qHoistSpeed := 0.1 * (BOOL_TO_REAL(#iJogZPlus) - BOOL_TO_REAL(#iJogZMinus));
+      #qForkLeft := #iJogForkL AND NOT #iJogForkR; #qForkRight := #iJogForkR AND NOT #iJogForkL; #qForkFast := FALSE;
+   ELSE
+      #qTravelSpeed := #axX.SpeedSet;
+      #qHoistSpeed := #axZ.SpeedSet;
+      #qForkLeft := #fork.qRunLeft; #qForkRight := #fork.qRunRight; #qForkFast := #fork.qFast;
+   END_IF;
+   #qTravelEnable := #interlockOk AND (#State <> #S_FAULT) AND (#State <> #S_MAINT) AND (#State <> #S_OFF);
+   #qHoistEnable := #qTravelEnable;
+   #qHoistBrakeRelease := #qHoistEnable AND (ABS(#qHoistSpeed) > 0.0 OR #axZ.Busy);   // brake closes at standstill
+   #qLampFault := #State = #S_FAULT;
+
+   #Alarm.active := #State = #S_FAULT;
+   #Alarm.code := #Detail;
+   IF #Detail = 31 THEN #Alarm.cls := 3; ELSIF #Detail <> 0 THEN #Alarm.cls := 2; ELSE #Alarm.cls := 0; END_IF;
+   #AlarmActive := #State = #S_FAULT;
+   #InCycle := #State >= #S_MOVE_SRC AND #State <= #S_PUT;
+END_FUNCTION_BLOCK
+
+// =====================================================================================================================
+// OB1 (main cycle, communication)                                 – CHECK instance names in your project
+//
+//   "IDB_FmsComm"();
+//   "IDB_AsrsType"(CurCol := "IDB_Crane".CurCol, CurLevel := "IDB_Crane".CurLevel, LoadOnFork := "IDB_Crane".LoadOnFork,
+//                  InfeedFree := NOT "iInfeedLoad", InfeedLoad := "iInfeedLoad", InfeedContourOk := "iInfeedContourOk",
+//                  CraneState := "IDB_Crane".State, Detail := "IDB_Crane".Detail,
+//                  X_m := "iLaserX_m", Z_m := "iBpsZ_m", HR := "FMS_HR");
+//   "IDB_FmsIf"(TypeCode := 7, UnitId := 1,
+//               AllowedCmds := 16#C000_0010,          // codes 4, 30, 31
+//               AllowedCmdsHi := 16#0000_0003,        // codes 32, 33 (input added in template V1.2b)
+//               ShiftOn := "iShiftOn", AutoMode := "iAuto", SetupMode := FALSE, MaintMode := "iMaint",
+//               InCycle := "IDB_Crane".InCycle, PartDone := "ASRS_LINK".jobEnd, PartOk := ("ASRS_LINK".jobResult = 0),
+//               Alarm := "IDB_Crane".AlarmActive, AlarmCode := "IDB_Crane".Detail, EStopCopy := NOT "iSafetyOk",
+//               Blocked := FALSE, Starved := FALSE, Power_kW := "gPower_kW",
+//               TypeCheck := "IDB_AsrsType".TypeCheck, JobEnd := "ASRS_LINK".jobEnd, JobResult := "ASRS_LINK".jobResult,
+//               HR := "FMS_HR");
+//   "ASRS_LINK".jobEnd := FALSE;                     // consumed (FB_FmsIf_V12 latched job.idDone / result this scan)
+//   IF "IDB_FmsIf".NewJob THEN                       // copy the LATCHED parameters into the hand-over DB
+//      "ASRS_LINK".job.code    := "IDB_FmsIf".JobCode;
+//      "ASRS_LINK".job.jobId   := "IDB_FmsIf".JobId;
+//      "ASRS_LINK".job.dst.col := WORD_TO_UINT("IDB_FmsIf".JobPar[402]);
+//      "ASRS_LINK".job.dst.level := WORD_TO_UINT("IDB_FmsIf".JobPar[403]);
+//      "ASRS_LINK".job.dst.side  := WORD_TO_UINT("IDB_FmsIf".JobPar[404]);
+//      IF "IDB_FmsIf".JobCode = 31 THEN "ASRS_LINK".job.src := "ASRS_LINK".job.dst; END_IF;   // retrieve: 402-404 = source
+//      "ASRS_LINK".job.src.col := ...                  // command 32: JobPar[405..407]
+//      "ASRS_LINK".job.crateId := SHL(IN := WORD_TO_UDINT("IDB_FmsIf".JobPar[408]), N := 16) OR WORD_TO_UDINT("IDB_FmsIf".JobPar[409]);
+//      "ASRS_LINK".jobReq := TRUE;
+//   END_IF;
+//   IF "IDB_FmsIf".AckAlarm THEN "ASRS_LINK".ackReq := TRUE; END_IF;
+//   // HMI: write register 305 detail text from the alarm table below
+//
+// OB30 (cyclic interrupt 10 ms, motion)
+//   "IDB_Crane"(iSafetyOk := "iSafetyOk", iDoorClosed := "iDoorClosed", ... all inputs of FB_Crane ...,
+//               Link := "ASRS_LINK");
+//   "qTravelSpeedWord" := ...   // scale "IDB_Crane".qTravelSpeed to the drive telegram (e.g. 16#4000 = 100 % = 3.0 m/s)
+//
+// NOTE: a ONE-scan pulse must never cross OB1 <-> OB30 directly (different cycles) – that is why ASRS_LINK latches them.
+// NOTE (retrieve): FB_Crane uses job.src for 31; OB1 copies 402 - 404 into job.src. For 30 / 32 402 - 404 are the
+//                  destination, for 32 405 - 407 the source.
+// =====================================================================================================================
+//
+// ALARM TABLE (HMI text list; class 1 warning, 2 job abort + FAULT, 3 safety stop)
+//   No  Class  Text                                               Reaction / operator action
+//   11  -      Position out of range (job rejected)               WMS data error – check the location table
+//   12  -      Command not possible (fork loaded / src = dst)     job rejected; resolve the unit in the WMS
+//   21  2      Destination occupied – double occupancy            load stays on the fork; check the slot, correct the
+//                                                                 WMS (block location), acknowledge, store elsewhere
+//   22  2      Source empty – no crate found                      check the slot with the camera / on site; correct WMS
+//   23  2      Contour / weight / ID check failed at the infeed   rework the load at the infeed, then new store
+//   24  2      I/O point not ready (no load / outfeed blocked)    clear the conveyor, acknowledge
+//   31  3      Safety stop – door / emergency stop / safety PLC   find the cause, close the door, reset the safety PLC,
+//                                                                 acknowledge; the crane re-checks positions (HOMING)
+//   32  2      Axis fault – timeout / following error / sensor    check drive, brake, laser / barcode reading
+//   33  2      Fork fault / load lost or overhanging              check the fork and the load on site (MANUAL mode)
+// =====================================================================================================================

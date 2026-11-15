@@ -1,0 +1,110 @@
+{
+ "host": "Windows-2022Server-10.0.20348-SP0",
+ "python": "3.12.10",
+ "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+ "date": "2026-11-15 06:24",
+ "cases": [
+  {
+   "timeBeginPeriod_1ms": false,
+   "time_time_step_ms": {
+    "min": 0.9927749633789062,
+    "median": 1.0001659393310547
+   },
+   "perf_counter_step_us": {
+    "min": 0.09872019290924072,
+    "median": 0.10058283805847168
+   },
+   "clock_info": {
+    "time": "namespace(implementation='GetSystemTimeAsFileTime()', monotonic=False, adjustable=True, resolution=0.015625)",
+    "perf_counter": "namespace(implementation='QueryPerformanceCounter()', monotonic=True, adjustable=False, resolution=1e-07)",
+    "monotonic": "namespace(implementation='GetTickCount64()', monotonic=True, adjustable=False, resolution=0.015625)"
+   },
+   "sleep_1ms": {
+    "mean": 1.7132893453041713,
+    "p50": 1.9959993660449982,
+    "p99": 2.483900636434555,
+    "max": 2.4995990097522736,
+    "min": 1.0060016065835953
+   },
+   "sleep_5ms": {
+    "mean": 5.54845633606116,
+    "p50": 5.50989992916584,
+    "p99": 6.421200931072235,
+    "max": 6.489001214504242,
+    "min": 5.006400868296623
+   },
+   "sleep_10ms": {
+    "mean": 10.435575985660156,
+    "p50": 10.50500012934208,
+    "p99": 11.010300368070602,
+    "max": 11.505300179123878,
+    "min": 10.006099939346313
+   },
+   "asyncio_sleep_1ms": {
+    "mean": 2.156123680373033,
+    "p50": 2.0013991743326187,
+    "p99": 3.0060987919569016,
+    "min": 1.3733003288507462,
+    "share_early": 0.0
+   },
+   "asyncio_sleep_10ms": {
+    "mean": 10.346212033182383,
+    "p50": 10.478701442480087,
+    "p99": 11.00810058414936,
+    "min": 9.375600144267082,
+    "share_early": 0.08333333333333333
+   }
+  },
+  {
+   "timeBeginPeriod_1ms": true,
+   "time_time_step_ms": {
+    "min": 0.0030994415283203125,
+    "median": 0.9999275207519531
+   },
+   "perf_counter_step_us": {
+    "min": 0.09872019290924072,
+    "median": 0.10058283805847168
+   },
+   "clock_info": {
+    "time": "namespace(implementation='GetSystemTimeAsFileTime()', monotonic=False, adjustable=True, resolution=0.015625)",
+    "perf_counter": "namespace(implementation='QueryPerformanceCounter()', monotonic=True, adjustable=False, resolution=1e-07)",
+    "monotonic": "namespace(implementation='GetTickCount64()', monotonic=True, adjustable=False, resolution=0.015625)"
+   },
+   "sleep_1ms": {
+    "mean": 1.6397500224411488,
+    "p50": 1.9950009882450104,
+    "p99": 2.467900514602661,
+    "max": 2.5015007704496384,
+    "min": 1.0066013783216476
+   },
+   "sleep_5ms": {
+    "mean": 5.566833596676588,
+    "p50": 5.519900470972061,
+    "p99": 6.493300199508667,
+    "max": 6.499400362372398,
+    "min": 5.008000880479813
+   },
+   "sleep_10ms": {
+    "mean": 10.409447407970825,
+    "p50": 10.502301156520844,
+    "p99": 11.037100106477737,
+    "max": 11.087700724601746,
+    "min": 10.005999356508255
+   },
+   "asyncio_sleep_1ms": {
+    "mean": 2.224848661571741,
+    "p50": 2.0038001239299774,
+    "p99": 3.007899969816208,
+    "min": 1.3979002833366394,
+    "share_early": 0.0
+   },
+   "asyncio_sleep_10ms": {
+    "mean": 10.363233759999275,
+    "p50": 10.500499978661537,
+    "p99": 11.006399989128113,
+    "min": 9.96210053563118,
+    "share_early": 0.07333333333333333
+   }
+  }
+ ]
+}

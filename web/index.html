@@ -34,6 +34,13 @@
 <link rel="stylesheet" href="fmse1x.css">
 <link rel="stylesheet" href="fmse2x.css">
 <link rel="stylesheet" href="fmse3x.css">
+<link rel="stylesheet" href="fmse4x.css">
+<link rel="stylesheet" href="fmse5x.css">
+<link rel="stylesheet" href="fmse6x.css">
+<link rel="stylesheet" href="fmse7.css">
+<link rel="stylesheet" href="fmse8.css">
+<link rel="stylesheet" href="fmse9.css">
+<link rel="stylesheet" href="fmse10.css">
 <script src="theme.js"></script>
 </head>
 <body>
@@ -1369,6 +1376,18 @@
         <button class="mx-el" data-mpcitem="3">3 · M2b Four-bar linkage – analysis, animation, dynamics</button>
         <button class="mx-el" data-mpcitem="4">4 · M2b Path generation – required track → linkage</button>
         <button class="mx-el" data-mpcitem="6">6 · M3 Shaft design – loads, deflection, critical speed, DIN 743 proof, key, press fit</button>
+        <button class="mx-el" data-mpcitem="7">7 · M4 Rolling bearings – loads over a revolution, ISO 281 life, lubrication, clearance, selection</button>
+        <button class="mx-el" data-mpcitem="8">8 · M5 Gear design – involute geometry, ISO 6336 capacity, W_k, pins, backlash</button>
+        <button class="mx-el" data-mpcitem="9">9 · M5b Bevel gears – cone geometry, spiral forces, ISO 10300 capacity, blank + cutter data</button>
+        <button class="mx-el" data-mpcitem="10">10 · M5c Worm gears – efficiency, self-locking, heat balance, ISO/TS 14521 capacity</button>
+        <button class="mx-el" data-mpcitem="11">11 · M5d Gear manufacturing – hobbing, skiving, case hardening, grinding, process chain cost</button>
+        <button class="mx-el" data-mpcitem="12">12 · M6 Cam design – motion laws, profile, pressure angle, lift-off, Hertz, NC data</button>
+        <button class="mx-el" data-mpcitem="13">13 · M7 Bolted joints – VDI 2230 R0–R13, joint diagram, preload, torque, fatigue, slip</button>
+        <button class="mx-el" data-mpcitem="14">14 · M8 Springs – rate, stress, buckling, surge, Haigh fatigue, design from requirements</button>
+        <button class="mx-el" data-mpcitem="15">15 · M9 Belts, chains, couplings – V-belt, synchronous belt, roller chain, elastic coupling, comparison</button>
+        <button class="mx-el" data-mpcitem="16">16 · M10 Tolerances – ISO 286 fits, bearing seats, press fit, stack-up (WC / RSS / Monte Carlo), position</button>
+        <button class="mx-el" data-mpcitem="17">17 · M11 Welds, frames, pressure parts – weld group, fatigue (FAT / Miner), air receiver (shell, heads, nozzle, PED, safety valve)</button>
+        <button class="mx-el" data-mpcitem="18">18 · M12 Optimisation workflows – virtual CAE, DOE, Kriging, expected-improvement infill, verified optimum</button>
         <button class="mx-el" data-mpcitem="5">5 · Guides + self-test</button>
         <button class="mx-el" disabled>Field 2 Program software (later)</button>
         <button class="mx-el" disabled>Field 3 Control system design (later)</button>
@@ -1383,6 +1402,18 @@
     <div id="mpcItem4" hidden></div>
     <div id="mpcItem5" hidden></div>
     <div id="mpcItem6" hidden></div>
+    <div id="mpcItem7" hidden></div>
+    <div id="mpcItem8" hidden></div>
+    <div id="mpcItem9" hidden></div>
+    <div id="mpcItem10" hidden></div>
+    <div id="mpcItem11" hidden></div>
+    <div id="mpcItem12" hidden></div>
+    <div id="mpcItem13" hidden></div>
+    <div id="mpcItem14" hidden></div>
+    <div id="mpcItem15" hidden></div>
+    <div id="mpcItem16" hidden></div>
+    <div id="mpcItem17" hidden></div>
+    <div id="mpcItem18" hidden></div>
   </section>
 
   <!-- ============================== STANDARDS ============================== -->
@@ -1410,14 +1441,14 @@
         <button class="mx-el" data-feitem="4">4 · Capacity, layout, simulation – OEE, bottleneck, Little's law, pallets, AGVs, buffers</button>
         <button class="mx-el" data-feitem="5">5 · Control architecture – ISA-95 levels, ISA-88 / PackML states, who decides what</button>
         <button class="mx-el" data-feitem="6">6 · Communication – Profinet, EtherCAT, EtherNet/IP, Modbus TCP, OPC UA, MTConnect, MQTT, IP plan</button>
-        <button class="mx-el" data-feitem="7" disabled>7 · Electrical &amp; safety principles – power, 24 V control, safety PLC, ISO 13849 / 13855 (next)</button>
-        <button class="mx-el" data-feitem="8" disabled>8 · Module library: complete circuits per module (diagrams, IO lists) (next)</button>
-        <button class="mx-el" data-feitem="9" disabled>9 · PLC programming principles – IEC 61131-3, state machines, handshakes, FB standard (next)</button>
-        <button class="mx-el" data-feitem="10" disabled>10 · Module library: complete PLC programs per module + cell controller (next)</button>
-        <button class="mx-el" data-feitem="11" disabled>11 · MES theory + generic MES design for any FMS (next)</button>
-        <button class="mx-el" data-feitem="12" disabled>12 · ERP theory + ERP ⇄ MES integration (next)</button>
-        <button class="mx-el" data-feitem="13" disabled>13 · Implementation in real factories – owner and integrator: URS / FDS, tender, FAT / SAT, ramp-up, ROI (next)</button>
-        <button class="mx-el" data-feitem="14" disabled>14 · Design kit – complete cases: machining, assembly, welding, sheet metal, moulding (next)</button>
+        <button class="mx-el" data-feitem="7">7 · Electrical &amp; safety principles – power, 24 V control, safety PLC, ISO 13849 / 13855</button>
+        <button class="mx-el" data-feitem="8">8 · Module library: complete circuits per module (diagrams, IO lists)</button>
+        <button class="mx-el" data-feitem="9">9 · PLC programming principles – IEC 61131-3, state machines, handshakes, FB standard</button>
+        <button class="mx-el" data-feitem="10">10 · Module library: complete PLC programs per module + cell controller (part A: standard + FB library)</button>
+        <button class="mx-el" data-feitem="11" disabled>11 · MES theory + generic MES design for any FMS</button>
+        <button class="mx-el" data-feitem="12" disabled>12 · ERP theory + ERP ⇄ MES integration</button>
+        <button class="mx-el" data-feitem="13" disabled>13 · Implementation in real factories – owner and integrator: URS / FDS, tender, FAT / SAT, ramp-up, ROI</button>
+        <button class="mx-el" data-feitem="14" disabled>14 · Design kit – complete cases: machining, assembly, welding, sheet metal, moulding</button>
       </div>
       <p class="intro" id="feIntro1">The <b>general method</b> behind every FMS, whatever the product: <b>1A</b> which kind of system fits (volume–variety chart: transfer line, flexible transfer line, FMS, FMC, stand-alone CNC, reconfigurable system), <b>1B</b> what "flexible" means in machining, assembly, welding, sheet metal, moulding, electronics and painting, <b>1C</b> the project pipeline in 11 phases with gates – tasks of the <b>factory owner's engineer</b> and of the <b>integrator</b> side by side, <b>1D</b> the 40-question requirements questionnaire for any factory (fill, save, export), <b>1E</b> the <b>module standard</b>: every FMS is built from 22 standard modules, each with the same 9 faces (mechanics, circuits, safety, state model, PLC block, handshake, communication, HMI, documents) that items 3–10 fill. All numbers are typical ranges / examples.</p>
       <p class="intro" id="feIntro2" hidden>From the <b>product</b> to the <b>machines</b>, for any domain: <b>2A</b> part families with production flow analysis (part × machine matrix, rank order clustering, similarity cells, grouping efficacy, what to do with exceptional parts), <b>2B</b> process selection – which process reaches your tolerance (ISO 286 IT grade) and surface (Ra), process chains, joining / assembly / test processes, <b>2C</b> cycle-time estimators with formulas (turning, milling, drilling with power + torque check, robot welding, laser cutting, assembly station), <b>2D</b> capacity → number of machines, set-up hours, takt time, bottleneck (examples: machining FMS, assembly line, welding cells, sheet metal – all editable), <b>2E</b> machine selection checklist and weighted scoring. All numbers are typical values / examples.</p>
@@ -1425,10 +1456,10 @@
       <p class="intro" id="feIntro4" hidden><b>How much the system really makes, and why:</b> <b>4A</b> OEE with the six big losses as a waterfall (availability, performance, quality, TEEP), <b>4B</b> queueing – why waiting time explodes above 85 % utilisation and why frequent short stops are better than rare long ones (Kingman / Sakasegawa, breakdown variability), <b>4C</b> buffer size between two machines (simulated), <b>4D</b> layout types and a from-to matrix that improves itself (Σ flow × distance, pairwise exchange), <b>4E</b> a <b>discrete-event simulation of a generic FMS</b> (machines with breakdowns, pallets, load stations, vehicles, part mix): throughput, utilisations, queues, Gantt chart, and the throughput-vs-pallets curve with best case, practical worst case and critical WIP. All numbers are examples.</p>
       <p class="intro" id="feIntro5" hidden><b>How the control of any FMS is organised:</b> <b>5A</b> the ISA-95 levels 0–4 (process, PLC / CNC, cell controller + SCADA, MES, ERP) – what each level does, how fast, which data goes up and down – and a "who decides what" matrix with a quiz, <b>5B</b> the equipment hierarchy (enterprise → site → area → cell → unit → equipment module → control module) and a tag-name builder, <b>5C</b> a live <b>PackML state machine</b> – the standard states, commands, modes and PackTags every module of the library will use, <b>5D</b> one pallet through all levels as an animated message sequence with real message text, <b>5E</b> architecture variants for the cell logic. Examples only.</p>
       <p class="intro" id="feIntro6" hidden><b>How the modules talk:</b> <b>6A</b> 16 protocols by level and job (IO-Link, PROFINET, EtherCAT, EtherNet/IP, Modbus TCP, CC-Link IE, safety layers, OPC UA, umati, MTConnect, MQTT / Sparkplug, REST, B2MML, Euromap 77, IPC-CFX), <b>6B</b> a selector that recommends a protocol for every link from your factory's conditions (PLC brand, "only Modbus TCP + HTTP" rule, motion, safety, CNC brands, cloud, ERP), <b>6C</b> calculators (PROFINET load, EtherCAT cycle, Modbus TCP poll cycle, historian / MQTT volume), <b>6D</b> an IP / VLAN plan builder with CSV export, <b>6E</b> zones and conduits after IEC 62443 with a flow tester, <b>6F</b> the <b>standard module data block</b> (PackML state, commands, handshake bits, counters, job, heartbeat) mapped to Modbus registers, PROFINET bytes, OPC UA nodes and MQTT Sparkplug topics. Typical values / examples.</p>
-      <p class="intro" id="feIntro7" hidden>Electrical &amp; safety principles – power, 24 V control, safety PLC, ISO 13849 / 13855 – coming in a next step.</p>
-      <p class="intro" id="feIntro8" hidden>Module library: complete circuits per module (diagrams, IO lists) – coming in a next step.</p>
-      <p class="intro" id="feIntro9" hidden>PLC programming principles – IEC 61131-3, state machines, handshakes, FB standard – coming in a next step.</p>
-      <p class="intro" id="feIntro10" hidden>Module library: complete PLC programs per module + cell controller – coming in a next step.</p>
+      <p class="intro" id="feIntro7" hidden><b>How the power and the safety of any FMS are designed:</b> <b>7A</b> power distribution and load list (P, Q, S, cos φ, transformer, short-circuit current, motor starting currents, single-line), <b>7B</b> cable sizing (ampacity with correction factors, PE, voltage drop, fault loop and maximum length), <b>7C</b> 24 V control power (budget, PSU, protected channels, line drop), <b>7D</b> cabinet thermal design (IEC 60890 surface, fan or cooling unit), <b>7E</b> risk assessment ISO 12100 and the risk graph → PLr, <b>7F</b> an ISO 13849-1 <b>PL calculator</b> (MTTFd from B10d, DCavg, CCF, categories, Table 11) for six safety functions, <b>7G</b> safety distances ISO 13855 and guard locking, <b>7H</b> safety zones as a cause &amp; effect matrix, <b>7I</b> safe drive functions and stop categories, <b>7J</b> typical circuit patterns, <b>7K</b> standards map, <b>7L</b> commissioning tests, <b>7M</b> three cases, <b>7N</b> checklists. Example values only – real designs need the current standard editions and qualified sign-off.</p>
+      <p class="intro" id="feIntro8" hidden><b>The electrical design of any FMS from one circuit library:</b> 31 standard circuit patterns (motor starter, inverter with STO, guard locking, e-stop, light curtain, valves, sensors …) and the 22 modules M01–M22 as lists of pattern instances. <b>8A</b> library overview (pattern × module matrix), <b>8B</b> pattern browser with generated schematic, IO, devices, cables, FAT steps and typical faults, <b>8C</b> module browser: IO list with tags and addresses, devices with IEC 81346 names, cabinet ↔ field drawing, <b>8D</b> IO cards with 20 % reserve and addresses, <b>8E</b> power and 24 V per module (motor currents, contactor / inverter size, feeder breaker and cable, PSU, losses), <b>8F</b> kit builder with distribution-board schedule and single-line, <b>8G</b> cable list, <b>8H</b> terminal plan -XD2, <b>8I</b> bill of materials (CSV downloads), <b>8J</b> cabinet FAT test generator, <b>8K</b> documentation structure, <b>8L</b> design workflow owner vs integrator, <b>8M</b> three cases, <b>8N</b> checklists. Example values only – real circuits must follow IEC 60204-1 and be signed off by qualified persons.</p>
+      <p class="intro" id="feIntro9" hidden><b>How the PLC software of any FMS is built:</b> <b>9A</b> IEC 61131-3 (software model, POU types, the five languages with the same example, vendor terms), <b>9B</b> scan cycle and worst-case reaction time, task utilisation and response-time analysis, counter overflow, <b>9C</b> standard FB lab (TON, TOF, TP, R_TRIG, F_TRIG, CTU, CTD, SR, RS as a 40-scan timing diagram), <b>9D</b> analog input with NAMUR NE 43 status and limit alarms with hysteresis, <b>9E</b> device FB of a DOL motor with feedback supervision and no automatic restart, <b>9F</b> the pallet-changer sequence inside the PackML state machine tick by tick, <b>9G</b> the module data block live, <b>9H</b> ISA-18.2 alarm state machine (first-out, chattering, shelving), <b>9I</b> code generator from the item 8 circuit library to structured text, <b>9J</b> coding standard, <b>9K</b> testing and virtual commissioning, <b>9L</b> effort estimate, <b>9M</b> three cases, <b>9N</b> checklists. Example values only – safety functions belong in the F-program, written by qualified people.</p>
+      <p class="intro" id="feIntro10" hidden><b>Part A of 3 – the PLC program standard and the device function-block library</b> for every module of any FMS: <b>10A</b> program standard (module FB structure, call order, tasks, naming), <b>10B</b> the four decisions D1–D4 (command echo handshake with an animated 4-phase timing diagram, alarm numbers, alarm classes A/B/C, homing in Resetting), <b>10C</b> one writer per data-block word and the alarm number calculator, <b>10D</b> FB library browser (interface, rule, ST source, alarm table, where used), <b>10E</b> FB test bench with all 19 unit tests and a live FB, <b>10F</b> valve lab (spring vs bistable), <b>10G</b> safety mirror FBs (the F-program does the safety function), <b>10H</b> command interface FB_CmdIf with acceptance matrix, <b>10I</b> alarm manager, <b>10J</b> signal tower, <b>10K</b> library engineering, <b>10L</b> commissioning tests per FB, <b>10M</b> use cases, <b>10N</b> checklists. <b>Part B</b> (complete module programs M01–M22) and <b>part C</b> (cell controller + virtual commissioning) follow. Example values only – safety functions belong in the F-program, written by qualified people.</p>
       <p class="intro" id="feIntro11" hidden>MES theory + generic MES design for any FMS – coming in a next step.</p>
       <p class="intro" id="feIntro12" hidden>ERP theory + ERP ⇄ MES integration – coming in a next step.</p>
       <p class="intro" id="feIntro13" hidden>Implementation in real factories – owner and integrator: URS / FDS, tender, FAT / SAT, ramp-up, ROI – coming in a next step.</p>

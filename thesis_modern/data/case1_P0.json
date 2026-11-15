@@ -1,0 +1,13 @@
+{
+ "record": "P0 \u2013 frozen design-stage prediction (thesis section 4.8.2)",
+ "created": "2026-11-13",
+ "model": "thesis/code/flowline.py reduced-order DES; design = Table 4.2 + all six options of Table 7.1 (buffers 4, MES)",
+ "priors": "Table 4.4 with worths: failures 10 x MTBF hours, repairs 5, cycles 10 (+-10 %), scrap 250 parts",
+ "hours_per_month": 330,
+ "deterministic_design_B0_mean": 6322,
+ "P0_mean": 6176,
+ "P0_p05": 5916,
+ "P0_p50": 6184,
+ "P0_p95": 6413,
+ "note": "Mature-state monthly good output. To be compared with the real factory after ramp-up (section 9.7). Values are a reference design case until the final design data replace Table 4.2."
+}

@@ -1,0 +1,463 @@
+// =====================================================================================================================
+// AS/RS =ASRS1, Case B1 - S7-1500 with EXPANSION COMMUNICATION MODULES (final thesis item F3, guide 60 Part D)
+//   -KF3 CP 1543-1      factory link (VLAN 720, 10.70.20.51) with firewall  -> MB_SERVER over the CP
+//   -KF4 CM 1542-1      PROFINET IO net 2 (conveyors F4)                    -> configured in the device view only, no code
+//   -KF5 CM PtP RS485HF Modbus RTU master line 1 (19 200 bit/s 8E1)        -> FB_RtuPoller
+//   -GB1 PS 60 W        backplane supply (modules 13.7 W > CPU feed 10 W)   -> no code
+//
+// Mirror model: ../asrs_comm.py  class Poller, infeed_weight_check()  - CHANGE BOTH TOGETHER.
+// Data: ../comm_data.json  rtu.slaves (addr 1 energy meter, 2 weighing terminal, 3 24 V UPS).
+// Contract to fmsctl: register map V1.2b UNCHANGED - the same non-optimized DB "FMS_HR" as Case A
+//   (fmsctl/plc/siemens_v12_interface.scl). Only the interface that carries Modbus TCP changes (CPU X2 -> CP 1543-1).
+//
+// Import order (TIA Portal V17 or newer, external source files):
+//   1 fmsctl/plc/siemens_v12_interface.scl   2 asrs_crane.scl   3 THIS FILE
+//   Then: replace the call of "IDB_FmsComm" (Case A, X2) by "IDB_FmsCommCp" (below).
+//
+// NOT COMPILED IN THIS PROJECT (no TIA Portal here). Version-specific points are marked CHECK, catalogue facts [verify].
+// ALL VALUES ARE DESIGN VALUES. Safety is NOT in this file (PROFIsafe / F-program, item F8).
+// =====================================================================================================================
+
+// ---------------------------------------------------------------------------------------------------------------------
+// 1  Factory link over the CP 1543-1
+// ---------------------------------------------------------------------------------------------------------------------
+FUNCTION_BLOCK "FB_FmsCommCp"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+// Same job as "FB_FmsComm" of Case A, but the TCP connection runs over the CP 1543-1.
+// HOW TO FIND THE HARDWARE ID OF THE CP (InterfaceId):
+//   Device view > click the Ethernet interface of -KF3 CP 1543-1 > Properties > General > "Hardware identifier"
+//   (or: PLC tags > Default tag table > System constants > "Local~CP_1543-1~IE_1" of type Hw_Interface). CHECK the name.
+// The CP has its own IP 10.70.20.51/24 (ip_plan.csv). The CPU X2 moves to the machine zone 192.168.10.1/24.
+// CP firewall: configure the rules of ../out/comm/firewall_rules.csv in the CP properties > Security > Firewall
+//   (1 allow TCP 502 from 10.70.1.10, 2 allow TCP 443 from 10.70.1.20, 3 NTP, 4 syslog, 5 default deny + log).
+//   The rule RemoteAddress below is a SECOND barrier, not a replacement for the firewall.
+   VAR_INPUT
+      CpHwId : HW_ANY := 0;   // pass the system constant of the CP interface, e.g. "Local~CP_1543-1~IE_1" (CHECK)
+   END_VAR
+   VAR_OUTPUT
+      Ndr    : Bool;
+      Dr     : Bool;
+      Error  : Bool;
+      Status : Word;
+   END_VAR
+   VAR
+      conn : TCON_IP_v4;
+      srv  : MB_SERVER;
+      init : Bool;
+   END_VAR
+BEGIN
+   IF NOT #init THEN
+      #conn.InterfaceId := #CpHwId;     // hardware id of the CP 1543-1 interface (NOT the CPU X1/X2 id)
+      #conn.ID := 1;                    // unique connection id in this CPU
+      #conn.ConnectionType := 16#0B;    // TCP
+      #conn.ActiveEstablished := FALSE; // passive partner (server)
+      #conn.RemoteAddress.ADDR[1] := 10; // only the FMS cell controller 10.70.1.10
+      #conn.RemoteAddress.ADDR[2] := 70;
+      #conn.RemoteAddress.ADDR[3] := 1;
+      #conn.RemoteAddress.ADDR[4] := 10;
+      #conn.RemotePort := 0;
+      #conn.LocalPort := 502;
+      #init := TRUE;
+   END_IF;
+   // CHECK: MB_SERVER over a CP 1543-1 needs a firmware / TIA version that supports "open user communication via CP";
+   //        otherwise use a TCON + TRCV/TSEND Modbus server or keep MB_SERVER on X2 behind an external firewall. [verify]
+   #srv(DISCONNECT := FALSE,
+        MB_HOLD_REG := "FMS_HR",        // non-optimized DB, 450 words = registers 0-449 (V1.2b)
+        CONNECT := #conn,
+        NDR => #Ndr,
+        DR => #Dr,
+        ERROR => #Error,
+        STATUS => #Status);
+END_FUNCTION_BLOCK
+
+// ---------------------------------------------------------------------------------------------------------------------
+// 2  Modbus RTU poller on the CM PtP RS422/485 HF  (mirror of asrs_comm.py class Poller)
+// ---------------------------------------------------------------------------------------------------------------------
+TYPE "typRtuSlave"
+VERSION : 1.0
+   STRUCT
+      // configuration (comm_data.json rtu.slaves)
+      Addr     : USInt;           // Modbus unit address 1..247
+      Fc       : USInt;           // 3 = read holding registers
+      Start    : UInt;            // first register (0-based protocol address)
+      N        : UInt;            // number of registers (<= 30 here, buffer size)
+      Every    : UInt;            // poll every n-th round (1 = every round)
+      // state
+      Fails    : UInt;            // consecutive failed polls (after all retries)
+      Offline  : Bool;            // TRUE after OfflineAfter failed polls -> slow probe
+      HasData  : Bool;            // at least one good response since start
+      TOkMs    : LReal;           // time of the last good response [ms]
+      Data     : Array[0..29] of Word;
+      // diagnostics (same names as the Python model: n_ok, n_err, n_to, n_crc, n_exc, last_exc)
+      NOk      : UDInt;
+      NErr     : UDInt;
+      NTo      : UDInt;
+      NCrc     : UDInt;
+      NExc     : UDInt;
+      LastExc  : USInt;
+   END_STRUCT;
+END_TYPE
+
+TYPE "typRtuWrite"
+VERSION : 1.0
+   STRUCT
+      Addr : USInt;
+      Reg  : UInt;
+      Val  : Word;
+   END_STRUCT;
+END_TYPE
+
+FUNCTION_BLOCK "FB_RtuPoller"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+// One poll ROUND = (1) all queued acyclic writes, (2) the cyclic reads of every slave that is due.
+// Only ONE Modbus request can be active on a line: Modbus_Master keeps BUSY until DONE or ERROR. Therefore the
+// poller is a state machine: start a request, wait in a state until DONE/ERROR, then decide (retry / next slave).
+// Timing at 19 200 bit/s 8E1 (asrs_comm.py, comm_report.md): t_trans 75.8 / 34.0 / 43.3 ms, worst round 153 ms,
+// weighing window (scale only) 34.0 ms. Call this FB in the same OB as Modbus_Comm_Load (e.g. OB30 10 ms = t_plc).
+   VAR_INPUT
+      PortHwId     : PORT := 0;       // hardware id of the CM PtP port, e.g. "Local~CM_PtP_RS422_485_HF_1" (CHECK)
+      WeighWindow  : Bool;            // TRUE while the infeed weighs a crate: only slaves with Every = 1 are polled
+      TareReq      : Bool;            // rising edge: queue FC06 reg 10 := 1 to the weighing terminal (addr 2)
+      TimeoutMs    : UInt := 200;     // response timeout
+      Retries      : UInt := 2;       // extra tries after a timeout / CRC error (NOT after an exception)
+      OfflineAfter : UInt := 3;       // failed polls -> offline
+      ProbeEvery   : UInt := 50;      // offline slave: one try every 50 rounds
+   END_VAR
+   VAR_OUTPUT
+      Round        : UDInt;           // number of finished rounds
+      LastRoundMs  : LReal;           // duration of the last round (compare with 153 ms worst / 34 ms window)
+      CommInitOk   : Bool;
+      CommError    : Bool;
+      CommStatus   : Word;
+   END_VAR
+   VAR_IN_OUT
+      Slv          : Array[1..3] of "typRtuSlave";   // 1 = addr 1 meter, 2 = addr 2 scale, 3 = addr 3 UPS
+   END_VAR
+   VAR
+      load         : Modbus_Comm_Load;
+      mstr         : Modbus_Master;
+      rt           : RUNTIME;
+      rtMem        : LReal;
+      nowMs        : LReal;           // free-running ms clock (RUNTIME accumulation)
+      tRound0      : LReal;
+      step         : Int;             // 0 init, 10 round start, 20 write req, 21 write wait, 30 select, 31 read req, 32 read wait, 40 round end
+      loadReq      : Bool;
+      mReq         : Bool;
+      mMode        : USInt;
+      mAddr        : UInt;
+      mDataAddr    : UDInt;
+      mLen         : UInt;
+      buf          : Array[0..29] of Word;
+      wq           : Array[0..3] of "typRtuWrite";   // write FIFO
+      wqHead       : Int;
+      wqCnt        : Int;
+      tareOld      : Bool;
+      i            : Int;             // current slave index 1..3
+      attempt      : UInt;
+      maxTry       : UInt;
+      k            : Int;
+   END_VAR
+   VAR_TEMP
+      due          : Bool;
+      rdDone       : Bool;
+      rdErr        : Bool;
+      rdSt         : Word;
+   END_VAR
+BEGIN
+   // --- ms clock
+   #nowMs := #nowMs + 1000.0 * RUNTIME(#rtMem);   // CHECK: RUNTIME returns the seconds since the last call
+
+   // --- tare request -> write queue (the Python model: p.writes.append((2, 10, [1])))
+   IF #TareReq AND NOT #tareOld AND #wqCnt < 4 THEN
+      #k := (#wqHead + #wqCnt) MOD 4;
+      #wq[#k].Addr := 2; #wq[#k].Reg := 10; #wq[#k].Val := 1;
+      #wqCnt := #wqCnt + 1;
+   END_IF;
+   #tareOld := #TareReq;
+
+   // --- port parameters (once). 19 200 bit/s, even parity (8E1 = 11 bit per character)
+   IF #step = 0 THEN
+      #loadReq := TRUE;
+   END_IF;
+   #load(REQ := #loadReq,
+         PORT := #PortHwId,
+         BAUD := 19200,
+         PARITY := 2,                  // 2 = even (CHECK the coding of your instruction version)
+         MB_DB := #mstr);              // instance of Modbus_Master (CHECK: S7-1500 V3.x: MB_DB := #mstr)
+   IF #load.DONE THEN
+      #loadReq := FALSE; #CommInitOk := TRUE;
+      // own retry / timeout handling: switch the internal ones off
+      #mstr.RETRIES := 0;              // CHECK static name in your Modbus_Master version
+      #mstr.MB_RESP_TO := #TimeoutMs;  // CHECK (older: RCVTIME / RESP_TO); default 1000 ms
+      IF #step = 0 THEN #step := 10; END_IF;
+   ELSIF #load.ERROR THEN
+      #loadReq := FALSE; #CommError := TRUE; #CommStatus := #load.STATUS;
+   END_IF;
+
+   // --- Modbus_Master: called EVERY cycle; REQ = TRUE starts one request (keep it TRUE only for the start call)
+   //     MODE 0 = read, MODE 1 = write (1 register -> FC06, more -> FC16). DATA_ADDR 40001 + start = holding register.
+   #mstr(REQ := #mReq,
+         MB_ADDR := #mAddr,
+         MODE := #mMode,
+         DATA_ADDR := #mDataAddr,
+         DATA_LEN := #mLen,
+         DATA_PTR := #buf);
+   #mReq := FALSE;
+   #rdDone := #mstr.DONE;
+   #rdErr := #mstr.ERROR;
+   #rdSt := #mstr.STATUS;
+
+   CASE #step OF
+      10: // ---------------- round start
+         #tRound0 := #nowMs;
+         #step := 20;
+
+      20: // ---------------- (1) acyclic writes first, ONE try each, no retry
+         IF #wqCnt > 0 THEN
+            #mAddr := #wq[#wqHead].Addr;
+            #mMode := 1;
+            #mDataAddr := 40001 + #wq[#wqHead].Reg;
+            #mLen := 1;
+            #buf[0] := #wq[#wqHead].Val;
+            #mReq := TRUE;
+            #step := 21;
+         ELSE
+            #i := 1;
+            #step := 30;
+         END_IF;
+
+      21:
+         IF #rdDone OR #rdErr THEN       // write_ok / write_fail -> log only (HMI), no retry
+            #wqHead := (#wqHead + 1) MOD 4;
+            #wqCnt := #wqCnt - 1;
+            #step := 20;
+         END_IF;
+
+      30: // ---------------- (2) select the next slave that is due
+         IF #i > 3 THEN
+            #step := 40;
+         ELSE
+            #due := FALSE;
+            IF #WeighWindow AND #Slv[#i].Every <> 1 THEN
+               #due := FALSE;                                             // weighing window: scale only
+            ELSIF #Slv[#i].Offline THEN
+               #due := (#Round MOD #ProbeEvery) = 0;                      // slow probe ...
+               #maxTry := 1;                                              // ... with ONE try
+            ELSE
+               #due := (#Round MOD #Slv[#i].Every) = 0;
+               #maxTry := 1 + #Retries;
+            END_IF;
+            IF #due THEN
+               #attempt := 0;
+               #step := 31;
+            ELSE
+               #i := #i + 1;
+            END_IF;
+         END_IF;
+
+      31: // ---------------- start one read
+         #mAddr := #Slv[#i].Addr;
+         #mMode := 0;                                                     // FC03
+         #mDataAddr := 40001 + #Slv[#i].Start;
+         #mLen := #Slv[#i].N;
+         #mReq := TRUE;
+         #attempt := #attempt + 1;
+         #step := 32;
+
+      32: // ---------------- wait for DONE / ERROR
+         IF #rdDone THEN                                                  // good response (CRC ok, no exception)
+            FOR #k := 0 TO UINT_TO_INT(#Slv[#i].N) - 1 DO
+               #Slv[#i].Data[#k] := #buf[#k];
+            END_FOR;
+            #Slv[#i].HasData := TRUE;
+            #Slv[#i].TOkMs := #nowMs;
+            #Slv[#i].Fails := 0;
+            #Slv[#i].Offline := FALSE;
+            #Slv[#i].NOk := #Slv[#i].NOk + 1;
+            #i := #i + 1;
+            #step := 30;
+         ELSIF #rdErr THEN
+            IF #rdSt >= 16#8381 AND #rdSt <= 16#838B THEN
+               // Modbus exception response from the slave (CHECK the STATUS range in the help):
+               // a definite answer -> NO retry, slave stays online, Fails NOT counted (Python: return False)
+               #Slv[#i].NExc := #Slv[#i].NExc + 1;
+               #Slv[#i].LastExc := WORD_TO_USINT(#rdSt - 16#8380);
+               #i := #i + 1;
+               #step := 30;
+            ELSE
+               IF #rdSt = 16#80C8 THEN                                    // no response within MB_RESP_TO (CHECK code)
+                  #Slv[#i].NTo := #Slv[#i].NTo + 1;
+               ELSE                                                       // CRC / frame / other receive error
+                  #Slv[#i].NCrc := #Slv[#i].NCrc + 1;
+               END_IF;
+               IF #attempt < #maxTry THEN
+                  #step := 31;                                            // retry
+               ELSE
+                  #Slv[#i].NErr := #Slv[#i].NErr + 1;
+                  #Slv[#i].Fails := #Slv[#i].Fails + 1;
+                  IF #Slv[#i].Fails >= #OfflineAfter THEN
+                     #Slv[#i].Offline := TRUE;
+                  END_IF;
+                  #i := #i + 1;
+                  #step := 30;
+               END_IF;
+            END_IF;
+         END_IF;
+
+      40: // ---------------- round end
+         #LastRoundMs := #nowMs - #tRound0;
+         #Round := #Round + 1;
+         #step := 10;
+   END_CASE;
+END_FUNCTION_BLOCK
+
+// ---------------------------------------------------------------------------------------------------------------------
+// 3  Validity and decoding
+// ---------------------------------------------------------------------------------------------------------------------
+FUNCTION "FC_RtuValid" : Bool
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+// Python: Poller.valid(addr, max_age_ms) = not offline and data present and (now - t_ok) <= max_age
+   VAR_INPUT
+      S        : "typRtuSlave";
+      NowMs    : LReal;
+      MaxAgeMs : LReal;
+   END_VAR
+BEGIN
+   #FC_RtuValid := (NOT #S.Offline) AND #S.HasData AND ((#NowMs - #S.TOkMs) <= #MaxAgeMs);
+END_FUNCTION
+
+FUNCTION "FC_RegsToReal" : Real
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+// float32 big-endian, high word first (energy meter, as f32_regs() in asrs_comm.py). CHECK the word order of the meter.
+   VAR_INPUT
+      Hi : Word;
+      Lo : Word;
+   END_VAR
+   VAR_TEMP
+      dw : DWord;
+   END_VAR
+BEGIN
+   #dw := SHL(IN := WORD_TO_DWORD(#Hi), N := 16) OR WORD_TO_DWORD(#Lo);
+   #FC_RegsToReal := DWORD_TO_REAL(#dw);   // CHECK: bit-pattern conversion on S7-1500 (else use SCATTER/GATHER or AT)
+END_FUNCTION
+
+FUNCTION_BLOCK "FB_RtuDecode"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+// Register layouts = make_slaves() in asrs_comm.py (design layouts - CHECK against the real device manuals).
+   VAR_INPUT
+      Meter : "typRtuSlave";   // addr 1: 0 U1, 2 U2, 4 U3, 6 I1, 8 I2, 10 I3, 12 P kW, 14 Q kvar, 16 cos phi, 18 f Hz, 20 E kWh (float32)
+      Scale : "typRtuSlave";   // addr 2: 0-1 gross INT32 0.1 kg, 2 status b0 stable b1 overload b2 zero, 10 command (FC06)
+      Ups   : "typRtuSlave";   // addr 3: 0 bits b0 mains ok b1 on battery b2 battery low, 1 SoC %, 2 V*10, 3 load %, 4 min, 5 alarms
+   END_VAR
+   VAR_OUTPUT
+      U_V        : Array[1..3] of Real;
+      I_A        : Array[1..3] of Real;
+      P_kW       : Real;
+      Q_kvar     : Real;
+      CosPhi     : Real;
+      F_Hz       : Real;
+      E_kWh      : Real;
+      Gross_kg   : Real;
+      Stable     : Bool;
+      Overload   : Bool;
+      Zero       : Bool;
+      UpsMainsOk : Bool;
+      UpsOnBatt  : Bool;
+      UpsBattLow : Bool;
+      UpsSoC_pct : UInt;
+      UpsBatt_V  : Real;
+   END_VAR
+   VAR_TEMP
+      v : DInt;
+      j : Int;
+   END_VAR
+BEGIN
+   FOR #j := 0 TO 2 DO
+      #U_V[#j + 1] := "FC_RegsToReal"(Hi := #Meter.Data[2 * #j], Lo := #Meter.Data[2 * #j + 1]);
+      #I_A[#j + 1] := "FC_RegsToReal"(Hi := #Meter.Data[6 + 2 * #j], Lo := #Meter.Data[7 + 2 * #j]);
+   END_FOR;
+   #P_kW   := "FC_RegsToReal"(Hi := #Meter.Data[12], Lo := #Meter.Data[13]);
+   #Q_kvar := "FC_RegsToReal"(Hi := #Meter.Data[14], Lo := #Meter.Data[15]);
+   #CosPhi := "FC_RegsToReal"(Hi := #Meter.Data[16], Lo := #Meter.Data[17]);
+   #F_Hz   := "FC_RegsToReal"(Hi := #Meter.Data[18], Lo := #Meter.Data[19]);
+   #E_kWh  := "FC_RegsToReal"(Hi := #Meter.Data[20], Lo := #Meter.Data[21]);
+   // scale: signed INT32 from two words, unit 0.1 kg (Python scale_value)
+   #v := DWORD_TO_DINT(SHL(IN := WORD_TO_DWORD(#Scale.Data[0]), N := 16) OR WORD_TO_DWORD(#Scale.Data[1]));
+   #Gross_kg := DINT_TO_REAL(#v) / 10.0;
+   #Stable   := #Scale.Data[2].%X0;
+   #Overload := #Scale.Data[2].%X1;
+   #Zero     := #Scale.Data[2].%X2;
+   #UpsMainsOk := #Ups.Data[0].%X0;
+   #UpsOnBatt  := #Ups.Data[0].%X1;
+   #UpsBattLow := #Ups.Data[0].%X2;
+   #UpsSoC_pct := WORD_TO_UINT(#Ups.Data[1]);
+   #UpsBatt_V  := UINT_TO_REAL(WORD_TO_UINT(#Ups.Data[2])) / 10.0;
+END_FUNCTION_BLOCK
+
+// ---------------------------------------------------------------------------------------------------------------------
+// 4  Weight part of the infeed check (mirror of infeed_weight_check() in asrs_comm.py)
+// ---------------------------------------------------------------------------------------------------------------------
+FUNCTION "FC_InfeedWeightCheck" : Int
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+// Return: 0 OK, 1 WAIT_STABLE, 2 OVERWEIGHT, 3 NO_DATA.  Detail: 0 or 23 (asrs.detail 23 = contour reject, V1.2b).
+   VAR_INPUT
+      Valid    : Bool;              // "FC_RtuValid"(S := scale, NowMs, MaxAgeMs := 1000.0)
+      Gross_kg : Real;
+      Stable   : Bool;
+      Overload : Bool;
+      MaxKg    : Real := 300.0;     // crate max gross (F3: 300 kg)
+   END_VAR
+   VAR_OUTPUT
+      Detail   : UInt;
+   END_VAR
+BEGIN
+   IF NOT #Valid THEN
+      #FC_InfeedWeightCheck := 3; #Detail := 23;      // scale dead / stale > 1 s -> reject, never accept blind
+   ELSIF #Overload OR (#Gross_kg > #MaxKg) THEN
+      #FC_InfeedWeightCheck := 2; #Detail := 23;
+   ELSIF NOT #Stable THEN
+      #FC_InfeedWeightCheck := 1; #Detail := 0;       // wait, the crate is still moving on the scale
+   ELSE
+      #FC_InfeedWeightCheck := 0; #Detail := 0;
+   END_IF;
+END_FUNCTION
+
+// ---------------------------------------------------------------------------------------------------------------------
+// 5  Slave table (configuration = comm_data.json rtu.slaves) and call example
+// ---------------------------------------------------------------------------------------------------------------------
+DATA_BLOCK "RTU_SLAVES"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+   VAR
+      S : Array[1..3] of "typRtuSlave";
+   END_VAR
+BEGIN
+   S[1].Addr := 1; S[1].Fc := 3; S[1].Start := 0; S[1].N := 30; S[1].Every := 10;   // -PG1 energy meter (need 5000 ms)
+   S[2].Addr := 2; S[2].Fc := 3; S[2].Start := 0; S[2].N := 4;  S[2].Every := 1;    // -BW92T weighing terminal (need 200 ms)
+   S[3].Addr := 3; S[3].Fc := 3; S[3].Start := 0; S[3].N := 6;  S[3].Every := 5;    // -TB12 24 V UPS (need 2000 ms)
+END_DATA_BLOCK
+
+// OB30 (cyclic interrupt 10 ms) - after "IDB_Crane":
+//   "IDB_RtuPoller"(PortHwId := "Local~CM_PtP_RS422_485_HF_1",       // CHECK system constant name
+//                   WeighWindow := "gInfeedWeighing",                 // set by the infeed sequence (F4)
+//                   TareReq := "HMI_TareScale",
+//                   Slv := "RTU_SLAVES".S);
+//   "IDB_RtuDecode"(Meter := "RTU_SLAVES".S[1], Scale := "RTU_SLAVES".S[2], Ups := "RTU_SLAVES".S[3]);
+//   #wRes := "FC_InfeedWeightCheck"(Valid := "FC_RtuValid"(S := "RTU_SLAVES".S[2], NowMs := "IDB_RtuPoller".nowMs, MaxAgeMs := 1000.0),
+//                                   Gross_kg := "IDB_RtuDecode".Gross_kg, Stable := "IDB_RtuDecode".Stable,
+//                                   Overload := "IDB_RtuDecode".Overload, Detail => #wDetail);
+//   "iInfeedContourOk" := ("FC_InfeedWeightCheck" result = 0) AND <contour sensors ok>;   // detail 23 when rejected
+//
+// OB1:
+//   "IDB_FmsCommCp"(CpHwId := "Local~CP_1543-1~IE_1");   // REPLACES "IDB_FmsComm" of Case A (CHECK constant name)
+//   ... "IDB_AsrsType", "IDB_FmsIf" exactly as in Case A (asrs_crane.scl) - register map V1.2b unchanged.
+//
+// Energy meter / UPS values are for the HMI and the energy KPI. They are NOT in register map V1.2b; exposing them to
+// fmsctl would need an additive register block (proposal only - not in fmsctl/spec/regmap.py).
+// UPS: UpsOnBatt for > 60 s -> ask the crane to finish the move and park (command 33 logic in FB_Crane).

@@ -1,0 +1,170 @@
+{
+ "_note": "input of asm_3d.py (mm)",
+ "carrier": {
+  "L_mm": 1800,
+  "W_mm": 800,
+  "mass_kg": 60,
+  "adapter_kg": {
+   "VC20": 12,
+   "RB": 8
+  },
+  "pitch_m": 2.0,
+  "gauge_mm": 640,
+  "beam": {
+   "name": "RHS 80 x 40 x 3 (S355)",
+   "I_mm4": 560000.0,
+   "W_mm3": 14000.0,
+   "_I": "(40x80^3 - 34x74^3)/12 = 5.6e5 mm4, W = I/40"
+  },
+  "support_span_mm": 1200,
+  "defl_limit": 1000,
+  "sigma_allow_MPa": 160,
+  "pad_mu": 0.4,
+  "bumper_stroke_mm": 20,
+  "_": "welded frame, 2 longitudinal RHS on the 2 chain strands, 2 locating bushes for the lift-and-locate units, PU bumpers front/rear; adapter plates: VC20 = 4 rubber-lined saddles for the tank feet, RB = 4 pins for the base frame (changeover 2 min, tool-free)",
+  "_bumper": "first design 10 mm gave 4.0 m/s2 > sliding limit 3.9 m/s2 (product slides on its pads when the carrier rolls into the one in front after an E-stop) -> 20 mm PU bumpers"
+ },
+ "conveyor_top": 500,
+ "products": {
+  "VC20": {
+   "mass_kg": 125,
+   "L_mm": 1550,
+   "W_mm": 600,
+   "H_mm": 1050,
+   "cg_mm": 420,
+   "feet_x_mm": 900,
+   "feet_y_mm": 380,
+   "units_month": 3000,
+   "_": "300 L receiver dia 500 x 1550 on 4 feet + pump + 3 kW motor + guard (design estimate)",
+   "tasks_mm": [
+    [
+     "A60 pump + motor on the tank plate",
+     600
+    ],
+    [
+     "A60 belts, tension, guard",
+     750
+    ],
+    [
+     "A70 pressure switch, valves, gauges (top)",
+     950
+    ]
+   ]
+  },
+  "RB50": {
+   "mass_kg": 85,
+   "L_mm": 900,
+   "W_mm": 600,
+   "H_mm": 650,
+   "cg_mm": 300,
+   "feet_x_mm": 760,
+   "feet_y_mm": 460,
+   "units_month": 140,
+   "tasks_mm": [
+    [
+     "A10-A30 rotors, head plates, timing gears",
+     380
+    ],
+    [
+     "A40-A50 motor, belts, guard, silencers",
+     520
+    ]
+   ]
+  },
+  "RB100": {
+   "mass_kg": 110,
+   "L_mm": 900,
+   "W_mm": 600,
+   "H_mm": 700,
+   "cg_mm": 320,
+   "feet_x_mm": 760,
+   "feet_y_mm": 460,
+   "units_month": 180,
+   "tasks_mm": [
+    [
+     "A10-A30 rotors, head plates, timing gears",
+     400
+    ],
+    [
+     "A40-A50 motor, belts, guard, silencers",
+     560
+    ]
+   ]
+  },
+  "RB150": {
+   "mass_kg": 160,
+   "L_mm": 1000,
+   "W_mm": 650,
+   "H_mm": 780,
+   "cg_mm": 350,
+   "feet_x_mm": 860,
+   "feet_y_mm": 500,
+   "units_month": 80,
+   "tasks_mm": [
+    [
+     "A10-A30 rotors, head plates, timing gears",
+     430
+    ],
+    [
+     "A40-A50 motor, belts, guard, silencers",
+     610
+    ]
+   ]
+  }
+ },
+ "lift_table": [
+  100,
+  800
+ ],
+ "carriers": 21,
+ "loop_m": 100,
+ "sections": 4,
+ "section_kW": 0.75,
+ "stations": {
+  "LOAD": 1,
+  "ASSY": 9,
+  "TEST": 7,
+  "PAINT": 1,
+  "PACK": 2,
+  "UNLOAD": 1
+ },
+ "seg_m": {
+  "LOAD-ASSY": 12,
+  "ASSY-TEST": 25,
+  "TEST-PAINT": 12,
+  "PAINT-PACK": 6,
+  "PACK-UNLOAD": 10,
+  "UNLOAD-LOAD": 35
+ },
+ "queue_places": {
+  "ASSY": 6,
+  "TEST": 8,
+  "PAINT": 4,
+  "PACK": 3
+ },
+ "transfer": {
+  "lift_s": 2.0,
+  "spur_m": 2.0,
+  "v_m_s": 0.2,
+  "lower_s": 2.0
+ },
+ "feed": {
+  "tank_kg": 62,
+  "tanks_per_rack": 4,
+  "rack_kg": 50,
+  "agv_payload_kg": 300,
+  "motors_per_crate": 8,
+  "rb_frames_per_rack": 4,
+  "buffer_h": 1.0,
+  "lifter": "vacuum tank lifter on a jib crane, SWL 125 kg"
+ },
+ "rack_places": 4,
+ "balancers": 5,
+ "test_dock": [
+  "air outlet quick coupling DN15 (11 bar) to the test bench receiver / flow meter (ISO 1217)",
+  "400 V 16 A CEE plug for the motor (via the bench contactor and power meter)",
+  "condensate hose",
+  "noise: bench hood closes over the unit (ISO 2151)",
+  "carrier located by lift-and-locate pins +-0.5 mm so the couplings are made by a pneumatic docking slide"
+ ]
+}

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>SAFE_VALVE: redundant safety valve block with spool monitoring (press M16, Category 4)</title>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">SAFE_VALVE: redundant safety valve block with spool monitoring (press M16, Category 4)</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Two valves in series, each can stop the stroke; each spool position monitored → F-DI; checked before, during and after every stroke.</text>
+<rect x="80" y="100" width="300" height="60" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="230" y="135" font-size="11" text-anchor="middle" fill="#111">hydraulic pump (DOL -MA1 15 kW)</text>
+<line x1="230" y1="160" x2="230" y2="200" stroke="#111" stroke-width="3"/>
+<rect x="170" y="200" width="120" height="60" rx="0" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="230" y="235" font-size="11" text-anchor="middle" fill="#c0392b">-MB1 valve A</text>
+<rect x="130" y="215" width="40" height="30" rx="0" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="130" y1="215" x2="170" y2="245" stroke="#c0392b" stroke-width="1.5"/>
+<circle cx="310" cy="230" r="8" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="325" y="234" font-size="11" text-anchor="start" fill="#111">spool monitor A</text>
+<line x1="230" y1="260" x2="230" y2="300" stroke="#111" stroke-width="3"/>
+<rect x="170" y="300" width="120" height="60" rx="0" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="230" y="335" font-size="11" text-anchor="middle" fill="#c0392b">-MB1 valve B</text>
+<rect x="130" y="315" width="40" height="30" rx="0" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="130" y1="315" x2="170" y2="345" stroke="#c0392b" stroke-width="1.5"/>
+<circle cx="310" cy="330" r="8" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="325" y="334" font-size="11" text-anchor="start" fill="#111">spool monitor B</text>
+<line x1="230" y1="360" x2="230" y2="400" stroke="#111" stroke-width="3"/>
+<rect x="170" y="400" width="120" height="60" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="230" y="435" font-size="11" text-anchor="middle" fill="#111">-MB2 Ram (5/2 double)</text>
+<line x1="230" y1="460" x2="230" y2="490" stroke="#111" stroke-width="3"/>
+<rect x="180" y="490" width="100" height="30" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="230" y="510" font-size="11" text-anchor="middle" fill="#111">ram</text>
+<rect x="500" y="110" width="230" height="40" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="615" y="128" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">FDO1.00</text>
+<text x="615" y="144" font-size="11" text-anchor="middle" fill="#111">RamValve.ValveA</text>
+<rect x="500" y="166" width="230" height="40" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="615" y="184" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">FDO1.01</text>
+<text x="615" y="200" font-size="11" text-anchor="middle" fill="#111">RamValve.ValveB</text>
+<rect x="500" y="222" width="230" height="40" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="615" y="240" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">FDI1.00</text>
+<text x="615" y="256" font-size="11" text-anchor="middle" fill="#111">RamValve.FbA</text>
+<rect x="500" y="278" width="230" height="40" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="615" y="296" font-size="11" text-anchor="middle" font-weight="bold" fill="#c0392b">FDI1.01</text>
+<text x="615" y="312" font-size="11" text-anchor="middle" fill="#111">RamValve.FbB</text>
+<rect x="500" y="334" width="230" height="40" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="615" y="352" font-size="11" text-anchor="middle" font-weight="bold" fill="#111">DO1.01 / DO1.02</text>
+<text x="615" y="368" font-size="11" text-anchor="middle" fill="#111">Ram.SolA / SolB (standard)</text>
+<rect x="780" y="100" width="380" height="300" rx="0" fill="#f2f2f2" stroke="#666" stroke-width="1.5"/>
+<text x="795" y="125" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Safety program per stroke:</text>
+<text x="795" y="151" font-size="11" text-anchor="start" fill="#c0392b">before: FbA and FbB = rest position</text>
+<text x="795" y="177" font-size="11" text-anchor="start" fill="#c0392b">stroke enable = TwoHand OK (FDI1.02–1.05)</text>
+<text x="795" y="203" font-size="11" text-anchor="start" fill="#c0392b">   AND curtain free (FDI1.06/1.07)</text>
+<text x="795" y="229" font-size="11" text-anchor="start" fill="#c0392b">command: both spools switch within t</text>
+<text x="795" y="255" font-size="11" text-anchor="start" fill="#c0392b">release: both spools back</text>
+<text x="795" y="281" font-size="11" text-anchor="start" fill="#c0392b">mismatch → lock-out, special reset</text>
+<text x="795" y="307" font-size="11" text-anchor="start" fill="#111"></text>
+<text x="795" y="333" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Standard program: stroke sequence</text>
+<text x="795" y="359" font-size="11" text-anchor="start" fill="#111">with -MB2, counters, PackML Execute</text>
+<text x="80" y="552" font-size="11" text-anchor="start" fill="#111">Cables: valve 5x0.75, spool sensors M12 4-pole (5 m) · tx 2 · i24 0.5 A · loss 10 W. Stopping time of the ram enters the safety distance (ISO 13855, ISO 16092).</text>
+<text x="24" y="586" font-size="11" text-anchor="start" fill="#666">Teaching example – not for construction. Real circuits: qualified engineers, IEC 60204-1, ISO 13849, maker data.</text>
+</svg>

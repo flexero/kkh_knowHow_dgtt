@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="380" viewBox="0 0 820 380"><defs><marker id="arr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#000"/></marker></defs><rect width="100%" height="100%" fill="#FFFFFF"/><line x1="75.0" y1="310.0" x2="545.0" y2="310.0" stroke="#DDDDDD" stroke-width="0.8"/>
+<line x1="71.0" y1="310.0" x2="75.0" y2="310.0" stroke="#000" stroke-width="1"/>
+<text x="68.0" y="314.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="normal" fill="#000">0.0</text>
+<line x1="75.0" y1="252.0" x2="545.0" y2="252.0" stroke="#DDDDDD" stroke-width="0.8"/>
+<line x1="71.0" y1="252.0" x2="75.0" y2="252.0" stroke="#000" stroke-width="1"/>
+<text x="68.0" y="256.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="normal" fill="#000">0.2</text>
+<line x1="75.0" y1="194.0" x2="545.0" y2="194.0" stroke="#DDDDDD" stroke-width="0.8"/>
+<line x1="71.0" y1="194.0" x2="75.0" y2="194.0" stroke="#000" stroke-width="1"/>
+<text x="68.0" y="198.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="normal" fill="#000">0.4</text>
+<line x1="75.0" y1="136.0" x2="545.0" y2="136.0" stroke="#DDDDDD" stroke-width="0.8"/>
+<line x1="71.0" y1="136.0" x2="75.0" y2="136.0" stroke="#000" stroke-width="1"/>
+<text x="68.0" y="140.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="normal" fill="#000">0.6</text>
+<line x1="75.0" y1="78.0" x2="545.0" y2="78.0" stroke="#DDDDDD" stroke-width="0.8"/>
+<line x1="71.0" y1="78.0" x2="75.0" y2="78.0" stroke="#000" stroke-width="1"/>
+<text x="68.0" y="82.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="normal" fill="#000">0.8</text>
+<line x1="75.0" y1="20.0" x2="545.0" y2="20.0" stroke="#DDDDDD" stroke-width="0.8"/>
+<line x1="71.0" y1="20.0" x2="75.0" y2="20.0" stroke="#000" stroke-width="1"/>
+<text x="68.0" y="24.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="end" font-weight="normal" fill="#000">1.0</text>
+<line x1="75.0" y1="20.0" x2="75.0" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="75.0" y1="310.0" x2="75.0" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="75.0" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">0</text>
+<line x1="111.2" y1="20.0" x2="111.2" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="111.2" y1="310.0" x2="111.2" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="111.2" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">2</text>
+<line x1="147.3" y1="20.0" x2="147.3" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="147.3" y1="310.0" x2="147.3" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="147.3" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">4</text>
+<line x1="183.5" y1="20.0" x2="183.5" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="183.5" y1="310.0" x2="183.5" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="183.5" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">6</text>
+<line x1="219.6" y1="20.0" x2="219.6" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="219.6" y1="310.0" x2="219.6" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="219.6" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">8</text>
+<line x1="255.8" y1="20.0" x2="255.8" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="255.8" y1="310.0" x2="255.8" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="255.8" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">10</text>
+<line x1="291.9" y1="20.0" x2="291.9" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="291.9" y1="310.0" x2="291.9" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="291.9" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">12</text>
+<line x1="328.1" y1="20.0" x2="328.1" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="328.1" y1="310.0" x2="328.1" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="328.1" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">14</text>
+<line x1="364.2" y1="20.0" x2="364.2" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="364.2" y1="310.0" x2="364.2" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="364.2" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">16</text>
+<line x1="400.4" y1="20.0" x2="400.4" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="400.4" y1="310.0" x2="400.4" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="400.4" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">18</text>
+<line x1="436.5" y1="20.0" x2="436.5" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="436.5" y1="310.0" x2="436.5" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="436.5" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">20</text>
+<line x1="472.7" y1="20.0" x2="472.7" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="472.7" y1="310.0" x2="472.7" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="472.7" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">22</text>
+<line x1="508.8" y1="20.0" x2="508.8" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="508.8" y1="310.0" x2="508.8" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="508.8" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">24</text>
+<line x1="545.0" y1="20.0" x2="545.0" y2="310.0" stroke="#EEEEEE" stroke-width="0.8"/>
+<line x1="545.0" y1="310.0" x2="545.0" y2="314.0" stroke="#000" stroke-width="1"/>
+<text x="545.0" y="328.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#000">26</text>
+<rect x="75.0" y="20.0" width="470.0" height="290.0" rx="0" fill="none" stroke="#000" stroke-width="1"/>
+<text x="310.0" y="348.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#000">Round-trip time of one FC03 request [ms]</text>
+<text x="23.0" y="165.0" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#000" transform="rotate(-90 23.0 165.0)">Cumulative share</text>
+<polyline points="75.0,310.0 97.6,309.9 102.1,308.2 106.6,304.6 111.2,290.5 115.7,284.7 120.2,281.9 124.7,275.6 129.2,262.5 133.8,254.8 138.3,251.8 142.8,245.2 147.3,234.1 151.8,226.1 156.3,223.2 160.9,216.5 165.4,205.8 169.9,197.5 174.4,194.3 178.9,186.7 183.5,177.3 188.0,168.3 192.5,165.4 197.0,157.6 201.5,148.9 206.1,139.8 210.6,136.7 215.1,128.7 219.6,120.8 224.1,111.3 228.7,108.4 233.2,100.0 237.7,92.8 242.2,83.0 246.7,79.9 251.2,70.7 255.8,64.6 260.3,54.5 264.8,51.4 269.3,42.0 273.8,35.9 278.4,25.8 282.9,24.2 287.4,20.8 291.9,20.3 296.4,20.0 301.0,20.0" fill="none" stroke="#0072B2" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="75.0,310.0 97.6,309.7 102.1,306.9 106.6,300.9 111.2,293.7 115.7,285.7 120.2,277.9 124.7,269.6 129.2,261.8 133.8,254.1 138.3,246.8 142.8,239.1 147.3,231.9 151.8,224.8 156.3,217.6 160.9,210.4 165.4,203.5 169.9,195.6 174.4,188.5 178.9,180.9 183.5,173.9 188.0,166.5 192.5,159.4 197.0,152.2 201.5,145.2 206.1,137.9 210.6,130.9 215.1,123.5 219.6,116.4 224.1,108.9 228.7,102.1 233.2,95.1 237.7,88.2 242.2,80.8 246.7,74.0 251.2,66.6 255.8,59.5 260.3,52.3 264.8,45.1 269.3,37.7 273.8,30.8 278.4,24.5 282.9,21.4 287.4,21.2 291.9,21.2 296.4,21.1 301.0,21.1 305.5,21.0 310.0,20.8 314.5,20.5 319.0,20.4 323.6,20.3 328.1,20.2 332.6,20.1 337.1,20.0 341.6,20.0" fill="none" stroke="#E69F00" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="75.0,310.0 97.6,309.9 102.1,307.5 106.6,306.0 111.2,289.1 115.7,287.3 120.2,276.3 124.7,273.4 129.2,259.6 133.8,257.1 138.3,245.7 142.8,243.3 147.3,231.0 151.8,228.3 156.3,217.3 160.9,214.3 165.4,202.8 169.9,200.0 174.4,188.9 178.9,185.9 183.5,174.7 188.0,171.9 192.5,160.2 197.0,156.6 201.5,145.3 206.1,141.5 210.6,130.7 215.1,127.0 219.6,116.4 224.1,112.5 228.7,102.0 233.2,98.0 237.7,87.7 242.2,83.1 246.7,73.4 251.2,68.8 255.8,58.6 260.3,53.5 264.8,44.1 269.3,38.5 273.8,29.7 278.4,24.6 282.9,21.1 287.4,20.3 291.9,20.1 296.4,20.0 301.0,20.0" fill="none" stroke="#009E73" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6,3"/>
+<polyline points="75.0,310.0 97.6,310.0 102.1,309.0 106.6,307.3 111.2,300.0 115.7,297.3 120.2,295.7 124.7,292.6 129.2,285.6 133.8,282.5 138.3,280.8 142.8,277.8 147.3,271.0 151.8,267.9 156.3,266.0 160.9,262.8 165.4,256.8 169.9,253.4 174.4,251.4 178.9,247.8 183.5,242.5 188.0,238.5 192.5,236.7 197.0,233.1 201.5,228.3 206.1,224.6 210.6,222.6 215.1,219.0 219.6,214.6 224.1,210.4 228.7,208.3 233.2,204.3 237.7,200.2 242.2,195.7 246.7,193.8 251.2,189.4 255.8,185.9 260.3,181.1 264.8,179.0 269.3,174.5 273.8,170.8 278.4,166.2 282.9,164.4 287.4,160.2 291.9,156.8 296.4,152.2 301.0,150.4 305.5,145.9 310.0,142.7 314.5,137.9 319.0,136.1 323.6,131.3 328.1,128.7 332.6,123.6 337.1,121.3 341.6,116.4 346.2,113.8 350.7,108.9 355.2,106.9 359.7,102.2 364.2,99.9 368.8,95.1 373.3,93.2 377.8,88.4 382.3,86.0 386.8,80.5 391.3,78.8 395.9,74.0 400.4,71.7 404.9,66.5 409.4,64.8 413.9,59.5 418.5,57.4 423.0,52.0 427.5,50.2 432.0,44.7 436.5,42.4 441.1,37.0 445.6,35.3 450.1,30.5 454.6,28.4 459.1,23.2 463.7,22.1 468.2,20.4 472.7,20.1 477.2,20.0 481.7,20.0 626.3,20.0" fill="none" stroke="#D55E00" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="75.0,310.0 93.1,310.0 273.8,20.0 545.0,20.0" fill="none" stroke="#777777" stroke-width="1.2" stroke-linejoin="round" stroke-dasharray="2,3"/>
+<polyline points="75.0,310.0 93.1,310.0 454.6,20.0 545.0,20.0" fill="none" stroke="#777777" stroke-width="1.2" stroke-linejoin="round" stroke-dasharray="2,3"/>
+<line x1="565.0" y1="36.0" x2="591.0" y2="36.0" stroke="#0072B2" stroke-width="2"/>
+<text x="599.0" y="40.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#000">scan 10 ms, sequential, N = 160</text>
+<line x1="565.0" y1="55.0" x2="591.0" y2="55.0" stroke="#E69F00" stroke-width="2"/>
+<text x="599.0" y="59.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#000">scan 10 ms, parallel, N = 160</text>
+<line x1="565.0" y1="74.0" x2="591.0" y2="74.0" stroke="#009E73" stroke-width="2" stroke-dasharray="6,3"/>
+<text x="599.0" y="78.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#000">scan 10 ms, parallel, N = 21</text>
+<line x1="565.0" y1="93.0" x2="591.0" y2="93.0" stroke="#D55E00" stroke-width="2"/>
+<text x="599.0" y="97.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#000">scan 20 ms, sequential, N = 160</text>
+<line x1="565.0" y1="112.0" x2="591.0" y2="112.0" stroke="#777777" stroke-width="2" stroke-dasharray="2,3"/>
+<text x="599.0" y="116.0" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#000">model U(0, t_scan) + 1 ms</text></svg>

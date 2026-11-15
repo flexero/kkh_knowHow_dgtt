@@ -1,0 +1,142 @@
+== 3a static capacity
+LOADC   c=1 t=  367.0 A=0.9996 cap_alone=  3236 need=0.16
+HMCC    c=3 t= 1865.0 A=0.9890 cap_alone=  1871 need=0.84
+WASH    c=1 t=  197.5 A=0.9979 cap_alone=  6003 need=0.09
+RTURN   c=1 t=  648.5 A=0.9917 cap_alone=  1802 need=0.29
+RMILL   c=1 t= 1529.5 A=0.9836 cap_alone=   753 need=0.69
+RGRIND  c=1 t=  588.0 A=0.9926 cap_alone=  1985 need=0.26
+BAL     c=1 t=  415.0 A=0.9983 cap_alone=  2852 need=0.19
+RASSY   c=2 t= 2660.0 A=0.9986 cap_alone=   888 need=1.19
+RTEST   c=1 t= 2145.0 A=0.9972 cap_alone=   547 need=0.96
+PAINT   c=1 t=  207.5 A=0.9959 cap_alone=  5667 need=0.09
+PACK    c=1 t=  177.5 A=0.9988 cap_alone=  6685 need=0.08
+LOAD147 / LOADC  u_comp  74.3  u_roots  12.4  total  86.6  cap_comp 8078 -> 7080
+HMC / HMCC       u_comp  61.4  u_roots  21.4  total  82.8  cap_comp 9769 -> 7681
+WASH / WASH      u_comp  74.9  u_roots   6.7  total  81.6  cap_comp 8010 -> 7477
+PAINT / PAINT    u_comp  81.0  u_roots   7.1  total  88.1  cap_comp 7405 -> 6882
+PACK / PACK      u_comp  59.7  u_roots   6.0  total  65.7  cap_comp 10055 -> 9454
+LOAD             u_comp  45.0  u_roots   0.0  total  45.0  cap_comp 13343 -> 13343
+TEST             u_comp  89.6  u_roots   0.0  total  89.6  cap_comp 6699 -> 6699
+LATHE            u_comp  86.8  u_roots   0.0  total  86.8  cap_comp 6916 -> 6916
+FINAL            u_comp  79.4  u_roots   0.0  total  79.4  cap_comp 7558 -> 7558
+compressor static ranking, alone   : [('TEST', 6699), ('LATHE', 6916), ('PAINT', 7405), ('FINAL', 7558), ('WASH', 8010), ('LOAD147', 8078)]
+compressor static ranking, + Roots : [('TEST', 6699), ('PAINT', 6882), ('LATHE', 6916), ('LOAD147', 7080), ('WASH', 7477), ('FINAL', 7558)]
+== 3b MVA of the shared cell
+check vs 9.2.5: model A(12) 23.82  model B(12) 17.78  bound 24.49
+three-chain model B, 8A+4B: [12.19, 5.53] total 17.72
+combined mix: Roots share of cycles 0.062, tL 160.7 s, DH 452.7 s, bound 22.40 /h, required 19.39 /h
+comp_B      6.02 10.78 14.14 15.66 16.48 16.97 17.27 17.46 17.59 17.68 17.74 17.78 17.80 17.82 17.83
+comp_A      6.26 11.58 15.87 18.53 20.23 21.36 22.15 22.70 23.11 23.41 23.64 23.82 23.96 24.06 24.15
+mix_B       5.11  9.34 12.52 14.03 14.88 15.42 15.78 16.04 16.22 16.36 16.46 16.54 16.60 16.65 16.68
+mix_A       5.27  9.88 13.74 16.10 17.60 18.60 19.30 19.82 20.21 20.51 20.76 20.96 21.12 21.26 21.38
+mix_B_LS2   5.11 10.11 14.81 17.72 19.10 19.84 20.27 20.53 20.69 20.79 20.85 20.89 20.92 20.94 20.95
+mix_A_LS2   5.27 10.43 15.35 18.85 20.94 22.16 22.88 23.30 23.54 23.68 23.76 23.80 23.83 23.84 23.85
+Compressors only, 8 A + 4 B (case 1 design)                        N*=(9, 3) phi=0.936 X=[13.617, 4.13] total=17.75 comp@phi=5617 | roots-first N=None comp=None roots=None
+Compressors + Roots, one load station (design)                     N*=(7, 2, 3) phi=0.783 X=[11.396, 2.874, 1.559] total=15.83 comp@phi=4701 | roots-first N=(7, 2, 3) comp=4700.9745960686505 roots=514.5836903921281
++ pallets stored nearest to the load station                       N*=(7, 2, 3) phi=0.838 X=[12.239, 3.047, 1.581] total=16.87 comp@phi=5027 | roots-first N=(7, 2, 3) comp=5027.073847275087 roots=521.8306093547754
++ quick-clamping kit fixture (Roots 350 s -> 250 s)                N*=(7, 2, 3) phi=0.799 X=[11.655, 2.904, 1.736] total=16.29 comp@phi=4792 | roots-first N=(7, 2, 3) comp=4791.95470952829 roots=573.0399649857427
++ two-position load station                                        N*=(7, 2, 3) phi=0.916 X=[14.091, 3.332, 1.537] total=18.96 comp@phi=5498 | roots-first N=(7, 2, 3) comp=5497.500808161092 roots=507.16014339563156
++ second load station                                              N*=(7, 2, 3) phi=0.945 X=[15.186, 3.438, 1.537] total=20.16 comp@phi=5672 | roots-first N=(7, 2, 3) comp=5672.093186383568 roots=507.30644606432503
++ second load station, 15 pallets (rack extended)                  N*=(9, 3, 3) phi=1.008 X=[15.809, 4.144, 1.222] total=21.18 comp@phi=6000 | roots-first N=(9, 3, 3) comp=6521.044857561544 roots=403.33924034514814
++ second load station + two-position HMC changers + nearest rack   N*=(7, 2, 3) phi=1.073 X=[17.73, 3.9, 1.619] total=23.25 comp@phi=6000 | roots-first N=(7, 2, 3) comp=6435.414405046428 roots=534.216725890464
++ fourth HMC, one load station                                     N*=(8, 2, 2) phi=0.801 X=[12.644, 2.911, 1.137] total=16.69 comp@phi=4803 | roots-first N=(7, 2, 3) comp=4693.403505365325 roots=567.517860708462
++ fourth HMC + second load station                                 N*=(7, 2, 3) phi=1.193 X=[18.434, 4.338, 2.087] total=24.86 comp@phi=6000 | roots-first N=(7, 3, 2) comp=7526.385025320273 roots=464.26238609639773
+Roots line (flow-equivalent cell 1.559 kits/h): [('CELL', 504), ('WASH', 1506), ('RTURN', 1802), ('RMILL', 753), ('RGRIND', 1985), ('BAL', 2852), ('RASSY', 888), ('RTEST', 547), ('PAINT', 1075), ('PACK', 2696)]
+DES Roots per month (design): 461, eta 0.915
+== 3c frozen design prediction P0
+{'record': 'P0 – frozen design-stage prediction of the Roots line (thesis section 9.4.4)', 'created': '2026-11-15', 'model': 'thesis/code/case3_roots.py, reduced-order flow line, shared cell as flow-equivalent station', 'priors': 'Table 4.4 worths: failures 10 x MTBF hours, repairs 5, cycles 10 (+-10 %), scrap 250 parts', 'hours_per_month': 330.0, 'deterministic_design_B0_mean': 464, 'P0_mean': 459, 'P0_p05': 436, 'P0_p50': 459, 'P0_p95': 482, 'P_ge_demand': 1.0, 'note': 'Reference design case: no Roots blower production data exist. Replace by P0 v2 with the final design data.'}
+== 3d transfer test (20 scenarios)
+ 1 truth    300 B0  54.6 P07  53.4 P07D  53.4 cov   0.0 BN twin  100 design  100
+ 2 truth    348 B0  33.3 P07   6.3 P07D   6.3 cov 100.0 BN twin  100 design  100
+ 3 truth    379 B0  22.2 P07  11.1 P07D   7.6 cov  85.0 BN twin   95 design   95
+ 4 truth    394 B0  17.6 P07  10.1 P07D   4.2 cov 100.0 BN twin   95 design   95
+ 5 truth    403 B0  15.1 P07   8.2 P07D   1.6 cov 100.0 BN twin   95 design   95
+ 6 truth    410 B0  13.2 P07   6.8 P07D   2.3 cov 100.0 BN twin  100 design   95
+ 7 truth    411 B0  12.8 P07   4.7 P07D   3.5 cov 100.0 BN twin  100 design   95
+ 8 truth    414 B0  11.9 P07   3.8 P07D   3.5 cov 100.0 BN twin  100 design   95
+ 9 truth    413 B0  12.3 P07   2.8 P07D   4.1 cov  95.0 BN twin  100 design   95
+10 truth    413 B0  12.2 P07   2.5 P07D   3.3 cov 100.0 BN twin  100 design   95
+11 truth    414 B0  12.0 P07   2.5 P07D   2.9 cov 100.0 BN twin  100 design   95
+12 truth    414 B0  11.9 P07   2.0 P07D   2.4 cov 100.0 BN twin  100 design   95
+true bottleneck in month 12: {'CELL': 19, 'RTEST': 1}
+== 3e first investment step (screening)
+{'opts': 'none', 'capex': 0, 'comp': 4612.121010296804, 'roots': 400.0, 'N': (7, 2, 3), 'dmargin_month': 0.0, 'payback_months': None}
+{'opts': 'LS2', 'capex': 90000, 'comp': 5564.884392091483, 'roots': 400.0, 'N': (7, 2, 3), 'dmargin_month': 476381.6908973395, 'payback_months': 0.18892413734556193}
+{'opts': 'RT2', 'capex': 160000, 'comp': 4612.121010296804, 'roots': 400.0, 'N': (7, 2, 3), 'dmargin_month': 0.0, 'payback_months': None}
+{'opts': 'RM2', 'capex': 420000, 'comp': 4612.121010296804, 'roots': 400.0, 'N': (7, 2, 3), 'dmargin_month': 0.0, 'payback_months': None}
+{'opts': 'NR', 'capex': 15000, 'comp': 4932.056627304612, 'roots': 400.0, 'N': (7, 2, 3), 'dmargin_month': 159967.8085039039, 'payback_months': 0.09376886600052368}
+{'opts': 'LS2+NR', 'capex': 105000, 'comp': 5768.5110850585415, 'roots': 400.0, 'N': (7, 2, 3), 'dmargin_month': 578195.037380869, 'payback_months': 0.18159962160110055}
+{'opts': 'LS2+RT2', 'capex': 250000, 'comp': 5564.884392091483, 'roots': 400.0, 'N': (7, 2, 3), 'dmargin_month': 476381.6908973395, 'payback_months': 0.5247892704043388}
+NPV no investment 86.072 M EUR, plan dNPV 23.012 M EUR
+plan (design values): [('LS2', 'NR'), (), (), ()]
+stage-1 ranking: [['LS2+NR', 109.084], ['LS2+RT2+NR', 108.9], ['LS2', 106.816], ['LS2+RT2', 106.633], ['NR', 92.481]]
+Roots demand x 0.8                   [('LS2',), (), (), ()]
+Roots demand x 1.5                   [('LS2', 'RT2', 'NR'), (), (), ()]
+compressor demand 5 000 / month      [('LS2',), (), (), ()]
+test time + 30 % (run test longer)   [('LS2', 'RT2', 'NR'), (), (), ()]
+rotor milling time + 40 %            [('LS2', 'NR'), (), (), ()]
+budget 150 000 EUR / stage           [('LS2', 'NR'), (), (), ()]
+first step over 40 prior samples: {'LS2+NR': 39, 'LS2': 1} second: {'-': 40}
+plans with Roots demand x 1.5 over prior samples: {'LS2+NR / - / - / -': 29, 'LS2+RT2+NR / - / - / -': 11}
+== 3f data path
+{
+ "modbus_28_025": {
+  "N": 28,
+  "P": 0.25,
+  "bytes_poll": 333,
+  "Mbit_s": 0.298368,
+  "rtt_ms": 6.05,
+  "Nmax_seq": 41.32231404958678,
+  "cycle_seq_ms": 169.4,
+  "cycle_par_ms": 12.170000000000002,
+  "lat_max_par_s": 0.26105
+ },
+ "modbus_21_025": {
+  "N": 21,
+  "P": 0.25,
+  "bytes_poll": 333,
+  "Mbit_s": 0.223776,
+  "rtt_ms": 6.05,
+  "Nmax_seq": 41.32231404958678,
+  "cycle_seq_ms": 127.05,
+  "cycle_par_ms": 11.89,
+  "lat_max_par_s": 0.26105
+ },
+ "ua_T0.25": {
+  "ua_kbit_dev": 14.634,
+  "mq_kbit_dev": 6.7832,
+  "ua_Mbit": 0.419832,
+  "mq_in_Mbit": 0.19568960000000002,
+  "total_Mbit": 1.2025904,
+  "msgs_in": 112.84,
+  "msgs_out": 338.52000000000004,
+  "notif": 374.24,
+  "publish": 112.0,
+  "test_bench_kbit": 74.88680000000001
+ },
+ "ua_T0.5": {
+  "ua_kbit_dev": 7.354,
+  "mq_kbit_dev": 3.4232,
+  "ua_Mbit": 0.210952,
+  "mq_in_Mbit": 0.09872959999999999,
+  "total_Mbit": 0.6058704,
+  "msgs_in": 56.839999999999996,
+  "msgs_out": 170.51999999999998,
+  "notif": 188.24,
+  "publish": 56.0,
+  "test_bench_kbit": 37.6068
+ },
+ "ua_T1.0": {
+  "ua_kbit_dev": 3.714,
+  "mq_kbit_dev": 1.7432,
+  "ua_Mbit": 0.106512,
+  "mq_in_Mbit": 0.0502496,
+  "total_Mbit": 0.30751039999999996,
+  "msgs_in": 28.84,
+  "msgs_out": 86.52,
+  "notif": 95.24,
+  "publish": 28.0,
+  "test_bench_kbit": 18.9668
+ }
+}
+written data/case3_roots.json, case3_rampup.csv, case3_P0.json and figures fig9_4..fig9_7

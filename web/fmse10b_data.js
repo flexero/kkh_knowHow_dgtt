@@ -1,0 +1,3268 @@
+/* FMS engineering – item 10 part B data (complete module programs M01–M22).
+ * EX10B between the BEGIN/END markers is GENERATED (json.dumps) from tools/fmse/examples/item10b_examples.json – do not edit it by hand,
+ * regenerate instead. LIBALM10B (library alarm texts of the device FBs) is GENERATED from the LIBRARY table of tools/fmse/fb_library.py
+ * (the texts that the module program writes into its alarm log). The rest below the markers is hand-written page text.
+ * ALL VALUES ARE EXAMPLES – a real module program is engineered from the real machine, reviewed and tested by qualified people;
+ * safety functions only in the F-program. */
+/* BEGIN EX10B */
+export const EX10B = {
+ "_note": "Shared worked-example data for FMS engineering item 10 part B (complete PLC programs for the modules M01-M22): guide docs/FMS system design/70_plc_library_B_modules.md, generated ST tools/fmse/plc_modules/*.st (+ library tools/fmse/plc_lib), tools/fmse/*.py, web/fmse10b*.js. Every module program = the SAME generic module FB (PackML core with decisions D1-D4 of item 10A, device FBs of the library, step sequences, alarm classes, monitors, data block) + the module DATA below. Guide, tools and web must give IDENTICAL logs. All values are EXAMPLES - a real module program is engineered from the real machine, reviewed and tested by qualified people; safety functions only in the F-program.",
+ "_rules": {
+  "instances": "device FB instances = item 8 module expansion, instances whose pattern has io (item 9 codegen order, i = 1..), FB type = item 9 codegen.fb_types ; plus the optional bus partner 'partner' (FB_HandshakeHw over the fieldbus, name from the data) as the LAST instance. FB inputs from IO keep the codegen names (x<Signal> for DI/FDI, i<Signal> for AI). Configuration: library defaults (item 10A fb_interfaces) + module 'cfg' overrides (e.g. AnalogIn rLo/rHi, Valve tMove_ms). Module number M = int(code[1:]).",
+  "wires": "module 'wires' [target 'Inst.input', source 'Inst.output']: before the device calls of tick k the target input gets the source output of tick k-1 (one-tick delay, independent of the call order).",
+  "commands": "the module program writes only these FB inputs (commands): FB_Valve1/2 xCmdB, xEnable ; FB_MotorDol xCmd ; FB_DriveSto xCmdRun (xSto comes from the F-program copy) ; FB_Heater xEnable, rSp ; FB_PushButton iLampMode ; FB_HandshakeHw xStart ; FB_Scanner iField ; FB_SignalTower iState, iAlarmClass (automatic: iState = StateCurrent, iAlarmClass = top class) ; xReset of every FB that has it (automatic pulses). Initial command values: all FALSE / 0, xEnable TRUE, Scanner iField 1, Heater rSp 60.0.",
+  "expr": "conditions ('wait', 'skip_if', monitors, plant links): OR-groups separated by '|', each a list of terms joined by '&' ; a term = optional '!' + operand [+ comparison op (>=, <=, =, >, <) + number] ; operand: 'Inst.output' (device FB output after this tick's call), 't' (calls in the current step, see sequence), 'P.Inst.var' (plant variable - only in plant links), 'T' (true), 'F' (false). A BOOL or number without comparison is TRUE when non-zero.",
+  "tick": "tick = 100 ms. Order per tick k: (1) EVENTS of the scenario at k in list order ('P Inst.var=v' plant variable, 'SET Inst.input=v' forces an FB input permanently (overrides the plant), 'SAFE Inst=v' both channels of a 2-channel safety device / coupling channels). (2) CELL CONTROLLER model (D1): reads the data block of tick k-1: if CmdChangeRequest and (CmdAck or CmdRej): clear CmdChangeRequest and CntrlCmd ('cc clears request') ; elif not CmdChangeRequest and the next cc-script line [cmd, state, min_tick] has StateCurrent = state and k >= min_tick: write CntrlCmd and set CmdChangeRequest ('cc sends <cmd>') and go to the next line. (3) PLANT with the FB outputs of tick k-1 (rule plant). (4) DEVICE FBs: inputs = plant IO (or forced values), commands = module command values of tick k-1, xReset = reset pulse of tick k-1 ; call every FB once in instance order. (5) ALARMS: active = every instance with iAlarm <> 0 (number M*1000 + 10*i + iAlarm) + every active module alarm (M*1000 + a) ; class from 'classes' (module override by instance name, then the library default table 'default_classes', module alarms from the module 'alarms'). New numbers get the next activation order (in increasing number when several start in the same tick). AlarmNo = active A/B alarm with the best (class A < B, order) ; WarningNo = earliest active class C, else the last command-rejection warning M*1000 + 900 + cmd (kept until the next accepted command) ; top class = 1/2/3/0. (6) FB_CmdIf (item 10A) with the data block words of THIS tick (after the cc model), iState = current state, iMode = Mode.iMode if the module has an FB_ModeSwitch named 'Mode' else 1 ; an accepted command executes the PackML transition at once (target state, n_state = 0, 'entered this tick'). (7) ALARM REACTION: if top class = A and state not in {Aborting, Aborted, Clearing}: internal Abort -> Aborting ; elif top class = B and state = Execute: internal Hold -> Holding. (8) STATE ACTION (rule core). (9) MONITORS [a, expr, states, delay] (states 'all' or list): counter n = n+1 while expr TRUE and state in states else 0 ; module alarm a ON when n > delay ; a monitor alarm stays active until the next reset of module alarms. (10) DATA BLOCK: StateCurrent, AlarmNo, WarningNo, Status.Bits = Ready (b0, Idle) + Busy (b1, acting states and Execute) + Done (b2, Complete) + Fault (b3, AlarmNo <> 0) + Auto (b5, mode 1) + CmdAck (b8) + CmdRej (b9). Log every line of the log rule.",
+  "core": "states/commands = item 5. Entering an acting state starts its sequence: Resetting -> 'home', Starting -> 'start', Execute -> 'exec' (only when entered from Starting; from Unholding/Unsuspending it CONTINUES the frozen step with t = 0), Completing -> 'complete' (empty in this library). Module alarms are reset (deactivated) and a reset pulse is sent to every FB (xReset TRUE in the NEXT tick's call, one tick) on entering Resetting, Clearing and Unholding. Entering Stopping or Aborting: all commands to the SAFE values (every command FALSE / 0, valves xEnable FALSE, Scanner iField 1, Heater xEnable FALSE ; commands listed in 'keep' are only switched off in Aborting) and the sequence stops (step 0). Entering Resetting: valves xEnable TRUE. Duration states: Stopping 1, Aborting 1, Holding 1, Unholding 1, Suspending 1, Unsuspending 1 (SC when n_state >= duration ; n_state += 1 per tick, not in the tick of entry). Clearing: in the tick after entry, SC -> Stopped if no active class A/B alarm, else back to Aborted ('clear failed'). Sequence states (Resetting, Starting, Execute, Completing): an EMPTY sequence -> SC in the tick after entry ; else rule sequence ; when the sequence ends -> SC (Execute -> Completing, ...). Holding/Held freeze the sequence (step and commands kept). A command is never executed by the core in the same tick as an internal reaction of step (7) if the state changed there (the command was already evaluated in (6)).",
+  "sequence": "a sequence = list of steps {s, do, wait, to, al, next, skip_if}. Start (entry tick): step = first ; ENTER STEP: if skip_if is TRUE -> go to the next step immediately (repeat) ; else apply 'do' (command values, persistent) and t = 0. Every later tick in the state (not frozen): t += 1 ; if wait TRUE -> next step ('next' or the following step in the list; after the last step the sequence ends) ; elif to > 0 and t >= to -> module alarm 'al' ON (once per step entry) and, if that alarm is class C, continue with the next step ; class A/B: stay in the step (the reaction of step 7 happens in the next tick). Steps without timeout (to 0) wait forever ('F' = stays in the step: continuous modules stay in Execute).",
+  "plant": "generic plant per FB type, updated in step (3) with the FB outputs of tick k-1 ; plant parameters = defaults + module 'plant' entry. FB_Valve1: x moves 1 per tick toward T (qSol) or 0 ; FB_Valve2: spool = B if qSolB and not qSolA, A if qSolA and not qSolB, else kept ; x toward T (B) or 0 (A) ; jam = no movement ; xPosA = x = 0, xPosB = x = T (T default 10). FB_MotorDol: run = run+1 if qRun else 0 ; xRunFb = run >= 2 ; xTripped = trip. FB_DriveSto: running = bit1 of wCtrl ; when running starts: dir = +1 if pos = 0, -1 if pos = L, else unchanged (initial +1) ; while running pos moves 1 per tick in dir within 0..L (L default 20) ; xReady = NOT fault, xFault = fault ; xSto = NOT release. FB_Heater: xOnFb = qOn ; temp += 0.5 if qOn else -0.1 (temp0 default 20.0) ; xOverTemp = overtemp. FB_AnalogIn: value from 'src' (heater temperature of that instance), or 'expr' with 'delay' (v1 when expr TRUE for more than 'delay' consecutive ticks, else v0), or 'value' ; iValue = round((value - rLo)/(rHi - rLo)*27648). FB_Sensor: xOn from 'expr' (TRUE while expr), or 'set'/'reset' (latch, starts at 'value' default 0), or 'value' (default 0). Safety devices (FB_Estop, FB_Door2Ch, FB_LightCurtain, FB_EnableSwitch, FB_TwoHand, FB_Scanner OSSD, FB_SafetyCoupling, FB_DoorLock, FB_ModeSwitch xAuto): healthy values TRUE (TwoHand FALSE, ModeSwitch xMaint FALSE, Scanner xWarn FALSE) ; FB_Door2Ch with 'expr2': channels = expr. F-PROGRAM model: release = AND of all safety-device channel values of the module (Estop, Door2Ch, LightCurtain, coupling e-stop channels, DoorLock locked) ; F-copies: FB_ZoneOut/FB_ContactorPair xCmd = release, their feedback = NOT xCmd of tick k-1 ; FB_SafeValve xCmdA = xCmdB = release, xFbA/B = xCmd of tick k-1 ; FB_DriveSto xSto = NOT release. FB_HandshakeHw partner (also the bus partner): idle: Ready 1 ; qRequest (k-1) seen in idle -> after 2 ticks Busy 1, Ready 0 ; Busy for 'job' ticks -> Done 1, Busy 0 ; qAck seen -> Done 0, Ready 1 (idle) ; 'dead' = never leaves idle (Ready stays 1, no Busy). FB_Feeder xSupplyOn TRUE ; FB_Ups xUpsOk TRUE, xOnBattery FALSE ; FB_PushButton xPb FALSE.",
+  "log": "lines: '<k> cc sends <cmd>' ; '<k> cc clears request' ; '<k> event <text>' ; '<k> cmd <c> accepted: <from> -> <to>' / '<k> cmd <c> rejected in <state> (WarningNo <n>)' ; '<k> alarm ON <no> class <c> <text>' / '<k> alarm OFF <no>' ; '<k> internal Abort|Hold (alarm <no>): <from> -> <to>' ; '<k> SC: <from> -> <to>' ; '<k> clear failed: Clearing -> Aborted' ; '<k> <seq> step S<a> -> S<b>' (<seq> = home/start/exec ; S0 = end ; 'skip' added when skipped) ; '<k> state <state> StateCurrent=<n> AlarmNo=<n> WarningNo=<n> Bits=<n>' once per tick in which the state changed (after all actions).",
+  "default_classes": "library default class per (FB type, local alarm): see default_classes table."
+ },
+ "default_classes": [
+  [
+   "FB_Valve1",
+   1,
+   "B"
+  ],
+  [
+   "FB_Valve1",
+   2,
+   "A"
+  ],
+  [
+   "FB_Valve1",
+   3,
+   "B"
+  ],
+  [
+   "FB_Valve2",
+   1,
+   "B"
+  ],
+  [
+   "FB_Valve2",
+   2,
+   "A"
+  ],
+  [
+   "FB_Valve2",
+   3,
+   "B"
+  ],
+  [
+   "FB_MotorDol",
+   1,
+   "A"
+  ],
+  [
+   "FB_MotorDol",
+   2,
+   "A"
+  ],
+  [
+   "FB_MotorDol",
+   3,
+   "A"
+  ],
+  [
+   "FB_MotorDol",
+   4,
+   "A"
+  ],
+  [
+   "FB_DriveSto",
+   1,
+   "A"
+  ],
+  [
+   "FB_DriveSto",
+   3,
+   "A"
+  ],
+  [
+   "FB_AnalogIn",
+   3,
+   "C"
+  ],
+  [
+   "FB_Heater",
+   1,
+   "A"
+  ],
+  [
+   "FB_Heater",
+   2,
+   "A"
+  ],
+  [
+   "FB_Heater",
+   3,
+   "B"
+  ],
+  [
+   "FB_Heater",
+   4,
+   "A"
+  ],
+  [
+   "FB_HandshakeHw",
+   1,
+   "B"
+  ],
+  [
+   "FB_HandshakeHw",
+   2,
+   "B"
+  ],
+  [
+   "FB_HandshakeHw",
+   3,
+   "B"
+  ],
+  [
+   "FB_HandshakeHw",
+   4,
+   "A"
+  ],
+  [
+   "FB_Feeder",
+   1,
+   "C"
+  ],
+  [
+   "FB_Ups",
+   1,
+   "C"
+  ],
+  [
+   "FB_Ups",
+   2,
+   "C"
+  ],
+  [
+   "FB_Estop",
+   1,
+   "B"
+  ],
+  [
+   "FB_Door2Ch",
+   1,
+   "B"
+  ],
+  [
+   "FB_EnableSwitch",
+   1,
+   "B"
+  ],
+  [
+   "FB_LightCurtain",
+   1,
+   "B"
+  ],
+  [
+   "FB_SafetyCoupling",
+   1,
+   "B"
+  ],
+  [
+   "FB_SafetyCoupling",
+   2,
+   "B"
+  ],
+  [
+   "FB_ZoneOut",
+   1,
+   "A"
+  ],
+  [
+   "FB_ContactorPair",
+   1,
+   "A"
+  ],
+  [
+   "FB_SafeValve",
+   1,
+   "A"
+  ],
+  [
+   "FB_SafeValve",
+   2,
+   "A"
+  ],
+  [
+   "FB_ModeSwitch",
+   1,
+   "B"
+  ],
+  [
+   "FB_TwoHand",
+   1,
+   "C"
+  ],
+  [
+   "FB_Scanner",
+   2,
+   "B"
+  ],
+  [
+   "FB_DoorLock",
+   1,
+   "B"
+  ],
+  [
+   "FB_DoorLock",
+   2,
+   "B"
+  ],
+  [
+   "FB_DoorLock",
+   3,
+   "A"
+  ]
+ ],
+ "modules": {
+  "M01": {
+   "partner": {
+    "name": "Machine",
+    "job": 50
+   },
+   "alarms": [
+    [
+     1,
+     "not in home position (supply / coupling not OK)",
+     "B"
+    ],
+    [
+     2,
+     "machine did not start the job",
+     "B"
+    ],
+    [
+     3,
+     "machine cycle time-out",
+     "B"
+    ],
+    [
+     4,
+     "e-stop from the machine while running",
+     "A"
+    ],
+    [
+     5,
+     "no pallet at the machine APC",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "wait": "Supply.xOk & Safety.xEstopOk",
+     "to": 20,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 5,
+     "wait": "PalAtApc.xValue",
+     "to": 10,
+     "al": 5
+    },
+    {
+     "s": 10,
+     "do": {
+      "Machine.xStart": 1
+     },
+     "wait": "Machine.iStep=20",
+     "to": 30,
+     "al": 2
+    },
+    {
+     "s": 20,
+     "do": {
+      "Machine.xStart": 0
+     },
+     "wait": "Machine.iStep=0",
+     "to": 100,
+     "al": 3
+    }
+   ],
+   "monitors": [
+    [
+     4,
+     "!Safety.xEstopOk",
+     [
+      "Starting",
+      "Execute"
+     ],
+     0
+    ]
+   ],
+   "plant": {
+    "PalAtApc": {
+     "value": 1
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  "M02": {
+   "cfg": {
+    "Rotate": {
+     "tMove_ms": 4000
+    },
+    "ClampPress": {
+     "rLo": 0.0,
+     "rHi": 10.0
+    }
+   },
+   "alarms": [
+    [
+     1,
+     "not in home position (rotate A, clamped)",
+     "B"
+    ],
+    [
+     2,
+     "unclamp time-out",
+     "B"
+    ],
+    [
+     3,
+     "rotate time-out",
+     "B"
+    ],
+    [
+     4,
+     "clamp pressure not reached in the clamp step",
+     "B"
+    ]
+   ],
+   "classes": [
+    [
+     "Rotate",
+     1,
+     "A"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "do": {
+      "Rotate.xCmdB": 0,
+      "Clamp.xCmdB": 0
+     },
+     "wait": "Rotate.xAtA & Clamp.xAtA",
+     "to": 50,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "do": {
+      "Clamp.xCmdB": 1
+     },
+     "wait": "Clamp.xAtB",
+     "to": 30,
+     "al": 2
+    },
+    {
+     "s": 20,
+     "do": {
+      "Rotate.xCmdB": 1
+     },
+     "wait": "Rotate.xAtB",
+     "to": 50,
+     "al": 3
+    },
+    {
+     "s": 30,
+     "do": {
+      "Clamp.xCmdB": 0
+     },
+     "wait": "Clamp.xAtA & ClampPress.rValue>=4.5",
+     "to": 30,
+     "al": 4
+    }
+   ],
+   "plant": {
+    "Rotate": {
+     "T": 30
+    },
+    "Clamp": {
+     "T": 8
+    },
+    "PalSideA": {
+     "value": 1
+    },
+    "PalSideB": {
+     "value": 1
+    },
+    "ClampPress": {
+     "expr": "P.Clamp.x=0",
+     "delay": 3,
+     "v1": 6.0,
+     "v0": 0.5
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  "M03": {
+   "alarms": [
+    [
+     1,
+     "not in home position (rear end, fork in the middle)",
+     "B"
+    ],
+    [
+     2,
+     "travel time-out",
+     "B"
+    ],
+    [
+     3,
+     "load not detected on the fork",
+     "B"
+    ],
+    [
+     4,
+     "fork not back in the middle",
+     "B"
+    ],
+    [
+     5,
+     "hoist time-out",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "wait": "TravLimR.xValue & ForkMid.xValue",
+     "to": 20,
+     "al": 1
+    }
+   ],
+   "start": [
+    {
+     "s": 10,
+     "wait": "DriveSup.xOn",
+     "to": 10,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "do": {
+      "Travel.xCmdRun": 1
+     },
+     "wait": "TravLimF.xValue",
+     "to": 60,
+     "al": 2
+    },
+    {
+     "s": 20,
+     "do": {
+      "Travel.xCmdRun": 0,
+      "Fork.xCmdRun": 1
+     },
+     "wait": "t>=10",
+     "to": 0,
+     "al": 0
+    },
+    {
+     "s": 30,
+     "do": {
+      "Fork.xCmdRun": 0,
+      "Hoist.xCmdRun": 1
+     },
+     "wait": "t>=12 & PalOnFork.xValue",
+     "to": 20,
+     "al": 3
+    },
+    {
+     "s": 40,
+     "do": {
+      "Hoist.xCmdRun": 0,
+      "Fork.xCmdRun": 1
+     },
+     "wait": "ForkMid.xValue",
+     "to": 15,
+     "al": 4
+    },
+    {
+     "s": 50,
+     "do": {
+      "Fork.xCmdRun": 0,
+      "Travel.xCmdRun": 1
+     },
+     "wait": "TravLimR.xValue",
+     "to": 60,
+     "al": 2
+    },
+    {
+     "s": 60,
+     "do": {
+      "Travel.xCmdRun": 0,
+      "Hoist.xCmdRun": 1
+     },
+     "wait": "t>=12",
+     "to": 0,
+     "al": 0
+    },
+    {
+     "s": 70,
+     "do": {
+      "Hoist.xCmdRun": 0
+     },
+     "wait": "T",
+     "to": 0,
+     "al": 0
+    }
+   ],
+   "plant": {
+    "Travel": {
+     "L": 40
+    },
+    "Hoist": {
+     "L": 10
+    },
+    "Fork": {
+     "L": 8
+    },
+    "TravLimR": {
+     "expr": "P.Travel.pos=0"
+    },
+    "TravLimF": {
+     "expr": "P.Travel.pos=40"
+    },
+    "ForkMid": {
+     "expr": "P.Fork.pos=0"
+    },
+    "PalOnFork": {
+     "set": "P.Fork.pos=8 & P.Hoist.pos=10",
+     "reset": "F"
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  "M08": {
+   "alarms": [
+    [
+     1,
+     "not in home position (rear end, fork in the middle)",
+     "B"
+    ],
+    [
+     2,
+     "travel time-out",
+     "B"
+    ],
+    [
+     3,
+     "load still on the fork after set-down",
+     "B"
+    ],
+    [
+     4,
+     "fork not back in the middle",
+     "B"
+    ],
+    [
+     5,
+     "hoist time-out",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "wait": "TravLimR.xValue & ForkMid.xValue",
+     "to": 20,
+     "al": 1
+    }
+   ],
+   "start": [
+    {
+     "s": 10,
+     "wait": "DriveSup.xOn",
+     "to": 10,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "do": {
+      "Travel.xCmdRun": 1
+     },
+     "wait": "TravLimF.xValue",
+     "to": 60,
+     "al": 2
+    },
+    {
+     "s": 20,
+     "do": {
+      "Travel.xCmdRun": 0,
+      "Hoist.xCmdRun": 1
+     },
+     "wait": "HoistTop.xValue",
+     "to": 20,
+     "al": 5
+    },
+    {
+     "s": 30,
+     "do": {
+      "Hoist.xCmdRun": 0,
+      "Fork.xCmdRun": 1
+     },
+     "wait": "t>=10",
+     "to": 0,
+     "al": 0
+    },
+    {
+     "s": 40,
+     "do": {
+      "Fork.xCmdRun": 0,
+      "Hoist.xCmdRun": 1
+     },
+     "wait": "HoistBot.xValue & !LoadOnFork.xValue",
+     "to": 20,
+     "al": 3
+    },
+    {
+     "s": 50,
+     "do": {
+      "Hoist.xCmdRun": 0,
+      "Fork.xCmdRun": 1
+     },
+     "wait": "ForkMid.xValue",
+     "to": 15,
+     "al": 4
+    },
+    {
+     "s": 60,
+     "do": {
+      "Fork.xCmdRun": 0,
+      "Travel.xCmdRun": 1
+     },
+     "wait": "TravLimR.xValue",
+     "to": 60,
+     "al": 2
+    },
+    {
+     "s": 70,
+     "do": {
+      "Travel.xCmdRun": 0
+     },
+     "wait": "T",
+     "to": 0,
+     "al": 0
+    }
+   ],
+   "plant": {
+    "Travel": {
+     "L": 40
+    },
+    "Hoist": {
+     "L": 10
+    },
+    "Fork": {
+     "L": 8
+    },
+    "TravLimR": {
+     "expr": "P.Travel.pos=0"
+    },
+    "TravLimF": {
+     "expr": "P.Travel.pos=40"
+    },
+    "ForkMid": {
+     "expr": "P.Fork.pos=0"
+    },
+    "HoistTop": {
+     "expr": "P.Hoist.pos=10"
+    },
+    "HoistBot": {
+     "expr": "P.Hoist.pos=0"
+    },
+    "LoadOnFork": {
+     "value": 1,
+     "set": "F",
+     "reset": "P.Fork.pos=8 & P.Hoist.pos=0"
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  "M04": {
+   "cfg": {
+    "ClampPress": {
+     "rLo": 0.0,
+     "rHi": 10.0
+    }
+   },
+   "alarms": [
+    [
+     1,
+     "not in home position (clamped, rotary at home)",
+     "B"
+    ],
+    [
+     2,
+     "no pallet at the station",
+     "B"
+    ],
+    [
+     3,
+     "unclamp time-out",
+     "B"
+    ],
+    [
+     4,
+     "operator did not release the pallet",
+     "B"
+    ],
+    [
+     5,
+     "clamp pressure not reached in the clamp step",
+     "B"
+    ],
+    [
+     6,
+     "rotary index time-out",
+     "B"
+    ],
+    [
+     7,
+     "light curtain interrupted during rotation",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "do": {
+      "Clamp.xCmdB": 0
+     },
+     "wait": "Clamp.xAtA & RotHome.xValue",
+     "to": 30,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "wait": "PalPresent.xValue",
+     "to": 10,
+     "al": 2
+    },
+    {
+     "s": 20,
+     "do": {
+      "Clamp.xCmdB": 1
+     },
+     "wait": "Clamp.xAtB",
+     "to": 30,
+     "al": 3
+    },
+    {
+     "s": 30,
+     "do": {
+      "Release.iLampMode": 2
+     },
+     "wait": "Release.xClick",
+     "to": 600,
+     "al": 4
+    },
+    {
+     "s": 40,
+     "do": {
+      "Release.iLampMode": 0,
+      "Clamp.xCmdB": 0
+     },
+     "wait": "Clamp.xAtA & ClampPress.rValue>=4.5",
+     "to": 30,
+     "al": 5
+    },
+    {
+     "s": 50,
+     "do": {
+      "Rotary.xCmdRun": 1
+     },
+     "wait": "t>=3 & RotHome.xValue",
+     "to": 40,
+     "al": 6
+    },
+    {
+     "s": 60,
+     "do": {
+      "Rotary.xCmdRun": 0
+     },
+     "wait": "T",
+     "to": 0,
+     "al": 0
+    }
+   ],
+   "monitors": [
+    [
+     7,
+     "!Curtain.xSafe",
+     [
+      "Execute"
+     ],
+     0
+    ]
+   ],
+   "plant": {
+    "Clamp": {
+     "T": 8
+    },
+    "Rotary": {
+     "L": 20
+    },
+    "PalPresent": {
+     "value": 1
+    },
+    "RotHome": {
+     "expr": "P.Rotary.pos=0 | P.Rotary.pos=20"
+    },
+    "ClampPress": {
+     "expr": "P.Clamp.x=0",
+     "delay": 3,
+     "v1": 6.0,
+     "v0": 0.5
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ],
+   "ops": [
+    [
+     40,
+     "SET Release.xPb=1"
+    ],
+    [
+     41,
+     "SET Release.xPb=0"
+    ]
+   ]
+  },
+  "M05": {
+   "partner": {
+    "name": "Robot",
+    "job": 60
+   },
+   "alarms": [
+    [
+     1,
+     "not in home position (gripper open)",
+     "B"
+    ],
+    [
+     2,
+     "robot did not start the job",
+     "B"
+    ],
+    [
+     3,
+     "robot job time-out",
+     "B"
+    ],
+    [
+     4,
+     "part not gripped",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "do": {
+      "Gripper.xCmdB": 0
+     },
+     "wait": "Gripper.xAtA",
+     "to": 30,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 5,
+     "do": {
+      "Gripper.xCmdB": 1,
+      "Scanner.iField": 1
+     },
+     "wait": "Gripper.xAtB & PartInGrip.xValue",
+     "to": 30,
+     "al": 4
+    },
+    {
+     "s": 10,
+     "do": {
+      "Robot.xStart": 1
+     },
+     "wait": "Robot.iStep=20",
+     "to": 30,
+     "al": 2
+    },
+    {
+     "s": 20,
+     "do": {
+      "Robot.xStart": 0
+     },
+     "wait": "Robot.iStep=0",
+     "to": 120,
+     "al": 3
+    },
+    {
+     "s": 30,
+     "do": {
+      "Gripper.xCmdB": 0
+     },
+     "wait": "Gripper.xAtA",
+     "to": 30,
+     "al": 1
+    }
+   ],
+   "plant": {
+    "Gripper": {
+     "T": 5
+    },
+    "PartInGrip": {
+     "expr": "P.Gripper.x=5"
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  "M06": {
+   "alarms": [
+    [
+     1,
+     "not in home position (transfer stopped, station empty)",
+     "B"
+    ],
+    [
+     2,
+     "AGV did not start the transfer",
+     "B"
+    ],
+    [
+     3,
+     "pallet did not reach the end sensor",
+     "B"
+    ],
+    [
+     4,
+     "AGV did not finish the handshake",
+     "B"
+    ]
+   ],
+   "cfg": {
+    "Agv": {
+     "tJob_ms": 20000
+    }
+   },
+   "home": [
+    {
+     "s": 10,
+     "do": {
+      "Transfer.xCmd": 0,
+      "Scanner.iField": 1
+     },
+     "wait": "Transfer.iState=0",
+     "to": 10,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "do": {
+      "Agv.xStart": 1,
+      "Scanner.iField": 2
+     },
+     "wait": "Agv.iStep=20",
+     "to": 30,
+     "al": 2
+    },
+    {
+     "s": 20,
+     "do": {
+      "Transfer.xCmd": 1
+     },
+     "wait": "End.xValue",
+     "to": 60,
+     "al": 3
+    },
+    {
+     "s": 30,
+     "do": {
+      "Transfer.xCmd": 0,
+      "Agv.xStart": 0
+     },
+     "wait": "Agv.iStep=0",
+     "to": 120,
+     "al": 4
+    },
+    {
+     "s": 40,
+     "do": {
+      "Scanner.iField": 1
+     },
+     "wait": "T",
+     "to": 0,
+     "al": 0
+    }
+   ],
+   "plant": {
+    "Entry": {
+     "expr": "P.Transfer.run>=5"
+    },
+    "Centre": {
+     "expr": "P.Transfer.run>=15"
+    },
+    "End": {
+     "set": "P.Transfer.run>=25",
+     "reset": "F"
+    },
+    "Agv": {
+     "job": 40
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  "M07": {
+   "alarms": [
+    [
+     1,
+     "not in home position (stoppers up)",
+     "B"
+    ],
+    [
+     2,
+     "carrier did not reach zone 2",
+     "B"
+    ],
+    [
+     3,
+     "carrier did not leave zone 3",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "do": {
+      "Stop1.xCmdB": 0,
+      "Stop2.xCmdB": 0
+     },
+     "wait": "Stop1.xAtA & Stop2.xAtA",
+     "to": 30,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "do": {
+      "Zone1.xCmd": 1,
+      "Zone2.xCmd": 1,
+      "Stop1.xCmdB": 1
+     },
+     "wait": "Z2In.xValue",
+     "to": 60,
+     "al": 2
+    },
+    {
+     "s": 20,
+     "do": {
+      "Stop1.xCmdB": 0,
+      "Stop2.xCmdB": 1,
+      "Zone3.xCmd": 1
+     },
+     "wait": "Z3Out.xValue",
+     "to": 60,
+     "al": 3
+    },
+    {
+     "s": 30,
+     "do": {
+      "Zone1.xCmd": 0,
+      "Zone2.xCmd": 0,
+      "Zone3.xCmd": 0,
+      "Stop2.xCmdB": 0
+     },
+     "wait": "Stop2.xAtA",
+     "to": 30,
+     "al": 1
+    }
+   ],
+   "plant": {
+    "Stop1": {
+     "T": 4
+    },
+    "Stop2": {
+     "T": 4
+    },
+    "Z1In": {
+     "value": 1
+    },
+    "Z1Out": {
+     "expr": "P.Zone1.run>=10"
+    },
+    "Z2In": {
+     "set": "P.Zone2.run>=20",
+     "reset": "F"
+    },
+    "Z2Out": {
+     "expr": "P.Zone2.run>=25"
+    },
+    "Z3In": {
+     "expr": "P.Zone3.run>=5"
+    },
+    "Z3Out": {
+     "set": "P.Zone3.run>=25",
+     "reset": "F"
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  "M09": {
+   "partner": {
+    "name": "Pc",
+    "job": 30
+   },
+   "alarms": [
+    [
+     1,
+     "not in home position (port door closed)",
+     "B"
+    ],
+    [
+     2,
+     "no tool in the transfer port",
+     "B"
+    ],
+    [
+     3,
+     "presetter did not start",
+     "B"
+    ],
+    [
+     4,
+     "measuring time-out",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "wait": "PortDoor.xValue & Presetter.xOk",
+     "to": 10,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "wait": "ToolInPort.xValue",
+     "to": 10,
+     "al": 2
+    },
+    {
+     "s": 20,
+     "do": {
+      "Pc.xStart": 1
+     },
+     "wait": "Pc.iStep=20",
+     "to": 30,
+     "al": 3
+    },
+    {
+     "s": 30,
+     "do": {
+      "Pc.xStart": 0
+     },
+     "wait": "Pc.iStep=0",
+     "to": 80,
+     "al": 4
+    }
+   ],
+   "plant": {
+    "ToolInPort": {
+     "value": 1
+    },
+    "PortDoor": {
+     "value": 1
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  "M10": {
+   "cfg": {
+    "TankTemp": {
+     "rLo": 0.0,
+     "rHi": 100.0
+    },
+    "Heater": {
+     "rHyst": 2.0
+    }
+   },
+   "alarms": [
+    [
+     1,
+     "not in home position (door open, level OK)",
+     "B"
+    ],
+    [
+     2,
+     "bath temperature not reached",
+     "B"
+    ],
+    [
+     3,
+     "door cylinder time-out",
+     "B"
+    ],
+    [
+     4,
+     "level low during washing",
+     "A"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "do": {
+      "DoorCyl.xCmdB": 0
+     },
+     "wait": "DoorCyl.xAtA & !LevelLow.xValue",
+     "to": 30,
+     "al": 1
+    }
+   ],
+   "start": [
+    {
+     "s": 10,
+     "do": {
+      "Heater.xEnable": 1,
+      "Heater.rSp": 60.0
+     },
+     "wait": "TankTemp.rValue>=58",
+     "to": 200,
+     "al": 2
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "do": {
+      "Conveyor.xCmd": 1
+     },
+     "wait": "t>=20",
+     "to": 0,
+     "al": 0
+    },
+    {
+     "s": 20,
+     "do": {
+      "Conveyor.xCmd": 0,
+      "DoorCyl.xCmdB": 1
+     },
+     "wait": "DoorCyl.xAtB",
+     "to": 30,
+     "al": 3
+    },
+    {
+     "s": 30,
+     "do": {
+      "SprayPump.xCmd": 1
+     },
+     "wait": "t>=40",
+     "to": 0,
+     "al": 0
+    },
+    {
+     "s": 40,
+     "do": {
+      "SprayPump.xCmd": 0,
+      "RinsePump.xCmd": 1
+     },
+     "wait": "t>=20",
+     "to": 0,
+     "al": 0
+    },
+    {
+     "s": 50,
+     "do": {
+      "RinsePump.xCmd": 0,
+      "DoorCyl.xCmdB": 0
+     },
+     "wait": "DoorCyl.xAtA",
+     "to": 30,
+     "al": 3
+    },
+    {
+     "s": 60,
+     "do": {
+      "Conveyor.xCmd": 1
+     },
+     "wait": "t>=20",
+     "to": 0,
+     "al": 0
+    },
+    {
+     "s": 70,
+     "do": {
+      "Conveyor.xCmd": 0
+     },
+     "wait": "T",
+     "to": 0,
+     "al": 0
+    }
+   ],
+   "keep": [
+    "Heater.xEnable",
+    "Heater.rSp"
+   ],
+   "wires": [
+    [
+     "Heater.rTemp",
+     "TankTemp.rValue"
+    ],
+    [
+     "Heater.xTempGood",
+     "TankTemp.xGood"
+    ]
+   ],
+   "monitors": [
+    [
+     4,
+     "LevelLow.xValue",
+     [
+      "Execute"
+     ],
+     0
+    ]
+   ],
+   "plant": {
+    "DoorCyl": {
+     "T": 10
+    },
+    "Heater": {
+     "temp0": 55.0
+    },
+    "TankTemp": {
+     "src": "Heater"
+    },
+    "LevelLow": {
+     "value": 0
+    },
+    "LevelHigh": {
+     "value": 0
+    },
+    "Door": {
+     "expr2": "P.DoorCyl.x=10"
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  "M11": {
+   "partner": {
+    "name": "Cmm",
+    "job": 80
+   },
+   "cfg": {
+    "RoomTemp": {
+     "rLo": 0.0,
+     "rHi": 50.0
+    }
+   },
+   "alarms": [
+    [
+     1,
+     "not in home position (supply off)",
+     "B"
+    ],
+    [
+     2,
+     "no pallet on the CMM table",
+     "B"
+    ],
+    [
+     3,
+     "room temperature outside 18-22 C",
+     "B"
+    ],
+    [
+     4,
+     "CMM did not start",
+     "B"
+    ],
+    [
+     5,
+     "measuring time-out",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "wait": "CmmSup.xOk",
+     "to": 10,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "wait": "PalPresent.xValue",
+     "to": 10,
+     "al": 2
+    },
+    {
+     "s": 15,
+     "wait": "RoomTemp.rValue>=18 & RoomTemp.rValue<=22",
+     "to": 5,
+     "al": 3
+    },
+    {
+     "s": 20,
+     "do": {
+      "Cmm.xStart": 1
+     },
+     "wait": "Cmm.iStep=20",
+     "to": 30,
+     "al": 4
+    },
+    {
+     "s": 30,
+     "do": {
+      "Cmm.xStart": 0
+     },
+     "wait": "Cmm.iStep=0",
+     "to": 150,
+     "al": 5
+    }
+   ],
+   "plant": {
+    "PalPresent": {
+     "value": 1
+    },
+    "RoomTemp": {
+     "value": 20.5
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  "M12": {
+   "partner": {
+    "name": "Job",
+    "job": 20
+   },
+   "alarms": [
+    [
+     1,
+     "not in home position (clamp open)",
+     "B"
+    ],
+    [
+     2,
+     "no part present",
+     "B"
+    ],
+    [
+     3,
+     "clamp time-out",
+     "B"
+    ],
+    [
+     4,
+     "exhaust fan not running",
+     "B"
+    ],
+    [
+     5,
+     "laser did not start",
+     "B"
+    ],
+    [
+     6,
+     "marking time-out",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "do": {
+      "Clamp.xCmdB": 0,
+      "Exhaust.xCmd": 0
+     },
+     "wait": "Clamp.xAtA",
+     "to": 30,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "wait": "PartPresent.xValue",
+     "to": 10,
+     "al": 2
+    },
+    {
+     "s": 20,
+     "do": {
+      "Clamp.xCmdB": 1
+     },
+     "wait": "Clamp.xAtB",
+     "to": 30,
+     "al": 3
+    },
+    {
+     "s": 30,
+     "do": {
+      "Exhaust.xCmd": 1
+     },
+     "wait": "Exhaust.iState=2",
+     "to": 10,
+     "al": 4
+    },
+    {
+     "s": 40,
+     "do": {
+      "Job.xStart": 1
+     },
+     "wait": "Job.iStep=20",
+     "to": 30,
+     "al": 5
+    },
+    {
+     "s": 50,
+     "do": {
+      "Job.xStart": 0
+     },
+     "wait": "Job.iStep=0",
+     "to": 60,
+     "al": 6
+    },
+    {
+     "s": 60,
+     "do": {
+      "Exhaust.xCmd": 0,
+      "Clamp.xCmdB": 0
+     },
+     "wait": "Clamp.xAtA",
+     "to": 30,
+     "al": 3
+    }
+   ],
+   "plant": {
+    "Clamp": {
+     "T": 6
+    },
+    "PartPresent": {
+     "value": 1
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  "M13": {
+   "partner": {
+    "name": "Nut",
+    "job": 40
+   },
+   "alarms": [
+    [
+     1,
+     "not in home position (press-fit up)",
+     "B"
+    ],
+    [
+     2,
+     "no part / fixture",
+     "B"
+    ],
+    [
+     3,
+     "operator did not insert both components",
+     "B"
+    ],
+    [
+     4,
+     "two-hand start not given",
+     "B"
+    ],
+    [
+     5,
+     "press-fit time-out",
+     "B"
+    ],
+    [
+     6,
+     "nutrunner did not start",
+     "B"
+    ],
+    [
+     7,
+     "screwing time-out",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "do": {
+      "PressFit.xCmdB": 0,
+      "PickLight.iLampMode": 0
+     },
+     "wait": "PressFit.xAtA",
+     "to": 30,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "wait": "PartIn.xValue & Fixture.xValue",
+     "to": 20,
+     "al": 2
+    },
+    {
+     "s": 20,
+     "do": {
+      "PickLight.iLampMode": 2
+     },
+     "wait": "CompA.xValue & CompB.xValue",
+     "to": 600,
+     "al": 3
+    },
+    {
+     "s": 30,
+     "do": {
+      "PickLight.iLampMode": 0
+     },
+     "wait": "TwoHand.xActuated",
+     "to": 600,
+     "al": 4
+    },
+    {
+     "s": 40,
+     "do": {
+      "PressFit.xCmdB": 1
+     },
+     "wait": "PressFit.xAtB",
+     "to": 30,
+     "al": 5
+    },
+    {
+     "s": 50,
+     "do": {
+      "PressFit.xCmdB": 0
+     },
+     "wait": "PressFit.xAtA",
+     "to": 30,
+     "al": 5
+    },
+    {
+     "s": 60,
+     "do": {
+      "Nut.xStart": 1
+     },
+     "wait": "Nut.iStep=20",
+     "to": 30,
+     "al": 6
+    },
+    {
+     "s": 70,
+     "do": {
+      "Nut.xStart": 0
+     },
+     "wait": "Nut.iStep=0",
+     "to": 100,
+     "al": 7
+    }
+   ],
+   "plant": {
+    "PressFit": {
+     "T": 8
+    },
+    "PartIn": {
+     "value": 1
+    },
+    "Fixture": {
+     "value": 1
+    },
+    "CompA": {
+     "value": 0
+    },
+    "CompB": {
+     "value": 0
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ],
+   "ops": [
+    [
+     30,
+     "P CompA.value=1",
+     "P CompB.value=1"
+    ],
+    [
+     36,
+     "SET TwoHand.xLeft=1",
+     "SET TwoHand.xLeft2=1",
+     "SET TwoHand.xRight=1",
+     "SET TwoHand.xRight2=1"
+    ],
+    [
+     40,
+     "SET TwoHand.xLeft=0",
+     "SET TwoHand.xLeft2=0",
+     "SET TwoHand.xRight=0",
+     "SET TwoHand.xRight2=0"
+    ]
+   ]
+  },
+  "M14": {
+   "partner": {
+    "name": "Leak",
+    "job": 60
+   },
+   "cfg": {
+    "TestPress": {
+     "rLo": 0.0,
+     "rHi": 6.0
+    }
+   },
+   "alarms": [
+    [
+     1,
+     "not in home position (seals open)",
+     "B"
+    ],
+    [
+     2,
+     "no part / hood open",
+     "B"
+    ],
+    [
+     3,
+     "test pressure not reached",
+     "B"
+    ],
+    [
+     4,
+     "part NOT OK (leak)",
+     "C"
+    ],
+    [
+     5,
+     "tester did not start",
+     "B"
+    ],
+    [
+     6,
+     "test time-out",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "do": {
+      "Seal1.xCmdB": 0,
+      "Seal2.xCmdB": 0
+     },
+     "wait": "Seal1.xAtA & Seal2.xAtA",
+     "to": 30,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "wait": "PartIn.xValue & Hood.xSafe",
+     "to": 20,
+     "al": 2
+    },
+    {
+     "s": 20,
+     "do": {
+      "Seal1.xCmdB": 1,
+      "Seal2.xCmdB": 1
+     },
+     "wait": "Seal1.xAtB & Seal2.xAtB & TestPress.rValue>=2.0",
+     "to": 30,
+     "al": 3
+    },
+    {
+     "s": 30,
+     "do": {
+      "Leak.xStart": 1
+     },
+     "wait": "Leak.iStep=20",
+     "to": 30,
+     "al": 5
+    },
+    {
+     "s": 40,
+     "do": {
+      "Leak.xStart": 0
+     },
+     "wait": "Leak.iStep=0",
+     "to": 100,
+     "al": 6
+    },
+    {
+     "s": 50,
+     "wait": "PartOk.xValue",
+     "to": 3,
+     "al": 4
+    },
+    {
+     "s": 60,
+     "do": {
+      "Seal1.xCmdB": 0,
+      "Seal2.xCmdB": 0
+     },
+     "wait": "Seal1.xAtA & Seal2.xAtA",
+     "to": 30,
+     "al": 1
+    }
+   ],
+   "plant": {
+    "Seal1": {
+     "T": 5
+    },
+    "Seal2": {
+     "T": 5
+    },
+    "PartIn": {
+     "value": 1
+    },
+    "PartOk": {
+     "value": 1
+    },
+    "TestPress": {
+     "expr": "P.Seal1.x=5 & P.Seal2.x=5",
+     "delay": 5,
+     "v1": 2.5,
+     "v0": 0.0
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  "M15": {
+   "partner": {
+    "name": "Robot",
+    "job": 80
+   },
+   "alarms": [
+    [
+     1,
+     "not in home position (turntable side A at the operator)",
+     "B"
+    ],
+    [
+     2,
+     "no part loaded on side A",
+     "B"
+    ],
+    [
+     3,
+     "turntable index time-out",
+     "B"
+    ],
+    [
+     4,
+     "robot did not start",
+     "B"
+    ],
+    [
+     5,
+     "welding time-out",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "do": {
+      "Turntable.xCmdRun": 1
+     },
+     "wait": "SideAHome.xValue & t>=1",
+     "to": 60,
+     "al": 1,
+     "skip_if": "SideAHome.xValue"
+    },
+    {
+     "s": 20,
+     "do": {
+      "Turntable.xCmdRun": 0,
+      "Fume.xCmd": 0
+     },
+     "wait": "T",
+     "to": 0,
+     "al": 0
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "wait": "PartA.xValue",
+     "to": 600,
+     "al": 2
+    },
+    {
+     "s": 20,
+     "do": {
+      "Turntable.xCmdRun": 1
+     },
+     "wait": "t>=3 & SideBHome.xValue",
+     "to": 60,
+     "al": 3
+    },
+    {
+     "s": 30,
+     "do": {
+      "Turntable.xCmdRun": 0,
+      "Fume.xCmd": 1,
+      "Robot.xStart": 1
+     },
+     "wait": "Robot.iStep=20",
+     "to": 30,
+     "al": 4
+    },
+    {
+     "s": 40,
+     "do": {
+      "Robot.xStart": 0
+     },
+     "wait": "Robot.iStep=0",
+     "to": 200,
+     "al": 5
+    },
+    {
+     "s": 50,
+     "do": {
+      "Fume.xCmd": 0
+     },
+     "wait": "T",
+     "to": 0,
+     "al": 0
+    }
+   ],
+   "plant": {
+    "Turntable": {
+     "L": 30
+    },
+    "SideAHome": {
+     "expr": "P.Turntable.pos=0"
+    },
+    "SideBHome": {
+     "expr": "P.Turntable.pos=30"
+    },
+    "PartA": {
+     "value": 1
+    },
+    "PartB": {
+     "value": 0
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  "M16": {
+   "cfg": {
+    "SysPress": {
+     "rLo": 0.0,
+     "rHi": 250.0
+    },
+    "Ram": {
+     "tMove_ms": 3000
+    }
+   },
+   "alarms": [
+    [
+     1,
+     "not in home position (ram at top)",
+     "B"
+    ],
+    [
+     2,
+     "hydraulic pressure not reached",
+     "B"
+    ],
+    [
+     3,
+     "two-hand start not given",
+     "B"
+    ],
+    [
+     4,
+     "ram stroke time-out",
+     "B"
+    ],
+    [
+     5,
+     "oil filter dirty",
+     "C"
+    ],
+    [
+     6,
+     "oil level low",
+     "A"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "do": {
+      "Ram.xCmdB": 0
+     },
+     "wait": "RamTop.xValue",
+     "to": 40,
+     "al": 1
+    }
+   ],
+   "start": [
+    {
+     "s": 10,
+     "do": {
+      "HydPump.xCmd": 1
+     },
+     "wait": "HydPump.iState=2 & SysPress.rValue>=150",
+     "to": 50,
+     "al": 2
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "wait": "TwoHand.xActuated",
+     "to": 600,
+     "al": 3
+    },
+    {
+     "s": 20,
+     "do": {
+      "Ram.xCmdB": 1
+     },
+     "wait": "RamBdc.xValue",
+     "to": 40,
+     "al": 4
+    },
+    {
+     "s": 30,
+     "wait": "t>=5",
+     "to": 0,
+     "al": 0
+    },
+    {
+     "s": 40,
+     "do": {
+      "Ram.xCmdB": 0
+     },
+     "wait": "RamTop.xValue",
+     "to": 40,
+     "al": 4
+    }
+   ],
+   "keep": [
+    "HydPump.xCmd"
+   ],
+   "monitors": [
+    [
+     5,
+     "FilterDirty.xValue",
+     [
+      "all"
+     ],
+     0
+    ],
+    [
+     6,
+     "!OilLevel.xValue",
+     [
+      "Starting",
+      "Execute",
+      "Completing",
+      "Idle",
+      "Complete"
+     ],
+     0
+    ]
+   ],
+   "plant": {
+    "Ram": {
+     "T": 20
+    },
+    "RamTop": {
+     "expr": "P.Ram.x=0"
+    },
+    "RamBdc": {
+     "expr": "P.Ram.x=20"
+    },
+    "OilLevel": {
+     "value": 1
+    },
+    "FilterDirty": {
+     "value": 0
+    },
+    "SysPress": {
+     "expr": "P.HydPump.run>=10",
+     "delay": 0,
+     "v1": 180.0,
+     "v0": 0.0
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ],
+   "ops": [
+    [
+     50,
+     "SET TwoHand.xLeft=1",
+     "SET TwoHand.xLeft2=1",
+     "SET TwoHand.xRight=1",
+     "SET TwoHand.xRight2=1"
+    ],
+    [
+     55,
+     "SET TwoHand.xLeft=0",
+     "SET TwoHand.xLeft2=0",
+     "SET TwoHand.xRight=0",
+     "SET TwoHand.xRight2=0"
+    ]
+   ]
+  },
+  "M17": {
+   "cfg": {
+    "AirPress": {
+     "rLo": 0.0,
+     "rHi": 10.0
+    },
+    "CoolPress": {
+     "rLo": 0.0,
+     "rHi": 10.0
+    }
+   },
+   "alarms": [
+    [
+     1,
+     "not in home position",
+     "B"
+    ],
+    [
+     2,
+     "coolant pressure not reached",
+     "B"
+    ],
+    [
+     3,
+     "compressed air pressure low",
+     "A"
+    ],
+    [
+     4,
+     "air dryer fault",
+     "C"
+    ],
+    [
+     5,
+     "coolant level low",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "do": {
+      "CoolPump.xCmd": 0
+     },
+     "wait": "CoolPump.iState=0",
+     "to": 10,
+     "al": 1
+    }
+   ],
+   "start": [
+    {
+     "s": 10,
+     "do": {
+      "CoolPump.xCmd": 1
+     },
+     "wait": "CoolPress.rValue>=2.0",
+     "to": 30,
+     "al": 2
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "wait": "F",
+     "to": 0,
+     "al": 0
+    }
+   ],
+   "keep": [
+    "CoolPump.xCmd"
+   ],
+   "monitors": [
+    [
+     3,
+     "AirPress.rValue<5.0",
+     [
+      "Starting",
+      "Execute"
+     ],
+     2
+    ],
+    [
+     4,
+     "DryerFault.xValue",
+     [
+      "all"
+     ],
+     0
+    ],
+    [
+     5,
+     "CoolLevelL.xValue",
+     [
+      "Execute"
+     ],
+     0
+    ]
+   ],
+   "plant": {
+    "AirPress": {
+     "value": 6.5
+    },
+    "CoolPress": {
+     "expr": "P.CoolPump.run>=5",
+     "delay": 0,
+     "v1": 3.0,
+     "v0": 0.2
+    },
+    "DryerFault": {
+     "value": 0
+    },
+    "CoolLevelL": {
+     "value": 0
+    }
+   },
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ]
+   ]
+  },
+  "M18": {
+   "alarms": [
+    [
+     1,
+     "not in home position (an e-stop is not released / not reset)",
+     "B"
+    ],
+    [
+     2,
+     "cell e-stop pressed",
+     "A"
+    ],
+    [
+     3,
+     "zone contactors not released",
+     "B"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "wait": "Estop1.xSafe & Estop2.xSafe",
+     "to": 20,
+     "al": 1
+    }
+   ],
+   "start": [
+    {
+     "s": 10,
+     "wait": "Zone1.xOn & Zone2.xOn & Zone3.xOn & Zone4.xOn",
+     "to": 10,
+     "al": 3
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "do": {
+      "Reset.iLampMode": 0
+     },
+     "wait": "F",
+     "to": 0,
+     "al": 0
+    }
+   ],
+   "monitors": [
+    [
+     2,
+     "!Estop1.xSafe | !Estop2.xSafe",
+     [
+      "Starting",
+      "Execute",
+      "Idle"
+     ],
+     0
+    ]
+   ],
+   "plant": {},
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ]
+   ]
+  },
+  "M19": {
+   "alarms": [
+    [
+     1,
+     "not in home position (UPS not OK)",
+     "B"
+    ],
+    [
+     2,
+     "UPS shutdown request (on battery > 5 s)",
+     "A"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "wait": "!Ups.xShutdownReq",
+     "to": 10,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "wait": "F",
+     "to": 0,
+     "al": 0
+    }
+   ],
+   "monitors": [
+    [
+     2,
+     "Ups.xShutdownReq",
+     [
+      "Execute"
+     ],
+     0
+    ]
+   ],
+   "plant": {},
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ]
+   ]
+  },
+  "M20": {
+   "alarms": [
+    [
+     1,
+     "not in home position",
+     "B"
+    ]
+   ],
+   "home": [],
+   "exec": [
+    {
+     "s": 10,
+     "wait": "F",
+     "to": 0,
+     "al": 0
+    }
+   ],
+   "plant": {},
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ]
+   ]
+  },
+  "M21": {
+   "alarms": [
+    [
+     1,
+     "not in home position",
+     "B"
+    ]
+   ],
+   "home": [],
+   "exec": [
+    {
+     "s": 10,
+     "wait": "F",
+     "to": 0,
+     "al": 0
+    }
+   ],
+   "plant": {},
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ]
+   ]
+  },
+  "M22": {
+   "alarms": [
+    [
+     1,
+     "not in home position (UPS not OK)",
+     "B"
+    ],
+    [
+     2,
+     "UPS shutdown request (on battery > 5 s)",
+     "A"
+    ]
+   ],
+   "home": [
+    {
+     "s": 10,
+     "wait": "!Ups.xShutdownReq",
+     "to": 10,
+     "al": 1
+    }
+   ],
+   "exec": [
+    {
+     "s": 10,
+     "wait": "F",
+     "to": 0,
+     "al": 0
+    }
+   ],
+   "monitors": [
+    [
+     2,
+     "Ups.xShutdownReq",
+     [
+      "Execute"
+     ],
+     0
+    ]
+   ],
+   "plant": {},
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ]
+   ]
+  }
+ },
+ "normal_K": 400,
+ "_normal": "normal scenario of every module: K = normal_K ticks, events = the module 'ops' (operator actions) only, cc script = module 'cc' (CC_NORMAL: Reset in Stopped, Start in Idle, Reset in Complete ; CC_CONT for continuous modules: Reset, Start - they stay in Execute).",
+ "fault_scenarios": [
+  {
+   "module": "M02",
+   "name": "F1 rotate jams -> valve alarm 2011 class A -> Abort -> Clear -> Reset (homing) -> Start",
+   "K": 400,
+   "events": [
+    [
+     30,
+     "P Rotate.jam=1"
+    ],
+    [
+     120,
+     "P Rotate.jam=0"
+    ]
+   ],
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Clear",
+     "Aborted",
+     130
+    ],
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  {
+   "module": "M02",
+   "name": "F2 clamp pressure low -> module alarm 2004 class B -> Hold -> fixed -> Unhold repeats the step",
+   "K": 300,
+   "events": [
+    [
+     0,
+     "P ClampPress.v1=3.8"
+    ],
+    [
+     100,
+     "P ClampPress.v1=6.0"
+    ]
+   ],
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Unhold",
+     "Held",
+     110
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  {
+   "module": "M04",
+   "name": "F3 light curtain interrupted while the rotary indexes -> class B Hold -> Unhold",
+   "K": 300,
+   "events": [
+    [
+     20,
+     "SET Release.xPb=1"
+    ],
+    [
+     21,
+     "SET Release.xPb=0"
+    ],
+    [
+     40,
+     "SAFE Curtain=0"
+    ],
+    [
+     46,
+     "SAFE Curtain=1"
+    ]
+   ],
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Unhold",
+     "Held",
+     50
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  {
+   "module": "M06",
+   "name": "F4 AGV never answers -> handshake alarm 6061 class B -> Hold; AGV back -> Unhold",
+   "K": 300,
+   "events": [
+    [
+     0,
+     "P Agv.dead=1"
+    ],
+    [
+     60,
+     "P Agv.dead=0"
+    ]
+   ],
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Unhold",
+     "Held",
+     70
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  {
+   "module": "M10",
+   "name": "F5 level low while washing -> module alarm 10004 class A -> Abort",
+   "K": 400,
+   "events": [
+    [
+     60,
+     "P LevelLow.value=1"
+    ],
+    [
+     100,
+     "P LevelLow.value=0"
+    ]
+   ],
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Clear",
+     "Aborted",
+     110
+    ],
+    [
+     "Reset",
+     "Stopped",
+     0
+    ]
+   ]
+  },
+  {
+   "module": "M16",
+   "name": "F6 filter dirty (class C warning, no reaction) and oil level low (class A)",
+   "K": 300,
+   "events": [
+    [
+     40,
+     "P FilterDirty.value=1"
+    ],
+    [
+     50,
+     "SET TwoHand.xLeft=1",
+     "SET TwoHand.xLeft2=1",
+     "SET TwoHand.xRight=1",
+     "SET TwoHand.xRight2=1"
+    ],
+    [
+     55,
+     "SET TwoHand.xLeft=0",
+     "SET TwoHand.xLeft2=0",
+     "SET TwoHand.xRight=0",
+     "SET TwoHand.xRight2=0"
+    ],
+    [
+     150,
+     "P OilLevel.value=0"
+    ]
+   ],
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  },
+  {
+   "module": "M18",
+   "name": "F7 cell e-stop pressed in Execute -> 18002 class A -> Abort; released, Clear (resets the e-stop mirror) -> Reset -> Start",
+   "K": 200,
+   "events": [
+    [
+     40,
+     "SAFE Estop1=0"
+    ],
+    [
+     50,
+     "SAFE Estop1=1"
+    ]
+   ],
+   "cc": [
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Clear",
+     "Aborted",
+     60
+    ],
+    [
+     "Reset",
+     "Stopped",
+     0
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ]
+   ]
+  },
+  {
+   "module": "M03",
+   "name": "F8 wrong commands: Start in Stopped rejected (CmdRej, WarningNo 3902), Hold in Execute accepted, Unhold",
+   "K": 300,
+   "events": [],
+   "cc": [
+    [
+     "Start",
+     "Stopped",
+     0
+    ],
+    [
+     "Reset",
+     "Stopped",
+     5
+    ],
+    [
+     "Start",
+     "Idle",
+     0
+    ],
+    [
+     "Hold",
+     "Execute",
+     30
+    ],
+    [
+     "Unhold",
+     "Held",
+     40
+    ],
+    [
+     "Reset",
+     "Complete",
+     0
+    ]
+   ]
+  }
+ ]
+};
+/* END EX10B */
+/* BEGIN LIB10B */
+export const LIBALM10B = {
+"FB_Valve1": {
+"1": "end position not reached",
+"2": "left the end position without command",
+"3": "both end switches on"
+},
+"FB_Valve2": {
+"1": "end position not reached",
+"2": "left the end position without command",
+"3": "both end switches on"
+},
+"FB_MotorDol": {
+"1": "no run feedback after start",
+"2": "run feedback lost while running",
+"3": "motor protection tripped",
+"4": "run feedback without command (contactor welded?)"
+},
+"FB_DriveSto": {
+"1": "drive fault",
+"3": "ready lost while running"
+},
+"FB_AnalogIn": {
+"3": "signal quality bad/uncertain (NAMUR NE 43)"
+},
+"FB_Heater": {
+"1": "over-temperature (safety thermostat)",
+"2": "no contactor feedback",
+"3": "temperature signal bad",
+"4": "feedback without command (contactor welded?)"
+},
+"FB_HandshakeHw": {
+"1": "partner did not start (busy missing)",
+"2": "job time-out",
+"3": "done not removed",
+"4": "partner fault"
+},
+"FB_Feeder": {
+"1": "feeder breaker off"
+},
+"FB_Ups": {
+"1": "UPS fault",
+"2": "on battery"
+},
+"FB_Safe2Ch": {
+"1": "discrepancy"
+},
+"FB_Edm": {
+"1": "feedback does not follow (welded / not switching)"
+},
+"FB_ModeSwitch": {
+"1": "both key positions on (discrepancy)"
+},
+"FB_TwoHand": {
+"1": "not simultaneous - release both"
+},
+"FB_Scanner": {
+"2": "invalid field set"
+},
+"FB_DoorLock": {
+"1": "door switch discrepancy",
+"2": "lock switch discrepancy",
+"3": "locked but not closed (tongue missing / manipulation)"
+},
+"FB_Estop": {
+"1": "discrepancy"
+},
+"FB_Door2Ch": {
+"1": "discrepancy"
+},
+"FB_EnableSwitch": {
+"1": "discrepancy"
+},
+"FB_LightCurtain": {
+"1": "discrepancy"
+},
+"FB_SafetyCoupling": {
+"1": "e-stop coupling discrepancy",
+"2": "zone-free coupling discrepancy"
+},
+"FB_ZoneOut": {
+"1": "feedback does not follow (welded / not switching)"
+},
+"FB_ContactorPair": {
+"1": "feedback does not follow (welded / not switching)"
+},
+"FB_SafeValve": {
+"1": "valve A feedback does not follow",
+"2": "valve B feedback does not follow"
+}
+};
+/* END LIB10B */
+
+/* ------------------------------------------------------------------ hand-written page text */
+/** B1: the 10 steps of one tick (scan order of the generic module program) */
+export const TICK10B = [
+  ["1", "Events", "scenario events of this tick: plant changes (P), forced inputs (SET), safety devices (SAFE). In the real machine: the world changes."],
+  ["2", "Cell controller (D1)", "reads the data block of the last tick: if a request is answered (CmdAck or CmdRej) it clears the request; else it may write the next command + CmdChangeRequest."],
+  ["3", "Plant", "the generic plant moves with the FB outputs of the last tick: cylinders 1 step per tick, motors give run feedback after 2 ticks, drives move, heater warms, partner answers."],
+  ["4", "Device FBs", "every FB once, in instance order: inputs = plant IO (or forced), commands of the last tick, wires (one-tick delay), reset pulse."],
+  ["5", "Alarms (D2, D3)", "collect iAlarm of every FB (M×1000 + 10·i + a) and the module alarms (M×1000 + a); class A/B/C; AlarmNo, WarningNo, top class."],
+  ["6", "FB_CmdIf (D1)", "checks the request against state + mode (part A). Accepted → the PackML transition happens at once. Rejected → warning M×1000 + 900 + cmd."],
+  ["7", "Alarm reaction", "top class A and not already Aborting/Aborted/Clearing → internal Abort. Top class B in Execute → internal Hold."],
+  ["8", "State action", "only if the state did not change in this tick: duration states count, Clearing checks the alarms, sequence states run their step."],
+  ["9", "Monitors", "permanent conditions [alarm, expression, states, delay]: alarm ON after the condition was TRUE for more than 'delay' ticks in the listed states."],
+  ["10", "Data block", "StateCurrent, AlarmNo, WarningNo, Status.Bits (Ready b0, Busy b1, Done b2, Fault b3, Auto b5, CmdAck b8, CmdRej b9) for the cell controller."],
+];
+/** B1: entry actions of the PackML core (decisions D1–D4 of part A) */
+export const ENTRY10B = [
+  ["Resetting", "reset module alarms, reset pulse to every FB, valves xEnable TRUE, start sequence 'home' (D4 homing)", "D3, D4"],
+  ["Starting", "start sequence 'start' (warm-up, pump on …)", "–"],
+  ["Execute (from Starting)", "start sequence 'exec' at its first step", "–"],
+  ["Execute (from Unholding)", "CONTINUE the frozen step, t = 0 (the step is repeated / waits again)", "D3"],
+  ["Completing", "sequence 'complete' (empty in this library → SC next tick)", "–"],
+  ["Holding / Held", "freeze the sequence: step and commands are kept", "D3 (class B)"],
+  ["Unholding", "reset module alarms + reset pulse to every FB", "D3"],
+  ["Stopping", "all commands to SAFE values (except 'keep'), sequence stops", "–"],
+  ["Aborting", "all commands to SAFE values incl. 'keep' (heater off), valves xEnable FALSE, sequence stops", "D3 (class A)"],
+  ["Clearing", "reset module alarms + reset pulse; next tick: Stopped if no A/B alarm, else back to Aborted", "D3"],
+];
+/** B4: fault scenario explainer */
+export const FAULT10B = {
+  F1: { what: "M02 pallet changer: at tick 30 the rotate cylinder jams in the middle of step S20 (rotate 180°, started at tick 12). The valve FB counts its move time; after tMove = 4000 ms (40 ticks, tick 52) the end position is still not reached → FB_Valve2 alarm 1 'end position not reached' on instance 1 (Rotate) → number 2000 + 10·1 + 1 = <b>2011</b>.",
+    why: "The library default for valve alarm 1 is class B, but module M02 overrides it to <b>class A</b> (classes: Rotate 1 A): a rotating table that stops half-way can drop the pallet or collide – the module must go to a safe state at once. Class A → internal <b>Abort</b>: all commands safe, valves xEnable FALSE (no air to move), sequence stops.",
+    action: "Find and remove the cause (jammed cylinder, low air, broken sensor). Cell controller sends <b>Clear</b> (alarm goes OFF because the valve FB got its reset pulse and the jam is gone) → Stopped → <b>Reset</b>: the home sequence drives everything back to the home position (31 ticks, the rotate goes back) → Idle → Start: the cycle runs complete again." },
+  F2: { what: "M02: in step S30 the clamp closes (xCmdB FALSE = clamped end position A) but the clamp pressure stays at 3.8 bar (needed ≥ 4.5). Step S30 waits for 'Clamp.xAtA &amp; ClampPress.rValue ≥ 4.5'; after its time-out (to) the step raises module alarm 4 → <b>2004</b> 'clamp pressure not reached'.",
+    why: "<b>Class B</b>: the machine is safe, nothing moves, only the job cannot continue. Class B in Execute → internal <b>Hold</b>: the sequence freezes in S30 with all commands kept (clamp stays closed).",
+    action: "Operator fixes the pressure (regulator, leak) – tick 100 the pressure is 6.0 bar. Cell controller sends <b>Unhold</b>: module alarms are reset, the step S30 continues with t = 0, sees the pressure at once and the cycle completes. No homing, no lost part." },
+  F3: { what: "M04 load station: the operator presses Release (tick 20), the rotary indexes; at tick 40 a hand breaks the light curtain. The safety program stops the drive (STO); the module monitor 7 '!Curtain.xSafe in Execute' raises <b>4007</b> 'light curtain interrupted during rotation'.",
+    why: "<b>Class B</b>: the safety function (STO) is already done by the F-program – the standard program only reacts: internal <b>Hold</b>, the sequence freezes in the rotate step. The light curtain mirror FB needs a reset pulse after the curtain is free again (restart interlock).",
+    action: "Curtain free (tick 46). Cell controller (or operator at the HMI) sends <b>Unhold</b>: alarms reset, reset pulse to the curtain FB → xSafe TRUE again, the drive release comes back and the rotary finishes its index. Never restart automatically after a light curtain – Unhold is a deliberate command." },
+  F4: { what: "M06 AGV station: the AGV is 'dead' (does not answer the hardware handshake). FB_HandshakeHw (instance 6, Agv) sends Request and waits for Busy; after tHs = 2 s → alarm 1 'partner did not start' → <b>6061</b>.",
+    why: "<b>Class B</b>: nothing dangerous, the partner is missing. Internal <b>Hold</b> in step S10 (wait for AGV). The handshake FB stays in error until a reset pulse.",
+    action: "AGV is back (tick 60). <b>Unhold</b>: reset pulse to the handshake FB, step S10 is repeated with t = 0, the request goes out again, the AGV answers Busy → Done and the transfer completes." },
+  F5: { what: "M10 washer: at tick 60, during spraying (S30), the tank level-low sensor switches. Monitor 4 'LevelLow.xValue in Execute, delay 0' raises <b>10004</b> 'level low during washing'.",
+    why: "<b>Class A</b>: a spray pump running dry is destroyed in seconds, the heater can overheat without water. Internal <b>Abort</b>: every command safe – also the heater (listed in 'keep', so a normal Stop would keep it on, Abort switches it off).",
+    action: "Refill the tank (tick 100 level OK). <b>Clear</b> → Stopped (alarm OFF because the monitor alarm is reset in Clearing and the level is OK) → <b>Reset</b>: home = door cylinder open and level OK → Idle. The washed part is checked / washed again." },
+  F6: { what: "M16 press: tick 40 the oil filter becomes dirty → monitor 5 (all states) raises <b>16005</b> class C. The cycle continues and completes. Tick 150 (module Idle) the oil level drops → monitor 6 raises <b>16006</b> class A.",
+    why: "Class <b>C</b> = warning only: WarningNo = 16005, no reaction – maintenance can plan the filter change. Class <b>A</b> in Idle: the reaction rule is 'A in every state except Aborting/Aborted/Clearing' → internal Abort even in Idle – the hydraulic pump must not start without oil.",
+    action: "Warning: order a filter, change it in the next break, the warning goes off after a reset. Oil level: refill, then Clear (alarm stays as long as the level is low – Clearing goes back to Aborted: 'clear failed'), Reset, Start. The scenario ends in Aborted with AlarmNo 16006 and WarningNo 16005 – both words visible to the cell controller." },
+  F7: { what: "M18 safety / e-stop module (continuous): tick 40 the cell e-stop 1 is pressed. Monitor 2 '!Estop1.xSafe | !Estop2.xSafe' raises <b>18002</b> 'cell e-stop pressed'.",
+    why: "<b>Class A</b> → internal <b>Abort</b>. The e-stop itself is done by the F-program; the standard program mirrors it, stops the sequence and reports. The e-stop mirror FB latches (restart interlock) until a reset pulse with both channels closed.",
+    action: "Release the e-stop (tick 50). <b>Clear</b>: reset pulse → the e-stop mirror un-latches, alarm OFF → Stopped → Reset → Start: the safety module is back in Execute (continuous)." },
+  F8: { what: "M03 pallet pool: the cell controller sends <b>Start</b> while the module is Stopped. FB_CmdIf finds no edge Stopped --Start--> → <b>CmdRej</b>, WarningNo = 3000 + 900 + 2 = <b>3902</b>. Later Reset and Start are accepted; at tick 30 the cell controller sends <b>Hold</b> in Execute (accepted), tick 40 <b>Unhold</b>.",
+    why: "A rejected command is not an alarm: no class A/B, no reaction – only a warning word for the cell controller log (kept until the next accepted command). Hold / Unhold by command behave exactly like a class-B reaction: the step freezes and continues with t = 0.",
+    action: "The cell controller logic is wrong (it must send Reset first) – the warning shows it during virtual commissioning (part C). Fix the cell logic; nothing to do at the machine." },
+};
+/** B7: commissioning checklist templates per FB type (IO check + function test) */
+export const CHK10B = {
+  FB_Valve1: ["solenoid output → cylinder moves to B; end switch B (xPosB) seen", "output off → spring returns to A; end switch A seen", "move time measured (< tMove)"],
+  FB_Valve2: ["coil B → cylinder to B, coil A → back to A; both end switches seen", "power off in the middle → cylinder stays (bistable)", "move time measured (< tMove)"],
+  FB_MotorDol: ["contactor pulls in on xCmd, run feedback within tFb", "direction of rotation correct", "motor protection trip → alarm 3, reset after re-arming"],
+  FB_DriveSto: ["drive ready, STO released only by the F-program", "run command → drive moves, direction correct", "STO active → drive stops, xWarn on run command"],
+  FB_Heater: ["contactor feedback follows qOn within tFb", "temperature rises with heater on (plausible rate)", "safety thermostat test → alarm 1, heater off"],
+  FB_AnalogIn: ["4 mA = rLo, 20 mA = rHi checked with a calibrator", "wire break (≤ 3.6 mA) → quality BAD, alarm 3", "value plausible at the process point"],
+  FB_Sensor: ["sensor switches at the real position / part", "LED and PLC input agree", "filter times tOn/tOff correct"],
+  FB_HandshakeHw: ["Ready / Request / Busy / Done / Ack signals one by one with the partner", "partner off → alarm 1 after tHs", "job time-out → alarm 2"],
+  FB_Estop: ["press → both channels open, F-program stops, mirror xSafe FALSE", "release + reset → xSafe TRUE (restart interlock works)", "one channel only (bridge test) → discrepancy alarm"],
+  FB_Door2Ch: ["door open → both channels open, xSafe FALSE", "door closed + reset → xSafe TRUE", "discrepancy test (one channel) → alarm 1"],
+  FB_LightCurtain: ["interrupt → OSSD off, F-program stops the hazard", "free + reset → xSafe TRUE", "muting / warning field as specified"],
+  FB_EnableSwitch: ["3-position switch middle → both channels on", "release / press through → off", "discrepancy test → alarm 1"],
+  FB_SafetyCoupling: ["neighbour e-stop → our e-stop channels open", "zone-free signal both channels", "discrepancy test → alarm 1 / 2"],
+  FB_DoorLock: ["lock / unlock request, both lock channels", "locked but door open (tongue test) → alarm 3", "door + lock discrepancy → alarm 1 / 2"],
+  FB_ZoneOut: ["zone output follows the F-program release", "feedback contact (EDM) inverted follows within tEdm", "welded contact simulation → alarm 1"],
+  FB_ContactorPair: ["both safety contactors drop on release off", "EDM feedback follows within tEdm", "welded contact simulation → alarm 1"],
+  FB_SafeValve: ["both valves switch with the release", "position feedback A and B follow within tEdm", "stuck valve simulation → alarm 1 / 2"],
+  FB_ModeSwitch: ["key Auto → iMode 1, Maint → 2, none → 3 (Manual)", "both positions (bridge) → alarm 1", "mode shown on the HMI"],
+  FB_TwoHand: ["both hands within 0.5 s → actuated", "one hand only / too late → blocked, alarm 1", "release both → reset"],
+  FB_Scanner: ["field set A / B switch on iField", "protective field interrupt → OSSD off", "invalid field set → alarm 2"],
+  FB_PushButton: ["button → xPressed / xClick", "lamp on / blinking with iLampMode 1 / 2"],
+  FB_SignalTower: ["red / yellow / green / buzzer for each state and alarm class", "horn acknowledge"],
+  FB_Feeder: ["breaker auxiliary contact → xSupplyOn", "breaker off → warning after tDelay"],
+  FB_Ups: ["UPS OK / on battery contacts", "on battery longer than tBuffer → shutdown request"],
+};

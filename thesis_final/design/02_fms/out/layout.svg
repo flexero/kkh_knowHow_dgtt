@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="867" height="680" viewBox="0 0 867 680" font-family="Arial" font-size="11">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="20" y="22" font-size="14" font-weight="bold">Combined FMS - optimised spine layout (72 m x 50 m = 3578 m2)</text>
+<rect x="40.0" y="40.0" width="340.0" height="242.0" fill="#d9e2f3" stroke="#333"/>
+<text x="44.0" y="56.0" font-weight="bold">RAW</text>
+<text x="44.0" y="70.0">680 m2</text>
+<rect x="380.0" y="40.0" width="13.5" height="242.0" fill="#e2efda" stroke="#333"/>
+<text x="390.8" y="274.0" transform="rotate(-90 390.8 274.0)" font-weight="bold">QC 27 m2</text>
+<rect x="393.5" y="40.0" width="25.0" height="242.0" fill="#e2efda" stroke="#333"/>
+<text x="410.0" y="274.0" transform="rotate(-90 410.0 274.0)" font-weight="bold">FIN 50 m2</text>
+<rect x="418.5" y="40.0" width="97.2" height="242.0" fill="#fbe5d6" stroke="#333"/>
+<text x="422.5" y="56.0" font-weight="bold">VMC</text>
+<text x="422.5" y="70.0">194 m2</text>
+<rect x="515.7" y="40.0" width="168.0" height="242.0" fill="#f8cbad" stroke="#333"/>
+<text x="519.7" y="56.0" font-weight="bold">HMC</text>
+<text x="519.7" y="70.0">336 m2</text>
+<rect x="683.7" y="40.0" width="88.4" height="242.0" fill="#ffe699" stroke="#333"/>
+<text x="687.7" y="56.0" font-weight="bold">ROT</text>
+<text x="687.7" y="70.0">177 m2</text>
+<rect x="772.1" y="40.0" width="30.0" height="242.0" fill="#f2f2f2" stroke="#333"/>
+<text x="791.1" y="274.0" transform="rotate(-90 791.1 274.0)" font-weight="bold">TOOL 60 m2</text>
+<rect x="802.1" y="40.0" width="25.0" height="242.0" fill="#f2f2f2" stroke="#333"/>
+<text x="818.6" y="274.0" transform="rotate(-90 818.6 274.0)" font-weight="bold">CHIP 50 m2</text>
+<rect x="40.0" y="348.0" width="150.0" height="242.0" fill="#d9e2f3" stroke="#333"/>
+<text x="44.0" y="364.0" font-weight="bold">SHP</text>
+<text x="44.0" y="378.0">300 m2</text>
+<rect x="190.0" y="348.0" width="20.2" height="242.0" fill="#ededed" stroke="#333"/>
+<text x="204.1" y="582.0" transform="rotate(-90 204.1 582.0)" font-weight="bold">PCK 40 m2</text>
+<rect x="210.2" y="348.0" width="40.5" height="242.0" fill="#ededed" stroke="#333"/>
+<text x="234.5" y="582.0" transform="rotate(-90 234.5 582.0)" font-weight="bold">PNT 81 m2</text>
+<rect x="250.7" y="348.0" width="94.5" height="242.0" fill="#deebf7" stroke="#333"/>
+<text x="254.7" y="364.0" font-weight="bold">TST</text>
+<text x="254.7" y="378.0">189 m2</text>
+<rect x="345.2" y="348.0" width="151.9" height="242.0" fill="#deebf7" stroke="#333"/>
+<text x="349.2" y="364.0" font-weight="bold">ASY</text>
+<text x="349.2" y="378.0">304 m2</text>
+<rect x="497.1" y="348.0" width="225.0" height="242.0" fill="#d9e2f3" stroke="#333"/>
+<text x="501.1" y="364.0" font-weight="bold">BUY</text>
+<text x="501.1" y="378.0">450 m2</text>
+<rect x="722.1" y="348.0" width="50.0" height="242.0" fill="#f2f2f2" stroke="#333"/>
+<text x="751.1" y="582.0" transform="rotate(-90 751.1 582.0)" font-weight="bold">MNT 100 m2</text>
+<rect x="40" y="282.0" width="787.1" height="66.0" fill="#fafafa" stroke="#999" stroke-dasharray="6 4"/>
+<text x="48" y="319.0" fill="#555">AGV main aisle (6 m) - receiving and shipping docks at the left wall</text>
+<text x="20" y="612">RAW=AS/RS raw + receiving   QC=Measuring room (CMM)   FIN=Honing / lapping / washing   VMC=VMC small-part cell   HMC=HMC pallet cell   </text>
+<text x="20" y="626">ROT=Rotational cell   TOOL=Tool room + presetting   CHIP=Chips + coolant   SHP=Finished goods + shipping   </text>
+<text x="20" y="640">PCK=Final inspection + pack   PNT=Paint   TST=Test benches   ASY=Assembly VC20 + RB   BUY=Bought parts, tanks, motors   </text>
+<text x="20" y="654">MNT=Maintenance   </text>
+</svg>

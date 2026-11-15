@@ -1,7 +1,7 @@
 /* M_P_C tools tab (#mpc) – calculation programs of the folder "machine+program_software+control_system design".
  * Theory + program combined: every result comes from the same Python functions as the command line
  * (server: twin/mpc_tools.py -> tools/dm_toolkit.py, crank.py, fourbar.py). Offline, no libraries.
- * Deep links: /?mpcitem=2#mpc  (1 M1 calculators, 2 crank, 3 four-bar, 4 path generation, 6 M3 shaft, 5 guides + self-test)
+ * Deep links: /?mpcitem=2#mpc  (1 M1 calculators, 2 crank, 3 four-bar, 4 path generation, 6 M3 shaft, 7 M4 bearings, 8 M5 gears, 9 M5b bevel gears, 10 M5c worm gears, 11 M5d gear manufacturing, 12 M6 cams, 13 M7 bolted joints, 14 M8 springs, 15 M9 belts / chains / couplings, 16 M10 tolerances, 17 M11 welds / frames / pressure parts, 18 M12 optimisation workflows, 5 guides + self-test)
  *             /?mpcitem=5&mpcguide=M2b#mpc */
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -375,15 +375,611 @@ async function item6(host) {
   run();
 }
 
+/* ------------------------------------------------------------------ item 7: M4 rolling bearings */
+async function item7(host) {
+  const C = await catalog(), D0 = C.bearing_default, CAT = C.bearing_catalogue;
+  const opts = (sel) => Object.entries(CAT).map(([n, b]) => `<option value="${n}" ${n === sel ? "selected" : ""}>${n} – ${b.type}, ${b.d}×${b.D}×${b.B}, C ${b.C} kN</option>`).join("");
+  const skip = new Set(["bearing_A", "bearing_B", "cleanliness", "oil_VG", "use_crank_loads"]);
+  host.innerHTML = `<div class="card"><div class="card-head"><h2>M4 – rolling bearings: life, lubrication, clearance, selection</h2><span class="sub">same code as <code>tools/bearing.py</code> · ISO 281 style (check the standard) · catalogue values typical – check your supplier · example values</span></div>
+    <div class="mpc-form">
+      <label class="mpc-f mpc-fw"><span>bearing A (locating)</span><select id="mpcBrA">${opts(D0.bearing_A)}</select></label>
+      <label class="mpc-f mpc-fw"><span>bearing B (floating)</span><select id="mpcBrB">${opts(D0.bearing_B)}</select></label>
+      <label class="mpc-f"><span>loads</span><select id="mpcBrUse"><option value="1">over a revolution: M2 crank → M3 shaft</option><option value="0">constant (fields below)</option></select></label>
+      <label class="mpc-f"><span>oil ISO VG</span><select id="mpcBrVG">${[32, 46, 68, 100, 150, 220, 320, 460].map((v) => `<option ${v === D0.oil_VG ? "selected" : ""}>${v}</option>`).join("")}</select></label>
+      <label class="mpc-f mpc-fw"><span>cleanliness (e_c)</span><select id="mpcBrCl">${C.bearing_cleanliness.map((c) => `<option ${c === D0.cleanliness ? "selected" : ""}>${esc(c)}</option>`).join("")}</select></label></div>
+    ${form("mpcBrF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k))))}
+    <div class="mpc-btns"><button class="btn" id="mpcBrRun">Calculate</button><button class="btn ghost" id="mpcBrReset">Example values</button><button class="btn ghost" id="mpcBrCsv">Download loads CSV</button></div></div>
+    <div id="mpcBrOut"></div>`;
+  const run = async () => {
+    const out = $("mpcBrOut"); busy(out, "calculating …");
+    try {
+      const p = readForm("mpcBrF");
+      Object.assign(p, { bearing_A: $("mpcBrA").value, bearing_B: $("mpcBrB").value, use_crank_loads: $("mpcBrUse").value === "1", oil_VG: +$("mpcBrVG").value, cleanliness: $("mpcBrCl").value });
+      const R = await api("/api/mpc/bearing", { params: p }); window.__mpcBr = R;
+      const k = (lab, v, bad) => `<div class="mpc-kpi ${bad ? "mpc-bad" : ""}"><span>${lab}</span><b>${v}</b></div>`;
+      const side = (s) => { const r = R[s], L = r.life, c = r.clearance;
+        return `${k(`${s}: ${r.name} – P`, f(r.eq.P, 0) + " N (max " + f(r.Fr_max, 0) + ")")}${k(`${s}: L10h / L_nm`, f(L.L10h, 0) + " / " + f(L.Lnmh, 0) + " h", L.Lnmh < R.params.target_life_h)}
+          ${k(`${s}: κ · a_ISO`, f(L.kappa, 2) + " · " + f(L.a_iso, 2), L.kappa < 1)}${k(`${s}: s0`, f(r.s0, 1), r.s0 < 1)}
+          ${c ? k(`${s}: operating clearance`, f(c.min, 1) + " … " + f(c.max, 1) + " µm", c.min < 0) : ""}${k(`${s}: friction loss`, f(r.friction.N_W, 2) + " W")}`; };
+      const cand = (s) => `<div class="mpc-tw"><table><thead><tr><th>${s}: candidate</th><th>type</th><th>D×B</th><th>P N</th><th>L10h</th><th>L_nm h</th><th>a_ISO</th><th>κ</th><th>s0</th><th>mass kg</th><th></th></tr></thead><tbody>${R["cand_" + s].map((c) =>
+        `<tr${c.name === R.params["bearing_" + s] ? ' class="mpc-sel"' : ""}><td>${c.name}</td><td>${c.type}</td><td>${c.D}×${c.B}</td><td>${f(c.P, 0)}</td><td>${f(c.L10h, 0)}</td><td>${f(c.Lnmh, 0)}</td><td>${f(c.a_iso, 2)}</td><td>${f(c.kappa, 2)}</td><td>${f(c.s0, 1)}</td><td>${f(c.m, 2)}</td><td class="${c.ok ? "mpc-okc" : "mpc-err"}">${c.ok ? "OK" : "no"}</td></tr>`).join("")}</tbody></table></div>`;
+      const V = R.visc;
+      out.innerHTML = `<div class="card"><div class="mpc-kpis">${side("A")}</div><div class="mpc-kpis">${side("B")}</div>
+        <div class="mpc-charts">
+          ${R.theta ? chart([{ name: "bearing A", x: R.theta, y: R.FA }, { name: "bearing B", x: R.theta, y: R.FB }], { title: "Radial bearing loads over one revolution [N]", xl: "crank angle [°]", yl: "N", zeroY: 1 }).svg : ""}
+          ${chart([{ name: `ISO VG ${R.params.oil_VG}`, x: V.T, y: V.nu }, { name: "ν1 rated (κ = 1)", x: [V.T[0], V.T[V.T.length - 1]], y: [V.nu1, V.nu1], dash: 1 },
+            { name: "operating point", x: [R.params.oil_temp_C], y: [R.A.life.nu], dots: 1, col: "#d03b3b" }], { title: "Oil viscosity vs temperature [mm²/s] (κ = ν / ν1)", xl: "°C", yl: "mm²/s" }).svg}
+        </div>${cand("A")}${cand("B")}
+        <details><summary>Full report (same as <code>python bearing.py run</code>)</summary><pre class="mpc-pre">${esc(R.report)}</pre></details></div>`;
+    } catch (e) { err(out, e); }
+  };
+  $("mpcBrRun").onclick = run;
+  $("mpcBrReset").onclick = () => { $("mpcBrF").outerHTML = form("mpcBrF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k)))); $("mpcBrA").value = D0.bearing_A; $("mpcBrB").value = D0.bearing_B; $("mpcBrUse").value = "1"; $("mpcBrVG").value = D0.oil_VG; $("mpcBrCl").value = D0.cleanliness; run(); };
+  $("mpcBrCsv").onclick = () => { const R = window.__mpcBr; if (!R || !R.theta) return; csv("bearing_loads.csv", ["theta_deg", "Fr_A_N", "Fr_B_N"], R.theta.map((t, i) => [t, R.FA[i], R.FB[i]])); };
+  run();
+}
+
+/* ------------------------------------------------------------------ item 8: M5 gear design */
+async function item8(host) {
+  const C = await catalog(), D0 = C.gear_default;
+  const skip = new Set(["material1", "material2"]);
+  const mopt = (sel) => C.gear_materials.map((m) => `<option ${m === sel ? "selected" : ""}>${esc(m)}</option>`).join("");
+  host.innerHTML = `<div class="card"><div class="card-head"><h2>M5 – cylindrical gear pair (spur / helical)</h2><span class="sub">same code as <code>tools/gear.py</code> · ISO 21771 geometry · ISO 6336 style capacity (simplified – check the standard) · example values</span></div>
+    <div class="mpc-form"><label class="mpc-f mpc-fw"><span>material pinion</span><select id="mpcGrM1">${mopt(D0.material1)}</select></label>
+      <label class="mpc-f mpc-fw"><span>material wheel</span><select id="mpcGrM2">${mopt(D0.material2)}</select></label></div>
+    ${form("mpcGrF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k))), { a_w: "a_w mm (null = from x1 + x2)", pin_diameter_mm: "pin diameter mm (null = standard)" })}
+    <div class="mpc-btns"><button class="btn" id="mpcGrRun">Calculate</button><button class="btn ghost" id="mpcGrReset">Example values</button></div></div>
+    <div id="mpcGrOut"></div>`;
+  const run = async () => {
+    const out = $("mpcGrOut"); busy(out, "calculating …");
+    try {
+      const p = readForm("mpcGrF"); p.material1 = $("mpcGrM1").value; p.material2 = $("mpcGrM2").value;
+      const R = await api("/api/mpc/gear", { params: p }), g = R.geometry, F = R.forces, P = R.params;
+      const k = (lab, v, bad) => `<div class="mpc-kpi ${bad ? "mpc-bad" : ""}"><span>${lab}</span><b>${v}</b></div>`;
+      const sw = R.sweep_x1, inv = R.involute;
+      const circ = (r, n = 90) => ({ x: [...Array(n + 1).keys()].map((i) => r * Math.cos(i / n * Math.PI / 2)), y: [...Array(n + 1).keys()].map((i) => r * Math.sin(i / n * Math.PI / 2)) });
+      out.innerHTML = `<div class="card"><div class="mpc-kpis">
+          ${k("Ratio u · a_w", f(g.u, 4) + " · " + f(g.aw, 3) + " mm")}${k("d1 / d2", f(g.d1, 3) + " / " + f(g.d2, 3) + " mm")}${k("ε_α · ε_β · ε_γ", f(g.ea, 3) + " · " + f(g.eb, 3) + " · " + f(g.eg, 3), g.ea < 1.2)}
+          ${k("Ft · Fr · Fa", f(F.Ft, 0) + " · " + f(F.Fr, 0) + " · " + f(F.Fa, 0) + " N")}${k("v", f(F.v, 2) + " m/s")}${k("σ_H", f(R.factors.sH, 0) + " MPa")}
+          ${k("S_H (pitting)", f(R.gear1.SH, 2), R.gear1.SH < P.SHmin)}${k("S_F pinion / wheel", f(R.gear1.SF, 2) + " / " + f(R.gear2.SF, 2), Math.min(R.gear1.SF, R.gear2.SF) < P.SFmin)}
+          ${k("tip thickness s_a1 / mn", f(g.sa1 / P.mn, 2), g.sa1 < 0.25 * P.mn)}${k("undercut", P.x1 >= g.xmin1 && P.x2 >= g.xmin2 ? "none" : "UNDERCUT", P.x1 < g.xmin1 || P.x2 < g.xmin2)}</div>
+        <div class="mpc-charts">
+          ${chart([{ name: "S_H", x: sw.x1, y: sw.SH }, { name: "S_F pinion", x: sw.x1, y: sw.SF1 }, { name: "S_F wheel", x: sw.x1, y: sw.SF2 }, { name: "ε_α", x: sw.x1, y: sw.ea, dash: 1 },
+            { name: "now (S_F pinion)", x: [P.x1], y: [R.gear1.SF], dots: 1, col: "#d03b3b" }], { title: "Effect of the pinion profile shift x1 (x2 fixed)", xl: "x1", yl: "" }).svg}
+          ${chart([{ name: "pinion involute", x: inv["1"].map((q) => q[0]), y: inv["1"].map((q) => q[1]) }, { name: "base circle", ...circ(g.db1 / 2), dash: 1 },
+            { name: "tip circle", ...circ(g.da1 / 2), dash: 1 }, { name: "root circle", ...circ(g.df1 / 2), dash: 1 }], { title: "Pinion: involute flank between base and tip circle [mm]", xl: "x", yl: "y", equal: 1 }).svg}
+        </div>
+        <div class="mpc-tw"><table><thead><tr><th></th><th>Y_F</th><th>Y_S</th><th>σ_F MPa</th><th>σ_FE MPa</th><th>S_F</th><th>S_H</th><th>W_k (k)</th><th>W_k with allowances</th><th>over pins D_M → M</th></tr></thead><tbody>
+          ${[1, 2].map((i) => { const q = R["gear" + i], m = R.manufacturing[i]; return `<tr><td>${i === 1 ? "pinion" : "wheel"}</td><td>${f(q.ff.YF, 3)}</td><td>${f(q.ff.YS, 3)}</td><td>${f(q.sF, 0)}</td><td>${f(q.sFE, 0)}</td><td><b>${f(q.SF, 2)}</b></td><td><b>${f(q.SH, 2)}</b></td><td>${f(m.Wk_nom, 3)} (${m.k})</td><td>${f(m.Wk_lo, 3)} … ${f(m.Wk_up, 3)}</td><td>${f(m.pins.DM, 2)} → ${f(m.pins.M, 3)}</td></tr>`; }).join("")}</tbody></table></div>
+        <p class="hint">K_V ${f(R.factors.KV, 3)} · K_Fβ ${f(R.factors.KFbeta, 3)} · Z_H ${f(R.factors.ZH, 3)} · Z_E ${f(R.factors.ZE, 1)} · Z_ε ${f(R.factors.Zeps, 3)} · Z_β ${f(R.factors.Zbeta, 3)} · Y_β ${f(R.factors.Ybeta, 3)} ·
+          backlash j_n ${f(R.backlash.jn_min_um, 0)} … ${f(R.backlash.jn_max_um, 0)} µm</p>
+        <details><summary>Full report (same as <code>python gear.py run</code>)</summary><pre class="mpc-pre">${esc(R.report)}</pre></details></div>`;
+    } catch (e) { err(out, e); }
+  };
+  $("mpcGrRun").onclick = run;
+  $("mpcGrReset").onclick = () => { $("mpcGrF").outerHTML = form("mpcGrF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k)))); $("mpcGrM1").value = D0.material1; $("mpcGrM2").value = D0.material2; run(); };
+  run();
+}
+
+/* ------------------------------------------------------------------ item 9: M5b bevel gears */
+async function item9(host) {
+  const C = await catalog(), D0 = C.bevel_default;
+  const sel = { kind: ["spiral", "straight"], hand1: ["left", "right"], rotation1: ["cw", "ccw"] };
+  const skip = new Set(["material1", "material2", "kind", "hand1", "rotation1"]);
+  const mopt = (v) => C.gear_materials.map((m) => `<option ${m === v ? "selected" : ""}>${esc(m)}</option>`).join("");
+  host.innerHTML = `<div class="card"><div class="card-head"><h2>M5b – bevel gears (straight / spiral)</h2><span class="sub">same code as <code>tools/bevel.py</code> · ISO 23509 style geometry · ISO 10300 style capacity via virtual gears (simplified – check) · example values</span></div>
+    <div class="mpc-form">${Object.entries(sel).map(([k, o]) => `<label class="mpc-f"><span>${k}</span><select id="mpcBv_${k}">${o.map((v) => `<option ${v === D0[k] ? "selected" : ""}>${v}</option>`).join("")}</select></label>`).join("")}
+      <label class="mpc-f mpc-fw"><span>material pinion</span><select id="mpcBvM1">${mopt(D0.material1)}</select></label>
+      <label class="mpc-f mpc-fw"><span>material wheel</span><select id="mpcBvM2">${mopt(D0.material2)}</select></label></div>
+    ${form("mpcBvF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k))), { x1: "x1 (null = Gleason style)", back_face_to_apex_mm: "back face to apex mm (null)" })}
+    <div class="mpc-btns"><button class="btn" id="mpcBvRun">Calculate</button><button class="btn ghost" id="mpcBvReset">Example values</button></div></div>
+    <div id="mpcBvOut"></div>`;
+  const run = async () => {
+    const out = $("mpcBvOut"); busy(out, "calculating …");
+    try {
+      const p = readForm("mpcBvF");
+      Object.keys(sel).forEach((k) => { p[k] = $("mpcBv_" + k).value; });
+      p.material1 = $("mpcBvM1").value; p.material2 = $("mpcBvM2").value;
+      const R = await api("/api/mpc/bevel", { params: p }), g = R.geometry, F = R.forces, P = R.params;
+      const k = (lab, v, bad) => `<div class="mpc-kpi ${bad ? "mpc-bad" : ""}"><span>${lab}</span><b>${v}</b></div>`;
+      const deg = (r) => f(r * 180 / Math.PI, 3) + "°";
+      // cone sketch in the axial plane: apex at origin, pinion axis along +x, wheel axis along +y (Sigma 90 drawn generally)
+      const S = P.Sigma_deg * Math.PI / 180, d1 = g.delta1, Re = g.Re, b = P.b;
+      const ray = (ang, r) => [r * Math.cos(ang), r * Math.sin(ang)];
+      const pitchPt = ray(d1, Re), toePt = ray(d1, Re - b);
+      const sketch = chart([
+        { name: "pitch cone line (common)", x: [0, pitchPt[0]], y: [0, pitchPt[1]] },
+        { name: "pinion axis", x: [0, Re * 1.1], y: [0, 0], dash: 1 },
+        { name: "wheel axis", x: [0, Re * 1.1 * Math.cos(S)], y: [0, Re * 1.1 * Math.sin(S)], dash: 1 },
+        { name: "face width (toe → heel)", x: [toePt[0], pitchPt[0]], y: [toePt[1], pitchPt[1]], wid: 6, col: "#d03b3b" },
+        { name: "pinion back cone", x: [pitchPt[0], pitchPt[0] + 15 * Math.cos(d1 - Math.PI / 2) * -1], y: [pitchPt[1], pitchPt[1] + 15 * Math.sin(d1 - Math.PI / 2) * -1] },
+      ], { title: "Pitch cones in the axial plane (apex at 0) [mm]", xl: "pinion axis", yl: "", equal: 1, h: 300 }).svg;
+      out.innerHTML = `<div class="card"><div class="mpc-kpis">
+          ${k("u · δ1 / δ2", f(g.u, 4) + " · " + deg(g.delta1) + " / " + deg(g.delta2))}${k("Re · Rm", f(g.Re, 2) + " · " + f(g.Rm, 2) + " mm")}${k("b / Re", f(P.b / g.Re, 3), !g.checks.b_le_Re_3)}
+          ${k("m_mn · x1", f(g.mmn, 4) + " · " + f(g.x1, 4))}${k("ε_vα · ε_vβ", f(g.eps_va, 3) + " · " + f(g.eps_vb, 3), g.eps_va < 1.1)}
+          ${k("Ft · pinion Fa / Fr", f(F.Ft, 0) + " · " + f(F.Fa1, 0) + " / " + f(F.Fr1, 0) + " N")}${k("pinion thrust", F.Fa1 > 0 ? "away from apex (good)" : "TOWARDS apex", F.Fa1 < 0)}
+          ${k("σ_H · S_H", f(R.sH, 0) + " MPa · " + f(R.gear1.SH, 2), R.gear1.SH < P.SHmin)}${k("S_F pinion / wheel", f(R.gear1.SF, 2) + " / " + f(R.gear2.SF, 2), Math.min(R.gear1.SF, R.gear2.SF) < P.SFmin)}</div>
+        <div class="mpc-charts">${sketch}
+          ${R.cutter ? chart([{ name: "spiral angle along the face", x: [P.b, P.b / 2, 0], y: [R.cutter.beta_toe, R.cutter.beta_mean, R.cutter.beta_heel] }], { title: `Spiral angle toe → heel with cutter r_c ${f(R.cutter.rc_mm, 1)} mm [°]`, xl: "distance from heel [mm]", yl: "°" }).svg : ""}</div>
+        <div class="mpc-tw"><table><thead><tr><th></th><th>pitch angle</th><th>face angle</th><th>root angle</th><th>d_e</th><th>d_ae</th><th>crown to apex</th><th>h_ae / h_fe</th><th>chordal thickness / height (outer)</th><th>Y_F · Y_S</th><th>S_F</th></tr></thead><tbody>
+          ${[1, 2].map((i) => { const c = R.chordal[i], q = R["gear" + i]; return `<tr><td>${i === 1 ? "pinion" : "wheel"}</td><td>${deg(g["delta" + i])}</td><td>${deg(g["face_angle" + i])}</td><td>${deg(g["root_angle" + i])}</td><td>${f(g["de" + i], 3)}</td><td>${f(g["dae" + i], 3)}</td><td>${f(g["crown_to_apex" + i], 3)}</td><td>${f(g["hae" + i], 3)} / ${f(g["hfe" + i], 3)}</td><td>${f(c.s_chord_outer, 3)} / ${f(c.h_chord_outer, 3)}</td><td>${f(q.ff.YF, 3)} · ${f(q.ff.YS, 3)}</td><td><b>${f(q.SF, 2)}</b></td></tr>`; }).join("")}</tbody></table></div>
+        <p class="hint">Virtual gears: z_v ${f(g.zv1, 2)} / ${f(g.zv2, 2)}, z_vn ${f(g.zvn1, 2)} / ${f(g.zvn2, 2)} · K_V ${f(R.KV, 3)} · K_Hβ ${f(R.KHbeta, 3)} · Z_H ${f(R.ZH, 3)} · Z_ε ${f(R.Zeps, 3)} · Z_β ${f(R.Zbeta, 3)} · Z_K ${f(P.ZK, 2)} · wheel Fa / Fr ${f(F.Fa2, 0)} / ${f(F.Fr2, 0)} N</p>
+        <details><summary>Full report (same as <code>python bevel.py run</code>)</summary><pre class="mpc-pre">${esc(R.report)}</pre></details></div>`;
+    } catch (e) { err(out, e); }
+  };
+  $("mpcBvRun").onclick = run;
+  $("mpcBvReset").onclick = () => { $("mpcBvF").outerHTML = form("mpcBvF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k)))); Object.keys(sel).forEach((k) => { $("mpcBv_" + k).value = D0[k]; }); $("mpcBvM1").value = D0.material1; $("mpcBvM2").value = D0.material2; run(); };
+  run();
+}
+
+/* ------------------------------------------------------------------ item 10: M5c worm gears */
+async function item10(host) {
+  const C = await catalog(), D0 = C.worm_default;
+  const sel = { profile: ["ZI", "ZA", "ZN", "ZK"], lubricant: ["mineral", "polyglycol"], fan: [true, false] };
+  const skip = new Set(["wheel_material", "profile", "lubricant", "fan"]);
+  const mopt = (v) => C.worm_materials.map((m) => `<option ${m === v ? "selected" : ""}>${esc(m)}</option>`).join("");
+  host.innerHTML = `<div class="card"><div class="card-head"><h2>M5c – worm gears (cylindrical worm, 90°)</h2><span class="sub">same code as <code>tools/worm.py</code> · DIN 3975 geometry · ISO/TS 14521 / DIN 3996 style capacity (simplified – check) · example values</span></div>
+    <div class="mpc-form">${Object.entries(sel).map(([k, o]) => `<label class="mpc-f"><span>${k}</span><select id="mpcWm_${k}">${o.map((v) => `<option value="${v}" ${v === D0[k] ? "selected" : ""}>${v}</option>`).join("")}</select></label>`).join("")}
+      <label class="mpc-f mpc-fw"><span>wheel material</span><select id="mpcWmM">${mopt(D0.wheel_material)}</select></label></div>
+    ${form("mpcWmF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k))), { J_W: "J_W (null = typical)", A_housing_m2: "A housing m² (null = estimate)" })}
+    <div class="mpc-btns"><button class="btn" id="mpcWmRun">Calculate</button><button class="btn ghost" id="mpcWmReset">Example values</button></div></div>
+    <div id="mpcWmOut"></div>`;
+  const run = async () => {
+    const out = $("mpcWmOut"); busy(out, "calculating …");
+    try {
+      const p = readForm("mpcWmF");
+      p.profile = $("mpcWm_profile").value; p.lubricant = $("mpcWm_lubricant").value; p.fan = $("mpcWm_fan").value === "true";
+      p.wheel_material = $("mpcWmM").value;
+      const R = await api("/api/mpc/worm", { params: p }), g = R.geometry, e = R.eff, F = R.forces, L = R.losses, P = R.params;
+      const k = (lab, v, bad) => `<div class="mpc-kpi ${bad ? "mpc-bad" : ""}"><span>${lab}</span><b>${v}</b></div>`;
+      const yn = (b) => (b ? "yes" : "no");
+      const saf = [["pitting S_H", R.SH, P.SHmin], ["wear S_W", R.SW, P.SWmin], ["root worn S_F", R.SF_worn, P.SFmin],
+                   ["deflection S_δ", R.Sd, P.Sdmin], ["temperature θ_lim/θ", R.ST, 1.0]];
+      const mx = Math.max(3, ...saf.map((s) => s[1]));
+      const bars = saf.map(([n, v, m]) => `<tr><td>${n}</td><td style="width:60%"><div style="background:${v >= m ? "#2e8b57" : "#d03b3b"};height:12px;width:${Math.min(100, v / mx * 100)}%"></div></td><td><b>${f(v, 2)}</b> (min ${f(m, 2)})</td></tr>`).join("");
+      out.innerHTML = `<div class="card"><div class="mpc-kpis">
+          ${k("i · γ", f(g.u, 2) + " · " + f(g.gamma_deg, 3) + "°")}${k("q · x2", f(g.q, 2) + " · " + f(g.x2, 4), !g.checks.x2_range)}
+          ${k("v_g · μ_z", f(g.vg, 3) + " m/s · " + f(e.mu, 4))}${k("η worm / wheel driving", f(e.eta_z, 4) + " / " + f(e.eta_rev, 4))}
+          ${k("self-locking rest / running", yn(e.self_locking_static) + " / " + yn(e.self_locking_dynamic))}
+          ${k("T2 · Ft2 = Fa1 · Fr", f(F.T2, 1) + " N m · " + f(F.Ft2, 0) + " · " + f(F.Fr, 0) + " N")}
+          ${k("P_V · η total", f(L.PV, 0) + " W · " + f(L.eta_total, 4))}${k("oil sump θ", f(L.theta_S, 1) + " °C (limit " + f(P.theta_lim, 0) + ")", !L.ok)}
+          ${k("thermal power limit", f(R.P_thermal, 2) + " kW", R.P_thermal < P.P1_kW)}${k("σ_Hm / σ_HG", f(R.sHm, 0) + " / " + f(R.sHG, 0) + " MPa")}
+          ${k("wear in Lh", f(R.dW, 3) + " mm (limit " + f(R.dWlim, 3) + ")", R.SW < P.SWmin)}</div>
+        <div class="mpc-tw"><table><thead><tr><th>criterion</th><th>safety</th><th></th></tr></thead><tbody>${bars}</tbody></table></div>
+        <div class="mpc-charts">
+          ${chart([{ name: "oil sump", x: R.curve_P.map((c) => c[0]), y: R.curve_P.map((c) => c[1]) },
+                   { name: "limit", x: [R.curve_P[0][0], R.curve_P[R.curve_P.length - 1][0]], y: [P.theta_lim, P.theta_lim], dash: 1, col: "#d03b3b" }],
+                  { title: "Oil-sump temperature vs input power [°C]", xl: "P1 [kW]", yl: "°C" }).svg}
+          ${chart([{ name: "worm driving", x: R.curve_n.map((c) => c[1]), y: R.curve_n.map((c) => c[2]) },
+                   { name: "wheel driving", x: R.curve_n.map((c) => c[1]), y: R.curve_n.map((c) => c[3]) }],
+                  { title: "Mesh efficiency vs sliding velocity (input speed varied)", xl: "v_g [m/s]", yl: "η" }).svg}</div>
+        <div class="mpc-tw"><table><thead><tr><th></th><th>reference d</th><th>tip d_a</th><th>root d_f</th><th>outside</th><th>length / width</th><th>other</th></tr></thead><tbody>
+          <tr><td>worm</td><td>${f(g.d1, 3)}</td><td>${f(g.da1, 3)}</td><td>${f(g.df1, 3)}</td><td>–</td><td>b1 ≥ ${f(Math.max(g.b1_geo, g.b1_emp), 1)}</td><td>lead p_z ${f(g.pz, 4)} · over wires D_M ${f(R.wires.DM, 4)} → M ${f(R.wires.M, 3)}</td></tr>
+          <tr><td>wheel</td><td>${f(g.d2, 3)}</td><td>${f(g.da2, 3)}</td><td>${f(g.df2, 3)}</td><td>${f(g.dae2, 3)}</td><td>b2 ${f(P.b2, 1)} (rec. ${f(g.b2_rec, 1)}, max ${f(g.b2_max, 1)})</td><td>throat radius ${f(g.rk, 3)} · wrap ${f(g.wrap_deg, 1)}°</td></tr></tbody></table></div>
+        <div class="mpc-tw"><table><thead><tr><th>z1</th><th>i</th><th>γ</th><th>η worm drv</th><th>η wheel drv</th><th>self-locking rest / running</th></tr></thead><tbody>
+          ${R.starts.map((s) => `<tr><td>${s.z1}</td><td>${f(s.i, 2)}</td><td>${f(s.gamma_deg, 2)}°</td><td>${f(s.eta, 3)}</td><td>${f(s.eta_rev, 3)}</td><td>${yn(s.sl_static)} / ${yn(s.sl_dyn)}</td></tr>`).join("")}</tbody></table></div>
+        <p class="hint">μ_0T ${f(e.mu0T, 4)} · Y_S ${f(e.YS, 3)} · Y_R ${f(e.YR, 3)} · Y_W ${f(e.YW, 2)} · p*_m ${f(R.p_star_m, 3)} · E_red ${f(R.E_red, 0)} MPa · Z_N ${f(R.ZN, 3)} · Z_v ${f(R.Zv, 3)} · Z_S ${f(R.ZS, 3)} · s* ${f(R.s_star, 2)} · J_W ${R.JW.toExponential(2)} · τ_F ${f(R.tF, 1)} (worn ${f(R.tF_worn, 1)}) MPa · deflection ${f(R.delta_m, 4)} mm · Ft1 = Fa2 ${f(F.Ft1, 0)} N</p>
+        <details><summary>Full report (same as <code>python worm.py run</code>)</summary><pre class="mpc-pre">${esc(R.report)}</pre></details></div>`;
+    } catch (e) { err(out, e); }
+  };
+  $("mpcWmRun").onclick = run;
+  $("mpcWmReset").onclick = () => { $("mpcWmF").outerHTML = form("mpcWmF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k)))); Object.keys(sel).forEach((k) => { $("mpcWm_" + k).value = String(D0[k]); }); $("mpcWmM").value = D0.wheel_material; run(); };
+  run();
+}
+
+/* ------------------------------------------------------------------ item 11: M5d gear manufacturing */
+async function item11(host) {
+  const C = await catalog(), D0 = C.gearmfg_default;
+  const sel = { hand: ["right", "left"], hob_hand: ["right", "left"] };
+  const skip = new Set(["hand", "hob_hand"]);
+  host.innerHTML = `<div class="card"><div class="card-head"><h2>M5d – cylindrical gear manufacturing (process chain, times, case depth, cost)</h2><span class="sub">same code as <code>tools/gearmfg.py</code> · hobbing / shaping / power skiving · carburising · generating / profile grinding · ISO 1328 · typical data – check</span></div>
+    <div class="mpc-form">${Object.entries(sel).map(([k, o]) => `<label class="mpc-f"><span>${k.replace("_", " ")}</span><select id="mpcGm_${k}">${o.map((v) => `<option ${v === D0[k] ? "selected" : ""}>${v}</option>`).join("")}</select></label>`).join("")}</div>
+    ${form("mpcGmF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k))), { CHD_target: "CHD target mm (null = 0.15..0.20 mn)" })}
+    <div class="mpc-btns"><button class="btn" id="mpcGmRun">Calculate</button><button class="btn ghost" id="mpcGmReset">Example values</button></div></div>
+    <div id="mpcGmOut"></div>`;
+  const run = async () => {
+    const out = $("mpcGmOut"); busy(out, "calculating …");
+    try {
+      const p = readForm("mpcGmF");
+      Object.keys(sel).forEach((k) => { p[k] = $("mpcGm_" + k).value; });
+      const R = await api("/api/mpc/gearmfg", { params: p }), w = R.work, hs = R.hob_setup, ht = R.hob_time, P = R.params;
+      const k = (lab, v, bad) => `<div class="mpc-kpi ${bad ? "mpc-bad" : ""}"><span>${lab}</span><b>${v}</b></div>`;
+      const best = R.chains.find((c) => c.meets);
+      const ops = [["hobbing", ht.t_total_min], ["shaping", R.shaping.t_total_min], ["power skiving", R.skiving.t_total_min],
+                   ["generating grinding", R.gen_grinding.t_total_min], ["profile grinding", R.prof_grinding.t_total_min]];
+      const mx = Math.max(...ops.map((o) => o[1]));
+      out.innerHTML = `<div class="card"><div class="mpc-kpis">
+          ${k("d · da · df", f(w.d, 3) + " · " + f(w.da, 3) + " · " + f(w.df, 3) + " mm")}${k("blank mass", f(w.mass_kg, 2) + " kg")}
+          ${k("hob γ0 · swivel η", f(hs.gamma0_deg, 3) + "° · " + f(hs.eta_deg, 3) + "°")}${k("n0 · table", f(hs.n0, 0) + " · " + f(hs.n_table, 2) + " rpm")}
+          ${k("hobbing cut / total", f(ht.t_cut_min, 2) + " / " + f(ht.t_total_min, 2) + " min")}
+          ${k("feed marks · flats", f(1000 * R.feed_mark, 2) + " · " + f(1000 * R.envelope, 2) + " µm", 1000 * R.feed_mark > 10)}
+          ${k("h_max (Hoffmeister)", f(R.hmax, 3) + " mm", R.hmax > 0.25)}
+          ${k("CHD final / green", f(R.chd.CHD_final, 3) + " / " + f(R.chd.CHD_green, 3) + " mm")}${k("carburising", f(R.carb_h, 2) + " h at " + f(P.T_carb_C, 0) + " °C")}
+          ${k("Q'w profile grinding", f(R.prof_grinding.Qw, 2) + " mm³/(mm s)", R.prof_grinding.Qw > 10)}
+          ${k("best chain", best ? best.chain.replace(/_/g, " ") : "none meets grade " + P.grade_required, !best)}${k("cost · time", best ? f(best.cost, 2) + " € · " + f(best.t_min, 2) + " min" : "–")}</div>
+        <div class="mpc-tw"><table><thead><tr><th>operation</th><th>time per part</th><th></th></tr></thead><tbody>
+          ${ops.map(([n, t]) => `<tr><td>${n}</td><td style="width:60%"><div style="background:#3b7dd8;height:12px;width:${t / mx * 100}%"></div></td><td><b>${f(t, 2)}</b> min</td></tr>`).join("")}</tbody></table></div>
+        <div class="mpc-charts">
+          ${chart([{ name: "hobbing time [min]", x: R.curve_fa.map((c) => c[0]), y: R.curve_fa.map((c) => c[1]) },
+                   { name: "feed marks [µm / 10]", x: R.curve_fa.map((c) => c[0]), y: R.curve_fa.map((c) => c[2] / 10) }],
+                  { title: "Axial feed: time vs feed-mark depth", xl: "f_a [mm/rev]", yl: "" }).svg}
+          ${chart([{ name: "total case (Harris)", x: R.curve_carb.map((c) => c[0]), y: R.curve_carb.map((c) => c[1]) },
+                   { name: "effective CHD", x: R.curve_carb.map((c) => c[0]), y: R.curve_carb.map((c) => c[2]) }],
+                  { title: `Carburising at ${f(P.T_carb_C, 0)} °C: case depth vs time [mm]`, xl: "t [h]", yl: "mm" }).svg}</div>
+        <div class="mpc-tw"><table><thead><tr><th>process chain</th><th>time min</th><th>cost €</th><th>best grade</th><th>result</th></tr></thead><tbody>
+          ${R.chains.map((c) => `<tr class="${c.meets ? "" : "mpc-bad"}"><td>${esc(c.chain.replace(/_/g, " "))}</td><td>${f(c.t_min, 2)}</td><td>${f(c.cost, 2)}</td><td>${c.best_grade}</td><td>${c.meets ? "meets grade " + P.grade_required : (c.feasible ? "does not meet" : "stock too large for honing alone")}</td></tr>`).join("")}</tbody></table></div>
+        <p class="hint">ISO 1328-1 grade ${P.grade_required}: f_pT ${f(R.tol.fpT, 1)} · F_pT ${f(R.tol.FpT, 1)} · F_αT ${f(R.tol.FalphaT, 1)} · F_βT ${f(R.tol.FbetaT, 1)} · F_rT ${f(R.tol.FrT, 1)} µm · shaping ${f(R.shaping.nDH, 0)} strokes/min · skiving tool helix ${f(R.skiving.beta0_deg, 2)}°, work / tool ${f(R.skiving.nw, 0)} / ${f(R.skiving.n0, 0)} rpm · grinding wheel ${f(R.gen_grinding.ns, 0)} rpm · hob cost ${f(R.hob_cost, 3)} €/part · induction depth 10 / 100 kHz ${f(R.ind10, 2)} / ${f(R.ind100, 2)} mm</p>
+        <details><summary>Full report (same as <code>python gearmfg.py run</code>)</summary><pre class="mpc-pre">${esc(R.report)}</pre></details></div>`;
+    } catch (e) { err(out, e); }
+  };
+  $("mpcGmRun").onclick = run;
+  $("mpcGmReset").onclick = () => { $("mpcGmF").outerHTML = form("mpcGmF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k)))); Object.keys(sel).forEach((k) => { $("mpcGm_" + k).value = D0[k]; }); run(); };
+  run();
+}
+
+/* ------------------------------------------------------------------ item 12: M6 cams */
+async function item12(host) {
+  const C = await catalog(), D0 = C.cam_default;
+  host.innerHTML = `<div class="card"><div class="card-head"><h2>M6 – disc cam with translating roller follower</h2><span class="sub">same code as <code>tools/cam.py</code> · motion laws VDI 2143 style (${C.cam_laws.join(", ")}) · segments must add up to 360° · example values</span></div>
+    ${form("mpcCmF", D0, { segments: "segments [{kind rise|dwell|return, law, beta}]" })}
+    <div class="mpc-btns"><button class="btn" id="mpcCmRun">Calculate</button><button class="btn ghost" id="mpcCmReset">Example values</button></div></div>
+    <div id="mpcCmOut"></div>`;
+  const run = async () => {
+    const out = $("mpcCmOut"); busy(out, "calculating …");
+    try {
+      const R = await api("/api/mpc/cam", { params: readForm("mpcCmF") }), g = R.geometry, J = R.jump, P = R.params, S = R.series;
+      const k = (lab, v, bad) => `<div class="mpc-kpi ${bad ? "mpc-bad" : ""}"><span>${lab}</span><b>${v}</b></div>`;
+      const th = S.map((r) => r.th), col = (n) => S.map((r) => r[n]);
+      const ang = []; for (let i = 0; i <= 72; i++) ang.push(i * 5 * Math.PI / 180);
+      out.innerHTML = `<div class="card"><div class="mpc-kpis">
+          ${k("pressure angle max / min", f(g.phi_max, 2) + "° / " + f(g.phi_min, 2) + "°", !g.phi_ok)}
+          ${k("smallest convex radius pitch / profile", f(g.rho_pitch_min_convex, 2) + " / " + f(g.rho_cam_min_convex, 2) + " mm", g.undercut)}
+          ${k("concave profile radius min", g.rho_concave_min ? f(g.rho_concave_min, 2) + " mm" : "none (convex)")}
+          ${k("R0 min (φ, curvature)", R.R0_min ? f(R.R0_min, 2) + " mm" : "–")}
+          ${k("contact force min", f(J.Fc_min, 1) + " N at " + f(J.theta_Fc_min, 1) + "°", J.lift_off)}
+          ${k("preload needed / actual", f(J.F0_min_no_jump, 1) + " / " + f(P.F0_spring, 1) + " N", J.F0_min_no_jump > P.F0_spring)}
+          ${k("normal force max", f(R.Fn_max, 0) + " N")}${k("camshaft torque", f(R.T_min, 2) + " … " + f(R.T_max, 2) + " N m")}
+          ${k("Hertz p_max · S", f(R.contact.p_max, 0) + " MPa · " + f(R.contact.S_H, 2), R.contact.S_H < 1)}
+          ${k("roller speed max", f(R.contact.n_roller_max, 0) + " rpm")}
+          ${k("cutter / wheel", (R.gouge_cutter ? "cutter gouges" : "cutter OK") + " / " + (R.gouge_wheel ? "wheel gouges" : "wheel OK"), R.gouge_cutter || R.gouge_wheel)}</div>
+        <div class="mpc-charts">
+          ${chart([{ name: "cam profile", x: col("px"), y: col("py") }, { name: "pitch curve", x: col("qx"), y: col("qy"), dash: 1 },
+                   { name: "base circle", x: ang.map((a) => P.R0 * Math.cos(a)), y: ang.map((a) => P.R0 * Math.sin(a)), dash: 1, col: "#999" }],
+                  { title: "Cam profile and pitch curve [mm] (θ = 0 at +y, cam turns ccw)", equal: 1, h: 360 }).svg}
+          ${chart([{ name: "s [mm]", x: th, y: col("s") }, { name: "v [m/s ×10]", x: th, y: S.map((r) => r.v * 10) }, { name: "a [m/s² /2]", x: th, y: S.map((r) => r.a / 2) }],
+                  { title: "Lift s, velocity v, acceleration a over the cam angle", xl: "θ [°]", yl: "" }).svg}
+          ${chart([{ name: "contact force Fc [N]", x: th, y: col("Fc") }, { name: "zero", x: [0, 360], y: [0, 0], dash: 1, col: "#d03b3b" }],
+                  { title: "Contact force along the follower axis (below 0 = lift-off)", xl: "θ [°]", yl: "N", zeroY: 1 }).svg}
+          ${chart([{ name: "pressure angle φ [°]", x: th, y: col("phi") }, { name: "+allow", x: [0, 360], y: [P.phi_allow, P.phi_allow], dash: 1, col: "#d03b3b" },
+                   { name: "−allow", x: [0, 360], y: [-P.phi_allow, -P.phi_allow], dash: 1, col: "#d03b3b" }],
+                  { title: "Pressure angle over the cam angle", xl: "θ [°]", yl: "°" }).svg}</div>
+        <div class="mpc-tw"><table><thead><tr><th>law</th><th>C_v</th><th>C_a</th><th>C_j</th></tr></thead><tbody>
+          ${Object.entries(R.laws).map(([n, c]) => `<tr><td>${n}</td><td>${f(c.Cv, 3)}</td><td>${f(c.Ca, 3)}</td><td>${f(c.Cj, 1)}</td></tr>`).join("")}</tbody></table></div>
+        <details><summary>Full report (same as <code>python cam.py run</code>)</summary><pre class="mpc-pre">${esc(R.report)}</pre></details></div>`;
+    } catch (e) { err(out, e); }
+  };
+  $("mpcCmRun").onclick = run;
+  $("mpcCmReset").onclick = () => { $("mpcCmF").outerHTML = form("mpcCmF", D0); run(); };
+  run();
+}
+
+/* ------------------------------------------------------------------ item 13: M7 bolted joints */
+async function item13(host) {
+  const C = await catalog(), D0 = C.bolt_default, O = C.bolt_options;
+  const sel = { thread: O.threads, cls: O.classes, joint: ["DSV", "ESV"], part_material: O.materials, nut_side_material: O.materials,
+                tightening: O.tightening, Rz: O.Rz, rolled: ["before", "after"] };
+  const skip = new Set(Object.keys(sel));
+  host.innerHTML = `<div class="card"><div class="card-head"><h2>M7 – bolted joint (VDI 2230 style, R0–R13)</h2><span class="sub">same code as <code>tools/bolt.py</code> · concentric single-bolt joint · simplified – check · example values</span></div>
+    <div class="mpc-form">${Object.entries(sel).map(([k, o]) => `<label class="mpc-f ${k === "tightening" || k.includes("material") ? "mpc-fw" : ""}"><span>${k.replace(/_/g, " ")}</span><select id="mpcBt_${k}">${o.map((v) => `<option ${v === D0[k] ? "selected" : ""}>${esc(v)}</option>`).join("")}</select></label>`).join("")}</div>
+    ${form("mpcBtF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k))))}
+    <div class="mpc-btns"><button class="btn" id="mpcBtRun">Calculate</button><button class="btn ghost" id="mpcBtReset">Example values</button></div></div>
+    <div id="mpcBtOut"></div>`;
+  const run = async () => {
+    const out = $("mpcBtOut"); busy(out, "calculating …");
+    try {
+      const p = readForm("mpcBtF");
+      Object.keys(sel).forEach((k) => { p[k] = $("mpcBt_" + k).value; });
+      const R = await api("/api/mpc/bolt", { params: p }), P = R.params, t = R.tight, D = R.diagram;
+      const k = (lab, v, bad) => `<div class="mpc-kpi ${bad ? "mpc-bad" : ""}"><span>${lab}</span><b>${v}</b></div>`;
+      const saf = [["preload F_Mmax / F_Mzul ≤ 1", 1 / R.pre.utilisation, 1], ["yield S_F", R.ws.S_F, P.S_F_req], ["fatigue S_D", R.fat.S_D, P.S_D_req],
+                   ["surface pressure S_p", R.sp.S_p, P.S_p_req], ["slip S_G", R.slip.S_G, P.S_slip_req]];
+      const mx = Math.max(3, ...saf.map((s) => Math.min(s[1], 10)));
+      const bars = saf.map(([n, v, m]) => `<tr><td>${n}</td><td style="width:60%"><div style="background:${v >= m ? "#2e8b57" : "#d03b3b"};height:12px;width:${Math.min(100, v / mx * 100)}%"></div></td><td><b>${f(v, 2)}</b> (min ${f(m, 2)})</td></tr>`).join("");
+      const kN = (x) => f(x / 1000, 1) + " kN";
+      out.innerHTML = `<div class="card"><div class="mpc-kpis">
+          ${k("A_S · d2 · d3", f(R.g.AS, 2) + " mm² · " + f(R.g.d2, 3) + " · " + f(R.g.d3, 3))}${k("c_S · c_P", f(R.lf.cS / 1000, 0) + " · " + f(R.lf.cP / 1000, 0) + " kN/mm")}
+          ${k("Φ_K · Φ_n", f(R.lf.Phi_K, 4) + " · " + f(R.lf.Phi_n, 4))}${k("cone model", R.plate.model + " (D_A,Gr " + f(R.plate.DA_Gr, 1) + ")")}
+          ${k("F_Kerf · F_Z", kN(R.req.FKerf) + " · " + kN(R.emb.FZ))}${k("F_Mmin · F_Mmax", kN(R.pre.FMmin_req) + " · " + kN(R.pre.FMmax_req))}
+          ${k("F_Mzul · utilisation", kN(t.FMzul) + " · " + f(R.pre.utilisation, 3), !R.ok.preload)}${k("tightening torque M_A", f(t.MA, 1) + " N m")}
+          ${k("σ_red · σ_a", f(R.ws.sigma_red, 0) + " · " + f(R.fat.sigma_a, 1) + " MPa")}${k("p under head", f(R.sp.p_working, 0) + " / " + f(R.sp.pG, 0) + " MPa", !R.ok.pressure)}
+          ${k("F_KRmin", kN(R.slip.FKRmin), R.slip.opens)}${k("smallest size passing all", R.select ? R.select.join(" ") : "none", !R.select)}</div>
+        <div class="mpc-tw"><table><thead><tr><th>check</th><th>safety</th><th></th></tr></thead><tbody>${bars}</tbody></table></div>
+        <div class="mpc-charts">
+          ${chart([{ name: "bolt", x: D.bolt.map((q) => q[0]), y: D.bolt.map((q) => q[1] / 1000) }, { name: "clamped parts", x: D.plate.map((q) => q[0]), y: D.plate.map((q) => q[1] / 1000) },
+                   { name: "F_SA (bolt share of F_A)", x: [D.fS, D.fS], y: [D.FV / 1000, (D.FV + D.FSA) / 1000], wid: 4, col: "#d03b3b" }],
+                  { title: `Joint diagram at the lowest residual preload ${kN(D.FV)} [kN over µm]`, xl: "elongation / compression [µm]", yl: "kN", zeroY: 1 }).svg}</div>
+        <div class="mpc-tw"><table><thead><tr><th>tightening method</th><th>α_A</th><th>F_Mmax / F_Mzul</th><th>S_G</th><th>all checks</th></tr></thead><tbody>
+          ${R.methods.map((m) => `<tr class="${m.all_ok ? "" : "mpc-bad"}"><td>${esc(m.method)}</td><td>${f(m.alpha_A, 1)}</td><td>${f(m.util, 3)}</td><td>${f(m.S_G, 2)}</td><td>${m.all_ok ? "pass" : "fail"}</td></tr>`).join("")}</tbody></table></div>
+        <div class="mpc-tw"><table><thead><tr><th>thread</th><th>8.8 F_Mzul / M_A</th><th>10.9 F_Mzul / M_A</th><th>12.9 F_Mzul / M_A</th></tr></thead><tbody>
+          ${R.torque_table.map((r) => `<tr><td>${r.thread}</td>${["8.8", "10.9", "12.9"].map((c) => `<td>${kN(r[c][0])} / ${f(r[c][1], 1)} N m</td>`).join("")}</tr>`).join("")}</tbody></table>
+          <p class="hint">Torque table with the current friction μ_G,min ${f(P.muG_min, 2)} / μ_K,min ${f(P.muK_min, 2)} and ν ${f(P.nu, 2)}.</p></div>
+        <details><summary>Full report (same as <code>python bolt.py run</code>)</summary><pre class="mpc-pre">${esc(R.report)}</pre></details></div>`;
+    } catch (e) { err(out, e); }
+  };
+  $("mpcBtRun").onclick = run;
+  $("mpcBtReset").onclick = () => { $("mpcBtF").outerHTML = form("mpcBtF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k)))); Object.keys(sel).forEach((k) => { $("mpcBt_" + k).value = D0[k]; }); run(); };
+  run();
+}
+
+/* ------------------------------------------------------------------ item 14: M8 springs */
+async function item14(host) {
+  const C = await catalog(), D0 = C.spring_default, O = C.spring_options;
+  const sel = { material: O.materials, seating: O.seating, ends: ["closed and ground", "closed not ground", "open"], shot_peened: [true, false], dynamic: [true, false] };
+  const skip = new Set(Object.keys(sel));
+  host.innerHTML = `<div class="card"><div class="card-head"><h2>M8 – helical compression spring (EN 13906-1 style)</h2><span class="sub">same code as <code>tools/spring.py</code> · default = follower spring of the M6 cam · typical material data – check · example values</span></div>
+    <div class="mpc-form">${Object.entries(sel).map(([k, o]) => `<label class="mpc-f ${k === "material" || k === "seating" ? "mpc-fw" : ""}"><span>${k.replace(/_/g, " ")}</span><select id="mpcSp_${k}">${o.map((v) => `<option value="${v}" ${v === D0[k] ? "selected" : ""}>${esc(String(v))}</option>`).join("")}</select></label>`).join("")}</div>
+    ${form("mpcSpF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k))), { req: "requirements {F1, F2, stroke, D, Da_max}" })}
+    <div class="mpc-btns"><button class="btn" id="mpcSpRun">Calculate</button><button class="btn ghost" id="mpcSpReset">Example values</button></div></div>
+    <div id="mpcSpOut"></div>`;
+  const run = async () => {
+    const out = $("mpcSpOut"); busy(out, "calculating …");
+    try {
+      const p = readForm("mpcSpF");
+      Object.keys(sel).forEach((k) => { const v = $("mpcSp_" + k).value; p[k] = v === "true" ? true : v === "false" ? false : v; });
+      const R = await api("/api/mpc/spring", { params: p }), g = R.geometry, F = R.forces, P = R.params, ft = R.fat, H = R.haigh;
+      const k = (lab, v, bad) => `<div class="mpc-kpi ${bad ? "mpc-bad" : ""}"><span>${lab}</span><b>${v}</b></div>`;
+      const yn = (b) => (b ? "OK" : "NOT OK");
+      out.innerHTML = `<div class="card"><div class="mpc-kpis">
+          ${k("R_m · τ_zul", f(R.Rm, 0) + " · " + f(R.static.tau_zul, 0) + " MPa")}${k("rate R", f(F.R, 4) + " N/mm")}
+          ${k("F1 · F2 · F_solid", f(F.F1, 1) + " · " + f(F.F2, 1) + " · " + f(F.Fc, 1) + " N")}${k("index w · k", f(g.w, 2) + " · " + f(g.k, 4), !R.ok.index_w)}
+          ${k("L_c · L_n,min · L2", f(g.Lc, 2) + " · " + f(g.Ln_min, 2) + " · " + f(P.L2, 1) + " mm", !R.ok.min_gaps)}
+          ${k("τ at L2 · S", f(R.static.tau_2, 0) + " MPa · " + f(R.static.S_2, 2), !R.ok.static)}${k("solid-safe", R.static.block_safe ? "yes" : "no", !R.static.block_safe)}
+          ${k("fatigue stroke / allowed · S", f(ft.tau_kH, 0) + " / " + f(ft.tau_kH_lim, 0) + " MPa · " + f(ft.S_fat, 2), !R.ok.fatigue)}
+          ${k("buckling", R.buck.sK ? "s_K " + f(R.buck.sK, 1) + " mm" : "none (stable)", !R.buck.safe)}
+          ${k("natural frequency", f(R.freq.fe, 0) + " Hz = " + f(R.freq.ratio, 1) + " × f_exc", !R.ok.surge)}
+          ${k("Da · mass", f(g.Da, 2) + " mm · " + f(g.mass_kg * 1000, 1) + " g", !R.ok.outer_diameter)}
+          ${k("lightest design for req.", R.design.best ? "d " + f(R.design.best.d, 1) + ", n " + f(R.design.best.n, 1) + ", L0 " + f(R.design.best.L0, 1) : "none", !R.design.best)}</div>
+        <div class="mpc-charts">
+          ${chart([{ name: "characteristic", x: R.char.map((c) => c[0]), y: R.char.map((c) => c[1]) },
+                   { name: "working stroke", x: [F.s1, F.s2], y: [F.F1, F.F2], wid: 5, col: "#d03b3b" }],
+                  { title: "Spring characteristic F over deflection s (dots: L1, L2, solid) [N]", xl: "s [mm]", yl: "N", zeroY: 1 }).svg}
+          ${chart([{ name: "Haigh limit (1e7)", x: H.limit.map((c) => c[0]), y: H.limit.map((c) => c[1]) }, { name: "static limit 0.5 Rm", x: H.static.map((c) => c[0]), y: H.static.map((c) => c[1]), dash: 1, col: "#999" },
+                   { name: "τ_kO = τ_kU", x: H.diag.map((c) => c[0]), y: H.diag.map((c) => c[1]), dash: 1, col: "#bbb" },
+                   { name: "working stroke", x: [H.point[0], H.point[0]], y: [H.point[0], H.point[1]], wid: 5, col: "#d03b3b" }],
+                  { title: "Haigh diagram (corrected stresses) [MPa]", xl: "τ_kU [MPa]", yl: "τ_kO [MPa]", zeroY: 1 }).svg}</div>
+        <div class="mpc-tw"><table><thead><tr><th>d</th><th>n</th><th>R</th><th>L0</th><th>L2</th><th>mass g</th><th>S static</th><th>S fatigue</th><th>f_e Hz</th><th>result</th></tr></thead><tbody>
+          ${R.design.candidates.map((c) => `<tr class="${c.ok ? "" : "mpc-bad"}"><td>${f(c.d, 1)}</td><td>${f(c.n, 1)}</td><td>${f(c.R, 2)}</td><td>${f(c.L0, 1)}</td><td>${f(c.L2, 1)}</td><td>${f(c.mass_g, 0)}</td><td>${f(c.S_2, 2)}</td><td>${f(c.S_fat, 2)}</td><td>${f(c.fe, 0)}</td><td>${c.ok ? "OK" : "fails: " + c.fails.join(", ")}</td></tr>`).join("")}</tbody></table>
+          <p class="hint">Design from requirements: required rate ${f(R.design.R_req, 3)} N/mm · checks: ${Object.entries(R.ok).map(([n, v]) => n + " " + yn(v)).join(" · ")}</p></div>
+        <details><summary>Full report (same as <code>python spring.py run</code>)</summary><pre class="mpc-pre">${esc(R.report)}</pre></details></div>`;
+    } catch (e) { err(out, e); }
+  };
+  $("mpcSpRun").onclick = run;
+  $("mpcSpReset").onclick = () => { $("mpcSpF").outerHTML = form("mpcSpF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k)))); Object.keys(sel).forEach((k) => { $("mpcSp_" + k).value = String(D0[k]); }); run(); };
+  run();
+}
+
+/* ------------------------------------------------------------------ item 15: M9 belts, chains, couplings */
+async function item15(host) {
+  const C = await catalog(), D0 = C.drive_default, O = C.drive_options;
+  const sel = { load_class: O.load_class, vb_section: O.vb_section, sy_profile: O.sy_profile, ch_chain: O.ch_chain, cp_spider: O.cp_spider };
+  const skip = new Set(Object.keys(sel));
+  host.innerHTML = `<div class="card"><div class="card-head"><h2>M9 – belt, chain and coupling drives (DIN 7753 / ISO 5292, ISO 13050, ISO 606, DIN 740-2 style)</h2><span class="sub">same code as <code>tools/drive.py</code> · default = compressor drive of M2 (3 kW 2930 → 1450 rpm) · typical catalogue data – check · example values</span></div>
+    <div class="mpc-form">${Object.entries(sel).map(([k, o]) => `<label class="mpc-f ${k === "load_class" ? "mpc-fw" : ""}"><span>${k.replace(/_/g, " ")}</span><select id="mpcDr_${k}">${o.map((v) => `<option value="${esc(v)}" ${v === D0[k] ? "selected" : ""}>${esc(String(v))}</option>`).join("")}</select></label>`).join("")}</div>
+    ${form("mpcDrF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k))), { cp_T_harm: "cp T harm [[order, N m], …]" })}
+    <div class="mpc-btns"><button class="btn" id="mpcDrRun">Calculate</button><button class="btn ghost" id="mpcDrReset">Example values</button></div></div>
+    <div id="mpcDrOut"></div>`;
+  const run = async () => {
+    const out = $("mpcDrOut"); busy(out, "calculating …");
+    try {
+      const p = readForm("mpcDrF");
+      Object.keys(sel).forEach((k) => { p[k] = $("mpcDr_" + k).value; });
+      const R = await api("/api/mpc/drive", { params: p }), V = R.vbelt, Y = R.sync, K = R.chain, B = R.cp_sel, T = R.vb_table;
+      const k = (lab, v, bad) => `<div class="mpc-kpi ${bad ? "mpc-bad" : ""}"><span>${lab}</span><b>${v}</b></div>`;
+      const all = (o) => Object.values(o).every(Boolean);
+      const fails = (o) => Object.entries(o).filter(([, v]) => !v).map(([n]) => n).join(", ");
+      out.innerHTML = `<div class="card"><div class="mpc-kpis">
+          ${k("service factor · P_B", f(V.c2, 2) + " · " + f(V.P_B, 2) + " kW")}
+          ${k("V-belt " + V.section, V.z + " × Ld " + f(V.Ld, 0) + " · d " + f(V.d1, 0) + "/" + f(V.d2, 0), !all(V.ok))}
+          ${k("a · wrap · v", f(V.a, 1) + " mm · " + f(V.beta1_deg, 1) + "° · " + f(V.v, 1) + " m/s")}
+          ${k("per belt P_N · c1 · c3", f(V.P_N, 2) + " kW · " + f(V.c1, 3) + " · " + f(V.c3, 3))}
+          ${k("T0 · shaft load run / stand", f(V.T0, 0) + " N · " + f(V.F_shaft, 0) + " / " + f(V.F_shaft_static, 0) + " N")}
+          ${k("test: deflection · force · span f", f(V.test_deflection, 1) + " mm · " + f(V.F_test, 1) + " N · " + f(V.f_span, 0) + " Hz")}
+          ${k("belt life (fatigue / expected)", f(V.L_h_fat, 0) + " / " + f(V.L_h, 0) + " h", V.L_h < 25000)}
+          ${k("sync " + Y.profile, (Y.b ? Y.b + " mm wide" : "no width") + " · " + f(Y.Lp, 0) + " mm belt · n2 " + f(Y.n2, 0), !all(Y.ok))}
+          ${k("chain " + K.chain + " ×" + K.strands, f(K.P_allow, 2) + " / " + f(K.P_req, 2) + " kW · " + K.lub, !all(K.ok))}
+          ${k("coupling (direct drive)", R.coupling.best ? B.size + " · f_e " + f(B.f_e, 0) + " Hz · start " + f(B.T_S, 0) + "/" + f(B.T_Kmax, 0) + " N m" : "no size passes", !R.coupling.best)}
+          ${k("cheapest V-belt", T.best ? T.best.section + " " + T.best.d1 + "/" + T.best.d2 + " × " + T.best.z : "none", !T.best)}</div>
+        <div class="mpc-charts">
+          ${chart(R.vb_curves.map((c) => ({ name: V.section + " d " + c.d, x: c.n, y: c.P }))
+                 .concat([{ name: "required per belt", x: [P0(R).n1, P0(R).n1], y: [0, V.P_B / (V.z * V.c1 * V.c3)], wid: 4, col: "#d03b3b" }]),
+                  { title: "V-belt rating P_N per belt (180°, reference length) [kW]", xl: "small pulley speed [rpm]", yl: "kW", zeroY: 1 }).svg}
+          ${chart([{ name: "link plate", x: R.ch_curves.n, y: R.ch_curves.H1 }, { name: "roller-bushing", x: R.ch_curves.n, y: R.ch_curves.H2 },
+                   { name: "required per strand", x: [R.ch_curves.n[0], R.ch_curves.n[R.ch_curves.n.length - 1]], y: [K.P_req / ({ 1: 1, 2: 1.7, 3: 2.5, 4: 3.3 })[K.strands], K.P_req / ({ 1: 1, 2: 1.7, 3: 2.5, 4: 3.3 })[K.strands]], dash: 1, col: "#d03b3b" }],
+                  { title: "Chain " + K.chain + ", z1 " + K.z1 + ": rating per strand [kW] (operating speed " + f(P0(R).n1, 0) + " rpm)", xl: "small sprocket speed [rpm]", yl: "kW", zeroY: 1 }).svg}
+          ${chart([{ name: "magnification V", x: R.cp_curve.f, y: R.cp_curve.V }, { name: "compressor orders", x: B.orders.map((o) => o.f), y: B.orders.map((o) => o.V), dots: 1, col: "#d03b3b" }],
+                  { title: "Coupling " + B.size + ": magnification over frequency (f_e " + f(B.f_e, 0) + " Hz)", xl: "f [Hz]", yl: "V", zeroY: 1 }).svg}</div>
+        <div class="mpc-tw"><table><thead><tr><th>drive</th><th>result</th><th>n2 rpm</th><th>η drive</th><th>η motor</th><th>P electric kW</th><th>kWh / year</th><th>€ / year</th><th>shaft load N</th></tr></thead><tbody>
+          ${R.compare.map((c) => `<tr class="${c.ok ? "" : "mpc-bad"}"><td>${esc(c.drive)}</td><td>${c.ok ? "OK" : "NOT OK"}</td><td>${f(c.n2, 0)}</td><td>${f(c.eta_drive, 3)}</td><td>${f(c.eta_motor, 3)}</td><td>${f(c.P_el_kW, 3)}</td><td>${f(c.kWh_year, 0)}</td><td>${f(c.eur_year, 0)}</td><td>${f(c.F_shaft, 0)}</td></tr>`).join("")}</tbody></table>
+          <p class="hint">V-belt: ${all(V.ok) ? "all checks OK" : "fails: " + fails(V.ok)} · synchronous belt: ${all(Y.ok) ? "all checks OK" : "fails: " + fails(Y.ok)} · chain: ${all(K.ok) ? "all checks OK" : "fails: " + fails(K.ok)}</p></div>
+        <div class="mpc-tw"><table><thead><tr><th>coupling</th><th>T_KN</th><th>T_Kmax</th><th>T_KW</th><th>C_dyn N m/rad</th><th>f_e Hz</th><th>start torque</th><th>max vib. util.</th><th>result</th></tr></thead><tbody>
+          ${R.coupling.rows.map((r) => `<tr class="${all(r.ok) ? "" : "mpc-bad"}"><td>${r.size}</td><td>${f(r.T_KN, 0)}</td><td>${f(r.T_Kmax, 0)}</td><td>${f(r.T_KW, 1)}</td><td>${f(r.C_dyn, 0)}</td><td>${f(r.f_e, 0)}</td><td>${f(r.T_S, 1)}</td><td>${f(Math.max(...r.orders.map((o) => o.util)), 2)}</td><td>${all(r.ok) ? "OK" : "fails: " + fails(r.ok)}</td></tr>`).join("")}</tbody></table></div>
+        <details><summary>Full report (same as <code>python drive.py run</code>)</summary><pre class="mpc-pre">${esc(R.report)}</pre></details></div>`;
+    } catch (e) { err(out, e); }
+  };
+  const P0 = (R) => R.params;
+  $("mpcDrRun").onclick = run;
+  $("mpcDrReset").onclick = () => { $("mpcDrF").outerHTML = form("mpcDrF", Object.fromEntries(Object.entries(D0).filter(([k]) => !skip.has(k))), { cp_T_harm: "cp T harm [[order, N m], …]" }); Object.keys(sel).forEach((k) => { $("mpcDr_" + k).value = String(D0[k]); }); run(); };
+  run();
+}
+
+/* ------------------------------------------------------------------ item 16: M10 tolerances, fits, stack-up */
+async function item16(host) {
+  const C = await catalog(), D0 = C.tol_default;
+  const calc0 = { D: 25, hole: "H7", shaft: "g6" };
+  host.innerHTML = `<div class="card"><div class="card-head"><h2>M10 – tolerances and fits (ISO 286), interference fit (DIN 7190 style), stack-up, position</h2><span class="sub">same code as <code>tools/tol.py</code> · ISO 286 table values (check against the standard) · default = M2 compressor seats, TDC gap stack, head bolts · example values</span></div>
+    <div class="mpc-form"><label class="mpc-f"><span>fit calculator: nominal size D mm</span><input type="number" step="any" id="mpcTl_D" value="${calc0.D}"></label>
+      <label class="mpc-f"><span>hole zone (e.g. H7, K6, brg_od, dev:+10/-5)</span><input type="text" id="mpcTl_hole" value="${calc0.hole}"></label>
+      <label class="mpc-f"><span>shaft zone (e.g. g6, js5, brg_bore)</span><input type="text" id="mpcTl_shaft" value="${calc0.shaft}"></label></div>
+    ${form("mpcTlF", D0)}
+    <div class="mpc-btns"><button class="btn" id="mpcTlRun">Calculate</button><button class="btn ghost" id="mpcTlReset">Example values</button></div></div>
+    <div id="mpcTlOut"></div>`;
+  const run = async () => {
+    const out = $("mpcTlOut"); busy(out, "calculating …");
+    try {
+      const p = readForm("mpcTlF");
+      const fitIn = { D: Number($("mpcTl_D").value), hole: $("mpcTl_hole").value, shaft: $("mpcTl_shaft").value };
+      const R = await api("/api/mpc/tol", { params: p, fit: fitIn }), F = R.fit, S = R.stack, Pr = R.press, G = R.gdt, st = R.params.stack;
+      const k = (lab, v, bad) => `<div class="mpc-kpi ${bad ? "mpc-bad" : ""}"><span>${lab}</span><b>${v}</b></div>`;
+      const box = (x0, x1, a, b) => ({ x: [x0, x1, x1, x0, x0], y: [a, a, b, b, a] });
+      const zmax = Math.max(F.ES, F.es, 0), zmin = Math.min(F.EI, F.ei, 0);
+      out.innerHTML = `<div class="card"><div class="mpc-kpis">
+          ${k("hole " + esc(F.hole) + " (µm)", f(F.ES, 1) + " / " + f(F.EI, 1))}${k("shaft " + esc(F.shaft) + " (µm)", f(F.es, 1) + " / " + f(F.ei, 1))}
+          ${k("clearance min … max", f(F.C_min, 1) + " … " + f(F.C_max, 1) + " µm")}${k("fit type", F.type)}
+          ${k("P(interference)", f(100 * F.P_interference, 1) + " %")}
+          ${k("stack " + esc(st.name) + ": WC", f(S.G_min_wc, 3) + " … " + f(S.G_max_wc, 3) + " mm", !S.ok.worst_case)}
+          ${k("stack RSS · Cpk", f(S.G_min_rss, 3) + " … " + f(S.G_max_rss, 3) + " mm · " + f(S.Cpk, 2), !S.ok.rss)}
+          ${k("press fit " + esc(R.params.pressfit.fit) + ": slip safety", f(Pr.S_slip, 2) + " (T " + f(Pr.lo.T_Nm, 1) + " N m)", !Pr.ok.slip_at_U_min)}
+          ${k("hub stress · S · shrink ΔT", f(Pr.hi.sig_v_hub, 0) + " MPa · " + f(Pr.hi.S_hub, 2) + " · " + f(Pr.dT_shrink, 0) + " K", !Pr.ok.hub_at_U_max)}
+          ${k("position (floating / fixed)", "Ø " + f(G.T_floating, 2) + " / " + f(G.T_fixed, 2) + " mm")}</div>
+        <div class="mpc-charts">
+          ${chart([Object.assign({ name: "hole " + F.hole, col: "#2a6fdb", wid: 2.5 }, box(0, 1, F.EI, F.ES)), Object.assign({ name: "shaft " + F.shaft, col: "#d03b3b", wid: 2.5 }, box(1.4, 2.4, F.ei, F.es)),
+                   { name: "zero line (nominal " + f(F.D, 1) + " mm)", x: [-0.2, 2.6], y: [0, 0], dash: 1, col: "#888" }],
+                  { title: "Tolerance zones (µm from nominal size)", xl: "", yl: "µm", zeroY: 1 }).svg}
+          ${chart([{ name: "Monte Carlo 20 000 (normal parts)", x: R.hist.x, y: R.hist.n }, { name: "LSL", x: [st.LSL, st.LSL], y: [0, Math.max(...R.hist.n)], dash: 1, col: "#d03b3b" },
+                   { name: "USL", x: [st.USL, st.USL], y: [0, Math.max(...R.hist.n)], dash: 1, col: "#d03b3b" },
+                   { name: "worst case", x: [S.G_min_wc, S.G_min_wc, S.G_max_wc, S.G_max_wc], y: [Math.max(...R.hist.n) * 0.5, 0, 0, Math.max(...R.hist.n) * 0.5], col: "#999" }],
+                  { title: "Stack-up " + st.name + ": distribution of the closing dimension [mm]", xl: "mm", yl: "count", zeroY: 1 }).svg}</div>
+        <div class="mpc-tw"><table><thead><tr><th>feature</th><th>D</th><th>fit</th><th>hole µm</th><th>shaft µm</th><th>C min … max µm</th><th>type</th><th>hot C min … max</th><th>need</th><th>cold / hot</th></tr></thead><tbody>
+          ${R.fits.map((r) => `<tr class="${r.ok_cold && r.ok_hot ? "" : "mpc-bad"}"><td>${esc(r.name)}</td><td>${f(r.D, 0)}</td><td>${esc(r.hole)}/${esc(r.shaft)}</td><td>${f(r.EI, 0)} / ${f(r.ES, 0)}</td><td>${f(r.ei, 0)} / ${f(r.es, 0)}</td><td>${f(r.C_min, 1)} … ${f(r.C_max, 1)}</td><td>${r.type}</td><td>${f(r.C_min_hot, 1)} … ${f(r.C_max_hot, 1)}</td><td>${r.need[0] === null ? "–" : r.need[0]} … ${r.need[1] === null ? "–" : r.need[1]}</td><td>${r.ok_cold ? "OK" : "NOT OK"} / ${r.ok_hot ? "OK" : "NOT OK"}</td></tr>`).join("")}</tbody></table>
+          <p class="hint">Fits with the same clearance range as the calculator fit (fit finder, hole basis): ${R.finder.map((r) => esc(r.pair) + (r.preferred ? " (preferred)" : "")).join(" · ") || "none"}</p></div>
+        <div class="mpc-tw"><table><thead><tr><th>stack item</th><th>sign</th><th>nominal mm</th><th>± mm</th><th>contribution</th></tr></thead><tbody>
+          ${st.items.map((it, i) => `<tr><td>${esc(it[0])}</td><td>${it[1] > 0 ? "+" : "−"}</td><td>${f(it[2], 3)}</td><td>${f(it[3], 3)}</td><td>${f(S.contrib[i][1], 1)} %</td></tr>`).join("")}</tbody></table>
+          <p class="hint">nominal ${f(S.G, 3)} mm · worst case ±${f(S.WC, 3)} · RSS ±${f(S.RSS, 3)} · modified RSS ±${f(S.MRSS, 3)} · Monte Carlo normal σ ${f(S.mc.normal.sd, 4)} mm, ${f(S.mc.normal.out_ppm, 0)} ppm out · uniform σ ${f(S.mc.uniform.sd, 4)} mm, ${f(S.mc.uniform.out_ppm, 0)} ppm out</p></div>
+        <details><summary>Full report (same as <code>python tol.py run</code>)</summary><pre class="mpc-pre">${esc(R.report)}</pre></details></div>`;
+    } catch (e) { err(out, e); }
+  };
+  $("mpcTlRun").onclick = run;
+  $("mpcTlReset").onclick = () => { $("mpcTlF").outerHTML = form("mpcTlF", D0); $("mpcTl_D").value = calc0.D; $("mpcTl_hole").value = calc0.hole; $("mpcTl_shaft").value = calc0.shaft; run(); };
+  run();
+}
+
+/* ------------------------------------------------------------------ item 17: M11 welds, frames, pressure parts */
+async function item17(host) {
+  const C = await catalog(), W0 = C.weld_default, V0 = C.vessel_default, O = C.weld_options;
+  const wsel = { steel: O.steels, fat_toe: O.fat, fat_throat: O.fat, fat_shear: O.fat };
+  const vsel = { material: O.vmat, joint: O.joint, head: O.heads };
+  const wskip = new Set(Object.keys(wsel)), vskip = new Set(Object.keys(vsel));
+  const selects = (pre, sel, D) => `<div class="mpc-form">${Object.entries(sel).map(([k, o]) => `<label class="mpc-f mpc-fw"><span>${k.replace(/_/g, " ")}</span><select id="${pre}${k}">${o.map((v) => `<option value="${esc(v)}" ${v === D[k] ? "selected" : ""}>${esc(v)}</option>`).join("")}</select></label>`).join("")}</div>`;
+  const wform = () => form("mpcWdF", Object.fromEntries(Object.entries(W0).filter(([k]) => !wskip.has(k))));
+  const vform = () => form("mpcVsF", Object.fromEntries(Object.entries(V0).filter(([k]) => !vskip.has(k))));
+  host.innerHTML = `<div class="card"><div class="card-head"><h2>M11 – welds and frames (EN 1993-1-8 / -1-9 style) and air receiver (EN 13445 / ASME VIII-1 style)</h2><span class="sub">same code as <code>tools/weld.py</code> and <code>tools/vessel.py</code> · default = motor bracket post and air receiver of the M2 compressor · typical values – check · example values</span></div>
+    <h3>Weld group and fatigue</h3>${selects("mpcWd_", wsel, W0)}${wform()}
+    <h3>Pressure vessel (air receiver)</h3>${selects("mpcVs_", vsel, V0)}${vform()}
+    <div class="mpc-btns"><button class="btn" id="mpcWvRun">Calculate</button><button class="btn ghost" id="mpcWvReset">Example values</button></div></div>
+    <div id="mpcWvOut"></div>`;
+  const run = async () => {
+    const out = $("mpcWvOut"); busy(out, "calculating …");
+    try {
+      const w = readForm("mpcWdF"), v = readForm("mpcVsF");
+      Object.keys(wsel).forEach((k) => { w[k] = $("mpcWd_" + k).value; });
+      Object.keys(vsel).forEach((k) => { v[k] = $("mpcVs_" + k).value; });
+      const R = await api("/api/mpc/weldvessel", { weld: w, vessel: v }), F = R.fillet, M = R.member, Fa = R.fatigue, S = R.vessel, D = S.D;
+      const k = (lab, val, bad) => `<div class="mpc-kpi ${bad ? "mpc-bad" : ""}"><span>${lab}</span><b>${val}</b></div>`;
+      const rules = F.rules, rok = rules.ok_min && rules.ok_max && rules.ok_len;
+      const lines = R.weld_params.lines;
+      const geo = lines.map((l, i) => ({ name: i === 0 ? "weld lines" : "", x: [l[0], l[2]], y: [l[1], l[3]], wid: 3, col: "#2a6fdb" }));
+      const nf = (N) => (N === null || N === Infinity || N > 1e300 ? "∞" : Number(N).toExponential(2));
+      out.innerHTML = `<div class="card"><div class="mpc-kpis">
+          ${k("weld utilisation (directional / simplified)", f(F.util_dir, 3) + " / " + f(F.util_simple, 3), F.util_dir > 1)}
+          ${k("worst point σ⊥ · τ∥ · σ_eq", f(F.worst.sigma_perp, 1) + " · " + f(F.worst.tau_par, 1) + " · " + f(F.worst.sigma_eq, 1) + " MPa")}
+          ${k("throat rules a_min … a_max", f(rules.a_min, 2) + " … " + f(rules.a_max, 2) + " mm", !rok)}
+          ${k("member utilisation", f(M.util, 3), M.util > 1)}
+          ${k("fatigue damage toe · throat · shear", f(Fa.D.toe, 3) + " · " + f(Fa.D.throat, 3) + " · " + f(Fa.D.shear, 3), !Fa.ok)}
+          ${k("receiver volume", f(D.rv.V_req_L, 0) + " L req. → " + f(D.V, 0) + " L")}
+          ${k("shell · head plate", f(D.t_shell, 1) + " · " + f(D.t_head, 1) + " mm (req. " + f(D.e_shell, 2) + " · " + f(D.e_head, 2) + ")")}
+          ${k("length · mass", f(D.L_total, 0) + " mm · " + f(D.m_kg, 0) + " kg")}
+          ${k("nozzle area req. / avail.", f(S.nozzle.A_req, 1) + " / " + f(S.nozzle.A_av, 1) + " mm²", !S.nozzle.ok)}
+          ${k("test pressure · stress", f(S.test.P_test_bar, 2) + " bar · " + f(S.test.sigma_test, 0) + " MPa", !S.test.ok)}
+          ${k("PS·V · category", f(S.cat.PV, 0) + " bar·L · " + S.cat.PED + (S.cat.SPVD ? " (SPVD applies)" : ""))}
+          ${k("pressure-cycle fatigue n / N", f(S.fatigue.n, 0) + " / " + nf(S.fatigue.N), !S.fatigue.ok)}
+          ${k("safety valve flow area", f(S.sv.A_req_mm2, 2) + " mm² (" + f(S.sv.Qm_kgh, 1) + " kg/h)")}</div>
+        <div class="mpc-charts">
+          ${chart(geo.concat([{ name: "worst point", x: [F.worst.x], y: [F.worst.y], dots: 1, r: 6, col: "#d03b3b" }, { name: "centroid", x: [F.G.xc], y: [F.G.yc], dots: 1, col: "#999" }]),
+                  { title: "Weld group (mm) – worst point of the directional check", xl: "x [mm]", yl: "y [mm]", equal: 1 }).svg}
+          ${chart([{ name: "utilisation (directional)", x: F.points.map((p, i) => i), y: F.points.map((p) => p.util_dir) }, { name: "simplified", x: F.points.map((p, i) => i), y: F.points.map((p) => p.util_simple), dash: 1 }],
+                  { title: "Utilisation along the welds (check points, line by line)", xl: "check point", yl: "utilisation", zeroY: 1 }).svg}
+          ${chart(R.curves.map((c) => ({ name: c.name, x: c.x, y: c.y })).concat([{ name: "load blocks (γ·Δσ)", x: R.fat_points.map((p) => p.logN), y: R.fat_points.map((p) => p.logS), dots: 1, col: "#d03b3b" }]),
+                  { title: "S-N curves: log10 Δσ [MPa] over log10 N (flat = cut-off)", xl: "log10 N", yl: "log10 Δσ" }).svg}</div>
+        <div class="mpc-tw"><table><thead><tr><th>fatigue block</th><th>n</th><th>Δσ toe</th><th>Δσ throat</th><th>Δτ throat</th><th>N toe</th><th>N throat</th><th>N shear</th></tr></thead><tbody>
+          ${Fa.blocks.map((b) => `<tr><td>${esc(b.name)}</td><td>${Number(b.n).toExponential(2)}</td><td>${f(b.ds_toe, 2)}</td><td>${f(b.ds_w, 2)}</td><td>${f(b.dt_w, 2)}</td><td>${nf(b.N_toe)}</td><td>${nf(b.N_throat)}</td><td>${nf(b.N_shear)}</td></tr>`).join("")}</tbody></table></div>
+        <div class="mpc-tw"><table><thead><tr><th>head type</th><th>e req. mm</th><th>plate mm</th><th>depth mm</th><th>volume L</th><th>overall length mm</th><th>mass kg</th></tr></thead><tbody>
+          ${R.heads.map((h) => `<tr class="${h.head === R.vessel_params.head ? "mpc-sel" : ""}"><td>${esc(h.head)}</td><td>${f(h.e, 2)}</td><td>${f(h.t, 1)}</td><td>${f(h.depth, 0)}</td><td>${f(h.V_head, 1)}</td><td>${f(h.L_total, 0)}</td><td>${f(h.m_kg, 0)}</td></tr>`).join("")}</tbody></table></div>
+        <details><summary>Full weld report (same as <code>python weld.py run</code>)</summary><pre class="mpc-pre">${esc(R.weld_report)}</pre></details>
+        <details><summary>Full vessel report (same as <code>python vessel.py run</code>)</summary><pre class="mpc-pre">${esc(R.vessel_report)}</pre></details></div>`;
+    } catch (e) { err(out, e); }
+  };
+  $("mpcWvRun").onclick = run;
+  $("mpcWvReset").onclick = () => {
+    $("mpcWdF").outerHTML = wform(); $("mpcVsF").outerHTML = vform();
+    Object.keys(wsel).forEach((k) => { $("mpcWd_" + k).value = W0[k]; }); Object.keys(vsel).forEach((k) => { $("mpcVs_" + k).value = V0[k]; }); run();
+  };
+  run();
+}
+
+/* ------------------------------------------------------------------ item 18: M12 optimisation workflows */
+async function item18(host) {
+  const C = await catalog(), D0 = C.optflow_default;
+  host.innerHTML = `<div class="card"><div class="card-head"><h2>M12 – optimisation workflow: virtual CAE → Latin hypercube → Kriging → expected-improvement infill → verified optimum</h2><span class="sub">same code as <code>tools/optflow.py</code> · default = 2.5 m compressor package base frame on isolation mounts (M11) · templates for SOLIDWORKS / Ansys / Abaqus / Adams / MATLAB: <code>python optflow.py export</code> · example values</span></div>
+    ${form("mpcOfF", D0)}
+    <div class="mpc-btns"><button class="btn" id="mpcOfRun">Run workflow (about 15 s)</button><button class="btn ghost" id="mpcOfReset">Example values</button></div></div>
+    <div id="mpcOfOut"></div>`;
+  const run = async () => {
+    const out = $("mpcOfOut"); busy(out, "running the DOE, the surrogate models and the infill loop on the virtual CAE …");
+    try {
+      const R = await api("/api/mpc/optflow", { params: readForm("mpcOfF") }), P = R.params, R0 = R.R0, B = R.best;
+      const k = (lab, v, bad) => `<div class="mpc-kpi ${bad ? "mpc-bad" : ""}"><span>${lab}</span><b>${v}</b></div>`;
+      const lim = P.limits, ok0 = Object.values(R.g0).every((v) => v <= 1e-3);
+      const resp = (x) => `${f(x.mass_kg, 2)} kg · ${f(x.f_rigid, 2)} / ${f(x.f_bend, 1)} Hz · sag ${f(x.sag, 2)} mm`;
+      const doe = R.points.filter((p) => p.doe), inf = R.points.filter((p) => !p.doe);
+      const sc = (pts, feas) => pts.filter((p) => p.feasible === feas);
+      out.innerHTML = `<div class="card"><div class="mpc-kpis">
+          ${k("current design h · a · k", P.x0.map((v) => f(v, 1)).join(" · "))}${k("current responses", resp(R0), !ok0)}
+          ${k("optimum h · a · k", B ? B[0].map((v) => f(v, 1)).join(" · ") : "no feasible design", !B)}
+          ${B ? k("optimum responses", resp(B[1])) : ""}
+          ${k("mass saving", B ? f(100 * (1 - B[1].mass_kg / R0.mass_kg), 1) + " %" : "–")}
+          ${k("solver calls", R.calls + " (DOE " + P.doe_n + " + infill)")}
+          ${k("limits", "f_rigid ≤ " + lim.f_rigid_max + " · f_bend ≥ " + lim.f_bend_min + " Hz · sag ≤ " + lim.sag_max + " mm")}</div>
+        <div class="mpc-charts">
+          ${chart([{ name: "best feasible mass", x: R.hist.filter((h) => h.best_mass).map((h) => h.calls), y: R.hist.filter((h) => h.best_mass).map((h) => h.best_mass) },
+                   { name: "current design", x: [P.doe_n, R.calls], y: [R0.mass_kg, R0.mass_kg], dash: 1, col: "#999" }],
+                  { title: "Convergence: best feasible mass over solver calls [kg]", xl: "solver calls", yl: "kg" }).svg}
+          ${chart([{ name: "DOE feasible", x: sc(doe, true).map((p) => p.x[0]), y: sc(doe, true).map((p) => p.R.f_bend), dots: 1, col: "#2a6fdb" },
+                   { name: "DOE infeasible", x: sc(doe, false).map((p) => p.x[0]), y: sc(doe, false).map((p) => p.R.f_bend), dots: 1, col: "#bbb" },
+                   { name: "infill points", x: inf.map((p) => p.x[0]), y: inf.map((p) => p.R.f_bend), dots: 1, col: "#d03b3b" },
+                   { name: "f_bend limit", x: [P.vars[0][1], P.vars[0][2]], y: [lim.f_bend_min, lim.f_bend_min], dash: 1, col: "#d03b3b" }],
+                  { title: "Evaluated designs: first bending frequency over RHS height h", xl: "h [mm]", yl: "Hz" }).svg}
+          ${chart([{ name: "mass [kg]", x: R.cut.map((c) => c.h), y: R.cut.map((c) => c.mass_kg) }, { name: "f_bend [Hz]", x: R.cut.map((c) => c.h), y: R.cut.map((c) => c.f_bend) },
+                   { name: "f_bend limit", x: [R.cut[0].h, R.cut[R.cut.length - 1].h], y: [lim.f_bend_min, lim.f_bend_min], dash: 1, col: "#d03b3b" }],
+                  { title: "Cut through the optimum (a, k fixed): true solver over h", xl: "h [mm]", yl: "kg · Hz", zeroY: 1 }).svg}</div>
+        <div class="mpc-tw"><table><thead><tr><th>no</th><th>source</th><th>h</th><th>a</th><th>k</th><th>mass kg</th><th>f_rigid Hz</th><th>f_bend Hz</th><th>sag mm</th><th>σ MPa</th><th>feasible</th></tr></thead><tbody>
+          ${R.points.map((p, i) => `<tr class="${p.feasible ? "" : "mpc-bad"}"><td>${i + 1}</td><td>${p.doe ? "DOE" : "infill"}</td><td>${f(p.x[0], 1)}</td><td>${f(p.x[1], 1)}</td><td>${f(p.x[2], 1)}</td><td>${f(p.R.mass_kg, 2)}</td><td>${f(p.R.f_rigid, 2)}</td><td>${f(p.R.f_bend, 1)}</td><td>${f(p.R.sag, 2)}</td><td>${f(p.R.sigma, 1)}</td><td>${p.feasible ? "yes" : "no"}</td></tr>`).join("")}</tbody></table></div>
+        <details><summary>Workflow report (same as <code>python optflow.py run</code>, without the direct reference search)</summary><pre class="mpc-pre">${esc(R.report)}</pre></details></div>`;
+    } catch (e) { err(out, e); }
+  };
+  $("mpcOfRun").onclick = run;
+  $("mpcOfReset").onclick = () => { $("mpcOfF").outerHTML = form("mpcOfF", D0); run(); };
+  run();
+}
+
 /* ------------------------------------------------------------------ item switch */
 let current = Q.get("mpcitem") || "1";
 const built = {};
 function showItem(n, arg) {
   n = String(n); current = n;
   document.querySelectorAll("[data-mpcitem]").forEach((b) => b.classList.toggle("active", b.dataset.mpcitem === n));
-  ["1", "2", "3", "4", "5", "6"].forEach((i) => { const el = $("mpcItem" + i); if (el) el.hidden = i !== n; });
+  ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"].forEach((i) => { const el = $("mpcItem" + i); if (el) el.hidden = i !== n; });
   const host = $("mpcItem" + n);
-  if (!built[n] || arg) { built[n] = true; ({ 1: item1, 2: item2, 3: item3, 4: item4, 5: item5, 6: item6 })[n](host, arg); }
+  if (!built[n] || arg) { built[n] = true; ({ 1: item1, 2: item2, 3: item3, 4: item4, 5: item5, 6: item6, 7: item7, 8: item8, 9: item9, 10: item10, 11: item11, 12: item12, 13: item13, 14: item14, 15: item15, 16: item16, 17: item17, 18: item18 })[n](host, arg); }
 }
 document.querySelectorAll("[data-mpcitem]").forEach((b) => b.addEventListener("click", () => showItem(b.dataset.mpcitem)));
 const prevTab = window.onTabShown;

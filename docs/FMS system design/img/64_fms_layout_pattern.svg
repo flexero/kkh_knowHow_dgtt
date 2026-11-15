@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" font-family="Arial, Helvetica, sans-serif">
+<title>FMS layout pattern – linear pallet pool along 3 HMCs (plan view, example dimensions in metres)</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker></defs>
+<rect x="0" y="0" width="1200" height="620" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="17" text-anchor="start" fill="#111111" font-weight="bold">FMS layout pattern – linear pallet pool along 3 HMCs (plan view, example dimensions in metres)</text>
+<text x="24.0" y="54.0" font-size="12" text-anchor="start" fill="#52514e">Rail-guided stacker serves rack places on both sides, 3 machines on one side, 2 load stations and an AGV transfer at the front end. Expansion at the open end.</text>
+<rect x="60.0" y="188.0" width="792.0" height="35.2" rx="2" fill="#fff7e0" stroke="#a07000" stroke-width="1.2"/>
+<text x="456.0" y="214.0" font-size="12" text-anchor="middle" fill="#111111">stacker rail 36 m (one stacker, 3.5 m/s)</text>
+<rect x="192.0" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="192.0" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="219.5" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="219.5" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="247.0" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="247.0" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="274.5" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="274.5" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="302.0" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="302.0" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="329.5" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="329.5" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="357.0" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="357.0" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="384.5" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="384.5" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="412.0" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="412.0" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="439.5" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="439.5" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="467.0" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="467.0" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="494.5" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="494.5" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="522.0" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="522.0" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="549.5" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="549.5" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="577.0" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="577.0" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="604.5" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="604.5" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="632.0" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="632.0" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="659.5" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="659.5" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="687.0" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="687.0" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="714.5" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="714.5" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="742.0" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="742.0" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="769.5" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="769.5" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="797.0" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="797.0" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="824.5" y="157.2" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<rect x="824.5" y="225.4" width="25.3" height="28.6" rx="1" fill="#eeeeee" stroke="#777" stroke-width="0.8"/>
+<text x="192.0" y="152.8" font-size="11" text-anchor="start" fill="#52514e">rack row 1 (1 level, 24 places, 1.25 m pitch)</text>
+<text x="71.0" y="293.6" font-size="11" text-anchor="start" fill="#52514e">rack row 2 (24 places)</text>
+<rect x="236.0" y="282.6" width="132.0" height="165.0" rx="4" fill="#e8f0fb" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="302.0" y="364.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">HMC 1</text>
+<text x="302.0" y="381.6" font-size="11" text-anchor="middle" fill="#52514e">6.0 x 7.5 m</text>
+<rect x="280.0" y="256.2" width="44.0" height="26.4" rx="2" fill="#fde2e1" stroke="#e34948" stroke-width="1"/>
+<text x="302.0" y="273.8" font-size="10" text-anchor="middle" fill="#111111">APC</text>
+<rect x="372.4" y="342.0" width="44.0" height="66.0" rx="2" fill="#f4f3ef" stroke="#777" stroke-width="1"/>
+<text x="394.4" y="379.4" font-size="10" text-anchor="middle" fill="#52514e">chips</text>
+<rect x="434.0" y="282.6" width="132.0" height="165.0" rx="4" fill="#e8f0fb" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="500.0" y="364.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">HMC 2</text>
+<text x="500.0" y="381.6" font-size="11" text-anchor="middle" fill="#52514e">6.0 x 7.5 m</text>
+<rect x="478.0" y="256.2" width="44.0" height="26.4" rx="2" fill="#fde2e1" stroke="#e34948" stroke-width="1"/>
+<text x="500.0" y="273.8" font-size="10" text-anchor="middle" fill="#111111">APC</text>
+<rect x="570.4" y="342.0" width="44.0" height="66.0" rx="2" fill="#f4f3ef" stroke="#777" stroke-width="1"/>
+<text x="592.4" y="379.4" font-size="10" text-anchor="middle" fill="#52514e">chips</text>
+<rect x="632.0" y="282.6" width="132.0" height="165.0" rx="4" fill="#e8f0fb" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="698.0" y="364.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">HMC 3</text>
+<text x="698.0" y="381.6" font-size="11" text-anchor="middle" fill="#52514e">6.0 x 7.5 m</text>
+<rect x="676.0" y="256.2" width="44.0" height="26.4" rx="2" fill="#fde2e1" stroke="#e34948" stroke-width="1"/>
+<text x="698.0" y="273.8" font-size="10" text-anchor="middle" fill="#111111">APC</text>
+<rect x="768.4" y="342.0" width="44.0" height="66.0" rx="2" fill="#f4f3ef" stroke="#777" stroke-width="1"/>
+<text x="790.4" y="379.4" font-size="10" text-anchor="middle" fill="#52514e">chips</text>
+<rect x="71.0" y="113.2" width="48.4" height="44.0" rx="3" fill="#e6f6ef" stroke="#1baf7a" stroke-width="1.5"/>
+<text x="95.2" y="139.6" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">LS1</text>
+<rect x="128.2" y="113.2" width="48.4" height="44.0" rx="3" fill="#e6f6ef" stroke="#1baf7a" stroke-width="1.5"/>
+<text x="152.4" y="139.6" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">LS2</text>
+<rect x="71.0" y="236.4" width="101.2" height="35.2" rx="3" fill="#f4f3ef" stroke="#777" stroke-width="1"/>
+<text x="121.6" y="258.4" font-size="10.5" text-anchor="middle" fill="#111111">AGV transfer</text>
+<rect x="60.0" y="463.0" width="792.0" height="39.6" rx="0" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="456.0" y="487.2" font-size="11.5" text-anchor="middle" fill="#52514e">service aisle 3.0 m (forklift for fixtures, maintenance, chip bins)</text>
+<rect x="852.0" y="144.0" width="132.0" height="308.0" rx="0" fill="none" stroke="#1baf7a" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="918.0" y="298.0" font-size="12" text-anchor="middle" fill="#1baf7a" font-weight="bold">expansion</text>
+<text x="918.0" y="320.0" font-size="11" text-anchor="middle" fill="#1baf7a">HMC 4 + rack</text>
+<line x1="60.0" y1="524.6" x2="852.0" y2="524.6" stroke="#333" stroke-width="1"/>
+<text x="456.0" y="544.4" font-size="11.5" text-anchor="middle" fill="#111111">36 m system length (+ 9 m expansion)</text>
+<line x1="40.0" y1="100.0" x2="40.0" y2="502.6" stroke="#333" stroke-width="1"/>
+<text x="34.0" y="298.0" font-size="11.5" text-anchor="middle" fill="#111111" transform="rotate(-90 34.0 298.0)">about 18 m deep</text>
+<text x="60.0" y="600.0" font-size="12" text-anchor="start" fill="#52514e">Example only: real dimensions come from the machine, rack and stacker datasheets and the building grid (guide 63 B4, C1).</text>
+</svg>

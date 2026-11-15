@@ -37,7 +37,7 @@ decisions.
 | Communication performance | Measured on lab setup: real PC + Modbus TCP servers (simulated PLCs, later a real Delta/Siemens PLC) | **Real measurements** | Ch 5 |
 | Bayesian updating accuracy | Virtual ramp-up: a "true" factory with hidden parameters generates data; the twin learns them | **Real computational experiments** (method proof, standard in simulation research) | Ch 6, 9 |
 | Optimisation performance | Numerical experiments on the compressor and ball screw models | **Real computational experiments** | Ch 7 |
-| Ramp-up of the real factory | Your factory after installation | **Future** – section 9.6 written as protocol now, results added when available | Ch 9 |
+| Ramp-up of the real factory | Your factory after installation | **Future** – section 9.7 written as protocol now, results added when available | Ch 9 |
 
 Rule for the whole thesis: every number has a label – *measured*, *calculated*, *simulated*, *design estimate* or
 *cited*. Nothing simulated is presented as measured.
@@ -55,7 +55,7 @@ Rule for the whole thesis: every number has a label – *measured*, *calculated*
 | 6 | Uncertainty-aware twin with sequential Bayesian updating (C2) | 18 | Frozen-prediction protocol; event extraction from machine states; updating algorithms (pseudo-code), change detection, forgetting factor for ramp-up learning curves; uncertainty propagation by Monte Carlo DES; variance reduction (common random numbers); convergence and complexity; **experiments with known ground truth**: error vs data volume, vs deterministic and one-time calibration baselines |
 | 7 | Optimisation of the stepwise FMS introduction (C3) | 15 | Staging as multi-stage stochastic problem; solution by simulation-based optimisation (sample average approximation + ranking & selection / genetic algorithm for configuration, rolling re-optimisation after each Bayesian update); objective (NPV, risk of under-capacity, CVaR); algorithm, complexity; **numerical experiments** vs static plan and all-at-once plan |
 | 8 | Implementation | 10 | Software architecture (Python stdlib engine, browser twin, Modbus/HTTP gateway), data model, algorithms as modules, verification (unit tests, engine verification), performance, offline deployment on factory PC |
-| 9 | Industrial application and validation (C4) | 20 | Case 1 compressor FMS: data, model, frozen design predictions v1.0, staging plan, sensitivity; Case 2 ball screw line: transfer; efficiency results (throughput, OEE, investment, risk); **9.6 ramp-up validation protocol** (+ results when available); threats to validity |
+| 9 | Industrial application and validation (C4) | 20 | Case 1 compressor FMS: data, model, frozen design predictions v1.0, staging plan, sensitivity; Case 2 ball screw line: transfer; Case 3 Roots blower extension sharing the FMS cell (shared-cell MVA, P0, transfer, first investment step); efficiency results (throughput, OEE, investment, risk); **9.7 ramp-up validation protocol** (+ results when available); threats to validity |
 | 10 | Discussion | 6 | Answers to RQ1–RQ3, hypotheses accepted / rejected, comparison with literature, generalisation, limitations |
 | 11 | Conclusions and future work | 4 | Summary of contributions, recommendations for industry, future research |
 | – | References (~150–200) | 10 | – |
@@ -89,7 +89,7 @@ Rule for the whole thesis: every number has a label – *measured*, *calculated*
 - University rules: template, citation style, language, page format, number of papers required.
 - From the FMS design (next 4 months): machine list with supplier, cycle-time estimates per operation, quotes (cost),
   layout, product mix and volumes – these replace example values in chapter 9.
-- Later: commissioning and ramp-up logs (for section 9.6).
+- Later: commissioning and ramp-up logs (for section 9.7).
 
 ## 7. Files
 `thesis/` – one Markdown file per chapter (`ch01_….md` …), `thesis/code/` (algorithms + experiments, stdlib Python),

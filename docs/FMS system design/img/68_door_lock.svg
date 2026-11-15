@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" font-family="Arial, Helvetica, sans-serif">
+<title>DOOR_LOCK: guard door with guard locking, coded switch, access request (module M03, SF1)</title>
+<rect x="0" y="0" width="1200" height="620" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">DOOR_LOCK: guard door with guard locking, coded switch, access request (module M03, SF1)</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Door closed (2 ch) + locked (2 ch) → F-DI; lock solenoid ← F-DO; request button → DI. Unlock only after standstill of the zone drives.</text>
+<rect x="60" y="90" width="200" height="300" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="160" y="112" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">pool door</text>
+<rect x="200" y="220" width="50" height="60" rx="0" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="225" y="300" font-size="11" text-anchor="middle" fill="#c0392b">-BG1</text>
+<text x="225" y="315" font-size="11" text-anchor="middle" fill="#111">guard locking</text>
+<rect x="90" y="240" width="40" height="30" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="110" y="290" font-size="11" text-anchor="middle" fill="#111">actuator</text>
+<circle cx="120" cy="160" r="14" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="140" y="165" font-size="11" text-anchor="start" fill="#111">-SF1 request (lamp)</text>
+<line x1="260" y1="250" x2="340" y2="250" stroke="#c0392b" stroke-width="2"/>
+<text x="270" y="242" font-size="11" text-anchor="start" fill="#111">-WD7 M12 8-pole</text>
+<line x1="340" y1="250" x2="380" y2="120" stroke="#666" stroke-width="1"/>
+<circle cx="390" cy="120" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="400" y="114" font-size="11" text-anchor="start" fill="#111">-XD2:12</text>
+<line x1="394" y1="120" x2="520" y2="120" stroke="#c0392b" stroke-width="1.5"/>
+<rect x="520" y="106" width="150" height="28" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="595" y="124" font-size="11" text-anchor="middle" fill="#c0392b">FDI1.01  Closed</text>
+<line x1="340" y1="250" x2="380" y2="152" stroke="#666" stroke-width="1"/>
+<circle cx="390" cy="152" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="400" y="146" font-size="11" text-anchor="start" fill="#111">-XD2:13</text>
+<line x1="394" y1="152" x2="520" y2="152" stroke="#c0392b" stroke-width="1.5"/>
+<rect x="520" y="138" width="150" height="28" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="595" y="156" font-size="11" text-anchor="middle" fill="#c0392b">FDI1.02  Closed2</text>
+<line x1="340" y1="250" x2="380" y2="184" stroke="#666" stroke-width="1"/>
+<circle cx="390" cy="184" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="400" y="178" font-size="11" text-anchor="start" fill="#111">-XD2:14</text>
+<line x1="394" y1="184" x2="520" y2="184" stroke="#c0392b" stroke-width="1.5"/>
+<rect x="520" y="170" width="150" height="28" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="595" y="188" font-size="11" text-anchor="middle" fill="#c0392b">FDI1.03  Locked</text>
+<line x1="340" y1="250" x2="380" y2="216" stroke="#666" stroke-width="1"/>
+<circle cx="390" cy="216" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="400" y="210" font-size="11" text-anchor="start" fill="#111">-XD2:15</text>
+<line x1="394" y1="216" x2="520" y2="216" stroke="#c0392b" stroke-width="1.5"/>
+<rect x="520" y="202" width="150" height="28" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="595" y="220" font-size="11" text-anchor="middle" fill="#c0392b">FDI1.04  Locked2</text>
+<line x1="340" y1="250" x2="380" y2="248" stroke="#666" stroke-width="1"/>
+<circle cx="390" cy="248" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="400" y="242" font-size="11" text-anchor="start" fill="#111">-XD2:16</text>
+<line x1="394" y1="248" x2="520" y2="248" stroke="#c0392b" stroke-width="1.5"/>
+<rect x="520" y="234" width="150" height="28" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="595" y="252" font-size="11" text-anchor="middle" fill="#c0392b">FDO2.00  LockCmd</text>
+<line x1="340" y1="250" x2="380" y2="280" stroke="#666" stroke-width="1"/>
+<circle cx="390" cy="280" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="400" y="274" font-size="11" text-anchor="start" fill="#111">-XD2:17</text>
+<line x1="394" y1="280" x2="520" y2="280" stroke="#111" stroke-width="1.5"/>
+<rect x="520" y="266" width="150" height="28" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="595" y="284" font-size="11" text-anchor="middle" fill="#111">DI1.06  Request</text>
+<line x1="340" y1="250" x2="380" y2="312" stroke="#666" stroke-width="1"/>
+<circle cx="390" cy="312" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="400" y="306" font-size="11" text-anchor="start" fill="#111">-XD2:18</text>
+<line x1="394" y1="312" x2="520" y2="312" stroke="#111" stroke-width="1.5"/>
+<rect x="520" y="298" width="150" height="28" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="595" y="316" font-size="11" text-anchor="middle" fill="#111">supply  +24 V</text>
+<line x1="340" y1="250" x2="380" y2="344" stroke="#666" stroke-width="1"/>
+<circle cx="390" cy="344" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="400" y="338" font-size="11" text-anchor="start" fill="#111">-XD2:19</text>
+<line x1="394" y1="344" x2="520" y2="344" stroke="#111" stroke-width="1.5"/>
+<rect x="520" y="330" width="150" height="28" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="595" y="348" font-size="11" text-anchor="middle" fill="#111">supply  0 V</text>
+<text x="860" y="100" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">Unlock sequence (PackML + safety program)</text>
+<rect x="720" y="120" width="290" height="30" rx="0" fill="#fff" stroke="#666" stroke-width="1.5"/>
+<text x="732" y="140" font-size="11" text-anchor="start" fill="#111">1  operator presses Request (DI1.06)</text>
+<line x1="865" y1="150" x2="865" y2="160" stroke="#666" stroke-width="1"/>
+<polygon points="865,160 861.495,151.71 868.505,151.71" fill="#666"/>
+<rect x="720" y="160" width="290" height="30" rx="0" fill="#fff" stroke="#666" stroke-width="1.5"/>
+<text x="732" y="180" font-size="11" text-anchor="start" fill="#111">2  module: Holding → Held (safe point)</text>
+<line x1="865" y1="190" x2="865" y2="200" stroke="#666" stroke-width="1"/>
+<polygon points="865,200 861.495,191.71 868.505,191.71" fill="#666"/>
+<rect x="720" y="200" width="290" height="30" rx="0" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="732" y="220" font-size="11" text-anchor="start" fill="#111">3  safety: drives STO, standstill</text>
+<line x1="865" y1="230" x2="865" y2="240" stroke="#666" stroke-width="1"/>
+<polygon points="865,240 861.495,231.71 868.505,231.71" fill="#666"/>
+<rect x="720" y="240" width="290" height="30" rx="0" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="732" y="260" font-size="11" text-anchor="start" fill="#111">4  FDO2.00 LockCmd → lock released</text>
+<line x1="865" y1="270" x2="865" y2="280" stroke="#666" stroke-width="1"/>
+<polygon points="865,280 861.495,271.71 868.505,271.71" fill="#666"/>
+<rect x="720" y="280" width="290" height="30" rx="0" fill="#fff" stroke="#666" stroke-width="1.5"/>
+<text x="732" y="300" font-size="11" text-anchor="start" fill="#111">5  Locked = 0 → door may open</text>
+<line x1="865" y1="310" x2="865" y2="320" stroke="#666" stroke-width="1"/>
+<polygon points="865,320 861.495,311.71 868.505,311.71" fill="#666"/>
+<rect x="720" y="320" width="290" height="30" rx="0" fill="#fff" stroke="#666" stroke-width="1.5"/>
+<text x="732" y="340" font-size="11" text-anchor="start" fill="#111">6  Closed = 0 → zone stays safe</text>
+<line x1="865" y1="350" x2="865" y2="360" stroke="#666" stroke-width="1"/>
+<polygon points="865,360 861.495,351.71 868.505,351.71" fill="#666"/>
+<rect x="720" y="360" width="290" height="30" rx="0" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="732" y="380" font-size="11" text-anchor="start" fill="#111">7  close + lock + reset at the zone</text>
+<line x1="865" y1="390" x2="865" y2="400" stroke="#666" stroke-width="1"/>
+<polygon points="865,400 861.495,391.71 868.505,391.71" fill="#666"/>
+<rect x="720" y="400" width="290" height="30" rx="0" fill="#fff" stroke="#666" stroke-width="1.5"/>
+<text x="732" y="420" font-size="11" text-anchor="start" fill="#111">8  Unholding → Execute</text>
+<rect x="60" y="450" width="1100" height="100" rx="0" fill="#f2f2f2" stroke="#666" stroke-width="1.5"/>
+<text x="75" y="472" font-size="11" text-anchor="start" fill="#111">Guard locking because the crane run-down time is longer than the access time (guide 67 H5). Power-to-unlock is the normal choice (ISO 14119 5.7).</text>
+<text x="75" y="490" font-size="11" text-anchor="start" fill="#111">Escape release inside the aisle; coding type 4 high (a spare actuator must not work); one switch per door with its own F-DI pair.</text>
+<text x="75" y="508" font-size="11" text-anchor="start" fill="#111">FAT: request in Execute → Held → unlock only after standstill · door cannot open while locked · open one channel → discrepancy.</text>
+<text x="75" y="526" font-size="11" text-anchor="start" fill="#c0392b">PL: input Cat 3 (guard-locking switch + monitoring), MTTFd 100 y, DCavg 97.5 % → d (guide 67 G9.1 SF1).</text>
+<text x="24" y="606" font-size="11" text-anchor="start" fill="#666">Teaching example – not for construction. Real circuits: qualified engineers, IEC 60204-1, ISO 13849, maker data.</text>
+</svg>

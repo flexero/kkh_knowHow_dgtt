@@ -1,0 +1,2420 @@
+{
+ "_note": "Shared worked-example data for FMS engineering item 8 (module library: complete circuits per module): guide docs/FMS system design/68_module_circuits.md, tools/fmse/*.py, web/fmse8*.js. One circuit LIBRARY: standard circuit patterns + every module M01-M22 as a list of pattern instances. All derived lists (IO list, IO cards, addresses, terminals, cables, BOM, power, 24 V) are computed from it with the rules below - guide, tools and web must give IDENTICAL results. All values are EXAMPLES; real circuits are designed and signed off by qualified electrical / safety engineers to IEC 60204-1 and the current standards. Item 7 gives the principles and sizing formulas. REVISION 2026-11-15: per-instance power cable sizing (rule power_cable) and ZONE_OUT safety outputs on M18 (rule zone_out).",
+ "_rules": {
+  "expand": "For a module: walk its instances in list order. Each instance contributes the pattern's io, dev and cab entries in pattern order. Module instance unit = UNIT code + '01' (one module of the type; in a kit the number counts up per module code, like item 5/6).",
+  "tag": "tag = site.area.cell.unit.group.signal = 'PLT1.MACH.FMS1.' + unit + '.' + group + '.' + signal (item-5 rule, max 48 characters).",
+  "designation": "device designation (IEC 81346): class code from the pattern dev entry + running number per class code inside the module in expansion order (FC1, FC2 ..., QA1 ..., BG1 ...). Full: '=FMS1.' + unit + '-' + class + n. Cables: 'WD' + running number in expansion order. Class letters (IEC 81346-2, check your edition): BG position/presence sensing, BP pressure, BT temperature, EB heating, FC over-current protection, KF electrical signal processing, MA electric motor, MB solenoid, PF visual indicator / HMI, QA power switching (contactor, breaker), SF manual control (push-button, switch), TA inverter / converter (AC/AC), TB AC/DC or DC/DC converter (power supply, UPS), WD cable, XD terminal.",
+  "io_cards": "IO types and channels per card (example ET 200SP-class sizes): DI 16, DO 16, AI 4, AO 2, FDI 8, FDO 4. used(type) = number of io entries of that type. cards(type) = 0 if used = 0 else ceil(used*(1 + reserve)/channels) with reserve = 0.2. spare(type) = cards*channels - used. Addresses: the k-th io entry of a type (k = 0,1,... in expansion order) gets card = k // channels + 1, channel = k % channels, written TYPE + card + '.' + channel with 2 digits, e.g. DI1.00, FDI2.07.",
+  "station": "a module with at least one io entry gets an IO station (bus interface + cards): i24 = 0.3 + 0.05*cards_total ; loss = 4 + 1*cards_total [W] ; BOM: 'IO station bus interface' 1 + each card type count ('DI 16 card' ...).",
+  "terminals": "control terminal strip -XD2: terminals = number of io entries + sum of the pattern 'tx' extras (supply terminals +24 V / 0 V for field devices) of all instances; numbered 1..n in expansion order (io first then extras of the same instance).",
+  "cables": "one cable per pattern 'cab' entry, length = default length (instance parameter 'len' overrides all cables of the instance - not used in this library). Totals: number of cables, total metres, metres per cores text.",
+  "bom": "BOM = count of each 'BOM item' text over all dev entries + station items + 24 V PSU ('24 V power supply <rating> A') + 'Control terminal' x terminals; sorted by item text.",
+  "motor": "per DOL / VFD_STO instance: kW from params ; eta = 0.88, cos = 0.82 unless given ; In = kW*1000/(sqrt(3)*400*eta*cos) ; DOL: contactor = smallest of contactor_ac3 >= In ; MPCB setting = In (round 2) ; VFD: inverter size = smallest of vfd_kw >= kW ; loss VFD = 0.03*kW*1000 W ('3%').",
+  "power": "module load list (item 7 formulas with ks = 1): loads = FEEDER_EXT (kW, ku, cos from params), DOL and VFD_STO motors (kW, ku = 0.7, cos = 0.82 unless given), HEATER (kW, ku = 0.8, cos = 1.0), plus control power = PSU rating*24/0.9/1000 kW with ku 0.6, cos 0.95 (only if PSU > 0). P = sum kW*ku ; Q = sum P_i*tan(acos(cos_i)) ; S = sqrt(P^2+Q^2) ; I = S*1000/(sqrt(3)*400) (demand - used for the cell load list). FEEDER sizing uses the installed rated values (ku = 1 for every load): P_inst = sum kW ; Q_inst = sum kW*tan(acos(cos)) ; S_inst = sqrt(P_inst^2 + Q_inst^2) ; I_inst = S_inst*1000/(sqrt(3)*400) ; feeder breaker In = smallest of breaker_ratings >= I_inst (Ib <= In as in item 7) ; cable = smallest ampacity-table size with Iz_table >= In/(k_temp*k_group) (item 7). A module with S_inst = 0 has no feeder (In 0, cable 0). Simplification: motor kW is used as electrical kW (efficiency neglected in the load list, only used for motor In).",
+  "dc24": "module 24 V current = sum of pattern i24 over instances + station i24 ; PSU = smallest of psu_sizes >= current*1.25 (0 if current = 0).",
+  "loss": "cabinet losses = sum of pattern losses (VFD 3 % of kW) + station loss + PSU loss (PSU rating*24*(1/0.92 - 1) W, 0 if no PSU).",
+  "kit": "kit totals = sum over the modules of the kit (each module code may appear several times): io per type, cards per type, terminals, cables, metres, P, S, PSU sum, losses; kit IO tag list = each module instance with its own unit number. ROUNDING: module values are rounded first (P, S to 3 decimals, I to 2, loss to 1 decimal) and the kit totals add these rounded module values (like adding a printed schedule) -> kit S 132.682 kVA, loss 1251.6 W. Distribution-board feeder of a module instance: designation '=FMS1.' + unit + '-FC' + (number of FC devices of the module + 1).",
+  "power_cable": "per instance of a pattern with 'pcab' (DOL, VFD_STO, HEATER, FEEDER_EXT) the power cable cores are sized from that instance (item 7 rule Ib <= Ip <= Iz*k): Ib = motor In (DOL / VFD_STO, motor rule) or kW*1000/(sqrt(3)*400*cos) (HEATER cos 1.0 unless given; FEEDER_EXT installed kW and cos from params, ku ignored) ; protective device current Ip = motor In (MPCB setting / inverter motor-overload setting = rated motor current) for DOL and VFD_STO, or the smallest of breaker_ratings >= Ib for HEATER and FEEDER_EXT ; A = smallest ampacity_table size with Iz_table >= Ip/(k_temp*k_group) (1.5 mm2 minimum = first row) ; cores text = prefix + A (no trailing .0, e.g. 4G2.5, 4G10) + suffix, replacing the pattern default text of cab entry 'index'. Results: Ib round 2, Ip (round 2 for motors), A. Lengths and cable counts are unchanged. This replaces the old fixed cores (gap found in guide 68 review: 18 kW heater had 4G2.5, 15 kW pump had 4G1.5).",
+  "zone_out": "M18 SAFE01 carries the zone safety outputs: one ZONE_OUT instance per safety zone (library default Zone1..Zone4), each = 1 FDO (2-channel PM) + 1 FDI (EDM feedback). Gap fix: before, SAFE01 had no FDO."
+ },
+ "constants": {
+  "site": "PLT1",
+  "area": "MACH",
+  "cell": "FMS1",
+  "reserve": 0.2,
+  "channels": {
+   "DI": 16,
+   "DO": 16,
+   "AI": 4,
+   "AO": 2,
+   "FDI": 8,
+   "FDO": 4
+  },
+  "contactor_ac3": [
+   9,
+   12,
+   18,
+   25,
+   32,
+   40,
+   50,
+   65,
+   80,
+   95
+  ],
+  "vfd_kw": [
+   0.37,
+   0.55,
+   0.75,
+   1.1,
+   1.5,
+   2.2,
+   3,
+   4,
+   5.5,
+   7.5,
+   11,
+   15,
+   18.5,
+   22,
+   30
+  ],
+  "breaker_ratings": [
+   6,
+   10,
+   13,
+   16,
+   20,
+   25,
+   32,
+   40,
+   50,
+   63,
+   80,
+   100,
+   125,
+   160,
+   200,
+   250
+  ],
+  "psu_sizes": [
+   2.5,
+   5,
+   10,
+   20,
+   40
+  ],
+  "ampacity_table": [
+   [
+    1.5,
+    22
+   ],
+   [
+    2.5,
+    30
+   ],
+   [
+    4,
+    40
+   ],
+   [
+    6,
+    51
+   ],
+   [
+    10,
+    70
+   ],
+   [
+    16,
+    94
+   ],
+   [
+    25,
+    119
+   ],
+   [
+    35,
+    148
+   ],
+   [
+    50,
+    180
+   ],
+   [
+    70,
+    232
+   ],
+   [
+    95,
+    282
+   ],
+   [
+    120,
+    328
+   ]
+  ],
+  "k_temp": 0.87,
+  "k_group": 0.77
+ },
+ "unit_codes": {
+  "M01": "MC",
+  "M02": "APC",
+  "M03": "POOL",
+  "M04": "LS",
+  "M05": "ROB",
+  "M06": "AGVST",
+  "M07": "CONV",
+  "M08": "ASRS",
+  "M09": "TOOL",
+  "M10": "WASH",
+  "M11": "CMM",
+  "M12": "MARK",
+  "M13": "ST",
+  "M14": "TEST",
+  "M15": "WELD",
+  "M16": "PRESS",
+  "M17": "UTIL",
+  "M18": "SAFE",
+  "M19": "CC",
+  "M20": "SCADA",
+  "M21": "MESCON",
+  "M22": "NET"
+ },
+ "patterns": {
+  "FEEDER_EXT": {
+   "title": "Feeder to an external load (machine with its own electrics)",
+   "io": [
+    [
+     "SupplyOn",
+     "DI",
+     "feeder breaker ON (auxiliary contact)"
+    ]
+   ],
+   "dev": [
+    [
+     "FC",
+     "Feeder circuit breaker (MCCB / MCB)",
+     "Feeder circuit breaker 3-pole"
+    ]
+   ],
+   "cab": [
+    [
+     "Power cable to the load",
+     "4G (sized per instance)",
+     15
+    ]
+   ],
+   "i24": 0.0,
+   "loss": 5,
+   "tx": 0,
+   "power": "load",
+   "pcab": {
+    "index": 0,
+    "prefix": "4G",
+    "suffix": ""
+   }
+  },
+  "BUS": {
+   "title": "Fieldbus / Ethernet connection to a device with its own controller",
+   "io": [],
+   "dev": [
+    [
+     "KF",
+     "Bus port (device controller)",
+     "Bus connection (port on the cell switch)"
+    ]
+   ],
+   "cab": [
+    [
+     "Industrial Ethernet cable, shielded",
+     "4x0.34 (PROFINET / Ethernet)",
+     15
+    ]
+   ],
+   "i24": 0.0,
+   "loss": 0,
+   "tx": 0
+  },
+  "COUPLING": {
+   "title": "Hard-wired safety coupling machine <-> cell",
+   "io": [
+    [
+     "EstopIn",
+     "FDI",
+     "e-stop OK from the machine, channel 1"
+    ],
+    [
+     "EstopIn2",
+     "FDI",
+     "e-stop OK from the machine, channel 2"
+    ],
+    [
+     "ZoneFree",
+     "FDI",
+     "machine loading zone free, channel 1"
+    ],
+    [
+     "ZoneFree2",
+     "FDI",
+     "machine loading zone free, channel 2"
+    ],
+    [
+     "EstopOut",
+     "FDO",
+     "cell e-stop OK to the machine (2-channel F-DO)"
+    ],
+    [
+     "EnableOut",
+     "FDO",
+     "cell zone safe -> machine may open / load"
+    ]
+   ],
+   "dev": [
+    [
+     "KF",
+     "Safety coupling terminal set",
+     "Safety coupling terminal set"
+    ]
+   ],
+   "cab": [
+    [
+     "Control cable, shielded",
+     "12x0.75",
+     20
+    ]
+   ],
+   "i24": 0.1,
+   "loss": 2,
+   "tx": 2
+  },
+  "HANDSHAKE_HW": {
+   "title": "Hard-wired handshake (machine / AGV without fieldbus)",
+   "io": [
+    [
+     "Ready",
+     "DI",
+     "partner ready"
+    ],
+    [
+     "Busy",
+     "DI",
+     "partner busy"
+    ],
+    [
+     "Done",
+     "DI",
+     "partner done"
+    ],
+    [
+     "Fault",
+     "DI",
+     "partner fault"
+    ],
+    [
+     "Request",
+     "DO",
+     "request to partner"
+    ],
+    [
+     "Ack",
+     "DO",
+     "acknowledge to partner"
+    ],
+    [
+     "Enable",
+     "DO",
+     "enable / permission"
+    ],
+    [
+     "Reset",
+     "DO",
+     "fault reset"
+    ]
+   ],
+   "dev": [
+    [
+     "KF",
+     "Coupling relay module 8 channels",
+     "Coupling relay module 8 ch"
+    ]
+   ],
+   "cab": [
+    [
+     "Control cable",
+     "12x0.75",
+     20
+    ]
+   ],
+   "i24": 0.2,
+   "loss": 3,
+   "tx": 2
+  },
+  "DOL": {
+   "title": "Motor starter direct-on-line (MPCB + contactor)",
+   "io": [
+    [
+     "Run",
+     "DO",
+     "contactor coil"
+    ],
+    [
+     "RunFb",
+     "DI",
+     "contactor auxiliary contact"
+    ],
+    [
+     "Tripped",
+     "DI",
+     "motor protection tripped"
+    ]
+   ],
+   "dev": [
+    [
+     "FC",
+     "Motor protection circuit breaker, setting = rated current",
+     "Motor protection circuit breaker"
+    ],
+    [
+     "QA",
+     "Contactor AC-3",
+     "Contactor AC-3"
+    ],
+    [
+     "MA",
+     "Three-phase motor",
+     "Motor (part of the mechanics)"
+    ]
+   ],
+   "cab": [
+    [
+     "Motor cable",
+     "4G1.5",
+     15
+    ]
+   ],
+   "i24": 0.1,
+   "loss": 5,
+   "tx": 0,
+   "power": "motor",
+   "pcab": {
+    "index": 0,
+    "prefix": "4G",
+    "suffix": ""
+   }
+  },
+  "VFD_STO": {
+   "title": "Frequency inverter with STO and fieldbus",
+   "io": [
+    [
+     "STO",
+     "FDO",
+     "safe torque off (2-channel F-DO)"
+    ],
+    [
+     "Ready",
+     "DI",
+     "inverter ready"
+    ],
+    [
+     "Fault",
+     "DI",
+     "inverter fault"
+    ]
+   ],
+   "dev": [
+    [
+     "FC",
+     "Line protection of the inverter (MCB / fuses)",
+     "Inverter line protection"
+    ],
+    [
+     "TA",
+     "Frequency inverter with STO + PROFINET",
+     "Frequency inverter"
+    ],
+    [
+     "MA",
+     "Three-phase motor",
+     "Motor (part of the mechanics)"
+    ]
+   ],
+   "cab": [
+    [
+     "Motor cable, shielded (EMC)",
+     "4G1.5 + shield",
+     15
+    ],
+    [
+     "Industrial Ethernet cable, shielded",
+     "4x0.34 (PROFINET / Ethernet)",
+     3
+    ]
+   ],
+   "i24": 0.5,
+   "loss": "3%",
+   "tx": 0,
+   "power": "vfd",
+   "pcab": {
+    "index": 0,
+    "prefix": "4G",
+    "suffix": " + shield"
+   }
+  },
+  "CONT_PAIR_EDM": {
+   "title": "Two safety contactors with feedback (EDM)",
+   "io": [
+    [
+     "Enable",
+     "FDO",
+     "coils K1 + K2"
+    ],
+    [
+     "EDM",
+     "FDI",
+     "feedback: NC mirror contacts K1 + K2 in series"
+    ]
+   ],
+   "dev": [
+    [
+     "QA",
+     "Safety contactor K1 (mirror contacts)",
+     "Safety contactor"
+    ],
+    [
+     "QA",
+     "Safety contactor K2 (mirror contacts)",
+     "Safety contactor"
+    ]
+   ],
+   "cab": [],
+   "i24": 0.3,
+   "loss": 6,
+   "tx": 0
+  },
+  "DOOR_LOCK": {
+   "title": "Guard door with guard locking (ISO 14119)",
+   "io": [
+    [
+     "Closed",
+     "FDI",
+     "door closed, channel 1"
+    ],
+    [
+     "Closed2",
+     "FDI",
+     "door closed, channel 2"
+    ],
+    [
+     "Locked",
+     "FDI",
+     "door locked, channel 1"
+    ],
+    [
+     "Locked2",
+     "FDI",
+     "door locked, channel 2"
+    ],
+    [
+     "LockCmd",
+     "FDO",
+     "guard locking solenoid"
+    ],
+    [
+     "Request",
+     "DI",
+     "access request push-button"
+    ]
+   ],
+   "dev": [
+    [
+     "BG",
+     "Interlock switch with guard locking, coded",
+     "Guard-locking interlock switch"
+    ],
+    [
+     "SF",
+     "Access request push-button with lamp",
+     "Illuminated push-button"
+    ]
+   ],
+   "cab": [
+    [
+     "Safety switch cable M12 8-pole",
+     "8x0.25",
+     10
+    ]
+   ],
+   "i24": 0.3,
+   "loss": 2,
+   "tx": 2
+  },
+  "DOOR_2CH": {
+   "title": "Guard door, two diverse switches (Cat 3)",
+   "io": [
+    [
+     "Closed",
+     "FDI",
+     "interlock switch A"
+    ],
+    [
+     "Closed2",
+     "FDI",
+     "position switch B (diverse)"
+    ]
+   ],
+   "dev": [
+    [
+     "BG",
+     "Interlock switch A (tongue)",
+     "Interlock switch"
+    ],
+    [
+     "BG",
+     "Position switch B (diverse)",
+     "Position switch"
+    ]
+   ],
+   "cab": [
+    [
+     "Sensor cable M12 5-pole",
+     "5x0.34",
+     10
+    ],
+    [
+     "Sensor cable M12 5-pole",
+     "5x0.34",
+     10
+    ]
+   ],
+   "i24": 0.05,
+   "loss": 0,
+   "tx": 2
+  },
+  "ESTOP": {
+   "title": "Emergency-stop push-button, 2 NC (ISO 13850)",
+   "io": [
+    [
+     "Ok",
+     "FDI",
+     "e-stop not pressed, channel 1"
+    ],
+    [
+     "Ok2",
+     "FDI",
+     "e-stop not pressed, channel 2"
+    ]
+   ],
+   "dev": [
+    [
+     "SF",
+     "Emergency-stop push-button 2 NC in enclosure",
+     "Emergency-stop push-button"
+    ]
+   ],
+   "cab": [
+    [
+     "Control cable",
+     "4x0.75",
+     10
+    ]
+   ],
+   "i24": 0.0,
+   "loss": 0,
+   "tx": 0
+  },
+  "ENABLE": {
+   "title": "3-position enabling device",
+   "io": [
+    [
+     "Ok",
+     "FDI",
+     "enabling middle position, channel 1"
+    ],
+    [
+     "Ok2",
+     "FDI",
+     "enabling middle position, channel 2"
+    ]
+   ],
+   "dev": [
+    [
+     "SF",
+     "3-position enabling switch",
+     "Enabling switch"
+    ]
+   ],
+   "cab": [
+    [
+     "Control cable",
+     "7x0.5",
+     5
+    ]
+   ],
+   "i24": 0.0,
+   "loss": 0,
+   "tx": 0
+  },
+  "MODE_SWITCH": {
+   "title": "Key mode selector Auto / Maintenance (safety-related)",
+   "io": [
+    [
+     "Auto",
+     "FDI",
+     "mode Automatic"
+    ],
+    [
+     "Maint",
+     "FDI",
+     "mode Maintenance"
+    ]
+   ],
+   "dev": [
+    [
+     "SF",
+     "Key mode selector switch",
+     "Key mode selector"
+    ]
+   ],
+   "cab": [
+    [
+     "Control cable",
+     "4x0.75",
+     5
+    ]
+   ],
+   "i24": 0.0,
+   "loss": 0,
+   "tx": 0
+  },
+  "LC": {
+   "title": "Light curtain type 4 (OSSD pair)",
+   "io": [
+    [
+     "Ossd1",
+     "FDI",
+     "OSSD 1"
+    ],
+    [
+     "Ossd2",
+     "FDI",
+     "OSSD 2"
+    ],
+    [
+     "Warn",
+     "DI",
+     "contamination warning"
+    ]
+   ],
+   "dev": [
+    [
+     "BG",
+     "Light curtain type 4, emitter + receiver",
+     "Light curtain pair"
+    ]
+   ],
+   "cab": [
+    [
+     "Sensor cable M12 5-pole (emitter)",
+     "5x0.34",
+     10
+    ],
+    [
+     "Sensor cable M12 8-pole (receiver)",
+     "8x0.25",
+     10
+    ]
+   ],
+   "i24": 0.6,
+   "loss": 6,
+   "tx": 4
+  },
+  "SCANNER": {
+   "title": "Safety laser scanner with field switching",
+   "io": [
+    [
+     "Ossd1",
+     "FDI",
+     "OSSD 1 protective field"
+    ],
+    [
+     "Ossd2",
+     "FDI",
+     "OSSD 2 protective field"
+    ],
+    [
+     "Warn",
+     "DI",
+     "warning field free"
+    ],
+    [
+     "FieldA",
+     "DO",
+     "field set select A"
+    ],
+    [
+     "FieldB",
+     "DO",
+     "field set select B"
+    ]
+   ],
+   "dev": [
+    [
+     "BG",
+     "Safety laser scanner",
+     "Safety laser scanner"
+    ]
+   ],
+   "cab": [
+    [
+     "Scanner system cable",
+     "12x0.25",
+     10
+    ]
+   ],
+   "i24": 0.5,
+   "loss": 6,
+   "tx": 2
+  },
+  "TWOHAND": {
+   "title": "Two-hand control station type IIIC",
+   "io": [
+    [
+     "Left",
+     "FDI",
+     "left button NO"
+    ],
+    [
+     "Left2",
+     "FDI",
+     "left button NC"
+    ],
+    [
+     "Right",
+     "FDI",
+     "right button NO"
+    ],
+    [
+     "Right2",
+     "FDI",
+     "right button NC"
+    ]
+   ],
+   "dev": [
+    [
+     "SF",
+     "Two-hand control station",
+     "Two-hand control station"
+    ]
+   ],
+   "cab": [
+    [
+     "Control cable",
+     "7x0.75",
+     5
+    ]
+   ],
+   "i24": 0.0,
+   "loss": 0,
+   "tx": 0
+  },
+  "VALVE_SINGLE": {
+   "title": "Cylinder with single-solenoid 5/2 valve + 2 end sensors",
+   "io": [
+    [
+     "Sol",
+     "DO",
+     "solenoid"
+    ],
+    [
+     "PosA",
+     "DI",
+     "end position A"
+    ],
+    [
+     "PosB",
+     "DI",
+     "end position B"
+    ]
+   ],
+   "dev": [
+    [
+     "MB",
+     "Solenoid valve 5/2 single, spring return",
+     "Solenoid valve 5/2 single"
+    ],
+    [
+     "BG",
+     "Cylinder sensor A",
+     "Cylinder sensor"
+    ],
+    [
+     "BG",
+     "Cylinder sensor B",
+     "Cylinder sensor"
+    ]
+   ],
+   "cab": [
+    [
+     "Valve cable",
+     "3x0.75",
+     5
+    ],
+    [
+     "Sensor cable M8 3-pole",
+     "3x0.25",
+     5
+    ],
+    [
+     "Sensor cable M8 3-pole",
+     "3x0.25",
+     5
+    ]
+   ],
+   "i24": 0.13,
+   "loss": 2.5,
+   "tx": 4
+  },
+  "VALVE_DOUBLE": {
+   "title": "Cylinder with double-solenoid 5/2 valve + 2 end sensors",
+   "io": [
+    [
+     "SolA",
+     "DO",
+     "solenoid A"
+    ],
+    [
+     "SolB",
+     "DO",
+     "solenoid B"
+    ],
+    [
+     "PosA",
+     "DI",
+     "end position A"
+    ],
+    [
+     "PosB",
+     "DI",
+     "end position B"
+    ]
+   ],
+   "dev": [
+    [
+     "MB",
+     "Solenoid valve 5/2 double",
+     "Solenoid valve 5/2 double"
+    ],
+    [
+     "BG",
+     "Cylinder sensor A",
+     "Cylinder sensor"
+    ],
+    [
+     "BG",
+     "Cylinder sensor B",
+     "Cylinder sensor"
+    ]
+   ],
+   "cab": [
+    [
+     "Valve cable",
+     "4x0.75",
+     5
+    ],
+    [
+     "Sensor cable M8 3-pole",
+     "3x0.25",
+     5
+    ],
+    [
+     "Sensor cable M8 3-pole",
+     "3x0.25",
+     5
+    ]
+   ],
+   "i24": 0.13,
+   "loss": 2.5,
+   "tx": 4
+  },
+  "SAFE_VALVE": {
+   "title": "Redundant safety valve with spool monitoring (press, Cat 4)",
+   "io": [
+    [
+     "ValveA",
+     "FDO",
+     "valve coil A"
+    ],
+    [
+     "ValveB",
+     "FDO",
+     "valve coil B"
+    ],
+    [
+     "FbA",
+     "FDI",
+     "spool monitor A"
+    ],
+    [
+     "FbB",
+     "FDI",
+     "spool monitor B"
+    ]
+   ],
+   "dev": [
+    [
+     "MB",
+     "Redundant safety valve block with spool monitoring",
+     "Safety valve block"
+    ]
+   ],
+   "cab": [
+    [
+     "Valve cable",
+     "5x0.75",
+     5
+    ],
+    [
+     "Sensor cable M12 4-pole",
+     "4x0.34",
+     5
+    ]
+   ],
+   "i24": 0.5,
+   "loss": 10,
+   "tx": 2
+  },
+  "SENSOR": {
+   "title": "Discrete sensor PNP (3-wire)",
+   "io": [
+    [
+     "On",
+     "DI",
+     "sensor signal"
+    ]
+   ],
+   "dev": [
+    [
+     "BG",
+     "Inductive / optical sensor PNP",
+     "Sensor PNP M12"
+    ]
+   ],
+   "cab": [
+    [
+     "Sensor cable M12 3-pole",
+     "3x0.34",
+     10
+    ]
+   ],
+   "i24": 0.03,
+   "loss": 0,
+   "tx": 2
+  },
+  "ANALOG_P": {
+   "title": "Pressure transmitter 4-20 mA",
+   "io": [
+    [
+     "Value",
+     "AI",
+     "pressure 4-20 mA"
+    ]
+   ],
+   "dev": [
+    [
+     "BP",
+     "Pressure transmitter 4-20 mA",
+     "Pressure transmitter"
+    ]
+   ],
+   "cab": [
+    [
+     "Sensor cable, shielded",
+     "3x0.34 + shield",
+     10
+    ]
+   ],
+   "i24": 0.025,
+   "loss": 0,
+   "tx": 1
+  },
+  "ANALOG_T": {
+   "title": "Temperature transmitter Pt100 -> 4-20 mA",
+   "io": [
+    [
+     "Value",
+     "AI",
+     "temperature 4-20 mA"
+    ]
+   ],
+   "dev": [
+    [
+     "BT",
+     "Pt100 with head transmitter 4-20 mA",
+     "Temperature transmitter"
+    ]
+   ],
+   "cab": [
+    [
+     "Sensor cable, shielded",
+     "3x0.34 + shield",
+     10
+    ]
+   ],
+   "i24": 0.025,
+   "loss": 0,
+   "tx": 1
+  },
+  "PUSHBUTTON": {
+   "title": "Illuminated push-button",
+   "io": [
+    [
+     "Pb",
+     "DI",
+     "push-button"
+    ],
+    [
+     "Lamp",
+     "DO",
+     "lamp"
+    ]
+   ],
+   "dev": [
+    [
+     "SF",
+     "Illuminated push-button",
+     "Illuminated push-button"
+    ]
+   ],
+   "cab": [
+    [
+     "Control cable",
+     "4x0.5",
+     5
+    ]
+   ],
+   "i24": 0.02,
+   "loss": 0,
+   "tx": 1
+  },
+  "SIGNAL_TOWER": {
+   "title": "Signal tower 3 colours + buzzer",
+   "io": [
+    [
+     "Red",
+     "DO",
+     "red"
+    ],
+    [
+     "Yellow",
+     "DO",
+     "yellow"
+    ],
+    [
+     "Green",
+     "DO",
+     "green"
+    ],
+    [
+     "Buzzer",
+     "DO",
+     "buzzer"
+    ]
+   ],
+   "dev": [
+    [
+     "PF",
+     "Signal tower LED + buzzer",
+     "Signal tower"
+    ]
+   ],
+   "cab": [
+    [
+     "Control cable",
+     "7x0.5",
+     10
+    ]
+   ],
+   "i24": 0.2,
+   "loss": 3,
+   "tx": 1
+  },
+  "HEATER": {
+   "title": "Heater with contactor + safety thermostat",
+   "io": [
+    [
+     "On",
+     "DO",
+     "heater contactor coil"
+    ],
+    [
+     "OnFb",
+     "DI",
+     "contactor auxiliary contact"
+    ],
+    [
+     "OverTemp",
+     "DI",
+     "safety thermostat tripped"
+    ]
+   ],
+   "dev": [
+    [
+     "FC",
+     "Circuit breaker 3-pole",
+     "Circuit breaker 3-pole"
+    ],
+    [
+     "QA",
+     "Contactor AC-1",
+     "Contactor AC-1"
+    ],
+    [
+     "EB",
+     "Heating elements",
+     "Heater (part of the mechanics)"
+    ],
+    [
+     "BT",
+     "Safety thermostat",
+     "Safety thermostat"
+    ]
+   ],
+   "cab": [
+    [
+     "Power cable",
+     "4G2.5",
+     10
+    ],
+    [
+     "Control cable",
+     "3x0.75",
+     10
+    ]
+   ],
+   "i24": 0.1,
+   "loss": 8,
+   "tx": 0,
+   "power": "heater",
+   "pcab": {
+    "index": 0,
+    "prefix": "4G",
+    "suffix": ""
+   }
+  },
+  "SAFETY_PLC": {
+   "title": "Safety PLC CPU (PL e / SIL 3)",
+   "io": [],
+   "dev": [
+    [
+     "KF",
+     "Safety PLC CPU",
+     "Safety PLC CPU"
+    ]
+   ],
+   "cab": [
+    [
+     "Industrial Ethernet cable, shielded",
+     "4x0.34 (PROFINET / Ethernet)",
+     3
+    ]
+   ],
+   "i24": 0.8,
+   "loss": 15,
+   "tx": 0
+  },
+  "IPC": {
+   "title": "Industrial PC (fanless)",
+   "io": [],
+   "dev": [
+    [
+     "KF",
+     "Industrial PC, fanless",
+     "Industrial PC"
+    ]
+   ],
+   "cab": [
+    [
+     "Industrial Ethernet cable, shielded",
+     "4x0.34 (PROFINET / Ethernet)",
+     5
+    ]
+   ],
+   "i24": 2.5,
+   "loss": 40,
+   "tx": 0
+  },
+  "HMI": {
+   "title": "HMI panel",
+   "io": [],
+   "dev": [
+    [
+     "PF",
+     "HMI touch panel 15 inch",
+     "HMI panel"
+    ]
+   ],
+   "cab": [
+    [
+     "Industrial Ethernet cable, shielded",
+     "4x0.34 (PROFINET / Ethernet)",
+     10
+    ]
+   ],
+   "i24": 1.2,
+   "loss": 25,
+   "tx": 0
+  },
+  "RFID": {
+   "title": "RFID read/write head (IO-Link)",
+   "io": [],
+   "dev": [
+    [
+     "BG",
+     "RFID read/write head, IO-Link",
+     "RFID head"
+    ]
+   ],
+   "cab": [
+    [
+     "IO-Link cable M12 4-pole",
+     "4x0.34",
+     10
+    ]
+   ],
+   "i24": 0.25,
+   "loss": 3,
+   "tx": 0
+  },
+  "UPS_DC": {
+   "title": "24 V DC UPS module + battery",
+   "io": [
+    [
+     "UpsOk",
+     "DI",
+     "UPS ready"
+    ],
+    [
+     "OnBattery",
+     "DI",
+     "running on battery"
+    ]
+   ],
+   "dev": [
+    [
+     "TB",
+     "24 V DC UPS module + battery",
+     "DC UPS module"
+    ]
+   ],
+   "cab": [],
+   "i24": 0.2,
+   "loss": 10,
+   "tx": 0
+  },
+  "SWITCH": {
+   "title": "Managed industrial switch",
+   "io": [],
+   "dev": [
+    [
+     "KF",
+     "Managed industrial switch 8 ports",
+     "Managed switch"
+    ]
+   ],
+   "cab": [],
+   "i24": 0.4,
+   "loss": 8,
+   "tx": 0
+  },
+  "FIREWALL": {
+   "title": "Industrial firewall",
+   "io": [],
+   "dev": [
+    [
+     "KF",
+     "Industrial firewall",
+     "Industrial firewall"
+    ]
+   ],
+   "cab": [],
+   "i24": 0.5,
+   "loss": 10,
+   "tx": 0
+  },
+  "ZONE_OUT": {
+   "title": "Zone safety output, 2-channel F-DO with contactor feedback (EDM)",
+   "io": [
+    [
+     "Release",
+     "FDO",
+     "zone release, 2-channel PM switching to the zone contactors / STO / safety valves"
+    ],
+    [
+     "Fb",
+     "FDI",
+     "zone feedback: NC mirror contacts of the zone contactors in series (EDM)"
+    ]
+   ],
+   "dev": [
+    [
+     "XD",
+     "Zone interface terminal block (F-DO out + EDM in)",
+     "Zone interface terminal block"
+    ]
+   ],
+   "cab": [
+    [
+     "Control cable to the zone",
+     "4x0.75",
+     20
+    ]
+   ],
+   "i24": 0.05,
+   "loss": 1,
+   "tx": 0
+  }
+ },
+ "modules": {
+  "M01": {
+   "title": "Machine tool interface (cell side; the machine keeps its own electrics)",
+   "instances": [
+    [
+     "FEEDER_EXT",
+     "Supply",
+     {
+      "kW": 38,
+      "ku": 0.6,
+      "cos": 0.85
+     }
+    ],
+    [
+     "COUPLING",
+     "Safety",
+     {}
+    ],
+    [
+     "BUS",
+     "Cnc",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PalAtApc",
+     {}
+    ]
+   ]
+  },
+  "M02": {
+   "title": "Automatic pallet changer (APC)",
+   "instances": [
+    [
+     "VALVE_DOUBLE",
+     "Rotate",
+     {}
+    ],
+    [
+     "VALVE_SINGLE",
+     "Clamp",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PalSideA",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PalSideB",
+     {}
+    ],
+    [
+     "ANALOG_P",
+     "ClampPress",
+     {}
+    ]
+   ]
+  },
+  "M03": {
+   "title": "Pallet pool + stacker crane",
+   "instances": [
+    [
+     "CONT_PAIR_EDM",
+     "DriveSup",
+     {}
+    ],
+    [
+     "VFD_STO",
+     "Travel",
+     {
+      "kW": 11
+     }
+    ],
+    [
+     "VFD_STO",
+     "Hoist",
+     {
+      "kW": 7.5
+     }
+    ],
+    [
+     "VFD_STO",
+     "Fork",
+     {
+      "kW": 1.5
+     }
+    ],
+    [
+     "DOOR_LOCK",
+     "Door",
+     {}
+    ],
+    [
+     "ESTOP",
+     "Estop",
+     {}
+    ],
+    [
+     "ENABLE",
+     "Enable",
+     {}
+    ],
+    [
+     "MODE_SWITCH",
+     "Mode",
+     {}
+    ],
+    [
+     "SENSOR",
+     "TravLimF",
+     {}
+    ],
+    [
+     "SENSOR",
+     "TravLimR",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PalOnFork",
+     {}
+    ],
+    [
+     "SENSOR",
+     "ForkMid",
+     {}
+    ],
+    [
+     "BUS",
+     "PosLaser",
+     {}
+    ],
+    [
+     "SIGNAL_TOWER",
+     "Tower",
+     {}
+    ]
+   ]
+  },
+  "M04": {
+   "title": "Load / unload station",
+   "instances": [
+    [
+     "LC",
+     "Curtain",
+     {}
+    ],
+    [
+     "VFD_STO",
+     "Rotary",
+     {
+      "kW": 0.75
+     }
+    ],
+    [
+     "VALVE_SINGLE",
+     "Clamp",
+     {}
+    ],
+    [
+     "ANALOG_P",
+     "ClampPress",
+     {}
+    ],
+    [
+     "PUSHBUTTON",
+     "Release",
+     {}
+    ],
+    [
+     "ESTOP",
+     "Estop",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PalPresent",
+     {}
+    ],
+    [
+     "SENSOR",
+     "RotHome",
+     {}
+    ],
+    [
+     "RFID",
+     "Rfid",
+     {}
+    ],
+    [
+     "HMI",
+     "Hmi",
+     {}
+    ],
+    [
+     "SIGNAL_TOWER",
+     "Tower",
+     {}
+    ]
+   ]
+  },
+  "M05": {
+   "title": "Robot loading cell",
+   "instances": [
+    [
+     "FEEDER_EXT",
+     "RobotSup",
+     {
+      "kW": 5,
+      "ku": 0.5,
+      "cos": 0.9
+     }
+    ],
+    [
+     "BUS",
+     "Robot",
+     {}
+    ],
+    [
+     "COUPLING",
+     "RobSafety",
+     {}
+    ],
+    [
+     "DOOR_LOCK",
+     "Door",
+     {}
+    ],
+    [
+     "SCANNER",
+     "Scanner",
+     {}
+    ],
+    [
+     "ESTOP",
+     "Estop",
+     {}
+    ],
+    [
+     "VALVE_DOUBLE",
+     "Gripper",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PartInGrip",
+     {}
+    ]
+   ]
+  },
+  "M06": {
+   "title": "AGV / AMR transfer station",
+   "instances": [
+    [
+     "SCANNER",
+     "Scanner",
+     {}
+    ],
+    [
+     "DOL",
+     "Transfer",
+     {
+      "kW": 0.37
+     }
+    ],
+    [
+     "SENSOR",
+     "Entry",
+     {}
+    ],
+    [
+     "SENSOR",
+     "Centre",
+     {}
+    ],
+    [
+     "SENSOR",
+     "End",
+     {}
+    ],
+    [
+     "HANDSHAKE_HW",
+     "Agv",
+     {}
+    ]
+   ]
+  },
+  "M07": {
+   "title": "Conveyor / carrier system (3 zones)",
+   "instances": [
+    [
+     "DOL",
+     "Zone1",
+     {
+      "kW": 0.55
+     }
+    ],
+    [
+     "DOL",
+     "Zone2",
+     {
+      "kW": 0.55
+     }
+    ],
+    [
+     "DOL",
+     "Zone3",
+     {
+      "kW": 0.55
+     }
+    ],
+    [
+     "SENSOR",
+     "Z1In",
+     {}
+    ],
+    [
+     "SENSOR",
+     "Z1Out",
+     {}
+    ],
+    [
+     "SENSOR",
+     "Z2In",
+     {}
+    ],
+    [
+     "SENSOR",
+     "Z2Out",
+     {}
+    ],
+    [
+     "SENSOR",
+     "Z3In",
+     {}
+    ],
+    [
+     "SENSOR",
+     "Z3Out",
+     {}
+    ],
+    [
+     "VALVE_SINGLE",
+     "Stop1",
+     {}
+    ],
+    [
+     "VALVE_SINGLE",
+     "Stop2",
+     {}
+    ],
+    [
+     "ESTOP",
+     "PullWire",
+     {}
+    ]
+   ]
+  },
+  "M08": {
+   "title": "AS/RS stacker crane",
+   "instances": [
+    [
+     "CONT_PAIR_EDM",
+     "DriveSup",
+     {}
+    ],
+    [
+     "VFD_STO",
+     "Travel",
+     {
+      "kW": 15
+     }
+    ],
+    [
+     "VFD_STO",
+     "Hoist",
+     {
+      "kW": 11
+     }
+    ],
+    [
+     "VFD_STO",
+     "Fork",
+     {
+      "kW": 2.2
+     }
+    ],
+    [
+     "DOOR_LOCK",
+     "Door",
+     {}
+    ],
+    [
+     "ESTOP",
+     "Estop",
+     {}
+    ],
+    [
+     "ENABLE",
+     "Enable",
+     {}
+    ],
+    [
+     "MODE_SWITCH",
+     "Mode",
+     {}
+    ],
+    [
+     "SENSOR",
+     "TravLimF",
+     {}
+    ],
+    [
+     "SENSOR",
+     "TravLimR",
+     {}
+    ],
+    [
+     "SENSOR",
+     "HoistTop",
+     {}
+    ],
+    [
+     "SENSOR",
+     "HoistBot",
+     {}
+    ],
+    [
+     "SENSOR",
+     "LoadOnFork",
+     {}
+    ],
+    [
+     "SENSOR",
+     "ForkMid",
+     {}
+    ],
+    [
+     "BUS",
+     "PosLaser",
+     {}
+    ],
+    [
+     "SIGNAL_TOWER",
+     "Tower",
+     {}
+    ]
+   ]
+  },
+  "M09": {
+   "title": "Tool management (presetter + tool transfer)",
+   "instances": [
+    [
+     "FEEDER_EXT",
+     "Presetter",
+     {
+      "kW": 1,
+      "ku": 0.5,
+      "cos": 0.95
+     }
+    ],
+    [
+     "BUS",
+     "Presetter",
+     {}
+    ],
+    [
+     "SENSOR",
+     "ToolInPort",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PortDoor",
+     {}
+    ],
+    [
+     "RFID",
+     "ToolId",
+     {}
+    ]
+   ]
+  },
+  "M10": {
+   "title": "Parts washer",
+   "instances": [
+    [
+     "DOL",
+     "SprayPump",
+     {
+      "kW": 7.5
+     }
+    ],
+    [
+     "DOL",
+     "RinsePump",
+     {
+      "kW": 3
+     }
+    ],
+    [
+     "HEATER",
+     "Heater",
+     {
+      "kW": 18
+     }
+    ],
+    [
+     "ANALOG_T",
+     "TankTemp",
+     {}
+    ],
+    [
+     "SENSOR",
+     "LevelLow",
+     {}
+    ],
+    [
+     "SENSOR",
+     "LevelHigh",
+     {}
+    ],
+    [
+     "DOOR_2CH",
+     "Door",
+     {}
+    ],
+    [
+     "VALVE_SINGLE",
+     "DoorCyl",
+     {}
+    ],
+    [
+     "DOL",
+     "Conveyor",
+     {
+      "kW": 0.37
+     }
+    ],
+    [
+     "ESTOP",
+     "Estop",
+     {}
+    ]
+   ]
+  },
+  "M11": {
+   "title": "Measuring station (CMM)",
+   "instances": [
+    [
+     "FEEDER_EXT",
+     "CmmSup",
+     {
+      "kW": 6,
+      "ku": 0.6,
+      "cos": 0.9
+     }
+    ],
+    [
+     "BUS",
+     "Cmm",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PalPresent",
+     {}
+    ],
+    [
+     "ANALOG_T",
+     "RoomTemp",
+     {}
+    ]
+   ]
+  },
+  "M12": {
+   "title": "Marking & ID (laser + code reader)",
+   "instances": [
+    [
+     "FEEDER_EXT",
+     "Laser",
+     {
+      "kW": 1,
+      "ku": 0.6,
+      "cos": 0.95
+     }
+    ],
+    [
+     "DOOR_2CH",
+     "Enclosure",
+     {}
+    ],
+    [
+     "BUS",
+     "Reader",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PartPresent",
+     {}
+    ],
+    [
+     "VALVE_SINGLE",
+     "Clamp",
+     {}
+    ],
+    [
+     "DOL",
+     "Exhaust",
+     {
+      "kW": 0.75
+     }
+    ]
+   ]
+  },
+  "M13": {
+   "title": "Assembly station (screwdriving + press-fit)",
+   "instances": [
+    [
+     "FEEDER_EXT",
+     "Nutrunner",
+     {
+      "kW": 1.5,
+      "ku": 0.5,
+      "cos": 0.95
+     }
+    ],
+    [
+     "BUS",
+     "Nutrunner",
+     {}
+    ],
+    [
+     "VALVE_DOUBLE",
+     "PressFit",
+     {}
+    ],
+    [
+     "TWOHAND",
+     "TwoHand",
+     {}
+    ],
+    [
+     "LC",
+     "Curtain",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PartIn",
+     {}
+    ],
+    [
+     "SENSOR",
+     "CompA",
+     {}
+    ],
+    [
+     "SENSOR",
+     "CompB",
+     {}
+    ],
+    [
+     "SENSOR",
+     "Fixture",
+     {}
+    ],
+    [
+     "PUSHBUTTON",
+     "PickLight",
+     {}
+    ],
+    [
+     "ESTOP",
+     "Estop",
+     {}
+    ]
+   ]
+  },
+  "M14": {
+   "title": "Test station (leak / function test)",
+   "instances": [
+    [
+     "FEEDER_EXT",
+     "Tester",
+     {
+      "kW": 1,
+      "ku": 0.6,
+      "cos": 0.95
+     }
+    ],
+    [
+     "BUS",
+     "Tester",
+     {}
+    ],
+    [
+     "VALVE_SINGLE",
+     "Seal1",
+     {}
+    ],
+    [
+     "VALVE_SINGLE",
+     "Seal2",
+     {}
+    ],
+    [
+     "ANALOG_P",
+     "TestPress",
+     {}
+    ],
+    [
+     "DOOR_2CH",
+     "Hood",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PartIn",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PartOk",
+     {}
+    ],
+    [
+     "SIGNAL_TOWER",
+     "Tower",
+     {}
+    ]
+   ]
+  },
+  "M15": {
+   "title": "Robot welding cell (2-station turntable)",
+   "instances": [
+    [
+     "FEEDER_EXT",
+     "RobotSup",
+     {
+      "kW": 5,
+      "ku": 0.5,
+      "cos": 0.9
+     }
+    ],
+    [
+     "FEEDER_EXT",
+     "WeldPwr",
+     {
+      "kW": 20,
+      "ku": 0.6,
+      "cos": 0.9
+     }
+    ],
+    [
+     "BUS",
+     "Robot",
+     {}
+    ],
+    [
+     "COUPLING",
+     "RobSafety",
+     {}
+    ],
+    [
+     "VFD_STO",
+     "Turntable",
+     {
+      "kW": 1.1
+     }
+    ],
+    [
+     "LC",
+     "Curtain",
+     {}
+    ],
+    [
+     "DOOR_LOCK",
+     "Door",
+     {}
+    ],
+    [
+     "ESTOP",
+     "Estop",
+     {}
+    ],
+    [
+     "DOL",
+     "Fume",
+     {
+      "kW": 4
+     }
+    ],
+    [
+     "SENSOR",
+     "SideAHome",
+     {}
+    ],
+    [
+     "SENSOR",
+     "SideBHome",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PartA",
+     {}
+    ],
+    [
+     "SENSOR",
+     "PartB",
+     {}
+    ]
+   ]
+  },
+  "M16": {
+   "title": "Press (hydraulic, bending / punching / press-fit)",
+   "instances": [
+    [
+     "DOL",
+     "HydPump",
+     {
+      "kW": 15
+     }
+    ],
+    [
+     "SAFE_VALVE",
+     "RamValve",
+     {}
+    ],
+    [
+     "VALVE_DOUBLE",
+     "Ram",
+     {}
+    ],
+    [
+     "TWOHAND",
+     "TwoHand",
+     {}
+    ],
+    [
+     "LC",
+     "Curtain",
+     {}
+    ],
+    [
+     "ESTOP",
+     "Estop",
+     {}
+    ],
+    [
+     "ANALOG_P",
+     "SysPress",
+     {}
+    ],
+    [
+     "SENSOR",
+     "RamTop",
+     {}
+    ],
+    [
+     "SENSOR",
+     "RamBdc",
+     {}
+    ],
+    [
+     "SENSOR",
+     "OilLevel",
+     {}
+    ],
+    [
+     "SENSOR",
+     "FilterDirty",
+     {}
+    ]
+   ]
+  },
+  "M17": {
+   "title": "Utilities (air, coolant, energy)",
+   "instances": [
+    [
+     "ANALOG_P",
+     "AirPress",
+     {}
+    ],
+    [
+     "ANALOG_P",
+     "CoolPress",
+     {}
+    ],
+    [
+     "SENSOR",
+     "DryerFault",
+     {}
+    ],
+    [
+     "SENSOR",
+     "CoolLevelL",
+     {}
+    ],
+    [
+     "DOL",
+     "CoolPump",
+     {
+      "kW": 5.5
+     }
+    ],
+    [
+     "BUS",
+     "EnergyMtr",
+     {}
+    ]
+   ]
+  },
+  "M18": {
+   "title": "Cell safety controller",
+   "instances": [
+    [
+     "SAFETY_PLC",
+     "SafetyCpu",
+     {}
+    ],
+    [
+     "ZONE_OUT",
+     "Zone1",
+     {}
+    ],
+    [
+     "ZONE_OUT",
+     "Zone2",
+     {}
+    ],
+    [
+     "ZONE_OUT",
+     "Zone3",
+     {}
+    ],
+    [
+     "ZONE_OUT",
+     "Zone4",
+     {}
+    ],
+    [
+     "ESTOP",
+     "Estop1",
+     {}
+    ],
+    [
+     "ESTOP",
+     "Estop2",
+     {}
+    ],
+    [
+     "MODE_SWITCH",
+     "Mode",
+     {}
+    ],
+    [
+     "PUSHBUTTON",
+     "Reset",
+     {}
+    ],
+    [
+     "SIGNAL_TOWER",
+     "Tower",
+     {}
+    ]
+   ],
+   "_note": "4 safety zones as the library default (item 7 zone matrix: each zone output drives a contactor pair / STO group / safety valve of the zone and reads its EDM back). Change the number of ZONE_OUT instances per project."
+  },
+  "M19": {
+   "title": "Cell controller",
+   "instances": [
+    [
+     "IPC",
+     "Ipc",
+     {}
+    ],
+    [
+     "UPS_DC",
+     "Ups",
+     {}
+    ],
+    [
+     "SWITCH",
+     "Switch",
+     {}
+    ]
+   ]
+  },
+  "M20": {
+   "title": "SCADA / HMI clients",
+   "instances": [
+    [
+     "IPC",
+     "Scada",
+     {}
+    ],
+    [
+     "HMI",
+     "Hmi",
+     {}
+    ]
+   ]
+  },
+  "M21": {
+   "title": "MES / ERP connector (server / virtual machine - no field circuits)",
+   "instances": []
+  },
+  "M22": {
+   "title": "Network & IT/OT (cell network cabinet)",
+   "instances": [
+    [
+     "SWITCH",
+     "Core1",
+     {}
+    ],
+    [
+     "SWITCH",
+     "Core2",
+     {}
+    ],
+    [
+     "FIREWALL",
+     "Firewall",
+     {}
+    ],
+    [
+     "UPS_DC",
+     "Ups",
+     {}
+    ]
+   ]
+  }
+ },
+ "kit": {
+  "name": "FMS (3 HMCs + pool + AGV)",
+  "modules": [
+   "M01",
+   "M01",
+   "M01",
+   "M02",
+   "M02",
+   "M02",
+   "M03",
+   "M04",
+   "M04",
+   "M06",
+   "M10",
+   "M11",
+   "M12",
+   "M17",
+   "M18",
+   "M19",
+   "M20",
+   "M22"
+  ],
+  "_source": "web/fmse6_data.js KITS"
+ }
+}

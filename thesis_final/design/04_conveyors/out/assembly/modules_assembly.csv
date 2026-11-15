@@ -1,0 +1,17 @@
+module,qty,EUR_each,EUR
+carrier,21,650,13650
+adapter_set (VC20 + RB),21,250,5250
+loop_per_m,100,1100,110000
+section_drive,4,3500,14000
+corner_unit,4,8000,32000
+spur_unit,19,7000,133000
+lift_table (ASSY spurs),9,4000,36000
+lift_pit 250 mm (ASSY spurs),9,1500,13500
+lift_locate (all stations),21,1800,37800
+test_dock,7,3500,24500
+load_station,1,12000,12000
+tank_lifter,1,6500,6500
+tank_rack,8,450,3600
+balancer,5,4500,22500
+stopper,25,450,11250
+"gate_section (personnel access + escape, interlocked)",2,6500,13000

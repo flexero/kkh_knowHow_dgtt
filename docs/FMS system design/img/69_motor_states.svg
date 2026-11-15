@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>FB_MotorDol state machine (tick 100 ms, feedback time T_fb = 500 ms)</title>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">FB_MotorDol state machine (tick 100 ms, feedback time T_fb = 500 ms)</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">States 0 STOPPED, 1 STARTING, 2 RUNNING, 3 STOPPING, 9 FAULT. Run = TRUE only in STARTING and RUNNING. No automatic restart: STOPPED -&gt; STARTING only on a rising edge of Cmd.</text>
+<rect x="120" y="170" width="160" height="60" rx="14" fill="#f2f2f2" stroke="#111" stroke-width="2"/>
+<text x="200" y="196" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">0 STOPPED</text>
+<text x="200" y="216" font-size="11" text-anchor="middle" fill="#111">Run = FALSE</text>
+<rect x="440" y="170" width="160" height="60" rx="14" fill="#f2f2f2" stroke="#111" stroke-width="2"/>
+<text x="520" y="196" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">1 STARTING</text>
+<text x="520" y="216" font-size="11" text-anchor="middle" fill="#111">Run = TRUE</text>
+<rect x="760" y="170" width="160" height="60" rx="14" fill="#f2f2f2" stroke="#111" stroke-width="2"/>
+<text x="840" y="196" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">2 RUNNING</text>
+<text x="840" y="216" font-size="11" text-anchor="middle" fill="#111">Run = TRUE</text>
+<rect x="440" y="350" width="160" height="60" rx="14" fill="#f2f2f2" stroke="#111" stroke-width="2"/>
+<text x="520" y="376" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">3 STOPPING</text>
+<text x="520" y="396" font-size="11" text-anchor="middle" fill="#111">Run = FALSE</text>
+<rect x="760" y="440" width="160" height="60" rx="14" fill="#fdecea" stroke="#c0392b" stroke-width="2"/>
+<text x="840" y="466" font-size="13" text-anchor="middle" font-weight="bold" fill="#c0392b">9 FAULT</text>
+<text x="840" y="486" font-size="11" text-anchor="middle" fill="#111">Run = FALSE</text>
+<line x1="280" y1="190" x2="440" y2="190" stroke="#111" stroke-width="1.5"/>
+<polygon points="440,190 431.00,186.22 431.00,193.78" fill="#111"/>
+<text x="360" y="180" font-size="11" text-anchor="middle" fill="#111">rising edge of Cmd</text>
+<line x1="600" y1="190" x2="760" y2="190" stroke="#111" stroke-width="1.5"/>
+<polygon points="760,190 751.00,186.22 751.00,193.78" fill="#111"/>
+<text x="680" y="180" font-size="11" text-anchor="middle" fill="#111">RunFb</text>
+<polyline points="840,230 840,300 600,370" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="600,370 609.70,371.11 607.58,363.85" fill="#111"/>
+<text x="850" y="290" font-size="11" text-anchor="start" fill="#111">NOT Cmd</text>
+<polyline points="440,380 200,380 200,230" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="200,230 196.22,239.00 203.78,239.00" fill="#111"/>
+<text x="300" y="372" font-size="11" text-anchor="middle" fill="#111">NOT RunFb</text>
+<polyline points="520,230 520,300 760,455" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="760,455 754.49,446.94 750.39,453.29" fill="#c0392b"/>
+<text x="540" y="290" font-size="11" text-anchor="start" fill="#c0392b">n x 100 &gt;= T_fb (no RunFb) -&gt; alarm 1</text>
+<polyline points="900,230 900,440" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="900,440 903.78,431.00 896.22,431.00" fill="#c0392b"/>
+<text x="910" y="340" font-size="11" text-anchor="start" fill="#c0392b">NOT RunFb while Cmd</text>
+<text x="910" y="356" font-size="11" text-anchor="start" fill="#c0392b">-&gt; alarm 2</text>
+<polyline points="600,395 760,465" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="760,465 753.27,457.93 750.24,464.86" fill="#c0392b"/>
+<text x="600" y="440" font-size="11" text-anchor="start" fill="#c0392b">RunFb still after T_fb -&gt; alarm 4</text>
+<polyline points="120,215 60,215 60,520 760,520 760,490" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<polygon points="760,490 756.22,499.00 763.78,499.00" fill="#c0392b"/>
+<text x="70" y="512" font-size="11" text-anchor="start" fill="#c0392b">STOPPED: RunFb without command for T_fb -&gt; alarm 4 (welded contactor)</text>
+<polyline points="920,470 1100,470 1100,120 200,120 200,170" fill="none" stroke="#2e7d32" stroke-width="1.5"/>
+<polygon points="200,170 203.78,161.00 196.22,161.00" fill="#2e7d32"/>
+<text x="1010" y="112" font-size="11" text-anchor="end" fill="#2e7d32">Reset AND NOT Tripped AND NOT (alarm 4 AND RunFb) -&gt; STOPPED (no restart)</text>
+<text x="940" y="500" font-size="11" text-anchor="start" fill="#c0392b">any state: Tripped -&gt; FAULT alarm 3</text>
+<text x="60" y="552" font-size="11" text-anchor="start" fill="#111">Alarms: 1 no run feedback after start, 2 run feedback lost while running, 3 motor protection tripped, 4 run feedback without command (contactor welded?)</text>
+<text x="24" y="586" font-size="11" text-anchor="start" fill="#666">Teaching example - not for construction. Real PLC code: written, reviewed and validated by qualified people (IEC 61131-3, IEC 62061 / ISO 13849).</text>
+</svg>

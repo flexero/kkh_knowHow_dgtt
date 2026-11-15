@@ -7,8 +7,8 @@ import { PROTO, PN0, EC0, MB0, HI0, ZONES, RANGES, MODDEV, KITS, ZBOX, CONDUITS,
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const f1 = (x, d = 1) => (Number.isFinite(x) ? x.toLocaleString("en", { maximumFractionDigits: d, minimumFractionDigits: d }) : "–");
-const UNIT = { M01: "MC", M02: "APC", M03: "POOL", M04: "LS", M05: "ROB", M06: "AGVST", M07: "CONV", M08: "ASRS", M09: "TOOL", M10: "WASH", M11: "CMM", M12: "MARK", M13: "ST", M14: "TEST", M15: "WELD", M16: "PRESS", M17: "UTIL", M18: "SAFE", M19: "CC", M20: "SCADA", M21: "MESCON", M22: "NET" };
-const MODN = { M01: "Machine tool interface", M02: "Pallet changer", M03: "Pallet pool + stacker", M04: "Load / unload station", M05: "Robot cell", M06: "AGV station", M07: "Conveyor", M08: "AS/RS", M09: "Tool management", M10: "Washer", M11: "Measuring", M12: "Marking & ID", M13: "Assembly station", M14: "Test station", M15: "Welding cell", M16: "Press", M17: "Utilities", M18: "Safety controller", M19: "Cell controller", M20: "SCADA", M21: "MES connector", M22: "Network" };
+export const UNIT = { M01: "MC", M02: "APC", M03: "POOL", M04: "LS", M05: "ROB", M06: "AGVST", M07: "CONV", M08: "ASRS", M09: "TOOL", M10: "WASH", M11: "CMM", M12: "MARK", M13: "ST", M14: "TEST", M15: "WELD", M16: "PRESS", M17: "UTIL", M18: "SAFE", M19: "CC", M20: "SCADA", M21: "MESCON", M22: "NET" };
+export const MODN = { M01: "Machine tool interface", M02: "Pallet changer", M03: "Pallet pool + stacker", M04: "Load / unload station", M05: "Robot cell", M06: "AGV station", M07: "Conveyor", M08: "AS/RS", M09: "Tool management", M10: "Washer", M11: "Measuring", M12: "Marking & ID", M13: "Assembly station", M14: "Test station", M15: "Welding cell", M16: "Press", M17: "Utilities", M18: "Safety controller", M19: "Cell controller", M20: "SCADA", M21: "MES connector", M22: "Network" };
 function download(name, text, type) { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); }
 
 export function mount(el) {
@@ -64,6 +64,9 @@ export function mount(el) {
   </div>`;
 
   initSel(); initCalc(); initIP(); initZones(); initMap();
+  // 6G–6N: deep sections (guides + programs) live in fmse6x.js; they reuse UNIT and CALC exported here
+  const deepEl = document.createElement("div"); deepEl.id = "feItem6x"; el.appendChild(deepEl);
+  import("./fmse6x.js").then((m) => m.mount(deepEl)).catch((e) => { deepEl.innerHTML = `<div class="card"><p class="fe-no">Sections 6G–6N could not load: ${esc(e.message)}</p></div>`; });
 }
 
 /* ================================================================== 6B selector */
@@ -88,7 +91,7 @@ function drawSel() {
 }
 
 /* ================================================================== 6C calculators */
-const CALC = {
+export const CALC = {   // reused by 6N (fmse6x.js)
   pn: { v: { ...PN0 }, inp: [["dev", "Devices (IO stations, drives …)", ""], ["io", "Cyclic IO data per device and direction", "bytes"], ["cyc", "Update time", "ms"], ["spd", "Link speed", "Mbit/s"]],
     run(v) { const frame = Math.max(64, v.io + 10 + 22), wire = frame + 20, bps = v.dev * wire * 8 / (v.cyc / 1000), load = bps / (v.spd * 1e6);
       return [["Frame = max(64, data + 10 PN header + 22 Ethernet / VLAN / FCS)", frame, "bytes", 0], ["On the wire (+ 8 preamble + 12 gap)", wire, "bytes", 0], ["Bandwidth per direction = devices × wire × 8 ÷ cycle", bps / 1e6, "Mbit/s", 2], ["Cyclic load on the controller port", load * 100, "%", 1],

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="Arial, Helvetica, sans-serif">
+<title>IEC 81346 reference designation: three aspects of the same object</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1200" height="560" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="17" text-anchor="start" fill="#111111" font-weight="bold">IEC 81346 reference designation: three aspects of the same object</text>
+<text x="24.0" y="54.0" font-size="12" text-anchor="start" fill="#52514e">= function (what it does), + location (where it is), - product (what it is made of). Letter codes after IEC 81346-2.</text>
+<rect x="60.0" y="90.0" width="330.0" height="90.0" rx="6" fill="#dcefe0" stroke="#333" stroke-width="1.5"/>
+<text x="225.0" y="131.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">= Function aspect</text>
+<text x="225.0" y="148.0" font-size="11" text-anchor="middle" fill="#52514e">=FMS1.MC02  (machining function MC02)</text>
+<rect x="435.0" y="90.0" width="330.0" height="90.0" rx="6" fill="#fbf0d4" stroke="#333" stroke-width="1.5"/>
+<text x="600.0" y="131.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">+ Location aspect</text>
+<text x="600.0" y="148.0" font-size="11" text-anchor="middle" fill="#52514e">+HALL1.A3  (hall 1, column field A3)</text>
+<rect x="810.0" y="90.0" width="330.0" height="90.0" rx="6" fill="#f8dcd3" stroke="#333" stroke-width="1.5"/>
+<text x="975.0" y="131.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">- Product aspect</text>
+<text x="975.0" y="148.0" font-size="11" text-anchor="middle" fill="#52514e">-KF1  (control device KF1)</text>
+<rect x="260.0" y="240.0" width="680.0" height="70.0" rx="6" fill="#ffffff" stroke="#3d7ac4" stroke-width="2.5"/>
+<text x="600.0" y="270.0" font-size="20" text-anchor="middle" fill="#3d7ac4" font-weight="bold">=FMS1.MC02+HALL1.A3-KF1</text>
+<text x="600.0" y="295.0" font-size="12" text-anchor="middle" fill="#52514e">full reference designation of the PLC (control device) of machining centre MC02</text>
+<line x1="225.0" y1="180.0" x2="431.2" y2="238.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="600.0" y1="180.0" x2="600.0" y2="238.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="975.0" y1="180.0" x2="768.8" y2="238.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<text x="60.0" y="350.0" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">Main classes of IEC 81346-2 (first letter) with typical two-letter codes - examples, verify against the current edition:</text>
+<text x="60.0" y="376.0" font-size="13" text-anchor="start" fill="#3d7ac4" font-weight="bold">A</text>
+<text x="84.0" y="376.0" font-size="12" text-anchor="start" fill="#111111">two or more purposes (e.g. cabinet with mixed content)</text>
+<text x="620.0" y="376.0" font-size="13" text-anchor="start" fill="#3d7ac4" font-weight="bold">B</text>
+<text x="644.0" y="376.0" font-size="12" text-anchor="start" fill="#111111">converting a variable into a signal: BG position sensor, BP pressure, BT temperature</text>
+<text x="60.0" y="402.0" font-size="13" text-anchor="start" fill="#3d7ac4" font-weight="bold">C</text>
+<text x="84.0" y="402.0" font-size="12" text-anchor="start" fill="#111111">storing energy / information / material: CA capacitor, CM tank</text>
+<text x="620.0" y="402.0" font-size="13" text-anchor="start" fill="#3d7ac4" font-weight="bold">E</text>
+<text x="644.0" y="402.0" font-size="12" text-anchor="start" fill="#111111">providing energy / heat: EA lamp, EB heater</text>
+<text x="60.0" y="428.0" font-size="13" text-anchor="start" fill="#3d7ac4" font-weight="bold">F</text>
+<text x="84.0" y="428.0" font-size="12" text-anchor="start" fill="#111111">protecting: FC overcurrent (fuse, circuit breaker), FB residual current</text>
+<text x="620.0" y="428.0" font-size="13" text-anchor="start" fill="#3d7ac4" font-weight="bold">G</text>
+<text x="644.0" y="428.0" font-size="12" text-anchor="start" fill="#111111">generating energy / flow: GA generator, GP pump, GQ fan / compressor</text>
+<text x="60.0" y="454.0" font-size="13" text-anchor="start" fill="#3d7ac4" font-weight="bold">K</text>
+<text x="84.0" y="454.0" font-size="12" text-anchor="start" fill="#111111">processing signals: KF PLC / relay / safety relay</text>
+<text x="620.0" y="454.0" font-size="13" text-anchor="start" fill="#3d7ac4" font-weight="bold">M</text>
+<text x="644.0" y="454.0" font-size="12" text-anchor="start" fill="#111111">providing mechanical energy: MA electric motor, MM cylinder / actuator</text>
+<text x="60.0" y="480.0" font-size="13" text-anchor="start" fill="#3d7ac4" font-weight="bold">P</text>
+<text x="84.0" y="480.0" font-size="12" text-anchor="start" fill="#111111">presenting information: PF lamp / display, PG meter</text>
+<text x="620.0" y="480.0" font-size="13" text-anchor="start" fill="#3d7ac4" font-weight="bold">Q</text>
+<text x="644.0" y="480.0" font-size="12" text-anchor="start" fill="#111111">controlled switching: QA contactor / breaker, QB disconnector, QM valve</text>
+<text x="60.0" y="506.0" font-size="13" text-anchor="start" fill="#3d7ac4" font-weight="bold">T</text>
+<text x="84.0" y="506.0" font-size="12" text-anchor="start" fill="#111111">converting energy: TA transformer / converter, TB power supply (AC/DC)</text>
+<text x="620.0" y="506.0" font-size="13" text-anchor="start" fill="#3d7ac4" font-weight="bold">X</text>
+<text x="644.0" y="506.0" font-size="12" text-anchor="start" fill="#111111">connecting: XD power terminal, XG signal terminal, XF data connector</text>
+</svg>

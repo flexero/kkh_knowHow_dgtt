@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="330" viewBox='0 0 760 330' font-family='Arial, Helvetica, sans-serif'>
+<rect width='100%' height='100%' fill='#ffffff'/>
+<rect x='20.0' y='40.0' width='150.0' height='70.0' fill='#eaf2fa' stroke='#0072B2' stroke-width='1.4' rx='6'/>
+<text x='95.0' y='62.0' font-size='13.5' text-anchor='middle' fill='#1a1a1a' font-weight='bold'>Information state</text>
+<text x='95.0' y='82.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>twin posterior p(θ | data)</text>
+<text x='95.0' y='98.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>+ demand estimate</text>
+<rect x='215.0' y='40.0' width='160.0' height='70.0' fill='#f4f4f4' stroke='#777777' stroke-width='1.4' rx='6'/>
+<text x='295.0' y='62.0' font-size='13.5' text-anchor='middle' fill='#1a1a1a' font-weight='bold'>Rolling-horizon rule</text>
+<text x='295.0' y='82.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>enumerate feasible sets</text>
+<text x='295.0' y='98.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>(budget, precedence)</text>
+<rect x='420.0' y='40.0' width='150.0' height='70.0' fill='#f4f4f4' stroke='#777777' stroke-width='1.4' rx='6'/>
+<text x='495.0' y='62.0' font-size='13.5' text-anchor='middle' fill='#1a1a1a' font-weight='bold'>Screening model</text>
+<text x='495.0' y='82.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>Y = η·min capacity·yield</text>
+<text x='495.0' y='98.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>N_θ posterior samples</text>
+<rect x='610.0' y='40.0' width='135.0' height='70.0' fill='#f4f4f4' stroke='#777777' stroke-width='1.4' rx='6'/>
+<text x='677.5' y='62.0' font-size='13.5' text-anchor='middle' fill='#1a1a1a' font-weight='bold'>Decision a_s</text>
+<text x='677.5' y='82.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>install options</text>
+<text x='677.5' y='98.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>pay capex</text>
+<rect x='610.0' y='200.0' width='135.0' height='70.0' fill='#f4f4f4' stroke='#777777' stroke-width='1.4' rx='6'/>
+<text x='677.5' y='222.0' font-size='13.5' text-anchor='middle' fill='#1a1a1a' font-weight='bold'>Real factory</text>
+<text x='677.5' y='242.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>(here: DES with hidden</text>
+<text x='677.5' y='258.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>true parameters)</text>
+<rect x='300.0' y='200.0' width='190.0' height='70.0' fill='#eaf2fa' stroke='#0072B2' stroke-width='1.4' rx='6'/>
+<text x='395.0' y='222.0' font-size='13.5' text-anchor='middle' fill='#1a1a1a' font-weight='bold'>Bayesian update (ρ)</text>
+<text x='395.0' y='242.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>conjugate, configuration-</text>
+<text x='395.0' y='258.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>normalised observations</text>
+<rect x='20.0' y='200.0' width='150.0' height='70.0' fill='#f4f4f4' stroke='#777777' stroke-width='1.4' rx='6'/>
+<text x='95.0' y='222.0' font-size='13.5' text-anchor='middle' fill='#1a1a1a' font-weight='bold'>Stage s → s+1</text>
+<text x='95.0' y='242.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>realised output, demand,</text>
+<text x='95.0' y='258.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>cash flow</text>
+<defs><marker id='ar' markerWidth='10' markerHeight='8' refX='9' refY='4' orient='auto'><path d='M0,0 L10,4 L0,8 z' fill='#333'/></marker></defs>
+<line x1='170' y1='75' x2='213' y2='75' stroke='#333' stroke-width='1.6' marker-end='url(#ar)'/>
+<line x1='375' y1='75' x2='418' y2='75' stroke='#333' stroke-width='1.6' marker-end='url(#ar)'/>
+<line x1='570' y1='75' x2='608' y2='75' stroke='#333' stroke-width='1.6' marker-end='url(#ar)'/>
+<line x1='677' y1='110' x2='677' y2='198' stroke='#333' stroke-width='1.6' marker-end='url(#ar)'/>
+<text x='715.0' y='158.0' font-size='11.5' text-anchor='middle' fill='#555555' font-weight='normal'>implement</text>
+<line x1='610' y1='235' x2='492' y2='235' stroke='#333' stroke-width='1.6' marker-end='url(#ar)'/>
+<text x='551.0' y='228.0' font-size='11.5' text-anchor='middle' fill='#555555' font-weight='normal'>machine events</text>
+<line x1='300' y1='235' x2='172' y2='235' stroke='#333' stroke-width='1.6' marker-end='url(#ar)'/>
+<text x='236.0' y='228.0' font-size='11.5' text-anchor='middle' fill='#555555' font-weight='normal'>posterior</text>
+<line x1='95' y1='200' x2='95' y2='112' stroke='#333' stroke-width='1.6' marker-end='url(#ar)'/>
+<text x='50.0' y='158.0' font-size='11.5' text-anchor='middle' fill='#555555' font-weight='normal'>next stage</text>
+<text x='380.0' y='312.0' font-size='12' text-anchor='middle' fill='#555555' font-weight='normal'>Benchmarks: all-at-once · fixed plan (point values / stochastic) · myopic · bottleneck greedy · clairvoyant</text>
+</svg>

@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="Arial, Helvetica, sans-serif">
+<title>FB_AlarmMgr - APC01 (M02) example: active alarms, AlarmNo, WarningNo, AlarmClass and reaction</title>
+<rect x="0" y="0" width="1200" height="560" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">FB_AlarmMgr - APC01 (M02) example: active alarms, AlarmNo, WarningNo, AlarmClass and reaction</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Events from item10a_examples.json alarm_manager (time in ticks). Bars = alarm active. Rows below = what the module writes into words 6 and 7 and gives to the tower / PackML core.</text>
+<line x1="200.0" y1="85" x2="200.0" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="200.0" y="486" font-size="11" text-anchor="middle" fill="#111">0</text>
+<line x1="273.84615384615387" y1="85" x2="273.84615384615387" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="273.84615384615387" y="486" font-size="11" text-anchor="middle" fill="#111">5</text>
+<line x1="347.69230769230774" y1="85" x2="347.69230769230774" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="347.69230769230774" y="486" font-size="11" text-anchor="middle" fill="#111">10</text>
+<line x1="421.53846153846155" y1="85" x2="421.53846153846155" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="421.53846153846155" y="486" font-size="11" text-anchor="middle" fill="#111">15</text>
+<line x1="495.3846153846154" y1="85" x2="495.3846153846154" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="495.3846153846154" y="486" font-size="11" text-anchor="middle" fill="#111">20</text>
+<line x1="569.2307692307693" y1="85" x2="569.2307692307693" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="569.2307692307693" y="486" font-size="11" text-anchor="middle" fill="#111">25</text>
+<line x1="643.0769230769231" y1="85" x2="643.0769230769231" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="643.0769230769231" y="486" font-size="11" text-anchor="middle" fill="#111">30</text>
+<line x1="716.9230769230769" y1="85" x2="716.9230769230769" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="716.9230769230769" y="486" font-size="11" text-anchor="middle" fill="#111">35</text>
+<line x1="790.7692307692308" y1="85" x2="790.7692307692308" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="790.7692307692308" y="486" font-size="11" text-anchor="middle" fill="#111">40</text>
+<line x1="864.6153846153846" y1="85" x2="864.6153846153846" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="864.6153846153846" y="486" font-size="11" text-anchor="middle" fill="#111">45</text>
+<line x1="938.4615384615385" y1="85" x2="938.4615384615385" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="938.4615384615385" y="486" font-size="11" text-anchor="middle" fill="#111">50</text>
+<line x1="1012.3076923076924" y1="85" x2="1012.3076923076924" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="1012.3076923076924" y="486" font-size="11" text-anchor="middle" fill="#111">55</text>
+<line x1="1086.1538461538462" y1="85" x2="1086.1538461538462" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="1086.1538461538462" y="486" font-size="11" text-anchor="middle" fill="#111">60</text>
+<line x1="1160.0" y1="85" x2="1160.0" y2="470" stroke="#e6e6e6" stroke-width="1"/>
+<text x="1160.0" y="486" font-size="11" text-anchor="middle" fill="#111">65</text>
+<text x="20" y="115" font-size="11" text-anchor="start" fill="#555">2053 (C) ClampPress quality</text>
+<rect x="347.69230769230774" y="101" width="738.4615384615385" height="22" rx="3" fill="#555" stroke="#555" stroke-width="1"/>
+<text x="20" y="155" font-size="11" text-anchor="start" fill="#b7950b">2021 (B) Clamp not reached</text>
+<rect x="495.3846153846154" y="141" width="147.6923076923077" height="22" rx="3" fill="#b7950b" stroke="#b7950b" stroke-width="1"/>
+<text x="20" y="195" font-size="11" text-anchor="start" fill="#c0392b">2011 (A) Rotate not reached</text>
+<rect x="569.2307692307693" y="181" width="103.38461538461539" height="22" rx="3" fill="#c0392b" stroke="#c0392b" stroke-width="1"/>
+<text x="20" y="235" font-size="11" text-anchor="start" fill="#b7950b">2051 (B) Pressure not reached</text>
+<rect x="790.7692307692308" y="221" width="221.53846153846155" height="22" rx="3" fill="#b7950b" stroke="#b7950b" stroke-width="1"/>
+<text x="20" y="275" font-size="11" text-anchor="start" fill="#c0392b">2052 (A) Pressure lost</text>
+<rect x="864.6153846153846" y="261" width="73.84615384615385" height="22" rx="3" fill="#c0392b" stroke="#c0392b" stroke-width="1"/>
+<text x="20" y="330" font-size="12" text-anchor="start" font-weight="bold" fill="#111">AlarmNo (w6)</text>
+<rect x="200.0" y="315" width="147.6923076923077" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="273.84615384615387" y="332" font-size="11" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="347.69230769230774" y="315" width="147.6923076923077" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="421.53846153846155" y="332" font-size="11" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="495.3846153846154" y="315" width="73.84615384615385" height="26" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="532.3076923076924" y="332" font-size="11" text-anchor="middle" fill="#1f5fa8">2021</text>
+<rect x="569.2307692307693" y="315" width="73.84615384615385" height="26" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="606.1538461538462" y="332" font-size="11" text-anchor="middle" fill="#1f5fa8">2011</text>
+<rect x="643.0769230769231" y="315" width="29.53846153846154" height="26" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="657.8461538461538" y="332" font-size="11" text-anchor="middle" fill="#1f5fa8">2011</text>
+<rect x="672.6153846153846" y="315" width="118.15384615384616" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="731.6923076923077" y="332" font-size="11" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="790.7692307692308" y="315" width="73.84615384615385" height="26" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="827.6923076923077" y="332" font-size="11" text-anchor="middle" fill="#1f5fa8">2051</text>
+<rect x="864.6153846153846" y="315" width="73.84615384615385" height="26" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="901.5384615384615" y="332" font-size="11" text-anchor="middle" fill="#1f5fa8">2052</text>
+<rect x="938.4615384615385" y="315" width="73.84615384615385" height="26" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="975.3846153846155" y="332" font-size="11" text-anchor="middle" fill="#1f5fa8">2051</text>
+<rect x="1012.3076923076924" y="315" width="73.84615384615385" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1049.2307692307693" y="332" font-size="11" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="1086.1538461538462" y="315" width="73.84615384615385" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1123.076923076923" y="332" font-size="11" text-anchor="middle" fill="#1f5fa8">0</text>
+<text x="20" y="370" font-size="12" text-anchor="start" font-weight="bold" fill="#111">WarningNo (w7)</text>
+<rect x="200.0" y="355" width="147.6923076923077" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="273.84615384615387" y="372" font-size="11" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="347.69230769230774" y="355" width="147.6923076923077" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="421.53846153846155" y="372" font-size="11" text-anchor="middle" fill="#1f5fa8">2053</text>
+<rect x="495.3846153846154" y="355" width="73.84615384615385" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="532.3076923076924" y="372" font-size="11" text-anchor="middle" fill="#1f5fa8">2053</text>
+<rect x="569.2307692307693" y="355" width="73.84615384615385" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="606.1538461538462" y="372" font-size="11" text-anchor="middle" fill="#1f5fa8">2053</text>
+<rect x="643.0769230769231" y="355" width="29.53846153846154" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="657.8461538461538" y="372" font-size="11" text-anchor="middle" fill="#1f5fa8">2053</text>
+<rect x="672.6153846153846" y="355" width="118.15384615384616" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="731.6923076923077" y="372" font-size="11" text-anchor="middle" fill="#1f5fa8">2053</text>
+<rect x="790.7692307692308" y="355" width="73.84615384615385" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="827.6923076923077" y="372" font-size="11" text-anchor="middle" fill="#1f5fa8">2053</text>
+<rect x="864.6153846153846" y="355" width="73.84615384615385" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="901.5384615384615" y="372" font-size="11" text-anchor="middle" fill="#1f5fa8">2053</text>
+<rect x="938.4615384615385" y="355" width="73.84615384615385" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="975.3846153846155" y="372" font-size="11" text-anchor="middle" fill="#1f5fa8">2053</text>
+<rect x="1012.3076923076924" y="355" width="73.84615384615385" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1049.2307692307693" y="372" font-size="11" text-anchor="middle" fill="#1f5fa8">2053</text>
+<rect x="1086.1538461538462" y="355" width="73.84615384615385" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1123.076923076923" y="372" font-size="11" text-anchor="middle" fill="#1f5fa8">0</text>
+<text x="20" y="410" font-size="12" text-anchor="start" font-weight="bold" fill="#111">AlarmClass (tower)</text>
+<rect x="200.0" y="395" width="147.6923076923077" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="273.84615384615387" y="412" font-size="11" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="347.69230769230774" y="395" width="147.6923076923077" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="421.53846153846155" y="412" font-size="11" text-anchor="middle" fill="#1f5fa8">3</text>
+<rect x="495.3846153846154" y="395" width="73.84615384615385" height="26" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="532.3076923076924" y="412" font-size="11" text-anchor="middle" fill="#1f5fa8">2</text>
+<rect x="569.2307692307693" y="395" width="73.84615384615385" height="26" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="606.1538461538462" y="412" font-size="11" text-anchor="middle" fill="#1f5fa8">1</text>
+<rect x="643.0769230769231" y="395" width="29.53846153846154" height="26" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="657.8461538461538" y="412" font-size="11" text-anchor="middle" fill="#1f5fa8">1</text>
+<rect x="672.6153846153846" y="395" width="118.15384615384616" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="731.6923076923077" y="412" font-size="11" text-anchor="middle" fill="#1f5fa8">3</text>
+<rect x="790.7692307692308" y="395" width="73.84615384615385" height="26" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="827.6923076923077" y="412" font-size="11" text-anchor="middle" fill="#1f5fa8">2</text>
+<rect x="864.6153846153846" y="395" width="73.84615384615385" height="26" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="901.5384615384615" y="412" font-size="11" text-anchor="middle" fill="#1f5fa8">1</text>
+<rect x="938.4615384615385" y="395" width="73.84615384615385" height="26" rx="0" fill="#fdecea" stroke="#111" stroke-width="1"/>
+<text x="975.3846153846155" y="412" font-size="11" text-anchor="middle" fill="#1f5fa8">2</text>
+<rect x="1012.3076923076924" y="395" width="73.84615384615385" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1049.2307692307693" y="412" font-size="11" text-anchor="middle" fill="#1f5fa8">3</text>
+<rect x="1086.1538461538462" y="395" width="73.84615384615385" height="26" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1123.076923076923" y="412" font-size="11" text-anchor="middle" fill="#1f5fa8">0</text>
+<text x="200" y="520" font-size="11" text-anchor="start" fill="#555">Reaction: 20-25 Hold (2021 B), 25-30 Abort (2011 A), 40-45 Hold (2051 B), 45-50 Abort (2052 A), else none (2053 is only a warning).</text>
+<text x="200" y="538" font-size="11" text-anchor="start" fill="#555">Note at tick 30: 2021 goes off but 2011 stays -&gt; AlarmNo stays 2011 ; at tick 50: 2052 off -&gt; the older B alarm 2051 is shown again.</text>
+</svg>

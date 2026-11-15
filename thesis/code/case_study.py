@@ -56,7 +56,7 @@ def case1_frozen_prediction(n=400, seed=2026):
         'deterministic_design_B0_mean': round(statistics.mean(det)),
         'P0_mean': round(statistics.mean(vals)),
         'P0_p05': v[int(0.05 * n)], 'P0_p50': v[int(0.5 * n)], 'P0_p95': v[int(0.95 * n) - 1],
-        'note': 'Mature-state monthly good output. To be compared with the real factory after ramp-up (section 9.6). '
+        'note': 'Mature-state monthly good output. To be compared with the real factory after ramp-up (section 9.7). '
                 'Values are a reference design case until the final design data replace Table 4.2.',
     }
     json.dump(rec, open(os.path.join(DATA, 'case1_P0.json'), 'w'), indent=1)

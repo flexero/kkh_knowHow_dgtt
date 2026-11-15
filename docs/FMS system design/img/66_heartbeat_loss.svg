@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" font-family="Arial, Helvetica, sans-serif">
+<title>Heartbeat and communication loss - scenario B (module PLC stops 6 s)</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker></defs>
+<rect x="0" y="0" width="1200" height="520" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" fill="#111111" font-weight="bold">Heartbeat and communication loss - scenario B (module PLC stops 6 s)</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555555">Heartbeat period 1 s (10 ticks), time-out 3 s (30 ticks). The cell controller sees the last change at tick 71 and declares COMM_LOSS at 101.</text>
+<line x1="80" y1="80" x2="80" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="80" y="418" font-size="11" text-anchor="middle" fill="#555555">0</text>
+<line x1="130" y1="80" x2="130" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="130" y="418" font-size="11" text-anchor="middle" fill="#555555">10</text>
+<line x1="180" y1="80" x2="180" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="180" y="418" font-size="11" text-anchor="middle" fill="#555555">20</text>
+<line x1="230" y1="80" x2="230" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="230" y="418" font-size="11" text-anchor="middle" fill="#555555">30</text>
+<line x1="280" y1="80" x2="280" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="280" y="418" font-size="11" text-anchor="middle" fill="#555555">40</text>
+<line x1="330" y1="80" x2="330" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="330" y="418" font-size="11" text-anchor="middle" fill="#555555">50</text>
+<line x1="380" y1="80" x2="380" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="380" y="418" font-size="11" text-anchor="middle" fill="#555555">60</text>
+<line x1="430" y1="80" x2="430" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="430" y="418" font-size="11" text-anchor="middle" fill="#555555">70</text>
+<line x1="480" y1="80" x2="480" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="480" y="418" font-size="11" text-anchor="middle" fill="#555555">80</text>
+<line x1="530" y1="80" x2="530" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="530" y="418" font-size="11" text-anchor="middle" fill="#555555">90</text>
+<line x1="580" y1="80" x2="580" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="580" y="418" font-size="11" text-anchor="middle" fill="#555555">100</text>
+<line x1="630" y1="80" x2="630" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="630" y="418" font-size="11" text-anchor="middle" fill="#555555">110</text>
+<line x1="680" y1="80" x2="680" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="680" y="418" font-size="11" text-anchor="middle" fill="#555555">120</text>
+<line x1="730" y1="80" x2="730" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="730" y="418" font-size="11" text-anchor="middle" fill="#555555">130</text>
+<line x1="780" y1="80" x2="780" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="780" y="418" font-size="11" text-anchor="middle" fill="#555555">140</text>
+<line x1="830" y1="80" x2="830" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="830" y="418" font-size="11" text-anchor="middle" fill="#555555">150</text>
+<line x1="880" y1="80" x2="880" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="880" y="418" font-size="11" text-anchor="middle" fill="#555555">160</text>
+<line x1="930" y1="80" x2="930" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="930" y="418" font-size="11" text-anchor="middle" fill="#555555">170</text>
+<line x1="980" y1="80" x2="980" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="980" y="418" font-size="11" text-anchor="middle" fill="#555555">180</text>
+<line x1="1030" y1="80" x2="1030" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="1030" y="418" font-size="11" text-anchor="middle" fill="#555555">190</text>
+<line x1="1080" y1="80" x2="1080" y2="400" stroke="#e3e3e3" stroke-width="1"/>
+<text x="1080" y="418" font-size="11" text-anchor="middle" fill="#555555">200</text>
+<text x="1100" y="418" font-size="11" text-anchor="start" fill="#555555">tick</text>
+<text x="20" y="100" font-size="12" text-anchor="start" fill="#111111" font-weight="bold">MOD.HB</text>
+<path d="M 80 150 L 130 150 L 130 146 L 180 146 L 180 142 L 230 142 L 230 138 L 280 138 L 280 134 L 330 134 L 330 130 L 380 130 L 380 126 L 430 126 L 430 122 L 780 122 L 780 118 L 830 118 L 830 114 L 880 114 L 880 110 L 930 110 L 930 106 L 980 106 L 980 102 L 1030 102 L 1030 98 L 1080 98 L 1080 94 L 1080 94" stroke="#333" stroke-width="2" fill="none"/>
+<rect x="480" y="85" width="300" height="90" rx="4" fill="#eef5fc" stroke="#1f6fb2" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="630" y="170" font-size="12" text-anchor="middle" fill="#1f6fb2">module frozen 80-140</text>
+<text x="20" y="230" font-size="12" text-anchor="start" fill="#111111" font-weight="bold">CC view</text>
+<line x1="435" y1="200" x2="435" y2="260" stroke="#333" stroke-width="2"/>
+<text x="431" y="275" font-size="11" text-anchor="end" fill="#111111">71 last change seen</text>
+<line x1="435" y1="245" x2="585" y2="245" stroke="#1f6fb2" stroke-width="2" marker-end="url(#aa)"/>
+<text x="510" y="238" font-size="11" text-anchor="middle" fill="#1f6fb2">30 ticks = 3 s</text>
+<line x1="585" y1="200" x2="585" y2="260" stroke="#1f6fb2" stroke-width="3"/>
+<text x="589" y="196" font-size="11" text-anchor="start" fill="#1f6fb2">101 CC COMM_LOSS -&gt; Request = Ack = 0, state OFFLINE</text>
+<line x1="785" y1="200" x2="785" y2="260" stroke="#333" stroke-width="3"/>
+<text x="789" y="276" font-size="11" text-anchor="start" fill="#111111">141 COMM_OK + RESYNC_BUSY (module still Busy)</text>
+<line x1="480" y1="300" x2="585" y2="300" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<text x="480" y="318" font-size="11" text-anchor="start" fill="#111111">detection delay 101 - 80 = 21 ticks = 2.1 s</text>
+<text x="20" y="360" font-size="12" text-anchor="start" fill="#111111" font-weight="bold">Job</text>
+<rect x="380" y="345" width="550" height="22" rx="2" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.2"/>
+<text x="390" y="361" font-size="11" text-anchor="start" fill="#111111">70002: START 60, planned end 110, +60 frozen ticks -&gt; DONE 170, COMPLETE 173</text>
+<text x="20" y="455" font-size="12" text-anchor="start" fill="#111111">Detection delay range: freeze just after an increment -&gt; 3.0 s; freeze just before the next increment -&gt; 2.1 s (as here). Add one poll period in a real system.</text>
+<text x="20" y="478" font-size="12" text-anchor="start" fill="#555555">Lesson: the time-out decides how fast a dead partner is noticed; too short -&gt; false alarms on a busy network, too long -&gt; late reaction.</text>
+</svg>

@@ -1,0 +1,12 @@
+case,interface,address,network,use
+A,-KF2 X2 (CPU),10.70.20.51/24,VLAN 720 factory,"Modbus TCP server :502, web server off"
+A,-KF2 X1 (CPU),192.168.0.1/24,PROFINET IO (not routed),IO controller crane + ground
+B1,-KF3 CP 1543-1,10.70.20.51/24,VLAN 720 factory,"Modbus TCP server :502 via CP, firewall"
+B1,-KF2 X2 (CPU),192.168.10.1/24,"machine zone (HMI, engineering)","HMI -PF100 192.168.10.55, ES port"
+B1,-KF2 X1 (CPU),192.168.0.1/24,PROFINET IO net 1 (crane),not routed
+B1,-KF4 CM 1542-1,192.168.1.1/24,PROFINET IO net 2 (conveyors F4),not routed
+B1,-KF5 CM PtP,RS-485 line 1,Modbus RTU 19.2 kbit/s 8E1,"slaves 1 energy meter, 2 scale, 3 UPS"
+B2,-KF2 CPU Ethernet,10.70.20.51/24,VLAN 720 via -KF90 + external firewall -KF91,Modbus TCP server :502 (over the data light barrier)
+B2,-KF2 AS-FEN02,192.168.0.1/24,ground remote I/O (conveyors),Modbus TCP client to the remote I/O adapters
+B2,-KF2 AS-FCOPM,CANopen,"crane drives nodes 1-3, 500 kbit/s",PDO 10 ms + SYNC
+B2,-KF2 COM1,RS-485 line 1,Modbus RTU 19.2 kbit/s 8E1,"slaves 1 energy meter, 2 scale, 3 UPS"

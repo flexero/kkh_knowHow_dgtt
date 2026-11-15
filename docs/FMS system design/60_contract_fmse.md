@@ -28,13 +28,13 @@ instead of inventing it.
 | 1 | FMS types, project pipeline (2 roles), requirements questionnaire, **module standard** | 61 | ✓ textbook + tools + web 1A–1M (redo 2026-11-14) |
 | 2 | Product → process → machines (all domains), part families, machine count | 62 | ✓ textbook + tools + web 2A–2M (redo 2026-11-14) |
 | 3 | Typical elements catalogue | 63 | ✓ textbook + tools + web 3A–3E + element guide (redo 2026-11-14) |
-| 4 | Capacity, layout, simulation | 64 | ✓ built 2026-11-14 |
-| 5 | Control architecture – ISA-95, ISA-88 / PackML | 65 | ✓ built 2026-11-14 |
-| 6 | Communication – fieldbuses, OPC UA, MTConnect, MQTT, Modbus TCP, IP plan | 66 | ✓ built 2026-11-14 |
-| 7 | Electrical & safety principles | 67 | next |
-| 8 | **Module library: complete circuits** per module | 68 | open |
-| 9 | PLC programming principles – IEC 61131-3, state machines, handshakes | 69 | open |
-| 10 | **Module library: complete PLC programs** per module + cell controller | 70 | open |
+| 4 | Capacity, layout, simulation | 64 | ✓ textbook + tools + web 4A–4M (redo 2026-11-15) |
+| 5 | Control architecture – ISA-95, ISA-88 / PackML | 65 | ✓ textbook + tools + web 5A–5M (redo 2026-11-15) |
+| 6 | Communication – fieldbuses, OPC UA, MTConnect, MQTT, Modbus TCP, IP plan | 66 | ✓ built 2026-11-14 · textbook redo done 2026-11-15 |
+| 7 | Electrical & safety principles | 67 | ✓ textbook + tools + web 7A–7N (2026-11-15) |
+| 8 | **Module library: complete circuits** per module | 68 | ✓ textbook + tools + web 8A–8N (2026-11-15) |
+| 9 | PLC programming principles – IEC 61131-3, state machines, handshakes | 69 | ✓ textbook + tools + web 9A–9N (2026-11-15) |
+| 10 | **Module library: complete PLC programs** per module + cell controller | 70 | part A ✓ (standard + device FB library, 2026-11-15); B modules, C cell controller next |
 | 11 | MES theory + generic MES design | 71 | open |
 | 12 | ERP theory + ERP ⇄ MES integration | 72 | open |
 | 13 | Implementation in real factories (both roles) | 73 | open |

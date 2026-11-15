@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="990" viewBox="0 0 1400 990" font-family="Arial">
+<rect width="100%" height="100%" fill="#fff"/>
+<rect x="20" y="20" width="1360" height="950" fill="none" stroke="#000" stroke-width="2"/>
+<line x1="20.0" y1="20" x2="20.0" y2="36" stroke="#000"/>
+<text x="88.0" y="32" font-size="11" text-anchor="middle">0</text>
+<line x1="156.0" y1="20" x2="156.0" y2="36" stroke="#000"/>
+<text x="224.0" y="32" font-size="11" text-anchor="middle">1</text>
+<line x1="292.0" y1="20" x2="292.0" y2="36" stroke="#000"/>
+<text x="360.0" y="32" font-size="11" text-anchor="middle">2</text>
+<line x1="428.0" y1="20" x2="428.0" y2="36" stroke="#000"/>
+<text x="496.0" y="32" font-size="11" text-anchor="middle">3</text>
+<line x1="564.0" y1="20" x2="564.0" y2="36" stroke="#000"/>
+<text x="632.0" y="32" font-size="11" text-anchor="middle">4</text>
+<line x1="700.0" y1="20" x2="700.0" y2="36" stroke="#000"/>
+<text x="768.0" y="32" font-size="11" text-anchor="middle">5</text>
+<line x1="836.0" y1="20" x2="836.0" y2="36" stroke="#000"/>
+<text x="904.0" y="32" font-size="11" text-anchor="middle">6</text>
+<line x1="972.0" y1="20" x2="972.0" y2="36" stroke="#000"/>
+<text x="1040.0" y="32" font-size="11" text-anchor="middle">7</text>
+<line x1="1108.0" y1="20" x2="1108.0" y2="36" stroke="#000"/>
+<text x="1176.0" y="32" font-size="11" text-anchor="middle">8</text>
+<line x1="1244.0" y1="20" x2="1244.0" y2="36" stroke="#000"/>
+<text x="1312.0" y="32" font-size="11" text-anchor="middle">9</text>
+<line x1="20" y1="36" x2="1380" y2="36" stroke="#000"/>
+<rect x="20" y="880" width="1360" height="90" fill="#fafafa" stroke="#000" stroke-width="2"/>
+<line x1="420" y1="880" x2="420" y2="970" stroke="#000"/>
+<line x1="800" y1="880" x2="800" y2="970" stroke="#000"/>
+<line x1="1060" y1="880" x2="1060" y2="970" stroke="#000"/>
+<line x1="1230" y1="880" x2="1230" y2="970" stroke="#000"/>
+<text x="30" y="904" font-size="13" font-weight="bold">=ASRS1  AS/RS one aisle (VC20 + Roots combined FMS)</text>
+<text x="30" y="924" font-size="11">Final thesis item F3 - asrs_elec.py (generated)</text>
+<text x="30" y="946" font-size="11" fill="#b00000" font-weight="bold">DESIGN - to be checked and released by a qualified engineer</text>
+<text x="430" y="910" font-size="14" font-weight="bold">PLC, ET 200SP, PROFINET, data light barrier</text>
+<text x="430" y="932" font-size="11">IEC 60617 symbols (simplified), IEC 81346-2 tags, columns = current paths</text>
+<text x="430" y="950" font-size="11">cross-reference: /page.column</text>
+<text x="810" y="910" font-size="11">Standard: IEC 60204-1/-32, ISO 13849-1, EN 528</text>
+<text x="810" y="932" font-size="11">Revision A  2026-11-15</text>
+<text x="1070" y="910" font-size="11">drawn: F3 program</text>
+<text x="1070" y="932" font-size="11">checked: ________</text>
+<text x="1070" y="952" font-size="11">released: ________</text>
+<text x="1240" y="910" font-size="13">page</text>
+<text x="1240" y="946" font-size="26" font-weight="bold">P07</text>
+<text x="1330" y="946" font-size="11">/ P10</text>
+<rect x="60.0" y="70.0" width="260.0" height="90.0" fill="#e6f0ff" stroke="#000" stroke-width="1.5"/>
+<text x="65.0" y="85.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF2 F-CPU (ground +GC)</text>
+<text x="65.0" y="100.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">S7-1500 1515F-2 PN or equal</text>
+<text x="65.0" y="114.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">PN X1: devices, X2: factory VLAN 720</text>
+<rect x="360.0" y="80.0" width="88.0" height="70.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="365.0" y="95.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF20</text>
+<text x="365.0" y="110.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">IM PN</text>
+<rect x="452.0" y="80.0" width="88.0" height="70.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="457.0" y="95.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF21</text>
+<text x="457.0" y="110.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">F-DI 8</text>
+<rect x="544.0" y="80.0" width="88.0" height="70.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="549.0" y="95.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF28</text>
+<text x="549.0" y="110.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">F-DI 8</text>
+<rect x="636.0" y="80.0" width="88.0" height="70.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="641.0" y="95.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF22</text>
+<text x="641.0" y="110.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">F-DQ 4</text>
+<rect x="728.0" y="80.0" width="88.0" height="70.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="733.0" y="95.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF25</text>
+<text x="733.0" y="110.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">DI 16</text>
+<rect x="820.0" y="80.0" width="88.0" height="70.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="825.0" y="95.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF26</text>
+<text x="825.0" y="110.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">DQ 16</text>
+<rect x="912.0" y="80.0" width="88.0" height="70.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="917.0" y="95.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF27</text>
+<text x="917.0" y="110.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">AI 4</text>
+<text x="360.0" y="70.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">ground station (+GC)</text>
+<line x1="190.0" y1="160.0" x2="190.0" y2="240.0" stroke="#000" stroke-width="1.5"/>
+<line x1="190.0" y1="240.0" x2="1300.0" y2="240.0" stroke="#2a6fbb" stroke-width="2.5"/>
+<text x="200.0" y="234.0" font-size="11" text-anchor="start" font-weight="normal" fill="#2a6fbb">PROFINET (green cable)</text>
+<line x1="340.0" y1="240.0" x2="340.0" y2="270.0" stroke="#000" stroke-width="1.5"/>
+<rect x="300.0" y="270.0" width="100.0" height="46.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="305.0" y="285.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-TA81</text>
+<text x="305.0" y="300.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">CV1 inv.</text>
+<line x1="460.0" y1="240.0" x2="460.0" y2="270.0" stroke="#000" stroke-width="1.5"/>
+<rect x="420.0" y="270.0" width="100.0" height="46.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="425.0" y="285.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-TA82</text>
+<text x="425.0" y="300.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">CV2 inv.</text>
+<line x1="580.0" y1="240.0" x2="580.0" y2="270.0" stroke="#000" stroke-width="1.5"/>
+<rect x="540.0" y="270.0" width="100.0" height="46.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="545.0" y="285.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-TA83</text>
+<text x="545.0" y="300.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">CV3 inv.</text>
+<line x1="700.0" y1="240.0" x2="700.0" y2="270.0" stroke="#000" stroke-width="1.5"/>
+<rect x="660.0" y="270.0" width="100.0" height="46.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="665.0" y="285.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-BG110</text>
+<text x="665.0" y="300.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">scanner</text>
+<line x1="820.0" y1="240.0" x2="820.0" y2="270.0" stroke="#000" stroke-width="1.5"/>
+<rect x="780.0" y="270.0" width="100.0" height="46.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="785.0" y="285.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-BG111</text>
+<text x="785.0" y="300.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">scanner</text>
+<line x1="1000.0" y1="240.0" x2="1000.0" y2="300.0" stroke="#000" stroke-width="1.5"/>
+<rect x="940.0" y="300.0" width="130.0" height="50.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="945.0" y="315.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF70</text>
+<text x="945.0" y="330.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">data light barrier</text>
+<text x="945.0" y="344.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">ground (aisle end)</text>
+<path d="M 1005 360 l 0 60" stroke="#c00" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="1015.0" y="395.0" font-size="11" text-anchor="start" font-weight="normal" fill="#c00">optical link 100 Mbit/s (PROFINET + PROFIsafe)</text>
+<rect x="940.0" y="430.0" width="130.0" height="50.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="945.0" y="445.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF71</text>
+<text x="945.0" y="460.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">data light barrier</text>
+<text x="945.0" y="474.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">crane</text>
+<line x1="1005.0" y1="480.0" x2="1005.0" y2="520.0" stroke="#000" stroke-width="1.5"/>
+<line x1="120.0" y1="520.0" x2="1300.0" y2="520.0" stroke="#2a6fbb" stroke-width="2.5"/>
+<text x="130.0" y="514.0" font-size="11" text-anchor="start" font-weight="normal" fill="#2a6fbb">PROFINET crane</text>
+<text x="180.0" y="560.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">crane station (+CC)</text>
+<rect x="120.0" y="570.0" width="88.0" height="70.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="125.0" y="585.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF30</text>
+<text x="125.0" y="600.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">IM PN</text>
+<rect x="212.0" y="570.0" width="88.0" height="70.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="217.0" y="585.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF23</text>
+<text x="217.0" y="600.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">F-DI 8</text>
+<rect x="304.0" y="570.0" width="88.0" height="70.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="309.0" y="585.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF24</text>
+<text x="309.0" y="600.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">F-DI 8</text>
+<rect x="396.0" y="570.0" width="88.0" height="70.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="401.0" y="585.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF31</text>
+<text x="401.0" y="600.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">DI 16</text>
+<rect x="488.0" y="570.0" width="88.0" height="70.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="493.0" y="585.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF34</text>
+<text x="493.0" y="600.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">DI 16</text>
+<rect x="580.0" y="570.0" width="88.0" height="70.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="585.0" y="585.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-KF32</text>
+<text x="585.0" y="600.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">DQ 8</text>
+<line x1="164.0" y1="520.0" x2="164.0" y2="570.0" stroke="#000" stroke-width="1.5"/>
+<line x1="745.0" y1="520.0" x2="745.0" y2="570.0" stroke="#000" stroke-width="1.5"/>
+<rect x="700.0" y="570.0" width="100.0" height="46.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="705.0" y="585.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-TA11</text>
+<text x="705.0" y="600.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">travel</text>
+<line x1="855.0" y1="520.0" x2="855.0" y2="570.0" stroke="#000" stroke-width="1.5"/>
+<rect x="810.0" y="570.0" width="100.0" height="46.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="815.0" y="585.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-TA13</text>
+<text x="815.0" y="600.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">hoist</text>
+<line x1="965.0" y1="520.0" x2="965.0" y2="570.0" stroke="#000" stroke-width="1.5"/>
+<rect x="920.0" y="570.0" width="100.0" height="46.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="925.0" y="585.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-TA14</text>
+<text x="925.0" y="600.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">fork</text>
+<line x1="1075.0" y1="520.0" x2="1075.0" y2="570.0" stroke="#000" stroke-width="1.5"/>
+<rect x="1030.0" y="570.0" width="100.0" height="46.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="1035.0" y="585.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-BG15</text>
+<text x="1035.0" y="600.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">laser x</text>
+<line x1="1185.0" y1="520.0" x2="1185.0" y2="570.0" stroke="#000" stroke-width="1.5"/>
+<rect x="1140.0" y="570.0" width="100.0" height="46.0" fill="#f7f7f7" stroke="#000" stroke-width="1.5"/>
+<text x="1145.0" y="585.0" font-size="11" text-anchor="start" font-weight="bold" fill="#000">-BG45</text>
+<text x="1145.0" y="600.0" font-size="10" text-anchor="start" font-weight="normal" fill="#000">bar code z</text>
+<text x="60.0" y="720.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">I/O count: F-DI 40, DI 64, DQ/F-DQ 21, AI 1, PROFINET/TCP devices 14 (io_list.csv).</text>
+<text x="60.0" y="742.0" font-size="12" text-anchor="start" font-weight="normal" fill="#000">Spare capacity &gt;= 20 % per module type (IEC 61131 practice); safety modules on separate 24 V F-group with own PM switching.</text>
+</svg>

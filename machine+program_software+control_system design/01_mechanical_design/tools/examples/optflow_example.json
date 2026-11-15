@@ -1,0 +1,56 @@
+{
+  "name": "Base frame of the ball-screw test rig (ball-screw factory) on levelling mounts: minimum mass, screw 3000 rpm (example)",
+  "L": 1800.0,
+  "b": 80.0,
+  "t": 5.0,
+  "masses": [
+    [
+      300.0,
+      0.045
+    ],
+    [
+      900.0,
+      0.03
+    ],
+    [
+      1500.0,
+      0.08
+    ]
+  ],
+  "F_shake": 150.0,
+  "vars": [
+    [
+      "h",
+      60.0,
+      200.0,
+      "mm"
+    ],
+    [
+      "a",
+      50.0,
+      500.0,
+      "mm"
+    ],
+    [
+      "k",
+      50.0,
+      1500.0,
+      "N/mm"
+    ]
+  ],
+  "x0": [
+    140.0,
+    150.0,
+    400.0
+  ],
+  "limits": {
+    "f_rigid_max": 20.0,
+    "f_bend_min": 125.0,
+    "sag_max": 1.0,
+    "sigma_max": 100.0
+  },
+  "f_exc": [
+    50.0,
+    100.0
+  ]
+}

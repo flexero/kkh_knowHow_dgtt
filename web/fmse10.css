@@ -1,0 +1,107 @@
+/* FMS engineering – item 10 part A: program standard + device FB library (fmse10.js, fmse10x.js, fmse10y.js). Theme variables only (light + dark).
+   Prefix f10-. Reuses fe-*, fx-*, am-*, phd-*, f8-* and f9-* classes. */
+
+/* timing diagrams */
+.fe-scroll .f10-timing { max-width: none; display: block; }
+.f10-tin { fill: var(--fe-2); font-weight: 600; }
+.f10-tout { fill: var(--fe-1); font-weight: 600; }
+.f10-nin { fill: color-mix(in srgb, var(--fe-2) 22%, var(--surface)); stroke: var(--fe-2); stroke-width: .8; }
+.f10-nout { fill: color-mix(in srgb, var(--fe-1) 24%, var(--surface)); stroke: var(--fe-1); stroke-width: .8; }
+.f10-n0 { fill: var(--surface-2); stroke: var(--border); stroke-width: .6; }
+.f10-nv { font-size: 9.5px; fill: var(--text); font-family: ui-monospace, Consolas, monospace; }
+.f10-wi { stroke: var(--fe-2); stroke-width: 2; }
+.f10-wo { stroke: var(--fe-1); stroke-width: 2; }
+.f10-ev { display: inline-block; font-family: ui-monospace, Consolas, monospace; font-size: 11px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 4px; padding: 0 4px; margin: 1px 0; }
+
+/* 10A, 10B */
+.fe-scroll .f10-struct { width: 100%; min-width: 480px; max-width: 580px; }
+.fe-scroll .f10-echo { width: 100%; min-width: 500px; max-width: 620px; }
+.fe-scroll .f10-seq { width: 100%; min-width: 320px; max-width: 420px; }
+.f10-dec { border-left: 4px solid var(--fe-1); padding: 2px 0 4px 10px; margin: 12px 0; }
+.f10-dec .f8-pt { line-height: 1.55; }
+tr.f10-chosen td { background: color-mix(in srgb, var(--good) 16%, transparent); font-weight: 600; }
+
+/* 10C */
+.f10-wr { display: inline-block; font-size: 11px; font-weight: 600; padding: 0 6px; border-radius: 8px; white-space: nowrap; border: 1px solid; }
+.f10-wrM { color: var(--fe-1); border-color: var(--fe-1); }
+.f10-wrCC { color: var(--fe-2); border-color: var(--fe-2); }
+.f10-big { font-size: 20px; color: var(--fe-1); }
+#tab-fmse .f10-num { width: 110px; }
+
+/* 10D library */
+.f10-lib { display: grid; grid-template-columns: minmax(170px, 220px) minmax(0, 1fr); gap: 12px; align-items: start; }
+.f10-liblist { display: flex; flex-direction: column; gap: 2px; max-height: 760px; overflow: auto; border: 1px solid var(--border); border-radius: 8px; padding: 6px; }
+.f10-cat { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--muted); margin: 6px 0 2px; letter-spacing: .04em; }
+.f10-libbtn { text-align: left; font-size: 12px; padding: 3px 8px; }
+.f10-libdet { min-width: 0; }
+.f10-rule { font-size: 12.5px; line-height: 1.55; background: var(--surface-2); border-radius: 6px; padding: 6px 10px; }
+.f10-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.f10-chip { font-size: 11.5px; border: 1px solid var(--border); border-radius: 10px; padding: 1px 8px; background: var(--surface); white-space: nowrap; }
+
+/* live widget */
+.f10-live { border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; margin: 6px 0; min-width: 0; }
+.f10-ins { gap: 4px 12px; }
+.f10-in { font-size: 12.5px; white-space: nowrap; }
+.f10-pb { font-size: 11px; padding: 1px 6px; }
+.f10-outs { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12.5px; margin: 6px 0; }
+.f10-o { white-space: nowrap; }
+.f9-led.f10-ledR { background: var(--critical); border-color: var(--critical); }
+.f10-llog { max-height: 140px; }
+.f10-slog { max-height: 150px; }
+
+/* 10F valve */
+.fe-scroll .f10-valve { width: 100%; min-width: 280px; max-width: 380px; }
+.f10-solOn { fill: color-mix(in srgb, var(--good) 45%, var(--surface)); stroke: var(--good); stroke-width: 1.5; }
+.f10-red { fill: var(--critical); }
+
+/* 10H matrix */
+.f10-mat td.f10-mc { text-align: center; cursor: pointer; min-width: 34px; font-weight: 700; }
+.f10-mat td.f10-ok { background: color-mix(in srgb, var(--good) 22%, transparent); color: var(--good-text, var(--good)); }
+.f10-mat td.f10-no { color: var(--muted); }
+.f10-mat td.f10-sel { outline: 2px solid var(--fe-2); outline-offset: -2px; }
+
+/* 10I classes */
+.f10-cls { display: inline-block; min-width: 18px; text-align: center; font-size: 11px; font-weight: 700; border-radius: 4px; padding: 0 4px; color: #fff; }
+.f10-clsA { background: var(--critical); }
+.f10-clsB { background: var(--warning); color: #222; }
+.f10-clsC { background: var(--fe-5); }
+.f10-cls\? { background: var(--muted); }
+
+/* 10J signal tower */
+.f10-towerbox { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.f10-tower { width: 170px; max-width: 100%; }
+.f10-tw { stroke: var(--axis); stroke-width: 1.2; }
+.f10-twred { fill: color-mix(in srgb, #d03b3b 18%, var(--surface-2)); }
+.f10-twyellow { fill: color-mix(in srgb, #fab219 18%, var(--surface-2)); }
+.f10-twgreen { fill: color-mix(in srgb, #0ca30c 18%, var(--surface-2)); }
+.f10-twred.f10-twOn { fill: #e53935; stroke: #b71c1c; }
+.f10-twyellow.f10-twOn { fill: #fbc02d; stroke: #c49000; }
+.f10-twgreen.f10-twOn { fill: #2eb82e; stroke: #0a7a0a; }
+.f10-hornOn { fill: var(--critical); stroke: var(--critical); }
+.f10-wave { stroke: var(--critical); stroke-width: 2; fill: none; }
+.f10-lp { display: inline-block; width: 12px; height: 12px; border-radius: 50%; vertical-align: -2px; border: 1px solid var(--axis); background: var(--surface-2); }
+.f10-lpred.f10-on, .f10-lpred.f10-blink { background: #e53935; }
+.f10-lpyellow.f10-on, .f10-lpyellow.f10-blink { background: #fbc02d; }
+.f10-lpgreen.f10-on, .f10-lpgreen.f10-blink { background: #2eb82e; }
+.f10-blink { animation: f10blink 1s steps(1) infinite; }
+@keyframes f10blink { 50% { opacity: .15; } }
+@media (prefers-reduced-motion: reduce) { .f10-blink { animation: none; opacity: .6; } }
+.f10-ol { margin: 4px 0 4px 18px; padding: 0; font-size: 13px; line-height: 1.55; }
+
+@media (max-width: 760px) {
+  .f10-lib { grid-template-columns: 1fr; }
+  .f10-liblist { max-height: 220px; flex-direction: row; flex-wrap: wrap; }
+  .f10-cat { width: 100%; }
+  .f10-in { white-space: normal; }
+}
+
+/* long option texts must not widen the page on phones */
+#feItem10 select.fe-sel { max-width: calc(100vw - 48px); }
+#feItem10 .fe-row label { max-width: 100%; }
+.f10-curE { fill: color-mix(in srgb, var(--fe-2) 8%, transparent); stroke: var(--fe-2); stroke-width: 1.5; stroke-dasharray: 4 2; }
+.f10-tl { font-size: 12px; fill: var(--text-2); }
+.f10-timing .f10-nv { font-size: 11.5px; }
+.f10-bin { fill: color-mix(in srgb, var(--fe-2) 50%, transparent); }
+.f10-bout { fill: color-mix(in srgb, var(--fe-1) 50%, transparent); }
+.f10-tl.f10-tin { fill: var(--fe-2); }
+.f10-tl.f10-tout { fill: var(--fe-1); }

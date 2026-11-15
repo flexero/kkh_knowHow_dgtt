@@ -1,0 +1,223 @@
+{
+ "_note": "Final thesis item F4.1 - system definition and sizing of all load stations and conveyors. Values = DESIGN values or REFERENCE ESTIMATES. Inputs from F2 (fms_design.py: flows, machines, layout rows) and F3 (asrs_design.py: crane cycle, moves, line-side buffers). Tool: conv_system.py. Guide: Doctor paper/61_final_conveyors_load_stations.md.",
+ "version": "F4.1 (2026-11-15)",
+ "peak_factor": 1.6,
+ "_peak_note": "same peak factor as F3 (crane moves): busiest hour = 1.6 x average hour",
+ "overflow_p": 0.01,
+ "_overflow_note": "design rule: probability that a lane is full when a crate must be put on it <= 1 %",
+ "crate": {
+  "L_mm": 1200,
+  "W_mm": 800,
+  "max_kg": 300,
+  "_orient": "travels with the 800 side leading on all crate conveyors (fork entry on the 800 side, F3)"
+ },
+ "conveyor": {
+  "v_m_s": 0.2,
+  "zone_pitch_chain_m": 1.2,
+  "zone_pitch_roller_m": 1.4,
+  "accel_m_s2": 0.3,
+  "tu_lift_s": 3.0,
+  "check_s": 8.0,
+  "reject_rate": 0.02,
+  "rework_s": 180.0,
+  "_note": "chain zone 1.2 m = crate 800 + 400 gap (800 leading, runners cross the chains); roller zone 1.4 m = crate 1200 + 200 (1200 leading, runners cross the rollers - F4.2 ch. 12); transfer unit (TU) = chain part x + lifted roller part y"
+ },
+ "asrs_front": {
+  "_note": "U-loop in front of the aisle (x < 0 away from the rack, y across the aisle; crate centre y = +-1.4 m = F3 fork pick point). CV1 infeed side L (y = -1.4), CV2 outfeed side R (y = +1.4), CV3 cross conveyor with the pick / rework position between the two transfer units. AGVs dock sideways at TU1 / TU2 from the outer sides (y = -/+ 2.6 m), the operator stands at x = -7.0 between them, separated by fences. Check station = TU1 (deadlock-free rule set R0-R4, see conv_system.Front).",
+  "CV1": [
+   [
+    "TU1",
+    "TU",
+    -6.0,
+    -1.4,
+    "AGV drop-off (sideways) + merge from CV3; WEIGHING transfer (4 load cells) with contour light frame and ID reader: every crate is checked here (AGV waits for the result; a fail goes back onto the AGV)"
+   ],
+   [
+    "Z12",
+    "CC",
+    -4.8,
+    -1.4,
+    "accumulation"
+   ],
+   [
+    "Z13",
+    "CC",
+    -3.6,
+    -1.4,
+    "accumulation"
+   ],
+   [
+    "Z14",
+    "CC",
+    -2.4,
+    -1.4,
+    "accumulation"
+   ],
+   [
+    "Z15",
+    "CC",
+    -1.2,
+    -1.4,
+    "accumulation"
+   ],
+   [
+    "Z16",
+    "CC",
+    0.0,
+    -1.4,
+    "P&D in: crane fork picks here"
+   ]
+  ],
+  "CV2": [
+   [
+    "Z26",
+    "CC",
+    0.0,
+    1.4,
+    "P&D out: crane fork puts here"
+   ],
+   [
+    "Z25",
+    "CC",
+    -1.2,
+    1.4,
+    "accumulation"
+   ],
+   [
+    "Z24",
+    "CC",
+    -2.4,
+    1.4,
+    "accumulation"
+   ],
+   [
+    "TU3",
+    "TU",
+    -3.6,
+    1.4,
+    "second AGV pick-up place (sideways); crates pass through when no AGV is there"
+   ],
+   [
+    "Z22",
+    "CC",
+    -4.8,
+    1.4,
+    "accumulation"
+   ],
+   [
+    "TU2",
+    "TU",
+    -6.0,
+    1.4,
+    "AGV pick-up (sideways) or divert to CV3 (kit visit)"
+   ]
+  ],
+  "CV3": [
+   [
+    "Z31",
+    "RCX",
+    -6.0,
+    0.0,
+    "pick / rework position (crate 1200 leading, operator at x = -7.0)"
+   ]
+  ],
+  "pick_s_mean": 90.0,
+  "pick_cv": 0.4,
+  "agv_wait_mean_s": 240.0,
+  "_agv_note": "time from AGV dispatch (= crane starts the retrieval) until the AGV stands at the pick-up transfer, exponential; F5 must confirm",
+  "des_hours": 400,
+  "warmup_h": 20,
+  "seed": 11,
+  "pickup_index": [
+   3,
+   5
+  ],
+  "_pickup_note": "CV2 index of the AGV pick-up transfers: 5 = TU2 (end), 3 = TU3 at x = -3.6 (second pick-up place, decided by the DES: one place saturates)"
+ },
+ "agv_response_design_min": 10.0,
+ "_agv_resp_note": "outbound lane: the crate waits for an AGV for at most this time in the design case (F5 dispatch target p95)",
+ "inbound_pull_min": 15.0,
+ "_inbound_note": "inbound lane: time until the operator pulls the crate to the machine (one crate in use per running part)",
+ "no_conveyor_depts": {
+  "TOOL": "tool trolleys (AGV with trolley pick-up, floor station)",
+  "CHIP": "chip bins (floor station)",
+  "MNT": "no regular flow",
+  "SHP": "fed by the assembly line conveyor; trucks by forklift"
+ },
+ "assembly_line_depts": [
+  "ASY",
+  "TST",
+  "PNT",
+  "PCK",
+  "SHP"
+ ],
+ "first_op_dept": {
+  "C01": "HMC",
+  "C02": "VMC",
+  "C03": "VMC",
+  "C04": "VMC",
+  "C05": "VMC",
+  "C06": "VMC",
+  "C08": "VMC",
+  "C07": "ROT",
+  "C09": "ROT",
+  "R01": "HMC",
+  "R02": "HMC",
+  "R03": "HMC",
+  "R04": "VMC",
+  "R05": "VMC",
+  "R06": "ROT",
+  "R07": "ROT"
+ },
+ "_first_op_note": "department of the first operation (products.json ops[0].machine -> fms_data machines.dept); line-side buffer crates stand on the inbound lane of that department",
+ "assembly": {
+  "_note": "products travel singly on workpiece carriers (skids) through assembly -> test -> paint -> pack -> shipping; parallel stations on spurs (lift-transfer in / out), main loop with empty-carrier return",
+  "carrier": {
+   "L_mm": 1800,
+   "W_mm": 800,
+   "payload_kg": 250,
+   "mass_kg": 60,
+   "pitch_m": 2.0,
+   "_unit": "VC20 on 300 L tank ~1550 x 550 x 1100 mm, ~120 kg (design estimate); RB on base frame ~900 x 600, <= 180 kg"
+  },
+  "units_month": 3400,
+  "peak_factor": 1.2,
+  "stations": {
+   "ASSY": 9,
+   "TEST": 7,
+   "PAINT": 1,
+   "PACK": 2
+  },
+  "_stations_note": "robust machine counts of F2 (ch. 6)",
+  "loop_v_m_s": 0.2,
+  "row_depth_m": 22,
+  "area_factor": 1.35,
+  "load_on_min": 3.0,
+  "unload_min": 2.0,
+  "queue_p": 0.05,
+  "spare_share": 0.1
+ },
+ "cost_EUR": {
+  "_note": "REFERENCE ESTIMATES (installed, incl. drives and local controls hardware, without PLC software and safety system F8)",
+  "CC": 3500,
+  "TU": 9000,
+  "RCX": 4000,
+  "RL": 1800,
+  "PD_end": 6000,
+  "contour_gate": 6000,
+  "scale": 3000,
+  "loop_per_m": 1100,
+  "spur_unit": 7000,
+  "corner_unit": 8000,
+  "carrier": 650,
+  "assy_load_station": 12000
+ },
+ "budget_F2_EUR": 450000,
+ "non_crate_pairs": [
+  [
+   "ASY",
+   "BUY"
+  ]
+ ],
+ "_non_crate_note": "300 L tanks (~1550 mm) and motors do not fit the 1200 x 800 crate: BUY -> ASY is a separate tank/motor feed to the assembly load station (designed in F4.4: tank racks on a tugger / AGV with rack top)"
+}

@@ -1,0 +1,8 @@
+SF,PLr,function,PL_achieved,ok
+SF-C1,d,E-stop per area -> SS1 then STO of all drives of the area,d,True
+SF-C2,c,AGV dock: light curtain (multi-beam) with muting while AGV_PRESENT + docking sensor; a person -> STO of lane + AGV rollers stop (ST_FAULT),d,True
+SF-C3,d,Assembly gate section: interlock + guard locking; unlock only after STO of the upstream section; opening from inside always possible (escape release),d,True
+SF-C4,d,Lift table in the pit: safety edge (EN ISO 13856-2) around the table -> both lowering valves close,d,True
+SF-C5,d,HMC load station light curtain (S = 680 mm) -> STO of the pallet shuttle,e,True
+SF-C6,c,Z31 pick window light curtain: no crate movement into / out of Z31 and no TU1/TU2 lift while hands are inside,e,True
+SF-C7,c,Test docking slide: force-limited pressure (< 150 N) + hood interlock 2 ch,d,True

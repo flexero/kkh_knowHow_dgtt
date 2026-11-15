@@ -1,0 +1,11 @@
+case,tag,type,qty,price_EUR_ref,note
+B1,=ASRS1+GC-KF3,CP1543-1,1,1900,"communication processor Gigabit Ethernet, stateful firewall, VPN, separate IP subnet; MB_SERVER over the CP (InterfaceId = CP hardware id) [verify]"
+B1,=ASRS1+GC-KF4,CM1542-1,1,1300,"communication module, additional PROFINET IO controller (2 ports) [verify]"
+B1,=ASRS1+GC-KF5,CM_PtP_RS485_HF,1,650,"CM PtP RS422/485 HF: Modbus RTU master with Modbus_Comm_Load / Modbus_Master, up to 115.2 kbit/s [verify]"
+B1,=ASRS1+GC-GB1,PS60W,1,420,system power supply PS 60 W 24/48/60 V DC in slot 0: needed when the CPU's backplane feed is not enough for the modules [verify]
+B2,=ASRS1+CC-KF2.C1,AS-FEN02,1,250,"Delta AS function card, 2nd Ethernet interface (Modbus TCP) [verify]"
+B2,=ASRS1+CC-KF2.C2,AS-FCOPM,1,300,Delta AS function card CANopen master [verify]
+B2,=ASRS1+GC-KF91,EXT-FW,1,1600,external industrial firewall / router between the machine zone and VLAN 720 (when no CP with firewall exists for the PLC family)
+B1/B2,=ASRS1+GC-PG1,Modbus RTU slave,1,,energy meter main supply (after -QB1)
+B1/B2,=ASRS1+GC-BW92T,Modbus RTU slave,1,,weighing terminal infeed scale (replaces the AI module -KF27)
+B1/B2,=ASRS1+GC-TB12,Modbus RTU slave,1,,"24 V DC UPS (battery, mains fail)"

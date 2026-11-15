@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="Arial, Helvetica, sans-serif">
+<title>Stop categories 0, 1, 2 and safe drive functions (IEC 60204-1, IEC 61800-5-2)</title>
+<rect x="0" y="0" width="1200" height="560" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" fill="#111" font-weight="bold">Stop categories 0 / 1 / 2 and the safe drive functions – speed over time after the stop request</text>
+<text x="24" y="54" font-size="12" fill="#555">Stop request at t0 (vertical line). Grey bar = power to the motor (torque possible). E-stop: category 0 or 1 only.</text>
+<g font-size="12" fill="#111">
+<!-- panel 1 -->
+<text x="40" y="92" font-weight="bold">Stop category 0 = STO</text>
+<line x1="40" y1="250" x2="360" y2="250" stroke="#333"/><line x1="40" y1="250" x2="40" y2="110" stroke="#333"/>
+<line x1="110" y1="110" x2="110" y2="250" stroke="#bbb" stroke-dasharray="4 4"/><text x="102" y="268">t0</text>
+<path d="M40,140 L110,140 C170,150 230,220 330,248" stroke="#1f6fb2" stroke-width="3" fill="none"/>
+<rect x="40" y="280" width="70" height="12" fill="#999"/>
+<text x="40" y="312">power removed immediately – motor coasts</text>
+<text x="40" y="330">(long stop for high inertia)</text>
+<!-- panel 2 -->
+<text x="440" y="92" font-weight="bold">Stop category 1 = SS1 (then STO)</text>
+<line x1="440" y1="250" x2="760" y2="250" stroke="#333"/><line x1="440" y1="250" x2="440" y2="110" stroke="#333"/>
+<line x1="510" y1="110" x2="510" y2="250" stroke="#bbb" stroke-dasharray="4 4"/><text x="502" y="268">t0</text>
+<path d="M440,140 L510,140 L600,248 L760,248" stroke="#1f6fb2" stroke-width="3" fill="none"/>
+<rect x="440" y="280" width="170" height="12" fill="#999"/>
+<text x="440" y="312">drive brakes with power (ramp monitored),</text>
+<text x="440" y="330">then STO at standstill / after safe time</text>
+<!-- panel 3 -->
+<text x="840" y="92" font-weight="bold">Stop category 2 = SS2 (then SOS)</text>
+<line x1="840" y1="250" x2="1160" y2="250" stroke="#333"/><line x1="840" y1="250" x2="840" y2="110" stroke="#333"/>
+<line x1="910" y1="110" x2="910" y2="250" stroke="#bbb" stroke-dasharray="4 4"/><text x="902" y="268">t0</text>
+<path d="M840,140 L910,140 L1000,248 L1160,248" stroke="#1f6fb2" stroke-width="3" fill="none"/>
+<rect x="840" y="280" width="320" height="12" fill="#999"/>
+<text x="840" y="312">drive brakes, then holds position with</text>
+<text x="840" y="330">torque (SOS monitors standstill)</text>
+</g>
+<rect x="40" y="360" width="1120" height="180" fill="#f7f7f7" stroke="#ccc"/>
+<g font-size="12" fill="#111">
+<text x="56" y="386" font-weight="bold">Safe drive functions (IEC 61800-5-2) and their use in the FMS example</text>
+<text x="56" y="410">STO  safe torque off – basis of all functions · AGV_TRANSFER, APC01–03, LS01_ROT (light curtain, Z2)</text>
+<text x="56" y="432">SS1  brake then STO – e-stop of stacker travel / hoist / fork, door opened in automatic (Z1, Z3)</text>
+<text x="56" y="454">SS2 / SOS  brake and hold position with torque – set-up with door open where the axis must stay in position</text>
+<text x="56" y="476">SLS  safely-limited speed – maintenance in the pool with enabling device (Z4, SF5)</text>
+<text x="56" y="498">SBC  safe brake control – hoist and vertical axes (STO alone does not hold a hanging load)</text>
+<text x="56" y="520" fill="#1f6fb2">Ranking used in the zone matrix: RUN 0 &lt; SLS 1 &lt; SS1 2 &lt; STO 3 – the highest active action wins.</text>
+</g>
+</svg>

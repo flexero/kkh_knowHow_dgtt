@@ -1,0 +1,11 @@
+dept,T_month,lam_peak_h,kind,line_side,in_places,out_places,lanes
+RAW,4010,9.72,ASRS_FRONT,0,,,"U-loop CV1/CV2/CV3, sized with the F3 crane moves (incl. receiving infeed and empty crates)"
+FIN,2379,5.77,PD,0,5,4,inbound 5 + outbound 4 places
+VMC,2198,5.33,PD,13,18,4,inbound 18 + outbound 4 places
+ROT,1435,3.48,PD,8,12,3,inbound 12 + outbound 3 places
+HMC,1303,3.16,PD,7,10,3,inbound 10 + outbound 3 places
+TOOL,1200,2.91,FLOOR,0,,,"tool trolleys (AGV with trolley pick-up, floor station)"
+QC,956,2.32,PD,0,3,2,inbound 3 + outbound 2 places
+BUY,340,0.82,PD,0,2,2,inbound 2 + outbound 2 places
+CHIP,180,0.44,FLOOR,0,,,chip bins (floor station)
+ASY,113,0.27,PD,0,1,2,inbound 1 + outbound 2 places

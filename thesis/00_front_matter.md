@@ -1,6 +1,6 @@
 # An Uncertainty-Aware, Low-Cost Digital Twin Method for the Stepwise Introduction of Flexible Manufacturing Systems in Emerging Industries
 
-## Cases of Compressor and Ball Screw Production
+## Cases of Compressor, Ball Screw and Roots Blower Production
 
 Doctoral thesis submitted by **Kenzo** [full name]
 
@@ -42,9 +42,12 @@ reduced the monthly output prediction error in a virtual ramp-up with hidden tru
 its 90 % intervals (design model 12.0 %, one-time calibration 23.6 %) and identified the true bottleneck in 97–100 % of the
 factories from month four. (3) Re-deciding staged investment options with the updated twin achieved the highest expected
 net present value and the best downside with 44 % less capital than an all-at-once investment; two thirds of its advantage
-over a fixed plan came from learning the machines. (4) Applied to two reference design cases, the method froze a design
+over a fixed plan came from learning the machines. (4) Applied to three reference design cases, the method froze a design
 prediction of 6 176 compressors per month for a compressor FMS, recommended robust first investment steps, and revealed two
-tied bottlenecks in a ball screw shaft line that only operation can resolve; it is implemented without third-party
+tied bottlenecks in a ball screw shaft line that only operation can resolve; for a Roots blower family that shares the
+FMS cell with the compressors, a closed queueing analysis showed that the cell, not the new equipment, becomes the
+factory bottleneck (16 % fewer compressors) and that a second load station is the first investment step, and the twin
+transferred again (below 5 % error from month four). The method is implemented without third-party
 dependencies on one offline PC. Hypotheses on architecture and prediction accuracy are supported in the laboratory and in
 simulation; honest uncertainty requires discrepancy learning; staged learning reduces downside but not early
 under-capacity. A protocol for validation in the real ramp-up is defined, and the design prediction is already frozen.
@@ -96,6 +99,7 @@ Design Cases · 10 Discussion · 11 Conclusions · References · Appendices A–
 | MAPE | mean absolute percentage error |
 | MES | manufacturing execution system |
 | MTBF / MTTR | mean time between failures / mean time to repair |
+| MVA | mean value analysis (closed queueing networks) |
 | NIG | Normal-Inverse-Gamma (distribution) |
 | NPV | net present value |
 | OEE | overall equipment effectiveness |

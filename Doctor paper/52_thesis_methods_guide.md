@@ -9,7 +9,7 @@
 ## Contents
 1. Purpose · 2. Where in the twin · 3. Concepts · 4. Capacity and bottleneck (ch. 4) · 5. Bayesian updating (ch. 4) ·
 6. The virtual ramp-up experiment (ch. 6) · 7. Modbus TCP + HTTP sizing and the event block (ch. 5) ·
-7b. Step-by-step FMS introduction (ch. 7) · 7c. Implementation and reference cases (ch. 8–9) · 7d. How the thesis argues (ch. 2–3) ·
+7b. Step-by-step FMS introduction (ch. 7) · 7c. Implementation and reference cases (ch. 8–9) · 7e. Case 3 – Roots blower extension (ch. 9.4) · 7d. How the thesis argues (ch. 2–3) ·
 8. Real-factory implementation · 9. Checklists · 10. Common mistakes · 11. Limits · 12. Glossary
 
 ---
@@ -27,7 +27,7 @@ how each part of that claim is calculated, with numbers you can check by hand or
 | 3 – Virtual ramp-up | see the results of 30 simulated factories; run one yourself | ch. 6 |
 | 4 – Modbus/HTTP sizing | enter machines, polling period, PLC scan time → delay, loss, bandwidth | ch. 5 |
 | 5 – Stepwise FMS introduction | see which investment policy wins; build your own plan stage by stage | ch. 7 |
-| 6 – Reference design cases | frozen design prediction, robustness of the first investments, ball screw line results | ch. 8–9 |
+| 6 – Reference design cases | frozen design prediction, robustness of the first investments, ball screw line results, Roots blower extension (section 7e) | ch. 8–9 |
 
 Code (same formulas): `thesis/code/` – overview and how to reproduce every number in `thesis/README.md`.
 
@@ -212,7 +212,7 @@ The policies differ only in what they *know*: design values (STATIC), observed d
 **Try it:** tab item 5 – tick options per stage, change the demand level, press "Suggest plan" (gives AS2 + FRB in
 stage 1, GR2 in stage 2 with the example values).
 
-## 7c. Implementation and the two reference cases (thesis chapters 8 and 9)
+## 7c. Implementation and the reference cases 1 and 2 (thesis chapters 8 and 9)
 
 **Chapter 8 – how it is built.** Everything runs on one offline PC with Python and JavaScript only, no extra packages:
 the factory twin (`server.py`, `twin/`, verified against 11 hand calculations – all passed), the thesis modules
@@ -220,7 +220,7 @@ the factory twin (`server.py`, `twin/`, verified against 11 hand calculations �
 Python. Monthly update + prediction take less than 2 seconds.
 
 **Chapter 9 – "reference design cases".** You have no production data yet, so the method is applied to the two factory
-designs of this project, exactly as you would do it at the end of the design phase. Structure, routings, cycle times and
+designs of this project (and, in section 7e below, to the planned Roots blower extension), exactly as you would do it at the end of the design phase. Structure, routings, cycle times and
 machine counts come from the designs; reliability of the ball screw machines and all money values are **reference
 estimates** (engineering estimates) and are labelled so.
 
@@ -245,9 +245,77 @@ estimates** (engineering estimates) and are labelled so.
 
 **What you must do before the defence:** (1) replace the reference values with quotations and supplier data → re-run
 `python thesis/code/case_study.py`; (2) freeze P0 again before the first part; (3) run the monthly ramp-up protocol of
-thesis section 9.6 for 12 months.
+thesis section 9.7 for 12 months.
 
 **Try it:** tab item 6.
+
+## 7e. Case 3 – Roots blower extension (thesis section 9.4)
+
+**Why a third case.** Your company will later make Roots blowers in the same factory. The examiners will ask: "does the
+method only work for the factory it was built for?" Case 3 answers this with a *new product family* that **shares** the
+crankcase cell with the compressors. That is different from case 2 (a separate line): here the two families take time
+from each other in the same machines.
+
+**Important – everything is an estimate.** No Roots blower has been designed yet. All values below are **reference
+estimates** made to fit the compressor factory. They show *how* the method works and *what kind* of answer it gives.
+They are not numbers for a purchase order.
+
+**What was assumed (thesis Tables 9.8 and 9.9).**
+
+| Item | Assumption [reference estimate] | Why |
+|---|---|---|
+| Products | RB-50 / RB-100 / RB-150, tri-lobe rotors, 50 / 100 / 150 m³/h at up to 500 mbar, motors 1.5 / 2.2 / 4 kW | same size and power class as the VC compressors, so the housings fit the 3 HMCs |
+| Demand | 400 blowers per month at maturity (mix 0.35 / 0.45 / 0.20), ramp 150 → 250 → 330 → 400 | about 7 % of the compressor volume, a new niche family |
+| Shared with the compressors | load station + operator, shuttle, pallet rack, 3 HMCs, washer, paint, packing, AGVs, AS/RS, control system | housing and both end covers are machined as one **kit** on a new fixture type **C** (tombstone) |
+| New | rotor lathe, rotor profile milling machine, grinder, balancing machine, 2 assembly stations (clearance and timing-gear setting), 1 run-test bench | timing gears and bearings are bought in |
+| Times per blower (mean) | kit at load station 367 s, kit on HMC 1 865 s, rotor milling 1 530 s, assembly 2 660 s, run test 2 145 s | engineering estimates; compressor crankcase: 147 s and 358.5 s |
+| Reliability, scrap | like Table 4.2; rotor milling MTBF 25 h, scrap 1.5 % (new process); housing scrap 1.0 % | an HMC is an HMC; new processes are worse at first |
+
+Simple formulas used:
+- Blower shaft power: $P \approx Q_{th}\,\Delta p / \eta_m$. RB-100: $(118/3600) \times 50\,000 / 0.9 = 1.8$ kW → 2.2 kW motor.
+- Static load of a station: $u = \sum (\text{parts per month} \times t) / (c \times A \times 3600 \times 330)$ — thesis Eq. 4.2 turned round.
+- Programme fraction of the cell: $\phi = \min_f X_f / d_f$ — "which share of the whole monthly programme can the cell
+  deliver?" ($X_f$ = pallet cycles per hour of fixture type f from the queueing model, $d_f$ = cycles per hour needed).
+
+**What the results mean.**
+1. **Static check says "fits".** With 6 000 compressors and 400 blowers per month no shared station is above 89 %
+   (HMCs 61 % → 83 %, load station 74 % → 87 %, paint 81 % → 88 %). The factory bottleneck stays the compressor test bench.
+2. **Queueing model says "does not fit".** The cell is a closed loop of pallets (thesis Section 9.2.5). With the heavy
+   Roots kits in it and still **one** operator at the load station, the cell delivers only 78 % of the programme. If the
+   blowers are served first, the compressors fall from 5 617 to 4 701 per month (−16 %). The static check cannot see
+   this because it ignores the operator's waiting and the shuttle exchanges.
+3. **Three fixture-C pallets are enough** for 400 blowers per month. More C pallets only take cycles away from the crankcases.
+4. **The first investment is the cheapest one:** a second load station (≈ 90 000 EUR) plus the nearest-rack rule in the
+   cell controller. It gives back about 950 compressors per month. A second test bench or a second rotor milling machine
+   (what a static study would buy because they are the most loaded *new* stations) has **no value** at 400 blowers per
+   month. A second test bench becomes the next step when Roots demand passes about 500 per month.
+5. **Frozen prediction P0** for the Roots line: 459 blowers per month (90 % range 436 – 482), file
+   `thesis/data/case3_P0.json`. It is valid only with the cell as designed (one load station, 7 A / 2 B / 3 C pallets) –
+   freeze it again after the second load station is decided.
+6. **The twin transfers again:** in 20 virtual ramp-ups the design model stays about 12 % wrong; the twin with discrepancy
+   learning is below 5 % from month 4. Here the bottleneck is clear (the shared cell in 19 of 20 factories), so the twin
+   confirms the design's bottleneck instead of correcting it – also a useful answer.
+7. **Data path:** 7 new devices → 28 in total. Modbus (edition 1): 0.30 Mbit/s, parallel cycle 12 ms. OPC UA + MQTT
+   (edition 2): about 1.2 Mbit/s at 0.25 s sampling. Per-blower results (clearances, test values) go to the MES once per
+   blower with the serial number.
+
+**What data you must collect to replace the estimates** (most important first):
+
+| # | Data | From where | Replaces |
+|---|---|---|---|
+| 1 | Load-station time per kit (unload + load, with hoist) and per crankcase, by fixture type | time study at the load station; later the cell controller log | 367 s / 147 s – decides whether the cell or the new stations limit the factory |
+| 2 | HMC program time for housing + covers per size | CAM simulation, then first-part runs; supplier time study | 1 515 / 1 915 / 2 365 s |
+| 3 | Run-test duration (run-in until stable temperature + measurements + mounting) | test specification of the design department; first 50 tests | 2 145 s – decides when a second bench is needed |
+| 4 | Rotor profile milling time and scrap | machine supplier trial cut on a rotor blank; first batches | 1 530 s, 1.5 % |
+| 5 | Assembly time with clearance and timing-gear setting | time study on prototypes | 2 660 s |
+| 6 | Roots demand forecast per year and size mix; price and margin | sales / market study | 400 per month, 0.35 / 0.45 / 0.20, 550 EUR |
+| 7 | Quotations: second load station, test bench, rotor machines | suppliers | 90 000 / 160 000 / 420 000 EUR |
+| 8 | MTBF / MTTR of the new machines | supplier data, then the twin's monthly update | Table 9.9 |
+| 9 | Applicable standards for the run test (ISO 1217 for Roots blowers? noise ISO 2151, vibration ISO 20816, balancing ISO 21940-11) | read the current editions | "check the standard" notes in section 9.4.1 |
+
+Then: put the values into `thesis/code/case3_roots.py` (tables `PRODUCTS_R`, `ROOTS_ST`, `OPTIONS_R` at the top), run
+`python thesis/code/case3_roots.py` (≈ 10 s), and update section 9.4 with the new numbers. The *method* and the program do
+not change.
 
 ## 7d. How the thesis argues (thesis chapters 2 and 3)
 

@@ -1,0 +1,307 @@
+{
+ "_note": "Final thesis item F4.4 - assembly carrier line + tank/motor feed. DESIGN values / REFERENCE ESTIMATES (catalogue classes [verify]). Tool: asm_line.py. Guide: Doctor paper/61 chapters 36-48.",
+ "version": "F4.4 (2026-11-15)",
+ "g": 9.81,
+ "products": {
+  "VC20": {
+   "mass_kg": 125,
+   "L_mm": 1550,
+   "W_mm": 600,
+   "H_mm": 1050,
+   "cg_mm": 420,
+   "feet_x_mm": 900,
+   "feet_y_mm": 380,
+   "units_month": 3000,
+   "_": "300 L receiver dia 500 x 1550 on 4 feet + pump + 3 kW motor + guard (design estimate)",
+   "tasks_mm": [
+    [
+     "A60 pump + motor on the tank plate",
+     600
+    ],
+    [
+     "A60 belts, tension, guard",
+     750
+    ],
+    [
+     "A70 pressure switch, valves, gauges (top)",
+     950
+    ]
+   ]
+  },
+  "RB50": {
+   "mass_kg": 85,
+   "L_mm": 900,
+   "W_mm": 600,
+   "H_mm": 650,
+   "cg_mm": 300,
+   "feet_x_mm": 760,
+   "feet_y_mm": 460,
+   "units_month": 140,
+   "tasks_mm": [
+    [
+     "A10-A30 rotors, head plates, timing gears",
+     380
+    ],
+    [
+     "A40-A50 motor, belts, guard, silencers",
+     520
+    ]
+   ]
+  },
+  "RB100": {
+   "mass_kg": 110,
+   "L_mm": 900,
+   "W_mm": 600,
+   "H_mm": 700,
+   "cg_mm": 320,
+   "feet_x_mm": 760,
+   "feet_y_mm": 460,
+   "units_month": 180,
+   "tasks_mm": [
+    [
+     "A10-A30 rotors, head plates, timing gears",
+     400
+    ],
+    [
+     "A40-A50 motor, belts, guard, silencers",
+     560
+    ]
+   ]
+  },
+  "RB150": {
+   "mass_kg": 160,
+   "L_mm": 1000,
+   "W_mm": 650,
+   "H_mm": 780,
+   "cg_mm": 350,
+   "feet_x_mm": 860,
+   "feet_y_mm": 500,
+   "units_month": 80,
+   "tasks_mm": [
+    [
+     "A10-A30 rotors, head plates, timing gears",
+     430
+    ],
+    [
+     "A40-A50 motor, belts, guard, silencers",
+     610
+    ]
+   ]
+  }
+ },
+ "carrier": {
+  "L_mm": 1800,
+  "W_mm": 800,
+  "mass_kg": 60,
+  "adapter_kg": {
+   "VC20": 12,
+   "RB": 8
+  },
+  "pitch_m": 2.0,
+  "gauge_mm": 640,
+  "beam": {
+   "name": "RHS 80 x 40 x 3 (S355)",
+   "I_mm4": 560000.0,
+   "W_mm3": 14000.0,
+   "_I": "(40x80^3 - 34x74^3)/12 = 5.6e5 mm4, W = I/40"
+  },
+  "support_span_mm": 1200,
+  "defl_limit": 1000,
+  "sigma_allow_MPa": 160,
+  "pad_mu": 0.4,
+  "bumper_stroke_mm": 20,
+  "_": "welded frame, 2 longitudinal RHS on the 2 chain strands, 2 locating bushes for the lift-and-locate units, PU bumpers front/rear; adapter plates: VC20 = 4 rubber-lined saddles for the tank feet, RB = 4 pins for the base frame (changeover 2 min, tool-free)",
+  "_bumper": "first design 10 mm gave 4.0 m/s2 > sliding limit 3.9 m/s2 (product slides on its pads when the carrier rolls into the one in front after an E-stop) -> 20 mm PU bumpers"
+ },
+ "conveyor": {
+  "type": "twin-strand accumulation roller chain 3/4 inch (12B class with free accumulation rollers)",
+  "v_m_s": 0.2,
+  "top_mm": 500,
+  "f_roll": 0.05,
+  "mu_acc": 0.05,
+  "chain_kg_m": 2.0,
+  "f_chain_slide": 0.15,
+  "F_allow_N": 1500,
+  "eta": 0.85,
+  "estop_decel": 1.5,
+  "loop_m": 100,
+  "section_m": 25,
+  "corner_units": 4,
+  "_": "accumulation chain: the carriers ride on free-turning rollers; a stopped carrier lets the chain run under it with a small back pressure (mu_acc); F_allow = allowable working pull per strand of a 3/4 inch accumulation chain [verify]"
+ },
+ "transfer": {
+  "lift_s": 2.0,
+  "spur_m": 2.0,
+  "v_m_s": 0.2,
+  "lower_s": 2.0
+ },
+ "stopper": {
+  "F_static_N": 1500,
+  "E_max_J": 10.0,
+  "_": "damped pallet stopper class (hydraulic shock absorber) [verify]"
+ },
+ "ergo": {
+  "elbow_mm": {
+   "P5_female": 960,
+   "P50": 1070,
+   "P95_male": 1185
+  },
+  "_elbow": "standing elbow height incl. 25 mm shoes, DIN 33402-2 class values [verify]",
+  "offset_light_mm": -100,
+  "lift_min_mm": 100,
+  "lift_max_mm": 800,
+  "max_reach_up_mm": 250,
+  "_lift": "scissor lift table in a 250 mm pit at each ASSY spur: carrier top 100..800 mm (a floor-mounted table cannot go below ~350 mm; the VC20 top fittings need -90..135 mm)"
+ },
+ "times": {
+  "load_on_min": 3.0,
+  "unload_min": 2.0,
+  "cv": 0.25,
+  "des_hours": 600,
+  "warmup_h": 30,
+  "seed": 5,
+  "seg_m": {
+   "LOAD-ASSY": 12,
+   "ASSY-TEST": 25,
+   "TEST-PAINT": 12,
+   "PAINT-PACK": 6,
+   "PACK-UNLOAD": 10,
+   "UNLOAD-LOAD": 35
+  }
+ },
+ "stations": {
+  "LOAD": 1,
+  "ASSY": 9,
+  "TEST": 7,
+  "PAINT": 1,
+  "PACK": 2,
+  "UNLOAD": 1
+ },
+ "peak_factor": 1.2,
+ "feed": {
+  "tank_kg": 62,
+  "tanks_per_rack": 4,
+  "rack_kg": 50,
+  "agv_payload_kg": 300,
+  "motors_per_crate": 8,
+  "rb_frames_per_rack": 4,
+  "buffer_h": 1.0,
+  "lifter": "vacuum tank lifter on a jib crane, SWL 125 kg"
+ },
+ "balancer": {
+  "lift_s": 45,
+  "stations_per_balancer": 2,
+  "lines": {
+   "VC20": [
+    [
+     "C01 crankcase",
+     14.2
+    ],
+    [
+     "C09 flywheel",
+     9.4
+    ]
+   ],
+   "RB50": [
+    [
+     "R01 housing",
+     16.9
+    ],
+    [
+     "R02 head plate",
+     5.4
+    ],
+    [
+     "R03 head plate",
+     5.4
+    ]
+   ],
+   "RB100": [
+    [
+     "R01 housing",
+     24.4
+    ],
+    [
+     "R02",
+     5.4
+    ],
+    [
+     "R03",
+     5.4
+    ],
+    [
+     "R06 rotor",
+     7.3
+    ],
+    [
+     "R07 rotor",
+     7.1
+    ]
+   ],
+   "RB150": [
+    [
+     "R01 housing",
+     31.9
+    ],
+    [
+     "R02",
+     5.4
+    ],
+    [
+     "R03",
+     5.4
+    ],
+    [
+     "R06 rotor",
+     9.9
+    ],
+    [
+     "R07 rotor",
+     9.7
+    ]
+   ]
+  },
+  "niosh": {
+   "H": 45,
+   "V": 80,
+   "D": 40,
+   "FM": 0.85,
+   "CM": 0.95
+  }
+ },
+ "test_dock": [
+  "air outlet quick coupling DN15 (11 bar) to the test bench receiver / flow meter (ISO 1217)",
+  "400 V 16 A CEE plug for the motor (via the bench contactor and power meter)",
+  "condensate hose",
+  "noise: bench hood closes over the unit (ISO 2151)",
+  "carrier located by lift-and-locate pins +-0.5 mm so the couplings are made by a pneumatic docking slide"
+ ],
+ "cost_EUR": {
+  "carrier": 650,
+  "adapter_set": 250,
+  "loop_per_m": 1100,
+  "section_drive": 3500,
+  "corner_unit": 8000,
+  "spur_unit": 7000,
+  "lift_table": 4000,
+  "lift_locate": 1800,
+  "test_dock": 3500,
+  "load_station": 12000,
+  "tank_lifter": 6500,
+  "tank_rack": 450,
+  "balancer": 4500,
+  "stopper": 450,
+  "lift_pit": 1500,
+  "gate_section": 6500
+ },
+ "gates": {
+  "n": 2,
+  "width_mm": 1200,
+  "_": "interlocked personnel gate sections (lift-up bridge) in the main line, one per long side: access to the spurs inside the loop + escape route; opening stops the upstream section (safety function -> F8, PL d); alternative: all spurs outward with a longer loop (~112 m) - decide in the final layout (F11/F12)",
+  "clear_height_mm": 1900,
+  "load_station_area_m": [
+   8,
+   6
+  ]
+ }
+}

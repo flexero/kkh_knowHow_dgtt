@@ -1,0 +1,97 @@
+{
+ "device": "WASH-01",
+ "n_rep": 20,
+ "client_timeout_s": 0.5,
+ "cases": [
+  {
+   "case": "F0 no fault",
+   "commands": 20,
+   "starts": 20,
+   "exactly_once": 20,
+   "errors": 0,
+   "wrong_params": 0,
+   "recovered_after_error": 0
+  },
+  {
+   "case": "F1 REQ request lost once",
+   "commands": 20,
+   "starts": 20,
+   "exactly_once": 20,
+   "errors": 0,
+   "wrong_params": 0,
+   "recovered_after_error": 0
+  },
+  {
+   "case": "F2 REQ response lost once",
+   "commands": 20,
+   "starts": 20,
+   "exactly_once": 20,
+   "errors": 0,
+   "wrong_params": 0,
+   "recovered_after_error": 0
+  },
+  {
+   "case": "F3 REQ request duplicated",
+   "commands": 20,
+   "starts": 20,
+   "exactly_once": 20,
+   "errors": 0,
+   "wrong_params": 0,
+   "recovered_after_error": 0
+  },
+  {
+   "case": "F4 REQ response late (0.8 s > 0.5 s time-out)",
+   "commands": 20,
+   "starts": 20,
+   "exactly_once": 20,
+   "errors": 0,
+   "wrong_params": 0,
+   "recovered_after_error": 0
+  },
+  {
+   "case": "F5 code+seq response lost once",
+   "commands": 20,
+   "starts": 20,
+   "exactly_once": 20,
+   "errors": 0,
+   "wrong_params": 0,
+   "recovered_after_error": 0
+  },
+  {
+   "case": "F6 parameter response lost once",
+   "commands": 20,
+   "starts": 20,
+   "exactly_once": 20,
+   "errors": 0,
+   "wrong_params": 0,
+   "recovered_after_error": 0
+  },
+  {
+   "case": "F7 REQ request lost twice (both attempts)",
+   "commands": 20,
+   "starts": 0,
+   "exactly_once": 0,
+   "errors": 20,
+   "wrong_params": 0,
+   "recovered_after_error": 20
+  },
+  {
+   "case": "F8 stale REQ frame replayed after the next command",
+   "seq_guard": false,
+   "commands": 40,
+   "starts": 60,
+   "double_starts": 20,
+   "next_command_ok": 20,
+   "stale_toggles_ignored": 0
+  },
+  {
+   "case": "F8 stale REQ frame replayed after the next command",
+   "seq_guard": true,
+   "commands": 40,
+   "starts": 40,
+   "double_starts": 0,
+   "next_command_ok": 20,
+   "stale_toggles_ignored": 20
+  }
+ ]
+}

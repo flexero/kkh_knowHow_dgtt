@@ -95,6 +95,9 @@ export function mount(el) {
   </div>`;
 
   initOEE(); initQ(); initBuf(); initLayout(); initSim();
+  // 4F–4M: deep sections (guides + programs) live in fmse4x.js; they reuse simFMS / theory exported below
+  const deepEl = document.createElement("div"); deepEl.id = "feItem4x"; el.appendChild(deepEl);
+  import("./fmse4x.js").then((m) => m.mount(deepEl)).catch((e) => { deepEl.innerHTML = `<div class="card"><p class="fe-no">Sections 4F–4M could not load: ${esc(e.message)}</p></div>`; });
 }
 
 /* ================================================================== 4A OEE */
@@ -246,6 +249,7 @@ function readSim() {
   return p;
 }
 // closed-loop DES: every pallet cycles load → move → machine → move → load
+// optional p.hist (array): receives the completion time of every machining operation (whole run incl. warm-up) – used by 4J (Welch); no effect on the random stream
 function simFMS(p, rec) {
   const R = rng(p.seed), T = p.days * 1440, warm = Math.min(T * 0.1, 2880), H = [];
   let seq = 0;
@@ -278,7 +282,7 @@ function simFMS(p, rec) {
     const [tn, , k, d] = pop(); if (tn > T) break; acc(tn); t = tn;
     if (k === "loadDone") { lFree++; if (d.tl != null && t > warm) { S.ct += t - d.tl; S.ctn++; } d.tl = t; vehQ.push({ pal: d, to: "M" }); tryVeh(); tryLoad(); }
     else if (k === "moveDone") { vFree++; if (d.to === "M") { machQ.push(d.pal); tryMach(); } else { loadQ.push(d.pal); tryLoad(); } tryVeh(); }
-    else if (k === "machDone") { M[d.k].busy = false; if (t > warm) { S.done++; S.byType[d.pal.ty]++; } vehQ.push({ pal: d.pal, to: "L" }); tryVeh(); tryMach(); }
+    else if (k === "machDone") { M[d.k].busy = false; if (p.hist) p.hist.push(t); if (t > warm) { S.done++; S.byType[d.pal.ty]++; } vehQ.push({ pal: d.pal, to: "L" }); tryVeh(); tryMach(); }
   }
   acc(T);
   const span = T - warm;
@@ -330,3 +334,6 @@ function sweep() {
     <p class="am-note">Below W₀ the machines wait for pallets; above it extra pallets only add waiting time (Little: loop time = N ÷ TH).
       A real FMS needs more than W₀ because of variability and breakdowns – the simulation shows how many. Next steps: vary machines, load stations and vehicles and see which resource becomes the bottleneck.</p>`;
 }
+
+// reused by the deep sections 4F–4M (fmse4x.js) – behaviour unchanged
+export { simFMS, theory, rng, lineChart, runLine };

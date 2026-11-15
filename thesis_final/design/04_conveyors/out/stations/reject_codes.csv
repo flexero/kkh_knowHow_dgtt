@@ -1,0 +1,10 @@
+code,meaning,detected by,reaction
+0,OK,-,store
+1,overweight (W > accept limit),scale,back to the AGV -> rework area (split the crate)
+2,height above the rim rule,horizontal light grid,back to the AGV / Z31 rework: re-stack
+3,side overhang left / right > limit,vertical light grids,"rework: push parts in, close the separator"
+4,front / rear overhang > limit (length measured in motion),grid edge timing,rework
+5,no ID read,ID reader (F6),rework: new label
+6,ID unknown in the WMS / wrong destination,WMS,back to the AGV -> clarification
+7,weight not plausible (|W - W_expected| > tol),scale + WMS content,rework: count the parts
+8,crate base damaged (runner missing / bent) - runner sensors,2 diffuse sensors under TU1 (one per runner),crate out of service

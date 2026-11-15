@@ -20,7 +20,8 @@ commissioning and ramp-up, when the system produces less than planned and correc
 The case behind this thesis is the planned factory of a manufacturer of V-type two-cylinder piston air compressors
 (VC10, VC20, VC30), whose crankcases, cylinders and crankshafts are to be machined in a pallet-based FMS with three
 horizontal machining centres, followed by assembly, performance testing, painting and final assembly. A second
-production line for ball screws and profiled linear guides is planned. The company's technology base defines a further
+production line for ball screws and profiled linear guides is planned, and the company intends to extend the compressor
+FMS later to a family of Roots blowers whose housings are machined in the same pallet cell. The company's technology base defines a further
 constraint shared by many firms in its environment: the only communication technologies available are Ethernet,
 Modbus TCP and HTTP; computers on the shop floor run offline; commercial IIoT platforms, OPC UA servers and cloud services
 are not available.
@@ -73,7 +74,7 @@ The thresholds are proposals derived from practical requirements (Table 5.1; Sec
 | **C1** | A Modbus-TCP-and-HTTP-only reference architecture for FMS digital twins with six design rules, an **event-preserving register block** (change counter, time stamp, 8-entry ring buffer in every PLC) that removes the event loss inherent in polling, closed-form sizing formulas, and a laboratory measurement campaign | 5 |
 | **C2** | An uncertainty-aware twin method: design statements translated into conjugate priors with an interpretable confidence; sequential Bayesian updating of failure, repair, cycle-time and scrap parameters with forgetting for ramp-up; nested Monte Carlo prediction; **model-discrepancy learning**; and a **frozen-prediction protocol** for honest validation | 4, 6 |
 | **C3** | A decision method for the **stepwise introduction of an FMS** that re-decides investment options every stage with the updated twin, and an experimental quantification of the value of learning the uncertain capacity effect | 7 |
-| **C4** | Application to two reference design cases — a compressor FMS and a ball screw shaft line — including a frozen design prediction for the real ramp-up and a validation protocol; a dependency-free implementation that runs offline, including an interactive browser version of all calculations | 8, 9 |
+| **C4** | Application to three reference design cases — a compressor FMS, a ball screw shaft line and a Roots blower extension that shares the FMS cell — including a process-level analysis of the shared cell, a frozen design prediction for the real ramp-up and a validation protocol; a dependency-free implementation that runs offline, including an interactive browser version of all calculations | 8, 9 |
 
 A systematic literature review (paper 1) underpins the research gap (Chapter 2).
 
@@ -84,7 +85,7 @@ It covers the system level — throughput, bottlenecks, investment — not proce
 behaviour of machine tools or metallurgy. Demand uncertainty is represented by scenarios, not learned in detail. Safety
 functions remain hard-wired and outside the data architecture. The methods are evaluated analytically, in a laboratory
 bench and in controlled computational experiments; the field validation in the case factory is fully specified and its
-design prediction frozen, but its results depend on the factory's start of production (Section 9.6). Case data are
+design prediction frozen, but its results depend on the factory's start of production (Section 9.7). Case data are
 design data of the planned factories and reference estimates where company data were not available; all values are
 labelled accordingly.
 
@@ -94,7 +95,7 @@ labelled accordingly.
   technology and data constraints: a systematic review* (manuscript complete; basis of Chapter 2).
 - Paper 2 (planned) – low-cost Modbus/HTTP twin architecture with event block and laboratory evaluation (Chapter 5).
 - Paper 3 (planned) – sequential Bayesian updating with model discrepancy for ramp-up prediction (Chapters 4, 6).
-- Paper 4 (planned) – stepwise FMS introduction under learning, with the two cases (Chapters 7, 9).
+- Paper 4 (planned) – stepwise FMS introduction under learning, with the three cases (Chapters 7, 9).
 
 ## 1.8 Structure of the thesis
 
@@ -103,7 +104,7 @@ design-science methodology and the three-layer evaluation. Chapter 4 formalises 
 the conjugate Bayesian models, the prediction measures and the staging decision problem. Chapter 5 designs and measures
 the Modbus/HTTP architecture (RQ1, H1). Chapter 6 implements and tests the Bayesian twin in a virtual ramp-up (RQ2, H2,
 H3). Chapter 7 develops and tests the stepwise introduction method (RQ3, H4). Chapter 8 describes the implementation,
-Chapter 9 applies the method to the two reference cases and specifies the field validation, Chapter 10 discusses the
+Chapter 9 applies the method to the three reference cases and specifies the field validation, Chapter 10 discusses the
 results and Chapter 11 concludes (Figure 1.1).
 
 ![Figure 1.1](figures/fig1_1_structure.svg)

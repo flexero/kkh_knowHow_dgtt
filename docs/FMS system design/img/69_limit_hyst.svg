@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>Limit alarms with hysteresis and on-delay (H 8.0, L 3.0, hyst 0.2, delay 2 samples of 1 s)</title>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">Limit alarms with hysteresis and on-delay (H 8.0, L 3.0, hyst 0.2, delay 2 samples of 1 s)</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">ON after the condition was TRUE for 2 consecutive samples; OFF immediately when v &lt; H - hyst (7.8) or v &gt; L + hyst (3.2).</text>
+<line x1="120" y1="420" x2="1070" y2="420" stroke="#eee" stroke-width="1"/>
+<text x="110" y="424" font-size="11" text-anchor="end" fill="#111">2</text>
+<line x1="120" y1="375" x2="1070" y2="375" stroke="#eee" stroke-width="1"/>
+<text x="110" y="379" font-size="11" text-anchor="end" fill="#111">3</text>
+<line x1="120" y1="330" x2="1070" y2="330" stroke="#eee" stroke-width="1"/>
+<text x="110" y="334" font-size="11" text-anchor="end" fill="#111">4</text>
+<line x1="120" y1="285" x2="1070" y2="285" stroke="#eee" stroke-width="1"/>
+<text x="110" y="289" font-size="11" text-anchor="end" fill="#111">5</text>
+<line x1="120" y1="240" x2="1070" y2="240" stroke="#eee" stroke-width="1"/>
+<text x="110" y="244" font-size="11" text-anchor="end" fill="#111">6</text>
+<line x1="120" y1="195" x2="1070" y2="195" stroke="#eee" stroke-width="1"/>
+<text x="110" y="199" font-size="11" text-anchor="end" fill="#111">7</text>
+<line x1="120" y1="150" x2="1070" y2="150" stroke="#eee" stroke-width="1"/>
+<text x="110" y="154" font-size="11" text-anchor="end" fill="#111">8</text>
+<line x1="120" y1="105" x2="1070" y2="105" stroke="#eee" stroke-width="1"/>
+<text x="110" y="109" font-size="11" text-anchor="end" fill="#111">9</text>
+<text x="40" y="96" font-size="11" text-anchor="start" fill="#111">v [bar]</text>
+<line x1="120" y1="150" x2="1070" y2="150" stroke="#c0392b" stroke-width="1.5"/>
+<text x="1076" y="154" font-size="11" text-anchor="start" fill="#c0392b">H 8.0</text>
+<line x1="120" y1="159" x2="1070" y2="159" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,4"/>
+<text x="1076" y="163" font-size="11" text-anchor="start" fill="#c0392b">H - hyst 7.8</text>
+<line x1="120" y1="375" x2="1070" y2="375" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="1076" y="379" font-size="11" text-anchor="start" fill="#1f5fa8">L 3.0</text>
+<line x1="120" y1="366" x2="1070" y2="366" stroke="#1f5fa8" stroke-width="1.5" stroke-dasharray="5,4"/>
+<text x="1076" y="370" font-size="11" text-anchor="start" fill="#1f5fa8">L + hyst 3.2</text>
+<polyline points="120,397.5 182,379.5 244,370.5 306,330 368,240 430,154.5 492,150 554,145.5 616,154.5 678,147.75 740,156.75 802,161.25 864,285 926,375 988,377.25 1050,363.75" fill="none" stroke="#111" stroke-width="2"/>
+<circle cx="120" cy="397.5" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="120" y="452" font-size="11" text-anchor="middle" fill="#111">0</text>
+<circle cx="182" cy="379.5" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="182" y="452" font-size="11" text-anchor="middle" fill="#111">1</text>
+<circle cx="244" cy="370.5" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="244" y="452" font-size="11" text-anchor="middle" fill="#111">2</text>
+<circle cx="306" cy="330" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="306" y="452" font-size="11" text-anchor="middle" fill="#111">3</text>
+<circle cx="368" cy="240" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="368" y="452" font-size="11" text-anchor="middle" fill="#111">4</text>
+<circle cx="430" cy="154.5" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="430" y="452" font-size="11" text-anchor="middle" fill="#111">5</text>
+<circle cx="492" cy="150" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="492" y="452" font-size="11" text-anchor="middle" fill="#111">6</text>
+<circle cx="554" cy="145.5" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="554" y="452" font-size="11" text-anchor="middle" fill="#111">7</text>
+<circle cx="616" cy="154.5" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="616" y="452" font-size="11" text-anchor="middle" fill="#111">8</text>
+<circle cx="678" cy="147.75" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="678" y="452" font-size="11" text-anchor="middle" fill="#111">9</text>
+<circle cx="740" cy="156.75" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="740" y="452" font-size="11" text-anchor="middle" fill="#111">10</text>
+<circle cx="802" cy="161.25" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="802" y="452" font-size="11" text-anchor="middle" fill="#111">11</text>
+<circle cx="864" cy="285" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="864" y="452" font-size="11" text-anchor="middle" fill="#111">12</text>
+<circle cx="926" cy="375" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="926" y="452" font-size="11" text-anchor="middle" fill="#111">13</text>
+<circle cx="988" cy="377.25" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="988" y="452" font-size="11" text-anchor="middle" fill="#111">14</text>
+<circle cx="1050" cy="363.75" r="4" fill="#111" stroke="#111" stroke-width="1"/>
+<text x="1050" y="452" font-size="11" text-anchor="middle" fill="#111">15</text>
+<text x="554" y="470" font-size="12" text-anchor="middle" fill="#111">sample (1 s)</text>
+<rect x="89" y="486" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="89" y="508" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="151" y="486" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="151" y="508" width="62" height="18" rx="0" fill="#e8eef8" stroke="#ccc" stroke-width="0.5"/>
+<rect x="213" y="486" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="213" y="508" width="62" height="18" rx="0" fill="#e8eef8" stroke="#ccc" stroke-width="0.5"/>
+<rect x="275" y="486" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="275" y="508" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="337" y="486" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="337" y="508" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="399" y="486" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="399" y="508" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="461" y="486" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="461" y="508" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="523" y="486" width="62" height="18" rx="0" fill="#fdecea" stroke="#ccc" stroke-width="0.5"/>
+<rect x="523" y="508" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="585" y="486" width="62" height="18" rx="0" fill="#fdecea" stroke="#ccc" stroke-width="0.5"/>
+<rect x="585" y="508" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="647" y="486" width="62" height="18" rx="0" fill="#fdecea" stroke="#ccc" stroke-width="0.5"/>
+<rect x="647" y="508" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="709" y="486" width="62" height="18" rx="0" fill="#fdecea" stroke="#ccc" stroke-width="0.5"/>
+<rect x="709" y="508" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="771" y="486" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="771" y="508" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="833" y="486" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="833" y="508" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="895" y="486" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="895" y="508" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="957" y="486" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="957" y="508" width="62" height="18" rx="0" fill="#e8eef8" stroke="#ccc" stroke-width="0.5"/>
+<rect x="1019" y="486" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<rect x="1019" y="508" width="62" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+<text x="24" y="500" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">H alarm</text>
+<text x="24" y="522" font-size="12" text-anchor="start" font-weight="bold" fill="#1f5fa8">L alarm</text>
+<text x="24" y="556" font-size="11" text-anchor="start" fill="#111">Events: 1 L on, 3 L off, 7 H on (8.0 at 6 and 8.1 at 7), 11 H off (7.75 &lt; 7.8), 14 L on (3.0, 2.95), 15 L off (3.25 &gt; 3.2). Sample 6 alone (8.0) does not alarm.</text>
+<text x="24" y="586" font-size="11" text-anchor="start" fill="#666">Teaching example - not for construction. Real PLC code: written, reviewed and validated by qualified people (IEC 61131-3, IEC 62061 / ISO 13849).</text>
+</svg>

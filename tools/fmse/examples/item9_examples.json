@@ -1,0 +1,830 @@
+{
+ "_note": "Shared worked-example data for FMS engineering item 9 (PLC programming principles: IEC 61131-3, scan and tasks, standard and device function blocks, sequences inside the PackML state machine, the module data block, ISA-18.2 alarms, code generation from the item 8 library, effort estimate): guide docs/FMS system design/69_plc_programming.md, tools/fmse/*.py, web/fmse9*.js. Guide, tools and web must give IDENTICAL results with the rules below. All values are EXAMPLES. Safety functions are programmed only in the safety (F-) program by qualified people; the standard program only reads safety signals.",
+ "_rules": {
+  "response": "PLC reaction time DI -> DO, all in ms: t_min = t_in + T_scan + t_out ; t_max = t_in + 2*T_bus + 2*T_scan + t_out (input changes just after the input image was read -> waits one scan, is processed in the next scan; remote IO adds one bus cycle in and one out). distance travelled during t_max = v_mm_s*t_max/1000 mm. Round t to 2 decimals, distance to 1.",
+  "tasks": "all times in INTEGER microseconds. Utilisation U = sum C/T (round 4). Liu-Layland bound for n tasks = n*(2^(1/n) - 1) (round 4); U <= bound -> 'schedulable by the bound test' (sufficient only). Response-time analysis per task in priority order (1 = highest), deadline = period: R0 = C_i ; R_{k+1} = C_i + sum over higher-priority j of ceil(R_k/T_j)*C_j (integer ceil) ; stop when R_{k+1} = R_k (OK if R <= T_i) or R_{k+1} > T_i (MISS, report R = the first value > T_i). Report R in us and R/T (round 3).",
+  "overflow": "time to overflow = max_value/rate_per_s seconds ; report seconds (round 1), days (round 2), years (round 2, 365 d). TIME = 32-bit signed ms: max 2147483647 ms = 24 d 20 h 31 min 23.647 s.",
+  "fb_trace": "scan-based, dt = 10 ms, scan k = 0..N-1 at time t = k*dt. Signals are TRUE on the listed inclusive scan ranges. Per scan the FBs are executed in this order with the definitions: TON: if IN {if start is None: start = t ; ET = min(PT, t - start) ; Q = ET >= PT} else {start = None ; ET = 0 ; Q = False}. TOF: if IN {run = True ; fall = None ; ET = 0 ; Q = True} else if run {if fall is None: fall = t ; ET = min(PT, t - fall) ; Q = ET < PT} else {ET = 0 ; Q = False}. TP: if IN and not prevIN and start is None: start = t ; if start is not None {el = t - start ; if el < PT {Q = True ; ET = el} else {Q = False ; ET = PT ; if not IN {start = None ; ET = 0}}} else {Q = False ; ET = 0} ; prevIN = IN. R_TRIG(CLK): Q = CLK and not M ; M = CLK (M starts False). F_TRIG(CLK): Q = (not CLK) and P ; P = CLK (P starts False - note: some platforms give a pulse in the first scan, check yours). CTU(CU, R, PV): edge = CU and not prevCU ; if R: CV = 0 elif edge and CV < 32767: CV += 1 ; Q = CV >= PV. CTD(CD, LD, PV): edge = CD and not prevCD ; if LD: CV = PV elif edge and CV > -32768: CV -= 1 ; Q = CV <= 0. SR (set dominant): Q1 = S1 or (not R and Q1). RS (reset dominant): Q1 = (not R1) and (S or Q1). Wiring: TON/TOF/TP IN = A ; R_TRIG/F_TRIG CLK = A ; CTU CU = A, R = RST ; CTD CD = A, LD = LD ; SR S1 = A, R = B ; RS S = A, R1 = B. Output: one row per scan; events = scans where an output changes.",
+  "analog": "raw 0..27648 = 4..20 mA (Siemens-style scaling, check your card) ; mA = 4 + 16*raw/27648 ; NAMUR NE 43 status: mA <= 3.6 BAD 'fault low (wire break)' ; 3.6 < mA < 3.8 UNCERTAIN 'under range' ; 3.8 <= mA <= 20.5 GOOD ; 20.5 < mA < 21.0 UNCERTAIN 'over range' ; mA >= 21.0 BAD 'fault high'. value = lo + (hi - lo)*(mA - 4)/16 ; value_out = value clamped to [lo, hi] for GOOD/UNCERTAIN, substitute value 'lo' for BAD (and quality BAD -> the module must not use it). Round mA 3, value 3.",
+  "limits": "limit alarm with hysteresis and on-delay, one sample per second: H: condition = v >= H ; alarm ON when the condition was true for 'delay' consecutive samples (counter of consecutive true samples; reset to 0 when false) ; alarm OFF (immediately) when v < H - hyst. L: condition = v <= L ; ON after 'delay' consecutive samples ; OFF when v > L + hyst. While an alarm is ON its counter keeps counting but has no effect. Output: per sample v, H alarm, L alarm; events list.",
+  "motor": "FB_MotorDol, tick = 100 ms, T_fb = 500 ms (= 5 ticks). Order per tick k: 1 EVENTS in list order (CMD_ON/CMD_OFF set the command Cmd ; RESET sets Reset True for this tick only ; FB_BROKEN/FB_OK set the plant flag 'fb broken' (auxiliary contact broken) ; TRIP/TRIP_CLEAR set Tripped ; WELD sets 'welded'). 2 PLANT from the FB output Run of tick k-1: contactor = Run_prev or welded_closed where welded_closed = welded and the contactor was closed at tick k-1 ; on = on+1 if contactor else 0 ; RunFb = (on >= 2) and not fb_broken ; Tripped from the flag. 3 FB (states 0 STOPPED, 1 STARTING, 2 RUNNING, 3 STOPPING, 9 FAULT): cmdEdge = Cmd and not Cmd_prev (Cmd_prev updated at the end of the tick) ; if Tripped and state != FAULT: state = FAULT, alarm 3 ; then CASE state: STOPPED: Run = False ; nfb = nfb+1 if RunFb else 0 ; if nfb*100 >= T_fb: FAULT alarm 4 ; elif cmdEdge: STARTING (n = 0). STARTING: Run = True ; n += 1 ; if RunFb: RUNNING elif n*100 >= T_fb: FAULT alarm 1. RUNNING: Run = True ; if not Cmd: STOPPING (n = 0) elif not RunFb: FAULT alarm 2. STOPPING: Run = False ; n += 1 ; if not RunFb: STOPPED (nfb = 0) elif n*100 >= T_fb: FAULT alarm 4. FAULT: Run = False ; if Reset and not Tripped and not (alarm == 4 and RunFb): STOPPED, alarm 0, nfb = 0 (log 'reset accepted') ; elif Reset: log 'reset rejected'. A state entered in this tick is not executed again in this tick ; Run is the output of the state after the CASE (FAULT/STOPPED/STOPPING -> False, STARTING/RUNNING -> True). No automatic restart: STOPPED -> STARTING only on a rising edge of Cmd. Alarm texts: 1 'no run feedback after start', 2 'run feedback lost while running', 3 'motor protection tripped', 4 'run feedback without command (contactor welded?)'. Log lines (this set defines the line counts A 6, B 15, C 12, D 14, E 9): '<k> event <EVENT>' for every event, '<k> <FROM> -> <TO>' for every state change (with 'alarm <n> <text>' when it goes to FAULT, 'reset accepted' for FAULT -> STOPPED) and '<k> reset rejected (alarm <n>)'. Run/RunFb per tick are shown in a separate trace, not in the log.",
+  "module_run": "APC01 (module M02, item 8 IO names) inside the PackML state machine of item 5 (STATES/CMDS/EDGES/MODES of web/fmse5_data.js, mode Production), commanded over the item 6 data block. tick = 100 ms, K ticks. Initial: state Stopped, step 0, AlarmNo 0, count 0, plant: rotate x = 0 (at A), spool A, clamp x = 0 (clamped), clamped_n = 3. Order per tick k: 1 EVENTS: CMD <name> writes Command.CntrlCmd = CMDS[name] and CmdChangeRequest = 1 ; JAM_ROT / UNJAM_ROT ; PRESS_LOW / PRESS_OK. 2 PLANT with the outputs of tick k-1: rotate spool = A if SolA and not SolB, B if SolB and not SolA, else unchanged (double solenoid valve keeps its position) ; rotate x moves 1 per tick toward 0 (A) or 30 (B) unless jammed ; PosA = x == 0, PosB = x == 30. Clamp (single solenoid, spring): Sol True -> x moves 1 per tick toward 8 (unclamped), False -> toward 0 (clamped) ; Clamp.PosA (clamped) = x == 0, Clamp.PosB (unclamped) = x == 8 ; clamped_n = clamped_n + 1 if x == 0 else 0 ; ClampPress = (3.8 if press_low else 6.0) if clamped_n >= 3 else 0.5 bar. PalSideA and PalSideB = True (static). 3 PLC: (a) COMMAND: if CmdChangeRequest: command c accepted if c in MODES[mode] and ((state, c) in EDGES or (c == Stop and state not in {Stopped, Stopping, Aborting, Aborted, Clearing}) or (c == Abort and state not in {Aborting, Aborted})) -> state = target (EDGES target, Stop -> Stopping, Abort -> Aborting), n_state = 0 ; else 'rejected' ; then CntrlCmd = 0, CmdChangeRequest = 0. (b) STATE ACTION (skipped for a state entered in this tick, except the entry actions): acting states with a duration in ticks: Resetting 5, Starting 2, Completing 2, Stopping 2, Aborting 1, Clearing 2, Holding 1, Unholding 1, Suspending 1, Unsuspending 1: n_state += 1 ; if n_state >= duration: SC -> EDGES target with label SC. Entry actions: entering Execute from Starting initialises the sequence: target = B if PosA, A if PosB, else alarm 10 ; step = 10, n = 0. Entering Clearing sets AlarmNo = 0. Entering Complete: Admin.ProdProcessedCount += 1. Entering Stopped/Idle/Aborted/Stopping/Completing: step = 0 (Aborting keeps the step for diagnosis). Execute (not entered this tick): n += 1 ; S10: if Clamp.PosB -> S20 (n = 0) elif n >= 30 -> alarm 11 ; S20: if PosA/PosB of the target -> S30 (n = 0) elif n >= 50 -> alarm 12 ; S30: if Clamp.PosA and ClampPress >= 4.5 -> S40 elif n >= 30 -> alarm 13 ; reaching S40 = sequence done: SC in the same tick -> Completing (step 0). Alarm: AlarmNo = code and internal Abort in the same tick -> Aborting. Holding/Held/Unholding freeze the sequence (step and n kept, no evaluation) and keep its outputs. (c) OUTPUTS: if state in {Execute, Holding, Held, Unholding}: S10 Clamp.Sol ; S20 Clamp.Sol + Rotate.SolB (target B) or Rotate.SolA (target A) ; S30 none ; else all outputs False (abort: the clamp spring clamps, the rotate valve keeps its spool - the rotation continues; energy isolation needs the safety valve of item 7/8). (d) DATA BLOCK (item 6): Status.StateCurrent = STATES[state] ; Admin.AlarmNo ; Status.Bits = Ready (bit0, state Idle) + Busy (bit1, state in Starting, Execute, Completing, Resetting, Holding, Unholding, Suspending, Unsuspending, Stopping, Aborting, Clearing) + Done (bit2, Complete) + Fault (bit3, AlarmNo != 0) + Auto (bit5, always) + PartPresent (bit6, PalSideA or PalSideB). Log lines (this set defines the line counts A 23, B 41, C 42, D 33, E 28): '<k> event <EVENT>' ; '<k> cmd <c> accepted: <from> -> <to>' or '<k> cmd <c> rejected in <state>' ; '<k> SC: <from> -> <to>' (for the sequence end: 'SC: Execute -> Completing (sequence done)') ; '<k> step S<a> -> S<b>' ; '<k> sequence start: target <A|B>, step S10' ; '<k> ALARM <n> <text> in S<step> -> internal Abort: Execute -> Aborting' ; and once per tick in which the state changed: '<k> state <state> StateCurrent=<n> AlarmNo=<n> Bits=<n> count=<n>'. Alarm 10 at the Execute entry: log 'SC: Starting -> Execute', then 'ALARM 10 <text> -> internal Abort: Execute -> Aborting', state Aborting in the same tick (no 'state Execute' line), step 0. Alarm texts: 10 'rotate not in an end position at start', 11 'unclamp timeout', 12 'rotate timeout', 13 'clamp pressure low / clamp timeout'.",
+  "alarms": "ISA-18.2 alarm state machine. States NORM, UNACK (active, unacknowledged), ACKED (active, acknowledged), RTNUN (returned to normal, unacknowledged), SHLVD (shelved), OOS (out of service). Each alarm also tracks the process condition 'active'. Events (t_s, alarm, ev) in time order: act -> active = True ; clr -> active = False ; transitions: NORM+act -> UNACK ; UNACK+ack -> ACKED ; UNACK+clr -> RTNUN ; ACKED+clr -> NORM ; RTNUN+ack -> NORM ; RTNUN+act -> UNACK ; shelve (only if shelvable; from NORM, UNACK, ACKED, RTNUN) -> SHLVD ; unshelve (from SHLVD) -> UNACK if active else NORM ; oos (from any state except OOS) -> OOS ; ios (from OOS) -> UNACK if active else NORM ; every other combination: state unchanged, logged 'no effect' (act/clr still update 'active'). Annunciation = a transition INTO UNACK (horn + flashing). First-out per group: the group starts armed ; when an alarm of the group goes INTO UNACK while the group is armed it becomes the first-out and the group is disarmed ; after each event, if all alarms of the group are in NORM the group is re-armed and the first-out cleared. Chattering: >= 3 'act' events of the same alarm within any 60 s window (t_last - t_first <= 60 for 3 consecutive acts). Standing at the end = alarms in UNACK or ACKED. Report: log rows (t, alarm, ev, from -> to, annunciation, first-out), final states, annunciations per alarm, chattering list, standing list.",
+  "codegen": "Generate IEC 61131-3 Structured Text for one module of the item 8 library (expansion of item 8, unit = UNIT code + '01'). Signal symbol = unit + '_' + group + '_' + signal. Station image addresses (base 0 per module station): DI k-th (k = 0.. in expansion order): byte = 2*(k // 16) + (k % 16) // 8, bit = k % 8 -> '%IX<byte>.<bit>' ; AI k-th: byte = 2*cards_DI + 8*(k // 4) + 2*(k % 4) -> '%IW<byte>' ; DO k-th: '%QX' like DI ; AO k-th: byte = 2*cards_DO + 4*(k // 2) + 2*(k % 2) -> '%QW<byte>' (cards from the item 8 rule with 20 % reserve). FDI/FDO have no %I/%Q address in the standard program. Text lines (joined with '\\n', final '\\n'): L1 '(* AUTO-GENERATED from the item 8 circuit library: <code> <unit> - <title> *)' ; L2 '(* IO: <n> points (DI a, DO b, AI c, AO d, FDI e, FDO f) - do not edit by hand, regenerate *)' ; 'VAR_GLOBAL' ; per io entry in expansion order: DI '  <sym> AT %IX<b>.<bit> : BOOL; (* <tag> | <addr> | <desc> *)', DO same with %QX, AI '  <sym> AT %IW<b> : INT; (* ... *)', AO with %QW, FDI '  <sym> : BOOL; (* <tag> | <addr> | F-input, read-only copy from the F-program *)', FDO '  <sym> : BOOL; (* <tag> | <addr> | F-output, written only by the F-program *)' ; 'END_VAR' ; '' ; 'FUNCTION_BLOCK FB_<unit>_Devices' ; 'VAR' ; per instance whose pattern has io: '  <group> : <fb_types[pattern]>; (* <pattern> *)' ; 'END_VAR' ; per such instance: call line '<group>(<params>);' with params 'x<Signal> := <sym>' (DI, FDI) and 'i<Signal> := <sym>' (AI) in io order joined by ', ' ('<group>();' if none), then for each DO '<sym> := <group>.q<Signal>;' and each AO '<sym> := <group>.w<Signal>;' in io order (FDO: no line - the F-program writes them) ; 'END_FUNCTION_BLOCK'. <addr> = item 8 card address (e.g. DI1.03). Checksum = Adler-32 of the UTF-8 text (as hex 8 digits, lower case). Report lines, characters, checksum.",
+  "effort": "PLC software effort (integrator quote): engineering hours = sum qty*coefficient over the items ; test_h = test_factor*eng ; doc_h = doc_factor*eng ; pm_h = pm_factor*(eng + test + doc) ; subtotal = eng + test + doc + pm ; contingency = contingency_factor*subtotal ; total = subtotal + contingency (round 1) ; person-weeks = total/hours_per_week (round 1). Quantities of the kit case: io_std = DI+DO+AI+AO and io_safe = FDI+FDO of the item 8 kit (revised: 144 and 66), fb_instances = number of FB instances generated by codegen over the kit modules (each module instance counts), the rest as given."
+ },
+ "response_cases": [
+  {
+   "name": "Local IO, main task 10 ms",
+   "t_in": 3.0,
+   "T_bus": 0.0,
+   "T_scan": 10.0,
+   "t_out": 0.5,
+   "v_mm_s": 500
+  },
+  {
+   "name": "PROFINET remote IO 2 ms, main task 10 ms",
+   "t_in": 3.0,
+   "T_bus": 2.0,
+   "T_scan": 10.0,
+   "t_out": 0.5,
+   "v_mm_s": 500
+  },
+  {
+   "name": "Fast task 2 ms, input filter 0.1 ms, PROFINET 1 ms",
+   "t_in": 0.1,
+   "T_bus": 1.0,
+   "T_scan": 2.0,
+   "t_out": 0.1,
+   "v_mm_s": 500
+  },
+  {
+   "name": "Signal over the cell controller (Modbus poll 100 ms)",
+   "t_in": 3.0,
+   "T_bus": 100.0,
+   "T_scan": 10.0,
+   "t_out": 0.5,
+   "v_mm_s": 500
+  }
+ ],
+ "task_sets": [
+  {
+   "name": "Typical",
+   "tasks": [
+    [
+     "Fast_Motion",
+     2000,
+     300,
+     1
+    ],
+    [
+     "Main",
+     10000,
+     3500,
+     2
+    ],
+    [
+     "Comm",
+     100000,
+     12000,
+     3
+    ],
+    [
+     "Diag",
+     1000000,
+     40000,
+     4
+    ]
+   ]
+  },
+  {
+   "name": "Tight (bound test fails, RTA passes)",
+   "tasks": [
+    [
+     "Fast_Motion",
+     2000,
+     300,
+     1
+    ],
+    [
+     "Main",
+     10000,
+     6000,
+     2
+    ],
+    [
+     "Comm",
+     100000,
+     12000,
+     3
+    ],
+    [
+     "Diag",
+     1000000,
+     40000,
+     4
+    ]
+   ]
+  },
+  {
+   "name": "Overloaded",
+   "tasks": [
+    [
+     "Fast_Motion",
+     2000,
+     300,
+     1
+    ],
+    [
+     "Main",
+     10000,
+     7000,
+     2
+    ],
+    [
+     "Comm",
+     100000,
+     25000,
+     3
+    ],
+    [
+     "Diag",
+     1000000,
+     40000,
+     4
+    ]
+   ]
+  }
+ ],
+ "_task_cols": "name, period T [us], execution C [us], priority (1 = highest)",
+ "overflow": [
+  [
+   "TIME (32-bit ms) running timer",
+   2147483647,
+   1000
+  ],
+  [
+   "INT part counter, 1 part / 2 min",
+   32767,
+   0.008333333333333333
+  ],
+  [
+   "UINT heartbeat, +1 per 100 ms",
+   65535,
+   10
+  ],
+  [
+   "UDINT event counter, 10 per s",
+   4294967295,
+   10
+  ],
+  [
+   "DINT seconds counter",
+   2147483647,
+   1
+  ]
+ ],
+ "_overflow_cols": "name, max value, increments per second",
+ "fb_trace": {
+  "dt_ms": 10,
+  "N": 40,
+  "PT_ms": 50,
+  "PV": 3,
+  "signals": {
+   "A": [
+    [
+     2,
+     8
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     15,
+     29
+    ]
+   ],
+   "B": [
+    [
+     6,
+     7
+    ],
+    [
+     20,
+     22
+    ],
+    [
+     32,
+     33
+    ]
+   ],
+   "RST": [
+    [
+     33,
+     33
+    ]
+   ],
+   "LD": [
+    [
+     0,
+     0
+    ],
+    [
+     36,
+     36
+    ]
+   ]
+  }
+ },
+ "analog": {
+  "lo": 0.0,
+  "hi": 10.0,
+  "unit": "bar",
+  "raws": [
+   -6000,
+   -500,
+   -300,
+   0,
+   6912,
+   13824,
+   20736,
+   27648,
+   28800,
+   30000,
+   32767
+  ]
+ },
+ "limits": {
+  "H": 8.0,
+  "L": 3.0,
+  "hyst": 0.2,
+  "delay": 2,
+  "values": [
+   2.5,
+   2.9,
+   3.1,
+   4.0,
+   6.0,
+   7.9,
+   8.0,
+   8.1,
+   7.9,
+   8.05,
+   7.85,
+   7.75,
+   5.0,
+   3.0,
+   2.95,
+   3.25
+  ]
+ },
+ "motor": {
+  "tick_ms": 100,
+  "T_fb_ms": 500,
+  "K": 40,
+  "scenarios": [
+   {
+    "name": "A Normal start and stop",
+    "events": [
+     [
+      2,
+      "CMD_ON"
+     ],
+     [
+      20,
+      "CMD_OFF"
+     ]
+    ]
+   },
+   {
+    "name": "B No run feedback (auxiliary contact broken)",
+    "events": [
+     [
+      0,
+      "FB_BROKEN"
+     ],
+     [
+      2,
+      "CMD_ON"
+     ],
+     [
+      15,
+      "RESET"
+     ],
+     [
+      18,
+      "CMD_OFF"
+     ],
+     [
+      20,
+      "FB_OK"
+     ],
+     [
+      22,
+      "RESET"
+     ],
+     [
+      25,
+      "CMD_ON"
+     ],
+     [
+      35,
+      "CMD_OFF"
+     ]
+    ]
+   },
+   {
+    "name": "C Feedback lost while running",
+    "events": [
+     [
+      2,
+      "CMD_ON"
+     ],
+     [
+      12,
+      "FB_BROKEN"
+     ],
+     [
+      16,
+      "FB_OK"
+     ],
+     [
+      18,
+      "RESET"
+     ],
+     [
+      20,
+      "CMD_OFF"
+     ],
+     [
+      22,
+      "CMD_ON"
+     ]
+    ]
+   },
+   {
+    "name": "D Motor protection trips, no restart after reset",
+    "events": [
+     [
+      2,
+      "CMD_ON"
+     ],
+     [
+      10,
+      "TRIP"
+     ],
+     [
+      14,
+      "RESET"
+     ],
+     [
+      16,
+      "TRIP_CLEAR"
+     ],
+     [
+      18,
+      "RESET"
+     ],
+     [
+      22,
+      "CMD_OFF"
+     ],
+     [
+      25,
+      "CMD_ON"
+     ]
+    ]
+   },
+   {
+    "name": "E Contactor welded",
+    "events": [
+     [
+      2,
+      "CMD_ON"
+     ],
+     [
+      8,
+      "WELD"
+     ],
+     [
+      12,
+      "CMD_OFF"
+     ],
+     [
+      25,
+      "RESET"
+     ]
+    ]
+   }
+  ]
+ },
+ "module_run": {
+  "tick_ms": 100,
+  "K": 200,
+  "scenarios": [
+   {
+    "name": "A Normal job",
+    "events": [
+     [
+      2,
+      "CMD Reset"
+     ],
+     [
+      10,
+      "CMD Start"
+     ],
+     [
+      70,
+      "CMD Reset"
+     ]
+    ]
+   },
+   {
+    "name": "B Rotate jams -> timeout -> Abort -> recovery",
+    "events": [
+     [
+      2,
+      "CMD Reset"
+     ],
+     [
+      10,
+      "CMD Start"
+     ],
+     [
+      30,
+      "JAM_ROT"
+     ],
+     [
+      90,
+      "UNJAM_ROT"
+     ],
+     [
+      95,
+      "CMD Clear"
+     ],
+     [
+      100,
+      "CMD Reset"
+     ],
+     [
+      110,
+      "CMD Start"
+     ]
+    ]
+   },
+   {
+    "name": "C Clamp pressure low",
+    "events": [
+     [
+      0,
+      "PRESS_LOW"
+     ],
+     [
+      2,
+      "CMD Reset"
+     ],
+     [
+      10,
+      "CMD Start"
+     ],
+     [
+      100,
+      "PRESS_OK"
+     ],
+     [
+      105,
+      "CMD Clear"
+     ],
+     [
+      110,
+      "CMD Reset"
+     ],
+     [
+      120,
+      "CMD Start"
+     ]
+    ]
+   },
+   {
+    "name": "D Hold and Unhold during the rotation",
+    "events": [
+     [
+      2,
+      "CMD Reset"
+     ],
+     [
+      10,
+      "CMD Start"
+     ],
+     [
+      35,
+      "CMD Hold"
+     ],
+     [
+      60,
+      "CMD Unhold"
+     ],
+     [
+      100,
+      "CMD Reset"
+     ]
+    ]
+   },
+   {
+    "name": "E Wrong commands and Stop",
+    "events": [
+     [
+      2,
+      "CMD Start"
+     ],
+     [
+      5,
+      "CMD Reset"
+     ],
+     [
+      15,
+      "CMD Unhold"
+     ],
+     [
+      20,
+      "CMD Start"
+     ],
+     [
+      25,
+      "CMD Start"
+     ],
+     [
+      40,
+      "CMD Stop"
+     ],
+     [
+      50,
+      "CMD Reset"
+     ]
+    ]
+   }
+  ]
+ },
+ "alarms": {
+  "defs": [
+   [
+    "A1",
+    "PLT1.MACH.FMS1.UTIL01.AirPress.Low",
+    1,
+    "CELL",
+    true
+   ],
+   [
+    "A2",
+    "PLT1.MACH.FMS1.POOL01.Travel.Fault",
+    1,
+    "CELL",
+    false
+   ],
+   [
+    "A3",
+    "PLT1.MACH.FMS1.APC01.ClampPress.Low",
+    2,
+    "CELL",
+    true
+   ],
+   [
+    "A4",
+    "PLT1.MACH.FMS1.WASH01.LevelHigh.On",
+    3,
+    "WASH",
+    true
+   ],
+   [
+    "A5",
+    "PLT1.MACH.FMS1.CMM01.CmmSup.Off",
+    3,
+    "CMM",
+    true
+   ]
+  ],
+  "_def_cols": "id, tag, priority (1 high, 2 medium, 3 low), first-out group, shelvable",
+  "events": [
+   [
+    100,
+    "A1",
+    "act"
+   ],
+   [
+    101,
+    "A2",
+    "act"
+   ],
+   [
+    102,
+    "A3",
+    "act"
+   ],
+   [
+    130,
+    "A1",
+    "ack"
+   ],
+   [
+    131,
+    "A2",
+    "ack"
+   ],
+   [
+    132,
+    "A3",
+    "ack"
+   ],
+   [
+    160,
+    "A1",
+    "clr"
+   ],
+   [
+    170,
+    "A2",
+    "clr"
+   ],
+   [
+    175,
+    "A3",
+    "clr"
+   ],
+   [
+    200,
+    "A4",
+    "act"
+   ],
+   [
+    205,
+    "A4",
+    "clr"
+   ],
+   [
+    212,
+    "A4",
+    "act"
+   ],
+   [
+    218,
+    "A4",
+    "clr"
+   ],
+   [
+    224,
+    "A4",
+    "act"
+   ],
+   [
+    230,
+    "A4",
+    "clr"
+   ],
+   [
+    240,
+    "A4",
+    "shelve"
+   ],
+   [
+    250,
+    "A4",
+    "act"
+   ],
+   [
+    260,
+    "A4",
+    "clr"
+   ],
+   [
+    300,
+    "A2",
+    "act"
+   ],
+   [
+    310,
+    "A2",
+    "shelve"
+   ],
+   [
+    320,
+    "A2",
+    "ack"
+   ],
+   [
+    330,
+    "A2",
+    "clr"
+   ],
+   [
+    340,
+    "A2",
+    "ack"
+   ],
+   [
+    400,
+    "A3",
+    "act"
+   ],
+   [
+    410,
+    "A3",
+    "clr"
+   ],
+   [
+    420,
+    "A3",
+    "act"
+   ],
+   [
+    430,
+    "A3",
+    "ack"
+   ],
+   [
+    500,
+    "A5",
+    "oos"
+   ],
+   [
+    510,
+    "A5",
+    "act"
+   ],
+   [
+    600,
+    "A5",
+    "ios"
+   ],
+   [
+    610,
+    "A5",
+    "ack"
+   ],
+   [
+    700,
+    "A1",
+    "act"
+   ],
+   [
+    705,
+    "A1",
+    "clr"
+   ],
+   [
+    900,
+    "A4",
+    "unshelve"
+   ],
+   [
+    905,
+    "A4",
+    "ack"
+   ]
+  ]
+ },
+ "codegen": {
+  "modules": [
+   "M02",
+   "M03",
+   "M10"
+  ],
+  "fb_types": {
+   "FEEDER_EXT": "FB_Feeder",
+   "COUPLING": "FB_SafetyCoupling",
+   "HANDSHAKE_HW": "FB_HandshakeHw",
+   "DOL": "FB_MotorDol",
+   "VFD_STO": "FB_DriveSto",
+   "CONT_PAIR_EDM": "FB_ContactorPair",
+   "DOOR_LOCK": "FB_DoorLock",
+   "DOOR_2CH": "FB_Door2Ch",
+   "ESTOP": "FB_Estop",
+   "ENABLE": "FB_EnableSwitch",
+   "MODE_SWITCH": "FB_ModeSwitch",
+   "LC": "FB_LightCurtain",
+   "SCANNER": "FB_Scanner",
+   "TWOHAND": "FB_TwoHand",
+   "VALVE_SINGLE": "FB_Valve1",
+   "VALVE_DOUBLE": "FB_Valve2",
+   "SAFE_VALVE": "FB_SafeValve",
+   "SENSOR": "FB_Sensor",
+   "ANALOG_P": "FB_AnalogIn",
+   "ANALOG_T": "FB_AnalogIn",
+   "PUSHBUTTON": "FB_PushButton",
+   "SIGNAL_TOWER": "FB_SignalTower",
+   "HEATER": "FB_Heater",
+   "UPS_DC": "FB_Ups",
+   "ZONE_OUT": "FB_ZoneOut"
+  },
+  "_source": "library = tools/fmse/examples/item8_examples.json (revised 2026-11-15)"
+ },
+ "effort": {
+  "coef_h": {
+   "io_std": 0.5,
+   "io_safe": 1.0,
+   "fb_instances": 1.5,
+   "seq_steps": 1.5,
+   "safety_functions": 8.0,
+   "interfaces": 8.0,
+   "hmi_screens": 6.0,
+   "alarms": 0.25,
+   "recipes_params": 0.2
+  },
+  "factors": {
+   "test_factor": 0.4,
+   "doc_factor": 0.15,
+   "pm_factor": 0.1,
+   "contingency_factor": 0.15,
+   "hours_per_week": 38
+  },
+  "kit_qty": {
+   "seq_steps": 120,
+   "safety_functions": 6,
+   "interfaces": 22,
+   "hmi_screens": 30,
+   "alarms": 400,
+   "recipes_params": 150
+  },
+  "_qty_note": "io_std, io_safe and fb_instances are computed (rule effort); the others are example estimates for the FMS kit (18 modules): 22 interfaces = data-block interfaces of the module instances with a PLC/controller, 6 safety functions = item 7 SF1-SF6"
+ }
+}

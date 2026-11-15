@@ -1,0 +1,15 @@
+sequence,step,AGV / station action,other side,timeout
+drop-off,1,"AGV docks, AGV_PRESENT = 1","station checks: first zone empty, no fault",-
+drop-off,2,"station: lowers end stop, starts lane rollers inwards, ST_READY_RECV = 1",,10 s after AGV_PRESENT
+drop-off,3,"AGV: AGV_READY_SEND = 1, runs deck rollers outwards",crate moves onto the lane (both conveyors at 0.2 m/s),-
+drop-off,4,AGV: AGV_TRANSFER_DONE = 1 when its deck sensors are free,station: ST_TRANSFER_DONE = 1 when the crate is fully in zone 1,15 s for the transfer
+drop-off,5,"station raises the end stop, resets ST_READY_RECV; AGV resets its signals and leaves",job closed in fmsctl (crate id at the lane),-
+pick-up,1,"AGV docks, AGV_PRESENT = 1","station: crate at the lane end (zone 1), no fault",-
+pick-up,2,"AGV: AGV_READY_RECV = 1, deck rollers inwards","station lowers the end stop, ST_READY_SEND = 1, lane rollers outwards",10 s
+pick-up,3,crate moves onto the AGV,,15 s
+pick-up,4,"AGV_TRANSFER_DONE = 1 (deck sensors occupied, end sensor)",ST_TRANSFER_DONE = 1 (zone 1 free),-
+pick-up,5,"station raises the stop, stops the rollers; AGV leaves",job closed in fmsctl,-
+rule,1,Rollers of BOTH sides run only while AGV_PRESENT = 1 and ST_FAULT = 0 (interlock in both PLCs).,,
+rule,2,"A timeout in any step: both sides stop their rollers, the station raises nothing while a crate is over the gap, the job goes to 'transfer error' -> operator.",,
+rule,3,Loss of AGV_PRESENT during a transfer = immediate stop of both conveyors (the crate stays on the gap; recovery by the operator in manual mode).,,
+rule,4,The signals are NOT safety functions: people are protected by the light curtain with muting (F4.5 / F8).,,

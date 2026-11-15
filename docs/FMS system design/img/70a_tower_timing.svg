@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 434" width="1200" height="434" font-family="Arial, Helvetica, sans-serif">
+<title>FB_SignalTower - test T1: colours from PackML state and alarm class (IEC 60204-1 10.3 / IEC 60073)</title>
+<rect x="0" y="0" width="1200" height="434" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">FB_SignalTower - test T1: colours from PackML state and alarm class (IEC 60204-1 10.3 / IEC 60073)</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Red = class A alarm or Aborting/Aborted ; yellow = class B/C alarm or Stopped/Suspended/Held ; green steady = Starting/Execute/Unholding/Unsuspending/Completing,</text>
+<text x="24" y="70" font-size="12" text-anchor="start" fill="#555">green flashing 1 Hz = Idle/Complete (ready, waiting) ; buzzer on each new class A/B, off with horn acknowledge or when no alarm is active.</text>
+<line x1="190.0" y1="84" x2="190.0" y2="328" stroke="#e6e6e6" stroke-width="1"/>
+<text x="190.0" y="344" font-size="11" text-anchor="middle" fill="#111">0</text>
+<line x1="353.3" y1="84" x2="353.3" y2="328" stroke="#e6e6e6" stroke-width="1"/>
+<text x="353.3" y="344" font-size="11" text-anchor="middle" fill="#111">5</text>
+<line x1="516.7" y1="84" x2="516.7" y2="328" stroke="#e6e6e6" stroke-width="1"/>
+<text x="516.7" y="344" font-size="11" text-anchor="middle" fill="#111">10</text>
+<line x1="680.0" y1="84" x2="680.0" y2="328" stroke="#e6e6e6" stroke-width="1"/>
+<text x="680.0" y="344" font-size="11" text-anchor="middle" fill="#111">15</text>
+<line x1="843.3" y1="84" x2="843.3" y2="328" stroke="#e6e6e6" stroke-width="1"/>
+<text x="843.3" y="344" font-size="11" text-anchor="middle" fill="#111">20</text>
+<line x1="1006.7" y1="84" x2="1006.7" y2="328" stroke="#e6e6e6" stroke-width="1"/>
+<text x="1006.7" y="344" font-size="11" text-anchor="middle" fill="#111">25</text>
+<line x1="1170.0" y1="84" x2="1170.0" y2="328" stroke="#e6e6e6" stroke-width="1"/>
+<text x="1170.0" y="344" font-size="11" text-anchor="middle" fill="#111">30</text>
+<text x="680.0" y="362" font-size="12" text-anchor="middle" fill="#111">tick k (x 100 ms)  -  events change inputs before the call of that tick</text>
+<text x="20" y="111.0" font-size="12" text-anchor="start" fill="#1f5fa8">iState</text>
+<rect x="190.0" y="95" width="65.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="222.7" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">2</text>
+<rect x="255.3" y="95" width="65.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="288.0" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">15</text>
+<rect x="320.7" y="95" width="261.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="451.3" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">4</text>
+<rect x="582.0" y="95" width="130.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="647.3" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">6</text>
+<rect x="712.7" y="95" width="32.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="729.0" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">10</text>
+<rect x="745.3" y="95" width="196.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="843.3" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">11</text>
+<rect x="941.3" y="95" width="32.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="957.7" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">8</text>
+<rect x="974.0" y="95" width="98.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1023.0" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">9</text>
+<rect x="1072.0" y="95" width="32.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1088.3" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">1</text>
+<rect x="1104.7" y="95" width="65.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1137.3" y="111.0" font-size="10" text-anchor="middle" fill="#1f5fa8">2</text>
+<text x="20" y="145.0" font-size="12" text-anchor="start" fill="#1f5fa8">iAlarmClass</text>
+<rect x="190.0" y="129" width="490.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="435.0" y="145.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<rect x="680.0" y="129" width="228.7" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="794.3" y="145.0" font-size="10" text-anchor="middle" fill="#1f5fa8">2</text>
+<rect x="908.7" y="129" width="163.3" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="990.3" y="145.0" font-size="10" text-anchor="middle" fill="#1f5fa8">1</text>
+<rect x="1072.0" y="129" width="98.0" height="24" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1"/>
+<text x="1121.0" y="145.0" font-size="10" text-anchor="middle" fill="#1f5fa8">0</text>
+<text x="20" y="179.0" font-size="12" text-anchor="start" fill="#1f5fa8">xHornAck</text>
+<polyline points="190.0,185 222.7,185 255.3,185 288.0,185 320.7,185 353.3,185 386.0,185 418.7,185 451.3,185 484.0,185 516.7,185 549.3,185 582.0,185 614.7,185 647.3,185 680.0,185 712.7,185 745.3,185 778.0,185 810.7,185 810.7,165 843.3,165 843.3,185 876.0,185 908.7,185 941.3,185 974.0,185 1006.7,185 1039.3,185 1072.0,185 1104.7,185 1137.3,185 1170.0,185" fill="none" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="810.7" y="165" width="32.67" height="20" fill="#1f5fa8" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="213.0" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">qRed</text>
+<polyline points="190.0,219 222.7,219 255.3,219 288.0,219 320.7,219 353.3,219 386.0,219 418.7,219 451.3,219 484.0,219 516.7,219 549.3,219 582.0,219 614.7,219 647.3,219 680.0,219 712.7,219 745.3,219 778.0,219 810.7,219 843.3,219 876.0,219 908.7,219 908.7,199 941.3,199 974.0,199 1006.7,199 1039.3,199 1072.0,199 1072.0,219 1104.7,219 1137.3,219 1170.0,219" fill="none" stroke="#c0392b" stroke-width="2"/>
+<rect x="908.7" y="199" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="941.3" y="199" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="974.0" y="199" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="1006.7" y="199" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<rect x="1039.3" y="199" width="32.67" height="20" fill="#c0392b" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="247.0" font-size="12" text-anchor="start" font-weight="bold" fill="#b7950b">qYellow</text>
+<polyline points="190.0,233 222.7,233 255.3,233 255.3,253 288.0,253 320.7,253 353.3,253 386.0,253 418.7,253 451.3,253 484.0,253 516.7,253 549.3,253 582.0,253 614.7,253 647.3,253 680.0,253 680.0,233 712.7,233 745.3,233 778.0,233 810.7,233 843.3,233 876.0,233 908.7,233 941.3,233 941.3,253 974.0,253 1006.7,253 1039.3,253 1072.0,253 1104.7,253 1104.7,233 1137.3,233 1170.0,233" fill="none" stroke="#b7950b" stroke-width="2"/>
+<rect x="190.0" y="233" width="32.67" height="20" fill="#b7950b" fill-opacity="0.10" stroke="none"/>
+<rect x="222.7" y="233" width="32.67" height="20" fill="#b7950b" fill-opacity="0.10" stroke="none"/>
+<rect x="680.0" y="233" width="32.67" height="20" fill="#b7950b" fill-opacity="0.10" stroke="none"/>
+<rect x="712.7" y="233" width="32.67" height="20" fill="#b7950b" fill-opacity="0.10" stroke="none"/>
+<rect x="745.3" y="233" width="32.67" height="20" fill="#b7950b" fill-opacity="0.10" stroke="none"/>
+<rect x="778.0" y="233" width="32.67" height="20" fill="#b7950b" fill-opacity="0.10" stroke="none"/>
+<rect x="810.7" y="233" width="32.67" height="20" fill="#b7950b" fill-opacity="0.10" stroke="none"/>
+<rect x="843.3" y="233" width="32.67" height="20" fill="#b7950b" fill-opacity="0.10" stroke="none"/>
+<rect x="876.0" y="233" width="32.67" height="20" fill="#b7950b" fill-opacity="0.10" stroke="none"/>
+<rect x="908.7" y="233" width="32.67" height="20" fill="#b7950b" fill-opacity="0.10" stroke="none"/>
+<rect x="1104.7" y="233" width="32.67" height="20" fill="#b7950b" fill-opacity="0.10" stroke="none"/>
+<rect x="1137.3" y="233" width="32.67" height="20" fill="#b7950b" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="281.0" font-size="12" text-anchor="start" font-weight="bold" fill="#1e8449">qGreen</text>
+<polyline points="190.0,287 222.7,287 255.3,287 288.0,287 320.7,287 320.7,267 353.3,267 353.3,287 386.0,287 418.7,287 451.3,287 484.0,287 516.7,287 516.7,267 549.3,267 582.0,267 614.7,267 647.3,267 680.0,267 712.7,267 712.7,287 745.3,287 778.0,287 810.7,287 843.3,287 876.0,287 908.7,287 941.3,287 974.0,287 1006.7,287 1039.3,287 1072.0,287 1104.7,287 1137.3,287 1170.0,287" fill="none" stroke="#1e8449" stroke-width="2"/>
+<rect x="320.7" y="267" width="32.67" height="20" fill="#1e8449" fill-opacity="0.10" stroke="none"/>
+<rect x="516.7" y="267" width="32.67" height="20" fill="#1e8449" fill-opacity="0.10" stroke="none"/>
+<rect x="549.3" y="267" width="32.67" height="20" fill="#1e8449" fill-opacity="0.10" stroke="none"/>
+<rect x="582.0" y="267" width="32.67" height="20" fill="#1e8449" fill-opacity="0.10" stroke="none"/>
+<rect x="614.7" y="267" width="32.67" height="20" fill="#1e8449" fill-opacity="0.10" stroke="none"/>
+<rect x="647.3" y="267" width="32.67" height="20" fill="#1e8449" fill-opacity="0.10" stroke="none"/>
+<rect x="680.0" y="267" width="32.67" height="20" fill="#1e8449" fill-opacity="0.10" stroke="none"/>
+<text x="20" y="315.0" font-size="12" text-anchor="start" font-weight="bold" fill="#111">qBuzzer</text>
+<polyline points="190.0,321 222.7,321 255.3,321 288.0,321 320.7,321 353.3,321 386.0,321 418.7,321 451.3,321 484.0,321 516.7,321 549.3,321 582.0,321 614.7,321 647.3,321 680.0,321 680.0,301 712.7,301 745.3,301 778.0,301 810.7,301 810.7,321 843.3,321 876.0,321 908.7,321 908.7,301 941.3,301 974.0,301 1006.7,301 1039.3,301 1072.0,301 1072.0,321 1104.7,321 1137.3,321 1170.0,321" fill="none" stroke="#111" stroke-width="2"/>
+<rect x="680.0" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="712.7" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="745.3" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="778.0" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="908.7" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="941.3" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="974.0" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="1006.7" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<rect x="1039.3" y="301" width="32.67" height="20" fill="#111" fill-opacity="0.10" stroke="none"/>
+<text x="24" y="384" font-size="11" text-anchor="start" fill="#555">state numbers: 2 Stopped, 15 Resetting, 4 Idle, 6 Execute, 10 Holding, 11 Held, 8 Aborting, 9 Aborted, 1 Clearing.</text>
+<text x="24" y="402" font-size="11" text-anchor="start" fill="#555">Note: in Resetting (2-3), Holding (16) and Clearing (27) no lamp is lit by the state - see section C4 for the discussion.</text>
+</svg>

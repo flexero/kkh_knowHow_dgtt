@@ -1,0 +1,141 @@
+/* FMS engineering – item 4 deep sections 4F–4M (fmse4x.js). Theme variables only (light + dark). Prefix f4-. Reuses fe-*, fx-* classes. */
+
+/* charts */
+.f4-ln { fill: none; stroke-width: 2.2; }
+.f4-ln.f4-s1, .f4-lg.f4-s1 { stroke: var(--fe-1); background: var(--fe-1); }
+.f4-ln.f4-s2, .f4-lg.f4-s2 { stroke: var(--fe-2); background: var(--fe-2); }
+.f4-ln.f4-s3, .f4-lg.f4-s3 { stroke: var(--fe-3); background: var(--fe-3); }
+.f4-ln.f4-s4, .f4-lg.f4-s4 { stroke: var(--text-2); background: var(--text-2); }
+.f4-ln.f4-s5, .f4-lg.f4-s5 { stroke: var(--fe-5); background: var(--fe-5); }
+.f4-ln.f4-s2 { stroke-dasharray: 7 3; } .f4-ln.f4-s4 { stroke-dasharray: 5 4; } .f4-ln.f4-s5 { stroke-width: 1.4; stroke-opacity: .7; }
+.f4-dot { stroke: var(--surface); stroke-width: 1.3; }
+.f4-dot.f4-s1 { fill: var(--fe-1); } .f4-dot.f4-s2 { fill: var(--fe-2); } .f4-dot.f4-s3 { fill: var(--fe-3); } .f4-dot.f4-s5 { fill: var(--fe-5); }
+.f4-err { stroke: var(--fe-3); stroke-width: 1.6; }
+#tab-fmse .fx-lg i.f4-lg { height: 4px; }
+#tab-fmse .fx-lg i.f4-lgb { height: 10px; }
+.f4-rb { stroke: var(--text-2); stroke-width: 1.2; stroke-dasharray: 2 3; }
+.f4-rb95 { stroke: var(--fe-4); stroke-width: 1.2; stroke-dasharray: 6 3; }
+.f4-wx { margin-top: 8px; }
+.f4-kv td:first-child { width: 58%; }
+
+/* 4F stop log + Pareto */
+.f4-logwrap { max-height: 520px; overflow-y: auto; }
+.f4-log td { white-space: nowrap; }
+#tab-fmse .f4-log input[type=number] { width: 64px; }
+#tab-fmse .f4-wn { width: 230px; max-width: 100%; }
+#tab-fmse .f4-wl { width: 320px; max-width: 100%; }
+.f4-log select { font: inherit; font-size: 12.5px; }
+.f4-pb { stroke-width: 1; }
+.f4-tfailure { fill: var(--critical); fill-opacity: .6; stroke: var(--critical); background: var(--critical); }
+.f4-tminor { fill: var(--fe-4); fill-opacity: .65; stroke: var(--fe-4); background: var(--fe-4); }
+.f4-tsetup { fill: var(--fe-1); fill-opacity: .6; stroke: var(--fe-1); background: var(--fe-1); }
+.f4-cum { fill: none; stroke: var(--fe-2); stroke-width: 2.2; }
+.f4-cumd { fill: var(--fe-2); stroke: var(--surface); stroke-width: 1.2; }
+.f4-l80 { stroke: var(--fe-2); stroke-width: 1; stroke-dasharray: 3 3; }
+.f4-rot { font-size: 10.5px; fill: var(--text-2); }
+.f4-cmt td { font-size: 12.5px; }
+.f4-cmt td:nth-child(n+2):nth-child(-n+6) { white-space: nowrap; }
+.f4-wide { min-width: 260px; }
+tr.f4-top td:first-child { box-shadow: inset 4px 0 0 var(--critical); }
+tr.f4-bad td { color: var(--critical); }
+tr.f4-dim td { color: var(--text-2); }
+tr.f4-sum td { background: var(--surface-2); }
+
+/* 4F OEE time model */
+.f4-tml { font-size: 12.5px; font-weight: 600; fill: var(--text); }
+.f4-tmv { fill: var(--fe-3); fill-opacity: .55; }
+.f4-tmt { font-size: 12px; font-weight: 700; fill: var(--text); }
+.f4-tmt2 { font-size: 11px; fill: var(--text); }
+.f4-tmn { fill: var(--muted); fill-opacity: .25; }
+.f4-tma { fill: var(--critical); fill-opacity: .45; stroke: var(--surface); }
+.f4-tmp { fill: var(--fe-4); fill-opacity: .5; stroke: var(--surface); }
+.f4-tmq { fill: var(--fe-5); fill-opacity: .5; stroke: var(--surface); }
+
+/* tables */
+.f4-mvt td, .f4-mvt th, .f4-rep td, .f4-rep th { white-space: nowrap; text-align: right; }
+.f4-mvt td:first-child, .f4-rep td:first-child { text-align: left; }
+.f4-small td, .f4-small th { font-size: 12.5px; white-space: nowrap; }
+.f4-rate { white-space: nowrap; }
+
+/* 4K SLP */
+.f4-rt { display: inline-block; min-width: 18px; text-align: center; padding: 0 4px; border-radius: 4px; font-weight: 700; font-size: 12px; color: var(--text); }
+.f4-rA { background: color-mix(in srgb, var(--fe-1) 45%, transparent); }
+.f4-rE { background: color-mix(in srgb, var(--fe-3) 40%, transparent); }
+.f4-rI { background: color-mix(in srgb, var(--fe-4) 40%, transparent); }
+.f4-rO { background: color-mix(in srgb, var(--fe-5) 26%, transparent); }
+.f4-rU { background: transparent; color: var(--text-2); font-weight: 400; }
+.f4-rX { background: color-mix(in srgb, var(--critical) 40%, transparent); }
+.f4-rel th, .f4-rel td { text-align: center; padding: 3px 5px; }
+.f4-rel .f4-reln { text-align: left; white-space: nowrap; font-weight: 600; }
+.f4-relc { cursor: pointer; }
+.f4-relc:hover { background: var(--surface-2); }
+.f4-relx { background: var(--surface-2); opacity: .5; }
+.f4-lyt td { vertical-align: middle; }
+.f4-mini { display: inline-grid; gap: 2px; }
+.f4-mini > span { display: grid; grid-template-columns: repeat(4, 64px); gap: 2px; }
+.f4-mini i { font-style: normal; font-size: 10.5px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 3px; padding: 1px 3px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.f4-lA { stroke: var(--fe-1); stroke-width: 1.6; }
+.f4-lE { stroke: var(--fe-3); stroke-width: 1.6; }
+.f4-lI { stroke: var(--fe-4); stroke-width: 1.6; }
+.f4-lO { stroke: var(--fe-5); stroke-width: 1.4; }
+.f4-lX { fill: none; stroke: var(--critical); stroke-width: 2; }
+.f4-lXd { stroke-dasharray: 5 3; stroke-width: 2.4; }
+.f4-arc { fill: none; }
+table.f4-rel { width: auto; }
+.f4-node rect { fill: var(--surface); stroke: var(--text-2); stroke-width: 1.3; }
+.f4-node text { font-size: 12.5px; font-weight: 600; fill: var(--text); }
+.f4-sa { white-space: nowrap; }
+.f4-aisk { max-width: 680px; }
+.f4-sk { stroke: var(--text-2); stroke-width: 1.4; }
+.f4-veh { fill: var(--fe-1); fill-opacity: .3; stroke: var(--fe-1); }
+.f4-dimL { stroke: var(--text-2); stroke-width: 1; }
+.f4-wall { stroke: var(--text); stroke-width: 3; }
+
+/* 4L patterns */
+.f4-pats { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin: 8px 0; }
+.f4-pat p { margin: 4px 0; font-size: 12.5px; line-height: 1.45; }
+.f4-pat svg { background: var(--surface-2); border-radius: 6px; }
+.f4-mach { fill: var(--fe-1); fill-opacity: .25; stroke: var(--fe-1); stroke-width: 1.3; }
+.f4-skt { font-size: 10.5px; fill: var(--text); }
+.f4-skd { font-size: 10.5px; fill: var(--text-2); font-style: italic; }
+.f4-rail { fill: var(--fe-4); fill-opacity: .45; stroke: var(--fe-4); }
+.f4-rack { fill: var(--muted); fill-opacity: .25; stroke: var(--text-2); stroke-width: .8; }
+.f4-exp { fill: none; stroke: var(--fe-3); stroke-dasharray: 3 3; }
+.f4-loop { fill: none; stroke: var(--fe-4); stroke-width: 8; stroke-opacity: .5; }
+.f4-agv { fill: var(--fe-2); }
+.f4-walk { fill: none; stroke: var(--fe-3); stroke-width: 2; stroke-dasharray: 5 4; }
+.f4-fence { fill: none; stroke: var(--text-2); stroke-width: 1.6; stroke-dasharray: 2 2; }
+.f4-curtain { stroke: var(--critical); stroke-width: 3; stroke-dasharray: 6 3; }
+.f4-rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 6px 14px; }
+.f4-rule { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; line-height: 1.45; padding: 3px 0; }
+.f4-rule input { margin-top: 3px; flex: none; }
+
+/* 4M */
+.f4-prog { width: 240px; max-width: 100%; }
+.f4-vdi, .f4-tpls { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 10px 12px; }
+.f4-tpls h4 { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.f4-sw td { font-size: 12.5px; }
+.f4-sw td:nth-child(n+3):nth-child(-n+5) { min-width: 150px; }
+
+@media (max-width: 700px) {
+  #tab-fmse .f4-wn { width: 150px; }
+  #tab-fmse .f4-wl { width: 180px; }
+  .f4-mini > span { grid-template-columns: repeat(4, 52px); }
+  .f4-kv td:first-child { width: 50%; }
+  .f4-pats, .f4-rules, .f4-vdi, .f4-tpls { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* phone width: the 4E parameter table of fmse4.js (item 4 base) was 373 px wide in a 309 px column – let it wrap (scoped to item 4) */
+@media (max-width: 1000px) { #feItem4 .fe-simgrid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 700px) {
+  #feItem4 .fe-simgrid .am-kv { width: 100%; table-layout: fixed; }
+  #feItem4 .fe-simgrid .am-kv td { white-space: normal; overflow-wrap: anywhere; }
+  #feItem4 .fe-simgrid .am-kv td:last-child { width: 118px; }
+  #feItem4 .fe-simgrid .am-kv input, #feItem4 .fe-simgrid .am-kv select { max-width: 100%; }
+}
+@media (max-width: 700px) {
+  #feItem4 #fe4Parts { display: block; max-width: 100%; overflow-x: auto; }
+}
+.f4-num td:not(:first-child), .f4-num th { white-space: nowrap; }
+.f4-cmt td:first-child { min-width: 150px; }
+.f4-cmt td:nth-child(7), .f4-cmt td:nth-child(8) { min-width: 130px; }

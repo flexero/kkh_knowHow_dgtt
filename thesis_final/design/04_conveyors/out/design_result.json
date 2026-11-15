@@ -1,0 +1,424 @@
+{
+ "version": "F4.1 (2026-11-15)",
+ "stations": [
+  {
+   "dept": "RAW",
+   "T_month": 4010.2525252525256,
+   "lam_in_h": 9.721824303642487,
+   "lam_out_h": 9.721824303642487,
+   "line_side": 0,
+   "kind": "ASRS_FRONT",
+   "lanes": "U-loop CV1/CV2/CV3, sized with the F3 crane moves (incl. receiving infeed and empty crates)"
+  },
+  {
+   "dept": "FIN",
+   "T_month": 2379.3939393939395,
+   "lam_in_h": 5.768227731864096,
+   "lam_out_h": 5.768227731864096,
+   "line_side": 0,
+   "kind": "PD",
+   "out_places": 4,
+   "in_queue": 5,
+   "in_places": 5,
+   "lanes": "inbound 5 + outbound 4 places"
+  },
+  {
+   "dept": "VMC",
+   "T_month": 2198.3333333333335,
+   "lam_in_h": 5.329292929292929,
+   "lam_out_h": 5.329292929292929,
+   "line_side": 13,
+   "kind": "PD",
+   "out_places": 4,
+   "in_queue": 5,
+   "in_places": 18,
+   "lanes": "inbound 18 + outbound 4 places"
+  },
+  {
+   "dept": "ROT",
+   "T_month": 1435.2525252525252,
+   "lam_in_h": 3.479400061218243,
+   "lam_out_h": 3.479400061218243,
+   "line_side": 8,
+   "kind": "PD",
+   "out_places": 3,
+   "in_queue": 4,
+   "in_places": 12,
+   "lanes": "inbound 12 + outbound 3 places"
+  },
+  {
+   "dept": "HMC",
+   "T_month": 1303.3333333333333,
+   "lam_in_h": 3.1595959595959595,
+   "lam_out_h": 3.1595959595959595,
+   "line_side": 7,
+   "kind": "PD",
+   "out_places": 3,
+   "in_queue": 3,
+   "in_places": 10,
+   "lanes": "inbound 10 + outbound 3 places"
+  },
+  {
+   "dept": "TOOL",
+   "T_month": 1200.0,
+   "lam_in_h": 2.909090909090909,
+   "lam_out_h": 2.909090909090909,
+   "line_side": 0,
+   "kind": "FLOOR",
+   "lanes": "tool trolleys (AGV with trolley pick-up, floor station)"
+  },
+  {
+   "dept": "QC",
+   "T_month": 955.5555555555555,
+   "lam_in_h": 2.3164983164983166,
+   "lam_out_h": 2.3164983164983166,
+   "line_side": 0,
+   "kind": "PD",
+   "out_places": 2,
+   "in_queue": 3,
+   "in_places": 3,
+   "lanes": "inbound 3 + outbound 2 places"
+  },
+  {
+   "dept": "BUY",
+   "T_month": 340.0,
+   "lam_in_h": 0.8242424242424242,
+   "lam_out_h": 0.8242424242424242,
+   "line_side": 0,
+   "kind": "PD",
+   "out_places": 2,
+   "in_queue": 2,
+   "in_places": 2,
+   "lanes": "inbound 2 + outbound 2 places"
+  },
+  {
+   "dept": "CHIP",
+   "T_month": 180.0,
+   "lam_in_h": 0.43636363636363634,
+   "lam_out_h": 0.43636363636363634,
+   "line_side": 0,
+   "kind": "FLOOR",
+   "lanes": "chip bins (floor station)"
+  },
+  {
+   "dept": "ASY",
+   "T_month": 113.33333333333334,
+   "lam_in_h": 0.2747474747474748,
+   "lam_out_h": 0.2747474747474748,
+   "line_side": 0,
+   "kind": "PD",
+   "out_places": 2,
+   "in_queue": 1,
+   "in_places": 1,
+   "lanes": "inbound 1 + outbound 2 places"
+  }
+ ],
+ "line_side": {
+  "HMC": 7,
+  "VMC": 13,
+  "ROT": 8
+ },
+ "front": {
+  "lam_in_h": 17.245668809305183,
+  "lam_out_h": 17.245668809305183,
+  "lam_kit_h": 5.494949494949495,
+  "hours": 400.0,
+  "crane_util": 0.49886774778379334,
+  "moves_h": 44.66,
+  "agv_wait_mean_s": 1.7000882093501912,
+  "agv_wait_p95_s": 14.0,
+  "agv_wait_max_s": 48.0,
+  "agvq_max": 2,
+  "occ1_p99": 2,
+  "occ1_max": 5,
+  "occ2_p99": 6,
+  "occ2_max": 6,
+  "cv1_full_share": 0.0,
+  "lead_p95_s": 917.0,
+  "rejects_h": 0.5125,
+  "kit_h": 5.39,
+  "cv2_block_share": 0.02558611111111111,
+  "backlog_end": 3,
+  "occ1_hist": [
+   0.6680833333333334,
+   0.2707923611111111,
+   0.0534,
+   0.006991666666666667,
+   0.0006493055555555555,
+   8.333333333333333e-05,
+   0.0
+  ],
+  "occ2_hist": [
+   0.2794173611111111,
+   0.25459444444444446,
+   0.20372569444444444,
+   0.12424027777777778,
+   0.06208333333333333,
+   0.03531736111111111,
+   0.04062152777777778
+  ]
+ },
+ "assembly": {
+  "lam_avg_h": 10.303030303030303,
+  "lam_h": 12.363636363636363,
+  "groups": [
+   {
+    "type": "ASSY",
+    "c": 9,
+    "t_min": 31.706470588235295,
+    "rho": 0.7259393939393939,
+    "C": 0.2870680092988479,
+    "Wq_min": 3.690146223287223,
+    "queue_places": 6
+   },
+   {
+    "type": "TEST",
+    "c": 7,
+    "t_min": 25.58823529411765,
+    "rho": 0.7532467532467532,
+    "C": 0.3931688793887635,
+    "Wq_min": 5.824498724071928,
+    "queue_places": 8
+   },
+   {
+    "type": "PAINT",
+    "c": 1,
+    "t_min": 2.3523529411764708,
+    "rho": 0.4847272727272728,
+    "C": 0.4847272727272728,
+    "Wq_min": 2.2129050604010136,
+    "queue_places": 4
+   },
+   {
+    "type": "PACK",
+    "c": 2,
+    "t_min": 4.999411764705882,
+    "rho": 0.515090909090909,
+    "C": 0.3502346202939026,
+    "Wq_min": 1.805459119999154,
+    "queue_places": 3
+   }
+  ],
+  "loop_m": 99.76363636363637,
+  "t_loop_min": 8.313636363636364,
+  "flow_min": 91.49311607963098,
+  "little": 18.85312694974214,
+  "carriers": 21,
+  "places": 110,
+  "widths": {
+   "ASY": 18.654545454545456,
+   "TST": 11.597727272727273,
+   "PNT": 4.970454545454546,
+   "PCK": 2.4545454545454546,
+   "SHP": 18.40909090909091
+  }
+ },
+ "modules": [
+  [
+   "TU",
+   3,
+   9000,
+   27000,
+   "AS/RS front 1; AS/RS front 1; AS/RS front 1"
+  ],
+  [
+   "CC",
+   9,
+   3500,
+   31500,
+   "AS/RS front 1; AS/RS front 1; AS/RS front 1; AS/RS front 1; AS/RS front 1; AS/RS front 1; AS/RS front 1; AS/RS front 1; AS/RS front 1"
+  ],
+  [
+   "RCX",
+   1,
+   4000,
+   4000,
+   "AS/RS front 1"
+  ],
+  [
+   "contour_gate",
+   1,
+   6000,
+   6000,
+   "AS/RS front 1"
+  ],
+  [
+   "scale",
+   1,
+   3000,
+   3000,
+   "AS/RS front 1"
+  ],
+  [
+   "RL",
+   71,
+   1800,
+   127800,
+   "FIN 9; VMC 22; ROT 15; HMC 13; QC 5; BUY 4; ASY 3"
+  ],
+  [
+   "PD_end",
+   14,
+   6000,
+   84000,
+   "FIN 2; VMC 2; ROT 2; HMC 2; QC 2; BUY 2; ASY 2"
+  ],
+  [
+   "loop_per_m",
+   100,
+   1100,
+   110000,
+   "assembly loop 100"
+  ],
+  [
+   "spur_unit",
+   19,
+   7000,
+   133000,
+   "assembly spurs 19"
+  ],
+  [
+   "corner_unit",
+   4,
+   8000,
+   32000,
+   "assembly loop 4"
+  ],
+  [
+   "carrier",
+   21,
+   650,
+   13650,
+   "assembly 21"
+  ],
+  [
+   "assy_load_station",
+   1,
+   12000,
+   12000,
+   "assembly start (tank onto carrier) 1"
+  ]
+ ],
+ "cost_EUR": 583950.0,
+ "io": {
+  "DI": 422,
+  "DO": 248,
+  "AI": 1
+ },
+ "asrs_front_zones": {
+  "CV1": [
+   [
+    "TU1",
+    "TU",
+    -6.0,
+    -1.4,
+    "AGV drop-off (sideways) + merge from CV3; WEIGHING transfer (4 load cells) with contour light frame and ID reader: every crate is checked here (AGV waits for the result; a fail goes back onto the AGV)"
+   ],
+   [
+    "Z12",
+    "CC",
+    -4.8,
+    -1.4,
+    "accumulation"
+   ],
+   [
+    "Z13",
+    "CC",
+    -3.6,
+    -1.4,
+    "accumulation"
+   ],
+   [
+    "Z14",
+    "CC",
+    -2.4,
+    -1.4,
+    "accumulation"
+   ],
+   [
+    "Z15",
+    "CC",
+    -1.2,
+    -1.4,
+    "accumulation"
+   ],
+   [
+    "Z16",
+    "CC",
+    0.0,
+    -1.4,
+    "P&D in: crane fork picks here"
+   ]
+  ],
+  "CV2": [
+   [
+    "Z26",
+    "CC",
+    0.0,
+    1.4,
+    "P&D out: crane fork puts here"
+   ],
+   [
+    "Z25",
+    "CC",
+    -1.2,
+    1.4,
+    "accumulation"
+   ],
+   [
+    "Z24",
+    "CC",
+    -2.4,
+    1.4,
+    "accumulation"
+   ],
+   [
+    "TU3",
+    "TU",
+    -3.6,
+    1.4,
+    "second AGV pick-up place (sideways); crates pass through when no AGV is there"
+   ],
+   [
+    "Z22",
+    "CC",
+    -4.8,
+    1.4,
+    "accumulation"
+   ],
+   [
+    "TU2",
+    "TU",
+    -6.0,
+    1.4,
+    "AGV pick-up (sideways) or divert to CV3 (kit visit)"
+   ]
+  ],
+  "CV3": [
+   [
+    "Z31",
+    "RCX",
+    -6.0,
+    0.0,
+    "pick / rework position (crate 1200 leading, operator at x = -7.0)"
+   ]
+  ]
+ },
+ "conveyor": {
+  "v_m_s": 0.2,
+  "zone_pitch_chain_m": 1.2,
+  "zone_pitch_roller_m": 1.4,
+  "accel_m_s2": 0.3,
+  "tu_lift_s": 3.0,
+  "check_s": 8.0,
+  "reject_rate": 0.02,
+  "rework_s": 180.0,
+  "_note": "chain zone 1.2 m = crate 800 + 400 gap (800 leading, runners cross the chains); roller zone 1.4 m = crate 1200 + 200 (1200 leading, runners cross the rollers - F4.2 ch. 12); transfer unit (TU) = chain part x + lifted roller part y"
+ },
+ "crate": {
+  "L_mm": 1200,
+  "W_mm": 800,
+  "max_kg": 300,
+  "_orient": "travels with the 800 side leading on all crate conveyors (fork entry on the 800 side, F3)"
+ }
+}

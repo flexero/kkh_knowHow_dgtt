@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>PLC scan cycle and reaction time DI -&gt; DO</title>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">PLC scan cycle and reaction time DI -&gt; DO</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">One cycle: read input image, run the program, write output image, communication and OS. A change just after the input read waits almost one full scan.</text>
+<rect x="175" y="134" width="150" height="52" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="250" y="156.7" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">1 Read inputs</text>
+<text x="250" y="171.7" font-size="12" text-anchor="middle" fill="#111">input image %I</text>
+<rect x="345" y="304" width="150" height="52" rx="0" fill="#f2f2f2" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="420" y="326.7" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">2 Program</text>
+<text x="420" y="341.7" font-size="12" text-anchor="middle" fill="#111">tasks / POUs</text>
+<rect x="175" y="474" width="150" height="52" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="250" y="496.7" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">3 Write outputs</text>
+<text x="250" y="511.7" font-size="12" text-anchor="middle" fill="#111">output image %Q</text>
+<rect x="5" y="304" width="150" height="52" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="80" y="326.7" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">4 Comm + OS</text>
+<text x="80" y="341.7" font-size="12" text-anchor="middle" fill="#111">HMI, bus, diag</text>
+<polyline points="317.28,179.34 328.101,184.655 338.505,190.745 348.436,197.579 357.842,205.12 366.673,213.327 374.88,222.158 382.421,231.564 389.255,241.495 395.345,251.899 400.66,262.72" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="400.66,262.72 400.08,252.97 393.30,256.31" fill="#111"/>
+<polyline points="400.66,397.28 395.345,408.101 389.255,418.505 382.421,428.436 374.88,437.842 366.673,446.673 357.842,454.88 348.436,462.421 338.505,469.255 328.101,475.345 317.28,480.66" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="317.28,480.66 327.03,480.08 323.69,473.30" fill="#111"/>
+<polyline points="182.72,480.66 171.899,475.345 161.495,469.255 151.564,462.421 142.158,454.88 133.327,446.673 125.12,437.842 117.579,428.436 110.745,418.505 104.655,408.101 99.3403,397.28" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="99.3403,397.28 99.92,407.03 106.70,403.69" fill="#111"/>
+<polyline points="99.3403,262.72 104.655,251.899 110.745,241.495 117.579,231.564 125.12,222.158 133.327,213.327 142.158,205.12 151.564,197.579 161.495,190.745 171.899,184.655 182.72,179.34" fill="none" stroke="#111" stroke-width="1.5"/>
+<polygon points="182.72,179.34 172.97,179.92 176.31,186.70" fill="#111"/>
+<text x="250" y="324" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">cyclic task</text>
+<text x="250" y="342" font-size="12" text-anchor="middle" fill="#111">T_scan e.g. 10 ms</text>
+<text x="250" y="360" font-size="11" text-anchor="middle" fill="#c0392b">watchdog e.g. 3 x T_scan</text>
+<text x="520" y="110" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Worst case (case 2: PROFINET 2 ms, task 10 ms, t_in 3, t_out 0.5 ms)</text>
+<rect x="520" y="140" width="66" height="34" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="553" y="162" font-size="11" text-anchor="middle" fill="#111">t_in 3</text>
+<rect x="586" y="140" width="44" height="34" rx="0" fill="#e8eef8" stroke="#111" stroke-width="1.5"/>
+<text x="608" y="162" font-size="11" text-anchor="middle" fill="#111">T_bus 2</text>
+<rect x="630" y="140" width="220" height="34" rx="0" fill="#fdecea" stroke="#111" stroke-width="1.5"/>
+<text x="740" y="162" font-size="11" text-anchor="middle" fill="#111">wait = T_scan 10 (input just missed)</text>
+<rect x="850" y="140" width="220" height="34" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="960" y="162" font-size="11" text-anchor="middle" fill="#111">T_scan 10 processed</text>
+<rect x="1070" y="140" width="44" height="34" rx="0" fill="#e8eef8" stroke="#111" stroke-width="1.5"/>
+<text x="1092" y="162" font-size="11" text-anchor="middle" fill="#111">T_bus 2</text>
+<rect x="1114" y="140" width="11" height="34" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="1129" y="162" font-size="11" text-anchor="start" fill="#111">t_out</text>
+<line x1="520" y1="190" x2="1125" y2="190" stroke="#111" stroke-width="1.5"/>
+<polygon points="1125,190 1116.00,186.22 1116.00,193.78" fill="#111"/>
+<line x1="1125" y1="190" x2="520" y2="190" stroke="#111" stroke-width="1.5"/>
+<polygon points="520,190 529.00,193.78 529.00,186.22" fill="#111"/>
+<text x="822.5" y="206" font-size="12" text-anchor="middle" font-weight="bold" fill="#111">t_max = t_in + 2 T_bus + 2 T_scan + t_out = 3 + 4 + 20 + 0.5 = 27.5 ms</text>
+<text x="520" y="256" font-size="13" text-anchor="start" font-weight="bold" fill="#111">Best case (input changes just before the input read, local IO, case 1)</text>
+<rect x="520" y="270" width="66" height="34" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="553" y="292" font-size="11" text-anchor="middle" fill="#111">t_in 3</text>
+<rect x="586" y="270" width="220" height="34" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="696" y="292" font-size="11" text-anchor="middle" fill="#111">T_scan 10</text>
+<rect x="806" y="270" width="11" height="34" rx="0" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="821" y="292" font-size="11" text-anchor="start" fill="#111">t_out</text>
+<text x="520" y="326" font-size="12" text-anchor="start" font-weight="bold" fill="#111">t_min = t_in + T_scan + t_out = 3 + 10 + 0.5 = 13.5 ms</text>
+<text x="520" y="380" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Case</text>
+<text x="820" y="380" font-size="12" text-anchor="start" font-weight="bold" fill="#111">t_min</text>
+<text x="900" y="380" font-size="12" text-anchor="start" font-weight="bold" fill="#111">t_max</text>
+<text x="990" y="380" font-size="12" text-anchor="start" font-weight="bold" fill="#111">s at 500 mm/s</text>
+<text x="520" y="402" font-size="12" text-anchor="start" fill="#111">1 Local IO, task 10 ms</text>
+<text x="820" y="402" font-size="12" text-anchor="start" fill="#111">13.5</text>
+<text x="900" y="402" font-size="12" text-anchor="start" fill="#111">23.5</text>
+<text x="990" y="402" font-size="12" text-anchor="start" fill="#111">11.8 mm</text>
+<text x="520" y="424" font-size="12" text-anchor="start" fill="#111">2 PROFINET 2 ms, task 10 ms</text>
+<text x="820" y="424" font-size="12" text-anchor="start" fill="#111">13.5</text>
+<text x="900" y="424" font-size="12" text-anchor="start" fill="#111">27.5</text>
+<text x="990" y="424" font-size="12" text-anchor="start" fill="#111">13.8 mm</text>
+<text x="520" y="446" font-size="12" text-anchor="start" fill="#111">3 Fast task 2 ms, PN 1 ms</text>
+<text x="820" y="446" font-size="12" text-anchor="start" fill="#111">2.2</text>
+<text x="900" y="446" font-size="12" text-anchor="start" fill="#111">6.2</text>
+<text x="990" y="446" font-size="12" text-anchor="start" fill="#111">3.1 mm</text>
+<text x="520" y="468" font-size="12" text-anchor="start" fill="#111">4 Over cell controller (Modbus 100 ms)</text>
+<text x="820" y="468" font-size="12" text-anchor="start" fill="#111">13.5</text>
+<text x="900" y="468" font-size="12" text-anchor="start" fill="#111">223.5</text>
+<text x="990" y="468" font-size="12" text-anchor="start" fill="#c0392b">111.8 mm</text>
+<line x1="520" y1="386" x2="1130" y2="386" stroke="#666" stroke-width="1"/>
+<text x="520" y="504" font-size="11" text-anchor="start" fill="#c0392b">Never close a fast or safety-relevant loop over the cell controller or Modbus polling (case 4). Safety: F-program + certified IO only.</text>
+<text x="24" y="586" font-size="11" text-anchor="start" fill="#666">Teaching example - not for construction. Real PLC code: written, reviewed and validated by qualified people (IEC 61131-3, IEC 62061 / ISO 13849).</text>
+</svg>

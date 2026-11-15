@@ -1,0 +1,613 @@
+{
+ "_note": "Shared worked-example inputs for FMS engineering item 5 (control architecture): guide docs/FMS system design/65_control_architecture.md, tools/fmse/*.py, web/fmse5x*.js. All values are EXAMPLES. Everything here is deterministic: guide, tools and web must give IDENTICAL results (including the cell-controller message log line by line).",
+ "_formulas": {
+  "packml": "state machine of ISA-TR88.00.02 exactly as in web/fmse5_data.js (STATES numbers, CMDS numbers, EDGES incl. SC; Stop allowed from every state except Stopped/Stopping/Aborting/Aborted/Clearing; Abort from every state except Aborting/Aborted); commands allowed per mode = web/fmse5_data.js MODES; a command not allowed in the current state or mode is REJECTED (state unchanged, log 'rejected'); 'SC' completes an acting state (rejected in a wait state); mode change only in Stopped, Idle, Aborted",
+  "tag": "tag = site.area.cell.unit.equipment.signal joined by '.', exactly 6 parts; parts 1-5 only A-Z a-z 0-9; the last part (signal) only A-Z a-z 0-9 plus at most one '_' followed by a unit suffix (e.g. SpindleLoad_pct, Torque_Nm, LastCycle_s); unit = unit code + 2-digit number; total length <= max_len (48); signal must not start with a negative word (Not, No, Non, Un) followed by an upper-case letter or the end; duplicates are errors",
+  "datablock_tags": "for every unit instance: the 15 standard data-block items of guide 66 section 8 (web/fmse6_data.js BLOCK names, e.g. Status.StateCurrent = group.item) -> 6-part tag site.area.cell.unit.group.item (the group is the 'equipment' part); plus the module part from web/fmse6_data.js EXTRA for that module code (names like NC.ProgramNo -> group NC); all must pass the tag rule",
+  "availability": "A = MTBF/(MTBF+MTTR) ; series A = product ; parallel (redundant, independent) A = 1 - product(1-A_i) ; downtime h/year = (1-A)*hours_year",
+  "mes_buffer": "MES outages: rate f per year = hours_year/(MTBF+MTTR) of the MES server, exponential outage duration with mean MTTR; a local job buffer of b hours keeps production running; P(outage > b) = exp(-b/MTTR); expected production loss h/year = f*MTTR*exp(-b/MTTR)",
+  "alarm_kpi": "ISA-18.2 / EEMUA 191: alarm count per 10-min window (windows [0,600), [600,1200) ... over the shift); average alarms per hour per operator; peak 10-min count; flood window = more than 10 alarms in the window, % of windows in flood; priority distribution vs target low 80 % / medium 15 % / high 5 % (priority 3 = low, 2 = medium, 1 = high); chattering tag = same tag with >= 3 activations within any 60 s; top-5 bad actors by count (ties: first appearance); targets: <= 6 alarms/h average (~1 per 10 min) acceptable, <= 12 manageable",
+  "cell_sim": "see cell_sim._rules"
+ },
+ "packml_scenarios": [
+  {
+   "name": "Normal job",
+   "mode": "Production",
+   "cmds": [
+    "Reset",
+    "SC",
+    "Start",
+    "SC",
+    "SC",
+    "SC",
+    "Reset",
+    "SC"
+   ],
+   "_hint": "ends Idle"
+  },
+  {
+   "name": "Hold for missing material",
+   "mode": "Production",
+   "cmds": [
+    "Reset",
+    "SC",
+    "Start",
+    "SC",
+    "Hold",
+    "SC",
+    "Unhold",
+    "SC"
+   ],
+   "_hint": "ends Execute"
+  },
+  {
+   "name": "Suspend (no pallet coming)",
+   "mode": "Production",
+   "cmds": [
+    "Reset",
+    "SC",
+    "Start",
+    "SC",
+    "Suspend",
+    "SC",
+    "Unsuspend",
+    "SC"
+   ],
+   "_hint": "ends Execute"
+  },
+  {
+   "name": "E-stop and recovery",
+   "mode": "Production",
+   "cmds": [
+    "Reset",
+    "SC",
+    "Start",
+    "SC",
+    "Abort",
+    "SC",
+    "Clear",
+    "SC",
+    "Reset",
+    "SC"
+   ],
+   "_hint": "ends Idle"
+  },
+  {
+   "name": "Wrong commands",
+   "mode": "Production",
+   "cmds": [
+    "Start",
+    "Reset",
+    "SC",
+    "Unhold"
+   ],
+   "_hint": "Start and Unhold rejected, ends Idle"
+  },
+  {
+   "name": "Manual mode limits",
+   "mode": "Manual",
+   "cmds": [
+    "Reset",
+    "SC",
+    "Start",
+    "SC",
+    "Hold",
+    "Suspend",
+    "Stop",
+    "SC"
+   ],
+   "_hint": "Hold and Suspend rejected, ends Stopped"
+  }
+ ],
+ "naming": {
+  "site": "PLT1",
+  "area": "MACH",
+  "cell": "FMS1",
+  "max_len": 48,
+  "negative_words": [
+   "Not",
+   "No",
+   "Non",
+   "Un"
+  ],
+  "units": [
+   [
+    "M01",
+    "MC",
+    3
+   ],
+   [
+    "M02",
+    "APC",
+    3
+   ],
+   [
+    "M03",
+    "POOL",
+    1
+   ],
+   [
+    "M04",
+    "LS",
+    2
+   ],
+   [
+    "M06",
+    "AGVST",
+    1
+   ],
+   [
+    "M08",
+    "ASRS",
+    1
+   ],
+   [
+    "M09",
+    "TOOL",
+    1
+   ],
+   [
+    "M10",
+    "WASH",
+    1
+   ],
+   [
+    "M11",
+    "CMM",
+    1
+   ],
+   [
+    "M12",
+    "MARK",
+    1
+   ],
+   [
+    "M17",
+    "UTIL",
+    1
+   ],
+   [
+    "M18",
+    "SAFE",
+    1
+   ],
+   [
+    "M19",
+    "CC",
+    1
+   ]
+  ],
+  "test_tags": [
+   "PLT1.MACH.FMS1.MC02.APC.ClampOK",
+   "PLT1.MACH.FMS1.MC2.Door.Closed",
+   "PLT1.MACH.FMS1.LS01.LightCurtain.NotOK",
+   "PLT1.MACH.FMS1.POOL01.Fork.Pos-Ok",
+   "PLT1.MACH.FMS1.WASH01.Tank.LevelHighHighAlarmWithDelay",
+   "PLT1.MACH.FMS1.MC02.APC.ClampOK"
+  ],
+  "iec81346_example": {
+   "function": "=FMS1.MC02",
+   "location": "+HALL1.A3",
+   "product": "-KF1",
+   "note": "IEC 81346 reference designation: = function aspect, + location aspect, - product aspect (letter codes per IEC 81346-2, e.g. KF control device, MA motor, BG sensor)"
+  }
+ },
+ "availability": {
+  "hours_year": 8760,
+  "components": [
+   [
+    "MES server",
+    8000,
+    4
+   ],
+   [
+    "Core switch",
+    50000,
+    2
+   ],
+   [
+    "Cell controller PC",
+    20000,
+    8
+   ],
+   [
+    "Cell PLC",
+    100000,
+    4
+   ],
+   [
+    "Safety PLC",
+    150000,
+    4
+   ],
+   [
+    "Machine PLC/CNC",
+    30000,
+    6
+   ]
+  ],
+  "_components": "name, MTBF h, MTTR h",
+  "variants": [
+   {
+    "name": "Single cell controller, single switch",
+    "chain": [
+     [
+      "Core switch",
+      1
+     ],
+     [
+      "Cell controller PC",
+      1
+     ],
+     [
+      "Cell PLC",
+      1
+     ]
+    ]
+   },
+   {
+    "name": "Redundant cell controller pair + switch ring",
+    "chain": [
+     [
+      "Core switch",
+      2
+     ],
+     [
+      "Cell controller PC",
+      2
+     ],
+     [
+      "Cell PLC",
+      1
+     ]
+    ]
+   }
+  ],
+  "_chain": "[component, number in parallel]; series of these blocks = the control chain that stops the whole cell",
+  "mes_buffer_h": [
+   0,
+   1,
+   2,
+   4,
+   8
+  ]
+ },
+ "alarm_log": {
+  "shift_s": 28800,
+  "operators": 1,
+  "alarms": [
+   [
+    600,
+    "MC01.CoolantLow",
+    3
+   ],
+   [
+    2100,
+    "MC02.SpindleTemp",
+    2
+   ],
+   [
+    3600,
+    "POOL1.ForkPos",
+    1
+   ],
+   [
+    5100,
+    "LS1.LightCurtain",
+    3
+   ],
+   [
+    6600,
+    "MC03.ToolLifeEnd",
+    3
+   ],
+   [
+    7800,
+    "UTIL1.AirPressLow",
+    1
+   ],
+   [
+    7820,
+    "MC01.ClampPressLow",
+    2
+   ],
+   [
+    7840,
+    "MC02.ClampPressLow",
+    2
+   ],
+   [
+    7860,
+    "MC03.ClampPressLow",
+    2
+   ],
+   [
+    7880,
+    "POOL1.ClampPressLow",
+    2
+   ],
+   [
+    7900,
+    "LS1.ClampPressLow",
+    2
+   ],
+   [
+    7920,
+    "APC01.Fault",
+    2
+   ],
+   [
+    7940,
+    "APC02.Fault",
+    2
+   ],
+   [
+    7960,
+    "APC03.Fault",
+    2
+   ],
+   [
+    7980,
+    "MC01.FeedHold",
+    3
+   ],
+   [
+    8000,
+    "MC02.FeedHold",
+    3
+   ],
+   [
+    8020,
+    "MC03.FeedHold",
+    3
+   ],
+   [
+    8040,
+    "POOL1.Stopped",
+    3
+   ],
+   [
+    8060,
+    "CC1.JobAborted",
+    3
+   ],
+   [
+    8100,
+    "WASH1.TempLow",
+    3
+   ],
+   [
+    9600,
+    "AGVST1.DockTimeout",
+    2
+   ],
+   [
+    11100,
+    "CMM1.ProbeError",
+    3
+   ],
+   [
+    12600,
+    "MC01.CoolantLow",
+    3
+   ],
+   [
+    14100,
+    "MC02.SpindleTemp",
+    2
+   ],
+   [
+    15600,
+    "POOL1.ForkPos",
+    1
+   ],
+   [
+    16200,
+    "WASH1.LevelHigh",
+    3
+   ],
+   [
+    16212,
+    "WASH1.LevelHigh",
+    3
+   ],
+   [
+    16224,
+    "WASH1.LevelHigh",
+    3
+   ],
+   [
+    16236,
+    "WASH1.LevelHigh",
+    3
+   ],
+   [
+    16248,
+    "WASH1.LevelHigh",
+    3
+   ],
+   [
+    16260,
+    "WASH1.LevelHigh",
+    3
+   ],
+   [
+    17100,
+    "LS1.LightCurtain",
+    3
+   ],
+   [
+    18600,
+    "MC03.ToolLifeEnd",
+    3
+   ],
+   [
+    20100,
+    "WASH1.TempLow",
+    3
+   ],
+   [
+    21600,
+    "AGVST1.DockTimeout",
+    2
+   ],
+   [
+    23100,
+    "CMM1.ProbeError",
+    3
+   ],
+   [
+    24600,
+    "MC01.CoolantLow",
+    3
+   ],
+   [
+    26100,
+    "MC02.SpindleTemp",
+    2
+   ],
+   [
+    27600,
+    "POOL1.ForkPos",
+    1
+   ]
+  ],
+  "_cols": "t_s, tag, priority (1 high, 2 medium, 3 low)"
+ },
+ "cell_sim": {
+  "T": 300,
+  "load_min": 10,
+  "move_min": 2,
+  "job_buffer_max": 3,
+  "pallets": [
+   "P1",
+   "P2",
+   "P3",
+   "P4",
+   "P5",
+   "P6"
+  ],
+  "machines": [
+   "MC01",
+   "MC02",
+   "MC03"
+  ],
+  "jobs": [
+   [
+    "J01",
+    "O2010C",
+    30
+   ],
+   [
+    "J02",
+    "O2020B",
+    40
+   ],
+   [
+    "J03",
+    "O2010C",
+    30
+   ],
+   [
+    "J04",
+    "O2030A",
+    40
+   ],
+   [
+    "J05",
+    "O2010C",
+    30
+   ],
+   [
+    "J06",
+    "O2020B",
+    40
+   ],
+   [
+    "J07",
+    "O2010C",
+    30
+   ],
+   [
+    "J08",
+    "O2030A",
+    40
+   ],
+   [
+    "J09",
+    "O2010C",
+    30
+   ],
+   [
+    "J10",
+    "O2020B",
+    40
+   ],
+   [
+    "J11",
+    "O2010C",
+    30
+   ],
+   [
+    "J12",
+    "O2020B",
+    40
+   ]
+  ],
+  "events": [
+   [
+    50,
+    "MES_DOWN",
+    ""
+   ],
+   [
+    60,
+    "FAULT",
+    "MC02"
+   ],
+   [
+    80,
+    "MES_UP",
+    ""
+   ],
+   [
+    85,
+    "REPAIRED",
+    "MC02"
+   ]
+  ],
+  "_rules": [
+   "Time steps t = 0,1,2,...,T (minutes). In each step do 1-4 in this order.",
+   "1 EXTERNAL: apply events with time t (sorted by time, then list order). FAULT: mark the machine faulted (it cannot be routed to); if it is executing, store remaining = end - t, clear end, state Held; otherwise keep its state (Idle or Complete). REPAIRED: clear the fault mark; if remaining stored, end = t + remaining, state Execute; otherwise keep the state. Log 'FAULT m <state>' / 'REPAIRED m <state>'. MES_DOWN / MES_UP switch the MES link (log MES_DOWN / MES_UP).",
+   "2 COMPLETIONS with end == t, in this order: vehicle move, then machines by index, then load station. Vehicle move to a machine -> machine starts: state Execute, end = t + machining time of the job of the pallet, log START. Vehicle move to the load station -> pallet appended to the load-station queue (it will be unloaded + reloaded there), a confirmation CONF(job) is put in the outbox, log ARRIVE_LS. Machine end -> state Complete (pallet waits at the machine), log DONE, create vehicle request (pallet, to LS). Load station end -> pallet READY (holds its job), log LOADED.",
+   "3 MES: if the MES link is up: send every confirmation in the outbox in order (log SEND_CONF), then if job buffer < job_buffer_max and jobs remain at MES: receive the next job into the buffer (log JOB) - at most ONE job per step. If down: nothing (confirmations stay in the outbox).",
+   "4 DECISIONS in this order: (a) load station: if free and its queue is not empty and the job buffer is not empty -> take the first pallet of the queue and the first job of the buffer, end = t + load_min, log LOAD. If the queue is not empty, the buffer is empty AND the MES still has jobs left, count one starved minute (waiting for a job because of the MES link / buffer). (b) READY pallets (in READY order): if a machine is Idle (not reserved, not faulted), reserve the lowest-index such machine for the pallet and create a vehicle request (pallet, to that machine), log ROUTE. (c) vehicle: if free and requests exist, take the first request (FIFO by creation), end = t + move_min, log MOVE.",
+   "A machine becomes Idle (and unreserved) again when the vehicle MOVE takes its pallet away (at the start of that move). Initial state: all pallets in the load-station queue in the listed order, machines Idle, vehicle free, job buffer empty, MES up, outbox empty.",
+   "Log line format: 't EVENT object details' with t as integer minutes. KPIs at T: jobs started (START), jobs completed (DONE), confirmations sent, outbox at T, max outbox, starved minutes of the load station, machine Execute minutes per machine (minutes t in [start, end) while Execute), MC02 held minutes."
+  ],
+  "events_b": [
+   [
+    50,
+    "MES_DOWN",
+    ""
+   ],
+   [
+    60,
+    "FAULT",
+    "MC02"
+   ],
+   [
+    85,
+    "REPAIRED",
+    "MC02"
+   ],
+   [
+    140,
+    "MES_UP",
+    ""
+   ]
+  ],
+  "_events_b": "scenario B: same, but the MES is down 90 min (50-140) – longer than the 3-job buffer covers"
+ },
+ "_naming_changelog": "2026-11-15: max_len 40 -> 48, data-block tags 6-part (no '_' replacement), '_' allowed only for a unit suffix in the signal part"
+}

@@ -1,0 +1,241 @@
+{
+ "counts": {
+  "AF": {
+   "CC": 9,
+   "TU": 3,
+   "RCX": 1,
+   "check_TU1": 1,
+   "estop": 4,
+   "dock_tu": 3,
+   "dock": 3
+  },
+  "PD": {
+   "RL": 52,
+   "PD_end": 14,
+   "flow_lane": 19,
+   "flow_block": 3,
+   "estop": 14,
+   "dock": 17,
+   "_line_side_moved": 28
+  },
+  "ASM": {
+   "section": 4,
+   "corner": 4,
+   "spur": 19,
+   "stopper": 25,
+   "lift_locate": 21,
+   "lift_table": 9,
+   "test_dock": 7,
+   "gate": 2,
+   "load_station": 1,
+   "estop": 12
+  },
+  "HMC": {
+   "hmc_station": 1,
+   "estop": 2
+  }
+ },
+ "power": {
+  "AF": {
+   "P_kW": 3.39,
+   "I_sum": 8.73,
+   "I_b": 6.365,
+   "fuse": 10,
+   "cable": "5G1.5",
+   "du": 0.7282164711920084,
+   "A": 1.5,
+   "n": 19
+  },
+  "PD": {
+   "P_kW": 7.92,
+   "I_sum": 21.82,
+   "I_b": 12.91,
+   "fuse": 16,
+   "cable": "power bus 2.5 mm2",
+   "du": 1.652740850609351,
+   "A": 2.5,
+   "n": 66
+  },
+  "ASM": {
+   "P_kW": 29.4,
+   "I_sum": 65.59,
+   "I_b": 34.795,
+   "fuse": 40,
+   "cable": "5G10",
+   "du": 1.212126933068753,
+   "A": 10,
+   "n": 79
+  },
+  "HMC": {
+   "P_kW": 0.12,
+   "I_sum": 0.33,
+   "I_b": 2.331,
+   "fuse": 10,
+   "cable": "5G1.5",
+   "du": 0.2000164093890697,
+   "A": 1.5,
+   "n": 1
+  }
+ },
+ "io": {
+  "AF": {
+   "DI": 50,
+   "DO": 0,
+   "F-DI": 14,
+   "F-DO": 0,
+   "AI": 0,
+   "pn": 23,
+   "coupler": 3
+  },
+  "PD": {
+   "DI": 198,
+   "DO": 19,
+   "F-DI": 62,
+   "F-DO": 0,
+   "AI": 0,
+   "pn": 66,
+   "coupler": 17
+  },
+  "ASM": {
+   "DI": 337,
+   "DO": 127,
+   "F-DI": 46,
+   "F-DO": 2,
+   "AI": 9,
+   "pn": 79,
+   "coupler": 0
+  },
+  "HMC": {
+   "DI": 12,
+   "DO": 4,
+   "F-DI": 8,
+   "F-DO": 0,
+   "AI": 2,
+   "pn": 1,
+   "coupler": 0
+  }
+ },
+ "psu": {
+  "AF": {
+   "remote_io": 2,
+   "I_A": 3.36,
+   "I_psu": 4.2,
+   "psu_A": 5
+  },
+  "PD": {
+   "remote_io": 6,
+   "I_A": 14.174,
+   "I_psu": 17.7175,
+   "psu_A": 20
+  },
+  "ASM": {
+   "remote_io": 11,
+   "I_A": 19.841,
+   "I_psu": 24.80125,
+   "psu_A": 40
+  },
+  "HMC": {
+   "remote_io": 1,
+   "I_A": 1.726,
+   "I_psu": 2.1575,
+   "psu_A": 5
+  }
+ },
+ "comm": {
+  "PLC-CONV1": {
+   "A": [],
+   "B": [
+    "CP1543-1",
+    "CM1542-1",
+    "CM_PtP_RS485_HF",
+    "PS60W"
+   ]
+  },
+  "PLC-ASM1": {
+   "A": [],
+   "B": [
+    "CP1543-1",
+    "CM1542-1",
+    "CM_PtP_RS485_HF",
+    "PS60W"
+   ]
+  }
+ },
+ "pn": {
+  "PLC-CONV1": {
+   "devices": 89,
+   "load_A_pct": 14.95,
+   "load_B_pct": 7.39
+  },
+  "PLC-ASM1": {
+   "devices": 90,
+   "load_A_pct": 15.12,
+   "load_B_pct": 7.56
+  }
+ },
+ "dol": {
+  "CC light crate 45 kg": {
+   "F_N": 1677,
+   "a_m_s2": 31.4,
+   "limit": 4.9,
+   "ok": false
+  },
+  "CC full crate 300 kg": {
+   "F_N": 1677,
+   "a_m_s2": 4.3,
+   "limit": 4.9,
+   "ok": true
+  },
+  "assembly section, 1 carrier moving": {
+   "F_N": 6988,
+   "a_m_s2": 15.9,
+   "limit": 3.9,
+   "ok": false
+  }
+ },
+ "S_dock_mm": 1394.0,
+ "sf": [
+  [
+   "SF-C1",
+   "d",
+   "d",
+   "E-stop per area -> SS1 then STO of all drives of the area"
+  ],
+  [
+   "SF-C2",
+   "c",
+   "d",
+   "AGV dock: light curtain (multi-beam) with muting while AGV_PRESENT + docking sensor; a person -> STO of lane + AGV rollers stop (ST_FAULT)"
+  ],
+  [
+   "SF-C3",
+   "d",
+   "d",
+   "Assembly gate section: interlock + guard locking; unlock only after STO of the upstream section; opening from inside always possible (escape release)"
+  ],
+  [
+   "SF-C4",
+   "d",
+   "d",
+   "Lift table in the pit: safety edge (EN ISO 13856-2) around the table -> both lowering valves close"
+  ],
+  [
+   "SF-C5",
+   "d",
+   "e",
+   "HMC load station light curtain (S = 680 mm) -> STO of the pallet shuttle"
+  ],
+  [
+   "SF-C6",
+   "c",
+   "e",
+   "Z31 pick window light curtain: no crate movement into / out of Z31 and no TU1/TU2 lift while hands are inside"
+  ],
+  [
+   "SF-C7",
+   "c",
+   "d",
+   "Test docking slide: force-limited pressure (< 150 N) + hood interlock 2 ch"
+  ]
+ ]
+}

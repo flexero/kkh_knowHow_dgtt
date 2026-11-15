@@ -1,0 +1,53 @@
+level,parent,item,name,qty,qty_unit,make_buy,material,blank,m_blank_kg,m_finish_kg,family,note
+0,,VC20,"VC20 - V-twin 90 deg single-stage piston air compressor, 20 m3/h class, 8 bar(g), 300 L tank",1,1,,,,,,,
+1,VC20,U10,Pump unit (bare compressor),1,1,A,,,,,,
+1,VC20,U20,Drive unit (motor + belt drive + guard),1,1,A,,,,,,
+1,VC20,U30,Tank and control package,1,1,A,,,,,,
+2,U10,U11,Crank drive sub-assembly,1,1,A,,,,,,
+2,U10,U12,Cylinder + head sub-assembly (one bank),2,2,A,,,,,,
+3,U11,C01,Crankcase,1,1,M,EN-GJL-250,"green-sand casting, cores for crank chamber",16.5,14.2,P-L,design estimate
+3,U11,C02,Rear bearing cover,1,1,M,EN-GJL-250,green-sand casting,1.5,1.25,P-S,design estimate
+3,U11,C03,Front cover with oil seal seat and sight glass,1,1,M,EN-GJL-250,green-sand casting,1.9,1.6,P-S,design estimate
+3,U12,C04,Cylinder (finned),1,2,M,"EN-GJL-250 (pearlitic, HB 200-240)","green-sand casting with fins, core for bore",3.9,3.3,P-M,design estimate
+3,U12,C05,Cylinder head,1,2,M,EN AC-46000 (AlSi9Cu3(Fe)),"high-pressure die casting, finned",1.25,1.05,P-S,design estimate
+3,U12,C06,Valve plate,1,2,M,"C45 normalised, plate 8 mm (laser-cut blank)",laser-cut plate 112x112x8.6,0.82,0.66,P-F,design estimate
+3,U11,C07,Crankshaft,1,1,M,"42CrMo4 +QT (forging), pin + journals induction hardened 50-55 HRC",closed-die forging with counterweights,4.8,3.6,R-E,design estimate
+3,U11,C08,Connecting rod with cap,2,2,M,"EN AC-46200 die cast (rod + cap), bolts 10.9","high-pressure die casting rod + cap in one shot, separated by sawing",0.42,0.35,P-F,design estimate
+2,U20,C09,"Flywheel pulley (2 x SPA, fan spokes)",1,1,M,EN-GJL-250,green-sand casting with cooling-fan spokes,10.5,9.4,R-D,design estimate
+3,U11,B01,"Deep groove ball bearing 6306-C3 (pulley side, A)",1,1,B,,,,,B,SKF/FAG/NSK or equal
+3,U11,B02,Deep groove ball bearing 6206-C3 (side B),1,1,B,,,,,B,
+3,U11,B03,"Radial shaft seal 30x47x7 NBR, form AS (DIN 3760)",1,1,B,,,,,B,
+3,U12,B04,"Piston dia 70 aluminium (EN AC-48000), compression height 31.9, length 52, 3 rings, pin bore 16",1,2,B,,,,,B,piston maker; mass graded +-2 g
+3,U12,B05,Piston ring set dia 70 (compression x2 + oil scraper),1,2,B,,,,,B,
+3,U12,B06,"Piston pin 16 x 55, 16MnCr5 case hardened, ground h5",1,2,B,,,,,B,
+3,U12,B07,Circlip DIN 472 / wire ring for pin 16,2,4,B,,,,,B,
+3,U12,B08,"Suction reed valve, Sandvik 20C 0.30 mm, laser cut + tumbled",1,2,B,,,,,B,valve maker
+3,U12,B09,Discharge reed valve + retainer (stainless 0.40 mm),1,2,B,,,,,B,valve maker
+3,U12,B10,"Gasket cylinder base (aramid 0.5 mm, selective 0.4/0.5/0.6)",1,2,B,,,,,B,selective assembly for TDC gap
+3,U12,B11,Gasket valve plate / head (aramid 0.8 mm),2,4,B,,,,,B,
+3,U12,B12,Stud M8x150 8.8 + nut + washer (through cylinder 85 + valve plate 8 + head 30 into crankcase 16),4,8,B,,,,,B,
+3,U12,B13,"Air filter with silencer, G1/2",1,2,B,,,,,B,
+3,U11,B14,"Rod bolt M8x1x40 10.9, phosphated",4,4,B,,,,,B,torque-angle tightened
+3,U11,B15,Feather key DIN 6885 A 8x7x32,1,1,B,,,,,B,
+3,U11,B16,Cover bolts M6x16 8.8,12,12,B,,,,,B,
+3,U11,B17,Oil sight glass M24x1.5,1,1,B,,,,,B,
+3,U11,B18,Oil filler / breather plug M14x1.5 with dipstick,1,1,B,,,,,B,
+3,U11,B19,Drain plug M16x1.5 with sealing ring,1,1,B,,,,,B,
+3,U11,B20,"Gaskets: covers x2, base sealing",1,1,B,,,,,B,kit
+2,U10,B21,"Compressor oil ISO VG 100, 0.9 L",1,1,B,,,,,B,
+2,U10,B22,Discharge manifold: Cu tube 15 + compression fittings + tee,1,1,B,,,,,B,
+2,U20,B23,"Electric motor 3 kW, 2-pole, IE3, B3, 400 V 50 Hz, IP55",1,1,B,,,,,B,IEC 60034-30-1
+2,U20,B24,"Motor pulley SPA dia 125, taper bush 1610",1,1,B,,,,,B,
+2,U20,B25,V-belt SPA 1250 (matched pair),2,2,B,,,,,B,
+2,U20,B26,"Belt guard (sheet steel 1.5, powder coated) incl. brackets",1,1,B,,,,,B,make in sheet-metal shop or buy - outside machining FMS
+2,U20,B27,Motor slide rails / tensioning bolts,1,1,B,,,,,B,
+2,U30,B28,"Air receiver 300 L, 11 bar, EN 286-1 / PED 2014/29/EU, with feet and pump plate",1,1,B,,,,,B,tank maker (welding line outside this FMS)
+2,U30,B29,"Pressure switch with DOL starter + thermal overload, unloader, 6-8 bar",1,1,B,,,,,B,
+2,U30,B30,"Safety valve 10 bar, EN ISO 4126-1",1,1,B,,,,,B,
+2,U30,B31,Check valve 1/2 with unloader port,1,1,B,,,,,B,
+2,U30,B32,Pressure gauges dia 50 (tank + outlet),2,2,B,,,,,B,
+2,U30,B33,Pressure regulator + quick coupling + ball valve,1,1,B,,,,,B,
+2,U30,B34,Condensate drain valve (manual or timer),1,1,B,,,,,B,
+2,U30,B35,Anti-vibration feet M10,4,4,B,,,,,B,
+2,U30,B36,Bolts pump/motor to tank plate M10 + nyloc,8,8,B,,,,,B,
+1,VC20,B37,"Name plate, CE marking, manual, packing (pallet + carton)",1,1,B,,,,,B,"Machinery Directive 2006/42/EC, PED, EMC/LVD"

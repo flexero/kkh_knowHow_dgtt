@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>LC: light curtain type 4 with OSSD pair at the load station (module M04, SF2)</title>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">LC: light curtain type 4 with OSSD pair at the load station (module M04, SF2)</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">OSSD1 / OSSD2 → F-DI (F-DI test pulses OFF for OSSD inputs), warning → DI, emitter + receiver supply = 4 extra terminals (tx 4).</text>
+<rect x="120" y="100" width="26" height="260" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="133" y="380" font-size="11" text-anchor="middle" fill="#111">-BG1 emitter</text>
+<rect x="420" y="100" width="26" height="260" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="433" y="380" font-size="11" text-anchor="middle" fill="#111">-BG1 receiver</text>
+<line x1="146" y1="115" x2="420" y2="115" stroke="#c0392b" stroke-width="1" stroke-dasharray="6 4"/>
+<line x1="146" y1="138" x2="420" y2="138" stroke="#c0392b" stroke-width="1" stroke-dasharray="6 4"/>
+<line x1="146" y1="161" x2="420" y2="161" stroke="#c0392b" stroke-width="1" stroke-dasharray="6 4"/>
+<line x1="146" y1="184" x2="420" y2="184" stroke="#c0392b" stroke-width="1" stroke-dasharray="6 4"/>
+<line x1="146" y1="207" x2="420" y2="207" stroke="#c0392b" stroke-width="1" stroke-dasharray="6 4"/>
+<line x1="146" y1="230" x2="420" y2="230" stroke="#c0392b" stroke-width="1" stroke-dasharray="6 4"/>
+<line x1="146" y1="253" x2="420" y2="253" stroke="#c0392b" stroke-width="1" stroke-dasharray="6 4"/>
+<line x1="146" y1="276" x2="420" y2="276" stroke="#c0392b" stroke-width="1" stroke-dasharray="6 4"/>
+<line x1="146" y1="299" x2="420" y2="299" stroke="#c0392b" stroke-width="1" stroke-dasharray="6 4"/>
+<line x1="146" y1="322" x2="420" y2="322" stroke="#c0392b" stroke-width="1" stroke-dasharray="6 4"/>
+<line x1="146" y1="345" x2="420" y2="345" stroke="#c0392b" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="283" y="95" font-size="11" text-anchor="middle" fill="#c0392b">protective field (resolution 14 / 30 mm)</text>
+<rect x="230" y="300" width="110" height="70" rx="0" fill="#fff" stroke="#666" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="285" y="330" font-size="11" text-anchor="middle" fill="#111">rotary table</text>
+<text x="285" y="346" font-size="11" text-anchor="middle" fill="#111">(hazard)</text>
+<line x1="285" y1="410" x2="433" y2="410" stroke="#111" stroke-width="1.5"/>
+<polygon points="433,410 424.71,413.505 424.71,406.495" fill="#111"/>
+<line x1="285" y1="410" x2="146" y2="410" stroke="#111" stroke-width="1.5"/>
+<polygon points="146,410 154.29,406.495 154.29,413.505" fill="#111"/>
+<text x="285" y="428" font-size="11" text-anchor="middle" fill="#111">safety distance S = K·T + C (guide 67 H4: 370 / 498 / 608 mm)</text>
+<text x="80" y="470" font-size="11" text-anchor="start" fill="#111">-WD1 emitter M12 5-pole (5x0.34) · -WD2 receiver M12 8-pole (8x0.25), 10 m each</text>
+<line x1="446" y1="180" x2="560" y2="120" stroke="#666" stroke-width="1"/>
+<circle cx="570" cy="120" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="580" y="114" font-size="11" text-anchor="start" fill="#111">-XD2:1</text>
+<line x1="574" y1="120" x2="680" y2="120" stroke="#c0392b" stroke-width="1.5"/>
+<rect x="680" y="106" width="200" height="28" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="780" y="124" font-size="11" text-anchor="middle" fill="#c0392b">FDI1.00 Ossd1</text>
+<line x1="446" y1="180" x2="560" y2="154" stroke="#666" stroke-width="1"/>
+<circle cx="570" cy="154" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="580" y="148" font-size="11" text-anchor="start" fill="#111">-XD2:2</text>
+<line x1="574" y1="154" x2="680" y2="154" stroke="#c0392b" stroke-width="1.5"/>
+<rect x="680" y="140" width="200" height="28" rx="0" fill="#f2f2f2" stroke="#c0392b" stroke-width="1.5"/>
+<text x="780" y="158" font-size="11" text-anchor="middle" fill="#c0392b">FDI1.01 Ossd2</text>
+<line x1="446" y1="180" x2="560" y2="188" stroke="#666" stroke-width="1"/>
+<circle cx="570" cy="188" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="580" y="182" font-size="11" text-anchor="start" fill="#111">-XD2:3</text>
+<line x1="574" y1="188" x2="680" y2="188" stroke="#111" stroke-width="1.5"/>
+<rect x="680" y="174" width="200" height="28" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="780" y="192" font-size="11" text-anchor="middle" fill="#111">DI1.00 Warn</text>
+<line x1="446" y1="180" x2="560" y2="222" stroke="#666" stroke-width="1"/>
+<circle cx="570" cy="222" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="580" y="216" font-size="11" text-anchor="start" fill="#111">-XD2:4</text>
+<line x1="574" y1="222" x2="680" y2="222" stroke="#111" stroke-width="1.5"/>
+<rect x="680" y="208" width="200" height="28" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="780" y="226" font-size="11" text-anchor="middle" fill="#111">+24 V emitter</text>
+<line x1="446" y1="180" x2="560" y2="256" stroke="#666" stroke-width="1"/>
+<circle cx="570" cy="256" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="580" y="250" font-size="11" text-anchor="start" fill="#111">-XD2:5</text>
+<line x1="574" y1="256" x2="680" y2="256" stroke="#111" stroke-width="1.5"/>
+<rect x="680" y="242" width="200" height="28" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="780" y="260" font-size="11" text-anchor="middle" fill="#111">0 V emitter</text>
+<line x1="446" y1="180" x2="560" y2="290" stroke="#666" stroke-width="1"/>
+<circle cx="570" cy="290" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="580" y="284" font-size="11" text-anchor="start" fill="#111">-XD2:6</text>
+<line x1="574" y1="290" x2="680" y2="290" stroke="#111" stroke-width="1.5"/>
+<rect x="680" y="276" width="200" height="28" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="780" y="294" font-size="11" text-anchor="middle" fill="#111">+24 V receiver</text>
+<line x1="446" y1="180" x2="560" y2="324" stroke="#666" stroke-width="1"/>
+<circle cx="570" cy="324" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="580" y="318" font-size="11" text-anchor="start" fill="#111">-XD2:7</text>
+<line x1="574" y1="324" x2="680" y2="324" stroke="#111" stroke-width="1.5"/>
+<rect x="680" y="310" width="200" height="28" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="780" y="328" font-size="11" text-anchor="middle" fill="#111">0 V receiver</text>
+<rect x="910" y="100" width="250" height="250" rx="0" fill="#f2f2f2" stroke="#666" stroke-width="1.5"/>
+<text x="925" y="125" font-size="11" text-anchor="start" font-weight="bold" fill="#111">Safety program:</text>
+<text x="925" y="149" font-size="11" text-anchor="start" fill="#c0392b">OSSD off → STO Rotary (FDO1.00)</text>
+<text x="925" y="173" font-size="11" text-anchor="start" fill="#c0392b">+ pool fork stop (POOL01)</text>
+<text x="925" y="197" font-size="11" text-anchor="start" fill="#111">clamp keeps holding</text>
+<text x="925" y="221" font-size="11" text-anchor="start" fill="#111">module Held / Suspended</text>
+<text x="925" y="245" font-size="11" text-anchor="start" fill="#111">reset outside, view into zone</text>
+<text x="925" y="269" font-size="11" text-anchor="start" fill="#111">Warn → &quot;clean lens&quot; alarm</text>
+<text x="925" y="293" font-size="11" text-anchor="start" fill="#111">data block M04 word 20 bit1</text>
+<text x="925" y="317" font-size="11" text-anchor="start" fill="#111">LightCurtainOK</text>
+<text x="80" y="500" font-size="11" text-anchor="start" fill="#111">FAT: test rod through the whole field (edges, centre) → OSSDs off each time; stopping-time measurement; emitter disconnected → fault.</text>
+<text x="80" y="518" font-size="11" text-anchor="start" fill="#111">Typical faults: distance too small · stepping behind the curtain (needs presence detection / restart interlock) · F-DI test pulses on OSSD inputs.</text>
+<text x="24" y="586" font-size="11" text-anchor="start" fill="#666">Teaching example – not for construction. Real circuits: qualified engineers, IEC 60204-1, ISO 13849, maker data.</text>
+</svg>

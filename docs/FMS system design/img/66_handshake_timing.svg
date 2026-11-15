@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>The 4-phase job handshake - timing of job 70001 (scenario A, 1 tick = 100 ms)</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker></defs>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" fill="#111111" font-weight="bold">The 4-phase job handshake - timing of job 70001 (scenario A, 1 tick = 100 ms)</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555555">Each side writes only its own bits and reacts to the other side one tick later (snapshot rule). Ticks 0-8 and 50-58 shown, gap = machining.</text>
+<line x1="200" y1="80" x2="200" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="200" y="490" font-size="11" text-anchor="middle" fill="#555555">0</text>
+<line x1="250" y1="80" x2="250" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="250" y="490" font-size="11" text-anchor="middle" fill="#555555">1</text>
+<line x1="300" y1="80" x2="300" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="300" y="490" font-size="11" text-anchor="middle" fill="#555555">2</text>
+<line x1="350" y1="80" x2="350" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="350" y="490" font-size="11" text-anchor="middle" fill="#555555">3</text>
+<line x1="400" y1="80" x2="400" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="400" y="490" font-size="11" text-anchor="middle" fill="#555555">4</text>
+<line x1="450" y1="80" x2="450" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="450" y="490" font-size="11" text-anchor="middle" fill="#555555">5</text>
+<line x1="500" y1="80" x2="500" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="500" y="490" font-size="11" text-anchor="middle" fill="#555555">6</text>
+<line x1="550" y1="80" x2="550" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="550" y="490" font-size="11" text-anchor="middle" fill="#555555">7</text>
+<line x1="600" y1="80" x2="600" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="600" y="490" font-size="11" text-anchor="middle" fill="#555555">8</text>
+<line x1="650" y1="80" x2="650" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="650" y="490" font-size="11" text-anchor="middle" fill="#555555">9</text>
+<line x1="760" y1="80" x2="760" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="760" y="490" font-size="11" text-anchor="middle" fill="#555555">50</text>
+<line x1="810" y1="80" x2="810" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="810" y="490" font-size="11" text-anchor="middle" fill="#555555">51</text>
+<line x1="860" y1="80" x2="860" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="860" y="490" font-size="11" text-anchor="middle" fill="#555555">52</text>
+<line x1="910" y1="80" x2="910" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="910" y="490" font-size="11" text-anchor="middle" fill="#555555">53</text>
+<line x1="960" y1="80" x2="960" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="960" y="490" font-size="11" text-anchor="middle" fill="#555555">54</text>
+<line x1="1010" y1="80" x2="1010" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="1010" y="490" font-size="11" text-anchor="middle" fill="#555555">55</text>
+<line x1="1060" y1="80" x2="1060" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="1060" y="490" font-size="11" text-anchor="middle" fill="#555555">56</text>
+<line x1="1110" y1="80" x2="1110" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="1110" y="490" font-size="11" text-anchor="middle" fill="#555555">57</text>
+<line x1="1160" y1="80" x2="1160" y2="470" stroke="#dddddd" stroke-width="1"/>
+<text x="1160" y="490" font-size="11" text-anchor="middle" fill="#555555">58</text>
+<text x="680" y="490" font-size="12" text-anchor="middle" fill="#111111">...</text>
+<rect x="658" y="75" width="44" height="400" rx="4" fill="#f7f7f7" stroke="#f7f7f7" stroke-width="0"/>
+<text x="1160" y="508" font-size="11" text-anchor="middle" fill="#555555">tick</text>
+<text x="30" y="110" font-size="13" text-anchor="start" fill="#1f6fb2" font-weight="bold">CC.Request</text>
+<path d="M 200 88 L 300 88 L 300 110 L 1160 110" stroke="#1f6fb2" stroke-width="2.2" fill="none"/>
+<text x="30" y="170" font-size="13" text-anchor="start" fill="#111" font-weight="bold">MOD.HSReady</text>
+<path d="M 200 170 L 250 170 L 250 148 L 350 148 L 350 170 L 1160 170" stroke="#333" stroke-width="2.2" fill="none"/>
+<text x="30" y="230" font-size="13" text-anchor="start" fill="#111" font-weight="bold">MOD.Ready</text>
+<path d="M 200 208 L 250 208 L 250 230 L 1010 230 L 1010 208 L 1160 208" stroke="#333" stroke-width="2.2" fill="none"/>
+<text x="30" y="290" font-size="13" text-anchor="start" fill="#111" font-weight="bold">MOD.Busy</text>
+<path d="M 200 290 L 250 290 L 250 268 L 910 268 L 910 290 L 1160 290" stroke="#333" stroke-width="2.2" fill="none"/>
+<text x="30" y="350" font-size="13" text-anchor="start" fill="#111" font-weight="bold">MOD.Done</text>
+<path d="M 200 350 L 910 350 L 910 328 L 1010 328 L 1010 350 L 1160 350" stroke="#333" stroke-width="2.2" fill="none"/>
+<text x="30" y="410" font-size="13" text-anchor="start" fill="#1f6fb2" font-weight="bold">CC.Ack</text>
+<path d="M 200 410 L 960 410 L 960 388 L 1060 388 L 1060 410 L 1160 410" stroke="#1f6fb2" stroke-width="2.2" fill="none"/>
+<text x="203" y="520" font-size="11" text-anchor="start" fill="#1f6fb2">0 CC REQUEST</text>
+<text x="253" y="538" font-size="11" text-anchor="start" fill="#111">1 MOD ACCEPT</text>
+<text x="303" y="556" font-size="11" text-anchor="start" fill="#1f6fb2">2 CC ACCEPTED</text>
+<text x="353" y="520" font-size="11" text-anchor="start" fill="#111">3 MOD START</text>
+<text x="403" y="538" font-size="11" text-anchor="start" fill="#1f6fb2">4 CC RUNNING</text>
+<text x="913" y="556" font-size="11" text-anchor="start" fill="#111">53 MOD DONE</text>
+<text x="963" y="520" font-size="11" text-anchor="start" fill="#1f6fb2">54 CC DONE</text>
+<text x="1013" y="538" font-size="11" text-anchor="start" fill="#111">55 MOD RELEASE</text>
+<text x="1063" y="556" font-size="11" text-anchor="start" fill="#1f6fb2">56 CC COMPLETE</text>
+<text x="30" y="580" font-size="12" text-anchor="start" fill="#555555">Phases: 1 Request -&gt; 2 HSReady (accepted) -&gt; 3 Request off / HSReady off (start) -&gt; ... Done -&gt; 4 Ack -&gt; Done off -&gt; Ack off. Cycle = 56 ticks for 50 ticks of work.</text>
+</svg>

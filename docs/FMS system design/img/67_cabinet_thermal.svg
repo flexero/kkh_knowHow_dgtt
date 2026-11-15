@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>Control cabinet layout and heat balance (IEC TR 60890, stacker cabinet)</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker></defs>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" fill="#111" font-weight="bold">Stacker-crane cabinet 1200 × 2000 × 600 mm against a wall – layout zones and heat balance</text>
+<text x="24" y="54" font-size="12" fill="#555">Losses 805 W, k = 5.5 W/(m² K), Ti = 35 °C. Effective surface (wall): A = 1.4·W·(H + D) + 1.8·D·H = 6.528 m².</text>
+<!-- cabinet -->
+<rect x="60" y="90" width="360" height="470" fill="#fafafa" stroke="#333" stroke-width="3"/>
+<rect x="70" y="100" width="340" height="150" fill="#f3e6e4" stroke="#c0392b"/>
+<text x="80" y="122" font-size="12" fill="#111" font-weight="bold">Zone 1 power (dirty)</text>
+<text x="80" y="142" font-size="12" fill="#111">-QB1 main switch, breakers</text>
+<text x="80" y="160" font-size="12" fill="#111">VFD travel 330 W · VFD hoist 225 W</text>
+<text x="80" y="178" font-size="12" fill="#111">servo fork 60 W · contactors 30 W</text>
+<text x="80" y="200" font-size="11" fill="#555">drives at the top: heat rises to the outlet</text>
+<rect x="70" y="262" width="340" height="150" fill="#eef4fa" stroke="#1f6fb2"/>
+<text x="80" y="284" font-size="12" fill="#111" font-weight="bold">Zone 2 control (clean)</text>
+<text x="80" y="304" font-size="12" fill="#111">24 V PSU 20 A 55 W · ECBs</text>
+<text x="80" y="322" font-size="12" fill="#111">PLC + safety PLC 40 W</text>
+<text x="80" y="340" font-size="12" fill="#111">switch, router 25 W</text>
+<rect x="70" y="424" width="340" height="126" fill="#f4f4f4" stroke="#333"/>
+<text x="80" y="446" font-size="12" fill="#111" font-weight="bold">Zone 3 terminals + EMC</text>
+<text x="80" y="466" font-size="12" fill="#111">-XD1 / -XD2 / -XD3, wiring 40 W</text>
+<text x="80" y="484" font-size="12" fill="#111">PE bar, shield clamp rail at the entry</text>
+<path d="M240,90 L240,70" stroke="#c0392b" stroke-width="3" marker-end="url(#ah)"/><text x="250" y="78" font-size="11" fill="#c0392b">warm air out</text>
+<path d="M240,590 L240,566" stroke="#1f6fb2" stroke-width="3" marker-end="url(#ab)"/><text x="250" y="588" font-size="11" fill="#1f6fb2">cool air in (filter fan)</text>
+<!-- table -->
+<g font-size="13" fill="#111">
+<text x="480" y="110" font-weight="bold">Heat balance per ambient temperature</text>
+<text x="480" y="134">P_nat = k · A · (Ti − Ta)      Q = P_loss − P_nat</text>
+<rect x="480" y="150" width="680" height="34" fill="#eeeeee" stroke="#ccc"/>
+<text x="492" y="172" font-weight="bold">Ta</text><text x="560" y="172" font-weight="bold">P_nat</text><text x="700" y="172" font-weight="bold">Q needed</text><text x="840" y="172" font-weight="bold">Decision</text>
+<rect x="480" y="184" width="680" height="40" fill="#fff" stroke="#ccc"/>
+<text x="492" y="209">25 °C</text><text x="560" y="209">359.04 W</text><text x="700" y="209">445.96 W</text><text x="840" y="209" fill="#1f6fb2" font-weight="bold">filter fan 3.1·Q/10 = 138.2 m³/h</text>
+<rect x="480" y="224" width="680" height="40" fill="#fff" stroke="#ccc"/>
+<text x="492" y="249">35 °C</text><text x="560" y="249">0.00 W</text><text x="700" y="249">805.00 W</text><text x="840" y="249" fill="#c0392b" font-weight="bold">cooling unit ≥ 805 W</text>
+<rect x="480" y="264" width="680" height="40" fill="#fff" stroke="#ccc"/>
+<text x="492" y="289">40 °C</text><text x="560" y="289">−179.52 W (in)</text><text x="700" y="289">984.52 W</text><text x="840" y="289" fill="#c0392b" font-weight="bold">cooling unit ≥ 984.5 W</text>
+<text x="480" y="336">Rule: no cooling if Q ≤ 0 · filter fan if Ta &lt; Ti − 5 · otherwise cooling unit (useful power ≥ Q).</text>
+<text x="480" y="360">Design at the highest realistic hall temperature near the cabinet (next to a washer: 40 °C) → ~1 kW unit.</text>
+<text x="480" y="396" font-weight="bold">Ways to reduce Q</text>
+<text x="480" y="420">· brake resistors outside the cabinet · through-hole mounted drives (heat sink outside)</text>
+<text x="480" y="444">· air-to-water heat exchanger in dusty / coolant-mist areas · separate drive cabinet</text>
+<text x="480" y="468">· next to machining: closed cooling (filter fans suck coolant mist in)</text>
+<text x="480" y="520" font-size="11" fill="#777">Example values from item7_examples.json (cabinet case). Real devices: maker's curves at the actual Ta / Ti; fan flow with filter derating.</text>
+</g>
+</svg>

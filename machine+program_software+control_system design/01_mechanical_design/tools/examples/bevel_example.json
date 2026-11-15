@@ -1,0 +1,23 @@
+{
+  "name": "Worked example: spiral bevel stage 4 kW, 1450 rpm, i ~ 3 (chapter 8)",
+  "kind": "spiral",
+  "z1": 15,
+  "z2": 46,
+  "Sigma_deg": 90.0,
+  "met": 2.5,
+  "b": 17.0,
+  "beta_m_deg": 35.0,
+  "hand1": "left",
+  "rotation1": "cw",
+  "P_kW": 4.0,
+  "n1_rpm": 1450.0,
+  "KA": 1.25,
+  "KHbeta_be": 1.25,
+  "accuracy_grade": 7,
+  "material1": "18CrNiMo7-6 case hardened",
+  "material2": "18CrNiMo7-6 case hardened",
+  "ZK": 0.85,
+  "SHmin": 1.2,
+  "SFmin": 1.6,
+  "ZLVR": 0.95
+}

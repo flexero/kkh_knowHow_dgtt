@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" font-family="Arial, Helvetica, sans-serif">
+<title>ISA-95 / IEC 62264 functional hierarchy (Purdue reference model) for an FMS</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1200" height="640" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="17" text-anchor="start" fill="#111111" font-weight="bold">ISA-95 / IEC 62264 functional hierarchy (Purdue reference model) for an FMS</text>
+<text x="24.0" y="54.0" font-size="12" text-anchor="start" fill="#52514e">Levels, time frames, systems and the data that flows down (orders) and up (confirmations). Safety stays at level 1 – hard-wired.</text>
+<rect x="40.0" y="80.0" width="780.0" height="50.0" rx="6" fill="#dbe7f5" stroke="#333" stroke-width="1.5"/>
+<text x="56.0" y="110.0" font-size="14" text-anchor="start" fill="#111111" font-weight="bold">Level 4</text>
+<text x="150.0" y="102.0" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">Business planning &amp; logistics</text>
+<text x="150.0" y="120.0" font-size="11.5" text-anchor="start" fill="#52514e">ERP (orders, MRP, purchasing, costing)</text>
+<text x="810.0" y="110.0" font-size="12" text-anchor="end" fill="#333">months - days</text>
+<rect x="40.0" y="140.0" width="780.0" height="34.0" rx="6" fill="#eeeeee" stroke="#333" stroke-width="1.5"/>
+<text x="56.0" y="162.0" font-size="14" text-anchor="start" fill="#111111" font-weight="bold">Level 3.5</text>
+<text x="150.0" y="162.0" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">Industrial DMZ</text>
+<text x="400.0" y="162.0" font-size="11.5" text-anchor="start" fill="#52514e">historian mirror, patch server, jump host</text>
+<text x="810.0" y="162.0" font-size="12" text-anchor="end" fill="#333">-</text>
+<rect x="40.0" y="184.0" width="780.0" height="50.0" rx="6" fill="#dcefe0" stroke="#333" stroke-width="1.5"/>
+<text x="56.0" y="214.0" font-size="14" text-anchor="start" fill="#111111" font-weight="bold">Level 3</text>
+<text x="150.0" y="206.0" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">Manufacturing operations management</text>
+<text x="150.0" y="224.0" font-size="11.5" text-anchor="start" fill="#52514e">MES / MOM, QMS, CMMS, WMS, DNC, tool mgmt</text>
+<text x="810.0" y="214.0" font-size="12" text-anchor="end" fill="#333">shifts - minutes</text>
+<rect x="40.0" y="244.0" width="780.0" height="50.0" rx="6" fill="#fbf0d4" stroke="#333" stroke-width="1.5"/>
+<text x="56.0" y="274.0" font-size="14" text-anchor="start" fill="#111111" font-weight="bold">Level 2</text>
+<text x="150.0" y="266.0" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">Supervisory control</text>
+<text x="150.0" y="284.0" font-size="11.5" text-anchor="start" fill="#52514e">cell controller, SCADA / HMI, historian</text>
+<text x="810.0" y="274.0" font-size="12" text-anchor="end" fill="#333">minutes - seconds</text>
+<rect x="40.0" y="304.0" width="780.0" height="50.0" rx="6" fill="#f8dcd3" stroke="#333" stroke-width="1.5"/>
+<text x="56.0" y="334.0" font-size="14" text-anchor="start" fill="#111111" font-weight="bold">Level 1</text>
+<text x="150.0" y="326.0" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">Basic control</text>
+<text x="150.0" y="344.0" font-size="11.5" text-anchor="start" fill="#52514e">PLC, CNC, robot controller, safety PLC, drives</text>
+<text x="810.0" y="334.0" font-size="12" text-anchor="end" fill="#333">ms - seconds</text>
+<rect x="40.0" y="364.0" width="780.0" height="50.0" rx="6" fill="#ece8f5" stroke="#333" stroke-width="1.5"/>
+<text x="56.0" y="394.0" font-size="14" text-anchor="start" fill="#111111" font-weight="bold">Level 0</text>
+<text x="150.0" y="386.0" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">Physical process</text>
+<text x="150.0" y="404.0" font-size="11.5" text-anchor="start" fill="#52514e">sensors, actuators, spindle, clamp, part</text>
+<text x="810.0" y="394.0" font-size="12" text-anchor="end" fill="#333">real time</text>
+<line x1="880.0" y1="90.0" x2="880.0" y2="430.0" stroke="#333" stroke-width="2.5" marker-end="url(#ah)"/>
+<text x="895.0" y="110.0" font-size="12" text-anchor="start" fill="#111111" font-weight="bold">DOWN: orders, jobs,</text>
+<text x="895.0" y="127.0" font-size="12" text-anchor="start" fill="#111111">programs, commands,</text>
+<text x="895.0" y="144.0" font-size="12" text-anchor="start" fill="#111111">set-points, recipes</text>
+<line x1="1040.0" y1="430.0" x2="1040.0" y2="90.0" stroke="#3d7ac4" stroke-width="2.5" marker-end="url(#ah)"/>
+<text x="1055.0" y="300.0" font-size="12" text-anchor="start" fill="#3d7ac4" font-weight="bold">UP: states,</text>
+<text x="1055.0" y="317.0" font-size="12" text-anchor="start" fill="#3d7ac4">counts, times,</text>
+<text x="1055.0" y="334.0" font-size="12" text-anchor="start" fill="#3d7ac4">values, alarms,</text>
+<text x="1055.0" y="351.0" font-size="12" text-anchor="start" fill="#3d7ac4">confirmations</text>
+<rect x="40.0" y="470.0" width="1120.0" height="150.0" rx="6" fill="#fafaf7" stroke="#999" stroke-width="1" stroke-dasharray="5,4"/>
+<text x="56.0" y="495.0" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">FMS example (crankcase CC20, PO 4711)</text>
+<text x="56.0" y="520.0" font-size="12" text-anchor="start" fill="#111111">L4 ERP: 'PO 4711, 40 x CC20-MACH, due 2026-11-20' - does not know pallets or machines</text>
+<text x="56.0" y="539.0" font-size="12" text-anchor="start" fill="#111111">L3 MES: kit check (castings, fixture F-CC20, NC O2010 rev C, tools) - releases WO-4711-10 as jobs to the cell</text>
+<text x="56.0" y="558.0" font-size="12" text-anchor="start" fill="#111111">L2 cell controller: P07 is READY at LS1, MC02 is Idle -&gt; transport order to the stacker, start O2010C on MC02</text>
+<text x="56.0" y="577.0" font-size="12" text-anchor="start" fill="#111111">L1 CNC / stacker PLC / safety PLC: pallet change sequence, clamp, door lock, stacker positioning; guard open = STO</text>
+<text x="56.0" y="596.0" font-size="12" text-anchor="start" fill="#111111">L0: spindle cuts, clamp cylinder closes, pressure switch reports 'clamped'</text>
+</svg>

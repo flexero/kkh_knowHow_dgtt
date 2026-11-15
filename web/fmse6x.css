@@ -1,0 +1,68 @@
+/* FMS engineering – item 6 deep sections 6G–6N (fmse6x.js). Theme variables only (light + dark). Prefix f6-. Reuses fe-*, fx-*, am-*, phd-* classes. */
+
+.f6-kv td:first-child { width: 46%; }
+.f6-in input[type=number] { width: 100px; max-width: 100%; }
+#tab-fmse .f6-wide { width: 100%; min-width: 0; box-sizing: border-box; }
+.f6-small td, .f6-small th { font-size: 12.5px; }
+.f6-num td, .f6-num th { white-space: nowrap; }
+.f6-nw { white-space: nowrap; }
+.f6-brk { word-break: break-all; white-space: normal; }
+.f6-tall { max-height: 440px; overflow: auto; }
+.f6-pre { background: var(--surface-2); border-radius: 6px; padding: 8px 10px; font-size: 12px; line-height: 1.45; overflow-x: auto; white-space: pre; margin: 4px 0; }
+#tab-fmse .f6-ta { width: 100%; box-sizing: border-box; font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; resize: vertical; }
+#tab-fmse .f6-vin { width: 96px; }
+#tab-fmse .f6-n1 { width: 48px; }
+.f6-grow { flex: 1 1 260px; display: flex; gap: 6px; align-items: center; min-width: 0; flex-wrap: wrap; }
+.f6-range { flex: 1; min-width: 80px; }
+.f6-tnow { min-width: 110px; }
+.f6-detail { background: var(--surface-2); border-radius: 8px; padding: 6px 12px 10px; margin: 8px 0; }
+.f6-warn { color: var(--fe-4); font-weight: 600; }
+tr.f6-dim td { color: var(--muted); }
+tr.f6-bad td { background: color-mix(in srgb, var(--critical) 8%, transparent); }
+
+/* legends + colours */
+.f6-sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 4px; }
+.f6-c1 { fill: var(--fe-1); background: var(--fe-1); }
+.f6-c2 { fill: var(--fe-2); background: var(--fe-2); }
+.f6-c3 { fill: var(--fe-3); background: var(--fe-3); }
+rect.f6-lt { fill-opacity: .45; }
+.f6-lgd { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 4px 0 8px; }
+
+/* 6H bits */
+.f6-bits { margin: 6px 0; font-size: 13px; }
+.f6-bit { display: inline-block; margin: 2px 12px 2px 0; white-space: nowrap; }
+
+/* 6I timing diagram */
+.fe-scroll .f6-tim { min-width: 760px; cursor: crosshair; }
+.f6-sig { fill: none; stroke: var(--fe-1); stroke-width: 1.6; }
+.f6-sig.f6-hb { stroke: var(--fe-5); stroke-width: 1.1; }
+.f6-st0 { fill: color-mix(in srgb, var(--muted) 30%, transparent); background: color-mix(in srgb, var(--muted) 30%, transparent); }
+.f6-st1 { fill: var(--fe-4); fill-opacity: .55; background: color-mix(in srgb, var(--fe-4) 55%, transparent); }
+.f6-st3 { fill: var(--fe-1); fill-opacity: .55; background: color-mix(in srgb, var(--fe-1) 55%, transparent); }
+.f6-st4 { fill: var(--fe-3); fill-opacity: .6; background: color-mix(in srgb, var(--fe-3) 60%, transparent); }
+.f6-st5 { fill: var(--fe-2); fill-opacity: .65; background: color-mix(in srgb, var(--fe-2) 65%, transparent); }
+.f6-st6 { fill: var(--critical); fill-opacity: .7; background: color-mix(in srgb, var(--critical) 70%, transparent); }
+.f6-stl { font-size: 9.5px; fill: var(--text); pointer-events: none; }
+.f6-frz { fill: var(--fe-2); fill-opacity: .10; background: color-mix(in srgb, var(--fe-2) 20%, transparent); }
+.f6-frz2 { fill: var(--fe-5); fill-opacity: .12; }
+.f6-ev { stroke: var(--fe-6); stroke-width: 1; stroke-dasharray: 3 3; }
+.f6-evt { fill: var(--fe-6); font-size: 9.5px; }
+.f6-cur { stroke: var(--text); stroke-width: 1.4; }
+
+/* 6K */
+#tab-fmse .f6-mini { padding: 1px 6px; font-size: 12px; margin: 0 2px 0 0; }
+select.f6-allow { color: var(--good-text, var(--fe-3)); font-weight: 600; }
+select.f6-deny { color: var(--critical); font-weight: 600; }
+.f6-cm { white-space: nowrap; font-size: 12px; margin: 1px 0; }
+
+/* 6M */
+.f6-chk { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 6px 18px; }
+.f6-chkg h4 { margin: 8px 0 4px; }
+.f6-ci { display: block; font-size: 13px; line-height: 1.45; margin: 3px 0; padding-left: 22px; text-indent: -22px; }
+.f6-path { font-size: 13px; color: var(--text-2); margin: 4px 0 8px; padding-left: 20px; }
+
+@media (max-width: 700px) {
+  .f6-kv td:first-child { width: 52%; }
+  .f6-in input[type=number] { width: 76px; }
+  .f6-tnow { min-width: 0; }
+}

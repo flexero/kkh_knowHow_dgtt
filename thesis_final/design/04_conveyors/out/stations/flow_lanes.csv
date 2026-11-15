@@ -1,0 +1,20 @@
+dept,part,buffer_crates,places,lanes,length_m
+HMC,C01,4,5,2,4.2
+HMC,R01 (running RB variant),1,2,1,2.8
+HMC,R02 (running RB variant),1,2,1,2.8
+HMC,R03 (running RB variant),1,2,1,2.8
+HMC,empty-crate return (powered),0,3,1,4.2
+ROT,C07,2,3,1,4.2
+ROT,C09,4,5,2,4.2
+ROT,R06 (running RB variant),1,2,1,2.8
+ROT,R07 (running RB variant),1,2,1,2.8
+ROT,empty-crate return (powered),0,3,1,4.2
+VMC,C02,1,2,1,2.8
+VMC,C03,1,2,1,2.8
+VMC,C04,4,5,2,4.2
+VMC,C05,2,3,1,4.2
+VMC,C06,2,3,1,4.2
+VMC,C08,1,2,1,2.8
+VMC,R04 (running RB variant),1,2,1,2.8
+VMC,R05 (running RB variant),1,2,1,2.8
+VMC,empty-crate return (powered),0,3,1,4.2

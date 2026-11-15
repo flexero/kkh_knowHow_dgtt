@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700" font-family="Arial, Helvetica, sans-serif">
+<title>FMS network architecture - zones, VLANs, firewalls (example site 1)</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker></defs>
+<rect x="0" y="0" width="1200" height="700" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" fill="#111111" font-weight="bold">FMS network architecture - zones, VLANs, firewalls (example site 1)</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555555">One VLAN / subnet per zone and per cell. Real-time fieldbus stays inside the cell. Gateway .1 of each cell = cell firewall. All addresses are examples.</text>
+<rect x="30" y="70" width="520" height="90" rx="8" fill="#f7f7f7" stroke="#555555" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="40" y="88" font-size="13" text-anchor="start" fill="#111" font-weight="bold">Enterprise zone (L4)</text>
+<text x="540" y="88" font-size="11" text-anchor="end" fill="#555555">VLAN 10 - 10.1.10.0/24</text>
+<rect x="60" y="102" width="140" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="130.0" y="121.0" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">ERP</text>
+<text x="130.0" y="136.0" font-size="12" text-anchor="middle" fill="#111111">office</text>
+<rect x="230" y="102" width="140" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="300.0" y="128.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Office PCs</text>
+<rect x="650" y="70" width="520" height="90" rx="8" fill="#f7f7f7" stroke="#555555" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="660" y="88" font-size="13" text-anchor="start" fill="#111" font-weight="bold">Industrial DMZ (L3.5)</text>
+<text x="1160" y="88" font-size="11" text-anchor="end" fill="#555555">VLAN 20 - 10.1.20.0/24</text>
+<rect x="665" y="102" width="115" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="722.5" y="128.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">API proxy</text>
+<rect x="790" y="102" width="115" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="847.5" y="121.0" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Historian</text>
+<text x="847.5" y="136.0" font-size="12" text-anchor="middle" fill="#111111">mirror</text>
+<rect x="915" y="102" width="115" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="972.5" y="128.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Jump host</text>
+<rect x="1040" y="102" width="115" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="1097.5" y="128.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Patch / AV</text>
+<rect x="555" y="95" width="90" height="50" rx="4" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="600.0" y="116.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Firewall</text>
+<text x="600.0" y="131.5" font-size="12" text-anchor="middle" fill="#111111">FW1</text>
+<line x1="550" y1="120" x2="555" y2="120" stroke="#333" stroke-width="1.5"/>
+<line x1="645" y1="120" x2="650" y2="120" stroke="#333" stroke-width="1.5"/>
+<rect x="30" y="200" width="700" height="100" rx="8" fill="#f7f7f7" stroke="#555555" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="40" y="218" font-size="13" text-anchor="start" fill="#111" font-weight="bold">Manufacturing zone (L3)</text>
+<text x="720" y="218" font-size="11" text-anchor="end" fill="#555555">VLAN 30 - 10.1.30.0/24</text>
+<rect x="50" y="238" width="120" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="110.0" y="264.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">MES</text>
+<rect x="185" y="238" width="120" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="245.0" y="264.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">SCADA server</text>
+<rect x="320" y="238" width="120" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="380.0" y="264.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Historian</text>
+<rect x="455" y="238" width="120" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="515.0" y="264.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">NTP / PTP GM</text>
+<rect x="590" y="238" width="120" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="650.0" y="264.5" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Syslog</text>
+<rect x="760" y="200" width="410" height="100" rx="8" fill="#f7f7f7" stroke="#555555" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="770" y="218" font-size="13" text-anchor="start" fill="#111" font-weight="bold">Engineering zone</text>
+<text x="1160" y="218" font-size="11" text-anchor="end" fill="#555555">VLAN 40 - 10.1.40.0/24</text>
+<rect x="780" y="238" width="170" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="865.0" y="257.0" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Engineering WS</text>
+<text x="865.0" y="272.0" font-size="12" text-anchor="middle" fill="#111111">(dedicated)</text>
+<rect x="970" y="238" width="180" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="1060.0" y="257.0" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Back-up server</text>
+<text x="1060.0" y="272.0" font-size="12" text-anchor="middle" fill="#111111">offline scan station</text>
+<rect x="610" y="163" width="110" height="32" rx="4" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="665.0" y="183.0" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Firewall FW2</text>
+<line x1="665" y1="160" x2="665" y2="163" stroke="#333" stroke-width="1.5"/>
+<line x1="665" y1="195" x2="665" y2="200" stroke="#333" stroke-width="1.5"/>
+<rect x="320" y="322" width="200" height="36" rx="4" fill="#dbe9f6" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="420.0" y="344.0" font-size="12" text-anchor="middle" fill="#111111" font-weight="bold">Core switch (L3) + FW3</text>
+<line x1="420" y1="300" x2="420" y2="322" stroke="#333" stroke-width="1.5"/>
+<line x1="420" y1="358" x2="420" y2="380" stroke="#333" stroke-width="1.5"/>
+<line x1="860" y1="300" x2="520" y2="340" stroke="#555555" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="740" y="335" font-size="11" text-anchor="start" fill="#555555">eng -&gt; cells (time window)</text>
+<rect x="30" y="380" width="560" height="300" rx="8" fill="#eef5fc" stroke="#1f6fb2" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="40" y="398" font-size="13" text-anchor="start" fill="#1f6fb2" font-weight="bold">Cell zone FMS1 (L1-2)</text>
+<text x="580" y="398" font-size="11" text-anchor="end" fill="#555555">VLAN 101 - 10.1.101.0/24 - gw .1</text>
+<rect x="240" y="410" width="130" height="40" rx="4" fill="#fff" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="305.0" y="426.6666666666667" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">Cell switch</text>
+<text x="305.0" y="440.6666666666667" font-size="11" text-anchor="middle" fill="#111111">.240 (managed)</text>
+<line x1="305" y1="450" x2="127" y2="478" stroke="#555555" stroke-width="1"/>
+<line x1="305" y1="450" x2="307" y2="478" stroke="#555555" stroke-width="1"/>
+<line x1="305" y1="450" x2="487" y2="478" stroke="#555555" stroke-width="1"/>
+<line x1="305" y1="450" x2="127" y2="542" stroke="#555555" stroke-width="1"/>
+<line x1="305" y1="450" x2="307" y2="542" stroke="#555555" stroke-width="1"/>
+<line x1="305" y1="450" x2="487" y2="542" stroke="#555555" stroke-width="1"/>
+<rect x="45" y="478" width="165" height="48" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="127.5" y="498.6666666666667" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">CC01 .17</text>
+<text x="127.5" y="512.6666666666667" font-size="11" text-anchor="middle" fill="#111111">cell controller</text>
+<rect x="225" y="478" width="165" height="48" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="307.5" y="498.6666666666667" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">MC01 CNC .150</text>
+<text x="307.5" y="512.6666666666667" font-size="11" text-anchor="middle" fill="#111111">PLC .10 - HMI .100</text>
+<rect x="405" y="478" width="165" height="48" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="487.5" y="498.6666666666667" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">MC02 CNC .151</text>
+<text x="487.5" y="512.6666666666667" font-size="11" text-anchor="middle" fill="#111111">PLC .11 - HMI .101</text>
+<rect x="45" y="542" width="165" height="48" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="127.5" y="562.6666666666666" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">MC03 CNC .152</text>
+<text x="127.5" y="576.6666666666666" font-size="11" text-anchor="middle" fill="#111111">PLC .12 - HMI .102</text>
+<rect x="225" y="542" width="165" height="48" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="307.5" y="562.6666666666666" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">POOL01 PLC .13</text>
+<text x="307.5" y="576.6666666666666" font-size="11" text-anchor="middle" fill="#111111">drives .53 / .54</text>
+<rect x="405" y="542" width="165" height="48" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="487.5" y="562.6666666666666" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">LS01 / LS02</text>
+<text x="487.5" y="576.6666666666666" font-size="11" text-anchor="middle" fill="#111111">IO .55 / .56</text>
+<rect x="45" y="615" width="250" height="52" rx="4" fill="#fff" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="55" y="636" font-size="12" text-anchor="start" fill="#1f6fb2" font-weight="bold">Safety zone FMS1 (SL-T 3)</text>
+<text x="55" y="656" font-size="11" text-anchor="start" fill="#111111">SAFE01 .16 - PROFIsafe stays in the cell</text>
+<rect x="310" y="615" width="265" height="52" rx="4" fill="#fff" stroke="#333" stroke-width="1"/>
+<text x="320" y="636" font-size="12" text-anchor="start" fill="#111111" font-weight="bold">Inside each machine: PROFINET / EtherCAT</text>
+<text x="320" y="656" font-size="11" text-anchor="start" fill="#111111">own line or VLAN - never routed</text>
+<rect x="620" y="380" width="550" height="300" rx="8" fill="#f7f7f7" stroke="#555555" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="630" y="398" font-size="13" text-anchor="start" fill="#111" font-weight="bold">Cell zone ASM1 (L1-2)</text>
+<text x="1160" y="398" font-size="11" text-anchor="end" fill="#555555">VLAN 102 - 10.1.102.0/24</text>
+<rect x="820" y="420" width="140" height="40" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="890.0" y="443.6666666666667" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">Cell switch .240</text>
+<rect x="640" y="500" width="120" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="700.0" y="526.1666666666666" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">Line PLC .10</text>
+<line x1="890" y1="460" x2="700" y2="500" stroke="#555555" stroke-width="1"/>
+<rect x="770" y="500" width="120" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="830.0" y="526.1666666666666" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">ST01 ... ST05</text>
+<line x1="890" y1="460" x2="830" y2="500" stroke="#555555" stroke-width="1"/>
+<rect x="900" y="500" width="120" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="960.0" y="526.1666666666666" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">TEST01 / 02</text>
+<line x1="890" y1="460" x2="960" y2="500" stroke="#555555" stroke-width="1"/>
+<rect x="1030" y="500" width="120" height="45" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="1090.0" y="526.1666666666666" font-size="11" text-anchor="middle" fill="#111111" font-weight="bold">MARK01</text>
+<line x1="890" y1="460" x2="1090" y2="500" stroke="#555555" stroke-width="1"/>
+<line x1="520" y1="340" x2="890" y2="340" stroke="#333" stroke-width="1.5"/>
+<line x1="890" y1="340" x2="890" y2="420" stroke="#333" stroke-width="1.5"/>
+<text x="640" y="590" font-size="12" text-anchor="start" fill="#111111">Rules (Part G): default deny - conduits only between neighbour zones</text>
+<text x="640" y="610" font-size="12" text-anchor="start" fill="#111111">- office never directly to a cell</text>
+<text x="640" y="630" font-size="12" text-anchor="start" fill="#111111">- remote service only via the jump host</text>
+<text x="640" y="650" font-size="12" text-anchor="start" fill="#111111">- nothing in a cell talks to the internet (offline factory)</text>
+</svg>

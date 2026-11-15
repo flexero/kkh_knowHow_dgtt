@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, Helvetica, sans-serif">
+<title>ISA-88 / IEC 61512: procedural control model mapped to the physical model - translated to discrete manufacturing</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="17" text-anchor="start" fill="#111111" font-weight="bold">ISA-88 / IEC 61512: procedural control model mapped to the physical model - translated to discrete manufacturing</text>
+<text x="24.0" y="54.0" font-size="12" text-anchor="start" fill="#52514e">Left: procedural elements. Middle: the equipment that performs them. Right: what it means in an FMS / assembly line.</text>
+<rect x="50.0" y="90.0" width="250.0" height="70.0" rx="6" fill="#dbe7f5" stroke="#333" stroke-width="1.5"/>
+<text x="175.0" y="129.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">Procedure</text>
+<rect x="360.0" y="90.0" width="300.0" height="70.0" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="510.0" y="129.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">Process cell / work centre</text>
+<rect x="720.0" y="90.0" width="440.0" height="70.0" rx="6" fill="#fafaf7" stroke="#999" stroke-width="1"/>
+<text x="732.0" y="118.0" font-size="12" text-anchor="start" fill="#111111">Routing of the part family: OP10 machining, OP20 wash, OP30</text>
+<text x="732.0" y="136.0" font-size="12" text-anchor="start" fill="#111111">measure, OP40 assemble</text>
+<line x1="300.0" y1="125.0" x2="358.0" y2="125.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="660.0" y1="125.0" x2="718.0" y2="125.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="175.0" y1="160.0" x2="175.0" y2="178.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="50.0" y="185.0" width="250.0" height="70.0" rx="6" fill="#dcefe0" stroke="#333" stroke-width="1.5"/>
+<text x="175.0" y="224.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">Unit procedure</text>
+<rect x="360.0" y="185.0" width="300.0" height="70.0" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="510.0" y="224.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">Unit (MC02, WASH01, ST03)</text>
+<rect x="720.0" y="185.0" width="440.0" height="70.0" rx="6" fill="#fafaf7" stroke="#999" stroke-width="1"/>
+<text x="732.0" y="213.0" font-size="12" text-anchor="start" fill="#111111">One operation on one unit: 'machine CC20 on MC02 with</text>
+<text x="732.0" y="231.0" font-size="12" text-anchor="start" fill="#111111">O2010C, fixture F-CC20'</text>
+<line x1="300.0" y1="220.0" x2="358.0" y2="220.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="660.0" y1="220.0" x2="718.0" y2="220.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="175.0" y1="255.0" x2="175.0" y2="273.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="50.0" y="280.0" width="250.0" height="70.0" rx="6" fill="#fbf0d4" stroke="#333" stroke-width="1.5"/>
+<text x="175.0" y="319.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">Operation</text>
+<rect x="360.0" y="280.0" width="300.0" height="70.0" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="510.0" y="319.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">Unit</text>
+<rect x="720.0" y="280.0" width="440.0" height="70.0" rx="6" fill="#fafaf7" stroke="#999" stroke-width="1"/>
+<text x="732.0" y="308.0" font-size="12" text-anchor="start" fill="#111111">Major step inside the unit: 'set-up side A', 'machine side</text>
+<text x="732.0" y="326.0" font-size="12" text-anchor="start" fill="#111111">A', 'turn pallet B90', 'machine side B'</text>
+<line x1="300.0" y1="315.0" x2="358.0" y2="315.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="660.0" y1="315.0" x2="718.0" y2="315.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="175.0" y1="350.0" x2="175.0" y2="368.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="50.0" y="375.0" width="250.0" height="70.0" rx="6" fill="#f8dcd3" stroke="#333" stroke-width="1.5"/>
+<text x="175.0" y="414.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">Phase</text>
+<rect x="360.0" y="375.0" width="300.0" height="70.0" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="510.0" y="414.0" font-size="13" text-anchor="middle" fill="#111111" font-weight="bold">Equipment module (APC, spindle, nutrunner)</text>
+<rect x="720.0" y="375.0" width="440.0" height="70.0" rx="6" fill="#fafaf7" stroke="#999" stroke-width="1"/>
+<text x="732.0" y="403.0" font-size="12" text-anchor="start" fill="#111111">Smallest function with its own state model: clamp, change</text>
+<text x="732.0" y="421.0" font-size="12" text-anchor="start" fill="#111111">pallet, tighten M8 to 25 Nm, probe</text>
+<line x1="300.0" y1="410.0" x2="358.0" y2="410.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="660.0" y1="410.0" x2="718.0" y2="410.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<text x="50.0" y="490.0" font-size="13" text-anchor="start" fill="#111111" font-weight="bold">Recipe types (ISA-88) in discrete words:</text>
+<text x="60.0" y="514.0" font-size="12" text-anchor="start" fill="#111111">- General recipe: product + process, no equipment (drawing, process plan: 'bore 52 H7, Ra 0.8')</text>
+<text x="60.0" y="533.0" font-size="12" text-anchor="start" fill="#111111">- Site recipe: adapted to the site (material grades, local units, available machine group)</text>
+<text x="60.0" y="552.0" font-size="12" text-anchor="start" fill="#111111">- Master recipe: for one equipment class (routing R-CC20/C for HMC group, NC program family O2010)</text>
+<text x="60.0" y="571.0" font-size="12" text-anchor="start" fill="#111111">- Control recipe: the copy for ONE job (WO-4711-10, NC O2010 rev C, pallet P07, serials CC20-0812..0815, offsets)</text>
+</svg>

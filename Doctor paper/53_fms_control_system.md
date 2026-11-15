@@ -1,5 +1,14 @@
 # 53 – FMS control system of the compressor factory, item 1: architecture, interface specification (register map V1.2), job handshake, network, PLC implementation, virtual commissioning
 
+> **Update 2026-11-15 – register map V1.2b** (additive; header stays 0x0102). The AS/RS type block gets:
+> - commands 32 relocate and 33 park;
+> - status registers 304 crane state, 305 detail code, 306–307 x_mm, 308 z_mm;
+> - job parameters 405–407 source location and 408–409 crate id.
+>
+> `FB_FmsIf_V12` gets the input `AllowedCmdsHi` for command codes ≥ 32 (default 0, so existing devices are unchanged).
+> Details: guide 60 Part C.
+
+
 Software package **`fmsctl/`** (real control software, Python standard library, offline PC) · item **1 of 10** ·
 contract file `fmsctl/spec/regmap.py` · PLC templates `fmsctl/plc/` · acceptance test `fmsctl/tests/test_item1.py`.
 
@@ -3197,6 +3206,7 @@ The gaps found while writing this guide were partly closed in the code right aft
 | G4 | **fixed** | `core/modbus.py`: quantity 0 or > 125 (FC03/04) and quantity > 123 or byte count ≠ 2 × quantity (FC16) → exception **03**; address out of range → exception 02. New test check 18 (raw frame, 126 registers → exception 03). Unit id is still not checked (Modbus TCP direct connection – acceptable). |
 | G6 | **fixed** | `core/device.py` `command()`: (0) checks REQ = ACK; an old unanswered request is cancelled first; (1) job id + parameters in contiguous **FC16** frames; (2) FC16 for `cmd.code` + `cmd.seq`; (3) FC06 flips REQ last. Write phase 3 frames instead of 11. |
 | G18 (new) | **fixed** | the job-id counter is shared by the cell controller and the logistics thread; it is now protected by a lock (`CellController.new_job_id()`). |
+| G16 (new, found by the fault-injection study of SCI paper 3) | **fixed** | a stale REQ toggle – e.g. a late FC06 frame of an old TCP connection arriving after the next command – made the PLC run the current job twice (20 of 20 cases with the V1.2 logic). **Sequence guard (map V1.2a):** the PLC accepts a toggle only if `cmd.seq` ≠ the last `hs.ackSeq`; otherwise it ignores it, REQ ≠ ACK stays visible and the controller cancels the old request before the next command. Added to the virtual plant and to both PLC templates (`fmsctl/plc/siemens_v12_interface.scl`, `delta_v12_interface.st`); new test check in `test_item1`. Write this rule into the purchase specification for every supplier PLC. |
 | G5, G7 – G15 | open | still as in the table above; G7 (event-block reader) and G8 (clock register, map V1.3) are planned together with the MES (item 5). |
 
 ---

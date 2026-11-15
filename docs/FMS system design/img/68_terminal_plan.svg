@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="1200" height="760" font-family="Arial, Helvetica, sans-serif">
+<title>Terminal plan example: M03 POOL01 strip -XD2, terminals 12–28</title>
+<rect x="0" y="0" width="1200" height="760" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" text-anchor="start" font-weight="bold" fill="#111">Terminal plan example: M03 POOL01 strip -XD2, terminals 12–28</text>
+<text x="24" y="54" font-size="12" text-anchor="start" fill="#555">Inner side: IO card channel or PSU · outer side: field cable and core · io terminals first, then the supply terminals (tx) of the same instance.</text>
+<rect x="40" y="76" width="1120" height="28" rx="0" fill="#f2f2f2" stroke="#111" stroke-width="1.5"/>
+<text x="50" y="95" font-size="12" text-anchor="start" font-weight="bold" fill="#111">-XD2:</text>
+<text x="130" y="95" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Inner connection (cabinet)</text>
+<text x="420" y="95" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Function / tag (short)</text>
+<text x="760" y="95" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Kind</text>
+<text x="860" y="95" font-size="12" text-anchor="start" font-weight="bold" fill="#111">Outer connection (field)</text>
+<line x1="40" y1="138" x2="1160" y2="138" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="121" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="95" y="126" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">12</text>
+<text x="130" y="126" font-size="11" text-anchor="start" fill="#111">-KF1.FDI1.01  (F-card, test pulse T1)</text>
+<text x="420" y="126" font-size="11" text-anchor="start" fill="#c0392b">Door.Closed</text>
+<text x="760" y="126" font-size="11" text-anchor="start" fill="#c0392b">FDI</text>
+<text x="860" y="126" font-size="11" text-anchor="start" fill="#111">-WD7 core 1 (Door)</text>
+<line x1="40" y1="172" x2="1160" y2="172" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="155" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="95" y="160" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">13</text>
+<text x="130" y="160" font-size="11" text-anchor="start" fill="#111">-KF1.FDI1.02  (F-card, test pulse T2)</text>
+<text x="420" y="160" font-size="11" text-anchor="start" fill="#c0392b">Door.Closed2</text>
+<text x="760" y="160" font-size="11" text-anchor="start" fill="#c0392b">FDI</text>
+<text x="860" y="160" font-size="11" text-anchor="start" fill="#111">-WD7 core 2 (Door)</text>
+<line x1="40" y1="206" x2="1160" y2="206" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="189" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="95" y="194" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">14</text>
+<text x="130" y="194" font-size="11" text-anchor="start" fill="#111">-KF1.FDI1.03  (F-card, test pulse T1)</text>
+<text x="420" y="194" font-size="11" text-anchor="start" fill="#c0392b">Door.Locked</text>
+<text x="760" y="194" font-size="11" text-anchor="start" fill="#c0392b">FDI</text>
+<text x="860" y="194" font-size="11" text-anchor="start" fill="#111">-WD7 core 3 (Door)</text>
+<line x1="40" y1="240" x2="1160" y2="240" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="223" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="95" y="228" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">15</text>
+<text x="130" y="228" font-size="11" text-anchor="start" fill="#111">-KF1.FDI1.04  (F-card, test pulse T2)</text>
+<text x="420" y="228" font-size="11" text-anchor="start" fill="#c0392b">Door.Locked2</text>
+<text x="760" y="228" font-size="11" text-anchor="start" fill="#c0392b">FDI</text>
+<text x="860" y="228" font-size="11" text-anchor="start" fill="#111">-WD7 core 4 (Door)</text>
+<line x1="40" y1="274" x2="1160" y2="274" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="257" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="95" y="262" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">16</text>
+<text x="130" y="262" font-size="11" text-anchor="start" fill="#111">-KF1.FDO2.00</text>
+<text x="420" y="262" font-size="11" text-anchor="start" fill="#c0392b">Door.LockCmd</text>
+<text x="760" y="262" font-size="11" text-anchor="start" fill="#c0392b">FDO</text>
+<text x="860" y="262" font-size="11" text-anchor="start" fill="#111">-WD7 core 5 (Door)</text>
+<line x1="40" y1="308" x2="1160" y2="308" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="291" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="95" y="296" font-size="12" text-anchor="start" font-weight="bold" fill="#111">17</text>
+<text x="130" y="296" font-size="11" text-anchor="start" fill="#111">-KF1.DI1.06</text>
+<text x="420" y="296" font-size="11" text-anchor="start" fill="#111">Door.Request</text>
+<text x="760" y="296" font-size="11" text-anchor="start" fill="#111">DI</text>
+<text x="860" y="296" font-size="11" text-anchor="start" fill="#111">-WD7 core 6 (Door)</text>
+<line x1="40" y1="342" x2="1160" y2="342" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="325" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="95" y="330" font-size="12" text-anchor="start" font-weight="bold" fill="#111">18</text>
+<text x="130" y="330" font-size="11" text-anchor="start" fill="#111">-TB1 24 V ch2 (ECB -FC)</text>
+<text x="420" y="330" font-size="11" text-anchor="start" fill="#111">Door (+24 V field supply)</text>
+<text x="760" y="330" font-size="11" text-anchor="start" fill="#111">supply</text>
+<text x="860" y="330" font-size="11" text-anchor="start" fill="#111">-WD7 core 7 (Door)</text>
+<line x1="40" y1="376" x2="1160" y2="376" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="359" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="95" y="364" font-size="12" text-anchor="start" font-weight="bold" fill="#111">19</text>
+<text x="130" y="364" font-size="11" text-anchor="start" fill="#111">0 V bar</text>
+<text x="420" y="364" font-size="11" text-anchor="start" fill="#111">Door (0 V field supply)</text>
+<text x="760" y="364" font-size="11" text-anchor="start" fill="#111">supply</text>
+<text x="860" y="364" font-size="11" text-anchor="start" fill="#111">-WD7 core 8 (Door)</text>
+<line x1="40" y1="410" x2="1160" y2="410" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="393" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="95" y="398" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">20</text>
+<text x="130" y="398" font-size="11" text-anchor="start" fill="#111">-KF1.FDI1.05  (F-card, test pulse T1)</text>
+<text x="420" y="398" font-size="11" text-anchor="start" fill="#c0392b">Estop.Ok</text>
+<text x="760" y="398" font-size="11" text-anchor="start" fill="#c0392b">FDI</text>
+<text x="860" y="398" font-size="11" text-anchor="start" fill="#111">-WD8 core 1 (Estop)</text>
+<line x1="40" y1="444" x2="1160" y2="444" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="427" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="95" y="432" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">21</text>
+<text x="130" y="432" font-size="11" text-anchor="start" fill="#111">-KF1.FDI1.06  (F-card, test pulse T2)</text>
+<text x="420" y="432" font-size="11" text-anchor="start" fill="#c0392b">Estop.Ok2</text>
+<text x="760" y="432" font-size="11" text-anchor="start" fill="#c0392b">FDI</text>
+<text x="860" y="432" font-size="11" text-anchor="start" fill="#111">-WD8 core 2 (Estop)</text>
+<line x1="40" y1="478" x2="1160" y2="478" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="461" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="95" y="466" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">22</text>
+<text x="130" y="466" font-size="11" text-anchor="start" fill="#111">-KF1.FDI1.07  (F-card, test pulse T1)</text>
+<text x="420" y="466" font-size="11" text-anchor="start" fill="#c0392b">Enable.Ok</text>
+<text x="760" y="466" font-size="11" text-anchor="start" fill="#c0392b">FDI</text>
+<text x="860" y="466" font-size="11" text-anchor="start" fill="#111">-WD9 core 1 (Enable)</text>
+<line x1="40" y1="512" x2="1160" y2="512" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="495" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="95" y="500" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">23</text>
+<text x="130" y="500" font-size="11" text-anchor="start" fill="#111">-KF1.FDI2.00  (F-card, test pulse T2)</text>
+<text x="420" y="500" font-size="11" text-anchor="start" fill="#c0392b">Enable.Ok2</text>
+<text x="760" y="500" font-size="11" text-anchor="start" fill="#c0392b">FDI</text>
+<text x="860" y="500" font-size="11" text-anchor="start" fill="#111">-WD9 core 2 (Enable)</text>
+<line x1="40" y1="546" x2="1160" y2="546" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="529" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="95" y="534" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">24</text>
+<text x="130" y="534" font-size="11" text-anchor="start" fill="#111">-KF1.FDI2.01  (F-card, test pulse T1)</text>
+<text x="420" y="534" font-size="11" text-anchor="start" fill="#c0392b">Mode.Auto</text>
+<text x="760" y="534" font-size="11" text-anchor="start" fill="#c0392b">FDI</text>
+<text x="860" y="534" font-size="11" text-anchor="start" fill="#111">-WD10 core 1 (Mode)</text>
+<line x1="40" y1="580" x2="1160" y2="580" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="563" r="4" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="95" y="568" font-size="12" text-anchor="start" font-weight="bold" fill="#c0392b">25</text>
+<text x="130" y="568" font-size="11" text-anchor="start" fill="#111">-KF1.FDI2.02  (F-card, test pulse T2)</text>
+<text x="420" y="568" font-size="11" text-anchor="start" fill="#c0392b">Mode.Maint</text>
+<text x="760" y="568" font-size="11" text-anchor="start" fill="#c0392b">FDI</text>
+<text x="860" y="568" font-size="11" text-anchor="start" fill="#111">-WD10 core 2 (Mode)</text>
+<line x1="40" y1="614" x2="1160" y2="614" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="597" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="95" y="602" font-size="12" text-anchor="start" font-weight="bold" fill="#111">26</text>
+<text x="130" y="602" font-size="11" text-anchor="start" fill="#111">-KF1.DI1.07</text>
+<text x="420" y="602" font-size="11" text-anchor="start" fill="#111">TravLimF.On</text>
+<text x="760" y="602" font-size="11" text-anchor="start" fill="#111">DI</text>
+<text x="860" y="602" font-size="11" text-anchor="start" fill="#111">-WD11 core 1 (TravLimF)</text>
+<line x1="40" y1="648" x2="1160" y2="648" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="631" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="95" y="636" font-size="12" text-anchor="start" font-weight="bold" fill="#111">27</text>
+<text x="130" y="636" font-size="11" text-anchor="start" fill="#111">-TB1 24 V ch2 (ECB -FC)</text>
+<text x="420" y="636" font-size="11" text-anchor="start" fill="#111">TravLimF (+24 V field supply)</text>
+<text x="760" y="636" font-size="11" text-anchor="start" fill="#111">supply</text>
+<text x="860" y="636" font-size="11" text-anchor="start" fill="#111">-WD11 core 2 (TravLimF)</text>
+<line x1="40" y1="682" x2="1160" y2="682" stroke="#ddd" stroke-width="1"/>
+<circle cx="80" cy="665" r="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+<text x="95" y="670" font-size="12" text-anchor="start" font-weight="bold" fill="#111">28</text>
+<text x="130" y="670" font-size="11" text-anchor="start" fill="#111">0 V bar</text>
+<text x="420" y="670" font-size="11" text-anchor="start" fill="#111">TravLimF (0 V field supply)</text>
+<text x="760" y="670" font-size="11" text-anchor="start" fill="#111">supply</text>
+<text x="860" y="670" font-size="11" text-anchor="start" fill="#111">-WD11 core 3 (TravLimF)</text>
+<text x="40" y="700" font-size="11" text-anchor="start" fill="#111">Rule: terminals = 31 io + 11 tx = 42 (B0.6). Red = safety signals (F-DI / F-DO). Core numbers are an example assignment; the device data sheet fixes the M12 pins.</text>
+<text x="24" y="746" font-size="11" text-anchor="start" fill="#666">Teaching example – not for construction. Real circuits: qualified engineers, IEC 60204-1, ISO 13849, maker data.</text>
+</svg>

@@ -1,0 +1,204 @@
+{
+ "_note": "input of conv_3d stations / drawings D16-D20 (mm)",
+ "pd_end": {
+  "guide_gap": 25,
+  "lead_in_deg": 15,
+  "lead_in_len": 150,
+  "transfer_gap": 30,
+  "buffer_stroke": 12,
+  "light_curtain": "muting, at the lane end"
+ },
+ "check": {
+  "w_lim": 20,
+  "fr_lim": 20,
+  "h_lim": 620,
+  "grid_res": 14,
+  "cells": 4,
+  "cell_cap_kg": 500,
+  "frame": "portal over TU1: 2 vertical light grids at +-(400 + w_lim), 1 horizontal grid at h_lim above the conveyor top, ID reader on the operator side"
+ },
+ "pick": {
+  "trolley_places": 2,
+  "bins_per_crate": 8,
+  "bin": "600 x 400 x 147.5 (VDA RL-KLT 6147 class), 2 layers x 4",
+  "platform_h": 300,
+  "pick_to_light": true,
+  "shelf_for_bins": true
+ },
+ "flow": {
+  "slope_pct": 5.5,
+  "lane_len_m": 4.199999999999999,
+  "brake_spacing_m": 1.05,
+  "lanes": [
+   [
+    "HMC",
+    "C01",
+    4,
+    5,
+    2,
+    4.2
+   ],
+   [
+    "HMC",
+    "R01 (running RB variant)",
+    1,
+    2,
+    1,
+    2.8
+   ],
+   [
+    "HMC",
+    "R02 (running RB variant)",
+    1,
+    2,
+    1,
+    2.8
+   ],
+   [
+    "HMC",
+    "R03 (running RB variant)",
+    1,
+    2,
+    1,
+    2.8
+   ],
+   [
+    "HMC",
+    "empty-crate return (powered)",
+    0,
+    3,
+    1,
+    4.2
+   ],
+   [
+    "ROT",
+    "C07",
+    2,
+    3,
+    1,
+    4.2
+   ],
+   [
+    "ROT",
+    "C09",
+    4,
+    5,
+    2,
+    4.2
+   ],
+   [
+    "ROT",
+    "R06 (running RB variant)",
+    1,
+    2,
+    1,
+    2.8
+   ],
+   [
+    "ROT",
+    "R07 (running RB variant)",
+    1,
+    2,
+    1,
+    2.8
+   ],
+   [
+    "ROT",
+    "empty-crate return (powered)",
+    0,
+    3,
+    1,
+    4.2
+   ],
+   [
+    "VMC",
+    "C02",
+    1,
+    2,
+    1,
+    2.8
+   ],
+   [
+    "VMC",
+    "C03",
+    1,
+    2,
+    1,
+    2.8
+   ],
+   [
+    "VMC",
+    "C04",
+    4,
+    5,
+    2,
+    4.2
+   ],
+   [
+    "VMC",
+    "C05",
+    2,
+    3,
+    1,
+    4.2
+   ],
+   [
+    "VMC",
+    "C06",
+    2,
+    3,
+    1,
+    4.2
+   ],
+   [
+    "VMC",
+    "C08",
+    1,
+    2,
+    1,
+    2.8
+   ],
+   [
+    "VMC",
+    "R04 (running RB variant)",
+    1,
+    2,
+    1,
+    2.8
+   ],
+   [
+    "VMC",
+    "R05 (running RB variant)",
+    1,
+    2,
+    1,
+    2.8
+   ],
+   [
+    "VMC",
+    "empty-crate return (powered)",
+    0,
+    3,
+    1,
+    4.2
+   ]
+  ],
+  "entry_mm": 900,
+  "exit_mm": 669,
+  "return": "powered, ball-transfer deck at the exit"
+ },
+ "hmc": {
+  "table_top_mm": 900,
+  "pallet_mm": 500,
+  "tomb_mm": [
+   400,
+   400,
+   800
+  ],
+  "index_motor_kW": 0.12,
+  "clamp_bore": 20,
+  "light_curtain_S_mm": 680,
+  "jib_radius_m": 3.0,
+  "jib_swl_kg": 125
+ }
+}

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="Arial, Helvetica, sans-serif">
+<title>The simulation project in 10 steps (after VDI 3633 part 1) with verification and validation along the way</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker></defs>
+<rect x="0" y="0" width="1200" height="560" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-size="17" text-anchor="start" fill="#111111" font-weight="bold">The simulation project in 10 steps (after VDI 3633 part 1) with verification and validation along the way</text>
+<text x="24.0" y="54.0" font-size="12" text-anchor="start" fill="#52514e">Every step produces a document. V&amp;V (blue) is not a final step – it runs beside every step.</text>
+<rect x="40.0" y="100.0" width="190.0" height="80.0" rx="8" fill="#f4f3ef" stroke="#333" stroke-width="1.5"/>
+<text x="135.0" y="134.0" font-size="13.5" text-anchor="middle" fill="#111111" font-weight="bold">1 Problem + objectives</text>
+<text x="135.0" y="156.0" font-size="11.5" text-anchor="middle" fill="#52514e">questions, KPIs, decision</text>
+<line x1="230.0" y1="140.0" x2="268.0" y2="140.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="270.0" y="100.0" width="190.0" height="80.0" rx="8" fill="#f4f3ef" stroke="#333" stroke-width="1.5"/>
+<text x="365.0" y="134.0" font-size="13.5" text-anchor="middle" fill="#111111" font-weight="bold">2 System analysis</text>
+<text x="365.0" y="156.0" font-size="11.5" text-anchor="middle" fill="#52514e">boundary, level of detail</text>
+<line x1="460.0" y1="140.0" x2="498.0" y2="140.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="500.0" y="100.0" width="190.0" height="80.0" rx="8" fill="#f4f3ef" stroke="#333" stroke-width="1.5"/>
+<text x="595.0" y="134.0" font-size="13.5" text-anchor="middle" fill="#111111" font-weight="bold">3 Conceptual model</text>
+<text x="595.0" y="156.0" font-size="11.5" text-anchor="middle" fill="#52514e">entities, resources, logic</text>
+<line x1="690.0" y1="140.0" x2="728.0" y2="140.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="730.0" y="100.0" width="190.0" height="80.0" rx="8" fill="#f4f3ef" stroke="#333" stroke-width="1.5"/>
+<text x="825.0" y="134.0" font-size="13.5" text-anchor="middle" fill="#111111" font-weight="bold">4 Data collection</text>
+<text x="825.0" y="156.0" font-size="11.5" text-anchor="middle" fill="#52514e">times, MTTF/MTTR, mix</text>
+<line x1="920.0" y1="140.0" x2="958.0" y2="140.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="960.0" y="100.0" width="190.0" height="80.0" rx="8" fill="#f4f3ef" stroke="#333" stroke-width="1.5"/>
+<text x="1055.0" y="134.0" font-size="13.5" text-anchor="middle" fill="#111111" font-weight="bold">5 Model building</text>
+<text x="1055.0" y="156.0" font-size="11.5" text-anchor="middle" fill="#52514e">software, code, animation</text>
+<line x1="1055.0" y1="180.0" x2="1055.0" y2="288.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="960.0" y="290.0" width="190.0" height="80.0" rx="8" fill="#e8f0fb" stroke="#333" stroke-width="1.5"/>
+<text x="1055.0" y="324.0" font-size="13.5" text-anchor="middle" fill="#111111" font-weight="bold">6 Verification</text>
+<text x="1055.0" y="346.0" font-size="11.5" text-anchor="middle" fill="#52514e">model = concept? (debug)</text>
+<line x1="960.0" y1="330.0" x2="922.0" y2="330.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="730.0" y="290.0" width="190.0" height="80.0" rx="8" fill="#e8f0fb" stroke="#333" stroke-width="1.5"/>
+<text x="825.0" y="324.0" font-size="13.5" text-anchor="middle" fill="#111111" font-weight="bold">7 Validation</text>
+<text x="825.0" y="346.0" font-size="11.5" text-anchor="middle" fill="#52514e">model = reality? (KPIs)</text>
+<line x1="730.0" y1="330.0" x2="692.0" y2="330.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="500.0" y="290.0" width="190.0" height="80.0" rx="8" fill="#f4f3ef" stroke="#333" stroke-width="1.5"/>
+<text x="595.0" y="324.0" font-size="13.5" text-anchor="middle" fill="#111111" font-weight="bold">8 Experiments</text>
+<text x="595.0" y="346.0" font-size="11.5" text-anchor="middle" fill="#52514e">plan, warm-up, replications</text>
+<line x1="500.0" y1="330.0" x2="462.0" y2="330.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="270.0" y="290.0" width="190.0" height="80.0" rx="8" fill="#f4f3ef" stroke="#333" stroke-width="1.5"/>
+<text x="365.0" y="324.0" font-size="13.5" text-anchor="middle" fill="#111111" font-weight="bold">9 Output analysis</text>
+<text x="365.0" y="346.0" font-size="11.5" text-anchor="middle" fill="#52514e">mean ± CI, compare</text>
+<line x1="270.0" y1="330.0" x2="232.0" y2="330.0" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="40.0" y="290.0" width="190.0" height="80.0" rx="8" fill="#f4f3ef" stroke="#333" stroke-width="1.5"/>
+<text x="135.0" y="324.0" font-size="13.5" text-anchor="middle" fill="#111111" font-weight="bold">10 Documentation + use</text>
+<text x="135.0" y="346.0" font-size="11.5" text-anchor="middle" fill="#52514e">report, keep model alive</text>
+<rect x="40.0" y="420.0" width="1110.0" height="44.0" rx="6" fill="#e8f0fb" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="595.0" y="447.0" font-size="12.5" text-anchor="middle" fill="#111111" font-weight="bold">Verification &amp; validation in every step: data checks, logic walk-through, trace of single parts, Little's law, laws of closed systems, MVA, real KPIs</text>
+<line x1="270.0" y1="290.0" x2="270.0" y2="230.0" stroke="#e34948" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+<text x="280.0" y="255.0" font-size="11.5" text-anchor="start" fill="#e34948">not valid: back to concept / data</text>
+<text x="40.0" y="500.0" font-size="12" text-anchor="start" fill="#52514e">Typical effort share: objectives + concept 15 %, data 30–40 %, building 20–25 %, V&amp;V 10–15 %, experiments + report 15–20 % (rule of thumb).</text>
+<text x="40.0" y="520.0" font-size="12" text-anchor="start" fill="#52514e">VDI 3633 part 1 sets the procedure; data collection is usually the longest step. Without clear objectives (step 1) a model never ends.</text>
+</svg>

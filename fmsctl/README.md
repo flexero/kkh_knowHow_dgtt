@@ -11,7 +11,7 @@ fmsctl/
   core/modbus.py        Modbus TCP client + server
   core/device.py        typed access + toggle-bit job handshake
   sim/virtual_plant.py  21 simulated PLCs for virtual commissioning
-  tests/test_item1.py   acceptance test of item 1 (20 checks)
+  tests/test_item1.py   acceptance test of item 1 (21 checks)
   plc/*.scl, plc/*.st   PLC templates of the V1.2 interface: Siemens S7-1200/1500 (SCL) and Delta AS (ST) – not yet compiled
   cell/controller.py    FMS cell controller (item 2): polling, job completion, dispatching (EDD / FIFO), fixtures, recovery
   cell/db.py            SQLite persistence (pallet content, work orders, jobs, events)
@@ -28,7 +28,7 @@ fmsctl/
 
 | Item | Content | Status |
 |---|---|---|
-| 1 | interface specification, Modbus driver, virtual plant | done – 20 / 20 checks |
+| 1 | interface specification, Modbus driver, virtual plant | done – 21 / 21 checks |
 | 2 | FMS cell controller + operator screen | done – 15 / 15 checks |
 | 3 | tool management + setter screen | done – 11 / 11 checks |
 | 4 | AGV fleet manager + AS/RS warehouse management | done – 15 / 15 checks |

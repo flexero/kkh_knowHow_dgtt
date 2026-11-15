@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#ffffff"/>
+<text x="30.00" y="20.00" font-family="Arial" font-size="3.00" text-anchor="start" font-weight="bold" fill="#000">PLAN load station 1:50 (4 rack places, rack = 4 tanks 2 x 2)</text>
+<rect x="80.00" y="84.20" width="80.00" height="15.60" fill="#dde7f3" stroke="#000" stroke-width="0.30"/>
+<rect x="102.00" y="84.00" width="36.00" height="16.00" fill="#eef3fa" stroke="#000" stroke-width="0.30"/>
+<rect x="43.00" y="116.40" width="34.00" height="23.00" fill="#ffffff" stroke="#000" stroke-width="0.30"/>
+<text x="60.00" y="128.90" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">empty rack</text>
+<rect x="83.00" y="116.40" width="34.00" height="23.00" fill="#ffe699" stroke="#000" stroke-width="0.30"/>
+<text x="100.00" y="128.90" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">4 tanks</text>
+<rect x="123.00" y="116.40" width="34.00" height="23.00" fill="#ffe699" stroke="#000" stroke-width="0.30"/>
+<text x="140.00" y="128.90" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">4 tanks</text>
+<rect x="163.00" y="116.40" width="34.00" height="23.00" fill="#ffe699" stroke="#000" stroke-width="0.30"/>
+<text x="180.00" y="128.90" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">4 tanks</text>
+<circle cx="168.00" cy="108.40" r="70.00" fill="none" stroke="#000" stroke-width="0.20"/>
+<circle cx="168.00" cy="108.40" r="2.20" fill="#999999" stroke="#000" stroke-width="0.30"/>
+<text x="168.00" y="36.90" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">jib R 3500 + vacuum tank lifter (SWL 125 kg)</text>
+<text x="250.00" y="110.00" font-family="Arial" font-size="3.00" text-anchor="start" font-weight="bold" fill="#000">DETAIL test-bench docking 1:20 (elevation)</text>
+<rect x="277.50" y="125.00" width="65.00" height="105.00" fill="none" stroke="#000" stroke-width="0.30"/>
+<rect x="290.00" y="200.60" width="40.00" height="4.40" fill="#eef3fa" stroke="#000" stroke-width="0.30"/>
+<rect x="300.00" y="165.60" width="20.00" height="35.00" fill="#f8cbad" stroke="#000" stroke-width="0.30"/>
+<rect x="345.00" y="192.60" width="20.00" height="3.00" fill="#dddddd" stroke="#000" stroke-width="0.30"/>
+<rect x="345.50" y="185.60" width="12.00" height="7.00" fill="#c6e0b4" stroke="#000" stroke-width="0.30"/>
+<text x="351.50" y="183.60" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">docking slide</text>
+<text x="310.00" y="123.00" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">sound hood (ISO 2151)</text>
+<text x="30.00" y="212.00" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">- air outlet quick coupling DN15 (11 bar) to the test bench receiver /</text>
+<text x="30.00" y="216.20" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">flow meter (ISO 1217)</text>
+<text x="30.00" y="220.40" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">- 400 V 16 A CEE plug for the motor (via the bench contactor and power</text>
+<text x="30.00" y="224.60" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">meter)</text>
+<text x="30.00" y="228.80" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">- condensate hose</text>
+<text x="30.00" y="233.00" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">- noise: bench hood closes over the unit (ISO 2151)</text>
+<text x="30.00" y="237.20" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">- carrier located by lift-and-locate pins +-0.5 mm so the couplings</text>
+<text x="30.00" y="241.40" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">are made by a pneumatic docking slide</text>
+<text x="30.00" y="190.00" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">Tank rack 4 x 62 kg + 50 kg = 298 kg (AGV payload 300 kg -> OK). Per</text>
+<text x="30.00" y="194.20" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">month: 750 tank racks, 100 RB frame racks, 425 motor crates -> 2550</text>
+<text x="30.00" y="198.40" font-family="Arial" font-size="2.10" text-anchor="start" fill="#000">AGV moves/month (full + empty), 9.3 /h at peak -> input F5.</text>
+<rect x="0.30" y="0.30" width="419.40" height="296.40" fill="none" stroke="#000" stroke-width="0.20"/>
+<rect x="20.00" y="10.00" width="390.00" height="277.00" fill="none" stroke="#000" stroke-width="0.70"/>
+<line x1="210.00" y1="0.00" x2="210.00" y2="10.00" stroke="#000" stroke-width="0.70"/>
+<line x1="210.00" y1="287.00" x2="210.00" y2="297.00" stroke="#000" stroke-width="0.70"/>
+<line x1="10.00" y1="148.50" x2="20.00" y2="148.50" stroke="#000" stroke-width="0.70"/>
+<line x1="410.00" y1="148.50" x2="420.00" y2="148.50" stroke="#000" stroke-width="0.70"/>
+<text x="44.38" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">1</text>
+<text x="93.12" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">2</text>
+<text x="141.88" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">3</text>
+<text x="190.62" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">4</text>
+<text x="239.38" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">5</text>
+<text x="288.12" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">6</text>
+<text x="336.88" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">7</text>
+<text x="385.62" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">8</text>
+<text x="15.00" y="33.08" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">A</text>
+<text x="15.00" y="79.25" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">B</text>
+<text x="15.00" y="125.42" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">C</text>
+<text x="15.00" y="171.58" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">D</text>
+<text x="15.00" y="217.75" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">E</text>
+<text x="15.00" y="263.92" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">F</text>
+<rect x="230.00" y="231.00" width="180.00" height="56.00" fill="none" stroke="#000" stroke-width="0.70"/>
+<rect x="230.00" y="231.00" width="90.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="233.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Company / owner</text>
+<text x="231.00" y="239.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">[company name - fill in]</text>
+<rect x="320.00" y="231.00" width="90.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="321.00" y="233.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Project</text>
+<text x="321.00" y="239.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">Combined FMS VC20 + RB - item F4.4 assembly line</text>
+<rect x="230.00" y="241.00" width="180.00" height="12.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="243.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Title</text>
+<text x="231.00" y="251.00" font-family="Arial" font-size="3.20" text-anchor="start" font-weight="bold" fill="#000">Load station + tank rack; test-bench docking detail</text>
+<rect x="230.00" y="253.00" width="50.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Drawing no.</text>
+<text x="231.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" font-weight="bold" fill="#000">F4-ASM-D25</text>
+<rect x="280.00" y="253.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="281.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Scale</text>
+<text x="281.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">1:50 / 1:20</text>
+<rect x="310.00" y="253.00" width="20.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="311.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Size</text>
+<text x="311.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">A3</text>
+<rect x="330.00" y="253.00" width="20.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="331.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Sheet</text>
+<text x="331.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">1/1</text>
+<rect x="350.00" y="253.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="351.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Date</text>
+<text x="351.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">2026-11-15</text>
+<rect x="380.00" y="253.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="381.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Rev.</text>
+<text x="381.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">0</text>
+<rect x="230.00" y="263.00" width="60.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Material</text>
+<text x="231.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">see parts list</text>
+<rect x="290.00" y="263.00" width="40.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="291.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">General tolerance</text>
+<text x="291.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">ISO 2768-mK</text>
+<rect x="330.00" y="263.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="331.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Drawn</text>
+<text x="331.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">asm_3d.py</text>
+<rect x="360.00" y="263.00" width="50.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="361.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Checked / released</text>
+<text x="361.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">- / -</text>
+<rect x="230.00" y="273.00" width="40.00" height="14.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="275.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Projection ISO 5456-2</text>
+<polygon points="238.00,279.90 247.00,278.30 247.00,284.70 238.00,283.10" fill="none" stroke="#000" stroke-width="0.30"/>
+<line x1="237.00" y1="281.50" x2="248.00" y2="281.50" stroke="#000" stroke-width="0.15" stroke-dasharray="1.5 0.6 0.3 0.6"/>
+<circle cx="255.00" cy="281.50" r="3.20" fill="none" stroke="#000" stroke-width="0.30"/>
+<circle cx="255.00" cy="281.50" r="1.60" fill="none" stroke="#000" stroke-width="0.30"/>
+<line x1="250.80" y1="281.50" x2="259.20" y2="281.50" stroke="#000" stroke-width="0.15" stroke-dasharray="1.5 0.6 0.3 0.6"/>
+<line x1="255.00" y1="277.30" x2="255.00" y2="285.70" stroke="#000" stroke-width="0.15" stroke-dasharray="1.5 0.6 0.3 0.6"/>
+<rect x="270.00" y="273.00" width="140.00" height="14.00" fill="#fff2cc" stroke="#000" stroke-width="0.25"/>
+<text x="272.00" y="279.00" font-family="Arial" font-size="2.80" text-anchor="start" font-weight="bold" fill="#000">DESIGN - to be checked and released by the responsible engineer</text>
+<text x="272.00" y="284.00" font-family="Arial" font-size="2.00" text-anchor="start" fill="#000">Generated from assembly_specs.json (F4.4). Do not scale - use the dimensions.</text>
+</svg>

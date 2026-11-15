@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" font-family="Arial, Helvetica, sans-serif">
+<title>Safety function chain and the designated architectures of ISO 13849-1</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker></defs>
+<rect x="0" y="0" width="1200" height="620" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" fill="#111" font-weight="bold">Safety function = input → logic → output; categories B, 1, 2, 3, 4 (designated architectures)</text>
+<text x="24" y="54" font-size="12" fill="#555">I = input (sensor) · L = logic · O = output (actuator) · TE / OTE = test equipment and its output · m = monitoring (cross-check, EDM)</text>
+<g font-size="13" fill="#111">
+<!-- Cat B/1 -->
+<text x="40" y="100" font-weight="bold">Cat B / 1 – single channel</text>
+<rect x="40" y="114" width="60" height="36" fill="#f4f4f4" stroke="#333"/><text x="64" y="137">I</text>
+<line x1="100" y1="132" x2="150" y2="132" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="150" y="114" width="60" height="36" fill="#f4f4f4" stroke="#333"/><text x="174" y="137">L</text>
+<line x1="210" y1="132" x2="260" y2="132" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="260" y="114" width="60" height="36" fill="#f4f4f4" stroke="#333"/><text x="282" y="137">O</text>
+<text x="40" y="176" font-size="12">B: basic principles → max PL b</text>
+<text x="40" y="194" font-size="12">1: well-tried components, MTTFd high → max PL c</text>
+<text x="40" y="212" font-size="12">a single fault loses the function (SF6 first design)</text>
+<!-- Cat 2 -->
+<text x="440" y="100" font-weight="bold">Cat 2 – single channel + test</text>
+<rect x="440" y="114" width="60" height="36" fill="#f4f4f4" stroke="#333"/><text x="464" y="137">I</text>
+<line x1="500" y1="132" x2="550" y2="132" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="550" y="114" width="60" height="36" fill="#f4f4f4" stroke="#333"/><text x="574" y="137">L</text>
+<line x1="610" y1="132" x2="660" y2="132" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="660" y="114" width="60" height="36" fill="#f4f4f4" stroke="#333"/><text x="682" y="137">O</text>
+<line x1="580" y1="150" x2="580" y2="180" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="550" y="180" width="60" height="30" fill="#fff" stroke="#333"/><text x="562" y="200" font-size="12">TE</text>
+<line x1="610" y1="195" x2="660" y2="195" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="660" y="180" width="60" height="30" fill="#fff" stroke="#333"/><text x="668" y="200" font-size="12">OTE</text>
+<text x="740" y="130" font-size="12">tests at start + periodically</text>
+<text x="740" y="148" font-size="12">(test rate ≥ 100 × demand)</text>
+<text x="740" y="166" font-size="12">DC ≥ low, CCF ≥ 65 → max PL d</text>
+<!-- Cat 3/4 -->
+<text x="40" y="270" font-weight="bold">Cat 3 / 4 – two channels with monitoring</text>
+<rect x="40" y="290" width="60" height="36" fill="#eef4fa" stroke="#1f6fb2"/><text x="60" y="313">I1</text>
+<line x1="100" y1="308" x2="150" y2="308" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="150" y="290" width="60" height="36" fill="#eef4fa" stroke="#1f6fb2"/><text x="170" y="313">L1</text>
+<line x1="210" y1="308" x2="260" y2="308" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="260" y="290" width="60" height="36" fill="#eef4fa" stroke="#1f6fb2"/><text x="278" y="313">O1</text>
+<rect x="40" y="380" width="60" height="36" fill="#eef4fa" stroke="#1f6fb2"/><text x="60" y="403">I2</text>
+<line x1="100" y1="398" x2="150" y2="398" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="150" y="380" width="60" height="36" fill="#eef4fa" stroke="#1f6fb2"/><text x="170" y="403">L2</text>
+<line x1="210" y1="398" x2="260" y2="398" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="260" y="380" width="60" height="36" fill="#eef4fa" stroke="#1f6fb2"/><text x="278" y="403">O2</text>
+<line x1="70" y1="326" x2="70" y2="380" stroke="#1f6fb2" stroke-dasharray="4 3"/><text x="76" y="358" font-size="11" fill="#1f6fb2">m</text>
+<line x1="180" y1="326" x2="180" y2="380" stroke="#1f6fb2" stroke-dasharray="4 3"/><text x="186" y="358" font-size="11" fill="#1f6fb2">c</text>
+<line x1="290" y1="326" x2="290" y2="380" stroke="#1f6fb2" stroke-dasharray="4 3"/><text x="296" y="358" font-size="11" fill="#1f6fb2">m (EDM)</text>
+<text x="360" y="300" font-size="12">Cat 3: single fault does not lose the function; DC ≥ low; CCF ≥ 65 → PL d (simplified chart)</text>
+<text x="360" y="320" font-size="12">Cat 4: faults detected before the next demand; DC high; MTTFd high → PL e</text>
+<text x="360" y="348" font-size="12">SF1 input: guard-locking switch (MTTFd 2 604.17 y, DC 99 %) + position switch (13 020.83 y, DC 90 %)</text>
+<text x="360" y="368" font-size="12">→ symmetrised 8 969.91 y → capped 100 (high) · DCavg 97.5 % (medium) · Cat 3 → PL d</text>
+<text x="360" y="388" font-size="12">SF1 output: K1 / K2 with EDM (mirror contacts), 1 302.08 y each, DC 99 % → PL d</text>
+<text x="360" y="408" font-size="12">Logic: certified safety PLC PL e · combination (d, e, d): N_low = 2 ≤ 3 → PL d ≥ PLr d ✓</text>
+</g>
+<rect x="40" y="450" width="1120" height="150" fill="#f7f7f7" stroke="#ccc"/>
+<g font-size="12" fill="#111">
+<text x="56" y="474" font-weight="bold">Simplified bar chart used in this guide (JSON pl_table)   –   columns: MTTFd low / medium / high</text>
+<text x="56" y="498">B | none: a b b      1 | none: n/a n/a c      2 | low: a b c      2 | medium: b c d</text>
+<text x="56" y="520">3 | low: b c d      3 | medium: c d d      4 | high: n/a n/a e</text>
+<text x="56" y="546">MTTFd = B10d / (0.1 · n_op), n_op = d_op · h_op · 3600 / t_cycle · DCavg = Σ(DC/MTTFd) / Σ(1/MTTFd) · CCF score ≥ 65 for Cat 2–4</text>
+<text x="56" y="570">Combination (Table 11 simplified): lowest PL and number N of subsystems with it – d: N ≤ 3 → d, else c; c: N ≤ 2 → c, else b</text>
+<text x="56" y="590" fill="#777" font-size="11">Teaching version; real projects use ISO 13849-1 (current edition), PFHd values and a tool such as SISTEMA.</text>
+</g>
+</svg>

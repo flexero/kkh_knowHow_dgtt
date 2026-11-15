@@ -1,0 +1,23 @@
+module,pos,description,qty_per_module,note
+CC,C1,"side frame C 160 x 65 x 5 cold-formed (S355), 1200 mm",2,"S355, galvanised"
+CC,C2,"roller chain ISO 606 12B-1, 142 links",2,"endless, connecting link"
+CC,C3,"chain guide C-profile + UHMW-PE wear strip, top + return",4,PE 1000
+CC,C4,"sprocket 12B-1 z=15 (drive) + z=15 (idler, take-up)",4,"C45, hardened teeth"
+CC,C5,drive shaft d 30 C45E+N with 2 keyways,1,
+CC,C6,idler shaft d 30,1,
+CC,C7,insert bearing unit UCP206 (drive) + take-up units (idler),4,
+CC,C8,"helical-bevel hollow-shaft gear motor 0.18 kW i = 34, torque arm",1,inverter-fed (F4.5)
+CC,C9,"legs 80x80 + base plate + 2 anchors M12, height adjust +-25",2,per 1.2 m
+CC,C10,"photoelectric sensors (slow-down, stop)",2,F4.5
+RL,R1,"side frame C 160 x 65 x 5 cold-formed (S355), 1400 mm",2,
+RL,R2,"roller 60 x 2 x 1000, axle 20, bearings 6204, double sprocket 08B z=14",9,zinc plated
+RL,R3,roller-to-roller chain loops 08B-1,9,
+RL,R4,gear motor 0.12 kW i = 22 + drive sprocket,1,inverter-fed
+RL,R5,chain guard (EN ISO 13857),1,
+RL,R6,legs + base plates,2,
+TU,T1,"chain part as CC (frames, 2 chains, shafts, gear motor)",1,
+TU,T2,"roller set: 8 rollers as RL in a lifting frame, gear motor 0.12 kW",1,
+TU,T3,"eccentric shafts e = 15 mm with 2 cam followers each, coupled by chain 10B",2,
+TU,T4,brake gear motor lift 0.25 kW i = 70,1,
+TU,T5,inductive sensors lift up / down + cam position,3,F4.5
+TU,T6,vertical guides (4 linear guide blocks),4,

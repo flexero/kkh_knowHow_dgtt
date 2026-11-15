@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#ffffff"/>
+<text x="30.00" y="20.00" font-family="Arial" font-size="3.00" text-anchor="start" font-weight="bold" fill="#000">SIDE VIEW lane 4 m, slope 5.5 % 1:30</text>
+<line x1="40.00" y1="80.00" x2="180.00" y2="87.70" stroke="#000" stroke-width="0.50"/>
+<circle cx="42.50" cy="81.14" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="47.50" cy="81.41" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="52.50" cy="81.69" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="57.50" cy="81.96" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="62.50" cy="82.24" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="67.50" cy="82.51" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="72.50" cy="82.79" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="77.50" cy="83.06" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="82.50" cy="83.34" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="87.50" cy="83.61" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="92.50" cy="83.89" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="97.50" cy="84.16" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="102.50" cy="84.44" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="107.50" cy="84.71" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="112.50" cy="84.99" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="117.50" cy="85.26" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="122.50" cy="85.54" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="127.50" cy="85.81" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="132.50" cy="86.09" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="137.50" cy="86.36" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="142.50" cy="86.64" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="147.50" cy="86.91" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="152.50" cy="87.19" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="157.50" cy="87.46" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="162.50" cy="87.74" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="167.50" cy="88.01" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="172.50" cy="88.29" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="177.50" cy="88.56" r="1.00" fill="none" stroke="#000" stroke-width="0.15"/>
+<circle cx="42.50" cy="87.80" r="1.20" fill="#c00000" stroke="#000" stroke-width="0.35"/>
+<circle cx="77.50" cy="89.73" r="1.20" fill="#c00000" stroke="#000" stroke-width="0.35"/>
+<circle cx="112.50" cy="91.65" r="1.20" fill="#c00000" stroke="#000" stroke-width="0.35"/>
+<circle cx="147.50" cy="93.58" r="1.20" fill="#c00000" stroke="#000" stroke-width="0.35"/>
+<line x1="40.00" y1="110.00" x2="180.00" y2="110.00" stroke="#000" stroke-width="0.35"/>
+<rect x="132.83" y="83.80" width="1.00" height="6.33" fill="#333333" stroke="#000" stroke-width="0.30"/>
+<text x="133.33" y="81.13" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">separator</text>
+<text x="40.00" y="75.00" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">entry (AGV side) 900</text>
+<text x="180.00" y="82.70" font-family="Arial" font-size="2.20" text-anchor="end" fill="#000">exit (machine side) 669</text>
+<line x1="42.50" y1="110.00" x2="42.50" y2="119.50" stroke="#000" stroke-width="0.18"/>
+<line x1="77.50" y1="110.00" x2="77.50" y2="119.50" stroke="#000" stroke-width="0.18"/>
+<line x1="42.50" y1="118.00" x2="77.50" y2="118.00" stroke="#000" stroke-width="0.18"/>
+<polygon points="42.50,118.00 44.70,118.70 44.70,117.30" fill="#000"/>
+<polygon points="77.50,118.00 75.30,117.30 75.30,118.70" fill="#000"/>
+<text x="60.00" y="117.20" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">1050 brake roller pitch</text>
+<line x1="40.00" y1="110.00" x2="40.00" y2="127.50" stroke="#000" stroke-width="0.18"/>
+<line x1="180.00" y1="110.00" x2="180.00" y2="127.50" stroke="#000" stroke-width="0.18"/>
+<line x1="40.00" y1="126.00" x2="180.00" y2="126.00" stroke="#000" stroke-width="0.18"/>
+<polygon points="40.00,126.00 42.20,126.70 42.20,125.30" fill="#000"/>
+<polygon points="180.00,126.00 177.80,125.30 177.80,126.70" fill="#000"/>
+<text x="110.00" y="125.20" font-family="Arial" font-size="2.20" text-anchor="middle" fill="#000">4199</text>
+<text x="30.00" y="150.00" font-family="Arial" font-size="2.30" text-anchor="start" fill="#000">Red: brake rollers (v &lt;= 0.30 m/s); a 300 kg crate without brakes would accelerate along the whole lane.</text>
+<text x="30.00" y="170.00" font-family="Arial" font-size="3.00" text-anchor="start" font-weight="bold" fill="#000">PLAN VMC block 1:100 - one lane per part type + return lane</text>
+<rect x="40.00" y="263.00" width="42.00" height="10.00" fill="#dde7f3" stroke="#000" stroke-width="0.25"/>
+<text x="84.00" y="269.00" font-family="Arial" font-size="2.00" text-anchor="start" fill="#000">C02  4.2 m  -></text>
+<rect x="40.00" y="252.50" width="42.00" height="10.00" fill="#dde7f3" stroke="#000" stroke-width="0.25"/>
+<text x="84.00" y="258.50" font-family="Arial" font-size="2.00" text-anchor="start" fill="#000">C03  4.2 m  -></text>
+<rect x="40.00" y="242.00" width="42.00" height="10.00" fill="#dde7f3" stroke="#000" stroke-width="0.25"/>
+<text x="84.00" y="248.00" font-family="Arial" font-size="2.00" text-anchor="start" fill="#000">C04  4.2 m  -></text>
+<rect x="40.00" y="231.50" width="42.00" height="10.00" fill="#dde7f3" stroke="#000" stroke-width="0.25"/>
+<text x="84.00" y="237.50" font-family="Arial" font-size="2.00" text-anchor="start" fill="#000">C05  4.2 m  -></text>
+<rect x="40.00" y="221.00" width="42.00" height="10.00" fill="#dde7f3" stroke="#000" stroke-width="0.25"/>
+<text x="84.00" y="227.00" font-family="Arial" font-size="2.00" text-anchor="start" fill="#000">C06  4.2 m  -></text>
+<rect x="40.00" y="210.50" width="42.00" height="10.00" fill="#dde7f3" stroke="#000" stroke-width="0.25"/>
+<text x="84.00" y="216.50" font-family="Arial" font-size="2.00" text-anchor="start" fill="#000">C08  4.2 m  -></text>
+<rect x="40.00" y="200.00" width="42.00" height="10.00" fill="#dde7f3" stroke="#000" stroke-width="0.25"/>
+<text x="84.00" y="206.00" font-family="Arial" font-size="2.00" text-anchor="start" fill="#000">R04 (running RB variant)  4.2 m  -></text>
+<rect x="40.00" y="189.50" width="42.00" height="10.00" fill="#dde7f3" stroke="#000" stroke-width="0.25"/>
+<text x="84.00" y="195.50" font-family="Arial" font-size="2.00" text-anchor="start" fill="#000">R05 (running RB variant)  4.2 m  -></text>
+<rect x="40.00" y="179.00" width="42.00" height="10.00" fill="#ffe0b3" stroke="#000" stroke-width="0.25"/>
+<text x="84.00" y="185.00" font-family="Arial" font-size="2.00" text-anchor="start" fill="#000">empty-crate return (powere  4.2 m  &lt;- powered return</text>
+<text x="40.00" y="177.00" font-family="Arial" font-size="2.20" text-anchor="start" fill="#000">AGV side (x = 0)</text>
+<text x="230.00" y="30.00" font-family="Arial" font-size="2.30" text-anchor="start" fill="#000">Slope 5.5 % = light-crate resistance 5 % + 0.5 % (start of a 45 kg crate)</text>
+<text x="230.00" y="35.00" font-family="Arial" font-size="2.30" text-anchor="start" fill="#000">Rollers D60 at pitch 150 (runners cross the rollers, 1200-leading)</text>
+<text x="230.00" y="40.00" font-family="Arial" font-size="2.30" text-anchor="start" fill="#000">Brake rollers every 1.05 m: always >= 1 under a crate</text>
+<text x="230.00" y="45.00" font-family="Arial" font-size="2.30" text-anchor="start" fill="#000">Separator holds crates 2..n (line pressure 412 N) while crate 1 is in use</text>
+<text x="230.00" y="50.00" font-family="Arial" font-size="2.30" text-anchor="start" fill="#000">Lane pitch 1.05 m; VMC face 9.4 m (department width 11.9 m)</text>
+<text x="230.00" y="55.00" font-family="Arial" font-size="2.30" text-anchor="start" fill="#000"></text>
+<text x="230.00" y="60.00" font-family="Arial" font-size="2.30" text-anchor="start" fill="#000">Lane &lt;= 3 places (4.2 m): drop 231 mm; entry 900 mm by the AGV lifting deck,</text>
+<text x="230.00" y="65.00" font-family="Arial" font-size="2.30" text-anchor="start" fill="#000">exit roller top 669 mm (crate floor ~849 mm) - normal picking height</text>
+<text x="230.00" y="70.00" font-family="Arial" font-size="2.30" text-anchor="start" fill="#000">Exit: ball-transfer deck across the lanes (crate in use);</text>
+<text x="230.00" y="75.00" font-family="Arial" font-size="2.30" text-anchor="start" fill="#000">empties slide sideways (~9 N) to the POWERED return lane -> 700 at the AGV side.</text>
+<rect x="0.30" y="0.30" width="419.40" height="296.40" fill="none" stroke="#000" stroke-width="0.20"/>
+<rect x="20.00" y="10.00" width="390.00" height="277.00" fill="none" stroke="#000" stroke-width="0.70"/>
+<line x1="210.00" y1="0.00" x2="210.00" y2="10.00" stroke="#000" stroke-width="0.70"/>
+<line x1="210.00" y1="287.00" x2="210.00" y2="297.00" stroke="#000" stroke-width="0.70"/>
+<line x1="10.00" y1="148.50" x2="20.00" y2="148.50" stroke="#000" stroke-width="0.70"/>
+<line x1="410.00" y1="148.50" x2="420.00" y2="148.50" stroke="#000" stroke-width="0.70"/>
+<text x="44.38" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">1</text>
+<text x="93.12" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">2</text>
+<text x="141.88" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">3</text>
+<text x="190.62" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">4</text>
+<text x="239.38" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">5</text>
+<text x="288.12" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">6</text>
+<text x="336.88" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">7</text>
+<text x="385.62" y="7.50" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">8</text>
+<text x="15.00" y="33.08" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">A</text>
+<text x="15.00" y="79.25" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">B</text>
+<text x="15.00" y="125.42" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">C</text>
+<text x="15.00" y="171.58" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">D</text>
+<text x="15.00" y="217.75" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">E</text>
+<text x="15.00" y="263.92" font-family="Arial" font-size="2.50" text-anchor="middle" fill="#000">F</text>
+<rect x="230.00" y="231.00" width="180.00" height="56.00" fill="none" stroke="#000" stroke-width="0.70"/>
+<rect x="230.00" y="231.00" width="90.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="233.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Company / owner</text>
+<text x="231.00" y="239.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">[company name - fill in]</text>
+<rect x="320.00" y="231.00" width="90.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="321.00" y="233.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Project</text>
+<text x="321.00" y="239.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">Combined FMS VC20 + RB - item F4.3 stations</text>
+<rect x="230.00" y="241.00" width="180.00" height="12.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="243.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Title</text>
+<text x="231.00" y="251.00" font-family="Arial" font-size="3.20" text-anchor="start" font-weight="bold" fill="#000">Gravity flow rack - lane side view, VMC block plan</text>
+<rect x="230.00" y="253.00" width="50.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Drawing no.</text>
+<text x="231.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" font-weight="bold" fill="#000">F4-ST-D19</text>
+<rect x="280.00" y="253.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="281.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Scale</text>
+<text x="281.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">1:30 / 1:100</text>
+<rect x="310.00" y="253.00" width="20.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="311.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Size</text>
+<text x="311.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">A3</text>
+<rect x="330.00" y="253.00" width="20.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="331.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Sheet</text>
+<text x="331.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">1/1</text>
+<rect x="350.00" y="253.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="351.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Date</text>
+<text x="351.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">2026-11-15</text>
+<rect x="380.00" y="253.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="381.00" y="255.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Rev.</text>
+<text x="381.00" y="261.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">0</text>
+<rect x="230.00" y="263.00" width="60.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Material</text>
+<text x="231.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">see parts list</text>
+<rect x="290.00" y="263.00" width="40.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="291.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">General tolerance</text>
+<text x="291.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">ISO 2768-mK</text>
+<rect x="330.00" y="263.00" width="30.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="331.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Drawn</text>
+<text x="331.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">stations_3d.py</text>
+<rect x="360.00" y="263.00" width="50.00" height="10.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="361.00" y="265.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Checked / released</text>
+<text x="361.00" y="271.00" font-family="Arial" font-size="2.40" text-anchor="start" fill="#000">- / -</text>
+<rect x="230.00" y="273.00" width="40.00" height="14.00" fill="none" stroke="#000" stroke-width="0.25"/>
+<text x="231.00" y="275.60" font-family="Arial" font-size="1.80" text-anchor="start" fill="#444">Projection ISO 5456-2</text>
+<polygon points="238.00,279.90 247.00,278.30 247.00,284.70 238.00,283.10" fill="none" stroke="#000" stroke-width="0.30"/>
+<line x1="237.00" y1="281.50" x2="248.00" y2="281.50" stroke="#000" stroke-width="0.15" stroke-dasharray="1.5 0.6 0.3 0.6"/>
+<circle cx="255.00" cy="281.50" r="3.20" fill="none" stroke="#000" stroke-width="0.30"/>
+<circle cx="255.00" cy="281.50" r="1.60" fill="none" stroke="#000" stroke-width="0.30"/>
+<line x1="250.80" y1="281.50" x2="259.20" y2="281.50" stroke="#000" stroke-width="0.15" stroke-dasharray="1.5 0.6 0.3 0.6"/>
+<line x1="255.00" y1="277.30" x2="255.00" y2="285.70" stroke="#000" stroke-width="0.15" stroke-dasharray="1.5 0.6 0.3 0.6"/>
+<rect x="270.00" y="273.00" width="140.00" height="14.00" fill="#fff2cc" stroke="#000" stroke-width="0.25"/>
+<text x="272.00" y="279.00" font-family="Arial" font-size="2.80" text-anchor="start" font-weight="bold" fill="#000">DESIGN - to be checked and released by the responsible engineer</text>
+<text x="272.00" y="284.00" font-family="Arial" font-size="2.00" text-anchor="start" fill="#000">Generated from stations_specs.json (F4.3). Do not scale - use the dimensions.</text>
+</svg>

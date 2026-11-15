@@ -1,0 +1,33 @@
+main                         200 scenarios, 11 policies,  419.8 s
+written main.csv 2200 rows
+beta=0.5                     200 scenarios, 5 policies,  197.2 s
+beta=2.0                     200 scenarios, 5 policies,  179.4 s
+beta=5.0                     200 scenarios, 5 policies,  181.3 s
+written risk.csv 3000 rows
+rho=0.5                      200 scenarios, 3 policies,  110.7 s
+rho=0.85                     200 scenarios, 3 policies,  132.6 s
+rho=1.0                      200 scenarios, 3 policies,  116.8 s
+w=0.25                       200 scenarios, 3 policies,  109.7 s
+w=4                          200 scenarios, 3 policies,  109.9 s
+ntheta=20                    200 scenarios, 3 policies,  110.6 s
+ntheta=120                   200 scenarios, 3 policies,  121.6 s
+written learning.csv 4200 rows
+base                         100 scenarios, 7 policies,  138.6 s
+margin -30%                  100 scenarios, 7 policies,  135.5 s
+margin +30%                  100 scenarios, 7 policies,  134.0 s
+capex -30%                   100 scenarios, 7 policies,  133.2 s
+capex +30%                   100 scenarios, 7 policies,  123.3 s
+budget 250k                  100 scenarios, 7 policies,  100.1 s
+budget 800k                  100 scenarios, 7 policies,   91.5 s
+penalty 0                    100 scenarios, 7 policies,  128.2 s
+penalty 150                  100 scenarios, 7 policies,  136.6 s
+discount 2.5%                100 scenarios, 7 policies,  137.0 s
+discount 10%                 100 scenarios, 7 policies,  130.7 s
+demand width 0.1             100 scenarios, 7 policies,  132.4 s
+demand width 0.3             100 scenarios, 7 policies,  135.6 s
+forecast x1.15               100 scenarios, 7 policies,   94.4 s
+written econ.csv 9800 rows
+lambda=0.0                   100 scenarios, 7 policies,  150.4 s
+lambda=0.5                   100 scenarios, 7 policies,  133.2 s
+lambda=1.5                   100 scenarios, 7 policies,  123.4 s
+written epistemic.csv 2100 rows

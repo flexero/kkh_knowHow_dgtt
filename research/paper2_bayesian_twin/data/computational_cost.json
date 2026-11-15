@@ -1,0 +1,41 @@
+{
+ "machine": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD | Windows 2022Server | Python 3.12.10",
+ "cpu_count": 16,
+ "des_run_s": 0.03489462664971749,
+ "parts_released_per_month": 5730.066666666667,
+ "des_run_record_s": 0.04293971993029118,
+ "update_13_stations_ms": 0.4916305001825094,
+ "hyperparameters_per_station": 10,
+ "predict_s_Ntheta20": 0.6499977987259626,
+ "predict_s_Ntheta40": 1.368486700579524,
+ "predict_s_Ntheta100": 3.294048799201846,
+ "predict_s_Ntheta200": 6.683429999276996,
+ "mc_Ntheta20": {
+  "mean_of_means": 4548.7,
+  "rel_sd_mean_pct": 0.239,
+  "rel_sd_q05_pct": 0.357,
+  "rel_sd_q95_pct": 0.41,
+  "mean_rel_width_90_pct": 2.572
+ },
+ "mc_Ntheta40": {
+  "mean_of_means": 4552.5,
+  "rel_sd_mean_pct": 0.127,
+  "rel_sd_q05_pct": 0.318,
+  "rel_sd_q95_pct": 0.26,
+  "mean_rel_width_90_pct": 2.827
+ },
+ "mc_Ntheta100": {
+  "mean_of_means": 4552.7,
+  "rel_sd_mean_pct": 0.097,
+  "rel_sd_q05_pct": 0.24,
+  "rel_sd_q95_pct": 0.144,
+  "mean_rel_width_90_pct": 2.937
+ },
+ "mc_Ntheta200": {
+  "mean_of_means": 4552.3,
+  "rel_sd_mean_pct": 0.059,
+  "rel_sd_q05_pct": 0.171,
+  "rel_sd_q95_pct": 0.111,
+  "mean_rel_width_90_pct": 2.937
+ }
+}

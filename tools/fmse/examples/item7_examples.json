@@ -1,0 +1,990 @@
+{
+ "_note": "Shared worked-example inputs for FMS engineering item 7 (electrical & safety principles): guide docs/FMS system design/67_electrical_safety.md, tools/fmse/*.py, web/fmse7*.js. All values are EXAMPLES for teaching - real projects use the current editions of IEC 60364, IEC 60204-1, IEC 60890 / IEC 61439, ISO 12100, ISO 13849-1/-2, ISO 13855, ISO 14119, ISO 13850, IEC 62061 and the manufacturers' data. Tables marked 'example table' must be checked against the standard edition used in the project. Everything is deterministic: guide, tools and web must give IDENTICAL numbers.",
+ "_formulas": {
+  "load_list": "per load: P_d = qty*P_kW*ku ; Q_d = P_d*tan(acos(cosphi)) ; totals P = sum P_d, Q = sum Q_d ; S = ks*sqrt(P^2 + Q^2) [kVA] ; cosphi_total = P/sqrt(P^2+Q^2) ; I = S*1000/(sqrt(3)*U) ; S_req = S*growth ; transformer = smallest standard size >= S_req ; transformer loading = S/S_T",
+  "short_circuit": "the cell is fed from the PLANT transformer S_plant (load_list.plant_transformer_kVA): Ik3 at its secondary (infinite upstream network, cable impedance neglected) = S_plant*1000/(sqrt(3)*U*uk) [A] ; the transformer size from load_list is the size a DEDICATED cell transformer would need ; breakers must have breaking capacity Icu >= Ik3 ; panel SCCR >= Ik3",
+  "motor_current": "I_n = P*1000/(sqrt(3)*U*eta*cosphi) ; DOL starting current = k_start*I_n ; star-delta starting current = k_start*I_n/3 ; VFD input current ~ P*1000/(sqrt(3)*U*eta_total*0.95) not used",
+  "cable_size": "required Iz = In/(k_temp*k_group) ; choose the smallest cross-section A whose table ampacity Iz_table >= required Iz (table = ampacity table below) ; conditions Ib <= In <= Iz_table*k_temp*k_group ; PE size: A <= 16 -> A_pe = A ; 16 < A <= 35 -> 16 ; A > 35 -> A/2 (IEC 60364-5-54 simple rule; use next standard size >= A/2 from the table sizes)",
+  "voltage_drop_3ph": "dU = sqrt(3)*Ib*L*rho*cosphi/A [V] (reactance neglected) ; dU% = dU/U*100 ; limit 5 % (example project limit, IEC 60204-1 orientation)",
+  "fault_loop": "TN system: R_loop = L*rho*(1/A + 1/A_pe) ; Zs = Z_ext + R_loop ; Ik1 = U0/Zs ; disconnection OK if Ik1 >= Ia with Ia = magnetic (instantaneous) trip current = m*In (m: B 5, C 10, D 20 or the breaker setting) ; L_max = (U0/Ia - Z_ext)/(rho*(1/A + 1/A_pe))",
+  "dc24_budget": "I_load = sum I*qty*sim ; PSU rating = smallest standard size >= I_load*reserve ; channel (electronic circuit breaker) current = sum of its loads ; channel rating = smallest ECB rating >= channel current*reserve",
+  "dc24_drop": "two-wire line: dU = 2*L*I*rho/A ; U_load = U_psu - dU ; OK if U_load >= U_min (21.6 V = 24 V - 10 %) ; L_max = (U_psu - U_min)*A/(2*I*rho)",
+  "cabinet_area": "IEC 60890 effective surface (W, H, D in m): free-standing all sides: A = 1.8*H*(W + D) + 1.4*W*D ; against a wall: A = 1.4*W*(H + D) + 1.8*D*H ; wall-hung (back to wall) same as 'against a wall'",
+  "cabinet_heat": "P_loss = sum of losses [W] ; natural dissipation P_nat = k*A*(Ti - Ta) (negative if Ta > Ti) ; needed cooling Q = P_loss - P_nat ; if Q <= 0: no active cooling ; else if Ta < Ti - 5: filter fan V = 3.1*Q/(Ti - Ta) [m3/h] (factor 3.1 at sea level) ; else: cooling unit with useful power >= Q [W] ; k = 5.5 W/(m2 K) painted sheet steel",
+  "risk_graph": "ISO 13849-1 Annex A: PLr from S (S1 slight, S2 serious), F (F1 seldom/short, F2 frequent/long), P (P1 possible to avoid, P2 scarcely possible): S1F1P1 a, S1F1P2 b, S1F2P1 b, S1F2P2 c, S2F1P1 c, S2F1P2 d, S2F2P1 d, S2F2P2 e",
+  "mttfd": "n_op = d_op*h_op*3600/t_cycle_s [operations per year] ; MTTFd(component) = B10d/(0.1*n_op) [years] ; T10d = B10d/n_op [years, replace the component before] ; channel MTTFd = 1/sum(1/MTTFd_i) ; two different channels: MTTFd = 2/3*(C1 + C2 - 1/(1/C1 + 1/C2)) ; then cap at 100 years ; band: low 3 <= x < 10, medium 10 <= x < 30, high 30 <= x <= 100 (below 3: not allowed)",
+  "dcavg": "DCavg = sum(DC_i/MTTFd_i)/sum(1/MTTFd_i) (uncapped MTTFd values) ; band: none < 60 %, low 60 <= x < 90, medium 90 <= x < 99, high >= 99",
+  "pl_from_cat": "PL of a subsystem from (category, DCavg band, MTTFd band) with pl_table below (simplified bar chart, ISO 13849-1 Figure 5). Column choice: Cat B and 1 use 'none' (any DC); Cat 2 and 3: DC band low -> 'low', medium or high -> 'medium', none -> not allowed ; Cat 4: only DC high allowed. 'n/a' = combination not allowed. Cat 2, 3, 4 also need CCF score >= 65.",
+  "ccf": "CCF score = sum of points of the applied measures (ISO 13849-1 Annex F) ; required >= 65 for categories 2, 3, 4",
+  "pl_combine": "safety function = series of subsystems (input, logic, output) ; PL_low = lowest PL ; N_low = number of subsystems with PL_low ; result: a: N<=3 a else none ; b: N<=2 b else a ; c: N<=2 c else b ; d: N<=3 d else c ; e: N<=3 e else d (ISO 13849-1 Table 11 simplified method) ; verdict OK if PL >= PLr",
+  "safety_distance": "ISO 13855: T = sum of times [s] ; AOPD (light curtain), perpendicular approach, resolution d <= 40 mm: S = 2000*T + 8*(d - 14) ; if S < 100 -> S = 100 ; if S > 500 -> S = 1600*T + 8*(d - 14), and if this is < 500 -> S = 500 ; multi-beam / d > 40 (body): S = 1600*T + 850 ; laser scanner, parallel approach: C = max(850, 1200 - 0.4*H) with H = height of the protective field [mm] ; S = 1600*T + C + Z (Z = scanner + measuring tolerances) ; two-hand control: S = 1600*T + 250 (C = 0 if the hands are covered) ; S in mm",
+  "guard_locking": "access time t_access = distance_mm/1600 [s] (walking / reaching speed 1600 mm/s) ; guard locking required if t_stop > t_access (the hazard is still moving when the person arrives) ; ISO 14119",
+  "safety_zones": "cause & effect: each row = condition (all_of inputs true AND none_of inputs false) -> actions per output ; action ranks RUN 0 < SLS 1 < SS1 2 < STO 3 ('-' = no action) ; output result = highest-ranked action of all rows whose condition is true, RUN if none ; 'latched' rows need a reset after the input clears ; KPI: number of outputs still RUN (production continuity)"
+ },
+ "load_list": {
+  "U": 400,
+  "ks": 0.8,
+  "growth": 1.25,
+  "uk": 0.06,
+  "plant_transformer_kVA": 1000,
+  "transformer_sizes": [
+   250,
+   400,
+   630,
+   800,
+   1000,
+   1250,
+   1600
+  ],
+  "loads": [
+   [
+    "HMC machining centre",
+    3,
+    38,
+    0.6,
+    0.85
+   ],
+   [
+    "Pallet pool stacker crane",
+    1,
+    15,
+    0.3,
+    0.8
+   ],
+   [
+    "Load / unload station",
+    2,
+    3,
+    0.3,
+    0.8
+   ],
+   [
+    "Parts washer (heater + pumps)",
+    1,
+    25,
+    0.7,
+    0.95
+   ],
+   [
+    "CMM + climate unit",
+    1,
+    6,
+    0.6,
+    0.9
+   ],
+   [
+    "Central coolant + chip system",
+    1,
+    11,
+    0.8,
+    0.82
+   ],
+   [
+    "Compressed air (share)",
+    1,
+    22,
+    0.7,
+    0.85
+   ],
+   [
+    "Cell controls, IT, lighting",
+    1,
+    4,
+    1.0,
+    0.95
+   ],
+   [
+    "AGV charger",
+    1,
+    3,
+    0.5,
+    0.95
+   ]
+  ],
+  "_loads": "name, qty, installed P kW each, utilisation ku, cosphi"
+ },
+ "motor": {
+  "P_kW": 7.5,
+  "U": 400,
+  "eta": 0.9,
+  "cosphi": 0.82,
+  "k_start": 7.0
+ },
+ "cable": {
+  "_case": "feeder to HMC MC02 from the cell distribution board",
+  "Ib": 65,
+  "In": 80,
+  "curve": "C",
+  "m": 10,
+  "L": 60,
+  "cosphi": 0.85,
+  "U": 400,
+  "U0": 230,
+  "rho": 0.0225,
+  "Z_ext": 0.15,
+  "k_temp": 0.87,
+  "k_group": 0.77,
+  "_factors": "ambient 40 C PVC 70 C -> 0.87 ; 4 multicore cables touching on a perforated tray -> 0.77 (example values)",
+  "ampacity_table": [
+   [
+    1.5,
+    22
+   ],
+   [
+    2.5,
+    30
+   ],
+   [
+    4,
+    40
+   ],
+   [
+    6,
+    51
+   ],
+   [
+    10,
+    70
+   ],
+   [
+    16,
+    94
+   ],
+   [
+    25,
+    119
+   ],
+   [
+    35,
+    148
+   ],
+   [
+    50,
+    180
+   ],
+   [
+    70,
+    232
+   ],
+   [
+    95,
+    282
+   ],
+   [
+    120,
+    328
+   ]
+  ],
+  "_table": "example table: copper, PVC insulation 70 C, multicore cable in free air on a perforated tray (installation method E), 3 loaded conductors, ambient 30 C [mm2, A] - check against IEC 60364-5-52 Table B.52.10 of your edition"
+ },
+ "dc24": {
+  "U_psu": 24.0,
+  "U_min": 21.6,
+  "reserve": 1.25,
+  "psu_sizes": [
+   5,
+   10,
+   20,
+   40
+  ],
+  "ecb_ratings": [
+   1,
+   2,
+   3,
+   4,
+   6,
+   8,
+   10
+  ],
+  "loads": [
+   [
+    "PLC CPU + IO modules",
+    1.2,
+    1,
+    1.0,
+    "ch1"
+   ],
+   [
+    "IO-Link master (+ sensors)",
+    0.4,
+    2,
+    1.0,
+    "ch1"
+   ],
+   [
+    "Safety IO module",
+    0.3,
+    1,
+    1.0,
+    "ch1"
+   ],
+   [
+    "Sensors (inductive / optical)",
+    0.03,
+    24,
+    1.0,
+    "ch2"
+   ],
+   [
+    "RFID read head",
+    0.25,
+    2,
+    1.0,
+    "ch2"
+   ],
+   [
+    "Signal tower",
+    0.2,
+    1,
+    1.0,
+    "ch2"
+   ],
+   [
+    "Valve coils 2.5 W",
+    0.104,
+    10,
+    0.5,
+    "ch3"
+   ],
+   [
+    "Light curtain pair",
+    0.6,
+    1,
+    1.0,
+    "ch4"
+   ],
+   [
+    "HMI 10 inch",
+    0.9,
+    1,
+    1.0,
+    "ch4"
+   ]
+  ],
+  "_loads": "name, current A each, qty, simultaneity, ECB channel",
+  "line": {
+   "_case": "valve terminal 15 m from the cabinet",
+   "L": 15,
+   "I": 2.0,
+   "A": 1.5,
+   "rho": 0.0178
+  }
+ },
+ "cabinet": {
+  "_case": "stacker-crane cabinet against a wall",
+  "W": 1.2,
+  "H": 2.0,
+  "D": 0.6,
+  "mounting": "wall",
+  "k": 5.5,
+  "Ti": 35,
+  "Ta_cases": [
+   25,
+   35,
+   40
+  ],
+  "losses": [
+   [
+    "VFD travel 11 kW",
+    330
+   ],
+   [
+    "VFD hoist 7.5 kW",
+    225
+   ],
+   [
+    "Servo drive fork",
+    60
+   ],
+   [
+    "24 V PSU 20 A",
+    55
+   ],
+   [
+    "PLC + safety PLC",
+    40
+   ],
+   [
+    "Contactors, relays",
+    30
+   ],
+   [
+    "Terminals, wiring",
+    40
+   ],
+   [
+    "Switch, router",
+    25
+   ]
+  ]
+ },
+ "safety": {
+  "pl_table": {
+   "B|none": {
+    "low": "a",
+    "medium": "b",
+    "high": "b"
+   },
+   "1|none": {
+    "low": "n/a",
+    "medium": "n/a",
+    "high": "c"
+   },
+   "2|low": {
+    "low": "a",
+    "medium": "b",
+    "high": "c"
+   },
+   "2|medium": {
+    "low": "b",
+    "medium": "c",
+    "high": "d"
+   },
+   "3|low": {
+    "low": "b",
+    "medium": "c",
+    "high": "d"
+   },
+   "3|medium": {
+    "low": "c",
+    "medium": "d",
+    "high": "d"
+   },
+   "4|high": {
+    "low": "n/a",
+    "medium": "n/a",
+    "high": "e"
+   }
+  },
+  "ccf_measures": [
+   [
+    "Separation of signal paths",
+    15
+   ],
+   [
+    "Diversity (different technologies / makers)",
+    20
+   ],
+   [
+    "Protection against over-voltage, over-pressure ...",
+    15
+   ],
+   [
+    "Well-tried components",
+    5
+   ],
+   [
+    "FMEA in design",
+    5
+   ],
+   [
+    "Competence / training of designers",
+    5
+   ],
+   [
+    "EMC / environment (tested to product standards)",
+    25
+   ],
+   [
+    "Other influences (temperature, shock ...)",
+    10
+   ]
+  ],
+  "ccf_cases": [
+   {
+    "name": "Typical cell safety design",
+    "applied": [
+     "Separation of signal paths",
+     "Protection against over-voltage, over-pressure ...",
+     "FMEA in design",
+     "Competence / training of designers",
+     "EMC / environment (tested to product standards)"
+    ]
+   },
+   {
+    "name": "Same without EMC test evidence",
+    "applied": [
+     "Separation of signal paths",
+     "Protection against over-voltage, over-pressure ...",
+     "FMEA in design",
+     "Competence / training of designers"
+    ]
+   }
+  ],
+  "functions": [
+   {
+    "id": "SF1",
+    "name": "Pallet-pool access door open -> stacker crane stops (guard locking)",
+    "S": "S2",
+    "F": "F2",
+    "P": "P1",
+    "subsystems": [
+     {
+      "role": "input",
+      "name": "Interlock switch with guard locking (A) + position switch (B)",
+      "cat": "3",
+      "channels": [
+       [
+        [
+         "Interlock switch with guard locking",
+         2000000,
+         240,
+         16,
+         1800,
+         99
+        ]
+       ],
+       [
+        [
+         "Position switch",
+         10000000,
+         240,
+         16,
+         1800,
+         90
+        ]
+       ]
+      ]
+     },
+     {
+      "role": "logic",
+      "name": "Safety PLC (certified)",
+      "pl": "e"
+     },
+     {
+      "role": "output",
+      "name": "Two contactors K1/K2 with feedback (EDM) in the stacker drive supply",
+      "cat": "3",
+      "channels": [
+       [
+        [
+         "Contactor K1",
+         1000000,
+         240,
+         16,
+         1800,
+         99
+        ]
+       ],
+       [
+        [
+         "Contactor K2",
+         1000000,
+         240,
+         16,
+         1800,
+         99
+        ]
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "SF2",
+    "name": "Light curtain at the load station -> rotary table + fork stop",
+    "S": "S2",
+    "F": "F2",
+    "P": "P1",
+    "subsystems": [
+     {
+      "role": "input",
+      "name": "Type 4 light curtain (certified)",
+      "pl": "e"
+     },
+     {
+      "role": "logic",
+      "name": "Safety PLC (certified)",
+      "pl": "e"
+     },
+     {
+      "role": "output",
+      "name": "VFD with STO (certified SIL 2 / PL d)",
+      "pl": "d"
+     }
+    ]
+   },
+   {
+    "id": "SF3",
+    "name": "Emergency stop of the cell (stop category 1)",
+    "S": "S2",
+    "F": "F1",
+    "P": "P2",
+    "subsystems": [
+     {
+      "role": "input",
+      "name": "E-stop buttons, 2 NC contacts",
+      "cat": "3",
+      "channels": [
+       [
+        [
+         "E-stop contact 1",
+         100000,
+         240,
+         16,
+         28800,
+         99
+        ]
+       ],
+       [
+        [
+         "E-stop contact 2",
+         100000,
+         240,
+         16,
+         28800,
+         99
+        ]
+       ]
+      ]
+     },
+     {
+      "role": "logic",
+      "name": "Safety PLC (certified)",
+      "pl": "e"
+     },
+     {
+      "role": "output",
+      "name": "Two contactors K1/K2 with EDM",
+      "cat": "3",
+      "channels": [
+       [
+        [
+         "Contactor K1",
+         1000000,
+         240,
+         16,
+         1800,
+         99
+        ]
+       ],
+       [
+        [
+         "Contactor K2",
+         1000000,
+         240,
+         16,
+         1800,
+         99
+        ]
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "SF4",
+    "name": "Scanner at the AGV dock -> transfer conveyor stops",
+    "S": "S1",
+    "F": "F2",
+    "P": "P1",
+    "subsystems": [
+     {
+      "role": "input",
+      "name": "Safety laser scanner (certified PL d)",
+      "pl": "d"
+     },
+     {
+      "role": "logic",
+      "name": "Safety PLC (certified)",
+      "pl": "e"
+     },
+     {
+      "role": "output",
+      "name": "One contactor (well-tried, Cat 1)",
+      "cat": "1",
+      "channels": [
+       [
+        [
+         "Contactor",
+         1000000,
+         300,
+         24,
+         240,
+         0
+        ]
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "SF5",
+    "name": "Enabling device in maintenance mode -> stacker safely-limited speed",
+    "S": "S2",
+    "F": "F1",
+    "P": "P1",
+    "subsystems": [
+     {
+      "role": "input",
+      "name": "3-position enabling switch, 2 contacts",
+      "cat": "3",
+      "channels": [
+       [
+        [
+         "Enabling contact 1",
+         100000,
+         200,
+         8,
+         2880,
+         90
+        ]
+       ],
+       [
+        [
+         "Enabling contact 2",
+         100000,
+         200,
+         8,
+         2880,
+         90
+        ]
+       ]
+      ]
+     },
+     {
+      "role": "logic",
+      "name": "Safety PLC (certified)",
+      "pl": "e"
+     },
+     {
+      "role": "output",
+      "name": "Drive safety function SLS (certified PL d)",
+      "pl": "d"
+     }
+    ]
+   },
+   {
+    "id": "SF6",
+    "name": "Washer door open -> pumps + conveyor stop (FIRST DESIGN, single channel)",
+    "S": "S2",
+    "F": "F2",
+    "P": "P1",
+    "subsystems": [
+     {
+      "role": "input",
+      "name": "One interlock switch (Cat 1)",
+      "cat": "1",
+      "channels": [
+       [
+        [
+         "Interlock switch",
+         2000000,
+         240,
+         16,
+         600,
+         0
+        ]
+       ]
+      ]
+     },
+     {
+      "role": "logic",
+      "name": "Safety relay (certified PL e)",
+      "pl": "e"
+     },
+     {
+      "role": "output",
+      "name": "One contactor (Cat 1)",
+      "cat": "1",
+      "channels": [
+       [
+        [
+         "Contactor",
+         1000000,
+         240,
+         16,
+         600,
+         0
+        ]
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "_channels": "channel = list of components [name, B10d, d_op days/year, h_op hours/day, t_cycle s between operations, DC %] ; subsystem with 'pl' = certified device (PL taken from the data sheet) ; CCF assumed >= 65 for the Cat 2-4 subsystems (see ccf_cases)",
+  "distance_cases": [
+   {
+    "name": "LC1 load station, light curtain 14 mm",
+    "type": "aopd",
+    "d": 14,
+    "times": [
+     [
+      "light curtain",
+      0.015
+     ],
+     [
+      "safety PLC",
+      0.02
+     ],
+     [
+      "rotary table stop",
+      0.15
+     ]
+    ]
+   },
+   {
+    "name": "LC2 same, 30 mm resolution",
+    "type": "aopd",
+    "d": 30,
+    "times": [
+     [
+      "light curtain",
+      0.015
+     ],
+     [
+      "safety PLC",
+      0.02
+     ],
+     [
+      "rotary table stop",
+      0.15
+     ]
+    ]
+   },
+   {
+    "name": "LC3 30 mm, slower stop",
+    "type": "aopd",
+    "d": 30,
+    "times": [
+     [
+      "light curtain",
+      0.015
+     ],
+     [
+      "safety PLC",
+      0.02
+     ],
+     [
+      "rotary table stop",
+      0.265
+     ]
+    ]
+   },
+   {
+    "name": "MB1 4-beam body detection",
+    "type": "multibeam",
+    "times": [
+     [
+      "light grid",
+      0.015
+     ],
+     [
+      "safety PLC",
+      0.02
+     ],
+     [
+      "rotary table stop",
+      0.15
+     ]
+    ]
+   },
+   {
+    "name": "SC1 scanner at the AGV dock / robot",
+    "type": "scanner",
+    "H": 300,
+    "Z": 100,
+    "times": [
+     [
+      "scanner",
+      0.08
+     ],
+     [
+      "safety PLC",
+      0.02
+     ],
+     [
+      "robot / conveyor stop",
+      0.4
+     ]
+    ]
+   },
+   {
+    "name": "TH1 two-hand control at a press-fit station",
+    "type": "twohand",
+    "covered": false,
+    "times": [
+     [
+      "two-hand module",
+      0.02
+     ],
+     [
+      "safety PLC",
+      0.02
+     ],
+     [
+      "press stop",
+      0.08
+     ]
+    ]
+   }
+  ],
+  "guard_locking": [
+   [
+    "HMC spindle run-down",
+    8.0,
+    800
+   ],
+   [
+    "Stacker crane stop",
+    1.2,
+    800
+   ],
+   [
+    "Washer pump run-down",
+    0.3,
+    800
+   ]
+  ],
+  "_guard_locking": "hazard, stopping time s, distance door -> hazard mm",
+  "zones": {
+   "inputs": [
+    "ESTOP_CELL",
+    "LS01_LC",
+    "POOL_DOOR_OPEN",
+    "ENABLE_OK",
+    "AGV_DOCK_FIELD"
+   ],
+   "_inputs": "ENABLE_OK = maintenance mode selected AND enabling device held in the middle position (evaluated in the safety PLC)",
+   "outputs": [
+    "LS01_ROT",
+    "LS01_CLAMP",
+    "POOL_TRAVEL",
+    "POOL_HOIST",
+    "POOL_FORK",
+    "APC01",
+    "APC02",
+    "APC03",
+    "AGV_TRANSFER",
+    "MC01",
+    "MC02",
+    "MC03"
+   ],
+   "rows": [
+    {
+     "id": "Z1",
+     "all_of": [
+      "ESTOP_CELL"
+     ],
+     "none_of": [],
+     "latched": true,
+     "act": {
+      "LS01_ROT": "SS1",
+      "LS01_CLAMP": "-",
+      "POOL_TRAVEL": "SS1",
+      "POOL_HOIST": "SS1",
+      "POOL_FORK": "SS1",
+      "APC01": "SS1",
+      "APC02": "SS1",
+      "APC03": "SS1",
+      "AGV_TRANSFER": "STO",
+      "MC01": "STO",
+      "MC02": "STO",
+      "MC03": "STO"
+     },
+     "_note": "clamp valve keeps the pallet clamped (de-energising it would release the pallet); machines get the e-stop over the hard-wired safety coupling"
+    },
+    {
+     "id": "Z2",
+     "all_of": [
+      "LS01_LC"
+     ],
+     "none_of": [],
+     "latched": false,
+     "act": {
+      "LS01_ROT": "STO",
+      "POOL_FORK": "SS1"
+     }
+    },
+    {
+     "id": "Z3",
+     "all_of": [
+      "POOL_DOOR_OPEN"
+     ],
+     "none_of": [
+      "ENABLE_OK"
+     ],
+     "latched": false,
+     "act": {
+      "POOL_TRAVEL": "SS1",
+      "POOL_HOIST": "SS1",
+      "POOL_FORK": "SS1",
+      "APC01": "STO",
+      "APC02": "STO",
+      "APC03": "STO"
+     }
+    },
+    {
+     "id": "Z4",
+     "all_of": [
+      "POOL_DOOR_OPEN",
+      "ENABLE_OK"
+     ],
+     "none_of": [],
+     "latched": false,
+     "act": {
+      "POOL_TRAVEL": "SLS",
+      "POOL_HOIST": "SLS",
+      "POOL_FORK": "SLS",
+      "APC01": "STO",
+      "APC02": "STO",
+      "APC03": "STO"
+     }
+    },
+    {
+     "id": "Z5",
+     "all_of": [
+      "AGV_DOCK_FIELD"
+     ],
+     "none_of": [],
+     "latched": false,
+     "act": {
+      "AGV_TRANSFER": "STO"
+     }
+    }
+   ],
+   "scenarios": [
+    [
+     "Normal automatic",
+     []
+    ],
+    [
+     "Operator reaches into the load station",
+     [
+      "LS01_LC"
+     ]
+    ],
+    [
+     "Pool door opened in automatic",
+     [
+      "POOL_DOOR_OPEN"
+     ]
+    ],
+    [
+     "Maintenance in the pool with enabling device",
+     [
+      "POOL_DOOR_OPEN",
+      "ENABLE_OK"
+     ]
+    ],
+    [
+     "Maintenance + person at the AGV dock",
+     [
+      "POOL_DOOR_OPEN",
+      "ENABLE_OK",
+      "AGV_DOCK_FIELD"
+     ]
+    ],
+    [
+     "E-stop during maintenance",
+     [
+      "ESTOP_CELL",
+      "POOL_DOOR_OPEN",
+      "ENABLE_OK"
+     ]
+    ]
+   ]
+  }
+ }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Lifting-table drive 1.1 kW, i 31, a 80 (worked example chapter 8)",
+  "a": 80.0,
+  "z1": 1,
+  "z2": 31,
+  "mx": 4.0,
+  "d1": 36.0,
+  "b2": 27.0,
+  "P1_kW": 1.1,
+  "n1_rpm": 1450.0,
+  "KA": 1.25,
+  "Lh": 10000.0,
+  "l1": 130.0,
+  "d_shaft1": 25.0,
+  "d_shaft2": 40.0,
+  "P_V0_W": 25.0,
+  "fan": true
+}

@@ -1,0 +1,1 @@
+{"cfg": {"name": "t_perdev100", "n": 100, "topology": "perdev", "seed": 1, "dur": 15, "subs": "", "mqtt": true, "qos": 1, "sf": true}, "error": "missing C:\\Users\\Administrator\\Pictures\\Digitaltwin\\thesis_modern\\data\\modern\\raw\\smoke\\t_perdev100\\gateway.json"}

@@ -1,0 +1,9 @@
+hazard,situation,S,F,P,PLr,measure
+person in aisle hit by crane,maintenance / fault clearing in the aisle while the crane can move,S2,F1,P2,d,"SF2 door interlock + guard locking, SF3 SLS in maintenance"
+person crushed at I/O conveyor transfer,operator reaches into conveyor end while the crane forks pick,S2,F2,P1,d,SF5 light curtain with muting
+falling load,"rope break, brake failure, crate slides off fork",S2,F1,P2,d,"SF6 slack rope / catch, SF7 two monitored brakes, protrusion sensors"
+crane overtravel into end structure,positioning / control fault at full speed,S2,F1,P2,d,"SF4 final limits + buffers, SF3 SLS near the aisle ends"
+hoist overload / rope overstress,"crate heavier than 300 kg, two crates",S1,F2,P2,c,SF6 load monitor + infeed scale
+fork hits rack or occupied slot,"wrong slot data, double occupancy",S1,F1,P2,b,"double-occupancy check (functional), protrusion check"
+any hazard - emergency,"person sees danger, presses E-stop",S2,F1,P2,d,SF1 E-stop
+maintenance work on the crane platform,crane moves with person on board,S2,F1,P2,d,"SF2 + SF3 + enabling switch, rail isolator LOTO"

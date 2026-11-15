@@ -17,12 +17,15 @@ interpretable confidence parameter (the equivalent amount of data); sequential u
 ramp-up; and a learned model discrepancy absorbs the structural error of a stationary model applied to a changing system.
 In the virtual ramp-up, this reduced the monthly output error to 3.6 % on average over months 2–12 (design model 12.0 %,
 one-time calibration 23.6 %), with 94 % coverage of 90 % intervals, and identified the true bottleneck in 97–100 % of the
-factories from month 4 (design model 73–77 %). The ball screw case confirmed the pattern on a structurally different line.
+factories from month 4 (design model 73–77 %). The ball screw case confirmed the pattern on a structurally different line, and the Roots blower extension (case 3) on
+a new product family that shares the FMS cell (P07D below 5 % from month 4, 85–100 % coverage from month 2).
 
 **RQ3 – stepwise introduction.** Re-deciding the investment options every half-year with the updated twin gave the
 highest expected value (+9.28 M EUR versus no investment, against 9.07 for all-at-once and 7.57 for a plan fixed at
 design time), the best downside and 44 % less capital than all-at-once. About two thirds of its advantage over the fixed
-plan came from learning the machines rather than the demand.
+plan came from learning the machines rather than the demand. For the Roots blower extension the same decision logic,
+combined with the process-level model of the shared cell, chose a second load station with the nearest-rack rule as the
+first step in all prior samples — not the test bench or rotor machine that the static loads of the new stations suggest.
 
 ## 10.2 Hypotheses
 
@@ -30,8 +33,8 @@ plan came from learning the machines rather than the demand.
 | | Hypothesis | Result | Evidence | Status |
 |---|---|---|---|---|
 | H1 | ≥ 40 machines, latency ≤ 1 s, loss ≤ 0.1 % | 0 % loss up to 160 machines; max latency 0.26–0.30 s at P = 0.25 s; at P = 1 s the max exceeds 1 s by the RTT | measured, emulated PLC timing | **supported**, with design rules (event block; parallel polling or Eq. 5.4); real-PLC check pending |
-| H2 | < 5 % error with ≥ 30 % less data than B0 / B1 | B0 and B1 never reach 5 % in most scenarios; P07D in all scenarios from month 4, P07 from month 9 | simulated (30 + 20 factories) | **supported** in simulation; field validation pending |
-| H3 | ≥ 85 % coverage of 90 % intervals | parametric twin 8.5 %; with discrepancy learning 94 % (91–100 % across prior weights; 100 % from month 4 in case 2) | simulated | **supported with discrepancy learning, rejected for the parametric twin alone** |
+| H2 | < 5 % error with ≥ 30 % less data than B0 / B1 | B0 and B1 never reach 5 % in most scenarios; P07D in all scenarios from month 4, P07 from month 9 | simulated (30 + 20 + 20 factories) | **supported** in simulation; field validation pending |
+| H3 | ≥ 85 % coverage of 90 % intervals | parametric twin 8.5 %; with discrepancy learning 94 % (91–100 % across prior weights; 100 % from month 4 in case 2; 85–100 % from month 2 in case 3) | simulated | **supported with discrepancy learning, rejected for the parametric twin alone** |
 | H4 | higher E[NPV] and lower under-capacity risk than ALL and STATIC | E[NPV] higher than both; CVaR better; under-capacity better than STATIC, equal to ALL | simulated (40 factories) | **partly supported** |
 
 The two partial results are informative rather than disappointing. H3 shows that parameter uncertainty alone does not make
@@ -85,15 +88,23 @@ factor during ramp-up and learn its discrepancy; never calibrate once and freeze
 re-decide with the updated twin; invest first where the design is tight (in the case: final assembly and assembly
 capacity); (5) use parallel polling for more than about 40 machines at sub-second periods. (6) Model the flexible cell as a closed network
 of load station, transport and machines before buying machines: in the case, one operator at the load station bounds the
-crankcase cell at 24.5 parts per hour, so a second load station is worth more than a fourth HMC (Section 9.2.5).
+crankcase cell at 24.5 parts per hour, so a second load station is worth more than a fourth HMC (Section 9.2.5). When a new product family is to share the
+cell, model one closed chain per fixture type: in case 3 the static loads (at most 89 %) hid that the shared cell would
+become the factory bottleneck and lose 16 % of the compressor output (Section 9.4.3).
 (7) Build the supervisory control on the same open interface as the twin and commission it against a virtual plant
 first; the same acceptance checks then serve as the factory acceptance test of every supplier PLC (Section 8.9).
 
 ## 10.6 Generalisability
 
 The method's components are generic: the conjugate models apply to any station with failures, repairs, cycle times and
-scrap; the architecture to any PLC with a Modbus TCP server; the staging rule to any set of discrete options. The two
-cases differ in product variety, process structure and bottleneck pattern, and the main findings held in both. Transfer
+scrap; the architecture to any PLC with a Modbus TCP server; the staging rule to any set of discrete options. The three
+cases differ in product variety, process structure and bottleneck pattern, and the main findings held in all of them:
+case 2 is a single-product line with heat treatment and a dominant precision operation, case 3 a new product family that
+shares the flexible cell with the first. Case 3 adds a form of generalisability that matters for growing companies:
+the same twin, priors and decision rule serve a product-family extension without new software — the new family enters as
+data (routing, priors, fixture type) — while the analysis exposes the coupling that a separate study of the new family
+would miss, namely the shared cell. Its limits are that case 3 is not independent of case 1 and rests only on reference
+estimates. Transfer
 to systems with strongly non-exponential failure behaviour, many interacting variants or complex material flow (e.g.
 job shops with re-entrant routing) requires the extensions listed in Section 10.8.
 
@@ -101,7 +112,7 @@ job shops with re-entrant routing) requires the extensions listed in Section 10.
 
 The limitations are reported where they arise and are consolidated here: (1) the controlled experiments generate the
 truth with the twin's model family and an assumed ramp-up shape; (2) the communication bench emulates PLC timing on a
-loopback network; (3) case data are design data and reference estimates; (4) the reduced-order DES omits pallets, AGVs
+loopback network; (3) case data are design data and reference estimates (case 3 entirely); (4) the reduced-order DES omits pallets, AGVs
 and dispatching in the Monte Carlo experiments; (5) the staging rule is a heuristic that ignores later flexibility and
 values options only through output; (6) the literature review covers one database and open-access full texts; (7)
 screening, extraction, code and drafting were AI-assisted under the author's verification. Limitations (1)–(3) are removed
@@ -109,7 +120,7 @@ by the planned field validation; (4)–(5) by the extensions below; (6) by a sub
 submission.
 
 ## 10.8 Future research
-- Field validation in the case factory (Section 9.6) and real-PLC tests (Section 5.8).
+- Field validation in the case factory (Section 9.7), later also of the Roots blower extension and real-PLC tests (Section 5.8).
 - Explicit learning-curve models in the parameters (Section 4.6.5) to reduce the discrepancy term's over-correction after
   ramp-up.
 - Hierarchical priors that share information between machines of the same type and between factories (data from
@@ -118,4 +129,5 @@ submission.
 - Approximate dynamic programming or real-options valuation of the staging decision with explicit value of flexibility,
   and inclusion of labour, energy and quality costs.
 - Extension to job-shop and re-entrant systems, and to the full twin with pallets, AGVs and dispatching in the Monte
-  Carlo loop.
+  Carlo loop; a multi-chain model of the shared cell whose kit and load-station times are updated with the same
+  conjugate models, so that the twin also learns the process-level capacity of the cell (case 3).
